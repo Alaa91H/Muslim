@@ -6,7 +6,7 @@
     "titleEn": "The Prophetic Biography",
     "subtitleAr": "سيرة النبي محمد ﷺ كاملة مرتبة زمنيًا",
     "subtitleEn": "The complete biography of Prophet Muhammad ﷺ, arranged chronologically",
-    "contentRevision": 2,
+    "contentRevision": 3,
     "chapters": [
       {
         "id": "origins",
@@ -16,7 +16,15 @@
         "summaryEn": "Lineage, birth, childhood, youth, and marriage before revelation.",
         "topicIds": [
           "lineage_birth",
-          "youth"
+          "youth",
+          "arabia_before_prophethood",
+          "parents_and_grandfather",
+          "halimah_and_childhood",
+          "abu_talib_guardianship",
+          "shepherding_and_trade",
+          "hilf_al_fudul",
+          "marriage_khadijah",
+          "kaaba_arbitration"
         ]
       },
       {
@@ -28,7 +36,17 @@
         "topicIds": [
           "revelation",
           "secret_call",
-          "public_call"
+          "public_call",
+          "cave_hira",
+          "first_revelation_detail",
+          "first_believers",
+          "dar_al_arqam",
+          "call_on_safa",
+          "quraish_opposition",
+          "persecution_early_muslims",
+          "hamza_conversion",
+          "umar_conversion",
+          "boycott_hashim"
         ]
       },
       {
@@ -41,7 +59,20 @@
           "abyssinia",
           "year_of_grief",
           "isra_miraj",
-          "aqaba_migration"
+          "aqaba_migration",
+          "first_abyssinia",
+          "second_abyssinia_najashi",
+          "death_khadijah_abu_talib",
+          "taif_journey",
+          "isra_miraj_detail",
+          "prayer_five_times",
+          "tribes_at_hajj",
+          "first_aqaba_pledge",
+          "second_aqaba_pledge",
+          "migration_permission",
+          "quraish_plot",
+          "cave_thawr",
+          "quba"
         ]
       },
       {
@@ -51,7 +82,13 @@
         "summaryAr": "المسجد والمؤاخاة وتنظيم المجتمع المدني.",
         "summaryEn": "The mosque, brotherhood, and organization of the Medinan community.",
         "topicIds": [
-          "medina_state"
+          "medina_state",
+          "entry_medina",
+          "mosque_prophet",
+          "brotherhood_ansar",
+          "charter_medina",
+          "qibla_change",
+          "adhan"
         ]
       },
       {
@@ -62,7 +99,23 @@
         "summaryEn": "Major conflicts, Hudaybiyyah, and the conquest of Mecca.",
         "topicIds": [
           "major_battles",
-          "conquest"
+          "conquest",
+          "badr",
+          "banu_qaynuqa",
+          "uhud",
+          "hamra_asad",
+          "banu_nadir",
+          "khandaq",
+          "banu_qurayza",
+          "hudaybiyyah_treaty",
+          "letters_rulers",
+          "khaybar",
+          "umrat_al_qada",
+          "mutah",
+          "conquest_mecca",
+          "hunayn",
+          "siege_taif",
+          "tabuk"
         ]
       },
       {
@@ -72,7 +125,10 @@
         "summaryAr": "حجة الوداع ومرض النبي ﷺ ووفاته.",
         "summaryEn": "The Farewell Pilgrimage, final illness, and death.",
         "topicIds": [
-          "farewell"
+          "farewell",
+          "year_delegations",
+          "farewell_pilgrimage_detail",
+          "final_illness_death"
         ]
       },
       {
@@ -83,7 +139,15 @@
         "summaryEn": "His character, household, and companions.",
         "topicIds": [
           "character_qualities",
-          "family"
+          "family",
+          "physical_description",
+          "worship_character",
+          "mercy_children",
+          "family_life",
+          "leadership_shura",
+          "simplicity_humility",
+          "wives_household",
+          "children_grandchildren"
         ]
       },
       {
@@ -909,6 +973,3843 @@
                 "ar": "والإسراء والمعراج من معجزاته العظيمة، وقد صدّقه أبو بكر فقالوا له: «الصدّيق».",
                 "en": "The Night Journey and Ascension are among his great miracles, and Abu Bakr believed him, earning the title “al-Siddiq” (the Truthful).",
                 "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "arabia_before_prophethood",
+        "titleAr": "الجزيرة العربية قبل البعثة",
+        "titleEn": "Arabia before the Prophetic mission",
+        "summaryAr": "مدخل إلى البيئة الدينية والاجتماعية والسياسية التي ظهرت فيها الرسالة المحمدية.",
+        "summaryEn": "An introduction to the religious, social, and political environment in which the Prophetic mission began.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "lineage_birth",
+          "youth"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-103",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:103"
+          },
+          {
+            "id": "ih-preislamic-arabia",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Pre-Islamic Mecca and Arabian society"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "society",
+            "titleAr": "المجتمع والقبائل",
+            "titleEn": "Society and tribes",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كانت الجزيرة العربية تضم قبائل وتحالفات ومدنًا تجارية ومجتمعات بدوية، مع تفاوت في الأعراف والسلطات المحلية وغياب دولة مركزية تشمل معظم الجزيرة.",
+                "en": "Arabia contained tribes, alliances, trading towns, and nomadic communities, with varied customs and local authorities and no single central state governing most of the peninsula.",
+                "citationIds": [
+                  "ih-preislamic-arabia"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "religion",
+            "titleAr": "الواقع الديني",
+            "titleEn": "Religious landscape",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان في العرب مشركون وأهل كتاب وحنفاء وغيرهم، ثم جاء الإسلام داعيًا إلى توحيد الله وإصلاح ما فسد من الاعتقاد والأخلاق والعلاقات.",
+                "en": "Arabia included polytheists, People of the Book, monotheistic seekers, and others. Islam then called to worship God alone and to reform belief, ethics, and social relations.",
+                "citationIds": [
+                  "quran-3-103"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "parents_and_grandfather",
+        "titleAr": "والداه وجده عبد المطلب",
+        "titleEn": "His parents and grandfather Abd al-Muttalib",
+        "summaryAr": "تعريف بأسرته الأقرب في سنوات الميلاد والطفولة الأولى.",
+        "summaryEn": "An overview of his closest family during his birth and earliest childhood.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "lineage_birth",
+          "halimah_and_childhood"
+        ],
+        "citations": [
+          {
+            "id": "ih-family-origins",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Birth, parents, and early guardianship"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "parents",
+            "titleAr": "عبد الله وآمنة",
+            "titleEn": "Abdullah and Aminah",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان أبوه عبد الله بن عبد المطلب قد توفي قبل مولده ﷺ، فنشأ في رعاية أمه آمنة بنت وهب في سنواته الأولى.",
+                "en": "His father Abdullah ibn Abd al-Muttalib died before his birth, so he ﷺ spent his earliest years in the care of his mother Aminah bint Wahb.",
+                "citationIds": [
+                  "ih-family-origins"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "grandfather",
+            "titleAr": "كفالة عبد المطلب",
+            "titleEn": "Care of Abd al-Muttalib",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعد وفاة أمه وهو صغير انتقلت كفالته إلى جده عبد المطلب، ثم إلى عمه أبي طالب بعد وفاة الجد.",
+                "en": "After his mother died while he was young, his grandfather Abd al-Muttalib cared for him; after the grandfather's death, guardianship passed to his uncle Abu Talib.",
+                "citationIds": [
+                  "ih-family-origins"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "halimah_and_childhood",
+        "titleAr": "حليمة السعدية وطفولته في بني سعد",
+        "titleEn": "Halimah al-Sa'diyyah and childhood among Banu Sa'd",
+        "summaryAr": "سنوات الرضاعة والطفولة المبكرة في بادية بني سعد ثم العودة إلى مكة.",
+        "summaryEn": "His nursing and early childhood among Banu Sa'd before returning to Mecca.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "lineage_birth",
+          "parents_and_grandfather"
+        ],
+        "citations": [
+          {
+            "id": "ih-halimah",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Nursing and childhood among Banu Sa'd"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "nursing",
+            "titleAr": "الرضاعة في بني سعد",
+            "titleEn": "Nursing among Banu Sa'd",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر كتب السيرة أن حليمة السعدية أرضعته ﷺ في بادية بني سعد وفق عادة أهل مكة في إرسال الأطفال إلى البادية في سنواتهم الأولى.",
+                "en": "Sira works report that Halimah al-Sa'diyyah nursed him ﷺ among Banu Sa'd, following the Meccan custom of sending young children to the desert for their early years.",
+                "citationIds": [
+                  "ih-halimah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "return",
+            "titleAr": "العودة إلى أسرته",
+            "titleEn": "Return to his family",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عاد بعد ذلك إلى أمه في مكة، ثم مر بفقد أمه وجده في طفولته، وهي أحداث شكلت سنواته الأولى قبل كفالة أبي طالب.",
+                "en": "He later returned to his mother in Mecca and then experienced the deaths of his mother and grandfather during childhood before coming under Abu Talib's care.",
+                "citationIds": [
+                  "ih-halimah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "abu_talib_guardianship",
+        "titleAr": "كفالة أبي طالب",
+        "titleEn": "Guardianship of Abu Talib",
+        "summaryAr": "رعاية أبي طالب للنبي ﷺ منذ طفولته ودعمه له بعد البعثة.",
+        "summaryEn": "Abu Talib's care for the Prophet ﷺ from childhood and his protection after the mission began.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "youth",
+          "public_call"
+        ],
+        "citations": [
+          {
+            "id": "ih-abu-talib",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Abu Talib's guardianship and protection"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "care",
+            "titleAr": "الرعاية في الصغر",
+            "titleEn": "Care in childhood",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كفل أبو طالب ابن أخيه ﷺ بعد وفاة عبد المطلب، وظل قريبًا منه في شبابه رغم محدودية حاله المادي.",
+                "en": "Abu Talib took responsibility for his nephew ﷺ after Abd al-Muttalib's death and remained close to him through youth despite limited means.",
+                "citationIds": [
+                  "ih-abu-talib"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "protection",
+            "titleAr": "الحماية بعد البعثة",
+            "titleEn": "Protection after the mission",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعد بدء الدعوة كان أبو طالب من أبرز من وفروا له الحماية العشائرية في مكة، مع بقاء موقفه الديني محل تفصيل في كتب السيرة والعقيدة.",
+                "en": "After the mission began, Abu Talib provided important clan protection in Mecca, while his own religious position is treated separately in sira and theological sources.",
+                "citationIds": [
+                  "ih-abu-talib"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "shepherding_and_trade",
+        "titleAr": "الرعي والتجارة قبل النبوة",
+        "titleEn": "Shepherding and trade before prophethood",
+        "summaryAr": "عمله ﷺ في الرعي ثم التجارة قبل البعثة وما ارتبط بذلك من خبرة ومسؤولية.",
+        "summaryEn": "His work as a shepherd and later in trade before prophethood, with the responsibility these roles involved.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "youth",
+          "marriage_khadijah"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-shepherds",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Book of Hiring: prophets tending sheep"
+          },
+          {
+            "id": "ih-trade",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Muhammad's trade before prophethood"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "shepherding",
+            "titleAr": "رعي الغنم",
+            "titleEn": "Shepherding",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ثبت في صحيح البخاري أن الأنبياء رعوا الغنم، وذكر النبي ﷺ أنه رعاها لأهل مكة؛ وهي تجربة ارتبطت بالصبر وتحمل المسؤولية.",
+                "en": "Sahih al-Bukhari records that prophets tended sheep and that the Prophet ﷺ tended them for the people of Mecca, an experience associated with patience and responsibility.",
+                "citationIds": [
+                  "bukhari-shepherds"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "trade",
+            "titleAr": "التجارة والأمانة",
+            "titleEn": "Trade and trustworthiness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عمل ﷺ في التجارة قبل البعثة وعُرف بالأمانة، وكانت صلته بتجارة خديجة رضي الله عنها من مقدمات زواجهما.",
+                "en": "He ﷺ worked in trade before the mission and was known for trustworthiness; his connection with Khadijah's trade was among the circumstances preceding their marriage.",
+                "citationIds": [
+                  "ih-trade"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hilf_al_fudul",
+        "titleAr": "حلف الفضول",
+        "titleEn": "The Pact of al-Fudul",
+        "summaryAr": "مشاركة النبي ﷺ قبل البعثة في حلف لنصرة المظلوم ورد الحقوق.",
+        "summaryEn": "His participation before prophethood in a pact aimed at supporting the wronged and restoring rights.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "youth",
+          "justice_mercy"
+        ],
+        "citations": [
+          {
+            "id": "ih-hilf-fudul",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Hilf al-Fudul"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "pact",
+            "titleAr": "سبب الحلف ومقصده",
+            "titleEn": "Purpose of the pact",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اجتمع عدد من بطون قريش في حلف عُرف بحلف الفضول لنصرة المظلوم ورد الحقوق، وشارك فيه محمد ﷺ قبل النبوة.",
+                "en": "Several Meccan clans formed the Pact of al-Fudul to support people who were wronged and restore rights, and Muhammad ﷺ participated before prophethood.",
+                "citationIds": [
+                  "ih-hilf-fudul"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "legacy",
+            "titleAr": "دلالته في السيرة",
+            "titleEn": "Its significance in the Sira",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ظل النبي ﷺ يذكر هذا الحلف بخير بعد البعثة، ويُستدل به على قيمة العدل والتعاون على رفع الظلم.",
+                "en": "The Prophet ﷺ later remembered this pact positively, and it is often cited as an example of cooperation for justice and against oppression.",
+                "citationIds": [
+                  "ih-hilf-fudul"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "marriage_khadijah",
+        "titleAr": "زواجه من خديجة رضي الله عنها",
+        "titleEn": "Marriage to Khadijah",
+        "summaryAr": "زواجه ﷺ من خديجة وبداية أسرة كان لها أثر كبير في حياته قبل البعثة وبعدها.",
+        "summaryEn": "His marriage to Khadijah and the beginning of a family that profoundly shaped his life before and after revelation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "youth",
+          "first_believers"
+        ],
+        "citations": [
+          {
+            "id": "ih-marriage-khadijah",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Marriage to Khadijah"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "marriage",
+            "titleAr": "الزواج والأسرة",
+            "titleEn": "Marriage and family",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تزوج محمد ﷺ خديجة بنت خويلد رضي الله عنها بعد أن عرفت أمانته في التجارة، وعاش معها سنوات طويلة قبل البعثة وبعدها.",
+                "en": "Muhammad ﷺ married Khadijah bint Khuwaylid after she came to know his trustworthiness in trade, and they shared many years before and after the mission began.",
+                "citationIds": [
+                  "ih-marriage-khadijah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "support",
+            "titleAr": "مكانتها في بداية الرسالة",
+            "titleEn": "Her role at the beginning of revelation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كانت خديجة أول من ثبته عند نزول الوحي وساندته في بدايات الدعوة، وبقي يذكر فضلها بعد وفاتها.",
+                "en": "Khadijah was the first to reassure and support him when revelation began, and he continued to remember her loyalty and virtue after her death.",
+                "citationIds": [
+                  "ih-marriage-khadijah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "kaaba_arbitration",
+        "titleAr": "إعادة بناء الكعبة والتحكيم في الحجر الأسود",
+        "titleEn": "Rebuilding the Kaaba and the Black Stone arbitration",
+        "summaryAr": "حادثة تحكيمه ﷺ بين قبائل قريش قبل البعثة عند وضع الحجر الأسود.",
+        "summaryEn": "His arbitration among Quraysh clans before prophethood during the rebuilding of the Kaaba.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "youth",
+          "hilf_al_fudul"
+        ],
+        "citations": [
+          {
+            "id": "ih-kaaba-rebuild",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Rebuilding the Kaaba and Black Stone arbitration"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "rebuild",
+            "titleAr": "إعادة البناء",
+            "titleEn": "The rebuilding",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عندما أعادت قريش بناء الكعبة اختلفت القبائل في شرف وضع الحجر الأسود، وكاد النزاع يتفاقم.",
+                "en": "When Quraysh rebuilt the Kaaba, the clans disputed over who would have the honor of placing the Black Stone, and the disagreement nearly escalated.",
+                "citationIds": [
+                  "ih-kaaba-rebuild"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "solution",
+            "titleAr": "حل النزاع",
+            "titleEn": "Resolving the dispute",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قبلوا تحكيم محمد ﷺ، فوضع الحجر في ثوب وأشرك زعماء القبائل في حمله ثم وضعه بيده، فاجتمعوا على حل يحفظ مكانتهم ويمنع القتال.",
+                "en": "They accepted Muhammad ﷺ as arbitrator; he placed the stone on a cloth, had clan leaders lift it together, then set it in place himself, resolving the dispute without violence.",
+                "citationIds": [
+                  "ih-kaaba-rebuild"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cave_hira",
+        "titleAr": "الخلوة في غار حراء",
+        "titleEn": "Retreat in the Cave of Hira",
+        "summaryAr": "خلوته ﷺ قبل البعثة في غار حراء للتعبد والتفكر.",
+        "summaryEn": "His retreats in the Cave of Hira for worship and reflection before revelation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "revelation",
+          "first_revelation_detail"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-revelation-hira",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Book of Revelation: retreat in Hira"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "retreat",
+            "titleAr": "التحنث في حراء",
+            "titleEn": "Retreat in Hira",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر رواية بدء الوحي في صحيح البخاري أنه ﷺ حُبب إليه الخلاء، فكان يخلو بغار حراء ويتعبد الليالي ذوات العدد.",
+                "en": "The opening revelation report in Sahih al-Bukhari states that solitude became beloved to him ﷺ and that he would spend a number of nights worshipping in the Cave of Hira.",
+                "citationIds": [
+                  "bukhari-revelation-hira"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "preparation",
+            "titleAr": "قبل نزول الوحي",
+            "titleEn": "Before revelation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كانت هذه الخلوات جزءًا من المرحلة التي سبقت لقاء جبريل عليه السلام وبداية النبوة.",
+                "en": "These retreats formed part of the period immediately preceding his encounter with Gabriel and the beginning of prophethood.",
+                "citationIds": [
+                  "bukhari-revelation-hira"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "first_revelation_detail",
+        "titleAr": "أول الوحي في حراء",
+        "titleEn": "The first revelation in Hira",
+        "summaryAr": "نزول أوائل سورة العلق وعودة النبي ﷺ إلى خديجة مرتجفًا من هول التجربة.",
+        "summaryEn": "The revelation of the opening verses of Surat al-'Alaq and the Prophet's return to Khadijah shaken by the experience.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "revelation",
+          "cave_hira",
+          "first_believers"
+        ],
+        "citations": [
+          {
+            "id": "quran-96-1-5",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "96:1-5"
+          },
+          {
+            "id": "bukhari-first-revelation",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Book of Revelation: first revelation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "iqra",
+            "titleAr": "اقرأ",
+            "titleEn": "Read",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "جاءه جبريل عليه السلام في غار حراء وبدأ الوحي بآيات «اقرأ باسم ربك الذي خلق» من سورة العلق.",
+                "en": "Gabriel came to him in the Cave of Hira and revelation began with the verses 'Read in the name of your Lord who created' from Surat al-'Alaq.",
+                "citationIds": [
+                  "quran-96-1-5",
+                  "bukhari-first-revelation"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "khadijah",
+            "titleAr": "العودة إلى خديجة",
+            "titleEn": "Return to Khadijah",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عاد ﷺ إلى خديجة رضي الله عنها خائفًا مما رأى، فطمأنته وذكّرته بخصاله من صلة الرحم وصدق الحديث وإعانة المحتاج.",
+                "en": "He ﷺ returned to Khadijah frightened by what he had experienced; she reassured him by recalling his virtues, including maintaining family ties, truthfulness, and helping those in need.",
+                "citationIds": [
+                  "bukhari-first-revelation"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "first_believers",
+        "titleAr": "السابقون الأولون إلى الإسلام",
+        "titleEn": "The earliest believers",
+        "summaryAr": "تعريف بأوائل من صدقوا بالنبي ﷺ وساندوا الدعوة في بدايتها.",
+        "summaryEn": "An overview of those who first believed in the Prophet ﷺ and supported the early mission.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "secret_call",
+          "marriage_khadijah",
+          "dar_al_arqam"
+        ],
+        "citations": [
+          {
+            "id": "ih-first-believers",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "The earliest believers"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "household",
+            "titleAr": "أوائل أهل بيته",
+            "titleEn": "Earliest believers from his household",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كانت خديجة رضي الله عنها في طليعة من آمن به وسانده، ثم دخل في الإسلام عدد من أهل بيته والمقربين منه في المرحلة الأولى.",
+                "en": "Khadijah was at the forefront of those who believed and supported him, followed by members of his household and close circle in the earliest phase.",
+                "citationIds": [
+                  "ih-first-believers"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "companions",
+            "titleAr": "اتساع الحلقة الأولى",
+            "titleEn": "Growth of the early circle",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أسهم أبو بكر رضي الله عنه وغيره من السابقين في تعريف آخرين بالدعوة، فتكونت نواة من المؤمنين قبل الجهر العام.",
+                "en": "Abu Bakr and other early believers introduced others to the message, forming a small community before the call became public.",
+                "citationIds": [
+                  "ih-first-believers"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dar_al_arqam",
+        "titleAr": "دار الأرقم",
+        "titleEn": "The House of al-Arqam",
+        "summaryAr": "مكان اجتماع وتعليم للمسلمين في مرحلة مبكرة من الدعوة المكية.",
+        "summaryEn": "A place of gathering and teaching for Muslims during the early Meccan period.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "secret_call",
+          "first_believers"
+        ],
+        "citations": [
+          {
+            "id": "ih-dar-arqam",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Dar al-Arqam in the early Meccan period"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "meeting",
+            "titleAr": "الاجتماع والتعليم",
+            "titleEn": "Gathering and teaching",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اتخذ المسلمون دار الأرقم بن أبي الأرقم موضعًا يجتمعون فيه بعيدًا عن ضغط قريش، يتعلمون القرآن ويثبت بعضهم بعضًا.",
+                "en": "The Muslims used the house of al-Arqam ibn Abi al-Arqam as a discreet gathering place where they learned the Quran and supported one another away from Quraysh pressure.",
+                "citationIds": [
+                  "ih-dar-arqam"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "role",
+            "titleAr": "أهميتها في بناء الجماعة",
+            "titleEn": "Its role in building the community",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "مثلت الدار مرحلة تنظيمية مهمة قبل أن تتسع الدعوة ويزداد عدد الداخلين في الإسلام.",
+                "en": "The house represented an important organizational stage before the Muslim community grew and the public call expanded.",
+                "citationIds": [
+                  "ih-dar-arqam"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "call_on_safa",
+        "titleAr": "النداء على الصفا",
+        "titleEn": "The public call from al-Safa",
+        "summaryAr": "من أوائل صور الجهر بالدعوة حين دعا النبي ﷺ بطون قريش إلى التوحيد.",
+        "summaryEn": "One of the earliest public proclamations in which the Prophet ﷺ called the clans of Quraysh to monotheism.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "public_call",
+          "quraish_opposition"
+        ],
+        "citations": [
+          {
+            "id": "quran-26-214",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "26:214"
+          },
+          {
+            "id": "bukhari-safa",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Quran commentary: warning the nearest kindred"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "warning",
+            "titleAr": "إنذار الأقربين",
+            "titleEn": "Warning close relatives",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لما نزل الأمر بإنذار العشيرة الأقربين نادى النبي ﷺ بطون قريش من الصفا وبيّن لهم أنه نذير بين يدي عذاب شديد.",
+                "en": "When commanded to warn his nearest relatives, the Prophet ﷺ called the clans of Quraysh from al-Safa and told them he was a warner before a severe reckoning.",
+                "citationIds": [
+                  "quran-26-214",
+                  "bukhari-safa"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "reaction",
+            "titleAr": "ردود الفعل",
+            "titleEn": "Responses",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أظهر الموقف انتقال الدعوة إلى المجال العلني، كما كشف عن بداية مواجهة مباشرة مع بعض زعماء قريش.",
+                "en": "The event marked the public phase of the mission and revealed the beginning of direct confrontation with some Meccan leaders.",
+                "citationIds": [
+                  "bukhari-safa"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "quraish_opposition",
+        "titleAr": "معارضة قريش للدعوة",
+        "titleEn": "Quraysh opposition to the message",
+        "summaryAr": "أساليب الرفض والضغط التي واجهت الدعوة المكية بعد الجهر بها.",
+        "summaryEn": "Forms of rejection and pressure faced by the Meccan mission after public preaching began.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "public_call",
+          "persecution_early_muslims",
+          "boycott_hashim"
+        ],
+        "citations": [
+          {
+            "id": "ih-quraysh-opposition",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Quraysh opposition and negotiations"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "pressure",
+            "titleAr": "الضغط والمساومات",
+            "titleEn": "Pressure and bargaining",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "حاولت قريش وقف الدعوة بوسائل متعددة شملت السخرية والضغط الاجتماعي والمساومة ومخاطبة أبي طالب.",
+                "en": "Quraysh attempted to stop the mission through ridicule, social pressure, bargaining, and appeals to Abu Talib.",
+                "citationIds": [
+                  "ih-quraysh-opposition"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "steadfastness",
+            "titleAr": "ثبات الدعوة",
+            "titleEn": "The mission continues",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "استمر النبي ﷺ في الدعوة إلى التوحيد وتلاوة القرآن رغم تصاعد المعارضة، دون أن يقبل مقايضة أصل الرسالة بمكاسب سياسية أو مالية.",
+                "en": "The Prophet ﷺ continued calling to monotheism and reciting the Quran despite growing opposition, refusing to trade the core message for political or financial advantage.",
+                "citationIds": [
+                  "ih-quraysh-opposition"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "persecution_early_muslims",
+        "titleAr": "تعذيب المستضعفين وثبات المسلمين",
+        "titleEn": "Persecution of vulnerable Muslims",
+        "summaryAr": "تعرض عدد من المسلمين الأوائل للأذى بسبب إيمانهم، خاصة من لم تكن لهم حماية قبلية قوية.",
+        "summaryEn": "Several early Muslims suffered abuse because of their faith, especially those without strong clan protection.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "quraish_opposition",
+          "first_abyssinia"
+        ],
+        "citations": [
+          {
+            "id": "ih-persecution",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Persecution of early Muslims in Mecca"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "abuse",
+            "titleAr": "أشكال الأذى",
+            "titleEn": "Forms of abuse",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعرض بعض المسلمين للضرب والحبس والحرمان والضغط لإجبارهم على ترك الدين، واشتهرت في السيرة قصص بلال وآل ياسر وغيرهم.",
+                "en": "Some Muslims faced beatings, confinement, deprivation, and pressure to renounce their faith; the experiences of Bilal, the family of Yasir, and others became well known in the sira.",
+                "citationIds": [
+                  "ih-persecution"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "response",
+            "titleAr": "الثبات والتخفيف",
+            "titleEn": "Steadfastness and relief",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ثبت كثير منهم على إيمانهم، وسعى المسلمون إلى وسائل تقلل الأذى مثل العتق والهجرة إلى أرض أكثر أمنًا.",
+                "en": "Many remained steadfast, while the Muslim community sought ways to reduce harm, including freeing enslaved believers and migrating to safer lands.",
+                "citationIds": [
+                  "ih-persecution"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hamza_conversion",
+        "titleAr": "إسلام حمزة رضي الله عنه",
+        "titleEn": "Hamza embraces Islam",
+        "summaryAr": "دخول حمزة بن عبد المطلب في الإسلام وأثره في المرحلة المكية.",
+        "summaryEn": "The conversion of Hamza ibn Abd al-Muttalib and its impact during the Meccan period.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "public_call",
+          "umar_conversion"
+        ],
+        "citations": [
+          {
+            "id": "ih-hamza",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Conversion of Hamza"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "event",
+            "titleAr": "سبب إسلامه",
+            "titleEn": "The event",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر كتب السيرة أن حمزة رضي الله عنه غضب لما بلغه أذى أبي جهل للنبي ﷺ، ثم أعلن إسلامه وثبت عليه.",
+                "en": "Sira works report that Hamza became angered on learning of Abu Jahl's abuse of the Prophet ﷺ, then declared Islam and remained firm in it.",
+                "citationIds": [
+                  "ih-hamza"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "impact",
+            "titleAr": "أثره في المسلمين",
+            "titleEn": "Impact on the Muslims",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان حمزة ذا مكانة وقوة في قريش، فكان إسلامه دعمًا معنويًا واجتماعيًا للمسلمين في مكة.",
+                "en": "Hamza held status and strength within Quraysh, so his conversion provided important moral and social support to the Muslims in Mecca.",
+                "citationIds": [
+                  "ih-hamza"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "umar_conversion",
+        "titleAr": "إسلام عمر بن الخطاب رضي الله عنه",
+        "titleEn": "Umar ibn al-Khattab embraces Islam",
+        "summaryAr": "تحول عمر رضي الله عنه من شدة على المسلمين إلى واحد من أبرز أصحاب النبي ﷺ.",
+        "summaryEn": "Umar's transition from opposition to Islam to becoming one of the Prophet's most prominent companions.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hamza_conversion",
+          "public_call"
+        ],
+        "citations": [
+          {
+            "id": "ih-umar",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Conversion of Umar ibn al-Khattab"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "conversion",
+            "titleAr": "قصة إسلامه",
+            "titleEn": "His conversion",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تورد كتب السيرة روايات في إسلام عمر رضي الله عنه، ويجمع أصلها على انتقاله من معارضة شديدة إلى الإيمان بالنبي ﷺ والقرآن.",
+                "en": "Sira sources preserve accounts of Umar's conversion, agreeing on his dramatic change from strong opposition to faith in the Prophet ﷺ and the Quran.",
+                "citationIds": [
+                  "ih-umar"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "impact",
+            "titleAr": "ظهور قوة المسلمين",
+            "titleEn": "A stronger public presence",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أعطى إسلام عمر، مع إسلام حمزة قبله، المسلمين قدرًا أكبر من الجرأة والظهور في المجتمع المكي.",
+                "en": "Umar's conversion, together with Hamza's earlier acceptance of Islam, gave the Muslim community greater confidence and visibility in Mecca.",
+                "citationIds": [
+                  "ih-umar"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "boycott_hashim",
+        "titleAr": "المقاطعة في شعب أبي طالب",
+        "titleEn": "The boycott in Shi'b Abi Talib",
+        "summaryAr": "حصار اجتماعي واقتصادي فُرض على بني هاشم ومن معهم بسبب حماية النبي ﷺ.",
+        "summaryEn": "A social and economic boycott imposed on Banu Hashim and their allies because they protected the Prophet ﷺ.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "quraish_opposition",
+          "year_of_grief"
+        ],
+        "citations": [
+          {
+            "id": "ih-boycott",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Boycott of Banu Hashim and Shi'b Abi Talib"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "boycott",
+            "titleAr": "صحيفة المقاطعة",
+            "titleEn": "The boycott pact",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اتفقت جماعات من قريش على مقاطعة بني هاشم وبني المطلب في البيع والشراء والزواج والمخالطة حتى يسلموا النبي ﷺ.",
+                "en": "Groups within Quraysh agreed to boycott Banu Hashim and Banu al-Muttalib in trade, marriage, and social dealings until they surrendered the Prophet ﷺ.",
+                "citationIds": [
+                  "ih-boycott"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "end",
+            "titleAr": "نهاية الحصار",
+            "titleEn": "End of the boycott",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دامت المقاطعة مدة قاسية ثم تحرك عدد من أهل مكة لنقضها، فانتهى الحصار قبل عام الحزن.",
+                "en": "The boycott lasted through a severe period until several Meccans moved to end it, bringing the blockade to a close before the Year of Grief.",
+                "citationIds": [
+                  "ih-boycott"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "first_abyssinia",
+        "titleAr": "الهجرة الأولى إلى الحبشة",
+        "titleEn": "The first migration to Abyssinia",
+        "summaryAr": "خروج مجموعة من المسلمين من مكة طلبًا للأمان في أرض الحبشة.",
+        "summaryEn": "A group of Muslims leaves Mecca seeking safety in Abyssinia.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "abyssinia",
+          "persecution_early_muslims",
+          "second_abyssinia_najashi"
+        ],
+        "citations": [
+          {
+            "id": "ih-first-abyssinia",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "First migration to Abyssinia"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "reason",
+            "titleAr": "سبب الهجرة",
+            "titleEn": "Reason for migration",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لما اشتد الأذى أذن النبي ﷺ لبعض أصحابه بالهجرة إلى الحبشة، لما عُرف عن ملكها من عدل لا يُظلم عنده أحد.",
+                "en": "As persecution intensified, the Prophet ﷺ permitted some companions to migrate to Abyssinia, whose ruler was known for justice and protection from oppression.",
+                "citationIds": [
+                  "ih-first-abyssinia"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "دلالتها",
+            "titleEn": "Its significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كانت الهجرة أول انتقال جماعي للمسلمين طلبًا لحرية الدين والأمان، قبل الهجرة الكبرى إلى المدينة.",
+                "en": "It was the first organized Muslim migration in search of religious freedom and safety, preceding the later migration to Medina.",
+                "citationIds": [
+                  "ih-first-abyssinia"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "second_abyssinia_najashi",
+        "titleAr": "الهجرة الثانية ومجلس النجاشي",
+        "titleEn": "The second Abyssinian migration and the Negus",
+        "summaryAr": "ازدياد عدد المهاجرين وموقف النجاشي من وفد قريش.",
+        "summaryEn": "The larger migration to Abyssinia and the Negus's response to the Quraysh delegation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "abyssinia",
+          "first_abyssinia"
+        ],
+        "citations": [
+          {
+            "id": "ih-najashi",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Second migration to Abyssinia and the court of the Negus"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "delegation",
+            "titleAr": "وفد قريش",
+            "titleEn": "Quraysh's delegation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أرسلت قريش وفدًا يطلب إعادة المهاجرين، فعرض المسلمون قضيتهم أمام النجاشي وبيّن جعفر بن أبي طالب ما جاء به الإسلام.",
+                "en": "Quraysh sent envoys seeking the migrants' return. The Muslims presented their case before the Negus, and Ja'far ibn Abi Talib explained the message of Islam.",
+                "citationIds": [
+                  "ih-najashi"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "protection",
+            "titleAr": "حماية النجاشي",
+            "titleEn": "Protection by the Negus",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "رفض النجاشي تسليمهم ومنحهم الأمان، فاستمر وجود المسلمين في الحبشة سنوات حتى التحق كثير منهم بالمدينة لاحقًا.",
+                "en": "The Negus refused to surrender them and granted protection, allowing the Muslim community in Abyssinia to remain for years before many later joined the Muslims in Medina.",
+                "citationIds": [
+                  "ih-najashi"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "death_khadijah_abu_talib",
+        "titleAr": "وفاة خديجة وأبي طالب",
+        "titleEn": "Deaths of Khadijah and Abu Talib",
+        "summaryAr": "فقد النبي ﷺ في فترة متقاربة زوجته خديجة وعمه أبا طالب، وهما من أعظم من سانده في مكة.",
+        "summaryEn": "The Prophet ﷺ lost his wife Khadijah and his uncle Abu Talib within a close period, two of his strongest sources of support in Mecca.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "year_of_grief",
+          "taif_journey"
+        ],
+        "citations": [
+          {
+            "id": "ih-year-grief",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Deaths of Khadijah and Abu Talib"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "loss",
+            "titleAr": "فقد السند الأسري",
+            "titleEn": "Loss of close support",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كانت خديجة رضي الله عنها سنده في البيت والدعوة، وكان أبو طالب يوفر له حماية عشائرية؛ فكان فقدهما شديدًا عليه ﷺ.",
+                "en": "Khadijah was his closest supporter at home and in the mission, while Abu Talib provided clan protection; losing both was a severe personal and social blow.",
+                "citationIds": [
+                  "ih-year-grief"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "consequences",
+            "titleAr": "تصاعد الضغط في مكة",
+            "titleEn": "Growing pressure in Mecca",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعد وفاتهما ازداد أذى قريش وضيقت مساحة الحركة في مكة، فبحث النبي ﷺ عن أبواب جديدة للدعوة والنصرة.",
+                "en": "After their deaths, Quraysh pressure increased and the space for preaching in Mecca narrowed, prompting the Prophet ﷺ to seek new avenues for the mission and protection.",
+                "citationIds": [
+                  "ih-year-grief"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "taif_journey",
+        "titleAr": "رحلة الطائف",
+        "titleEn": "The journey to Ta'if",
+        "summaryAr": "خروجه ﷺ إلى الطائف طلبًا للنصرة والدعوة وما لقيه من رفض وأذى.",
+        "summaryEn": "His journey to Ta'if seeking support for the message and the rejection and harm he encountered there.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "year_of_grief",
+          "tribes_at_hajj"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-taif",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Beginning of Creation: Aisha's question about the hardest day"
+          },
+          {
+            "id": "ih-taif",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Journey to Ta'if"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "mission",
+            "titleAr": "عرض الدعوة على ثقيف",
+            "titleEn": "Presenting the message to Thaqif",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ذهب النبي ﷺ إلى الطائف يعرض الإسلام ويطلب من ثقيف النصرة، لكن زعماءها رفضوا وأغروا به سفهاءهم.",
+                "en": "The Prophet ﷺ went to Ta'if to present Islam and seek support from Thaqif, but their leaders rejected him and incited others against him.",
+                "citationIds": [
+                  "ih-taif"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mercy",
+            "titleAr": "موقفه بعد الأذى",
+            "titleEn": "His response after harm",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر الرواية الصحيحة أن ملك الجبال عُرض عليه أن يطبق على القوم الأخشبين، لكنه رجَا أن يخرج الله من ذريتهم من يعبده.",
+                "en": "An authentic report states that the angel of the mountains offered to crush the people between the mountains, but the Prophet ﷺ hoped that their descendants would worship God.",
+                "citationIds": [
+                  "bukhari-taif"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "isra_miraj_detail",
+        "titleAr": "الإسراء والمعراج بالتفصيل",
+        "titleEn": "The Night Journey and Ascension in detail",
+        "summaryAr": "رحلة الإسراء من المسجد الحرام إلى المسجد الأقصى ثم المعراج كما جاءت في القرآن والسنة.",
+        "summaryEn": "The Night Journey from the Sacred Mosque to al-Aqsa and the Ascension as described in the Quran and Sunnah.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "isra_miraj",
+          "prayer_five_times"
+        ],
+        "citations": [
+          {
+            "id": "quran-17-1",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:1"
+          },
+          {
+            "id": "quran-53-13-18",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "53:13-18"
+          },
+          {
+            "id": "muslim-isra",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Book of Faith: the Night Journey and Ascension"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "isra",
+            "titleAr": "من مكة إلى المسجد الأقصى",
+            "titleEn": "From Mecca to al-Aqsa",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينص القرآن على الإسراء بالنبي ﷺ ليلًا من المسجد الحرام إلى المسجد الأقصى، في آية تعد أصلًا في ثبوت هذه الرحلة.",
+                "en": "The Quran explicitly states that the Prophet ﷺ was taken by night from the Sacred Mosque to al-Aqsa, forming the textual basis for the Night Journey.",
+                "citationIds": [
+                  "quran-17-1"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "miraj",
+            "titleAr": "المعراج وفرض الصلاة",
+            "titleEn": "The Ascension and prayer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تشرح السنة أحداث المعراج ولقاء عدد من الأنبياء وفرض الصلوات، مع بقاء تفاصيل الغيب مقصورة على ما ثبت في النصوص.",
+                "en": "The Sunnah describes the Ascension, encounters with several prophets, and the prescription of prayer, while unseen details are confined to what reliable revelation establishes.",
+                "citationIds": [
+                  "muslim-isra",
+                  "quran-53-13-18"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prayer_five_times",
+        "titleAr": "فرض الصلوات الخمس",
+        "titleEn": "The five daily prayers are prescribed",
+        "summaryAr": "فرض الصلاة في سياق المعراج وأصبحت العبادة اليومية المركزية للمسلمين.",
+        "summaryEn": "Prayer was prescribed in connection with the Ascension and became the central daily act of worship for Muslims.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "isra_miraj_detail",
+          "prayer"
+        ],
+        "citations": [
+          {
+            "id": "muslim-five-prayers",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Book of Faith: prescription of the five prayers"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "prescription",
+            "titleAr": "من خمسين إلى خمس",
+            "titleEn": "From fifty to five",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر الأحاديث الصحيحة فرض الصلوات أولًا بعدد أكبر ثم تخفيفها إلى خمس في العمل مع بقاء الأجر الموعود.",
+                "en": "Authentic hadith reports describe the prayers first being prescribed in a larger number and then reduced to five in practice while retaining the promised reward.",
+                "citationIds": [
+                  "muslim-five-prayers"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "daily_worship",
+            "titleAr": "مركزية الصلاة",
+            "titleEn": "Centrality of prayer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "منذ ذلك الحين صارت الصلوات الخمس علامة يومية ظاهرة في حياة المسلمين، تجمع الذكر والقراءة والقيام والركوع والسجود.",
+                "en": "From then on, the five prayers became a visible daily rhythm in Muslim life, combining remembrance, recitation, standing, bowing, and prostration.",
+                "citationIds": [
+                  "muslim-five-prayers"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tribes_at_hajj",
+        "titleAr": "عرض الدعوة على القبائل في المواسم",
+        "titleEn": "Presenting the message to tribes during pilgrimage seasons",
+        "summaryAr": "استفادة النبي ﷺ من مواسم الحج والأسواق للقاء القبائل خارج الضغط المكي.",
+        "summaryEn": "The Prophet ﷺ used pilgrimage seasons and markets to meet tribes beyond the immediate pressure of Mecca.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "taif_journey",
+          "first_aqaba_pledge"
+        ],
+        "citations": [
+          {
+            "id": "ih-tribal-outreach",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Presenting Islam to tribes during pilgrimage seasons"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "outreach",
+            "titleAr": "طلب النصرة",
+            "titleEn": "Seeking support",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان النبي ﷺ يخرج إلى منازل القبائل في المواسم، يدعوهم إلى الإسلام ويطلب من يحميه حتى يبلغ رسالة ربه.",
+                "en": "The Prophet ﷺ visited tribal encampments during the pilgrimage seasons, calling them to Islam and seeking protection that would allow him to convey the message.",
+                "citationIds": [
+                  "ih-tribal-outreach"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "yathrib",
+            "titleAr": "اللقاء بأهل يثرب",
+            "titleEn": "Meeting people from Yathrib",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان من نتائج هذا النشاط لقاؤه أفرادًا من يثرب قبل بيعات العقبة، فحملوا الإسلام إلى قومهم ومهدوا لمرحلة جديدة.",
+                "en": "Among the results was his meeting with people from Yathrib before the pledges of Aqaba; they carried Islam back to their city and prepared the way for a new phase.",
+                "citationIds": [
+                  "ih-tribal-outreach"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "first_aqaba_pledge",
+        "titleAr": "بيعة العقبة الأولى",
+        "titleEn": "The first pledge of Aqaba",
+        "summaryAr": "بيعة جماعة من أهل يثرب للنبي ﷺ على أصول الإيمان والأخلاق.",
+        "summaryEn": "A pledge by a group from Yathrib to the Prophet ﷺ around core commitments of faith and conduct.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "aqaba_migration",
+          "tribes_at_hajj",
+          "second_aqaba_pledge"
+        ],
+        "citations": [
+          {
+            "id": "ih-first-aqaba",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "First pledge of Aqaba"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "pledge",
+            "titleAr": "مضمون البيعة",
+            "titleEn": "Contents of the pledge",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بايع نفر من أهل يثرب النبي ﷺ على التوحيد وترك كبائر ظاهرة والسمع في المعروف، ثم عادوا إلى بلدهم بالدعوة.",
+                "en": "A group from Yathrib pledged to the Prophet ﷺ around monotheism, avoiding major wrongs, and obedience in what is right, then returned to their city with the message.",
+                "citationIds": [
+                  "ih-first-aqaba"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "musab",
+            "titleAr": "إرسال مصعب بن عمير",
+            "titleEn": "Sending Mus'ab ibn Umayr",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أرسل معهم مصعب بن عمير رضي الله عنه ليقرئهم القرآن ويعلمهم الإسلام، فانتشر الدين في بيوت من الأوس والخزرج.",
+                "en": "The Prophet ﷺ sent Mus'ab ibn Umayr with them to teach the Quran and Islam, and the faith spread among households of Aws and Khazraj.",
+                "citationIds": [
+                  "ih-first-aqaba"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "second_aqaba_pledge",
+        "titleAr": "بيعة العقبة الثانية",
+        "titleEn": "The second pledge of Aqaba",
+        "summaryAr": "بيعة أوسع من أهل يثرب تضمنت النصرة والحماية ومهدت للهجرة.",
+        "summaryEn": "A larger pledge from Yathrib that included protection and support and prepared the way for the Hijrah.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "first_aqaba_pledge",
+          "migration_permission"
+        ],
+        "citations": [
+          {
+            "id": "ih-second-aqaba",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Second pledge of Aqaba"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "night_meeting",
+            "titleAr": "اللقاء ليلًا",
+            "titleEn": "The nighttime meeting",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اجتمع وفد كبير من أهل يثرب بالنبي ﷺ عند العقبة سرًا، وبايعوه على الإسلام والنصرة والحماية.",
+                "en": "A larger delegation from Yathrib met the Prophet ﷺ secretly at Aqaba at night and pledged Islam, support, and protection.",
+                "citationIds": [
+                  "ih-second-aqaba"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "naqibs",
+            "titleAr": "النقباء والاستعداد",
+            "titleEn": "Representatives and preparation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اختير نقباء يمثلون قومهم، وأصبحت يثرب مهيأة لاستقبال المهاجرين ثم النبي ﷺ نفسه.",
+                "en": "Representatives were chosen for their people, and Yathrib became prepared to receive Muslim migrants and eventually the Prophet ﷺ himself.",
+                "citationIds": [
+                  "ih-second-aqaba"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "migration_permission",
+        "titleAr": "الإذن للمسلمين بالهجرة إلى المدينة",
+        "titleEn": "Permission to migrate to Medina",
+        "summaryAr": "بدأ المسلمون يخرجون من مكة تباعًا إلى يثرب بعد توفر النصرة والأمان النسبي.",
+        "summaryEn": "Muslims began leaving Mecca in groups for Yathrib after support and relative safety became available.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "second_aqaba_pledge",
+          "quraish_plot"
+        ],
+        "citations": [
+          {
+            "id": "ih-migration-permission",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Permission for migration to Yathrib"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "departure",
+            "titleAr": "خروج الصحابة",
+            "titleEn": "Companions depart",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أذن النبي ﷺ لأصحابه بالهجرة، فخرجوا تباعًا وترك كثير منهم بيوتًا وأموالًا وعلاقات اجتماعية في مكة.",
+                "en": "The Prophet ﷺ permitted his companions to migrate, and they left in succession, many abandoning homes, property, and established social ties in Mecca.",
+                "citationIds": [
+                  "ih-migration-permission"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "waiting",
+            "titleAr": "بقاء النبي ﷺ",
+            "titleEn": "The Prophet waits",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بقي النبي ﷺ في مكة ينتظر الإذن بالهجرة، ومعه أبو بكر وعلي رضي الله عنهما في مراحل الاستعداد الأخيرة.",
+                "en": "The Prophet ﷺ remained in Mecca awaiting permission to leave, with Abu Bakr and Ali among those present during the final preparations.",
+                "citationIds": [
+                  "ih-migration-permission"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "quraish_plot",
+        "titleAr": "مؤامرة قريش ليلة الهجرة",
+        "titleEn": "Quraysh's plot on the night of the Hijrah",
+        "summaryAr": "اجتماع قريش على خطة لقتل النبي ﷺ قبل خروجه من مكة.",
+        "summaryEn": "Quraysh's plan to kill the Prophet ﷺ before he could leave Mecca.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "migration_permission",
+          "cave_thawr"
+        ],
+        "citations": [
+          {
+            "id": "quran-8-30",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "8:30"
+          },
+          {
+            "id": "ih-hijra-plot",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Plot and departure from Mecca"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "plot",
+            "titleAr": "التآمر",
+            "titleEn": "The plot",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يشير القرآن إلى مكر الذين كفروا ليثبتوا النبي ﷺ أو يقتلوه أو يخرجوه، وهو ما ترتبط به أحداث ليلة الهجرة.",
+                "en": "The Quran refers to the plotting of the disbelievers to restrain, kill, or expel the Prophet ﷺ, a verse connected with the circumstances around the Hijrah.",
+                "citationIds": [
+                  "quran-8-30"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "departure",
+            "titleAr": "الخروج من مكة",
+            "titleEn": "Departure from Mecca",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "غادر النبي ﷺ بيته وفق خطة محكمة، وترك عليًا رضي الله عنه لرد الأمانات، ثم اتجه مع أبي بكر إلى جهة غار ثور.",
+                "en": "The Prophet ﷺ left his home through careful planning, leaving Ali to return entrusted property, and headed with Abu Bakr toward the Cave of Thawr.",
+                "citationIds": [
+                  "ih-hijra-plot"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cave_thawr",
+        "titleAr": "غار ثور ورفقة أبي بكر",
+        "titleEn": "The Cave of Thawr and Abu Bakr's companionship",
+        "summaryAr": "اختباء النبي ﷺ وأبي بكر في غار ثور أثناء بدء الهجرة.",
+        "summaryEn": "The Prophet ﷺ and Abu Bakr shelter in the Cave of Thawr at the beginning of the Hijrah.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "quraish_plot",
+          "quba"
+        ],
+        "citations": [
+          {
+            "id": "quran-9-40",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:40"
+          },
+          {
+            "id": "bukhari-hijra-cave",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Merits of the Ansar: Hijrah and the cave"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "cave",
+            "titleAr": "ثلاث ليال في الغار",
+            "titleEn": "Three nights in the cave",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أقام النبي ﷺ وأبو بكر رضي الله عنه في الغار أيامًا حتى خف الطلب، وكانت خطة الهجرة تشمل نقل الأخبار والطعام والاستعانة بدليل طريق.",
+                "en": "The Prophet ﷺ and Abu Bakr stayed in the cave for several days until the search eased; the migration plan included information, provisions, and an experienced guide.",
+                "citationIds": [
+                  "bukhari-hijra-cave"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "companion",
+            "titleAr": "«لا تحزن إن الله معنا»",
+            "titleEn": "Do not grieve; God is with us",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن صاحب النبي ﷺ في الغار ويورد قوله له: «لا تحزن إن الله معنا»، فصار الموقف من أشهر مشاهد السيرة.",
+                "en": "The Quran mentions the Prophet's companion in the cave and the words, 'Do not grieve; indeed God is with us,' making this one of the best-known scenes of the Sira.",
+                "citationIds": [
+                  "quran-9-40"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "quba",
+        "titleAr": "الوصول إلى قباء",
+        "titleEn": "Arrival at Quba",
+        "summaryAr": "أول محطة للنبي ﷺ في منطقة المدينة بعد رحلة الهجرة.",
+        "summaryEn": "The Prophet's ﷺ first stop in the Medina area after the Hijrah journey.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "cave_thawr",
+          "entry_medina"
+        ],
+        "citations": [
+          {
+            "id": "ih-quba",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Arrival at Quba"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "arrival",
+            "titleAr": "نزول قباء",
+            "titleEn": "Staying at Quba",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وصل النبي ﷺ إلى قباء في أطراف يثرب، واستقبله المسلمون بفرح بعد ترقب طويل.",
+                "en": "The Prophet ﷺ arrived at Quba on the outskirts of Yathrib, where Muslims welcomed him joyfully after a long period of anticipation.",
+                "citationIds": [
+                  "ih-quba"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mosque",
+            "titleAr": "مسجد قباء",
+            "titleEn": "Quba Mosque",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ارتبطت إقامته في قباء ببناء مسجد والصلاة فيه، قبل انتقاله إلى قلب المدينة.",
+                "en": "His stay at Quba became associated with the establishment of a mosque and prayer there before he continued into the center of Medina.",
+                "citationIds": [
+                  "ih-quba"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "entry_medina",
+        "titleAr": "دخول المدينة",
+        "titleEn": "Entry into Medina",
+        "summaryAr": "انتقال النبي ﷺ من قباء إلى المدينة واستقرار مرحلة الهجرة.",
+        "summaryEn": "The Prophet ﷺ moves from Quba into Medina, marking the completion of the migration phase.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "quba",
+          "mosque_prophet",
+          "medina_state"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-medina-arrival",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Merits of the Ansar: arrival in Medina"
+          },
+          {
+            "id": "ih-entry-medina",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Entry into Medina"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "welcome",
+            "titleAr": "استقبال أهل المدينة",
+            "titleEn": "The welcome in Medina",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "خرج أهل المدينة لاستقبال النبي ﷺ والمهاجرين، وتنافس الأنصار في استضافته حتى نزل في بني النجار.",
+                "en": "The people of Medina came out to welcome the Prophet ﷺ and the migrants, and the Ansar eagerly offered hospitality until he settled among Banu al-Najjar.",
+                "citationIds": [
+                  "bukhari-medina-arrival"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "new_phase",
+            "titleAr": "بداية المجتمع المدني",
+            "titleEn": "A new phase begins",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أنهت الهجرة مرحلة الاستضعاف المكي وبدأت مرحلة بناء مجتمع منظم له مسجد وروابط اجتماعية وعهود مع مكونات المدينة.",
+                "en": "The Hijrah ended the Meccan phase of vulnerability and began the building of an organized community with a mosque, social bonds, and agreements among Medina's groups.",
+                "citationIds": [
+                  "ih-entry-medina"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mosque_prophet",
+        "titleAr": "بناء المسجد النبوي",
+        "titleEn": "Building the Prophet's Mosque",
+        "summaryAr": "جعل المسجد مركزًا للصلاة والتعليم والاجتماع في المدينة.",
+        "summaryEn": "The mosque becomes a center for prayer, learning, and communal life in Medina.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "entry_medina",
+          "brotherhood_ansar",
+          "medina_state"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-mosque-building",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Prayer: building the mosque in Medina"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "construction",
+            "titleAr": "اختيار الموقع والبناء",
+            "titleEn": "Site and construction",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشترى موضع المسجد وبناه المسلمون بمشاركة النبي ﷺ، وكان البناء بسيطًا يتناسب مع ظروف المجتمع الناشئ.",
+                "en": "The site was acquired and the Muslims built the mosque with the Prophet ﷺ participating; its construction was simple and suited to the needs of the emerging community.",
+                "citationIds": [
+                  "bukhari-mosque-building"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "functions",
+            "titleAr": "وظائف المسجد",
+            "titleEn": "Functions of the mosque",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "إلى جانب الصلاة صار المسجد موضعًا للتعليم والاجتماع واستقبال الوفود وتدبير شؤون عامة ضمن سياق المدينة.",
+                "en": "Alongside prayer, the mosque served as a place for teaching, gathering, receiving delegations, and addressing public matters in Medina.",
+                "citationIds": [
+                  "bukhari-mosque-building"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "brotherhood_ansar",
+        "titleAr": "المؤاخاة بين المهاجرين والأنصار",
+        "titleEn": "Brotherhood between the Muhajirun and Ansar",
+        "summaryAr": "ترتيب اجتماعي لمساندة المهاجرين وبناء روابط جديدة في المدينة.",
+        "summaryEn": "A social arrangement supporting the migrants and building new bonds in Medina.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "mosque_prophet",
+          "charter_medina",
+          "medina_state"
+        ],
+        "citations": [
+          {
+            "id": "ih-brotherhood",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Brotherhood between Muhajirun and Ansar"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "bond",
+            "titleAr": "المؤاخاة",
+            "titleEn": "The brotherhood",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "آخى النبي ﷺ بين أفراد من المهاجرين والأنصار في مرحلة مبكرة من الاستقرار، لتقوية التكافل وإدماج القادمين.",
+                "en": "The Prophet ﷺ established bonds of brotherhood between members of the Muhajirun and Ansar early in the Medinan period to strengthen solidarity and integrate the migrants.",
+                "citationIds": [
+                  "ih-brotherhood"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "support",
+            "titleAr": "التكافل مع الاستقلال",
+            "titleEn": "Support with self-reliance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ظهر كرم الأنصار واستعدادهم للمشاركة، مع حرص كثير من المهاجرين على العمل والكسب وعدم البقاء معتمدين على غيرهم.",
+                "en": "The generosity of the Ansar was evident, while many migrants also sought work and trade rather than remaining dependent on others.",
+                "citationIds": [
+                  "ih-brotherhood"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charter_medina",
+        "titleAr": "صحيفة المدينة وتنظيم العلاقات",
+        "titleEn": "The Charter of Medina and communal relations",
+        "summaryAr": "تنظيم للعلاقات والمسؤوليات بين مكونات المدينة في المرحلة الأولى.",
+        "summaryEn": "An arrangement governing relations and responsibilities among groups in early Medina.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "brotherhood_ansar",
+          "medina_state"
+        ],
+        "citations": [
+          {
+            "id": "ih-charter",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "The Medina document / Charter"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "document",
+            "titleAr": "الصحيفة",
+            "titleEn": "The document",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تورد كتب السيرة وثيقة تنظم جوانب من العلاقة بين المسلمين وقبائل يهودية ومكونات أخرى في المدينة، بما يشمل النصرة والأمن والمسؤوليات.",
+                "en": "Sira sources preserve a document regulating aspects of relations among Muslims, Jewish tribes, and other groups in Medina, including security and mutual responsibilities.",
+                "citationIds": [
+                  "ih-charter"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "وثيقة في سياقها التاريخي",
+            "titleEn": "Historical context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تُفهم الصحيفة ضمن واقع المدينة القبلي والسياسي آنذاك، ولا تختزل وحدها كل تطور لاحق في العلاقات بين الجماعات.",
+                "en": "The document should be read within Medina's tribal and political context and does not by itself summarize every later development in intercommunal relations.",
+                "citationIds": [
+                  "ih-charter"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "qibla_change",
+        "titleAr": "تحويل القبلة إلى الكعبة",
+        "titleEn": "The change of qibla toward the Kaaba",
+        "summaryAr": "تحويل اتجاه الصلاة من بيت المقدس إلى المسجد الحرام في المدينة.",
+        "summaryEn": "The direction of prayer changes from Jerusalem toward the Sacred Mosque in Mecca.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "medina_state",
+          "prayer"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-142-150",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:142-150"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "command",
+            "titleAr": "الأمر بالتوجه للمسجد الحرام",
+            "titleEn": "The command to face the Sacred Mosque",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تشرح سورة البقرة تحول القبلة وتوجه النبي ﷺ والمسلمين نحو المسجد الحرام بعد أن كانوا يصلون إلى جهة بيت المقدس.",
+                "en": "Surat al-Baqarah explains the change of qibla, directing the Prophet ﷺ and the Muslims toward the Sacred Mosque after previously praying toward Jerusalem.",
+                "citationIds": [
+                  "quran-2-142-150"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "identity",
+            "titleAr": "علامة ظاهرة للمجتمع",
+            "titleEn": "A visible communal marker",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أصبح التوجه للكعبة في الصلاة سمة مشتركة للمسلمين أينما كانوا، مع بقاء الكعبة موضع الحج كذلك.",
+                "en": "Facing the Kaaba became a shared visible practice for Muslims wherever they lived, while the Kaaba also remained the destination of pilgrimage.",
+                "citationIds": [
+                  "quran-2-142-150"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "adhan",
+        "titleAr": "تشريع الأذان",
+        "titleEn": "The institution of the Adhan",
+        "summaryAr": "اعتماد النداء للصلاة في المدينة لتنظيم اجتماع المسلمين للصلوات.",
+        "summaryEn": "The call to prayer is established in Medina to organize communal prayer.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "mosque_prophet",
+          "prayer"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-adhan",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Book of the Call to Prayer: origin of the Adhan"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "origin",
+            "titleAr": "بداية الأذان",
+            "titleEn": "Beginning of the Adhan",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر السنة قصة التشاور في وسيلة جمع الناس للصلاة، ثم اعتماد ألفاظ الأذان وإسناد النداء إلى بلال رضي الله عنه.",
+                "en": "The Sunnah recounts discussion about how to gather people for prayer, followed by the adoption of the Adhan and Bilal's role as a caller to prayer.",
+                "citationIds": [
+                  "bukhari-adhan"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "role",
+            "titleAr": "تنظيم اليوم المدني",
+            "titleEn": "Structuring communal time",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "صار الأذان إعلانًا متكررًا لمواقيت الصلاة وشعارًا مسموعًا للمجتمع الإسلامي في المدينة.",
+                "en": "The Adhan became a recurring public announcement of prayer times and an audible marker of Muslim communal life in Medina.",
+                "citationIds": [
+                  "bukhari-adhan"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "badr",
+        "titleAr": "غزوة بدر",
+        "titleEn": "The Battle of Badr",
+        "summaryAr": "أول مواجهة عسكرية كبرى بين المسلمين وقريش في السنة الثانية للهجرة.",
+        "summaryEn": "The first major military confrontation between the Muslims and Quraysh in the second year after Hijrah.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "major_battles",
+          "uhud"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-123",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:123"
+          },
+          {
+            "id": "quran-8-5-19",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "8:5-19"
+          },
+          {
+            "id": "bukhari-badr",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Military Expeditions: Battle of Badr"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "battle",
+            "titleAr": "الخروج والمواجهة",
+            "titleEn": "The encounter",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "خرج المسلمون في الأصل لاعتراض قافلة قريش، ثم تطورت الأحداث إلى مواجهة مع جيش مكة عند بدر.",
+                "en": "The Muslims initially set out in connection with a Quraysh caravan, but events developed into a confrontation with a Meccan army at Badr.",
+                "citationIds": [
+                  "quran-8-5-19",
+                  "bukhari-badr"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "outcome",
+            "titleAr": "النصر وآثاره",
+            "titleEn": "Victory and consequences",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "حقق المسلمون نصرًا مهمًا رغم قلة عددهم، وأصبح بدر نقطة تحول سياسية وعسكرية في تاريخ المجتمع المدني.",
+                "en": "The Muslims achieved an important victory despite being fewer in number, making Badr a major political and military turning point for the Medinan community.",
+                "citationIds": [
+                  "quran-3-123"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "banu_qaynuqa",
+        "titleAr": "بنو قينقاع",
+        "titleEn": "Banu Qaynuqa",
+        "summaryAr": "أزمة سياسية مبكرة في المدينة انتهت بخروج بني قينقاع منها.",
+        "summaryEn": "An early Medinan political conflict that ended with Banu Qaynuqa leaving the city.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "badr",
+          "charter_medina"
+        ],
+        "citations": [
+          {
+            "id": "ih-qaynuqa",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Banu Qaynuqa after Badr"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "conflict",
+            "titleAr": "تصاعد النزاع",
+            "titleEn": "Escalation of conflict",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر كتب السيرة توترًا ونزاعًا بين المسلمين وبني قينقاع بعد بدر في سياق العلاقات والتحالفات داخل المدينة.",
+                "en": "Sira sources describe growing tension and conflict between the Muslims and Banu Qaynuqa after Badr within the broader network of Medinan relations and alliances.",
+                "citationIds": [
+                  "ih-qaynuqa"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "departure",
+            "titleAr": "الخروج من المدينة",
+            "titleEn": "Departure from Medina",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "انتهت الأزمة بخروج بني قينقاع من المدينة، وهو حدث يحتاج إلى قراءة في سياقه السياسي والقبلي بدل اختزاله في رواية واحدة.",
+                "en": "The crisis ended with Banu Qaynuqa leaving Medina, an event best understood within its political and tribal context rather than through a single isolated anecdote.",
+                "citationIds": [
+                  "ih-qaynuqa"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "uhud",
+        "titleAr": "غزوة أحد",
+        "titleEn": "The Battle of Uhud",
+        "summaryAr": "مواجهة كبرى قرب المدينة في السنة الثالثة للهجرة بعد بدر.",
+        "summaryEn": "A major battle near Medina in the third year after Hijrah following Badr.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "badr",
+          "hamra_asad",
+          "major_battles"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-121-180",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:121-180"
+          },
+          {
+            "id": "bukhari-uhud",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Military Expeditions: Battle of Uhud"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "battle",
+            "titleAr": "خطة القتال وتغير الميدان",
+            "titleEn": "Battle plan and change in momentum",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نظم النبي ﷺ الصفوف ووضع الرماة على الجبل، ثم تغير سير المعركة عندما ترك عدد منهم مواقعهم قبل انتهاء القتال.",
+                "en": "The Prophet ﷺ organized the ranks and stationed archers on the hill; the course of battle changed when some left their positions before the fighting had ended.",
+                "citationIds": [
+                  "quran-3-121-180",
+                  "bukhari-uhud"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "الخسائر والدروس",
+            "titleEn": "Losses and lessons",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "استشهد عدد من الصحابة ومنهم حمزة رضي الله عنه، وتناولت سورة آل عمران جوانب من أسباب الانتكاسة والتربية على الطاعة والثبات.",
+                "en": "A number of companions were killed, including Hamza, and Surat Al Imran addresses aspects of the setback and lessons in obedience, steadfastness, and recovery.",
+                "citationIds": [
+                  "quran-3-121-180"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hamra_asad",
+        "titleAr": "حمراء الأسد بعد أحد",
+        "titleEn": "Hamra al-Asad after Uhud",
+        "summaryAr": "تحرك المسلمين بعد أحد لإظهار الثبات ومتابعة تحركات قريش.",
+        "summaryEn": "A Muslim mobilization after Uhud intended to demonstrate resolve and monitor Quraysh.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "uhud",
+          "banu_nadir"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-172-175",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:172-175"
+          },
+          {
+            "id": "ih-hamra-asad",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Hamra al-Asad expedition"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "mobilization",
+            "titleAr": "الخروج بعد الجراح",
+            "titleEn": "Mobilization despite wounds",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعد أحد دعا النبي ﷺ من شارك في القتال إلى الخروج لمتابعة قريش رغم الجراح والخسائر.",
+                "en": "After Uhud, the Prophet ﷺ called those who had fought to mobilize again despite wounds and losses, in order to follow Quraysh's movements.",
+                "citationIds": [
+                  "ih-hamra-asad"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "steadfastness",
+            "titleAr": "إظهار الثبات",
+            "titleEn": "Demonstrating resolve",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تشير آيات من آل عمران إلى الذين استجابوا لله والرسول من بعد ما أصابهم القرح، وتبرز معنى الثبات بعد الانتكاسة.",
+                "en": "Verses in Al Imran praise those who responded to God and the Messenger after being wounded, highlighting steadfastness after setback.",
+                "citationIds": [
+                  "quran-3-172-175"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "banu_nadir",
+        "titleAr": "بنو النضير",
+        "titleEn": "Banu Nadir",
+        "summaryAr": "أزمة مع بني النضير انتهت بخروجهم من المدينة، وتتناولها سورة الحشر.",
+        "summaryEn": "A conflict with Banu Nadir that ended in their departure from Medina and is addressed in Surat al-Hashr.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hamra_asad",
+          "khandaq"
+        ],
+        "citations": [
+          {
+            "id": "quran-59-2-10",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "59:2-10"
+          },
+          {
+            "id": "bukhari-nadir",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Military Expeditions: Banu Nadir"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "conflict",
+            "titleAr": "الأزمة والحصار",
+            "titleEn": "Conflict and siege",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر المصادر محاولة غدر وما تبعها من مطالبة بني النضير بالخروج، ثم حصارهم وانتهاء وجودهم السياسي في المدينة.",
+                "en": "The sources describe a breach and subsequent demand that Banu Nadir leave, followed by a siege and the end of their political presence in Medina.",
+                "citationIds": [
+                  "bukhari-nadir"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "quran",
+            "titleAr": "سورة الحشر",
+            "titleEn": "Surat al-Hashr",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعرض سورة الحشر جوانب من إخراج أهل الكتاب من ديارهم وما ترتب على ذلك من أحكام في الفيء وتوزيعه.",
+                "en": "Surat al-Hashr discusses aspects of their expulsion and the resulting rules regarding property acquired without pitched battle.",
+                "citationIds": [
+                  "quran-59-2-10"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "khandaq",
+        "titleAr": "غزوة الخندق والأحزاب",
+        "titleEn": "The Battle of the Trench and the Confederates",
+        "summaryAr": "حصار المدينة من تحالف قبلي كبير وحفر الخندق كوسيلة دفاعية.",
+        "summaryEn": "A major tribal coalition besieges Medina, with the trench used as a defensive strategy.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "major_battles",
+          "banu_qurayza"
+        ],
+        "citations": [
+          {
+            "id": "quran-33-9-25",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:9-25"
+          },
+          {
+            "id": "bukhari-khandaq",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Military Expeditions: Battle of the Trench"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "defense",
+            "titleAr": "حفر الخندق",
+            "titleEn": "Digging the trench",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اقترح سلمان الفارسي رضي الله عنه حفر خندق في الجهات المكشوفة من المدينة، فعمل المسلمون فيه قبل وصول الأحزاب.",
+                "en": "Salman al-Farisi proposed digging a trench across vulnerable approaches to Medina, and the Muslims worked on it before the confederate forces arrived.",
+                "citationIds": [
+                  "bukhari-khandaq"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "siege",
+            "titleAr": "الحصار وانصراف الأحزاب",
+            "titleEn": "Siege and withdrawal",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "واجه المسلمون حصارًا وضغطًا شديدًا، ثم انصرف الأحزاب دون اقتحام المدينة، وتصف سورة الأحزاب أجواء الخوف والثبات.",
+                "en": "The Muslims endured severe siege conditions, after which the confederates withdrew without capturing Medina; Surat al-Ahzab describes the fear, testing, and steadfastness of the period.",
+                "citationIds": [
+                  "quran-33-9-25"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "banu_qurayza",
+        "titleAr": "بنو قريظة بعد الأحزاب",
+        "titleEn": "Banu Qurayza after the Confederates",
+        "summaryAr": "أحداث بني قريظة عقب انصراف الأحزاب واتهامهم بنقض العهد أثناء الحصار.",
+        "summaryEn": "Events involving Banu Qurayza after the confederate siege and accusations of breaching their pact during the crisis.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "khandaq",
+          "hudaybiyyah_treaty"
+        ],
+        "citations": [
+          {
+            "id": "quran-33-26-27",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:26-27"
+          },
+          {
+            "id": "bukhari-qurayza",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Military Expeditions: Banu Qurayza"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "siege",
+            "titleAr": "ما بعد الخندق",
+            "titleEn": "After the Trench",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعد انصراف الأحزاب توجه المسلمون إلى بني قريظة في سياق اتهامهم بنقض الترتيبات القائمة خلال الحصار.",
+                "en": "After the confederates withdrew, the Muslims moved against Banu Qurayza in connection with accusations that they had broken existing arrangements during the siege.",
+                "citationIds": [
+                  "bukhari-qurayza"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "outcome",
+            "titleAr": "الحكم والنتيجة",
+            "titleEn": "Judgment and outcome",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تتناول سورة الأحزاب نتيجة المواجهة، بينما تشرح كتب الحديث والسيرة تفاصيل التحكيم وما جرى بعد الاستسلام.",
+                "en": "Surat al-Ahzab refers to the outcome, while hadith and sira sources provide details about arbitration and events after surrender.",
+                "citationIds": [
+                  "quran-33-26-27",
+                  "bukhari-qurayza"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hudaybiyyah_treaty",
+        "titleAr": "صلح الحديبية",
+        "titleEn": "The Treaty of Hudaybiyyah",
+        "summaryAr": "اتفاق بين المسلمين وقريش في السنة السادسة للهجرة فتح مرحلة من الهدنة والاتصال الأوسع.",
+        "summaryEn": "An agreement between the Muslims and Quraysh in the sixth year after Hijrah that opened a period of truce and wider contact.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "conquest",
+          "letters_rulers",
+          "khaybar"
+        ],
+        "citations": [
+          {
+            "id": "quran-48-1-27",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "48:1-27"
+          },
+          {
+            "id": "bukhari-hudaybiyyah",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Conditions and Military Expeditions: Hudaybiyyah"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "negotiation",
+            "titleAr": "التفاوض والبيعة",
+            "titleEn": "Negotiation and pledge",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "توقفت قافلة العمرة عند الحديبية، وجرت مفاوضات مع قريش، وخلال الأزمة بايع الصحابة النبي ﷺ بيعة الرضوان.",
+                "en": "The pilgrimage party stopped at Hudaybiyyah and negotiations took place with Quraysh; during the crisis the companions gave the Prophet ﷺ the Pledge of Ridwan.",
+                "citationIds": [
+                  "quran-48-18",
+                  "bukhari-hudaybiyyah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "treaty",
+            "titleAr": "نتائج الصلح",
+            "titleEn": "Consequences of the treaty",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "رغم أن بعض الشروط بدت ثقيلة على المسلمين، وصفت سورة الفتح الحدث بأنه فتح مبين، وتوسعت بعده فرص الدعوة والاتصال.",
+                "en": "Although some terms appeared difficult to the Muslims, Surat al-Fath called the development a clear victory, and opportunities for contact and preaching expanded afterward.",
+                "citationIds": [
+                  "quran-48-1-27"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "letters_rulers",
+        "titleAr": "رسائل النبي ﷺ إلى الملوك والحكام",
+        "titleEn": "Letters to rulers and leaders",
+        "summaryAr": "مكاتبات دبلوماسية دعت عددًا من الحكام خارج الجزيرة إلى الإسلام.",
+        "summaryEn": "Diplomatic letters inviting a number of rulers beyond Arabia to Islam.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hudaybiyyah_treaty",
+          "khaybar"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-heraclius",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Book of Revelation: letter to Heraclius"
+          },
+          {
+            "id": "ih-letters",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Letters and envoys to rulers"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "envoys",
+            "titleAr": "إرسال الرسل",
+            "titleEn": "Dispatching envoys",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعد الحديبية اتسعت المراسلات، فأرسل النبي ﷺ رسلًا بكتب إلى عدد من الملوك والحكام يدعوهم إلى الإسلام.",
+                "en": "After Hudaybiyyah, diplomatic outreach widened and the Prophet ﷺ sent envoys with letters to a number of rulers inviting them to Islam.",
+                "citationIds": [
+                  "ih-letters"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "heraclius",
+            "titleAr": "كتاب هرقل",
+            "titleEn": "Letter to Heraclius",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يحفظ صحيح البخاري نصًا مشهورًا من كتاب النبي ﷺ إلى هرقل، مع رواية أسئلته لأبي سفيان عن النبي ودعوته.",
+                "en": "Sahih al-Bukhari preserves a well-known text of the Prophet's letter to Heraclius and an account of Heraclius questioning Abu Sufyan about the Prophet and his message.",
+                "citationIds": [
+                  "bukhari-heraclius"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "khaybar",
+        "titleAr": "خيبر",
+        "titleEn": "Khaybar",
+        "summaryAr": "تحرك عسكري وسياسي إلى واحات خيبر بعد الحديبية.",
+        "summaryEn": "A military and political campaign to the oasis settlements of Khaybar after Hudaybiyyah.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hudaybiyyah_treaty",
+          "umrat_al_qada"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-khaybar",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Military Expeditions: Khaybar"
+          },
+          {
+            "id": "quran-48-18-20",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "48:18-20"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "campaign",
+            "titleAr": "فتح الحصون",
+            "titleEn": "The campaign",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحرك المسلمون إلى خيبر ودار القتال حول عدد من الحصون حتى انتهت المقاومة الرئيسية باتفاقات وتنظيم للأرض والزراعة.",
+                "en": "The Muslims moved to Khaybar, where fighting centered on fortified settlements until the main resistance ended through conquest and subsequent arrangements over land and cultivation.",
+                "citationIds": [
+                  "bukhari-khaybar"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "aftermath",
+            "titleAr": "ما بعد خيبر",
+            "titleEn": "After Khaybar",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان فتح خيبر تحولًا في ميزان القوى بعد الحديبية، وارتبطت المرحلة أيضًا بعودة مهاجرين من الحبشة.",
+                "en": "Khaybar further shifted the regional balance after Hudaybiyyah, and the period was also associated with the return of Muslim migrants from Abyssinia.",
+                "citationIds": [
+                  "quran-48-18-20",
+                  "bukhari-khaybar"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "umrat_al_qada",
+        "titleAr": "عمرة القضاء",
+        "titleEn": "The compensatory Umrah",
+        "summaryAr": "دخول المسلمين مكة للعمرة في العام التالي للحديبية وفق شروط الصلح.",
+        "summaryEn": "The Muslims enter Mecca for Umrah the year after Hudaybiyyah in accordance with the treaty.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "khaybar",
+          "mutah"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-umrat-qada",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Military Expeditions: the compensatory Umrah"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "entry",
+            "titleAr": "الدخول إلى مكة",
+            "titleEn": "Entering Mecca",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دخل النبي ﷺ وأصحابه مكة لأداء العمرة وفق ما نص عليه صلح الحديبية، بعد أن كانوا قد مُنعوا منها في العام السابق.",
+                "en": "The Prophet ﷺ and his companions entered Mecca for Umrah according to the Hudaybiyyah terms after having been prevented the previous year.",
+                "citationIds": [
+                  "bukhari-umrat-qada"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "meaning",
+            "titleAr": "هدنة تعمل عمليًا",
+            "titleEn": "The truce in practice",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أظهر الحدث أن الهدنة فتحت بابًا للتواصل والحركة بين مكة والمدينة وأعطت المسلمين حضورًا علنيًا في مكة دون قتال.",
+                "en": "The event demonstrated the practical effect of the truce by enabling movement and contact between Mecca and Medina and a public Muslim presence in Mecca without fighting.",
+                "citationIds": [
+                  "bukhari-umrat-qada"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mutah",
+        "titleAr": "غزوة مؤتة",
+        "titleEn": "The Battle of Mu'tah",
+        "summaryAr": "مواجهة قرب أطراف الشام بعد مقتل رسول بعثه النبي ﷺ.",
+        "summaryEn": "A battle near the Syrian frontier following the killing of an envoy sent by the Prophet ﷺ.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "umrat_al_qada",
+          "conquest_mecca"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-mutah",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Military Expeditions: Battle of Mu'tah"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "commanders",
+            "titleAr": "القادة الثلاثة",
+            "titleEn": "The three commanders",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عيّن النبي ﷺ زيد بن حارثة ثم جعفر بن أبي طالب ثم عبد الله بن رواحة رضي الله عنهم للقيادة على الترتيب، فاستشهدوا في القتال.",
+                "en": "The Prophet ﷺ appointed Zayd ibn Harithah, then Ja'far ibn Abi Talib, then Abdullah ibn Rawahah as commanders in sequence, and all three were killed in the battle.",
+                "citationIds": [
+                  "bukhari-mutah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "withdrawal",
+            "titleAr": "قيادة خالد والعودة",
+            "titleEn": "Khalid's command and withdrawal",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تولى خالد بن الوليد رضي الله عنه القيادة بعدهم ونظم انسحاب الجيش وعودته إلى المدينة.",
+                "en": "Khalid ibn al-Walid assumed command afterward, reorganized the force, and brought the army back to Medina.",
+                "citationIds": [
+                  "bukhari-mutah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "conquest_mecca",
+        "titleAr": "فتح مكة",
+        "titleEn": "The conquest of Mecca",
+        "summaryAr": "دخول النبي ﷺ مكة في السنة الثامنة للهجرة بعد انهيار صلح الحديبية.",
+        "summaryEn": "The Prophet ﷺ enters Mecca in the eighth year after Hijrah after the Hudaybiyyah settlement breaks down.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "conquest",
+          "hunayn"
+        ],
+        "citations": [
+          {
+            "id": "quran-110-1-3",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "110:1-3"
+          },
+          {
+            "id": "bukhari-conquest-mecca",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Military Expeditions: Conquest of Mecca"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "entry",
+            "titleAr": "دخول مكة",
+            "titleEn": "Entering Mecca",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "خرج النبي ﷺ بجيش كبير بعد انتهاك التحالف المرتبط بالحديبية، ودخل مكة مع مقاومة محدودة مقارنة بحجم القوة.",
+                "en": "The Prophet ﷺ marched with a large force after the alliance connected to Hudaybiyyah was violated and entered Mecca with relatively limited resistance.",
+                "citationIds": [
+                  "bukhari-conquest-mecca"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "amnesty",
+            "titleAr": "العفو وإزالة الأصنام",
+            "titleEn": "Amnesty and removal of idols",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ارتبط الفتح بإزالة الأصنام من حول الكعبة وبإعلان أمان واسع لقطاعات كبيرة من أهل مكة، ثم دخل الناس في الإسلام بأعداد متزايدة.",
+                "en": "The conquest included removal of idols around the Kaaba and broad grants of safety to many Meccans, after which Islam spread rapidly among the population.",
+                "citationIds": [
+                  "bukhari-conquest-mecca",
+                  "quran-110-1-3"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hunayn",
+        "titleAr": "غزوة حنين",
+        "titleEn": "The Battle of Hunayn",
+        "summaryAr": "مواجهة مع هوازن وثقيف بعد فتح مكة مباشرة.",
+        "summaryEn": "A confrontation with Hawazin and Thaqif shortly after the conquest of Mecca.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "conquest_mecca",
+          "siege_taif"
+        ],
+        "citations": [
+          {
+            "id": "quran-9-25-27",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:25-27"
+          },
+          {
+            "id": "bukhari-hunayn",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Military Expeditions: Hunayn"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "ambush",
+            "titleAr": "المباغتة في الوادي",
+            "titleEn": "Ambush in the valley",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعرض المسلمون في بداية حنين لهجوم مباغت أدى إلى اضطراب الصفوف رغم كثرة العدد، ثم ثبت النبي ﷺ ومن معه وأعيد تنظيم الجيش.",
+                "en": "At the beginning of Hunayn, the Muslims were caught by surprise and their ranks broke despite their numbers; the Prophet ﷺ and those around him remained firm and the army regrouped.",
+                "citationIds": [
+                  "quran-9-25-27",
+                  "bukhari-hunayn"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "outcome",
+            "titleAr": "النصر والغنائم",
+            "titleEn": "Victory and spoils",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "انتهت المعركة بانتصار المسلمين ثم ترتبت عليها مسائل في الأسرى والغنائم والمصالحة مع من دخل في الإسلام بعد ذلك.",
+                "en": "The battle ended in Muslim victory and was followed by questions concerning captives, spoils, and reconciliation with groups that later entered Islam.",
+                "citationIds": [
+                  "bukhari-hunayn"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "siege_taif",
+        "titleAr": "حصار الطائف بعد حنين",
+        "titleEn": "The siege of Ta'if after Hunayn",
+        "summaryAr": "محاولة إخضاع ثقيف بعد حنين ثم رفع الحصار وترك الباب للدعوة.",
+        "summaryEn": "An attempt to subdue Thaqif after Hunayn, followed by lifting the siege and leaving room for later reconciliation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hunayn",
+          "year_delegations"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-taif-siege",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Military Expeditions: siege of Ta'if"
+          },
+          {
+            "id": "ih-taif-siege",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Siege of Ta'if after Hunayn"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "siege",
+            "titleAr": "الحصار",
+            "titleEn": "The siege",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تبع النبي ﷺ قوات ثقيف إلى الطائف وحاصرها مدة، لكن الحصون صعبت الاقتحام ولم يرَ الاستمرار في الحصار.",
+                "en": "The Prophet ﷺ followed Thaqif's forces to Ta'if and besieged the city for a period, but its fortifications made an assault difficult and the siege was eventually lifted.",
+                "citationIds": [
+                  "bukhari-taif-siege"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "later",
+            "titleAr": "إسلام ثقيف لاحقًا",
+            "titleEn": "Thaqif later accepts Islam",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لم يكن رفع الحصار نهاية العلاقة؛ فقد جاء وفد ثقيف بعد ذلك إلى المدينة ودخلت القبيلة في الإسلام.",
+                "en": "Lifting the siege did not end relations; a delegation from Thaqif later came to Medina and the tribe accepted Islam.",
+                "citationIds": [
+                  "ih-taif-siege"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tabuk",
+        "titleAr": "غزوة تبوك",
+        "titleEn": "The expedition to Tabuk",
+        "summaryAr": "خروج كبير إلى شمال الجزيرة في السنة التاسعة للهجرة في ظروف حر وشدة.",
+        "summaryEn": "A major expedition toward northern Arabia in the ninth year after Hijrah under difficult conditions.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "siege_taif",
+          "year_delegations"
+        ],
+        "citations": [
+          {
+            "id": "quran-9-38-52",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:38-52"
+          },
+          {
+            "id": "quran-9-117-118",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:117-118"
+          },
+          {
+            "id": "bukhari-tabuk",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Military Expeditions: Tabuk"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "mobilization",
+            "titleAr": "جيش العسرة",
+            "titleEn": "The army of hardship",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دعا النبي ﷺ إلى الخروج في وقت شدة وحر وبعد مسافة، فجهز المسلمون جيشًا كبيرًا واتجهوا إلى تبوك.",
+                "en": "The Prophet ﷺ called the Muslims to mobilize during heat, scarcity, and a long journey; a large force was prepared and moved toward Tabuk.",
+                "citationIds": [
+                  "quran-9-38-52",
+                  "bukhari-tabuk"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "return",
+            "titleAr": "العودة وقصة الثلاثة",
+            "titleEn": "Return and the three who stayed behind",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لم تقع معركة كبرى في تبوك، وعند العودة برزت قضية الذين تخلفوا بلا عذر، ومنهم الثلاثة الذين قبل الله توبتهم كما تذكر سورة التوبة.",
+                "en": "No major battle occurred at Tabuk. On return, attention turned to those who stayed behind without excuse, including the three whose repentance is mentioned in Surat al-Tawbah.",
+                "citationIds": [
+                  "quran-9-117-118"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "year_delegations",
+        "titleAr": "عام الوفود",
+        "titleEn": "The Year of Delegations",
+        "summaryAr": "تتابع وفود القبائل إلى المدينة بعد اتساع نفوذ الإسلام في الجزيرة.",
+        "summaryEn": "Tribal delegations arrive in Medina as Islam's influence expands across Arabia.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "tabuk",
+          "farewell_pilgrimage_detail"
+        ],
+        "citations": [
+          {
+            "id": "ih-delegations",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Delegations to Medina in the ninth year"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "delegations",
+            "titleAr": "وفود القبائل",
+            "titleEn": "Tribal delegations",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "جاءت وفود كثيرة إلى المدينة تفاوض وتتعلم الإسلام وتعلن دخول قبائلها فيه أو ترتب علاقتها بالدولة النبوية.",
+                "en": "Many delegations came to Medina to negotiate, learn about Islam, declare their tribes' acceptance of it, or establish relations with the Prophetic polity.",
+                "citationIds": [
+                  "ih-delegations"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "teaching",
+            "titleAr": "التعليم وإرسال المعلمين",
+            "titleEn": "Teaching and instructors",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان النبي ﷺ يجيب عن أسئلة الوفود ويرسل معلمين وولاة إلى مناطق مختلفة، فتوسعت شبكة التعليم والإدارة.",
+                "en": "The Prophet ﷺ answered delegations' questions and sent teachers and administrators to different regions, expanding networks of religious teaching and governance.",
+                "citationIds": [
+                  "ih-delegations"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "farewell_pilgrimage_detail",
+        "titleAr": "حجة الوداع بالتفصيل",
+        "titleEn": "The Farewell Pilgrimage in detail",
+        "summaryAr": "حج النبي ﷺ في السنة العاشرة وتعليمه الناس المناسك وخطبته الجامعة.",
+        "summaryEn": "The Prophet ﷺ performs Hajj in the tenth year and teaches the rites and broad ethical principles to the community.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "farewell",
+          "final_illness_death"
+        ],
+        "citations": [
+          {
+            "id": "quran-5-3",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:3"
+          },
+          {
+            "id": "muslim-farewell-hajj",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Book of Hajj: Jabir's narration of the Farewell Pilgrimage"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "rites",
+            "titleAr": "تعليم المناسك",
+            "titleEn": "Teaching the rites",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "روى جابر رضي الله عنه وصفًا مفصلًا لحج النبي ﷺ، فصار من أهم النصوص في معرفة ترتيب المناسك وأعمال عرفة ومزدلفة ومنى.",
+                "en": "Jabir narrated a detailed account of the Prophet's ﷺ Hajj, becoming one of the most important reports for understanding the sequence of rites at Arafah, Muzdalifah, and Mina.",
+                "citationIds": [
+                  "muslim-farewell-hajj"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sermon",
+            "titleAr": "المعاني الجامعة",
+            "titleEn": "Broad principles",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشتملت خطب الحج على تأكيد حرمة الدماء والأموال والحقوق، ورد المظالم الجاهلية، والوصية بالتمسك بهدي الدين.",
+                "en": "The pilgrimage sermons emphasized the sanctity of life and property, rights and responsibilities, the ending of unjust pre-Islamic practices, and adherence to religious guidance.",
+                "citationIds": [
+                  "muslim-farewell-hajj",
+                  "quran-5-3"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "final_illness_death",
+        "titleAr": "مرض النبي ﷺ ووفاته ودفنه",
+        "titleEn": "The Prophet's final illness, death, and burial",
+        "summaryAr": "الأيام الأخيرة من حياته ﷺ وانتقال القيادة إلى مرحلة ما بعد النبوة.",
+        "summaryEn": "The final days of the Prophet's ﷺ life and the community's transition to the post-Prophetic period.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "farewell",
+          "family",
+          "character_qualities"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-final-illness",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Illness: the Prophet's final illness and death"
+          },
+          {
+            "id": "bukhari-death-abu-bakr",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Companions: Abu Bakr's address after the Prophet's death"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "illness",
+            "titleAr": "المرض الأخير",
+            "titleEn": "The final illness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشتد مرض النبي ﷺ في أواخر صفر وأوائل ربيع الأول من السنة الحادية عشرة للهجرة، وأقام في بيت عائشة رضي الله عنها بإذن زوجاته.",
+                "en": "The Prophet's ﷺ illness intensified near the end of Safar and beginning of Rabi al-Awwal in the eleventh year after Hijrah, and he stayed in Aisha's room with the agreement of his wives.",
+                "citationIds": [
+                  "bukhari-final-illness"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "death",
+            "titleAr": "الوفاة وثبات المجتمع",
+            "titleEn": "Death and communal steadiness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "توفي ﷺ في المدينة، فكان وقع الخبر شديدًا على الصحابة حتى ذكّرهم أبو بكر بأن العبادة لله وحده وأن محمدًا رسول قد مضى.",
+                "en": "He ﷺ died in Medina, deeply shocking the companions until Abu Bakr reminded them that worship belongs to God alone and that Muhammad was a messenger who had passed away.",
+                "citationIds": [
+                  "bukhari-death-abu-bakr"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "physical_description",
+        "titleAr": "صفته الخَلقية ﷺ",
+        "titleEn": "The Prophet's physical description",
+        "summaryAr": "وصف عام لما نقله الصحابة من شمائله الخَلقية دون مبالغة أو تمثيل تصويري.",
+        "summaryEn": "A general account of the Prophet's ﷺ physical description as transmitted by companions, without exaggeration or visual reconstruction.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "character_qualities",
+          "worship_character"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-description",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues: descriptions of the Prophet"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "appearance",
+            "titleAr": "الهيئة العامة",
+            "titleEn": "General appearance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نقلت كتب الحديث أوصافًا لهيئته ﷺ من توسط القامة وحسن الوجه والشعر واللحية وغيرها، مع اختلاف الروايات في بعض التفصيلات.",
+                "en": "Hadith sources transmit descriptions of his ﷺ appearance, including medium stature, a handsome face, hair, and beard, while some details vary across narrations.",
+                "citationIds": [
+                  "bukhari-description"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "limits",
+            "titleAr": "حدود الوصف",
+            "titleEn": "Limits of description",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المقصود من الشمائل معرفة ما ثبت من أوصافه، لا إنشاء صورة يقينية لتفاصيل لم تحفظها الروايات.",
+                "en": "The purpose of these descriptions is to know what reliable reports preserve, not to construct a supposedly exact visual image from details the sources do not establish.",
+                "citationIds": [
+                  "bukhari-description"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "worship_character",
+        "titleAr": "عبادته ﷺ",
+        "titleEn": "The Prophet's worship",
+        "summaryAr": "ملامح من صلاته وذكره وصيامه وقيامه كما نقلها أهل بيته وأصحابه.",
+        "summaryEn": "Features of his prayer, remembrance, fasting, and night worship as reported by family and companions.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "character_qualities",
+          "physical_description",
+          "family_life"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-night-prayer",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Night Prayer: the Prophet's worship"
+          },
+          {
+            "id": "muslim-worship",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Prayer and fasting: reports of the Prophet's worship"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "balance",
+            "titleAr": "الاجتهاد مع الاعتدال",
+            "titleEn": "Devotion with balance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان ﷺ يجتهد في الصلاة والذكر والصيام، ويعلم أصحابه أن للبدن والأهل والنفس حقوقًا وأن العبادة لا تقوم على تكليف النفس بما لا تطيق.",
+                "en": "He ﷺ devoted himself to prayer, remembrance, and fasting while teaching that the body, family, and self have rights and that worship should not be pursued in a way that breaks a person.",
+                "citationIds": [
+                  "bukhari-night-prayer"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gratitude",
+            "titleAr": "العبادة شكرًا لله",
+            "titleEn": "Worship as gratitude",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف الأحاديث قيامه الطويل حتى تتفطر قدماه، وبيانه أن ذلك من شكره لله.",
+                "en": "Hadith reports describe his long night prayer to the point that his feet became swollen, explaining that this devotion was an expression of gratitude to God.",
+                "citationIds": [
+                  "bukhari-night-prayer"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mercy_children",
+        "titleAr": "رحمته بالأطفال والضعفاء",
+        "titleEn": "His mercy toward children and vulnerable people",
+        "summaryAr": "أمثلة من رحمته ﷺ بالأطفال ومراعاته أحوال المصلين والضعفاء.",
+        "summaryEn": "Examples of the Prophet's ﷺ mercy toward children and consideration for worshippers and vulnerable people.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "character_qualities",
+          "family_life"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-mercy-children",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Manners and Prayer: mercy toward children"
+          },
+          {
+            "id": "muslim-mercy-children",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Virtues: affection toward children"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "children",
+            "titleAr": "ملاطفة الأطفال",
+            "titleEn": "Kindness to children",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نقلت السنة حمله الأطفال وتقبيلهم وملاطفتهم، وإنكاره على من ظن أن الرحمة بهم ضعف.",
+                "en": "The Sunnah records him carrying, kissing, and gently interacting with children and rejecting the idea that affection toward them was a weakness.",
+                "citationIds": [
+                  "bukhari-mercy-children",
+                  "muslim-mercy-children"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "prayer",
+            "titleAr": "مراعاة الناس في الصلاة",
+            "titleEn": "Consideration in prayer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان يخفف الصلاة أحيانًا إذا سمع بكاء طفل مراعاةً لأمه، وهو مثال على الجمع بين العبادة والرحمة بالناس.",
+                "en": "He sometimes shortened congregational prayer on hearing a child cry out of concern for the mother, illustrating how worship and consideration for people were joined.",
+                "citationIds": [
+                  "bukhari-mercy-children"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "family_life",
+        "titleAr": "حياته ﷺ داخل بيته",
+        "titleEn": "The Prophet's family life",
+        "summaryAr": "ملامح من تعامله مع أسرته وخدمته في بيته ومشاركته في الحياة اليومية.",
+        "summaryEn": "Features of his conduct with family, service at home, and participation in ordinary household life.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "family",
+          "wives_household",
+          "worship_character"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-home-service",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Manners: service of his family at home"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "service",
+            "titleAr": "في مهنة أهله",
+            "titleEn": "Serving at home",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "سئلت عائشة رضي الله عنها عن عمله في بيته فذكرت أنه كان يكون في مهنة أهله، فإذا حضرت الصلاة خرج إليها.",
+                "en": "Aisha was asked what he did at home and reported that he would serve his family, then go out for prayer when its time came.",
+                "citationIds": [
+                  "bukhari-home-service"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "companionship",
+            "titleAr": "المعاشرة بالمعروف",
+            "titleEn": "Good companionship",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تظهر الروايات جوانب من الحوار والمزاح المباح والرفق والصبر داخل البيت، مع كون الأسرة النبوية عاشت كذلك تحديات بشرية واقعية.",
+                "en": "Reports show conversation, permissible humor, gentleness, and patience within the household, while the Prophetic family also experienced real human challenges.",
+                "citationIds": [
+                  "bukhari-home-service"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "leadership_shura",
+        "titleAr": "الشورى والقيادة",
+        "titleEn": "Consultation and leadership",
+        "summaryAr": "اعتماد المشاورة في مواقف متعددة مع بقاء مسؤوليته ﷺ في اتخاذ القرار.",
+        "summaryEn": "Consultation in many situations while the Prophet ﷺ retained responsibility for final decisions.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "character_qualities",
+          "badr",
+          "uhud"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-159",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:159"
+          },
+          {
+            "id": "ih-consultation",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Consultation in military and civic decisions"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "principle",
+            "titleAr": "«وشاورهم في الأمر»",
+            "titleEn": "Consult them in affairs",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أمر القرآن النبي ﷺ بالمشاورة، وظهر ذلك في مواقف مدنية وعسكرية متعددة قبل اتخاذ القرار.",
+                "en": "The Quran instructed the Prophet ﷺ to consult his companions, and this appears in numerous civic and military situations before decisions were made.",
+                "citationIds": [
+                  "quran-3-159"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "responsibility",
+            "titleAr": "المشاورة والعزم",
+            "titleEn": "Consultation and resolve",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تربط الآية المشاورة بالعزم والتوكل، فالشورى تجمع سماع الرأي مع تحمل مسؤولية القرار والتنفيذ.",
+                "en": "The verse links consultation with resolve and trust in God, combining openness to advice with responsibility for decision and implementation.",
+                "citationIds": [
+                  "quran-3-159"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "simplicity_humility",
+        "titleAr": "تواضعه وبساطة عيشه ﷺ",
+        "titleEn": "His humility and simple living",
+        "summaryAr": "ملامح من بساطة حياته الشخصية وبعده عن التكلف والترف رغم مكانته.",
+        "summaryEn": "Features of his simple personal life and avoidance of ostentation despite his status.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "character_qualities",
+          "family_life"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-simple-living",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Food and manners: simple living of the Prophet"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "living",
+            "titleAr": "بساطة المعيشة",
+            "titleEn": "Simple living",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف روايات صحيحة أوقاتًا مرت على بيوت النبي ﷺ بقلة الطعام والزاد، مع ما كان يرد إليه أحيانًا من أموال ينفق جانبًا كبيرًا منها.",
+                "en": "Authentic reports describe periods when the Prophet's ﷺ households had little food, even though wealth sometimes came to him and much of it was distributed.",
+                "citationIds": [
+                  "bukhari-simple-living"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "humility",
+            "titleAr": "التواضع في التعامل",
+            "titleEn": "Humility in conduct",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان يجلس مع أصحابه ويخدم أهله ويقبل دعوة البسيط، ولم يجعل النبوة سببًا للتعالي الاجتماعي.",
+                "en": "He sat among his companions, served his family, and accepted the invitations of ordinary people, not treating prophethood as grounds for social arrogance.",
+                "citationIds": [
+                  "bukhari-simple-living"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wives_household",
+        "titleAr": "أمهات المؤمنين",
+        "titleEn": "The Mothers of the Believers",
+        "summaryAr": "نظرة جامعة إلى زوجات النبي ﷺ ومكانتهن في نقل العلم وحياة البيت النبوي.",
+        "summaryEn": "An overview of the Prophet's ﷺ wives and their role in transmitting knowledge and preserving details of the Prophetic household.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "family",
+          "family_life",
+          "children_grandchildren"
+        ],
+        "citations": [
+          {
+            "id": "quran-33-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:6"
+          },
+          {
+            "id": "quran-33-28-34",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:28-34"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "status",
+            "titleAr": "مكانتهن",
+            "titleEn": "Their status",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يسمي القرآن زوجات النبي ﷺ أمهات المؤمنين، ولهن أحكام ومكانة خاصة مرتبطة ببيت النبوة.",
+                "en": "The Quran calls the Prophet's ﷺ wives 'Mothers of the Believers,' giving them a distinct status and responsibilities connected with the Prophetic household.",
+                "citationIds": [
+                  "quran-33-6"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "knowledge",
+            "titleAr": "نقل العلم",
+            "titleEn": "Transmission of knowledge",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أسهمت أمهات المؤمنين، وفي مقدمتهن عائشة رضي الله عنها، في نقل عدد كبير من تفاصيل العبادة والأسرة والأحكام التي لا يطلع عليها غير أهل البيت.",
+                "en": "The Mothers of the Believers, especially Aisha, transmitted many details of worship, family life, and rulings that were particularly known within the household.",
+                "citationIds": [
+                  "quran-33-28-34"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "children_grandchildren",
+        "titleAr": "أولاده وأحفاده ﷺ",
+        "titleEn": "His children and grandchildren",
+        "summaryAr": "تعريف موجز بأولاده ﷺ وصلته بأحفاده وما نقل من رحمته بهم.",
+        "summaryEn": "A concise overview of the Prophet's ﷺ children, grandchildren, and the affection he showed them.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "family",
+          "wives_household",
+          "mercy_children"
+        ],
+        "citations": [
+          {
+            "id": "ih-children",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "Children of the Prophet"
+          },
+          {
+            "id": "bukhari-grandchildren",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues and manners: Hasan and Husayn"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "children",
+            "titleAr": "أولاده",
+            "titleEn": "His children",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان للنبي ﷺ أبناء وبنات، أكثرهم من خديجة رضي الله عنها، وتوفي أبناؤه الذكور في حياته، وبقيت ذريته من جهة فاطمة رضي الله عنها.",
+                "en": "The Prophet ﷺ had sons and daughters, most through Khadijah. His sons died during his lifetime, and his surviving lineage continued through Fatimah.",
+                "citationIds": [
+                  "ih-children"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "grandchildren",
+            "titleAr": "الحسن والحسين وغيرهما",
+            "titleEn": "His grandchildren",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنقل السنة محبته لأحفاده وحمله لهم وملاطفته إياهم، ومن أشهرهم الحسن والحسين رضي الله عنهما.",
+                "en": "The Sunnah records his affection for his grandchildren, carrying and playing with them; among the best known are Hasan and Husayn.",
+                "citationIds": [
+                  "bukhari-grandchildren"
+                ]
               }
             ]
           }
