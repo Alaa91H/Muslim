@@ -268,6 +268,34 @@
       "attribution": "Stories of the Prophets content bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed by this migration or expansion. All migrated and newly expanded topics remain marked NeedsReview pending article-level scholarly review.",
       "notes": "Schema v2 preserves all 21 legacy Prophets topics verbatim and expands the book to 65 topics, 140 sections, and 190 bilingual paragraphs across 9 thematic/chronological chapters."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_companions_v2_json": {
+      "source": "Project-authored Companion biographies based on structured Quran/Hadith references and named classical biographical works such as Ibn Hajar's al-Isaba and Ibn Sa'd's al-Tabaqat.",
+      "licence": "Project source licence; the JSON contains project-authored summaries and bibliographic metadata.",
+      "attribution": "Companions of the Prophet reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. All topics are marked NeedsReview pending article-level scholarly review.",
+      "notes": "Introduces a dedicated, bilingual Companions book with migration, knowledge, transmission, service, leadership, and women-Companion chapters."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_mothers_v2_json": {
+      "source": "Project-authored Mothers of the Believers biographies based on Quran, hadith, and classical biographical references.",
+      "licence": "Project source licence; the JSON contains project-authored summaries and bibliographic metadata.",
+      "attribution": "Mothers of the Believers reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. All topics are marked NeedsReview pending article-level scholarly review.",
+      "notes": "Covers the Quranic status of the Mothers of the Believers and individual biographies of the eleven wives represented in the corpus."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_ahl_al_bayt_v2_json": {
+      "source": "Project-authored Ahl al-Bayt reference content based on Quran, hadith, and classical biographical sources, with explicit notes where the scope of the term varies by context.",
+      "licence": "Project source licence; the JSON contains project-authored summaries and bibliographic metadata.",
+      "attribution": "Ahl al-Bayt reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. All topics are marked NeedsReview pending article-level scholarly review.",
+      "notes": "Introduces a dedicated Ahl al-Bayt book with a source-aware treatment of terminology, the People of the Cloak, and selected household biographies."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_rashidun_v2_json": {
+      "source": "Project-authored early-caliphate history using Quran/Hadith where directly relevant, classical historical works, and modern reference material; contested political interpretations are explicitly presented as disputed.",
+      "licence": "Project source licence; the JSON contains project-authored summaries and bibliographic metadata.",
+      "attribution": "Rashidun Caliphs reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. All topics are marked NeedsReview pending article-level scholarly and historical review.",
+      "notes": "Introduces a neutral, source-aware overview of succession, the four early caliphates, Quran collection/codex history, the First Fitna, and the transition after Ali."
     }
   }
 }
