@@ -126,6 +126,8 @@ def main() -> None:
     require("ScholarLibraryScreen" in navigation, "library screen must be reachable")
     require("SCHOLAR_LIBRARY_PATH_ROUTE" in navigation, "study path route must be registered")
     require("ScholarStudyPathScreen" in navigation, "study path screen must be reachable")
+    require("SCHOLAR_LIBRARY_AUTHORS_ROUTE" in navigation, "author directory route must be registered")
+    require("ScholarAuthorsScreen" in navigation, "author directory screen must be reachable")
     require(POLICY.exists(), "content policy document must be present")
 
     print(
