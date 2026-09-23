@@ -30,26 +30,25 @@ class GithubReleasesClient @Inject constructor(
         channel: String = AppPreferences.UPDATE_CHANNEL_STABLE,
     ): ReleaseInfo? = withContext(Dispatchers.IO) {
         runCatching {
-            val json = if (channel == AppPreferences.UPDATE_CHANNEL_BETA) {
-                fetchLatestBetaInclusiveRelease()
-            } else {
-                fetchObject(LATEST_RELEASE_URL)
-            } ?: return@withContext null
+            if (channel == AppPreferences.UPDATE_CHANNEL_BETA) {
+                val releases = fetchReleaseList() ?: return@withContext null
+                for (i in 0 until releases.length()) {
+                    val release = releases.getJSONObject(i)
+                    if (release.optBoolean("draft", false)) continue
+                    parseRelease(release)?.let { return@withContext it }
+                }
+                return@withContext null
+            }
 
-            parseRelease(json)
+            fetchObject(LATEST_RELEASE_URL)?.let(::parseRelease)
         }.getOrNull()
     }
 
-    private fun fetchLatestBetaInclusiveRelease(): JSONObject? {
+    private fun fetchReleaseList(): JSONArray? {
         val request = githubRequest(RELEASES_URL)
         return client.newCall(request).execute().use { response ->
             if (!response.isSuccessful) return null
-            val releases = JSONArray(response.body?.string().orEmpty())
-            for (i in 0 until releases.length()) {
-                val release = releases.getJSONObject(i)
-                if (!release.optBoolean("draft", false)) return release
-            }
-            null
+            JSONArray(response.body?.string().orEmpty())
         }
     }
 
@@ -61,7 +60,7 @@ class GithubReleasesClient @Inject constructor(
         }
     }
 
-    private fun parseRelease(json: JSONObject): ReleaseInfo {
+    private fun parseRelease(json: JSONObject): ReleaseInfo? {
         val assets = json.optJSONArray("assets")
         var selectedApk: JSONObject? = null
         var manifestAsset: JSONObject? = null
@@ -94,9 +93,13 @@ class GithubReleasesClient @Inject constructor(
             }
         }
 
+        val selected = selectedApk ?: return null
+        val apkUrl = selected.optString("browser_download_url").takeIf(String::isNotBlank)
+            ?: return null
         val tagName = json.optString("tag_name")
         val version = tagName.removePrefix("v")
-        val selectedApkName = selectedApk?.optString("name").orEmpty()
+        if (version.isBlank()) return null
+        val selectedApkName = selected.optString("name")
         val manifest = manifestAsset
             ?.optString("browser_download_url")
             ?.takeIf(String::isNotBlank)
@@ -112,10 +115,8 @@ class GithubReleasesClient @Inject constructor(
             tagName = tagName,
             name = json.optString("name"),
             body = json.optString("body"),
-            apkUrl = selectedApk
-                ?.optString("browser_download_url")
-                ?.takeIf(String::isNotBlank),
-            apkSizeBytes = selectedApk?.optLong("size", 0L) ?: 0L,
+            apkUrl = apkUrl,
+            apkSizeBytes = selected.optLong("size", 0L),
             versionCode = manifest?.versionCode,
             apkSha256 = manifest?.apkSha256,
             minSdk = manifest?.minSdk?.takeIf { it > 0 },
