@@ -228,6 +228,25 @@ PRODUCTION_SOURCE_DIRECTORIES = (
     "wear/src/main/java",
 )
 
+DECORATED_TOP_LEVEL_SCREENS = (
+    "app/src/main/java/org/muslim/app/ui/MoreOrderScreen.kt",
+    "feature/feature-adhkar/src/main/java/org/muslim/app/feature/adhkar/ui/AdhkarCustomizeScreen.kt",
+    "feature/feature-adhkar/src/main/java/org/muslim/app/feature/adhkar/ui/AdhkarSettingsScreen.kt",
+    "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/FuneralWillScreen.kt",
+    "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/HajjUmrahScreen.kt",
+    "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/NamesOfAllahScreen.kt",
+    "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/NooraniNewMuslimScreen.kt",
+    "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/SacredSitesMapScreen.kt",
+    "feature/feature-reference/src/main/java/org/muslim/app/feature/reference/ui/IslamicHistoryScreen.kt",
+    "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/AboutScreen.kt",
+    "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/AccessibilityScreen.kt",
+    "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/NotificationSettingsScreen.kt",
+    "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/PermissionsScreen.kt",
+    "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/PrivacyScreen.kt",
+    "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/SmartDevicesScreen.kt",
+    "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/update/UpdateScreen.kt",
+)
+
 FORBIDDEN_SNIPPETS = {
     "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/QuranReaderScreen.kt": [
         "MUSHAF_ORNAMENT",
@@ -296,6 +315,21 @@ def verify() -> list[str]:
             for asset in resource_directory.rglob(f"*{retired}*"):
                 failures.append(
                     f"retired icon resource remains packaged: {asset.relative_to(ROOT)}",
+                )
+
+    for relative in DECORATED_TOP_LEVEL_SCREENS:
+        text = (ROOT / relative).read_text(encoding="utf-8")
+        if "MuslimAppScaffold(" not in text:
+            failures.append(
+                f"{relative}: top-level screen must use MuslimAppScaffold",
+            )
+
+    for source_root in (ROOT / "app/src/main/java", ROOT / "feature"):
+        for source in source_root.rglob("*Screen.kt"):
+            text = source.read_text(encoding="utf-8")
+            if "import androidx.compose.material3.Scaffold" in text:
+                failures.append(
+                    f"{source.relative_to(ROOT)}: use MuslimAppScaffold instead of Material3 Scaffold",
                 )
 
     for relative_directory in PRODUCTION_SOURCE_DIRECTORIES:
