@@ -23,6 +23,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Notes
 import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.Checklist
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.DeleteOutline
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
@@ -47,6 +48,7 @@ import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -71,10 +73,12 @@ import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.learn.R
+import org.muslim.app.feature.learn.data.FuneralWillIntroVisibility
 import org.muslim.app.feature.learn.domain.FuneralContent
 import org.muslim.app.feature.learn.domain.FuneralGuideSection
 import org.muslim.app.feature.learn.domain.LocalizedFuneralText
 import org.muslim.app.feature.learn.domain.WillDraft
+import org.muslim.app.feature.learn.domain.WillEducationSection
 
 private enum class FuneralWillTab(val icon: ImageVector) {
     Will(Icons.AutoMirrored.Filled.Notes),
@@ -121,6 +125,7 @@ fun FuneralWillScreen(
 ) {
     val isArabic = AppLanguage.isArabicUi()
     val storedDraft by viewModel.draft.collectAsStateWithLifecycle()
+    val introVisibility by viewModel.introVisibility.collectAsStateWithLifecycle()
     var draft by rememberSaveable(stateSaver = WillDraftSaver) { mutableStateOf(WillDraft()) }
     var selectedTab by rememberSaveable { mutableIntStateOf(FuneralWillTab.Will.ordinal) }
     var showClearConfirmation by rememberSaveable { mutableStateOf(false) }
@@ -142,7 +147,9 @@ fun FuneralWillScreen(
                         viewModel.clear()
                         showClearConfirmation = false
                     },
-                ) { Text(stringResource(R.string.funeral_will_clear_confirm)) }
+                ) {
+                    Text(stringResource(R.string.funeral_will_clear_confirm))
+                }
             },
             dismissButton = {
                 OutlinedButton(onClick = { showClearConfirmation = false }) {
@@ -159,7 +166,10 @@ fun FuneralWillScreen(
                 title = { Text(stringResource(R.string.funeral_will_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.funeral_will_back))
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.funeral_will_back),
+                        )
                     }
                 },
             )
@@ -182,11 +192,17 @@ fun FuneralWillScreen(
                 FuneralWillTab.Will -> WillDraftContent(
                     draft = draft,
                     isArabic = isArabic,
+                    introVisibility = introVisibility,
                     onDraftChange = { draft = it },
                     onSave = { viewModel.save(draft) },
                     onShare = { shareWillDraft(context, draft, isArabic) },
                     onClear = { showClearConfirmation = true },
+                    onDismissDraftIntro = viewModel::dismissDraftIntro,
+                    onDismissLegalNotice = viewModel::dismissLegalNotice,
+                    onDismissPrivacyNotice = viewModel::dismissPrivacyNotice,
+                    onRestoreIntroCards = viewModel::restoreIntroCards,
                 )
+
                 FuneralWillTab.FuneralGuide -> FuneralGuideContent(isArabic = isArabic)
             }
         }
@@ -211,7 +227,13 @@ private fun FuneralWillTabs(
                         },
                     )
                 },
-                icon = { Icon(tab.icon, contentDescription = null, modifier = Modifier.size(18.dp)) },
+                icon = {
+                    Icon(
+                        tab.icon,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp),
+                    )
+                },
             )
         }
     }
@@ -221,32 +243,82 @@ private fun FuneralWillTabs(
 private fun WillDraftContent(
     draft: WillDraft,
     isArabic: Boolean,
+    introVisibility: FuneralWillIntroVisibility,
     onDraftChange: (WillDraft) -> Unit,
     onSave: () -> Unit,
     onShare: () -> Unit,
     onClear: () -> Unit,
+    onDismissDraftIntro: () -> Unit,
+    onDismissLegalNotice: () -> Unit,
+    onDismissPrivacyNotice: () -> Unit,
+    onRestoreIntroCards: () -> Unit,
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
-        willDraftIntroduction(isArabic)
+        willDraftIntroduction(
+            isArabic = isArabic,
+            visibility = introVisibility,
+            onDismissDraftIntro = onDismissDraftIntro,
+            onDismissLegalNotice = onDismissLegalNotice,
+            onDismissPrivacyNotice = onDismissPrivacyNotice,
+            onRestoreIntroCards = onRestoreIntroCards,
+        )
         willDraftFields(draft, onDraftChange)
         willDraftActions(draft, onSave, onShare, onClear)
     }
 }
 
-private fun LazyListScope.willDraftIntroduction(isArabic: Boolean) {
-    item {
-        IntroCard(
-            icon = Icons.Filled.Security,
-            title = stringResource(R.string.funeral_will_draft_title),
-            text = stringResource(R.string.funeral_will_draft_intro),
-        )
+private fun LazyListScope.willDraftIntroduction(
+    isArabic: Boolean,
+    visibility: FuneralWillIntroVisibility,
+    onDismissDraftIntro: () -> Unit,
+    onDismissLegalNotice: () -> Unit,
+    onDismissPrivacyNotice: () -> Unit,
+    onRestoreIntroCards: () -> Unit,
+) {
+    if (visibility.draftIntroVisible) {
+        item {
+            IntroCard(
+                icon = Icons.Filled.Security,
+                title = stringResource(R.string.funeral_will_draft_title),
+                text = stringResource(R.string.funeral_will_draft_intro),
+                onDismiss = onDismissDraftIntro,
+            )
+        }
     }
-    item { NoticeCard(Icons.Filled.Info, stringResource(R.string.funeral_will_legal_notice)) }
-    item { NoticeCard(Icons.Filled.Security, stringResource(R.string.funeral_will_privacy_notice)) }
+    if (visibility.legalNoticeVisible) {
+        item {
+            NoticeCard(
+                icon = Icons.Filled.Info,
+                text = stringResource(R.string.funeral_will_legal_notice),
+                onDismiss = onDismissLegalNotice,
+            )
+        }
+    }
+    if (visibility.privacyNoticeVisible) {
+        item {
+            NoticeCard(
+                icon = Icons.Filled.Security,
+                text = stringResource(R.string.funeral_will_privacy_notice),
+                onDismiss = onDismissPrivacyNotice,
+            )
+        }
+    }
+    if (visibility.hasDismissedCards) {
+        item {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End,
+            ) {
+                TextButton(onClick = onRestoreIntroCards) {
+                    Text(stringResource(R.string.funeral_will_restore_intro_cards))
+                }
+            }
+        }
+    }
     item {
         Text(
             text = stringResource(R.string.funeral_will_checklist_title),
@@ -254,13 +326,33 @@ private fun LazyListScope.willDraftIntroduction(isArabic: Boolean) {
             fontWeight = FontWeight.Bold,
         )
     }
-    items(FuneralContent.willChecklist) { checklistItem -> ChecklistRow(checklistItem.pick(isArabic)) }
+    items(FuneralContent.willChecklist) { checklistItem ->
+        ChecklistRow(checklistItem.pick(isArabic))
+    }
     item {
         Text(
             text = FuneralContent.willReferences.pick(isArabic),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
+    }
+    item {
+        Column {
+            Text(
+                text = stringResource(R.string.funeral_will_education_title),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = stringResource(R.string.funeral_will_education_intro),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+    items(FuneralContent.willEducationSections, key = { it.id }) { section ->
+        WillEducationCard(section = section, isArabic = isArabic)
     }
     item {
         Text(
@@ -271,15 +363,75 @@ private fun LazyListScope.willDraftIntroduction(isArabic: Boolean) {
     }
 }
 
-private fun LazyListScope.willDraftFields(draft: WillDraft, onDraftChange: (WillDraft) -> Unit) {
-    item { WillField(draft.fullName, { onDraftChange(draft.copy(fullName = it)) }, stringResource(R.string.funeral_will_full_name), singleLine = true) }
-    item { WillField(draft.executorName, { onDraftChange(draft.copy(executorName = it)) }, stringResource(R.string.funeral_will_executor_name), stringResource(R.string.funeral_will_executor_name_hint), true) }
-    item { WillField(draft.executorContact, { onDraftChange(draft.copy(executorContact = it)) }, stringResource(R.string.funeral_will_executor_contact), stringResource(R.string.funeral_will_executor_contact_hint), true) }
-    item { WillField(draft.debtsAndRights, { onDraftChange(draft.copy(debtsAndRights = it)) }, stringResource(R.string.funeral_will_debts), stringResource(R.string.funeral_will_debts_hint)) }
-    item { WillField(draft.funeralWishes, { onDraftChange(draft.copy(funeralWishes = it)) }, stringResource(R.string.funeral_will_funeral_wishes), stringResource(R.string.funeral_will_funeral_wishes_hint)) }
-    item { WillField(draft.guardianshipNotes, { onDraftChange(draft.copy(guardianshipNotes = it)) }, stringResource(R.string.funeral_will_guardianship), stringResource(R.string.funeral_will_guardianship_hint)) }
-    item { WillField(draft.charitableBequests, { onDraftChange(draft.copy(charitableBequests = it)) }, stringResource(R.string.funeral_will_charity), stringResource(R.string.funeral_will_charity_hint)) }
-    item { WillField(draft.additionalNotes, { onDraftChange(draft.copy(additionalNotes = it)) }, stringResource(R.string.funeral_will_additional_notes)) }
+private fun LazyListScope.willDraftFields(
+    draft: WillDraft,
+    onDraftChange: (WillDraft) -> Unit,
+) {
+    item {
+        WillField(
+            value = draft.fullName,
+            onValueChange = { onDraftChange(draft.copy(fullName = it)) },
+            label = stringResource(R.string.funeral_will_full_name),
+            singleLine = true,
+        )
+    }
+    item {
+        WillField(
+            value = draft.executorName,
+            onValueChange = { onDraftChange(draft.copy(executorName = it)) },
+            label = stringResource(R.string.funeral_will_executor_name),
+            supportingText = stringResource(R.string.funeral_will_executor_name_hint),
+            singleLine = true,
+        )
+    }
+    item {
+        WillField(
+            value = draft.executorContact,
+            onValueChange = { onDraftChange(draft.copy(executorContact = it)) },
+            label = stringResource(R.string.funeral_will_executor_contact),
+            supportingText = stringResource(R.string.funeral_will_executor_contact_hint),
+            singleLine = true,
+        )
+    }
+    item {
+        WillField(
+            value = draft.debtsAndRights,
+            onValueChange = { onDraftChange(draft.copy(debtsAndRights = it)) },
+            label = stringResource(R.string.funeral_will_debts),
+            supportingText = stringResource(R.string.funeral_will_debts_hint),
+        )
+    }
+    item {
+        WillField(
+            value = draft.funeralWishes,
+            onValueChange = { onDraftChange(draft.copy(funeralWishes = it)) },
+            label = stringResource(R.string.funeral_will_funeral_wishes),
+            supportingText = stringResource(R.string.funeral_will_funeral_wishes_hint),
+        )
+    }
+    item {
+        WillField(
+            value = draft.guardianshipNotes,
+            onValueChange = { onDraftChange(draft.copy(guardianshipNotes = it)) },
+            label = stringResource(R.string.funeral_will_guardianship),
+            supportingText = stringResource(R.string.funeral_will_guardianship_hint),
+        )
+    }
+    item {
+        WillField(
+            value = draft.charitableBequests,
+            onValueChange = { onDraftChange(draft.copy(charitableBequests = it)) },
+            label = stringResource(R.string.funeral_will_charity),
+            supportingText = stringResource(R.string.funeral_will_charity_hint),
+        )
+    }
+    item {
+        WillField(
+            value = draft.additionalNotes,
+            onValueChange = { onDraftChange(draft.copy(additionalNotes = it)) },
+            label = stringResource(R.string.funeral_will_additional_notes),
+        )
+    }
 }
 
 private fun LazyListScope.willDraftActions(
@@ -289,22 +441,45 @@ private fun LazyListScope.willDraftActions(
     onClear: () -> Unit,
 ) {
     item {
-        Button(onClick = onSave, modifier = Modifier.fillMaxWidth()) {
-            Icon(Icons.Filled.Save, contentDescription = null, modifier = Modifier.size(18.dp))
+        Button(
+            onClick = onSave,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Icon(
+                Icons.Filled.Save,
+                contentDescription = null,
+                modifier = Modifier.size(18.dp),
+            )
             Spacer(Modifier.width(8.dp))
             Text(stringResource(R.string.funeral_will_save))
         }
     }
     item {
-        OutlinedButton(onClick = onShare, enabled = !draft.isEmpty(), modifier = Modifier.fillMaxWidth()) {
-            Icon(Icons.Filled.Share, contentDescription = null, modifier = Modifier.size(18.dp))
+        OutlinedButton(
+            onClick = onShare,
+            enabled = !draft.isEmpty(),
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Icon(
+                Icons.Filled.Share,
+                contentDescription = null,
+                modifier = Modifier.size(18.dp),
+            )
             Spacer(Modifier.width(8.dp))
             Text(stringResource(R.string.funeral_will_share))
         }
     }
     item {
-        OutlinedButton(onClick = onClear, enabled = !draft.isEmpty(), modifier = Modifier.fillMaxWidth()) {
-            Icon(Icons.Filled.DeleteOutline, contentDescription = null, modifier = Modifier.size(18.dp))
+        OutlinedButton(
+            onClick = onClear,
+            enabled = !draft.isEmpty(),
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Icon(
+                Icons.Filled.DeleteOutline,
+                contentDescription = null,
+                modifier = Modifier.size(18.dp),
+            )
             Spacer(Modifier.width(8.dp))
             Text(stringResource(R.string.funeral_will_clear))
         }
@@ -350,6 +525,24 @@ private fun FuneralGuideContent(isArabic: Boolean) {
                 text = stringResource(R.string.funeral_will_guide_notice),
             )
         }
+        item {
+            Column {
+                Text(
+                    text = stringResource(R.string.funeral_will_guide_quick_title),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = stringResource(R.string.funeral_will_guide_quick_intro),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+        items(FuneralContent.quickActionSteps) { quickStep ->
+            ChecklistRow(quickStep.pick(isArabic))
+        }
         items(FuneralContent.guideSections, key = { it.id }) { section ->
             FuneralGuideCard(section = section, isArabic = isArabic)
         }
@@ -357,21 +550,65 @@ private fun FuneralGuideContent(isArabic: Boolean) {
 }
 
 @Composable
-private fun FuneralGuideCard(section: FuneralGuideSection, isArabic: Boolean) {
-    var expanded by rememberSaveable(section.id) { mutableStateOf(false) }
+private fun FuneralGuideCard(
+    section: FuneralGuideSection,
+    isArabic: Boolean,
+) {
     val icon = when (section.iconKey) {
-        "care" -> Icons.Filled.FavoriteBorder
+        "care", "support" -> Icons.Filled.FavoriteBorder
         "wash" -> Icons.Filled.WaterDrop
-        "shroud" -> Icons.Filled.AutoStories
+        "shroud", "burial" -> Icons.Filled.AutoStories
         "prayer" -> Icons.Filled.HealthAndSafety
-        else -> Icons.Filled.FavoriteBorder
+        "documents" -> Icons.Filled.Checklist
+        else -> Icons.Filled.AutoStories
     }
+    GuidanceCard(
+        id = section.id,
+        icon = icon,
+        title = section.title.pick(isArabic),
+        intro = section.intro.pick(isArabic),
+        steps = section.steps.map { it.pick(isArabic) },
+        reference = section.reference.pick(isArabic),
+        isArabic = isArabic,
+    )
+}
+
+@Composable
+private fun WillEducationCard(
+    section: WillEducationSection,
+    isArabic: Boolean,
+) {
+    GuidanceCard(
+        id = "will_" + section.id,
+        icon = Icons.AutoMirrored.Filled.Notes,
+        title = section.title.pick(isArabic),
+        intro = section.intro.pick(isArabic),
+        steps = section.steps.map { it.pick(isArabic) },
+        reference = section.reference.pick(isArabic),
+        isArabic = isArabic,
+    )
+}
+
+@Composable
+private fun GuidanceCard(
+    id: String,
+    icon: ImageVector,
+    title: String,
+    intro: String,
+    steps: List<String>,
+    reference: String,
+    isArabic: Boolean,
+) {
+    var expanded by rememberSaveable(id) { mutableStateOf(false) }
     Card(
         modifier = Modifier.fillMaxWidth().clickable { expanded = !expanded },
     ) {
         Column(Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Surface(shape = CircleShape, color = MaterialTheme.colorScheme.secondaryContainer) {
+                Surface(
+                    shape = CircleShape,
+                    color = MaterialTheme.colorScheme.secondaryContainer,
+                ) {
                     Icon(
                         imageVector = icon,
                         contentDescription = null,
@@ -381,19 +618,37 @@ private fun FuneralGuideCard(section: FuneralGuideSection, isArabic: Boolean) {
                 }
                 Spacer(Modifier.width(12.dp))
                 Column(Modifier.weight(1f)) {
-                    Text(section.title.pick(isArabic), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                    Text(section.intro.pick(isArabic), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(
+                        text = title,
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                    )
+                    Text(
+                        text = intro,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
                 }
                 Icon(
-                    imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+                    imageVector = if (expanded) {
+                        Icons.Filled.ExpandLess
+                    } else {
+                        Icons.Filled.ExpandMore
+                    },
                     contentDescription = null,
                 )
             }
             if (expanded) {
                 Spacer(Modifier.height(12.dp))
-                section.steps.forEachIndexed { index, step ->
-                    Row(Modifier.fillMaxWidth().padding(vertical = 4.dp), verticalAlignment = Alignment.Top) {
-                        Surface(shape = CircleShape, color = MaterialTheme.colorScheme.primaryContainer) {
+                steps.forEachIndexed { index, step ->
+                    Row(
+                        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+                        verticalAlignment = Alignment.Top,
+                    ) {
+                        Surface(
+                            shape = CircleShape,
+                            color = MaterialTheme.colorScheme.primaryContainer,
+                        ) {
                             Text(
                                 text = (index + 1).toString(),
                                 style = MaterialTheme.typography.labelMedium,
@@ -404,7 +659,7 @@ private fun FuneralGuideCard(section: FuneralGuideSection, isArabic: Boolean) {
                         }
                         Spacer(Modifier.width(10.dp))
                         Text(
-                            text = step.pick(isArabic),
+                            text = step,
                             style = MaterialTheme.typography.bodyLarge,
                             textAlign = if (isArabic) TextAlign.End else TextAlign.Start,
                             modifier = Modifier.weight(1f),
@@ -413,7 +668,7 @@ private fun FuneralGuideCard(section: FuneralGuideSection, isArabic: Boolean) {
                 }
                 Spacer(Modifier.height(8.dp))
                 Text(
-                    text = section.reference.pick(isArabic),
+                    text = reference,
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.primary,
                 )
@@ -423,40 +678,98 @@ private fun FuneralGuideCard(section: FuneralGuideSection, isArabic: Boolean) {
 }
 
 @Composable
-private fun IntroCard(icon: ImageVector, title: String, text: String) {
+private fun IntroCard(
+    icon: ImageVector,
+    title: String,
+    text: String,
+    onDismiss: (() -> Unit)? = null,
+) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+        ),
     ) {
-        Row(Modifier.padding(16.dp), verticalAlignment = Alignment.Top) {
-            Icon(icon, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(28.dp))
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.Top,
+        ) {
+            Icon(
+                icon,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(28.dp),
+            )
             Spacer(Modifier.width(12.dp))
-            Column {
-                Text(title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+            Column(Modifier.weight(1f)) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
                 Spacer(Modifier.height(5.dp))
-                Text(text, style = MaterialTheme.typography.bodyLarge)
+                Text(
+                    text = text,
+                    style = MaterialTheme.typography.bodyLarge,
+                )
+            }
+            if (onDismiss != null) {
+                IconButton(onClick = onDismiss) {
+                    Icon(
+                        Icons.Filled.Close,
+                        contentDescription = stringResource(R.string.funeral_will_dismiss_card),
+                    )
+                }
             }
         }
     }
 }
 
 @Composable
-private fun NoticeCard(icon: ImageVector, text: String) {
+private fun NoticeCard(
+    icon: ImageVector,
+    text: String,
+    onDismiss: (() -> Unit)? = null,
+) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+        ),
     ) {
-        Row(Modifier.padding(14.dp), verticalAlignment = Alignment.Top) {
-            Icon(icon, contentDescription = null, modifier = Modifier.size(22.dp))
+        Row(
+            modifier = Modifier.padding(14.dp),
+            verticalAlignment = Alignment.Top,
+        ) {
+            Icon(
+                icon,
+                contentDescription = null,
+                modifier = Modifier.size(22.dp),
+            )
             Spacer(Modifier.width(10.dp))
-            Text(text, style = MaterialTheme.typography.bodyMedium)
+            Text(
+                text = text,
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f),
+            )
+            if (onDismiss != null) {
+                IconButton(onClick = onDismiss) {
+                    Icon(
+                        Icons.Filled.Close,
+                        contentDescription = stringResource(R.string.funeral_will_dismiss_card),
+                    )
+                }
+            }
         }
     }
 }
 
 @Composable
 private fun ChecklistRow(text: String) {
-    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Top) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.Top,
+    ) {
         Icon(
             Icons.Filled.Checklist,
             contentDescription = null,
@@ -464,16 +777,30 @@ private fun ChecklistRow(text: String) {
             modifier = Modifier.size(21.dp),
         )
         Spacer(Modifier.width(10.dp))
-        Text(text, style = MaterialTheme.typography.bodyLarge, modifier = Modifier.weight(1f))
+        Text(
+            text = text,
+            style = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.weight(1f),
+        )
     }
 }
 
-private fun LocalizedFuneralText.pick(isArabic: Boolean): String = if (isArabic) arabic else english
+private fun LocalizedFuneralText.pick(isArabic: Boolean): String =
+    if (isArabic) arabic else english
 
-private fun shareWillDraft(context: Context, draft: WillDraft, isArabic: Boolean) {
+private fun shareWillDraft(
+    context: Context,
+    draft: WillDraft,
+    isArabic: Boolean,
+) {
     val intent = Intent(Intent.ACTION_SEND).apply {
         type = "text/plain"
         putExtra(Intent.EXTRA_TEXT, draft.toShareText(isArabic))
     }
-    context.startActivity(Intent.createChooser(intent, if (isArabic) "مشاركة مسودة الوصية" else "Share will draft"))
+    context.startActivity(
+        Intent.createChooser(
+            intent,
+            if (isArabic) "مشاركة مسودة الوصية" else "Share will draft",
+        ),
+    )
 }
