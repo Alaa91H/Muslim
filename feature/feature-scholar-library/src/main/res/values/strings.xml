@@ -95,7 +95,7 @@
 
     <string name="scholar_library_open_study_session">ابدأ/تابع الجلسة</string>
     <string name="scholar_library_weekly_summary">ملخص آخر 7 أيام</string>
-    <string name="scholar_library_weekly_summary_values">%1$d جلسات مكتملة · %2$d مقاطع · %3$d دقيقة دراسة فعلية</string>
+    <string name="scholar_library_weekly_summary_values">%1$d جلسات مكتملة · %2$d مقاطع · %3$d دقيقة مسجلة للجلسات</string>
     <string name="scholar_library_study_session">جلسة الدراسة</string>
     <string name="scholar_library_session_unavailable">لا توجد جلسة قابلة للبدء. فعّل خطة دراسة للمسار أو أكمل مادة متبقية فيه.</string>
     <string name="scholar_library_session_progress">%1$d من %2$d مقاطع · المدة المخططة %3$d دقيقة</string>
