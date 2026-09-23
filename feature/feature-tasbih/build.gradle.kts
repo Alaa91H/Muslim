@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.compose)
 
     implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.glance.appwidget)
 
     implementation(libs.hilt.android)
