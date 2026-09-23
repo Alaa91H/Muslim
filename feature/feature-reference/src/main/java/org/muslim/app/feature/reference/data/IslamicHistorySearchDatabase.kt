@@ -43,6 +43,20 @@ internal interface HistorySearchDao {
     )
     suspend fun search(matchQuery: String, limit: Int): List<HistorySearchFtsEntity>
 
+    @Query(
+        """
+        SELECT * FROM history_search_fts
+        WHERE history_search_fts MATCH :matchQuery
+          AND entity_type = :entityType
+        LIMIT :limit
+        """,
+    )
+    suspend fun searchByType(
+        matchQuery: String,
+        entityType: String,
+        limit: Int,
+    ): List<HistorySearchFtsEntity>
+
     @Query("DELETE FROM history_search_fts")
     suspend fun clearIndex()
 
