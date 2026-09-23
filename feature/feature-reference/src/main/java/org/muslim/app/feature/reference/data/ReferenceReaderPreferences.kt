@@ -1,8 +1,6 @@
 package org.muslim.app.feature.reference.data
 
 import android.content.Context
-import androidx.core.content.edit
-
 data class ReferenceReaderLocation(
     val bookId: String,
     val topicId: String,
@@ -59,7 +57,7 @@ class ReferenceReaderPreferences(context: Context) {
         val updated = bookmarkKeys().toMutableSet().apply {
             if (bookmarked) add(key) else remove(key)
         }.toSet()
-        preferences.edit { putStringSet(KEY_BOOKMARKS, updated) }
+        preferences.edit().putStringSet(KEY_BOOKMARKS, updated).apply()
         return updated
     }
 
@@ -67,9 +65,9 @@ class ReferenceReaderPreferences(context: Context) {
         ReferenceReaderKeyCodec.decodeLocation(preferences.getString(KEY_LAST_READ, null))
 
     fun saveLastRead(location: ReferenceReaderLocation) {
-        preferences.edit {
-            putString(KEY_LAST_READ, ReferenceReaderKeyCodec.encodeLocation(location))
-        }
+        preferences.edit()
+            .putString(KEY_LAST_READ, ReferenceReaderKeyCodec.encodeLocation(location))
+            .apply()
     }
 
     fun savedScrollIndex(bookId: String, topicId: String): Int =
@@ -77,15 +75,15 @@ class ReferenceReaderPreferences(context: Context) {
 
     fun saveScrollIndex(bookId: String, topicId: String, scrollIndex: Int) {
         val safeIndex = scrollIndex.coerceAtLeast(0)
-        preferences.edit {
-            putInt(scrollKey(bookId, topicId), safeIndex)
-            putString(
+        preferences.edit()
+            .putInt(scrollKey(bookId, topicId), safeIndex)
+            .putString(
                 KEY_LAST_READ,
                 ReferenceReaderKeyCodec.encodeLocation(
                     ReferenceReaderLocation(bookId, topicId, safeIndex),
                 ),
             )
-        }
+            .apply()
     }
 
     fun fontStep(): Int =
@@ -93,7 +91,7 @@ class ReferenceReaderPreferences(context: Context) {
 
     fun setFontStep(step: Int): Int {
         val normalized = ReferenceReaderKeyCodec.clampFontStep(step)
-        preferences.edit { putInt(KEY_FONT_STEP, normalized) }
+        preferences.edit().putInt(KEY_FONT_STEP, normalized).apply()
         return normalized
     }
 
