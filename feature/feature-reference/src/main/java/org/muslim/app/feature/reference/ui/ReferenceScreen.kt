@@ -2,6 +2,7 @@ package org.muslim.app.feature.reference.ui
 
 import android.content.ClipData
 import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,16 +13,22 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.AutoStories
+import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.BookmarkBorder
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Groups
 import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -37,9 +44,12 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -58,7 +68,13 @@ import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.launch
 import org.muslim.app.feature.reference.data.AndroidReferenceRepositoryFactory
+import org.muslim.app.feature.reference.data.ReferenceReaderKeyCodec
+import org.muslim.app.feature.reference.data.ReferenceReaderLocation
+import org.muslim.app.feature.reference.data.ReferenceReaderPreferences
 import org.muslim.app.feature.reference.domain.ReferenceBook
 import org.muslim.app.feature.reference.domain.ReferenceCitation
 import org.muslim.app.feature.reference.domain.ReferenceRepository
@@ -81,13 +97,62 @@ private val bookIcons = mapOf(
     "hadith_sciences" to Icons.Filled.History,
     "fiqh_worship" to Icons.Filled.AutoStories,
     "ethics_life" to Icons.Filled.Groups,
+    "history_civilization" to Icons.Filled.History,
+    "places_landmarks" to Icons.Filled.Place,
+    "islamic_glossary" to Icons.AutoMirrored.Filled.MenuBook,
+    "faq_misconceptions" to Icons.Filled.Search,
+)
+
+
+private data class ReferenceReaderUiState(
+    val preferences: ReferenceReaderPreferences,
+    val bookmarkKeys: Set<String>,
+    val lastRead: ReferenceReaderLocation?,
+    val fontStep: Int,
+    val onBookmarkKeysChanged: (Set<String>) -> Unit,
+    val onFontStepChanged: (Int) -> Unit,
+    val onLastReadChanged: (ReferenceReaderLocation) -> Unit,
+)
+
+
+private data class ReferenceScreenViewState(
+    val repository: ReferenceRepository,
+    val lang: RefLang,
+    val book: ReferenceBook?,
+    val topic: RefTopic?,
+    val query: String,
+    val hubQuery: String,
+    val readerState: ReferenceReaderUiState,
+)
+
+private data class ReferenceScreenActions(
+    val onBack: () -> Unit,
+    val onToggleLanguage: () -> Unit,
+    val onClearTopic: () -> Unit,
+    val onClearBook: () -> Unit,
+    val onQueryChanged: (String) -> Unit,
+    val onHubQueryChanged: (String) -> Unit,
+    val onOpenBook: (ReferenceBook) -> Unit,
+    val onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
+)
+
+
+private data class TopicReaderRenderData(
+    val book: ReferenceBook,
+    val topic: RefTopic,
+    val lang: RefLang,
+    val related: List<Pair<ReferenceBook, RefTopic>>,
+    val previousTopic: RefTopic?,
+    val nextTopic: RefTopic?,
+    val bookmarked: Boolean,
 )
 
 /**
  * المرجعية الإسلامية (feature-reference): مكتبة مرجعية شاملة ومفهرسة تعرض
  * كتب مترابطة تشمل التعريف بالإسلام والسيرة والأنبياء والصحابة وأمهات
  * المؤمنين وأهل البيت والخلفاء الراشدين والعقيدة وعلوم القرآن والحديث وفقه العبادات
- * والأخلاق والآداب وحياة المسلم،
+ * والأخلاق والآداب وحياة المسلم والتاريخ والحضارة الإسلامية والأماكن والمعالم
+ * والمعجم الإسلامي الموسع والأسئلة الشائعة والمفاهيم الخاطئة،
  * مع بحث نصي ثنائي اللغة على مستوى المكتبة كلها.
  */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -96,77 +161,130 @@ fun ReferenceScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val appContext = LocalContext.current.applicationContext
     val repository = rememberReferenceRepository()
+    val readerPreferences = remember(appContext) { ReferenceReaderPreferences(appContext) }
     var lang by remember { mutableStateOf(RefLang.Arabic) }
     var selectedBook by remember { mutableStateOf<ReferenceBook?>(null) }
     var selectedTopic by remember { mutableStateOf<RefTopic?>(null) }
     var query by rememberSaveable { mutableStateOf("") }
     var hubQuery by rememberSaveable { mutableStateOf("") }
+    var bookmarkKeys by remember { mutableStateOf(readerPreferences.bookmarkKeys()) }
+    var lastRead by remember { mutableStateOf(readerPreferences.lastRead()) }
+    var fontStep by remember { mutableStateOf(readerPreferences.fontStep()) }
+
+    fun openTopic(targetBook: ReferenceBook, targetTopic: RefTopic) {
+        val location = ReferenceReaderLocation(targetBook.id, targetTopic.id)
+        readerPreferences.saveLastRead(location)
+        lastRead = location
+        selectedBook = targetBook
+        selectedTopic = targetTopic
+    }
 
     ReferenceBackHandler(selectedTopic, selectedBook, { selectedTopic = null }) {
         selectedBook = null
         query = ""
     }
 
-    val book = selectedBook
+    val readerState = ReferenceReaderUiState(
+        preferences = readerPreferences,
+        bookmarkKeys = bookmarkKeys,
+        lastRead = lastRead,
+        fontStep = fontStep,
+        onBookmarkKeysChanged = { bookmarkKeys = it },
+        onFontStepChanged = { fontStep = readerPreferences.setFontStep(it) },
+        onLastReadChanged = { lastRead = it },
+    )
+    val viewState = ReferenceScreenViewState(
+        repository = repository,
+        lang = lang,
+        book = selectedBook,
+        topic = selectedTopic,
+        query = query,
+        hubQuery = hubQuery,
+        readerState = readerState,
+    )
+    val actions = ReferenceScreenActions(
+        onBack = onBack,
+        onToggleLanguage = { lang = lang.toggled() },
+        onClearTopic = { selectedTopic = null },
+        onClearBook = {
+            selectedBook = null
+            query = ""
+        },
+        onQueryChanged = { query = it },
+        onHubQueryChanged = { hubQuery = it },
+        onOpenBook = {
+            selectedBook = it
+            hubQuery = ""
+        },
+        onOpenTopic = ::openTopic,
+    )
+    ReferenceScreenBody(state = viewState, actions = actions, modifier = modifier)
+}
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ReferenceScreenBody(
+    state: ReferenceScreenViewState,
+    actions: ReferenceScreenActions,
+    modifier: Modifier = Modifier,
+) {
     MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             ReferenceTopBar(
-                lang = lang,
-                book = book,
-                topic = selectedTopic,
+                lang = state.lang,
+                book = state.book,
+                topic = state.topic,
                 onBack = {
                     when {
-                        selectedTopic != null -> selectedTopic = null
-                        book != null -> {
-                            selectedBook = null
-                            query = ""
-                        }
-                        else -> onBack()
+                        state.topic != null -> actions.onClearTopic()
+                        state.book != null -> actions.onClearBook()
+                        else -> actions.onBack()
                     }
                 },
-                onToggleLanguage = { lang = lang.toggled() },
+                onToggleLanguage = actions.onToggleLanguage,
             )
         },
     ) { innerPadding ->
         val contentModifier = Modifier.padding(innerPadding)
         when {
-            selectedTopic != null && book != null -> TopicContent(
-                repository = repository,
-                book = book,
-                topic = selectedTopic!!,
-                lang = lang,
+            state.topic != null && state.book != null -> TopicContent(
+                repository = state.repository,
+                book = state.book,
+                topic = state.topic,
+                lang = state.lang,
+                readerState = state.readerState,
                 onOpenTopic = { targetBook, targetTopic ->
-                    selectedBook = targetBook
-                    selectedTopic = targetTopic
-                    query = ""
+                    actions.onOpenTopic(targetBook, targetTopic)
+                    actions.onQueryChanged("")
                 },
                 modifier = contentModifier,
             )
-            book != null -> BookContent(
-                repository = repository,
-                book = book,
-                lang = lang,
-                query = query,
-                onQueryChanged = { query = it },
-                onOpenTopic = { selectedTopic = it },
-                modifier = contentModifier,
-            )
+            state.book != null -> {
+                val currentBook = state.book
+                BookContent(
+                    repository = state.repository,
+                    book = currentBook,
+                    lang = state.lang,
+                    query = state.query,
+                    onQueryChanged = actions.onQueryChanged,
+                    bookmarkKeys = state.readerState.bookmarkKeys,
+                    onOpenTopic = { actions.onOpenTopic(currentBook, it) },
+                    modifier = contentModifier,
+                )
+            }
             else -> HubContent(
-                repository = repository,
-                lang = lang,
-                query = hubQuery,
-                onQueryChanged = { hubQuery = it },
-                onOpenBook = {
-                    selectedBook = it
-                    hubQuery = ""
-                },
+                repository = state.repository,
+                lang = state.lang,
+                query = state.hubQuery,
+                onQueryChanged = actions.onHubQueryChanged,
+                readerState = state.readerState,
+                onOpenBook = actions.onOpenBook,
                 onOpenTopic = { targetBook, targetTopic ->
-                    selectedBook = targetBook
-                    selectedTopic = targetTopic
-                    hubQuery = ""
+                    actions.onOpenTopic(targetBook, targetTopic)
+                    actions.onHubQueryChanged("")
                 },
                 modifier = contentModifier,
             )
@@ -244,6 +362,7 @@ private fun HubContent(
     lang: RefLang,
     query: String,
     onQueryChanged: (String) -> Unit,
+    readerState: ReferenceReaderUiState,
     onOpenBook: (ReferenceBook) -> Unit,
     onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
     modifier: Modifier = Modifier,
@@ -251,43 +370,27 @@ private fun HubContent(
     val results = remember(repository, query, lang) {
         repository.searchAll(query, lang, limit = 80)
     }
+    val bookmarkedTopics = remember(repository, readerState.bookmarkKeys) {
+        readerState.bookmarkKeys.sorted().mapNotNull { key -> resolveStoredTopic(repository, key) }
+    }
+    val lastReadTarget = remember(repository, readerState.lastRead) {
+        readerState.lastRead?.let { resolveStoredTopic(repository, "${it.bookId}/${it.topicId}") }
+    }
 
     LazyColumn(modifier = modifier.fillMaxSize()) {
         item(key = "library-search") {
-            OutlinedTextField(
-                value = query,
-                onValueChange = onQueryChanged,
-                placeholder = {
-                    Text(
-                        if (lang == RefLang.Arabic) {
-                            "ابحث في جميع كتب المكتبة…"
-                        } else {
-                            "Search the entire library…"
-                        },
-                    )
-                },
-                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 8.dp),
-            )
+            LibrarySearchField(query = query, lang = lang, onQueryChanged = onQueryChanged)
         }
-
-        if (query.isBlank()) {
-            item(key = "reference-decoration") {
-                IslamicDecorationBand(
-                    tint = MaterialTheme.colorScheme.tertiary,
-                    compact = true,
-                    modifier = Modifier.padding(horizontal = 16.dp),
-                )
-            }
-            items(repository.books, key = { it.id }) { book ->
-                ReferenceBookCard(book = book, lang = lang, onOpenBook = onOpenBook)
-            }
-        } else if (results.isEmpty()) {
-            item(key = "library-no-results") {
+        when {
+            query.isBlank() -> defaultHubItems(
+                repository = repository,
+                lang = lang,
+                bookmarkedTopics = bookmarkedTopics,
+                lastReadTarget = lastReadTarget,
+                onOpenBook = onOpenBook,
+                onOpenTopic = onOpenTopic,
+            )
+            results.isEmpty() -> item(key = "library-no-results") {
                 MuslimStateSurface(
                     title = stringResource(R.string.reference_no_results),
                     tone = MuslimStateTone.Neutral,
@@ -295,28 +398,164 @@ private fun HubContent(
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 24.dp),
                 )
             }
-        } else {
-            items(
-                items = results,
-                key = { result -> "${result.book.id}/${result.topic.id}" },
-            ) { result ->
-                ListItem(
-                    headlineContent = {
-                        Text(result.topic.title(lang), fontWeight = FontWeight.Medium)
-                    },
-                    supportingContent = {
-                        Text(
-                            text = "${result.book.title(lang)} • ${result.topic.summary(lang)}",
-                            maxLines = 2,
-                        )
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { onOpenTopic(result.book, result.topic) },
-                )
-                HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
-            }
+            else -> searchResultItems(results = results, lang = lang, onOpenTopic = onOpenTopic)
         }
+    }
+}
+
+@Composable
+private fun LibrarySearchField(
+    query: String,
+    lang: RefLang,
+    onQueryChanged: (String) -> Unit,
+) {
+    OutlinedTextField(
+        value = query,
+        onValueChange = onQueryChanged,
+        placeholder = {
+            Text(
+                if (lang == RefLang.Arabic) {
+                    "ابحث في جميع كتب المكتبة…"
+                } else {
+                    "Search the entire library…"
+                },
+            )
+        },
+        leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+    )
+}
+
+private fun LazyListScope.defaultHubItems(
+    repository: ReferenceRepository,
+    lang: RefLang,
+    bookmarkedTopics: List<Pair<ReferenceBook, RefTopic>>,
+    lastReadTarget: Pair<ReferenceBook, RefTopic>?,
+    onOpenBook: (ReferenceBook) -> Unit,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
+) {
+    item(key = "reference-decoration") {
+        IslamicDecorationBand(
+            tint = MaterialTheme.colorScheme.tertiary,
+            compact = true,
+            modifier = Modifier.padding(horizontal = 16.dp),
+        )
+    }
+    lastReadTarget?.let { (lastBook, lastTopic) ->
+        item(key = "continue-reading") {
+            ContinueReadingCard(
+                book = lastBook,
+                topic = lastTopic,
+                lang = lang,
+                onOpenTopic = onOpenTopic,
+            )
+        }
+    }
+    if (bookmarkedTopics.isNotEmpty()) {
+        item(key = "bookmarks-title") {
+            SectionLabel(text = if (lang == RefLang.Arabic) "المفضلة" else "Bookmarks")
+        }
+        items(
+            items = bookmarkedTopics,
+            key = { (savedBook, savedTopic) -> "bookmark-${savedBook.id}/${savedTopic.id}" },
+        ) { (savedBook, savedTopic) ->
+            SavedTopicRow(
+                book = savedBook,
+                topic = savedTopic,
+                lang = lang,
+                onOpenTopic = onOpenTopic,
+            )
+        }
+        item(key = "library-books-title") {
+            SectionLabel(text = if (lang == RefLang.Arabic) "الكتب" else "Books")
+        }
+    }
+    items(repository.books, key = { it.id }) { book ->
+        ReferenceBookCard(book = book, lang = lang, onOpenBook = onOpenBook)
+    }
+}
+
+@Composable
+private fun ContinueReadingCard(
+    book: ReferenceBook,
+    topic: RefTopic,
+    lang: RefLang,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
+) {
+    IslamicCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .clickable { onOpenTopic(book, topic) },
+        containerColor = MaterialTheme.colorScheme.primaryContainer,
+    ) {
+        Column {
+            Text(
+                text = if (lang == RefLang.Arabic) "متابعة القراءة" else "Continue reading",
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = topic.title(lang),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+            )
+            Text(
+                text = book.title(lang),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+            )
+        }
+    }
+}
+
+@Composable
+private fun SavedTopicRow(
+    book: ReferenceBook,
+    topic: RefTopic,
+    lang: RefLang,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
+) {
+    ListItem(
+        headlineContent = { Text(topic.title(lang), fontWeight = FontWeight.Medium) },
+        supportingContent = { Text(book.title(lang), maxLines = 1) },
+        leadingContent = { Icon(Icons.Filled.Bookmark, contentDescription = null) },
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onOpenTopic(book, topic) },
+    )
+}
+
+private fun LazyListScope.searchResultItems(
+    results: List<org.muslim.app.feature.reference.domain.ReferenceSearchResult>,
+    lang: RefLang,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
+) {
+    items(
+        items = results,
+        key = { result -> "${result.book.id}/${result.topic.id}" },
+    ) { result ->
+        ListItem(
+            headlineContent = {
+                Text(result.topic.title(lang), fontWeight = FontWeight.Medium)
+            },
+            supportingContent = {
+                Text(
+                    text = "${result.book.title(lang)} • ${result.topic.summary(lang)}",
+                    maxLines = 2,
+                )
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { onOpenTopic(result.book, result.topic) },
+        )
+        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
     }
 }
 
@@ -376,22 +615,13 @@ private fun BookContent(
     lang: RefLang,
     query: String,
     onQueryChanged: (String) -> Unit,
+    bookmarkKeys: Set<String>,
     onOpenTopic: (RefTopic) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val results = repository.search(book, query, lang)
     Column(modifier = modifier.fillMaxSize()) {
-        OutlinedTextField(
-            value = query,
-            onValueChange = onQueryChanged,
-            placeholder = { Text(stringResource(R.string.reference_search_hint)) },
-            leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-            singleLine = true,
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 8.dp),
-        )
+        BookSearchField(query = query, onQueryChanged = onQueryChanged)
         IslamicDecorationDivider(
             tint = MaterialTheme.colorScheme.tertiary,
             modifier = Modifier.padding(horizontal = 24.dp),
@@ -406,46 +636,114 @@ private fun BookContent(
         } else {
             LazyColumn(modifier = Modifier.fillMaxSize()) {
                 if (query.isBlank() && book.chapters.isNotEmpty()) {
-                    book.chapters.forEach { chapter ->
-                        item(key = "chapter-header-${chapter.id}") {
-                            Column(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(horizontal = 20.dp, vertical = 12.dp),
-                            ) {
-                                Text(
-                                    text = chapter.title(lang),
-                                    style = MaterialTheme.typography.titleMedium,
-                                    fontWeight = FontWeight.Bold,
-                                    color = MaterialTheme.colorScheme.primary,
-                                )
-                                val summary = chapter.summary(lang)
-                                if (summary.isNotBlank()) {
-                                    Spacer(Modifier.height(4.dp))
-                                    Text(
-                                        text = summary,
-                                        style = MaterialTheme.typography.bodySmall,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    )
-                                }
-                            }
-                        }
-                        val chapterTopics = chapter.topicIds.mapNotNull { topicId ->
-                            book.topics.firstOrNull { it.id == topicId }
-                        }
-                        items(
-                            items = chapterTopics,
-                            key = { topic -> "chapter-${chapter.id}-${topic.id}" },
-                        ) { topic ->
-                            TopicListItem(topic = topic, lang = lang, onOpenTopic = onOpenTopic)
-                        }
-                    }
+                    chapterTopicItems(
+                        book = book,
+                        lang = lang,
+                        bookmarkKeys = bookmarkKeys,
+                        onOpenTopic = onOpenTopic,
+                    )
                 } else {
-                    items(results, key = { it.id }) { topic ->
-                        TopicListItem(topic = topic, lang = lang, onOpenTopic = onOpenTopic)
-                    }
+                    topicResultItems(
+                        book = book,
+                        topics = results,
+                        lang = lang,
+                        bookmarkKeys = bookmarkKeys,
+                        onOpenTopic = onOpenTopic,
+                    )
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun BookSearchField(
+    query: String,
+    onQueryChanged: (String) -> Unit,
+) {
+    OutlinedTextField(
+        value = query,
+        onValueChange = onQueryChanged,
+        placeholder = { Text(stringResource(R.string.reference_search_hint)) },
+        leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+    )
+}
+
+private fun LazyListScope.chapterTopicItems(
+    book: ReferenceBook,
+    lang: RefLang,
+    bookmarkKeys: Set<String>,
+    onOpenTopic: (RefTopic) -> Unit,
+) {
+    book.chapters.forEach { chapter ->
+        item(key = "chapter-header-${chapter.id}") {
+            BookChapterHeader(
+                title = chapter.title(lang),
+                summary = chapter.summary(lang),
+            )
+        }
+        val chapterTopics = chapter.topicIds.mapNotNull { topicId ->
+            book.topics.firstOrNull { it.id == topicId }
+        }
+        items(
+            items = chapterTopics,
+            key = { topic -> "chapter-${chapter.id}-${topic.id}" },
+        ) { topic ->
+            TopicListItem(
+                topic = topic,
+                lang = lang,
+                bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in bookmarkKeys,
+                onOpenTopic = onOpenTopic,
+            )
+        }
+    }
+}
+
+private fun LazyListScope.topicResultItems(
+    book: ReferenceBook,
+    topics: List<RefTopic>,
+    lang: RefLang,
+    bookmarkKeys: Set<String>,
+    onOpenTopic: (RefTopic) -> Unit,
+) {
+    items(topics, key = { it.id }) { topic ->
+        TopicListItem(
+            topic = topic,
+            lang = lang,
+            bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in bookmarkKeys,
+            onOpenTopic = onOpenTopic,
+        )
+    }
+}
+
+@Composable
+private fun BookChapterHeader(
+    title: String,
+    summary: String,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 20.dp, vertical = 12.dp),
+    ) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        if (summary.isNotBlank()) {
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = summary,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
     }
 }
@@ -454,11 +752,17 @@ private fun BookContent(
 private fun TopicListItem(
     topic: RefTopic,
     lang: RefLang,
+    bookmarked: Boolean,
     onOpenTopic: (RefTopic) -> Unit,
 ) {
     ListItem(
         headlineContent = { Text(topic.title(lang), fontWeight = FontWeight.Medium) },
         supportingContent = { Text(topic.summary(lang), maxLines = 2) },
+        trailingContent = {
+            if (bookmarked) {
+                Icon(Icons.Filled.Bookmark, contentDescription = null)
+            }
+        },
         modifier = Modifier
             .fillMaxWidth()
             .clickable { onOpenTopic(topic) },
@@ -472,47 +776,241 @@ private fun TopicContent(
     book: ReferenceBook,
     topic: RefTopic,
     lang: RefLang,
+    readerState: ReferenceReaderUiState,
     onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val safeInitialIndex = remember(book.id, topic.id) {
+        readerState.preferences
+            .savedScrollIndex(book.id, topic.id)
+            .coerceAtMost(topic.sections.size + topic.relatedTopicIds.size + 8)
+    }
+    val listState = rememberLazyListState(initialFirstVisibleItemIndex = safeInitialIndex)
+    val scope = rememberCoroutineScope()
+    val related = remember(repository, book.id, topic.id) {
+        resolveRelatedTopics(repository, book, topic)
+    }
+    val topicIndex = remember(book.id, topic.id) {
+        book.topics.indexOfFirst { it.id == topic.id }
+    }
+    val data = TopicReaderRenderData(
+        book = book,
+        topic = topic,
+        lang = lang,
+        related = related,
+        previousTopic = book.topics.getOrNull(topicIndex - 1),
+        nextTopic = book.topics.getOrNull(topicIndex + 1),
+        bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in readerState.bookmarkKeys,
+    )
+
+    LaunchedEffect(listState, book.id, topic.id) {
+        snapshotFlow { listState.firstVisibleItemIndex }
+            .distinctUntilChanged()
+            .collect { scrollIndex ->
+                readerState.preferences.saveScrollIndex(book.id, topic.id, scrollIndex)
+                readerState.onLastReadChanged(
+                    ReferenceReaderLocation(book.id, topic.id, scrollIndex),
+                )
+            }
+    }
+
     LazyColumn(
+        state = listState,
         modifier = modifier.fillMaxSize(),
         contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 32.dp),
     ) {
-        item(key = "topic-header") {
-            TopicHeader(topic = topic, lang = lang)
+        topicReaderItems(
+            data = data,
+            readerState = readerState,
+            listState = listState,
+            scope = scope,
+            onOpenTopic = onOpenTopic,
+        )
+    }
+}
+
+private fun LazyListScope.topicReaderItems(
+    data: TopicReaderRenderData,
+    readerState: ReferenceReaderUiState,
+    listState: androidx.compose.foundation.lazy.LazyListState,
+    scope: kotlinx.coroutines.CoroutineScope,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
+) {
+    item(key = "reader-controls") {
+        ReaderControls(
+            lang = data.lang,
+            bookmarked = data.bookmarked,
+            fontStep = readerState.fontStep,
+            onToggleBookmark = {
+                readerState.onBookmarkKeysChanged(
+                    readerState.preferences.setBookmarked(
+                        bookId = data.book.id,
+                        topicId = data.topic.id,
+                        bookmarked = !data.bookmarked,
+                    ),
+                )
+            },
+            onDecreaseFont = { readerState.onFontStepChanged(readerState.fontStep - 1) },
+            onIncreaseFont = { readerState.onFontStepChanged(readerState.fontStep + 1) },
+        )
+    }
+    item(key = "topic-header") {
+        TopicHeader(topic = data.topic, lang = data.lang, fontStep = readerState.fontStep)
+    }
+    item(key = "topic-toc") {
+        TopicTableOfContents(
+            topic = data.topic,
+            lang = data.lang,
+            onJumpToSection = { sectionIndex ->
+                scope.launch { listState.animateScrollToItem(3 + sectionIndex) }
+            },
+        )
+    }
+    items(data.topic.sections, key = { it.id }) { section ->
+        TopicSectionContent(
+            topic = data.topic,
+            section = section,
+            lang = data.lang,
+            fontStep = readerState.fontStep,
+        )
+    }
+    if (data.topic.citations.isNotEmpty()) {
+        item(key = "topic-sources") {
+            TopicSources(topic = data.topic, lang = data.lang)
         }
-        items(topic.sections, key = { it.id }) { section ->
-            TopicSectionContent(topic = topic, section = section, lang = lang)
-        }
-        if (topic.citations.isNotEmpty()) {
-            item(key = "topic-sources") {
-                TopicSources(topic = topic, lang = lang)
-            }
-        }
-        val related = resolveRelatedTopics(repository, book, topic)
-        if (related.isNotEmpty()) {
-            item(key = "related-title") {
-                SectionLabel(
-                    text = if (lang == RefLang.Arabic) "موضوعات ذات صلة" else "Related topics",
+    }
+    relatedTopicItems(
+        lang = data.lang,
+        related = data.related,
+        onOpenTopic = onOpenTopic,
+    )
+    item(key = "reader-navigation") {
+        TopicNavigation(
+            lang = data.lang,
+            previousTopic = data.previousTopic,
+            nextTopic = data.nextTopic,
+            onPrevious = { data.previousTopic?.let { onOpenTopic(data.book, it) } },
+            onNext = { data.nextTopic?.let { onOpenTopic(data.book, it) } },
+        )
+    }
+}
+
+private fun LazyListScope.relatedTopicItems(
+    lang: RefLang,
+    related: List<Pair<ReferenceBook, RefTopic>>,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
+) {
+    if (related.isEmpty()) return
+
+    item(key = "related-title") {
+        SectionLabel(
+            text = if (lang == RefLang.Arabic) "موضوعات ذات صلة" else "Related topics",
+        )
+    }
+    items(
+        items = related,
+        key = { (relatedBook, relatedTopic) -> "${relatedBook.id}/${relatedTopic.id}" },
+    ) { (relatedBook, relatedTopic) ->
+        ListItem(
+            headlineContent = {
+                Text(relatedTopic.title(lang), fontWeight = FontWeight.Medium)
+            },
+            supportingContent = {
+                Text(relatedTopic.summary(lang), maxLines = 2)
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { onOpenTopic(relatedBook, relatedTopic) },
+        )
+        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+    }
+}
+
+@Composable
+private fun ReaderControls(
+    lang: RefLang,
+    bookmarked: Boolean,
+    fontStep: Int,
+    onToggleBookmark: () -> Unit,
+    onDecreaseFont: () -> Unit,
+    onIncreaseFont: () -> Unit,
+) {
+    IslamicCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = androidx.compose.foundation.layout.Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            TextButton(onClick = onToggleBookmark) {
+                Icon(
+                    imageVector = if (bookmarked) Icons.Filled.Bookmark else Icons.Filled.BookmarkBorder,
+                    contentDescription = null,
+                    modifier = Modifier.size(18.dp),
+                )
+                Spacer(Modifier.size(4.dp))
+                Text(
+                    if (bookmarked) {
+                        if (lang == RefLang.Arabic) "محفوظ" else "Saved"
+                    } else {
+                        if (lang == RefLang.Arabic) "حفظ" else "Save"
+                    },
                 )
             }
-            items(
-                items = related,
-                key = { (relatedBook, relatedTopic) -> "${relatedBook.id}/${relatedTopic.id}" },
-            ) { (relatedBook, relatedTopic) ->
-                ListItem(
-                    headlineContent = {
-                        Text(relatedTopic.title(lang), fontWeight = FontWeight.Medium)
-                    },
-                    supportingContent = {
-                        Text(relatedTopic.summary(lang), maxLines = 2)
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { onOpenTopic(relatedBook, relatedTopic) },
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                TextButton(
+                    enabled = fontStep > 0,
+                    onClick = onDecreaseFont,
+                ) {
+                    Text("A−")
+                }
+                Text(
+                    text = if (lang == RefLang.Arabic) "حجم النص" else "Text size",
+                    style = MaterialTheme.typography.labelMedium,
                 )
-                HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+                TextButton(
+                    enabled = fontStep < 3,
+                    onClick = onIncreaseFont,
+                ) {
+                    Text("A+")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun TopicTableOfContents(
+    topic: RefTopic,
+    lang: RefLang,
+    onJumpToSection: (Int) -> Unit,
+) {
+    if (topic.sections.isEmpty()) return
+
+    IslamicCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 6.dp),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Column {
+            Text(
+                text = if (lang == RefLang.Arabic) "محتويات المقال" else "Article contents",
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            topic.sections.forEachIndexed { index, section ->
+                TextButton(onClick = { onJumpToSection(index) }) {
+                    Text(
+                        text = "${index + 1}. ${section.title(lang)}",
+                        maxLines = 2,
+                    )
+                }
             }
         }
     }
@@ -522,13 +1020,15 @@ private fun TopicContent(
 private fun TopicHeader(
     topic: RefTopic,
     lang: RefLang,
+    fontStep: Int,
 ) {
     val context = LocalContext.current
     val shareText = remember(topic, lang) { buildTopicShareText(topic, lang) }
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
             text = topic.summary(lang),
-            style = MaterialTheme.typography.bodyLarge,
+            fontSize = readerSummaryFontSize(fontStep),
+            lineHeight = readerSummaryLineHeight(fontStep),
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp),
         )
@@ -577,6 +1077,7 @@ private fun TopicSectionContent(
     topic: RefTopic,
     section: RefSection,
     lang: RefLang,
+    fontStep: Int,
 ) {
     SectionLabel(text = section.title(lang))
     section.paragraphs.forEach { paragraph ->
@@ -586,6 +1087,7 @@ private fun TopicSectionContent(
                 topic.citations.firstOrNull { it.id == citationId }
             },
             lang = lang,
+            fontStep = fontStep,
         )
     }
     val sectionCitations = section.citationIds.mapNotNull { citationId ->
@@ -601,6 +1103,7 @@ private fun ParagraphCard(
     paragraph: RefParagraph,
     citations: List<ReferenceCitation>,
     lang: RefLang,
+    fontStep: Int,
 ) {
     IslamicCard(
         modifier = Modifier
@@ -611,8 +1114,8 @@ private fun ParagraphCard(
         Column {
             Text(
                 text = paragraph.text(lang),
-                style = MaterialTheme.typography.bodyMedium.copy(fontSize = 17.sp),
-                lineHeight = 28.sp,
+                fontSize = readerBodyFontSize(fontStep),
+                lineHeight = readerBodyLineHeight(fontStep),
             )
             if (citations.isNotEmpty()) {
                 Spacer(Modifier.height(8.dp))
@@ -642,6 +1145,7 @@ private fun TopicSources(
     topic: RefTopic,
     lang: RefLang,
 ) {
+    val context = LocalContext.current
     SectionLabel(
         text = if (lang == RefLang.Arabic) "المصادر والمراجع" else "Sources and references",
     )
@@ -672,7 +1176,62 @@ private fun TopicSources(
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
+                citation.url?.takeIf { it.isNotBlank() }?.let { url ->
+                    Spacer(Modifier.height(4.dp))
+                    TextButton(
+                        onClick = {
+                            runCatching {
+                                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+                            }
+                        },
+                    ) {
+                        Text(if (lang == RefLang.Arabic) "فتح المصدر" else "Open source")
+                    }
+                }
             }
+        }
+    }
+}
+
+@Composable
+private fun TopicNavigation(
+    lang: RefLang,
+    previousTopic: RefTopic?,
+    nextTopic: RefTopic?,
+    onPrevious: () -> Unit,
+    onNext: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 12.dp, vertical = 16.dp),
+        horizontalArrangement = androidx.compose.foundation.layout.Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        TextButton(
+            enabled = previousTopic != null,
+            onClick = onPrevious,
+        ) {
+            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+            Spacer(Modifier.size(4.dp))
+            Text(if (lang == RefLang.Arabic) "السابق" else "Previous")
+        }
+        Text(
+            text = if (lang == RefLang.Arabic) {
+                "التنقل بين موضوعات الكتاب"
+            } else {
+                "Navigate this book"
+            },
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        TextButton(
+            enabled = nextTopic != null,
+            onClick = onNext,
+        ) {
+            Text(if (lang == RefLang.Arabic) "التالي" else "Next")
+            Spacer(Modifier.size(4.dp))
+            Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null)
         }
     }
 }
@@ -686,6 +1245,34 @@ private fun SectionLabel(text: String) {
         color = MaterialTheme.colorScheme.primary,
         modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp),
     )
+}
+
+private fun readerBodyFontSize(step: Int) = when (ReferenceReaderKeyCodec.clampFontStep(step)) {
+    0 -> 15.sp
+    1 -> 17.sp
+    2 -> 19.sp
+    else -> 21.sp
+}
+
+private fun readerBodyLineHeight(step: Int) = when (ReferenceReaderKeyCodec.clampFontStep(step)) {
+    0 -> 24.sp
+    1 -> 28.sp
+    2 -> 31.sp
+    else -> 34.sp
+}
+
+private fun readerSummaryFontSize(step: Int) = when (ReferenceReaderKeyCodec.clampFontStep(step)) {
+    0 -> 16.sp
+    1 -> 18.sp
+    2 -> 20.sp
+    else -> 22.sp
+}
+
+private fun readerSummaryLineHeight(step: Int) = when (ReferenceReaderKeyCodec.clampFontStep(step)) {
+    0 -> 24.sp
+    1 -> 27.sp
+    2 -> 30.sp
+    else -> 33.sp
 }
 
 private fun buildTopicShareText(topic: RefTopic, lang: RefLang): String = buildString {
@@ -710,6 +1297,19 @@ private fun buildTopicShareText(topic: RefTopic, lang: RefLang): String = buildS
                 .append("\n")
         }
     }
+}
+
+private fun resolveStoredTopic(
+    repository: ReferenceRepository,
+    key: String,
+): Pair<ReferenceBook, RefTopic>? {
+    val separator = key.indexOf('/')
+    if (separator <= 0 || separator == key.lastIndex) return null
+    val bookId = key.substring(0, separator)
+    val topicId = key.substring(separator + 1)
+    val book = repository.byId(bookId) ?: return null
+    val topic = book.topics.firstOrNull { it.id == topicId } ?: return null
+    return book to topic
 }
 
 private fun resolveRelatedTopics(
