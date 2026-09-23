@@ -84,7 +84,9 @@ private fun ScholarPack.effectivePackId(): String =
             append(books.map { it.id }.sorted().joinToString(","))
         }
         val digest = MessageDigest.getInstance("SHA-256").digest(material.toByteArray(Charsets.UTF_8))
-        "legacy-" + digest.take(12).joinToString("") { byte -> "%02x".format(byte) }
+        "legacy-" + digest.take(12).joinToString("") { byte ->
+            "%02x".format(byte.toInt() and 0xff)
+        }
     }
 
 private fun ScholarPack.effectiveSourceName(originName: String?): String =
