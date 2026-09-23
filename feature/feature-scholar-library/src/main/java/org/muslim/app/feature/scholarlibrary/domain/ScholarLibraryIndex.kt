@@ -31,7 +31,7 @@ object ScholarLibraryIndex {
             (filters.authorName.isNullOrBlank() || book.author == filters.authorName)
 
     fun matchesMetadataQuery(book: ScholarBook, rawQuery: String): Boolean {
-        val normalizedQuery = ArabicText.normalizeForSearch(rawQuery.trim())
+        val normalizedQuery = ArabicText.normalizeForQuranSearch(rawQuery.trim())
         if (normalizedQuery.isBlank()) return false
         val searchable = buildList {
             add(book.title)
@@ -39,6 +39,6 @@ object ScholarLibraryIndex {
             book.subtitle?.let(::add)
             addAll(book.keywords)
         }.joinToString(" ")
-        return ArabicText.normalizeForSearch(searchable).contains(normalizedQuery)
+        return ArabicText.normalizeForQuranSearch(searchable).contains(normalizedQuery)
     }
 }
