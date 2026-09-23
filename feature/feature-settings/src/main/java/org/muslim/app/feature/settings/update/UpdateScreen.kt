@@ -156,6 +156,33 @@ fun UpdateScreen(
                     ) {
                         Text(stringResource(R.string.update_retry))
                     }
+                    if (downloadState is UpdateDownloadState.ReadyToInstall) {
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = CardDefaults.cardColors(
+                                containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                            ),
+                        ) {
+                            Text(
+                                text = stringResource(R.string.update_ready_offline),
+                                style = MaterialTheme.typography.bodyMedium,
+                                modifier = Modifier.padding(16.dp),
+                                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                            )
+                        }
+                        Button(
+                            onClick = viewModel::installDownloadedUpdate,
+                            modifier = Modifier.fillMaxWidth(),
+                        ) {
+                            Icon(
+                                Icons.Filled.SystemUpdate,
+                                contentDescription = null,
+                                modifier = Modifier.size(20.dp),
+                            )
+                            Spacer(Modifier.width(8.dp))
+                            Text(stringResource(R.string.update_install))
+                        }
+                    }
                 }
 
                 is UpdateUiState.Available -> {
