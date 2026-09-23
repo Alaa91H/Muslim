@@ -11,18 +11,23 @@ The timeline does not attempt to adjudicate contested political, sectarian, mili
 
 The history feature now separates **UI**, **content contracts**, and **curated content**:
 
-- `HistoryArticleModel.kt` defines long-form articles, sections, structured dates, sources, events, states, and civilization topics.
-- `IslamicHistoryArticles.kt` contains the first long-form bilingual article set and its source registry.
-- `HistoryContentValidator.kt` validates unique IDs, bilingual completeness, chronology sanity, source references, related-era references, and section structure.
+- `HistoryArticleModel.kt` defines long-form articles, sections, structured dates, sources, events, states, regions, and civilization topics.
+- `IslamicHistorySources.kt` provides one shared source registry for articles, states, and future event/place records.
+- `IslamicHistoryArticles.kt` contains the first long-form bilingual article set.
+- `IslamicHistoryStates.kt` adds 18 major overlapping states and dynasties, grouped by broad region instead of forcing them into a single succession.
+- `HistoryContentValidator.kt` validates unique IDs, bilingual completeness, chronology sanity, source references, related-era references, state/era links, and section structure.
 - `HistoryContentValidatorTest.kt` makes those rules part of CI so broken references or incomplete articles are caught before merge.
 
-This separation is the migration boundary for the next stage, where the growing catalogue can move from Kotlin constants to packaged JSON/Room content without rewriting the Compose reader.
+The Compose screen now exposes a dedicated **States & Dynasties** tab with regional filters. This makes overlapping histories visible side by side and avoids implying that one state simply replaced another everywhere. This separation is also the migration boundary for the next stage, where the growing catalogue can move from Kotlin constants to packaged JSON/Room content without rewriting the readers.
 
 ## Sources reviewed
 
 | Area | Source | Implementation use |
 | --- | --- | --- |
-| Broad chronology and dynasties | [The Metropolitan Museum of Art: Chronology of the Islamic World](https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/introduction/chronology) | Used to cross-check major dynasty ranges and regional diversity, including the Umayyads, Abbasids, Andalusian, Ottoman, Safavid, Timurid, Mamluk, and Mughal periods. |
+| Broad chronology and dynasties | [The Metropolitan Museum of Art: Chronology of the Islamic World](https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/introduction/chronology) and its major-dynasties chronology | Used to cross-check major dynasty ranges and regional diversity, including the Umayyads, Abbasids, Andalusian, Seljuq, Mamluk, Ottoman, Timurid, Safavid, and Mughal periods. |
+| Fatimid chronology | [The Met: The Art of the Fatimid Period (909–1171)](https://www.metmuseum.org/essays/the-art-of-the-fatimid-period-909-1171) | Used for the Fatimid state range and cautious summary of Cairo-centered cultural development. |
+| Ayyubid chronology | [The Met: The Art of the Ayyubid Period (ca. 1171–1260)](https://www.metmuseum.org/essays/the-art-of-the-ayyubid-period-ca-1171-1260) | Used for the approximate Ayyubid state range and its Egypt/Levant/Yemen framing. |
+| Ilkhanid and Timurid chronology | The Met Heilbrunn Timeline essays for the Ilkhanid and Timurid periods | Used to cross-check their date ranges and regional framing. |
 | Scientific and cultural context | [The Met: Science and the Art of the Islamic World](https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/unit-four) | Informed careful wording on astronomy, medicine, Arabic translation, scientific instruments, and circulation of knowledge; no lone-inventor claims are used. |
 | Trade and caravan networks | [UNESCO: About the Silk Roads](https://www.unesco.org/en/silk-roads/about-silk-roads) | Supports the framing of land and maritime routes as shifting networks carrying goods, ideas, languages, and beliefs rather than one fixed route. |
 | Caliphal chronology context | [World History Encyclopedia: Islamic Caliphates](https://www.worldhistory.org/Islamic_Caliphates/) | Used only as a supplementary overview and cross-checked against the museum chronology; the app avoids importing its interpretive language. |
