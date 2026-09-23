@@ -9,8 +9,14 @@ import org.muslim.app.core.common.appearance.OrnamentIntensity
  * account identifiers, or home-automation credentials.
  */
 object WearSyncContract {
-    const val CAPABILITY = "muslim_wear_companion_v1"
+    /** Capability advertised by the Android phone app. */
+    const val CAPABILITY_PHONE_APP = "muslim_phone_companion_v1"
+
+    /** Capability advertised by the Wear OS companion app. */
+    const val CAPABILITY_WATCH_APP = "muslim_watch_companion_v1"
+
     const val DATA_PATH = "/muslim/wear/state/v1"
+    const val SYNC_REQUEST_PATH = "/muslim/wear/sync-request/v1"
     const val TASBIH_INCREMENT_PATH = "/muslim/wear/tasbih/increment/v1"
 
     const val KEY_NEXT_PRAYER = "next_prayer"
@@ -23,6 +29,8 @@ object WearSyncContract {
     const val KEY_ORNAMENT_INTENSITY = "ornament_intensity"
 
     fun isSupportedIncrementPath(path: String): Boolean = path == TASBIH_INCREMENT_PATH
+
+    fun isSupportedSyncRequestPath(path: String): Boolean = path == SYNC_REQUEST_PATH
 }
 
 /** A privacy-minimal snapshot rendered on the watch. */
