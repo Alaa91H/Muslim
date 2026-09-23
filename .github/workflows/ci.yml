@@ -54,6 +54,9 @@ jobs:
       - name: Set up Gradle cache
         uses: gradle/actions/setup-gradle@v6
 
+      - name: Verify Wear / IoT integration
+        run: python3 scripts/verify_iot_integration.py
+
       - name: Verify bundled-content inventory
         run: |
           python3 scripts/generate_content_manifest.py
@@ -79,9 +82,6 @@ jobs:
 
       - name: Verify Family Life feature
         run: python3 scripts/verify_family_life.py
-
-      - name: Verify Wear / IoT integration
-        run: python3 scripts/verify_iot_integration.py
 
       - name: Build debug APKs
         run: ./gradlew :app:assembleDebug :wear:assembleDebug --stacktrace
