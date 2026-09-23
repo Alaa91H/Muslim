@@ -317,72 +317,105 @@ fun ScholarBookDetailScreen(
             )
         },
     ) { padding ->
-        if (book == null) {
-            Column(
-                modifier = Modifier.fillMaxSize().padding(padding),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) { CircularProgressIndicator() }
-        } else {
-            LazyColumn(
-                modifier = Modifier.fillMaxSize().padding(padding),
-                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-                verticalArrangement = Arrangement.spacedBy(10.dp),
-            ) {
-                item { BookMetadataCard(book) }
-                item { SectionLabel(stringResource(R.string.scholar_library_passages)) }
-                itemsIndexed(state.selectedBookPassages, key = { _, item -> item.id }) { index, passage ->
-                    val bookmark = state.bookmarks.any { it.bookmark.passageId == passage.id }
-                    val highlight = state.highlights.firstOrNull { it.highlight.passageId == passage.id }
-                    val reachedPercent = if (state.selectedBookPassages.isEmpty()) {
-                        0
-                    } else {
-                        ((index + 1) * 100 / state.selectedBookPassages.size).coerceIn(1, 100)
-                    }
-                    PassageCard(
-                        passage = passage,
-                        citation = Citation(
-                            book.title,
-                            book.author,
-                            passage.chapter,
-                            passage.volume,
-                            passage.page,
-                            book.edition,
-                            book.publisher,
-                            book.publicationYear,
-                        ),
-                        onAddNote = { notePassage = passage },
-                        onAddFlashcard = { cardPassage = passage },
-                        onOpenBook = null,
-                        isBookmarked = bookmark,
-                        isHighlighted = highlight != null,
-                        onToggleBookmark = { viewModel.toggleBookmark(passage.id) },
-                        onToggleHighlight = { viewModel.togglePassageHighlight(passage) },
-                        onMarkStudied = { viewModel.markStudied(book.id, passage.id, reachedPercent) },
-                    )
-                }
-            }
-        }
+        ScholarBookDetailBody(
+            book = book,
+            state = state,
+            padding = padding,
+            viewModel = viewModel,
+            onAddNote = { notePassage = it },
+            onAddFlashcard = { cardPassage = it },
+        )
     }
 
+    ScholarBookDialogs(
+        notePassage = notePassage,
+        cardPassage = cardPassage,
+        onDismissNote = { notePassage = null },
+        onDismissCard = { cardPassage = null },
+        viewModel = viewModel,
+    )
+}
+
+@Composable
+private fun ScholarBookDetailBody(
+    book: ScholarBook?,
+    state: ScholarLibraryUiState,
+    padding: PaddingValues,
+    viewModel: ScholarLibraryViewModel,
+    onAddNote: (ScholarPassage) -> Unit,
+    onAddFlashcard: (ScholarPassage) -> Unit,
+) {
+    if (book == null) {
+        Column(
+            modifier = Modifier.fillMaxSize().padding(padding),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) { CircularProgressIndicator() }
+        return
+    }
+
+    LazyColumn(
+        modifier = Modifier.fillMaxSize().padding(padding),
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        item { BookMetadataCard(book) }
+        item { SectionLabel(stringResource(R.string.scholar_library_passages)) }
+        itemsIndexed(state.selectedBookPassages, key = { _, item -> item.id }) { index, passage ->
+            val bookmark = state.bookmarks.any { it.bookmark.passageId == passage.id }
+            val highlight = state.highlights.firstOrNull { it.highlight.passageId == passage.id }
+            val reachedPercent = ((index + 1) * 100 / state.selectedBookPassages.size.coerceAtLeast(1)).coerceIn(1, 100)
+            PassageCard(
+                passage = passage,
+                citation = Citation(
+                    book.title,
+                    book.author,
+                    passage.chapter,
+                    passage.volume,
+                    passage.page,
+                    book.edition,
+                    book.publisher,
+                    book.publicationYear,
+                ),
+                onAddNote = { onAddNote(passage) },
+                onAddFlashcard = { onAddFlashcard(passage) },
+                onOpenBook = null,
+                isBookmarked = bookmark,
+                isHighlighted = highlight != null,
+                onToggleBookmark = { viewModel.toggleBookmark(passage.id) },
+                onToggleHighlight = { viewModel.togglePassageHighlight(passage) },
+                onMarkStudied = { viewModel.markStudied(book.id, passage.id, reachedPercent) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun ScholarBookDialogs(
+    notePassage: ScholarPassage?,
+    cardPassage: ScholarPassage?,
+    onDismissNote: () -> Unit,
+    onDismissCard: () -> Unit,
+    viewModel: ScholarLibraryViewModel,
+) {
     notePassage?.let { passage ->
         TextEntryDialog(
             title = stringResource(R.string.scholar_library_add_note),
             label = stringResource(R.string.scholar_library_note_label),
             confirm = stringResource(R.string.scholar_library_save),
-            onDismiss = { notePassage = null },
+            onDismiss = onDismissNote,
             onConfirm = { text ->
                 viewModel.addNote(passage.id, text)
-                notePassage = null
+                onDismissNote()
             },
         )
     }
     cardPassage?.let { passage ->
         FlashcardDialog(
-            onDismiss = { cardPassage = null },
+            onDismiss = onDismissCard,
             onConfirm = { front, back ->
                 viewModel.addFlashcard(passage.id, front, back)
-                cardPassage = null
+                onDismissCard()
             },
         )
     }
