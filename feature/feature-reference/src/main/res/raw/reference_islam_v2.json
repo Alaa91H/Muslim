@@ -6,7 +6,7 @@
     "titleEn": "Introduction to Islam",
     "subtitleAr": "مرجع شامل ومفهرس للمسلم ولغير المسلم",
     "subtitleEn": "A comprehensive, indexed reference for Muslims and non-Muslims",
-    "contentRevision": 4,
+    "contentRevision": 5,
     "chapters": [
       {
         "id": "foundations",
@@ -67,7 +67,8 @@
           "dhikr",
           "charity",
           "death_barzakh",
-          "resurrection_judgment"
+          "resurrection_judgment",
+          "paradise_hell"
         ]
       },
       {
@@ -81,7 +82,17 @@
           "women",
           "human_dignity",
           "justice_mercy",
-          "family_in_islam"
+          "family_in_islam",
+          "parents",
+          "relatives",
+          "neighbors",
+          "honesty_trust",
+          "modesty_chastity",
+          "forgiveness_reconciliation",
+          "sanctity_of_life",
+          "care_orphans_poor",
+          "relations_with_non_muslims",
+          "freedom_of_belief"
         ]
       },
       {
@@ -94,6 +105,33 @@
           "science",
           "misconceptions",
           "seeking_knowledge"
+        ]
+      },
+      {
+        "id": "daily_life",
+        "titleAr": "الحياة اليومية والمعاملات",
+        "titleEn": "Daily Life and Transactions",
+        "summaryAr": "العمل والمال والطعام والحقوق اليومية في ضوء القيم الإسلامية.",
+        "summaryEn": "Work, wealth, food, and everyday rights through Islamic ethical principles.",
+        "topicIds": [
+          "work_earning",
+          "wealth_debt",
+          "lawful_food"
+        ]
+      },
+      {
+        "id": "community_culture",
+        "titleAr": "المجتمع والهوية الإسلامية",
+        "titleEn": "Community and Muslim Identity",
+        "summaryAr": "المساجد والتقويم والأعياد والتنوع والمذاهب واللغة العربية.",
+        "summaryEn": "Mosques, calendar, festivals, diversity, legal schools, and the Arabic language.",
+        "topicIds": [
+          "mosques",
+          "islamic_calendar",
+          "eid",
+          "diversity_muslims",
+          "schools_of_law",
+          "arabic_language"
         ]
       }
     ],
@@ -3355,6 +3393,1710 @@
                 "en": "This belief gives weight to everyday actions and rights people might otherwise dismiss, linking ethics with accountability before God.",
                 "citationIds": [
                   "quran-99-6-8"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "paradise_hell",
+        "titleAr": "الجنة والنار",
+        "titleEn": "Paradise and Hell",
+        "summaryAr": "الإيمان بالجنة والنار جزء من الإيمان باليوم الآخر، ويربط القرآن المصير الأخروي بالإيمان والعمل والعدل الإلهي.",
+        "summaryEn": "Belief in Paradise and Hell is part of belief in the Hereafter, and the Quran connects final destiny with faith, deeds, and divine justice.",
+        "keywordsAr": [
+          "الجنة",
+          "النار",
+          "الآخرة"
+        ],
+        "keywordsEn": [
+          "Paradise",
+          "Hell",
+          "Hereafter"
+        ],
+        "relatedTopicIds": [
+          "afterlife",
+          "resurrection_judgment",
+          "repentance"
+        ],
+        "citations": [
+          {
+            "id": "quran-18-107",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "18:107"
+          },
+          {
+            "id": "quran-4-56",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:56"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "paradise",
+            "titleAr": "الجنة",
+            "titleEn": "Paradise",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن الجنة بأنها دار كرامة للمؤمنين الذين عملوا الصالحات، ويستعمل صورًا متعددة للنعيم والقرب والطمأنينة.",
+                "en": "The Quran describes Paradise as a place of honor for believers who do righteous deeds, using varied images of joy, nearness, and peace.",
+                "citationIds": [
+                  "quran-18-107"
+                ]
+              },
+              {
+                "ar": "وتبقى حقيقة نعيم الآخرة من الغيب؛ لذلك لا ينبغي تحويل الأوصاف القرآنية إلى تفاصيل متخيلة تتجاوز النص.",
+                "en": "The full reality of the Hereafter remains unseen, so Quranic descriptions should not be expanded into invented details beyond revelation.",
+                "citationIds": [
+                  "quran-18-107"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "hell",
+            "titleAr": "النار والعدالة الأخروية",
+            "titleEn": "Hell and final justice",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن النار بوصفها عقوبة أخروية للكفر والظلم والمعصية وفق حكم الله وعدله.",
+                "en": "The Quran presents Hell as an afterlife punishment connected with disbelief, injustice, and wrongdoing according to God's judgment and justice.",
+                "citationIds": [
+                  "quran-4-56"
+                ]
+              },
+              {
+                "ar": "والحديث عن المصير الأخروي للأفراد المعينين يحتاج إلى نص، فلا يُجزم لمعين بجنة أو نار بلا دليل معتبر.",
+                "en": "Judging the final destiny of particular individuals requires revealed evidence; one should not assign a specific person to Paradise or Hell without authoritative basis.",
+                "citationIds": [
+                  "quran-4-56"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "parents",
+        "titleAr": "بر الوالدين",
+        "titleEn": "Honoring parents",
+        "summaryAr": "يجعل القرآن الإحسان إلى الوالدين من أعظم الحقوق الاجتماعية بعد حق الله.",
+        "summaryEn": "The Quran places kindness to parents among the greatest social duties after the duty owed to God.",
+        "keywordsAr": [
+          "بر الوالدين",
+          "الأم",
+          "الأب"
+        ],
+        "keywordsEn": [
+          "parents",
+          "mother",
+          "father",
+          "kindness"
+        ],
+        "relatedTopicIds": [
+          "family_in_islam",
+          "ethics",
+          "relatives"
+        ],
+        "citations": [
+          {
+            "id": "quran-17-23-24",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:23-24"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "kindness",
+            "titleAr": "الإحسان والقول الكريم",
+            "titleEn": "Kindness and respectful speech",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقرن القرآن عبادة الله بالإحسان إلى الوالدين، وينهى عن أقل ألفاظ التضجر معهما عند الكبر.",
+                "en": "The Quran pairs worship of God with kindness to parents and forbids even minor expressions of irritation toward them in old age.",
+                "citationIds": [
+                  "quran-17-23-24"
+                ]
+              },
+              {
+                "ar": "ويشمل البر حسن الخطاب والخدمة والرعاية والإنفاق بحسب الحاجة والقدرة، مع مراعاة الظروف الواقعية للأسرة.",
+                "en": "Honoring parents includes respectful speech, service, care, and financial support according to need and ability, while accounting for real family circumstances.",
+                "citationIds": [
+                  "quran-17-23-24"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "boundaries",
+            "titleAr": "البر وحدود الطاعة",
+            "titleEn": "Kindness and the limits of obedience",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "البر لا يعني طاعة الوالدين في كل شيء دون قيد؛ فالطاعة لا تكون في المعصية أو الظلم، مع بقاء واجب الأدب والإحسان.",
+                "en": "Honoring parents does not mean unconditional obedience in every matter. Obedience does not extend to wrongdoing, while respect and kindness remain important.",
+                "citationIds": [
+                  "quran-17-23-24"
+                ]
+              },
+              {
+                "ar": "وعند وجود أذى أو علاقة أسرية معقدة يمكن الجمع بين حفظ الحقوق ووضع حدود واقية بوسائل حكيمة ومشروعة.",
+                "en": "Where there is harm or a difficult family relationship, protecting rights can be combined with prudent and lawful boundaries.",
+                "citationIds": [
+                  "quran-17-23-24"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relatives",
+        "titleAr": "صلة الرحم وحقوق الأقارب",
+        "titleEn": "Maintaining family ties",
+        "summaryAr": "صلة الرحم تعني رعاية روابط القرابة وأداء الحقوق والإحسان بحسب القدرة.",
+        "summaryEn": "Maintaining family ties means caring for kinship relationships, fulfilling rights, and showing kindness according to one's ability.",
+        "keywordsAr": [
+          "صلة الرحم",
+          "الأقارب",
+          "القرابة"
+        ],
+        "keywordsEn": [
+          "family ties",
+          "relatives",
+          "kinship"
+        ],
+        "relatedTopicIds": [
+          "parents",
+          "family_in_islam",
+          "charity"
+        ],
+        "citations": [
+          {
+            "id": "quran-17-26",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:26"
+          },
+          {
+            "id": "quran-4-1",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:1"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "rights",
+            "titleAr": "حق ذي القربى",
+            "titleEn": "The rights of relatives",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بإيتاء ذي القربى حقه، فيدخل الأقارب ضمن دوائر المسؤولية الاجتماعية والمالية.",
+                "en": "The Quran commands giving relatives their due, placing kin within circles of social and financial responsibility.",
+                "citationIds": [
+                  "quran-17-26"
+                ]
+              },
+              {
+                "ar": "تختلف صور الصلة باختلاف الحال؛ فقد تكون زيارة أو اتصالًا أو مساعدة أو إصلاحًا أو إنفاقًا عند الحاجة.",
+                "en": "Maintaining ties varies by circumstance and may include visits, communication, assistance, reconciliation, or financial support when needed.",
+                "citationIds": [
+                  "quran-17-26"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "shared_bonds",
+            "titleAr": "حفظ الروابط مع تجنب الضرر",
+            "titleEn": "Preserving ties without enabling harm",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكّر القرآن بوحدة الأصل الإنساني وبالأرحام، بما يعزز احترام روابط القرابة وعدم قطعها لأسباب تافهة.",
+                "en": "The Quran recalls shared human origin and family bonds, encouraging respect for kinship and discouraging needless severance.",
+                "citationIds": [
+                  "quran-4-1"
+                ]
+              },
+              {
+                "ar": "ولا يلزم من صلة الرحم تمكين الأذى؛ يمكن المحافظة على قدر من التواصل الآمن مع وضع حدود تحمي النفس والآخرين.",
+                "en": "Maintaining family ties does not require enabling abuse. A safe degree of contact can coexist with boundaries that protect oneself and others.",
+                "citationIds": [
+                  "quran-4-1"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "neighbors",
+        "titleAr": "حق الجار",
+        "titleEn": "Rights of neighbors",
+        "summaryAr": "يأمر الإسلام بالإحسان إلى الجار قريبًا كان أو بعيدًا، ويجعل حسن الجوار جزءًا من الأخلاق الاجتماعية.",
+        "summaryEn": "Islam commands kindness to neighbors, near or distant, and treats good neighborliness as part of social ethics.",
+        "keywordsAr": [
+          "الجار",
+          "حسن الجوار",
+          "حقوق الجيران"
+        ],
+        "keywordsEn": [
+          "neighbors",
+          "neighborliness",
+          "rights"
+        ],
+        "relatedTopicIds": [
+          "ethics",
+          "justice_mercy",
+          "relations_with_non_muslims"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-36",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:36"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "kindness",
+            "titleAr": "الإحسان إلى الجار",
+            "titleEn": "Kindness to neighbors",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة النساء الجار ذي القربى والجار الجنب ضمن من أُمر بالإحسان إليهم.",
+                "en": "Surat al-Nisa names both the near neighbor and the more distant neighbor among those toward whom kindness is commanded.",
+                "citationIds": [
+                  "quran-4-36"
+                ]
+              },
+              {
+                "ar": "يشمل حسن الجوار كف الأذى واحترام الخصوصية والتعاون في المعروف والمساعدة عند الحاجة ضمن حدود القدرة.",
+                "en": "Good neighborliness includes avoiding harm, respecting privacy, cooperating in good, and helping in times of need within one's ability.",
+                "citationIds": [
+                  "quran-4-36"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "diversity",
+            "titleAr": "الجوار رغم اختلاف الخلفيات",
+            "titleEn": "Neighborliness across differences",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يقصر النص حق الجار على من يشارك الإنسان الدين أو العائلة، ولذلك يمتد أصل الإحسان إلى مجتمع متنوع.",
+                "en": "The text does not restrict neighborly rights to people of the same religion or family, so the principle of kindness extends across diverse communities.",
+                "citationIds": [
+                  "quran-4-36"
+                ]
+              },
+              {
+                "ar": "وتساعد هذه الأخلاق على بناء الثقة اليومية في السكن والعمل والحي، بعيدًا عن الجدل النظري المجرد.",
+                "en": "These ethics help build everyday trust in homes, workplaces, and neighborhoods rather than remaining abstract ideals.",
+                "citationIds": [
+                  "quran-4-36"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "honesty_trust",
+        "titleAr": "الصدق والأمانة",
+        "titleEn": "Honesty and trustworthiness",
+        "summaryAr": "الصدق وحفظ الأمانة من القيم الأساسية في الأخلاق الإسلامية والعلاقات اليومية.",
+        "summaryEn": "Truthfulness and safeguarding trusts are foundational values in Islamic ethics and everyday relationships.",
+        "keywordsAr": [
+          "الصدق",
+          "الأمانة",
+          "الوفاء"
+        ],
+        "keywordsEn": [
+          "honesty",
+          "trustworthiness",
+          "fulfilling trusts"
+        ],
+        "relatedTopicIds": [
+          "ethics",
+          "work_earning",
+          "wealth_debt"
+        ],
+        "citations": [
+          {
+            "id": "quran-9-119",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:119"
+          },
+          {
+            "id": "quran-23-8",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "23:8"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "truthfulness",
+            "titleAr": "الصدق",
+            "titleEn": "Truthfulness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن المؤمنين بتقوى الله والكون مع الصادقين، فيجعل الصدق قيمة ملازمة للإيمان والسلوك.",
+                "en": "The Quran tells believers to be mindful of God and to be with the truthful, presenting honesty as a value tied to faith and conduct.",
+                "citationIds": [
+                  "quran-9-119"
+                ]
+              },
+              {
+                "ar": "يشمل الصدق الكلام والشهادة والوعد والبيانات المهنية والتجارية، ولا يقتصر على تجنب الكذب الصريح فقط.",
+                "en": "Truthfulness includes speech, testimony, promises, and professional or commercial information; it is broader than merely avoiding explicit lies.",
+                "citationIds": [
+                  "quran-9-119"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "trusts",
+            "titleAr": "حفظ الأمانات والعهود",
+            "titleEn": "Keeping trusts and commitments",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمدح القرآن المؤمنين الذين يراعون أماناتهم وعهدهم، فتدخل في ذلك الممتلكات والأسرار والمسؤوليات والالتزامات.",
+                "en": "The Quran praises believers who honor trusts and commitments, including property, confidential information, responsibilities, and obligations.",
+                "citationIds": [
+                  "quran-23-8"
+                ]
+              },
+              {
+                "ar": "وحفظ الأمانة أساس للثقة في الأسرة والعمل والمجتمع، بينما الخيانة تضر بالحقوق وبالعلاقات معًا.",
+                "en": "Trustworthiness is essential for confidence in family, work, and society, while betrayal harms both rights and relationships.",
+                "citationIds": [
+                  "quran-23-8"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "modesty_chastity",
+        "titleAr": "الحياء والعفة",
+        "titleEn": "Modesty and chastity",
+        "summaryAr": "يدعو الإسلام الرجال والنساء إلى العفة وضبط النظر والسلوك، ويربط الستر بكرامة الإنسان لا باحتقاره للجسد.",
+        "summaryEn": "Islam calls both men and women to chastity and disciplined conduct, connecting modesty with dignity rather than contempt for the body.",
+        "keywordsAr": [
+          "الحياء",
+          "العفة",
+          "غض البصر"
+        ],
+        "keywordsEn": [
+          "modesty",
+          "chastity",
+          "lowering the gaze"
+        ],
+        "relatedTopicIds": [
+          "ethics",
+          "women",
+          "family_in_islam"
+        ],
+        "citations": [
+          {
+            "id": "quran-24-30-31",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "24:30-31"
+          },
+          {
+            "id": "quran-7-26",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "7:26"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "mutual_duty",
+            "titleAr": "خطاب الرجال والنساء",
+            "titleEn": "A duty addressed to men and women",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأمر سورة النور المؤمنين ثم المؤمنات بغض البصر وحفظ الفروج، فيظهر أن المسؤولية الأخلاقية في العفة مشتركة.",
+                "en": "Surat al-Nur instructs believing men and then believing women to lower their gaze and guard chastity, showing a shared moral responsibility.",
+                "citationIds": [
+                  "quran-24-30-31"
+                ]
+              },
+              {
+                "ar": "وتفاصيل اللباس والستر لها أبواب فقهية، أما الأصل الأخلاقي فيشمل احترام الحدود وعدم تحويل الآخرين إلى موضوع للاستغلال.",
+                "en": "Detailed dress rules belong to jurisprudence, while the broader ethical principle includes respecting boundaries and not treating others as objects of exploitation.",
+                "citationIds": [
+                  "quran-24-30-31"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "inner_outer",
+            "titleAr": "لباس الظاهر وتقوى الباطن",
+            "titleEn": "Outer dress and inner mindfulness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة الأعراف اللباس الذي يواري الجسد ثم تشير إلى لباس التقوى، فتربط المظهر بالبعد الأخلاقي الداخلي.",
+                "en": "Surat al-A'raf mentions clothing that covers the body and then speaks of the garment of mindfulness, connecting outward appearance with inner ethics.",
+                "citationIds": [
+                  "quran-7-26"
+                ]
+              },
+              {
+                "ar": "لذلك لا تختزل العفة في الثياب وحدها؛ فهي تشمل الكلام والنظر والعلاقات والنية والسلوك.",
+                "en": "Chastity is therefore not reduced to clothing alone; it includes speech, gaze, relationships, intention, and conduct.",
+                "citationIds": [
+                  "quran-7-26"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "forgiveness_reconciliation",
+        "titleAr": "العفو والإصلاح",
+        "titleEn": "Forgiveness and reconciliation",
+        "summaryAr": "يشجع القرآن العفو والإصلاح مع حفظ حق المظلوم في طلب العدل وعدم إلزامه بترك حقه.",
+        "summaryEn": "The Quran encourages forgiveness and reconciliation while preserving the wronged person's right to justice.",
+        "keywordsAr": [
+          "العفو",
+          "الإصلاح",
+          "المصالحة"
+        ],
+        "keywordsEn": [
+          "forgiveness",
+          "reconciliation",
+          "restorative justice"
+        ],
+        "relatedTopicIds": [
+          "justice_mercy",
+          "repentance",
+          "ethics"
+        ],
+        "citations": [
+          {
+            "id": "quran-42-40",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "42:40"
+          },
+          {
+            "id": "quran-24-22",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "24:22"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "justice_and_forgiveness",
+            "titleAr": "بين القصاص والعفو",
+            "titleEn": "Between justice and forgiveness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقرر سورة الشورى مبدأ مقابلة السيئة بمثلها ثم تمدح من عفا وأصلح، فتوازن بين الحق والفضل.",
+                "en": "Surat al-Shura recognizes proportionate redress and then praises those who forgive and reconcile, balancing justice with grace.",
+                "citationIds": [
+                  "quran-42-40"
+                ]
+              },
+              {
+                "ar": "العفو فضيلة عندما يكون آمنًا ومصلحًا، لكنه لا يعني إنكار الضرر أو إجبار الضحية على العودة إلى وضع مؤذٍ.",
+                "en": "Forgiveness can be virtuous when safe and constructive, but it does not mean denying harm or forcing a victim back into an abusive situation.",
+                "citationIds": [
+                  "quran-42-40"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "generosity",
+            "titleAr": "تجاوز الإساءة عند القدرة",
+            "titleEn": "Moving beyond offense when appropriate",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تدعو سورة النور إلى العفو والصفح وتربطه برجاء مغفرة الله، وهو توجيه نحو كسر دوائر الانتقام الشخصي.",
+                "en": "Surat al-Nur calls for forgiveness and overlooking faults and connects this with hoping for God's forgiveness, encouraging people to break cycles of personal retaliation.",
+                "citationIds": [
+                  "quran-24-22"
+                ]
+              },
+              {
+                "ar": "ويحتاج الإصلاح أحيانًا إلى اعتذار ورد حق أو ضمانات عملية، فلا يكون الصلح الحقيقي مجرد تجاهل للمشكلة.",
+                "en": "Real reconciliation can require apology, restoration of rights, or practical safeguards; it is not merely pretending a problem did not happen.",
+                "citationIds": [
+                  "quran-24-22"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sanctity_of_life",
+        "titleAr": "حرمة النفس وصيانة الحياة",
+        "titleEn": "The sanctity of life",
+        "summaryAr": "يؤكد القرآن حرمة الاعتداء على النفس ويجعل حماية الحياة من أعظم المقاصد الأخلاقية.",
+        "summaryEn": "The Quran strongly condemns unlawful killing and treats the protection of life as a major ethical principle.",
+        "keywordsAr": [
+          "حرمة الدم",
+          "حفظ النفس",
+          "الحياة"
+        ],
+        "keywordsEn": [
+          "sanctity of life",
+          "protecting life",
+          "unlawful killing"
+        ],
+        "relatedTopicIds": [
+          "justice_mercy",
+          "human_dignity",
+          "ethics"
+        ],
+        "citations": [
+          {
+            "id": "quran-17-33",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:33"
+          },
+          {
+            "id": "quran-5-32",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:32"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "prohibition",
+            "titleAr": "تحريم الاعتداء",
+            "titleEn": "Prohibition of unlawful killing",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينهى القرآن عن قتل النفس التي حرم الله إلا بالحق، ويمنع تجاوز الحدود حتى في طلب العدالة.",
+                "en": "The Quran forbids taking a life that God has made sacred except with due right and warns against excess even when justice is sought.",
+                "citationIds": [
+                  "quran-17-33"
+                ]
+              },
+              {
+                "ar": "ولهذا لا يملك الأفراد اتخاذ العنف وسيلة شخصية للانتقام أو فرض الاعتقاد، وتبقى مسائل العقوبات من اختصاص القضاء والنظام الشرعي والقانوني.",
+                "en": "Individuals therefore do not possess a personal license for violent revenge or coercion; questions of punishment belong to lawful judicial authority and due process.",
+                "citationIds": [
+                  "quran-17-33"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "saving_life",
+            "titleAr": "قيمة إنقاذ الحياة",
+            "titleEn": "The value of saving life",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تستعمل سورة المائدة في سياق بني إسرائيل صياغة شديدة القوة في تعظيم قتل النفس وإنقاذها، وهي من النصوص القرآنية البارزة في بيان قيمة الحياة.",
+                "en": "In a passage concerning the Children of Israel, Surat al-Ma'idah uses powerful language about the gravity of killing and the value of saving life, underscoring the moral weight of human life.",
+                "citationIds": [
+                  "quran-5-32"
+                ]
+              },
+              {
+                "ar": "ويظهر هذا الأصل في مسؤوليات مثل دفع الضرر والإغاثة والعلاج وحماية الضعفاء بحسب القدرة والاختصاص.",
+                "en": "This principle is reflected in duties such as preventing harm, providing aid, seeking treatment, and protecting vulnerable people according to ability and expertise.",
+                "citationIds": [
+                  "quran-5-32"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "care_orphans_poor",
+        "titleAr": "رعاية اليتيم والمحتاج",
+        "titleEn": "Care for orphans and people in need",
+        "summaryAr": "تكرر النصوص القرآنية حماية اليتيم وإطعام المحتاج وجعل ذلك من دلائل البر والإيمان العملي.",
+        "summaryEn": "The Quran repeatedly emphasizes protecting orphans and feeding people in need as expressions of righteousness and lived faith.",
+        "keywordsAr": [
+          "اليتيم",
+          "المسكين",
+          "الفقراء"
+        ],
+        "keywordsEn": [
+          "orphans",
+          "poor",
+          "needy"
+        ],
+        "relatedTopicIds": [
+          "charity",
+          "zakat",
+          "justice_mercy"
+        ],
+        "citations": [
+          {
+            "id": "quran-93-9-10",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "93:9-10"
+          },
+          {
+            "id": "quran-2-177",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:177"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "orphan",
+            "titleAr": "عدم قهر اليتيم",
+            "titleEn": "Protecting the orphan",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنهى سورة الضحى عن قهر اليتيم وعن نهر السائل، فترسخ احترام الضعيف بدل استغلال حاجته.",
+                "en": "Surat al-Duha forbids oppressing the orphan and harshly rebuking the one who asks, establishing respect for vulnerable people rather than exploiting their need.",
+                "citationIds": [
+                  "quran-93-9-10"
+                ]
+              },
+              {
+                "ar": "تشمل الرعاية حفظ المال والكرامة والتعليم والأمان، لا مجرد تقديم مساعدة مؤقتة.",
+                "en": "Care includes protecting property, dignity, education, and safety rather than only providing occasional material assistance.",
+                "citationIds": [
+                  "quran-93-9-10"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "righteousness",
+            "titleAr": "البر والإنفاق على المحتاج",
+            "titleEn": "Righteousness and giving to those in need",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تربط آية البر الإيمان بإيتاء المال لذوي القربى واليتامى والمساكين وابن السبيل وغيرهم من المحتاجين.",
+                "en": "The Quranic verse on righteousness links faith with giving wealth to relatives, orphans, the needy, travelers, and others in need.",
+                "citationIds": [
+                  "quran-2-177"
+                ]
+              },
+              {
+                "ar": "وبذلك يصبح التكافل جزءًا من البناء الأخلاقي للدين وليس نشاطًا هامشيًا منفصلًا عن العبادة.",
+                "en": "Social solidarity is thus part of the religion's ethical structure rather than a marginal activity detached from worship.",
+                "citationIds": [
+                  "quran-2-177"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "work_earning",
+        "titleAr": "العمل والكسب الحلال",
+        "titleEn": "Work and lawful earning",
+        "summaryAr": "ينظر الإسلام إلى العمل النافع والكسب المشروع بوصفهما جزءًا من المسؤولية الإنسانية مع منع الغش والظلم.",
+        "summaryEn": "Islam treats beneficial work and lawful earning as part of human responsibility while prohibiting fraud and injustice.",
+        "keywordsAr": [
+          "العمل",
+          "الكسب",
+          "الرزق"
+        ],
+        "keywordsEn": [
+          "work",
+          "earning",
+          "livelihood"
+        ],
+        "relatedTopicIds": [
+          "honesty_trust",
+          "wealth_debt",
+          "trust_in_god"
+        ],
+        "citations": [
+          {
+            "id": "quran-62-10",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "62:10"
+          },
+          {
+            "id": "quran-53-39",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "53:39"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "seeking_livelihood",
+            "titleAr": "السعي في طلب الرزق",
+            "titleEn": "Seeking livelihood",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعد صلاة الجمعة يأذن القرآن بالانتشار في الأرض وابتغاء فضل الله، فيظهر أن العبادة لا تعني الانقطاع عن العمل والحياة.",
+                "en": "After Friday prayer, the Quran permits people to disperse through the land and seek God's bounty, showing that worship does not require withdrawal from work and ordinary life.",
+                "citationIds": [
+                  "quran-62-10"
+                ]
+              },
+              {
+                "ar": "ويشمل العمل المشروع التجارة والمهن والخدمات والعلوم وغيرها ما دام النشاط نفسه وطريق الكسب مباحين.",
+                "en": "Lawful work includes trade, professions, services, sciences, and other fields so long as the activity and manner of earning are permissible.",
+                "citationIds": [
+                  "quran-62-10"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "effort",
+            "titleAr": "قيمة السعي",
+            "titleEn": "The value of effort",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقرر القرآن أن للإنسان ما سعى، وهو معنى يعزز المسؤولية والمبادرة وعدم الاتكال على الآخرين بلا حاجة.",
+                "en": "The Quran states that a person has what he or she strives for, reinforcing responsibility, initiative, and avoiding needless dependence.",
+                "citationIds": [
+                  "quran-53-39"
+                ]
+              },
+              {
+                "ar": "ولا يعني ذلك أن كل نجاح مادي دليل رضا إلهي أو أن الفقر نقص أخلاقي؛ فالنتائج تتأثر بأسباب كثيرة والكرامة لا تقاس بالثروة.",
+                "en": "This does not mean every material success proves divine favor or that poverty is a moral defect; outcomes depend on many factors and dignity is not measured by wealth.",
+                "citationIds": [
+                  "quran-53-39"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wealth_debt",
+        "titleAr": "المال والديون والحقوق المالية",
+        "titleEn": "Wealth, debt, and financial rights",
+        "summaryAr": "يضع القرآن للمال ضوابط تحمي الملكية والتراضي وتوثيق الحقوق وتمنع أكل أموال الناس بالباطل.",
+        "summaryEn": "The Quran sets principles for wealth that protect property, mutual consent, documentation of rights, and prohibit wrongful consumption of others' property.",
+        "keywordsAr": [
+          "المال",
+          "الديون",
+          "التجارة",
+          "العقود"
+        ],
+        "keywordsEn": [
+          "wealth",
+          "debt",
+          "trade",
+          "contracts"
+        ],
+        "relatedTopicIds": [
+          "work_earning",
+          "honesty_trust",
+          "zakat"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-29",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:29"
+          },
+          {
+            "id": "quran-2-282",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:282"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "consent",
+            "titleAr": "التراضي ومنع أكل المال بالباطل",
+            "titleEn": "Consent and protection of property",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينهى القرآن عن أكل أموال الناس بالباطل ويستثني التجارة القائمة على التراضي، وهو أصل في المعاملات العادلة.",
+                "en": "The Quran forbids consuming people's wealth wrongfully and recognizes trade based on mutual consent, a foundational principle for fair transactions.",
+                "citationIds": [
+                  "quran-4-29"
+                ]
+              },
+              {
+                "ar": "يدخل في ذلك تجنب الاحتيال والسرقة والاستغلال والعقود التي تسلب الناس حقوقهم بغير حق.",
+                "en": "This includes avoiding fraud, theft, exploitation, and arrangements that wrongfully deprive people of their rights.",
+                "citationIds": [
+                  "quran-4-29"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "documentation",
+            "titleAr": "توثيق الديون",
+            "titleEn": "Documenting debts",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأمر أطول آية في القرآن بكتابة الديون المؤجلة وتفصيل إجراءات تساعد على حفظ الحقوق ومنع النزاع.",
+                "en": "The Quran's longest verse instructs believers to record deferred debts and gives procedures intended to preserve rights and reduce disputes.",
+                "citationIds": [
+                  "quran-2-282"
+                ]
+              },
+              {
+                "ar": "وتختلف التفاصيل القانونية الحديثة باختلاف الأنظمة، لكن مبدأ الوضوح والتوثيق والأمانة يبقى مهمًا في العلاقات المالية.",
+                "en": "Modern legal details vary by jurisdiction, but clarity, documentation, and trustworthiness remain important in financial relationships.",
+                "citationIds": [
+                  "quran-2-282"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lawful_food",
+        "titleAr": "الطعام الحلال والطيب",
+        "titleEn": "Lawful and wholesome food",
+        "summaryAr": "يربط القرآن الطعام بالحِل والطيب والشكر، ويذكر محرمات محددة مع مراعاة حال الضرورة.",
+        "summaryEn": "The Quran connects food with lawfulness, wholesomeness, and gratitude, names specific prohibitions, and recognizes necessity.",
+        "keywordsAr": [
+          "الحلال",
+          "الحرام",
+          "الطعام"
+        ],
+        "keywordsEn": [
+          "halal",
+          "haram",
+          "food"
+        ],
+        "relatedTopicIds": [
+          "gratitude",
+          "worship",
+          "sources"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-168",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:168"
+          },
+          {
+            "id": "quran-5-3",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:3"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "halal_tayyib",
+            "titleAr": "حلالًا طيبًا",
+            "titleEn": "Lawful and wholesome",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن الناس أن يأكلوا مما في الأرض حلالًا طيبًا، فيجمع بين الحكم الشرعي ومعنى الطيب والنفع.",
+                "en": "The Quran tells people to eat what is lawful and wholesome, joining legal permissibility with the idea of good and beneficial food.",
+                "citationIds": [
+                  "quran-2-168"
+                ]
+              },
+              {
+                "ar": "والأصل في الأطعمة الإباحة ما لم يرد دليل على التحريم، بينما تحتاج المنتجات المركبة والمسائل المستجدة إلى تحقق من مكوناتها وأحكامها.",
+                "en": "Foods are generally permitted unless evidence establishes prohibition, while complex products and new cases may require checking ingredients and relevant rulings.",
+                "citationIds": [
+                  "quran-2-168"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "prohibitions",
+            "titleAr": "المحرمات والضرورة",
+            "titleEn": "Prohibitions and necessity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة المائدة جملة من الأطعمة المحرمة، وتذكر في السياق نفسه حكم الاضطرار بما يبين أن الشريعة تراعي الضرورة.",
+                "en": "Surat al-Ma'idah names several prohibited foods and also addresses necessity, showing that Islamic law takes genuine emergency into account.",
+                "citationIds": [
+                  "quran-5-3"
+                ]
+              },
+              {
+                "ar": "وتفاصيل الذبائح والمكونات والضرورة لها أحكام فقهية أدق من أن تختزل في قائمة قصيرة، لذلك يُرجع فيها إلى مصادر موثوقة.",
+                "en": "Rules about slaughter, ingredients, and necessity contain more detail than a short list can capture, so specific cases should be checked in reliable jurisprudential sources.",
+                "citationIds": [
+                  "quran-5-3"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relations_with_non_muslims",
+        "titleAr": "التعامل مع غير المسلمين",
+        "titleEn": "Relations with non-Muslims",
+        "summaryAr": "يفرق القرآن بين من يعيش في سلم وعدل وبين من يمارس العدوان، ويجيز البر والقسط مع غير المحاربين.",
+        "summaryEn": "The Quran distinguishes peaceful relations from aggression and permits kindness and justice toward those who are not fighting Muslims.",
+        "keywordsAr": [
+          "غير المسلمين",
+          "البر",
+          "القسط",
+          "التعايش"
+        ],
+        "keywordsEn": [
+          "non-Muslims",
+          "kindness",
+          "justice",
+          "coexistence"
+        ],
+        "relatedTopicIds": [
+          "neighbors",
+          "justice_mercy",
+          "freedom_of_belief"
+        ],
+        "citations": [
+          {
+            "id": "quran-60-8-9",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "60:8-9"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "kindness_justice",
+            "titleAr": "البر والقسط",
+            "titleEn": "Kindness and justice",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنص سورة الممتحنة على أن الله لا ينهى عن البر والقسط مع الذين لم يقاتلوا المسلمين في الدين ولم يخرجوهم من ديارهم.",
+                "en": "Surat al-Mumtahanah states that God does not forbid kindness and justice toward those who have not fought Muslims because of religion or expelled them from their homes.",
+                "citationIds": [
+                  "quran-60-8-9"
+                ]
+              },
+              {
+                "ar": "يدخل في ذلك حسن الجوار والوفاء بالعقود والتعاون في المصالح المشروعة واحترام الحقوق المدنية والإنسانية.",
+                "en": "This includes good neighborliness, honoring agreements, cooperation in lawful common interests, and respect for civil and human rights.",
+                "citationIds": [
+                  "quran-60-8-9"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "conflict_context",
+            "titleAr": "تمييز السلم عن العدوان",
+            "titleEn": "Distinguishing peace from aggression",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تفرق الآيات نفسها بين العلاقات السلمية وبين سياق العدوان والمشاركة فيه، فلا يصح نقل أحكام الصراع إلى العلاقات اليومية العادية.",
+                "en": "The same verses distinguish peaceful relations from participation in aggression, so rules of conflict should not be transferred indiscriminately to ordinary daily relationships.",
+                "citationIds": [
+                  "quran-60-8-9"
+                ]
+              },
+              {
+                "ar": "وتحتاج قضايا الحرب والسياسة والقانون الدولي إلى دراسة نصوصها وسياقاتها ومؤسساتها المختصة، ولا تختزل في آية مفردة.",
+                "en": "Questions of war, politics, and international law require study of the full evidence, context, and relevant institutions and should not be reduced to a single verse.",
+                "citationIds": [
+                  "quran-60-8-9"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "freedom_of_belief",
+        "titleAr": "الإيمان والإكراه",
+        "titleEn": "Faith and coercion",
+        "summaryAr": "يقرر القرآن مبدأ «لا إكراه في الدين»، ويعرض الإيمان بوصفه اختيارًا مسؤولًا لا ينتج عن الإكراه القلبي.",
+        "summaryEn": "The Quran states that there is no compulsion in religion and presents faith as a responsible commitment that cannot be produced by coercion of the heart.",
+        "keywordsAr": [
+          "لا إكراه في الدين",
+          "الإيمان",
+          "الاختيار"
+        ],
+        "keywordsEn": [
+          "no compulsion in religion",
+          "faith",
+          "choice"
+        ],
+        "relatedTopicIds": [
+          "relations_with_non_muslims",
+          "human_dignity",
+          "what_is_islam"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-256",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:256"
+          },
+          {
+            "id": "quran-18-29",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "18:29"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "no_compulsion",
+            "titleAr": "لا إكراه في الدين",
+            "titleEn": "No compulsion in religion",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنص سورة البقرة على أنه لا إكراه في الدين، وتربط ذلك بوضوح الرشد من الغي.",
+                "en": "Surat al-Baqarah states that there is no compulsion in religion and connects this with truth becoming distinct from error.",
+                "citationIds": [
+                  "quran-2-256"
+                ]
+              },
+              {
+                "ar": "الإيمان في جوهره تصديق وقصد لا يمكن إنتاجهما بالقوة المادية، ولذلك يكون البيان والدعوة والحوار منفصلًا عن الإكراه.",
+                "en": "Faith is fundamentally conviction and intention, which cannot be manufactured by physical force; explanation, invitation, and dialogue are therefore distinct from coercion.",
+                "citationIds": [
+                  "quran-2-256"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "responsibility",
+            "titleAr": "الاختيار والمسؤولية",
+            "titleEn": "Choice and responsibility",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعرض سورة الكهف الحق للإنسان ثم تذكر الإيمان والكفر في سياق الاختيار والمسؤولية عن العاقبة.",
+                "en": "Surat al-Kahf presents the truth and then speaks of belief and disbelief in the context of choice and responsibility for consequences.",
+                "citationIds": [
+                  "quran-18-29"
+                ]
+              },
+              {
+                "ar": "ولا تختزل هذه الآيات وحدها كل مسائل الفقه التاريخي أو المواطنة الحديثة؛ تلك موضوعات تحتاج معالجة قانونية وتاريخية منفصلة.",
+                "en": "These verses alone do not exhaust every question of historical jurisprudence or modern citizenship; those issues require separate legal and historical study.",
+                "citationIds": [
+                  "quran-18-29"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mosques",
+        "titleAr": "المساجد ووظيفتها",
+        "titleEn": "Mosques and their role",
+        "summaryAr": "المسجد مكان للصلاة والذكر والتعلم واجتماع المسلمين على العبادة، مع وجوب صيانة حرمته وحقوق مرتاديه.",
+        "summaryEn": "A mosque is a place for prayer, remembrance, learning, and communal worship, whose sanctity and worshippers' rights should be protected.",
+        "keywordsAr": [
+          "المسجد",
+          "المساجد",
+          "الجامع"
+        ],
+        "keywordsEn": [
+          "mosque",
+          "masjid",
+          "community worship"
+        ],
+        "relatedTopicIds": [
+          "prayer",
+          "dhikr",
+          "community_culture"
+        ],
+        "citations": [
+          {
+            "id": "quran-9-18",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:18"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "worship",
+            "titleAr": "عمارة المساجد بالعبادة",
+            "titleEn": "Maintaining mosques through worship",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تربط سورة التوبة عمارة مساجد الله بالإيمان والصلاة والزكاة والخشية من الله.",
+                "en": "Surat al-Tawbah links maintaining God's mosques with faith, prayer, zakat, and reverence for God.",
+                "citationIds": [
+                  "quran-9-18"
+                ]
+              },
+              {
+                "ar": "وعمارة المسجد تشمل بناؤه وصيانته كما تشمل إحياءه بالصلاة والذكر والتعليم النافع بحسب حاجات المجتمع.",
+                "en": "Maintaining a mosque includes construction and care as well as keeping it alive through prayer, remembrance, and beneficial learning according to community needs.",
+                "citationIds": [
+                  "quran-9-18"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "community",
+            "titleAr": "المسجد والمجتمع",
+            "titleEn": "The mosque and community",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يجمع المسجد الناس للصلاة الجماعية والجمعة، ويؤدي في مجتمعات كثيرة أدوارًا تعليمية واجتماعية وخيرية.",
+                "en": "Mosques gather people for congregational and Friday prayer and in many communities also serve educational, social, and charitable roles.",
+                "citationIds": [
+                  "quran-9-18"
+                ]
+              },
+              {
+                "ar": "وتحتاج إدارة المساجد إلى أمانة وتنظيم يحفظ السلامة والخصوصية وإمكانية الوصول واحترام تنوع المصلين.",
+                "en": "Mosque administration requires trust and organization that protect safety, privacy, accessibility, and respect for diverse worshippers.",
+                "citationIds": [
+                  "quran-9-18"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "islamic_calendar",
+        "titleAr": "التقويم الهجري والأشهر القمرية",
+        "titleEn": "The Hijri calendar and lunar months",
+        "summaryAr": "تعتمد عبادات إسلامية كثيرة على الأشهر القمرية ورؤية الأهلة، ويبدأ التأريخ الهجري من هجرة النبي ﷺ.",
+        "summaryEn": "Many Islamic observances follow lunar months and crescent cycles; the Hijri era is counted from the Prophet's ﷺ migration.",
+        "keywordsAr": [
+          "التقويم الهجري",
+          "الأشهر القمرية",
+          "الهلال"
+        ],
+        "keywordsEn": [
+          "Hijri calendar",
+          "lunar months",
+          "crescent"
+        ],
+        "relatedTopicIds": [
+          "fasting",
+          "hajj_umrah",
+          "eid"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-189",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:189"
+          },
+          {
+            "id": "quran-9-36",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:36"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "crescents",
+            "titleAr": "الأهلة مواقيت",
+            "titleEn": "Crescents as markers of time",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن أن الأهلة مواقيت للناس والحج، ولذلك ترتبط بها بدايات الشهور والعبادات الموسمية.",
+                "en": "The Quran says that lunar crescents are markers of time for people and for Hajj, which is why they are tied to the beginnings of months and seasonal worship.",
+                "citationIds": [
+                  "quran-2-189"
+                ]
+              },
+              {
+                "ar": "قد تختلف بعض البلدان والهيئات في منهج إثبات دخول الشهر بين الرؤية والحساب وضوابط كل منهما، وهي مسألة فقهية تنظيمية.",
+                "en": "Different countries and authorities may use different methods for establishing the start of a month, including sighting and calculation under varying criteria; this is a jurisprudential and administrative issue.",
+                "citationIds": [
+                  "quran-2-189"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "months",
+            "titleAr": "اثنا عشر شهرًا",
+            "titleEn": "Twelve months",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنص سورة التوبة على أن عدة الشهور عند الله اثنا عشر شهرًا، وتذكر منها أربعة حرمًا.",
+                "en": "Surat al-Tawbah states that the number of months is twelve and identifies four of them as sacred.",
+                "citationIds": [
+                  "quran-9-36"
+                ]
+              },
+              {
+                "ar": "أما ترقيم السنوات بالهجرة فتنظيم تاريخي اعتمده المسلمون لاحقًا، بينما أصل الأشهر القمرية ومواقيتها ثابت في النصوص.",
+                "en": "Numbering years from the Hijrah was a later administrative convention adopted by Muslims, while the lunar months and their religious timing are rooted in revelation.",
+                "citationIds": [
+                  "quran-9-36"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "eid",
+        "titleAr": "عيدا الفطر والأضحى",
+        "titleEn": "Eid al-Fitr and Eid al-Adha",
+        "summaryAr": "للمسلمين عيدان سنويان رئيسيان مرتبطان بتمام رمضان وبموسم الحج والأضحية.",
+        "summaryEn": "Muslims have two principal annual festivals: Eid al-Fitr after Ramadan and Eid al-Adha during the Hajj season.",
+        "keywordsAr": [
+          "عيد الفطر",
+          "عيد الأضحى",
+          "العيد"
+        ],
+        "keywordsEn": [
+          "Eid al-Fitr",
+          "Eid al-Adha",
+          "festival"
+        ],
+        "relatedTopicIds": [
+          "fasting",
+          "hajj_umrah",
+          "islamic_calendar"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-185",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:185"
+          },
+          {
+            "id": "quran-22-36-37",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "22:36-37"
+          },
+          {
+            "id": "hadith-abudawud-1134",
+            "kind": "Hadith",
+            "titleAr": "سنن أبي داود",
+            "titleEn": "Sunan Abi Dawud",
+            "locator": "1134"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "fitr",
+            "titleAr": "عيد الفطر",
+            "titleEn": "Eid al-Fitr",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأتي عيد الفطر بعد إكمال صيام رمضان، وتشير آية الصيام إلى إكمال العدة وتكبير الله على الهداية.",
+                "en": "Eid al-Fitr comes after completion of Ramadan fasting, and the fasting verse speaks of completing the prescribed period and glorifying God for guidance.",
+                "citationIds": [
+                  "quran-2-185"
+                ]
+              },
+              {
+                "ar": "ثبت في السنة أن للمسلمين يومي عيد، وتشرح كتب الحديث والفقه صلاة العيد وآدابه وأحكامه التفصيلية.",
+                "en": "The Sunnah establishes two festival days for Muslims, while hadith and jurisprudence explain the Eid prayer, etiquette, and detailed rulings.",
+                "citationIds": [
+                  "hadith-abudawud-1134"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "adha",
+            "titleAr": "عيد الأضحى وموسم الحج",
+            "titleEn": "Eid al-Adha and Hajj season",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يرتبط عيد الأضحى بأيام الحج وبشعيرة الأضحية، ويؤكد القرآن أن المقصود ليس اللحم والدم بذاتهما بل التقوى.",
+                "en": "Eid al-Adha is connected with the Hajj season and sacrificial rites; the Quran emphasizes that the ultimate purpose is not flesh or blood but God-consciousness.",
+                "citationIds": [
+                  "quran-22-36-37"
+                ]
+              },
+              {
+                "ar": "وتتخذ مظاهر العيد أشكالًا ثقافية متنوعة ما دامت لا تخالف الأحكام الدينية الأساسية.",
+                "en": "Cultural expressions of Eid vary widely as long as they do not conflict with core religious requirements.",
+                "citationIds": [
+                  "quran-22-36-37"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "diversity_muslims",
+        "titleAr": "تنوع المسلمين ووحدة الأصل",
+        "titleEn": "Diversity among Muslims",
+        "summaryAr": "ينتمي المسلمون إلى شعوب ولغات وثقافات متعددة، بينما تجمعهم أصول الإيمان والعبادة الكبرى.",
+        "summaryEn": "Muslims belong to many peoples, languages, and cultures while sharing core foundations of belief and worship.",
+        "keywordsAr": [
+          "تنوع المسلمين",
+          "الأمة",
+          "الثقافات"
+        ],
+        "keywordsEn": [
+          "Muslim diversity",
+          "ummah",
+          "cultures"
+        ],
+        "relatedTopicIds": [
+          "human_dignity",
+          "schools_of_law",
+          "arabic_language"
+        ],
+        "citations": [
+          {
+            "id": "quran-49-13",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:13"
+          },
+          {
+            "id": "quran-3-103",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:103"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "peoples",
+            "titleAr": "شعوب وقبائل",
+            "titleEn": "Peoples and tribes",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقرر القرآن أن البشر شعوب وقبائل للتعارف، وهو ما ينسجم مع واقع المسلمين المتنوع من شرق آسيا إلى أفريقيا وأوروبا والأمريكيتين.",
+                "en": "The Quran describes humanity as peoples and tribes meant to know one another, fitting the real diversity of Muslim communities across the world.",
+                "citationIds": [
+                  "quran-49-13"
+                ]
+              },
+              {
+                "ar": "الإسلام لا يجعل الثقافة العربية مرادفًا للدين؛ فقد تتنوع العادات والملابس والأطعمة واللغات ما دامت لا تخالف أصلًا دينيًا.",
+                "en": "Islam does not equate Arab culture with religion; customs, clothing, foods, and languages may differ so long as they do not contradict a religious principle.",
+                "citationIds": [
+                  "quran-49-13"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "unity",
+            "titleAr": "الوحدة دون إلغاء الاختلاف",
+            "titleEn": "Unity without erasing difference",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يدعو القرآن إلى الاعتصام بحبل الله وعدم التفرق، وهو توجيه إلى حفظ أصول الوحدة رغم وجود اختلافات بشرية وعلمية.",
+                "en": "The Quran calls believers to hold firmly together and avoid division, encouraging unity in fundamentals despite human and scholarly differences.",
+                "citationIds": [
+                  "quran-3-103"
+                ]
+              },
+              {
+                "ar": "وتحتاج الخلافات إلى أدب وإنصاف وتمييز بين المسائل القطعية والمسائل الاجتهادية التي يسوغ فيها تعدد الآراء.",
+                "en": "Disagreement requires fairness and good conduct, including distinguishing foundational matters from juristic questions where multiple scholarly views may exist.",
+                "citationIds": [
+                  "quran-3-103"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "schools_of_law",
+        "titleAr": "المذاهب الفقهية والاجتهاد",
+        "titleEn": "Schools of law and juristic reasoning",
+        "summaryAr": "المذاهب الفقهية مدارس علمية لفهم الأدلة وتنظيم الاجتهاد، وليست أديانًا مستقلة داخل الإسلام.",
+        "summaryEn": "Schools of Islamic law are scholarly traditions for interpreting evidence and organizing juristic reasoning, not separate religions within Islam.",
+        "keywordsAr": [
+          "المذاهب",
+          "الفقه",
+          "الاجتهاد"
+        ],
+        "keywordsEn": [
+          "madhhabs",
+          "jurisprudence",
+          "ijtihad"
+        ],
+        "relatedTopicIds": [
+          "sources",
+          "diversity_muslims",
+          "seeking_knowledge"
+        ],
+        "citations": [
+          {
+            "id": "quran-16-43",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:43"
+          },
+          {
+            "id": "quran-4-59",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:59"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "expertise",
+            "titleAr": "الرجوع إلى أهل العلم",
+            "titleEn": "Consulting qualified scholarship",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقرر القرآن مبدأ سؤال أهل الذكر عند عدم العلم، وهو أصل عام في الرجوع إلى الاختصاص بدل الاستقلال بالفتوى دون أدوات علمية.",
+                "en": "The Quran establishes the principle of asking people of knowledge when one does not know, supporting reliance on qualified expertise rather than issuing rulings without scholarly tools.",
+                "citationIds": [
+                  "quran-16-43"
+                ]
+              },
+              {
+                "ar": "نشأت المذاهب الفقهية عبر تراكم مناهج العلماء في فهم القرآن والسنة واللغة وأصول الاستدلال وتطبيقها على المسائل.",
+                "en": "Schools of law developed through accumulated scholarly methods for understanding the Quran, Sunnah, language, legal principles, and their application to practical questions.",
+                "citationIds": [
+                  "quran-16-43"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "disagreement",
+            "titleAr": "إدارة الخلاف الفقهي",
+            "titleEn": "Managing juristic disagreement",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يوجه القرآن عند التنازع إلى رد المسألة إلى الله والرسول، وهو ما جعل النصوص وأصول الاستدلال مرجعًا للبحث الفقهي.",
+                "en": "The Quran directs believers in dispute to refer matters back to God and the Messenger, making revelation and principles of interpretation central to legal reasoning.",
+                "citationIds": [
+                  "quran-4-59"
+                ]
+              },
+              {
+                "ar": "وجود مذاهب متعددة لا يعني أن كل رأي صحيح بالضرورة، لكنه يفسر لماذا تختلف الفتاوى المعتبرة في بعض المسائل الاجتهادية.",
+                "en": "The existence of multiple schools does not mean every opinion is necessarily correct, but it helps explain why recognized jurists can differ on some interpretive questions.",
+                "citationIds": [
+                  "quran-4-59"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "arabic_language",
+        "titleAr": "العربية والإسلام",
+        "titleEn": "Arabic and Islam",
+        "summaryAr": "نزل القرآن بالعربية، لكن رسالة الإسلام موجهة للناس كافة ولا ترتبط بعرق أو لغة واحدة.",
+        "summaryEn": "Quranic revelation came in Arabic, but Islam's message is addressed to humanity and is not limited to one ethnicity or language.",
+        "keywordsAr": [
+          "اللغة العربية",
+          "لغة القرآن",
+          "العرب"
+        ],
+        "keywordsEn": [
+          "Arabic language",
+          "language of Quran",
+          "Arabs"
+        ],
+        "relatedTopicIds": [
+          "quran",
+          "human_dignity",
+          "diversity_muslims"
+        ],
+        "citations": [
+          {
+            "id": "quran-12-2",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "12:2"
+          },
+          {
+            "id": "quran-49-13",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:13"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "quran_language",
+            "titleAr": "لغة القرآن",
+            "titleEn": "The language of the Quran",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن نفسه بأنه قرآن عربي، ولذلك تظل العربية مهمة لفهم النص الأصلي وعلوم التفسير والفقه.",
+                "en": "The Quran describes itself as an Arabic Quran, so Arabic remains important for engaging the original text and the scholarly disciplines of interpretation and law.",
+                "citationIds": [
+                  "quran-12-2"
+                ]
+              },
+              {
+                "ar": "تساعد الترجمات على تقريب المعنى لغير الناطقين بالعربية، لكنها تظل تفسيرًا لمعاني النص وليست بديلًا مطابقًا لألفاظ القرآن العربية.",
+                "en": "Translations help non-Arabic speakers understand meaning, but they remain renderings of meaning rather than identical substitutes for the Quran's Arabic wording.",
+                "citationIds": [
+                  "quran-12-2"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "universal",
+            "titleAr": "دين عالمي لا عرقي",
+            "titleEn": "A universal, non-ethnic religion",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يجعل القرآن اختلاف الشعوب والقبائل وسيلة للتعارف ويجعل معيار التفاضل التقوى، لا العروبة أو اللغة.",
+                "en": "The Quran makes peoples and tribes a means of mutual recognition and sets piety, not Arab ethnicity or language, as the moral criterion of distinction.",
+                "citationIds": [
+                  "quran-49-13"
+                ]
+              },
+              {
+                "ar": "لهذا يمكن للمسلم أن يحافظ على لغته وثقافته المحلية مع تعلم ما يحتاجه من العربية لأداء العبادات وفهم مصادر الدين.",
+                "en": "A Muslim can therefore retain local language and culture while learning the Arabic needed for worship and deeper engagement with Islamic sources.",
+                "citationIds": [
+                  "quran-49-13"
                 ]
               }
             ]
