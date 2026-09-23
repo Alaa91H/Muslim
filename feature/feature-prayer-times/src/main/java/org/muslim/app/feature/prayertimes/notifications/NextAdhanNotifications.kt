@@ -224,8 +224,10 @@ object NextAdhanNotifications {
                 setTextColor(ids.name, context.getColor(R.color.notification_gold))
                 setTextColor(ids.time, context.getColor(R.color.notification_text_primary))
                 setTextViewText(ids.statusLabel, shortStatusLabel(context, R.string.next_adhan_remaining))
-                setTextColor(ids.statusLabel, context.getColor(R.color.notification_primary))
-                setTextColor(ids.statusTimer, context.getColor(R.color.notification_primary))
+                // Gold remains readable on the primary-container highlight and
+                // visually connects the live countdown to the selected prayer.
+                setTextColor(ids.statusLabel, context.getColor(R.color.notification_gold))
+                setTextColor(ids.statusTimer, context.getColor(R.color.notification_gold))
                 setViewVisibility(ids.statusLabel, View.VISIBLE)
                 setViewVisibility(ids.statusTimer, View.VISIBLE)
                 setChronometer(
