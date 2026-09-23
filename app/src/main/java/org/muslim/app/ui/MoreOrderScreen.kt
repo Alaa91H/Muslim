@@ -22,7 +22,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -51,6 +50,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlin.math.roundToInt
 import org.muslim.app.R
 import org.muslim.app.core.datastore.AppPreferences
+import org.muslim.app.core.ui.theme.IslamicDecorationBand
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 
 /**
  * Lets the user customize the "More" hub: reorder its sections by drag & drop
@@ -84,7 +85,7 @@ fun MoreOrderScreen(
     var dragTargetIndex by remember { mutableIntStateOf(-1) }
     val rowHeightPx = with(LocalDensity.current) { ROW_HEIGHT.toPx() }
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
@@ -105,6 +106,10 @@ fun MoreOrderScreen(
                 .padding(horizontal = 16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
+            IslamicDecorationBand(
+                tint = MaterialTheme.colorScheme.tertiary,
+                compact = true,
+            )
             Text(
                 text = stringResource(R.string.more_order_hint),
                 style = MaterialTheme.typography.bodyMedium,
