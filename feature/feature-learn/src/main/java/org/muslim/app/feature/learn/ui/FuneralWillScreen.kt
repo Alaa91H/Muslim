@@ -586,6 +586,12 @@ private fun LazyListScope.willDraftIntroduction(
         onQueryChange = state.onQueryChange,
     )
     item {
+        WillReferenceIndex(
+            entries = FuneralContent.willReferenceIndex,
+            isArabic = isArabic,
+        )
+    }
+    item {
         Text(
             text = stringResource(R.string.funeral_will_form_title),
             style = MaterialTheme.typography.titleMedium,
