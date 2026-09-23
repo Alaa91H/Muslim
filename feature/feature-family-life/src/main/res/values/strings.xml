@@ -88,4 +88,20 @@
     <string name="family_open_hadith_desc" tools:ignore="MissingTranslation">ارجع إلى قسم الحديث للمطالعة والبحث في الأحاديث</string>
     <string name="family_open_adhkar_title" tools:ignore="MissingTranslation">الأذكار</string>
     <string name="family_open_adhkar_desc" tools:ignore="MissingTranslation">افتح قسم الأذكار للأذكار اليومية والصباحية والمسائية</string>
+    <string name="family_global_search_title" tools:ignore="MissingTranslation">البحث الشامل في الأسرة</string>
+    <string name="family_global_search_hub_desc" tools:ignore="MissingTranslation">ابحث مرة واحدة في المقالات والأسماء والرقية والقوائم العملية</string>
+    <string name="family_global_search_intro" tools:ignore="MissingTranslation">بحث موحد داخل محتوى فقه الأسرة وحياة المسلم، مع تصفية النتائج بحسب نوعها.</string>
+    <string name="family_global_search_hint" tools:ignore="MissingTranslation">ابحث عن موضوع أو اسم أو دعاء أو قائمة…</string>
+    <string name="family_global_search_all" tools:ignore="MissingTranslation">الكل</string>
+    <string name="family_global_search_start_title" tools:ignore="MissingTranslation">ابدأ بالكتابة للبحث</string>
+    <string name="family_global_search_start_text" tools:ignore="MissingTranslation">يشمل البحث المقالات وقاعدة الأسماء والرقية والقوائم العملية المحفوظة داخل التطبيق.</string>
+    <string name="family_global_search_count" tools:ignore="MissingTranslation">النتائج: %1$d</string>
+    <string name="family_global_search_empty" tools:ignore="MissingTranslation">لا توجد نتائج مطابقة</string>
+    <string name="family_source_filter_all" tools:ignore="MissingTranslation">كل المصادر</string>
+    <string name="family_filter_favorites" tools:ignore="MissingTranslation">المفضلة فقط</string>
+    <string name="family_copy_article" tools:ignore="MissingTranslation">نسخ</string>
+    <string name="family_share_article" tools:ignore="MissingTranslation">مشاركة</string>
+    <string name="family_article_copied" tools:ignore="MissingTranslation">تم نسخ المقال</string>
+    <string name="family_open_quran_reference" tools:ignore="MissingTranslation">فتح المرجع في القرآن</string>
+    <string name="family_open_hadith_reference" tools:ignore="MissingTranslation">فتح قسم الحديث</string>
 </resources>
