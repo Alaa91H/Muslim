@@ -41,12 +41,17 @@ import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.reference.R
 import org.muslim.app.feature.reference.domain.HistoryArticle
+import org.muslim.app.feature.reference.domain.HistoryDatePrecision
 import org.muslim.app.feature.reference.domain.HistoryEra
 import org.muslim.app.feature.reference.domain.HistoryLanguage
 import org.muslim.app.feature.reference.domain.HistoryPerson
+import org.muslim.app.feature.reference.domain.HistoryRegion
 import org.muslim.app.feature.reference.domain.HistoricalMapLayer
+import org.muslim.app.feature.reference.domain.HistoricalState
 import org.muslim.app.feature.reference.domain.IslamicHistoryArticles
 import org.muslim.app.feature.reference.domain.IslamicHistoryContent
+import org.muslim.app.feature.reference.domain.IslamicHistorySources
+import org.muslim.app.feature.reference.domain.IslamicHistoryStates
 
 /** A standalone, bilingual history destination with source-aware map boundaries. */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -99,7 +104,8 @@ fun IslamicHistoryScreen(
             )
             when (selectedTab) {
                 0 -> TimelineTab(language = language)
-                1 -> AtlasTab(language = language)
+                1 -> StatesTab(language = language)
+                2 -> AtlasTab(language = language)
                 else -> PeopleTab(language = language)
             }
         }
@@ -110,6 +116,7 @@ fun IslamicHistoryScreen(
 private fun HistoryTabs(selectedTab: Int, onSelect: (Int) -> Unit) {
     val labels = listOf(
         stringResource(R.string.history_timeline_tab),
+        stringResource(R.string.history_states_tab),
         stringResource(R.string.history_atlas_tab),
         stringResource(R.string.history_people_tab),
     )
@@ -219,7 +226,7 @@ private fun HistoryArticleView(
 ) {
     BackHandler(onBack = onBack)
     val uriHandler = LocalUriHandler.current
-    val sources = article.sourceIds.mapNotNull(IslamicHistoryArticles::sourceById)
+    val sources = article.sourceIds.mapNotNull(IslamicHistorySources::byId)
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -312,6 +319,146 @@ private fun eraRange(era: HistoryEra): String = stringResource(
     era.startCe,
     era.endCe?.toString() ?: stringResource(R.string.history_present),
 )
+
+@Composable
+private fun StatesTab(language: HistoryLanguage) {
+    var selectedRegion by remember { mutableStateOf<HistoryRegion?>(null) }
+    val regions = listOf<HistoryRegion?>(
+        null,
+        HistoryRegion.MultiRegional,
+        HistoryRegion.MaghrebAndAlAndalus,
+        HistoryRegion.EgyptAndLevant,
+        HistoryRegion.Anatolia,
+        HistoryRegion.IranAndCentralAsia,
+        HistoryRegion.SouthAsia,
+    )
+    val states = IslamicHistoryStates.byRegion(selectedRegion)
+
+    Column(modifier = Modifier.fillMaxSize()) {
+        HistoryRegionSelector(
+            regions = regions,
+            selectedRegion = selectedRegion,
+            language = language,
+            onSelect = { selectedRegion = it },
+        )
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            item { HistoryNotice(stringResource(R.string.history_states_intro)) }
+            items(states, key = { it.id }) { state ->
+                HistoricalStateCard(state = state, language = language)
+            }
+            item { HistoryNotice(stringResource(R.string.history_sources_notice)) }
+        }
+    }
+}
+
+@Composable
+private fun HistoryRegionSelector(
+    regions: List<HistoryRegion?>,
+    selectedRegion: HistoryRegion?,
+    language: HistoryLanguage,
+    onSelect: (HistoryRegion?) -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .horizontalScroll(rememberScrollState())
+            .padding(horizontal = 16.dp, vertical = 10.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        regions.forEach { region ->
+            FilterChip(
+                selected = selectedRegion == region,
+                onClick = { onSelect(region) },
+                label = { Text(historyRegionLabel(region, language)) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun HistoricalStateCard(
+    state: HistoricalState,
+    language: HistoryLanguage,
+) {
+    val uriHandler = LocalUriHandler.current
+    val source = state.sourceIds.firstNotNullOfOrNull(IslamicHistorySources::byId)
+
+    Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)) {
+        Column(modifier = Modifier.padding(18.dp)) {
+            Text(
+                text = state.title.resolve(language),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                text = statePeriodLabel(state, language),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(top = 4.dp),
+            )
+            Text(
+                text = historyRegionLabel(state.region, language),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 4.dp),
+            )
+            Text(
+                text = state.summary.resolve(language),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(top = 10.dp),
+            )
+            source?.url?.let { url ->
+                TextButton(
+                    onClick = { uriHandler.openUri(url) },
+                    modifier = Modifier.padding(top = 6.dp),
+                ) {
+                    Text(
+                        if (language == HistoryLanguage.Arabic) {
+                            "فتح المصدر"
+                        } else {
+                            "Open source"
+                        },
+                    )
+                }
+            }
+        }
+    }
+}
+
+private fun statePeriodLabel(state: HistoricalState, language: HistoryLanguage): String {
+    val start = state.period.startCe?.toString() ?: "?"
+    val end = state.period.endCe?.toString() ?: "?"
+    val prefix = if (state.period.precision == HistoryDatePrecision.Approximate) {
+        if (language == HistoryLanguage.Arabic) "نحو " else "ca. "
+    } else {
+        ""
+    }
+    val suffix = if (language == HistoryLanguage.Arabic) " م" else " CE"
+    return "$prefix$start–$end$suffix"
+}
+
+private fun historyRegionLabel(region: HistoryRegion?, language: HistoryLanguage): String =
+    when (region) {
+        null -> if (language == HistoryLanguage.Arabic) "الكل" else "All"
+        HistoryRegion.MultiRegional ->
+            if (language == HistoryLanguage.Arabic) "متعددة الأقاليم" else "Multi-regional"
+        HistoryRegion.Arabia ->
+            if (language == HistoryLanguage.Arabic) "الجزيرة العربية" else "Arabia"
+        HistoryRegion.EgyptAndLevant ->
+            if (language == HistoryLanguage.Arabic) "مصر والشام" else "Egypt & Levant"
+        HistoryRegion.MaghrebAndAlAndalus ->
+            if (language == HistoryLanguage.Arabic) "المغرب والأندلس" else "Maghreb & al-Andalus"
+        HistoryRegion.Anatolia ->
+            if (language == HistoryLanguage.Arabic) "الأناضول" else "Anatolia"
+        HistoryRegion.IranAndCentralAsia ->
+            if (language == HistoryLanguage.Arabic) "إيران وآسيا الوسطى" else "Iran & Central Asia"
+        HistoryRegion.SouthAsia ->
+            if (language == HistoryLanguage.Arabic) "جنوب آسيا" else "South Asia"
+    }
 
 @Composable
 private fun AtlasTab(language: HistoryLanguage) {
