@@ -34,7 +34,7 @@ internal class IslamicHistoryContentRepository private constructor(
             id = eraId,
             serializer = HistoryArticleDto.serializer(),
             fallback = {
-                IslamicHistoryArticles.articleForEra(eraId)?.let(HistoryArticleDto::fromDomain)
+                IslamicHistoryArticles.articleForEra(eraId)?.let { HistoryArticleDto.fromDomain(it) }
             },
         )?.toDomain()
 
@@ -43,7 +43,7 @@ internal class IslamicHistoryContentRepository private constructor(
             type = StoredHistoryContentType.State,
             id = id,
             serializer = HistoricalStateDto.serializer(),
-            fallback = { IslamicHistoryStates.byId(id)?.let(HistoricalStateDto::fromDomain) },
+            fallback = { IslamicHistoryStates.byId(id)?.let { HistoricalStateDto.fromDomain(it) } },
         )?.toDomain()
 
     suspend fun eventById(id: String): HistoricalEvent? =
@@ -51,7 +51,7 @@ internal class IslamicHistoryContentRepository private constructor(
             type = StoredHistoryContentType.Event,
             id = id,
             serializer = HistoricalEventDto.serializer(),
-            fallback = { IslamicHistoricalEvents.byId(id)?.let(HistoricalEventDto::fromDomain) },
+            fallback = { IslamicHistoricalEvents.byId(id)?.let { HistoricalEventDto.fromDomain(it) } },
         )?.toDomain()
 
     suspend fun topicById(id: String): CivilizationTopic? =
@@ -59,7 +59,7 @@ internal class IslamicHistoryContentRepository private constructor(
             type = StoredHistoryContentType.CivilizationTopic,
             id = id,
             serializer = CivilizationTopicDto.serializer(),
-            fallback = { IslamicCivilizationContent.byId(id)?.let(CivilizationTopicDto::fromDomain) },
+            fallback = { IslamicCivilizationContent.byId(id)?.let { CivilizationTopicDto.fromDomain(it) } },
         )?.toDomain()
 
     suspend fun personProfile(id: String): HistoryPersonProfile? =
@@ -67,7 +67,7 @@ internal class IslamicHistoryContentRepository private constructor(
             type = StoredHistoryContentType.PersonProfile,
             id = id,
             serializer = HistoryPersonProfileDto.serializer(),
-            fallback = { IslamicHistoryProfiles.personById(id)?.let(HistoryPersonProfileDto::fromDomain) },
+            fallback = { IslamicHistoryProfiles.personById(id)?.let { HistoryPersonProfileDto.fromDomain(it) } },
         )?.toDomain()
 
     suspend fun placeProfile(id: String): HistoricalPlaceProfile? =
@@ -75,7 +75,7 @@ internal class IslamicHistoryContentRepository private constructor(
             type = StoredHistoryContentType.PlaceProfile,
             id = id,
             serializer = HistoricalPlaceProfileDto.serializer(),
-            fallback = { IslamicHistoryProfiles.placeById(id)?.let(HistoricalPlaceProfileDto::fromDomain) },
+            fallback = { IslamicHistoryProfiles.placeById(id)?.let { HistoricalPlaceProfileDto.fromDomain(it) } },
         )?.toDomain()
 
     suspend fun ensureSeeded() {
