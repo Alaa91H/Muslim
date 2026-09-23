@@ -189,13 +189,37 @@ fun FamilyLifeScreen(
         }
     }
 
+    FamilyLifeScaffold(
+        modifier = modifier,
+        model = model,
+        state = state,
+        viewModel = viewModel,
+        context = context,
+        actions = actions,
+        snackbarHostState = snackbarHostState,
+        onBack = navigateBack,
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun FamilyLifeScaffold(
+    model: FamilyScreenModel,
+    state: FamilyLifeUiState,
+    viewModel: FamilyLifeViewModel,
+    context: Context,
+    actions: FamilyDestinationActions,
+    snackbarHostState: SnackbarHostState,
+    onBack: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             FamilyLifeTopBar(
-                title = selectedArticle?.title?.pick(model.isArabic) ?: section.title(),
-                onBack = navigateBack,
+                title = model.selectedArticle?.title?.pick(model.isArabic) ?: model.section.title(),
+                onBack = onBack,
             )
         },
     ) { innerPadding ->
@@ -248,51 +272,18 @@ private fun FamilyLifeDestination(
 ) {
     val article = model.selectedArticle
     when {
-        article != null -> FamilyArticleDetailContent(
+        article != null -> FamilyArticleDestination(
             article = article,
             isArabic = model.isArabic,
-            isFavorite = article.id in state.favoriteArticleIds,
-            relatedArticles = FamilyLifeContent.relatedArticles(article.id),
-            actions = FamilyArticleReaderActions(
-                onToggleFavorite = { viewModel.toggleArticleFavorite(article.id) },
-                onCopyArticle = {
-                    copyFamilyArticle(
-                        context = context,
-                        article = article,
-                        isArabic = model.isArabic,
-                    )
-                },
-                onShareArticle = {
-                    shareFamilyArticle(
-                        context = context,
-                        article = article,
-                        isArabic = model.isArabic,
-                    )
-                },
-                onOpenReference = { reference ->
-                    openFamilyReference(reference, actions)
-                },
-                onOpenArticle = actions.openArticle,
-            ),
+            state = state,
+            viewModel = viewModel,
+            context = context,
+            actions = actions,
         )
-        model.section == FamilySection.Home -> FamilyHubContent(
+        model.section == FamilySection.Home -> FamilyHomeDestination(
             isArabic = model.isArabic,
-            favoriteCount = state.favoriteArticleIds.size,
-            recentCount = state.recentArticleIds.size,
-            onOpenCategory = actions.openCategory,
-            onOpenDestination = { destination ->
-                when (destination) {
-                    FamilyHubDestination.Search -> actions.openSection(FamilySection.Search)
-                    FamilyHubDestination.Saved -> actions.openSection(FamilySection.Saved)
-                    FamilyHubDestination.Tools -> actions.openSection(FamilySection.Tools)
-                    FamilyHubDestination.Ruqyah -> actions.openSection(FamilySection.Ruqyah)
-                    FamilyHubDestination.Names -> actions.openSection(FamilySection.Names)
-                    FamilyHubDestination.Aqiqah -> actions.openSection(FamilySection.Aqiqah)
-                    FamilyHubDestination.Quran -> actions.openQuran(null)
-                    FamilyHubDestination.Hadith -> actions.openHadith()
-                    FamilyHubDestination.Adhkar -> actions.openAdhkar()
-                }
-            },
+            state = state,
+            actions = actions,
         )
         model.section == FamilySection.Search -> FamilyGlobalSearchContent(
             isArabic = model.isArabic,
@@ -331,6 +322,62 @@ private fun FamilyLifeDestination(
             state = state,
             viewModel = viewModel,
         )
+    }
+}
+
+@Composable
+private fun FamilyArticleDestination(
+    article: FamilyGuideArticle,
+    isArabic: Boolean,
+    state: FamilyLifeUiState,
+    viewModel: FamilyLifeViewModel,
+    context: Context,
+    actions: FamilyDestinationActions,
+) {
+    FamilyArticleDetailContent(
+        article = article,
+        isArabic = isArabic,
+        isFavorite = article.id in state.favoriteArticleIds,
+        relatedArticles = FamilyLifeContent.relatedArticles(article.id),
+        actions = FamilyArticleReaderActions(
+            onToggleFavorite = { viewModel.toggleArticleFavorite(article.id) },
+            onCopyArticle = { copyFamilyArticle(context, article, isArabic) },
+            onShareArticle = { shareFamilyArticle(context, article, isArabic) },
+            onOpenReference = { reference -> openFamilyReference(reference, actions) },
+            onOpenArticle = actions.openArticle,
+        ),
+    )
+}
+
+@Composable
+private fun FamilyHomeDestination(
+    isArabic: Boolean,
+    state: FamilyLifeUiState,
+    actions: FamilyDestinationActions,
+) {
+    FamilyHubContent(
+        isArabic = isArabic,
+        favoriteCount = state.favoriteArticleIds.size,
+        recentCount = state.recentArticleIds.size,
+        onOpenCategory = actions.openCategory,
+        onOpenDestination = { destination -> openFamilyHubDestination(destination, actions) },
+    )
+}
+
+private fun openFamilyHubDestination(
+    destination: FamilyHubDestination,
+    actions: FamilyDestinationActions,
+) {
+    when (destination) {
+        FamilyHubDestination.Search -> actions.openSection(FamilySection.Search)
+        FamilyHubDestination.Saved -> actions.openSection(FamilySection.Saved)
+        FamilyHubDestination.Tools -> actions.openSection(FamilySection.Tools)
+        FamilyHubDestination.Ruqyah -> actions.openSection(FamilySection.Ruqyah)
+        FamilyHubDestination.Names -> actions.openSection(FamilySection.Names)
+        FamilyHubDestination.Aqiqah -> actions.openSection(FamilySection.Aqiqah)
+        FamilyHubDestination.Quran -> actions.openQuran(null)
+        FamilyHubDestination.Hadith -> actions.openHadith()
+        FamilyHubDestination.Adhkar -> actions.openAdhkar()
     }
 }
 
