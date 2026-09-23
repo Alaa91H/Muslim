@@ -83,6 +83,108 @@ class ScholarLibraryMigrationTest {
         helper.close()
     }
 
+    @Test
+    fun migration3To4PreservesPlansAndAddsStudySessions() {
+        createVersion3Database()
+
+        val helper = FrameworkSQLiteOpenHelperFactory().create(
+            SupportSQLiteOpenHelper.Configuration.builder(context)
+                .name(databaseName)
+                .callback(
+                    object : SupportSQLiteOpenHelper.Callback(4) {
+                        override fun onCreate(db: SupportSQLiteDatabase) = Unit
+
+                        override fun onUpgrade(
+                            db: SupportSQLiteDatabase,
+                            oldVersion: Int,
+                            newVersion: Int,
+                        ) {
+                            assertThat(oldVersion).isEqualTo(3)
+                            assertThat(newVersion).isEqualTo(4)
+                            ScholarLibraryDatabase.MIGRATION_3_4.migrate(db)
+                        }
+                    },
+                )
+                .build(),
+        )
+
+        val db = helper.writableDatabase
+        db.query("SELECT pathId, sessionsPerWeek FROM scholar_study_plans WHERE id = 1").use { cursor ->
+            assertThat(cursor.moveToFirst()).isTrue()
+            assertThat(cursor.getString(0)).isEqualTo("hadith-reading-path")
+            assertThat(cursor.getInt(1)).isEqualTo(3)
+        }
+        db.query(
+            "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'scholar_study_sessions'",
+        ).use { cursor ->
+            assertThat(cursor.moveToFirst()).isTrue()
+            assertThat(cursor.getString(0)).isEqualTo("scholar_study_sessions")
+        }
+        db.query("PRAGMA table_info(scholar_study_sessions)").use { cursor ->
+            val columns = buildSet {
+                val nameIndex = cursor.getColumnIndexOrThrow("name")
+                while (cursor.moveToNext()) add(cursor.getString(nameIndex))
+            }
+            assertThat(columns).containsAtLeast(
+                "pathId",
+                "planId",
+                "bookId",
+                "targetPassageIds",
+                "completedPassageIds",
+                "plannedMinutes",
+                "status",
+                "startedAtEpochMillis",
+                "completedAtEpochMillis",
+            )
+        }
+
+        helper.close()
+    }
+
+    private fun createVersion3Database() {
+        val helper = FrameworkSQLiteOpenHelperFactory().create(
+            SupportSQLiteOpenHelper.Configuration.builder(context)
+                .name(databaseName)
+                .callback(
+                    object : SupportSQLiteOpenHelper.Callback(3) {
+                        override fun onCreate(db: SupportSQLiteDatabase) {
+                            db.execSQL(
+                                """
+                                CREATE TABLE scholar_study_plans (
+                                    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                                    pathId TEXT NOT NULL,
+                                    sessionsPerWeek INTEGER NOT NULL,
+                                    minutesPerSession INTEGER NOT NULL,
+                                    targetPassagesPerSession INTEGER NOT NULL,
+                                    active INTEGER NOT NULL,
+                                    createdAtEpochMillis INTEGER NOT NULL,
+                                    updatedAtEpochMillis INTEGER NOT NULL
+                                )
+                                """.trimIndent(),
+                            )
+                            db.execSQL(
+                                """
+                                INSERT INTO scholar_study_plans(
+                                    id, pathId, sessionsPerWeek, minutesPerSession,
+                                    targetPassagesPerSession, active, createdAtEpochMillis, updatedAtEpochMillis
+                                ) VALUES(1, 'hadith-reading-path', 3, 45, 2, 1, 1000, 1000)
+                                """.trimIndent(),
+                            )
+                        }
+
+                        override fun onUpgrade(
+                            db: SupportSQLiteDatabase,
+                            oldVersion: Int,
+                            newVersion: Int,
+                        ) = Unit
+                    },
+                )
+                .build(),
+        )
+        helper.writableDatabase
+        helper.close()
+    }
+
     private fun createVersion2Database() {
         val helper = FrameworkSQLiteOpenHelperFactory().create(
             SupportSQLiteOpenHelper.Configuration.builder(context)
