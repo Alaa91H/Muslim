@@ -225,7 +225,6 @@ private fun HistoryArticleView(
     onBack: () -> Unit,
 ) {
     BackHandler(onBack = onBack)
-    val uriHandler = LocalUriHandler.current
     val sources = article.sourceIds.mapNotNull(IslamicHistorySources::byId)
 
     LazyColumn(
@@ -233,17 +232,7 @@ private fun HistoryArticleView(
         contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        item {
-            TextButton(onClick = onBack) {
-                Text(
-                    if (language == HistoryLanguage.Arabic) {
-                        "العودة إلى الخط الزمني"
-                    } else {
-                        "Back to timeline"
-                    },
-                )
-            }
-        }
+        item { HistoryArticleBackButton(language = language, onBack = onBack) }
         item {
             Text(
                 text = article.title.resolve(language),
@@ -253,60 +242,97 @@ private fun HistoryArticleView(
         }
         item { HistoryNotice(article.lead.resolve(language)) }
         items(article.sections, key = { it.id }) { section ->
-            Card {
-                Column(modifier = Modifier.padding(18.dp)) {
-                    Text(
-                        text = section.title.resolve(language),
-                        style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    section.paragraphs.forEach { paragraph ->
-                        Text(
-                            text = paragraph.resolve(language),
-                            style = MaterialTheme.typography.bodyLarge,
-                            modifier = Modifier.padding(top = 10.dp),
-                        )
-                    }
-                }
-            }
+            HistoryArticleSectionCard(section = section, language = language)
         }
         if (sources.isNotEmpty()) {
-            item {
+            item { HistorySourcesHeading(language = language) }
+            items(sources, key = { it.id }) { source ->
+                HistorySourceCard(source = source, language = language)
+            }
+        }
+    }
+}
+
+@Composable
+private fun HistoryArticleBackButton(
+    language: HistoryLanguage,
+    onBack: () -> Unit,
+) {
+    TextButton(onClick = onBack) {
+        Text(
+            if (language == HistoryLanguage.Arabic) {
+                "العودة إلى الخط الزمني"
+            } else {
+                "Back to timeline"
+            },
+        )
+    }
+}
+
+@Composable
+private fun HistoryArticleSectionCard(
+    section: org.muslim.app.feature.reference.domain.HistoryArticleSection,
+    language: HistoryLanguage,
+) {
+    Card {
+        Column(modifier = Modifier.padding(18.dp)) {
+            Text(
+                text = section.title.resolve(language),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+            )
+            section.paragraphs.forEach { paragraph ->
                 Text(
-                    text = if (language == HistoryLanguage.Arabic) "المصادر والمراجع" else "Sources and references",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(top = 4.dp),
+                    text = paragraph.resolve(language),
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = Modifier.padding(top = 10.dp),
                 )
             }
-            items(sources, key = { it.id }) { source ->
-                Card {
-                    Column(modifier = Modifier.padding(16.dp)) {
-                        Text(
-                            text = source.title.resolve(language),
-                            style = MaterialTheme.typography.titleSmall,
-                            fontWeight = FontWeight.SemiBold,
-                        )
-                        source.note?.let { note ->
-                            Text(
-                                text = note.resolve(language),
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier.padding(top = 6.dp),
-                            )
-                        }
-                        source.url?.let { url ->
-                            TextButton(onClick = { uriHandler.openUri(url) }) {
-                                Text(
-                                    if (language == HistoryLanguage.Arabic) {
-                                        "فتح المصدر"
-                                    } else {
-                                        "Open source"
-                                    },
-                                )
-                            }
-                        }
-                    }
+        }
+    }
+}
+
+@Composable
+private fun HistorySourcesHeading(language: HistoryLanguage) {
+    Text(
+        text = if (language == HistoryLanguage.Arabic) "المصادر والمراجع" else "Sources and references",
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.Bold,
+        modifier = Modifier.padding(top = 4.dp),
+    )
+}
+
+@Composable
+private fun HistorySourceCard(
+    source: org.muslim.app.feature.reference.domain.HistorySource,
+    language: HistoryLanguage,
+) {
+    val uriHandler = LocalUriHandler.current
+
+    Card {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = source.title.resolve(language),
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.SemiBold,
+            )
+            source.note?.let { note ->
+                Text(
+                    text = note.resolve(language),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 6.dp),
+                )
+            }
+            source.url?.let { url ->
+                TextButton(onClick = { uriHandler.openUri(url) }) {
+                    Text(
+                        if (language == HistoryLanguage.Arabic) {
+                            "فتح المصدر"
+                        } else {
+                            "Open source"
+                        },
+                    )
                 }
             }
         }
