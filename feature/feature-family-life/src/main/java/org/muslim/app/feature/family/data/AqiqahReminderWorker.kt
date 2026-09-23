@@ -1,4 +1,4 @@
-package org.muslim.app.feature.learn.data
+package org.muslim.app.feature.family.data
 
 import android.app.Notification
 import android.app.NotificationManager
@@ -11,7 +11,7 @@ import androidx.work.WorkerParameters
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.core.notifications.notificationAllowed
-import org.muslim.app.feature.learn.R
+import org.muslim.app.feature.family.R
 
 /** Posts the aqiqah reminder; WorkManager provides reboot and retry resilience. */
 open class AqiqahReminderWorker(
@@ -31,10 +31,16 @@ open class AqiqahReminderWorker(
             },
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
+        val reminderDay = AqiqahReminderScheduler.reminderDayFrom(inputData)
         val notification = Notification.Builder(applicationContext, NotificationChannels.FAMILY)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029)
             .setContentTitle(applicationContext.getString(R.string.aqiqah_notification_title))
-            .setContentText(applicationContext.getString(R.string.aqiqah_notification_body))
+            .setContentText(
+                applicationContext.getString(
+                    R.string.aqiqah_notification_body,
+                    reminderDay.offsetDays,
+                ),
+            )
             .setContentIntent(contentIntent)
             .setAutoCancel(true)
             .build()

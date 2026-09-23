@@ -1,4 +1,4 @@
-package org.muslim.app.feature.learn.domain
+package org.muslim.app.feature.family.domain
 
 import com.google.common.truth.Truth.assertThat
 import java.time.LocalDate
@@ -57,4 +57,41 @@ class AqiqahCalculatorTest {
         assertThat(AqiqahCalculator.nextReminderMillis(birthDate, before, zone)).isEqualTo(target)
         assertThat(AqiqahCalculator.nextReminderMillis(birthDate, after, zone)).isNull()
     }
+    @Test
+    fun `selected reminder day maps to the expected planning date`() {
+        assertThat(AqiqahCalculator.reminderDate(birthDate, AqiqahReminderDay.Seventh))
+            .isEqualTo(LocalDate.of(2026, 1, 17))
+        assertThat(AqiqahCalculator.reminderDate(birthDate, AqiqahReminderDay.Fourteenth))
+            .isEqualTo(LocalDate.of(2026, 1, 24))
+        assertThat(AqiqahCalculator.reminderDate(birthDate, AqiqahReminderDay.TwentyFirst))
+            .isEqualTo(LocalDate.of(2026, 1, 31))
+    }
+
+    @Test
+    fun `later reminder option remains schedulable after seventh day`() {
+        val zone = ZoneId.of("Europe/Berlin")
+        val now = LocalDate.of(2026, 1, 20)
+            .atTime(12, 0)
+            .atZone(zone)
+            .toInstant()
+            .toEpochMilli()
+
+        assertThat(
+            AqiqahCalculator.nextReminderMillis(
+                birthDate = birthDate,
+                nowMillis = now,
+                zone = zone,
+                day = AqiqahReminderDay.Seventh,
+            ),
+        ).isNull()
+        assertThat(
+            AqiqahCalculator.nextReminderMillis(
+                birthDate = birthDate,
+                nowMillis = now,
+                zone = zone,
+                day = AqiqahReminderDay.Fourteenth,
+            ),
+        ).isNotNull()
+    }
+
 }

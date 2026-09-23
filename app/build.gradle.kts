@@ -222,6 +222,7 @@ dependencies {
     implementation(project(":feature:feature-zakat"))
     implementation(project(":feature:feature-finance"))
     implementation(project(":feature:feature-learn"))
+    implementation(project(":feature:feature-family-life"))
     implementation(project(":feature:feature-settings"))
     implementation(project(":feature:feature-reference"))
     implementation(project(":feature:feature-scholar-library"))

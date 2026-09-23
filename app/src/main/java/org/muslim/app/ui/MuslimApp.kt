@@ -60,11 +60,12 @@ import org.muslim.app.feature.prayertimes.widget.refreshPrayerTimesWidgets
 import org.muslim.app.feature.adhkar.ui.AdhkarScreen
 import org.muslim.app.feature.hadith.ui.HadithScreen
 import org.muslim.app.feature.learn.ui.LearnScreen
-import org.muslim.app.feature.learn.ui.FamilyLifeScreen
+import org.muslim.app.feature.family.ui.FamilyLifeScreen
 import org.muslim.app.feature.learn.ui.FuneralWillScreen
 import org.muslim.app.feature.learn.ui.NooraniNewMuslimScreen
 import org.muslim.app.feature.learn.ui.TravelerExpatsScreen
 import org.muslim.app.feature.qibla.ui.QiblaScreen
+import org.muslim.app.feature.quran.domain.QuranAyahIndex
 import org.muslim.app.feature.quran.ui.BookmarksScreen
 import org.muslim.app.feature.ramadan.ui.HabitTrackerScreen
 import org.muslim.app.feature.ramadan.ui.RamadanScreen
@@ -507,7 +508,25 @@ fun MuslimApp(
                     LearnScreen(onBack = { navController.popBackStack() })
                 }
                 composable(FAMILY_LIFE_ROUTE) {
-                    FamilyLifeScreen(onBack = { navController.popBackStack() })
+                    FamilyLifeScreen(
+                        onBack = { navController.popBackStack() },
+                        onOpenQuran = { surahNumber, ayahNumber ->
+                            if (surahNumber == null) {
+                                navController.navigate("quran")
+                            } else {
+                                val globalAyah = ayahNumber
+                                    ?.let { QuranAyahIndex.globalNumber(surahNumber, it) }
+                                    ?.takeIf { it > 0 }
+                                if (globalAyah == null) {
+                                    navController.navigate("$READER_ROUTE/$surahNumber")
+                                } else {
+                                    navController.navigate("$READER_ROUTE/$surahNumber?ayah=$globalAyah")
+                                }
+                            }
+                        },
+                        onOpenHadith = { navController.navigate(HADITH_ROUTE) },
+                        onOpenAdhkar = { navController.navigate(ADHKAR_ROUTE) },
+                    )
                 }
                 composable(FUNERAL_WILL_ROUTE) {
                     FuneralWillScreen(onBack = { navController.popBackStack() })
