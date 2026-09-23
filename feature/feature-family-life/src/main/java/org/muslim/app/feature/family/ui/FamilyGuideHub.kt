@@ -77,6 +77,7 @@ import org.muslim.app.feature.family.domain.FamilyUtilityContent
 import org.muslim.app.feature.family.domain.LocalizedFamilyText
 
 internal enum class FamilyHubDestination {
+    Search,
     Saved,
     Tools,
     Ruqyah,
@@ -101,6 +102,7 @@ internal fun FamilyHubContent(
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         familyHubIntro()
+        familyGlobalSearchItem(onOpenDestination)
         familyCategoryItems(isArabic, onOpenCategory)
         familyLibraryItems(favoriteCount, recentCount, onOpenDestination)
         familyPracticalToolItems(onOpenDestination)
@@ -115,6 +117,19 @@ private fun LazyListScope.familyHubIntro() {
             supportingText = stringResource(R.string.family_hub_intro_text),
             tone = MuslimStateTone.Positive,
             icon = Icons.Filled.FamilyRestroom,
+        )
+    }
+}
+
+private fun LazyListScope.familyGlobalSearchItem(
+    onOpenDestination: (FamilyHubDestination) -> Unit,
+) {
+    item {
+        FamilyToolCard(
+            icon = Icons.Filled.Search,
+            title = stringResource(R.string.family_global_search_title),
+            description = stringResource(R.string.family_global_search_hub_desc),
+            onClick = { onOpenDestination(FamilyHubDestination.Search) },
         )
     }
 }
@@ -875,9 +890,12 @@ internal fun FamilySavedContent(
 internal fun FamilyToolsContent(
     isArabic: Boolean,
     completedItemIds: Set<String>,
+    initialChecklistId: String? = null,
     onSetCompleted: (String, String, Boolean) -> Unit,
 ) {
-    var selectedChecklistId by rememberSaveable { mutableStateOf<String?>(null) }
+    var selectedChecklistId by rememberSaveable(initialChecklistId) {
+        mutableStateOf(initialChecklistId)
+    }
     val selected = selectedChecklistId?.let(FamilyUtilityContent::checklistById)
     if (selected == null) {
         FamilyChecklistCatalog(
