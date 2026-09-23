@@ -23,7 +23,7 @@ internal class IslamicHistoryContentRepository private constructor(
     private val context: Context,
 ) {
     private val database by lazy { IslamicHistorySearchDatabase.get(context) }
-    private val dao by lazy { database.searchDao() }
+    private val dao by lazy { database.contentDao() }
     private val loader by lazy { HistoryContentAssetLoader(context.applicationContext) }
     private val asset by lazy { loader.load() }
     private val seedMutex = Mutex()
@@ -81,7 +81,7 @@ internal class IslamicHistoryContentRepository private constructor(
     suspend fun ensureSeeded() {
         seedMutex.withLock {
             val loadedAsset = asset
-            val metadata = dao.contentMetadata()
+            val metadata = dao.metadata()
             if (
                 metadata?.contentVersion == loadedAsset.contentVersion &&
                 metadata.recordCount == loadedAsset.recordCount
@@ -93,7 +93,7 @@ internal class IslamicHistoryContentRepository private constructor(
             database.withTransaction {
                 dao.clearContent()
                 dao.insertContent(rows)
-                dao.upsertContentMetadata(
+                dao.upsertMetadata(
                     HistoryContentMetaEntity(
                         contentVersion = loadedAsset.contentVersion,
                         recordCount = rows.size,
