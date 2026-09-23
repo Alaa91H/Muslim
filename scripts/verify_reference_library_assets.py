@@ -309,6 +309,43 @@ CORPORA = (
             }
         ),
     ),
+    CorpusSpec(
+        name="Islamic History and Civilization",
+        legacy=None,
+        asset=RAW / "reference_history_civilization_v2.json",
+        min_topics=91,
+        min_chapters=10,
+        min_revision=1,
+        required_topic_ids=frozenset(
+            {
+                "history_method",
+                "periodization",
+                "sources_history",
+                "umayyad_formation",
+                "abbasid_revolution",
+                "al_andalus_beginning",
+                "mamluks",
+                "mongol_invasions",
+                "ottoman_rise",
+                "safavids",
+                "mughals",
+                "west_africa_islam",
+                "southeast_asia_islam",
+                "translation_movement",
+                "mathematics",
+                "astronomy",
+                "medicine",
+                "madrasa_growth",
+                "waqf_institutions",
+                "book_culture",
+                "silk_roads",
+                "indian_ocean_trade",
+                "architecture_regions",
+                "historiography",
+                "historical_maps_caution",
+            }
+        ),
+    ),
 )
 
 
