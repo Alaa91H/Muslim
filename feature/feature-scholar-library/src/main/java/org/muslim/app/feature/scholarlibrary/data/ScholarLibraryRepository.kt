@@ -17,7 +17,9 @@ import kotlinx.serialization.json.Json
 import org.muslim.app.core.common.text.ArabicText
 import org.muslim.app.feature.scholarlibrary.domain.Citation
 import org.muslim.app.feature.scholarlibrary.domain.FlashcardWithCitation
+import org.muslim.app.feature.scholarlibrary.domain.ScholarAuthorSummary
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
+import org.muslim.app.feature.scholarlibrary.domain.ScholarBookOutlineSection
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBookmark
 import org.muslim.app.feature.scholarlibrary.domain.ScholarCategory
 import org.muslim.app.feature.scholarlibrary.domain.ScholarDifficulty
@@ -27,6 +29,9 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarNote
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingStatus
+import org.muslim.app.feature.scholarlibrary.domain.ScholarSearchFilters
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPath
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyStage
 import org.muslim.app.feature.scholarlibrary.domain.SearchHit
 import org.muslim.app.feature.scholarlibrary.domain.StudyBookmarkWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.StudyFlashcard
@@ -76,6 +81,31 @@ private data class ScholarPackPassage(
     val volume: String? = null,
     val page: String? = null,
     val text: String,
+)
+
+@Serializable
+private data class ScholarStudyPathPack(
+    val schemaVersion: Int,
+    val notice: String,
+    val paths: List<ScholarStudyPathItem>,
+)
+
+@Serializable
+private data class ScholarStudyPathItem(
+    val id: String,
+    val title: String,
+    val summary: String,
+    val category: String,
+    val level: String,
+    val stages: List<ScholarStudyStageItem>,
+)
+
+@Serializable
+private data class ScholarStudyStageItem(
+    val id: String,
+    val title: String,
+    val description: String,
+    val bookIds: List<String>,
 )
 
 /**
@@ -150,14 +180,116 @@ class ScholarLibraryRepository @Inject constructor(
 
     suspend fun book(bookId: String): ScholarBook? = libraryDao.bookById(bookId)?.toDomain()
 
-    suspend fun search(rawQuery: String): List<SearchHit> {
+    suspend fun authors(): List<ScholarAuthorSummary> {
         ensureSeeded()
-        val query = ScholarSearchQuery.build(rawQuery)
-        if (query.isEmpty()) return emptyList()
-        return ftsDao.searchPassageIds(query, SEARCH_LIMIT).distinct().mapNotNull { id ->
+        return libraryDao.observeBooks().first()
+            .map { it.toDomain() }
+            .groupBy { it.author.trim() }
+            .map { (name, books) ->
+                ScholarAuthorSummary(
+                    name = name,
+                    deathYearHijri = books.mapNotNull { it.authorDeathYearHijri }.firstOrNull(),
+                    bookIds = books.map { it.id }.sorted(),
+                )
+            }
+            .sortedBy { it.name }
+    }
+
+    suspend fun bookOutline(bookId: String): List<ScholarBookOutlineSection> {
+        ensureSeeded()
+        return libraryDao.observePassagesForBook(bookId).first()
+            .map { it.toDomain() }
+            .groupBy { it.volume.orEmpty() to it.chapter }
+            .map { (key, passages) ->
+                ScholarBookOutlineSection(
+                    volume = key.first.ifBlank { null },
+                    chapter = key.second,
+                    passageIds = passages.map { it.id },
+                )
+            }
+    }
+
+    suspend fun studyPaths(): List<ScholarStudyPath> {
+        ensureSeeded()
+        val raw = context.assets.open(BUNDLED_STUDY_PATHS).bufferedReader(Charsets.UTF_8).use { it.readText() }
+        val pack = json.decodeFromString<ScholarStudyPathPack>(raw)
+        require(pack.schemaVersion == STUDY_PATH_SCHEMA_VERSION) { "إصدار مسارات الدراسة غير مدعوم." }
+        require(pack.notice.isNotBlank()) { "يجب توضيح طبيعة المسارات الدراسية." }
+        val bookIds = libraryDao.observeBooks().first().map { it.id }.toSet()
+        return pack.paths.map { path ->
+            require(ID_REGEX.matches(path.id) && path.title.isNotBlank() && path.summary.isNotBlank()) {
+                "مسار دراسي غير صالح."
+            }
+            require(path.stages.isNotEmpty()) { "المسار الدراسي يجب أن يحتوي على مرحلة واحدة على الأقل." }
+            val stages = path.stages.map { stage ->
+                require(ID_REGEX.matches(stage.id) && stage.title.isNotBlank() && stage.description.isNotBlank()) {
+                    "مرحلة دراسية غير صالحة."
+                }
+                require(stage.bookIds.isNotEmpty() && stage.bookIds.all { it in bookIds }) {
+                    "المسار الدراسي يشير إلى كتاب غير موجود."
+                }
+                ScholarStudyStage(stage.id, stage.title, stage.description, stage.bookIds)
+            }
+            ScholarStudyPath(
+                id = path.id,
+                title = path.title,
+                summary = path.summary,
+                category = ScholarCategory.fromId(path.category),
+                level = ScholarDifficulty.fromId(path.level),
+                stages = stages,
+            )
+        }
+    }
+
+    suspend fun search(
+        rawQuery: String,
+        filters: ScholarSearchFilters = ScholarSearchFilters(),
+    ): List<SearchHit> {
+        ensureSeeded()
+        val books = libraryDao.observeBooks().first().map { it.toDomain() }
+        val booksById = books.associateBy { it.id }
+        val eligibleBooks = books.filter { it.matches(filters) }.associateBy { it.id }
+        if (eligibleBooks.isEmpty()) return emptyList()
+
+        val normalized = ArabicText.normalizeForSearch(rawQuery.trim())
+        val metadataMatches = if (normalized.isBlank()) {
+            emptyList()
+        } else {
+            eligibleBooks.values.filter { book -> book.matchesMetadataQuery(normalized) }
+        }
+
+        val passageIds = linkedSetOf<String>()
+        val ftsQuery = ScholarSearchQuery.build(rawQuery)
+        if (ftsQuery.isNotEmpty()) {
+            ftsDao.searchPassageIds(ftsQuery, SEARCH_CANDIDATE_LIMIT)
+                .distinct()
+                .forEach { id ->
+                    val passage = libraryDao.passageById(id)
+                    if (passage != null && passage.bookId in eligibleBooks) passageIds += id
+                }
+        }
+        metadataMatches.forEach { book ->
+            libraryDao.observePassagesForBook(book.id).first()
+                .take(METADATA_MATCH_PASSAGES_PER_BOOK)
+                .forEach { passageIds += it.id }
+        }
+
+        return passageIds.take(SEARCH_LIMIT).mapNotNull { id ->
             val passage = libraryDao.passageById(id)?.toDomain() ?: return@mapNotNull null
-            val citation = citationForPassage(id) ?: return@mapNotNull null
-            SearchHit(passage, citation)
+            val book = booksById[passage.bookId] ?: return@mapNotNull null
+            SearchHit(
+                passage = passage,
+                citation = Citation(
+                    bookTitle = book.title,
+                    author = book.author,
+                    chapter = passage.chapter,
+                    volume = passage.volume,
+                    page = passage.page,
+                    edition = book.edition,
+                    publisher = book.publisher,
+                    publicationYear = book.publicationYear,
+                ),
+            )
         }
     }
 
@@ -495,6 +627,21 @@ class ScholarLibraryRepository @Inject constructor(
         keywords = keywords.joinToString(KEYWORD_SEPARATOR),
     )
 
+    private fun ScholarBook.matches(filters: ScholarSearchFilters): Boolean =
+        (filters.category == null || category == filters.category) &&
+            (filters.difficulty == null || difficulty == filters.difficulty) &&
+            (filters.authorName.isNullOrBlank() || author == filters.authorName)
+
+    private fun ScholarBook.matchesMetadataQuery(normalizedQuery: String): Boolean {
+        val searchable = buildList {
+            add(title)
+            add(author)
+            subtitle?.let(::add)
+            addAll(keywords)
+        }.joinToString(" ")
+        return ArabicText.normalizeForSearch(searchable).contains(normalizedQuery)
+    }
+
     private fun ScholarPackPassage.toEntity(bookId: String) = ScholarPassageEntity(
         id = id,
         bookId = bookId,
@@ -506,9 +653,13 @@ class ScholarLibraryRepository @Inject constructor(
 
     private companion object {
         const val BUNDLED_CATALOG = "scholar_library_catalog.json"
+        const val BUNDLED_STUDY_PATHS = "scholar_study_paths.json"
+        const val STUDY_PATH_SCHEMA_VERSION = 1
         const val MIN_PACK_SCHEMA_VERSION = 1
         const val CURRENT_PACK_SCHEMA_VERSION = 2
         const val SEARCH_LIMIT = 100
+        const val SEARCH_CANDIDATE_LIMIT = 500
+        const val METADATA_MATCH_PASSAGES_PER_BOOK = 20
         const val PACK_MAX_CHARS = 5_000_000
         const val MAX_BOOKS_PER_PACK = 1_000
         const val MAX_PASSAGES_PER_BOOK = 20_000
