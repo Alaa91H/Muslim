@@ -105,38 +105,22 @@ fun ReferenceScreen(
     MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(
-                        text = when {
-                            selectedTopic != null && book != null -> selectedTopic!!.title(lang)
-                            book != null -> book.title(lang)
-                            else -> stringResource(R.string.reference_title)
-                        },
-                        maxLines = 1,
-                    )
-                },
-                navigationIcon = {
-                    IconButton(onClick = {
-                        when {
-                            selectedTopic != null -> selectedTopic = null
-                            book != null -> { selectedBook = null; query = "" }
-                            else -> onBack()
+            ReferenceTopBar(
+                lang = lang,
+                book = book,
+                topic = selectedTopic,
+                onBack = {
+                    when {
+                        selectedTopic != null -> selectedTopic = null
+                        book != null -> {
+                            selectedBook = null
+                            query = ""
                         }
-                    }) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.reference_back),
-                        )
+                        else -> onBack()
                     }
                 },
-                actions = {
-                    TextButton(onClick = { lang = if (lang == RefLang.Arabic) RefLang.English else RefLang.Arabic }) {
-                        Text(
-                            text = if (lang == RefLang.Arabic) "English" else "العربية",
-                            style = MaterialTheme.typography.labelLarge,
-                        )
-                    }
+                onToggleLanguage = {
+                    lang = if (lang == RefLang.Arabic) RefLang.English else RefLang.Arabic
                 },
             )
         },
@@ -165,6 +149,45 @@ fun ReferenceScreen(
             )
         }
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ReferenceTopBar(
+    lang: RefLang,
+    book: ReferenceBook?,
+    topic: RefTopic?,
+    onBack: () -> Unit,
+    onToggleLanguage: () -> Unit,
+) {
+    TopAppBar(
+        title = {
+            Text(
+                text = when {
+                    topic != null -> topic.title(lang)
+                    book != null -> book.title(lang)
+                    else -> stringResource(R.string.reference_title)
+                },
+                maxLines = 1,
+            )
+        },
+        navigationIcon = {
+            IconButton(onClick = onBack) {
+                Icon(
+                    Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = stringResource(R.string.reference_back),
+                )
+            }
+        },
+        actions = {
+            TextButton(onClick = onToggleLanguage) {
+                Text(
+                    text = if (lang == RefLang.Arabic) "English" else "العربية",
+                    style = MaterialTheme.typography.labelLarge,
+                )
+            }
+        },
+    )
 }
 
 @Composable
