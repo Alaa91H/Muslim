@@ -125,9 +125,7 @@ fun ReferenceScreen(
                         else -> onBack()
                     }
                 },
-                onToggleLanguage = { lang =
-                    if (lang == RefLang.Arabic) RefLang.English else RefLang.Arabic
-                },
+                onToggleLanguage = { lang = lang.toggled() },
             )
         },
     ) { innerPadding ->
@@ -173,6 +171,9 @@ fun ReferenceScreen(
         }
     }
 }
+
+private fun RefLang.toggled(): RefLang =
+    if (this == RefLang.Arabic) RefLang.English else RefLang.Arabic
 
 @Composable
 private fun ReferenceBackHandler(
