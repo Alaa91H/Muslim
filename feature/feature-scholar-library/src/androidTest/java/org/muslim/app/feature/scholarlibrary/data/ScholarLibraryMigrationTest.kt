@@ -188,6 +188,118 @@ class ScholarLibraryMigrationTest {
         helper.close()
     }
 
+    @Test
+    fun migration5To6PreservesFlashcardsAndAddsReviewHistory() {
+        createVersion5Database()
+
+        val helper = FrameworkSQLiteOpenHelperFactory().create(
+            SupportSQLiteOpenHelper.Configuration.builder(context)
+                .name(databaseName)
+                .callback(
+                    object : SupportSQLiteOpenHelper.Callback(6) {
+                        override fun onCreate(db: SupportSQLiteDatabase) = Unit
+
+                        override fun onUpgrade(
+                            db: SupportSQLiteDatabase,
+                            oldVersion: Int,
+                            newVersion: Int,
+                        ) {
+                            assertThat(oldVersion).isEqualTo(5)
+                            assertThat(newVersion).isEqualTo(6)
+                            ScholarLibraryDatabase.MIGRATION_5_6.migrate(db)
+                        }
+                    },
+                )
+                .build(),
+        )
+
+        val db = helper.writableDatabase
+        db.query(
+            "SELECT id, front, reviewCount, intervalDays FROM scholar_flashcards WHERE id = 1",
+        ).use { cursor ->
+            assertThat(cursor.moveToFirst()).isTrue()
+            assertThat(cursor.getString(cursor.getColumnIndexOrThrow("front"))).isEqualTo("question")
+            assertThat(cursor.getInt(cursor.getColumnIndexOrThrow("reviewCount"))).isEqualTo(3)
+            assertThat(cursor.getInt(cursor.getColumnIndexOrThrow("intervalDays"))).isEqualTo(7)
+        }
+        db.query(
+            "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'scholar_review_events'",
+        ).use { cursor ->
+            assertThat(cursor.moveToFirst()).isTrue()
+        }
+        db.query("PRAGMA table_info(scholar_review_events)").use { cursor ->
+            val columns = buildSet {
+                val nameIndex = cursor.getColumnIndexOrThrow("name")
+                while (cursor.moveToNext()) add(cursor.getString(nameIndex))
+            }
+            assertThat(columns).containsAtLeast(
+                "flashcardId",
+                "passageId",
+                "bookId",
+                "category",
+                "reviewedAtEpochMillis",
+                "rating",
+                "scheduledIntervalDays",
+                "lapseCountAfterReview",
+                "easeFactorAfterReview",
+            )
+        }
+
+        helper.close()
+    }
+
+    private fun createVersion5Database() {
+        val helper = FrameworkSQLiteOpenHelperFactory().create(
+            SupportSQLiteOpenHelper.Configuration.builder(context)
+                .name(databaseName)
+                .callback(
+                    object : SupportSQLiteOpenHelper.Callback(5) {
+                        override fun onCreate(db: SupportSQLiteDatabase) {
+                            db.execSQL(
+                                """
+                                CREATE TABLE scholar_flashcards (
+                                    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                                    passageId TEXT NOT NULL,
+                                    front TEXT NOT NULL,
+                                    back TEXT NOT NULL,
+                                    createdAtEpochMillis INTEGER NOT NULL,
+                                    reviewCount INTEGER NOT NULL,
+                                    dueAtEpochMillis INTEGER NOT NULL,
+                                    intervalDays INTEGER NOT NULL,
+                                    easeFactor REAL NOT NULL,
+                                    lapseCount INTEGER NOT NULL,
+                                    lastReviewedAtEpochMillis INTEGER,
+                                    lastRating TEXT
+                                )
+                                """.trimIndent(),
+                            )
+                            db.execSQL(
+                                """
+                                INSERT INTO scholar_flashcards(
+                                    id, passageId, front, back, createdAtEpochMillis,
+                                    reviewCount, dueAtEpochMillis, intervalDays, easeFactor,
+                                    lapseCount, lastReviewedAtEpochMillis, lastRating
+                                ) VALUES(
+                                    1, 'passage-one', 'question', 'answer', 1000,
+                                    3, 9000, 7, 2.5, 0, 8000, 'Good'
+                                )
+                                """.trimIndent(),
+                            )
+                        }
+
+                        override fun onUpgrade(
+                            db: SupportSQLiteDatabase,
+                            oldVersion: Int,
+                            newVersion: Int,
+                        ) = Unit
+                    },
+                )
+                .build(),
+        )
+        helper.writableDatabase
+        helper.close()
+    }
+
     private fun createVersion4Database() {
         val helper = FrameworkSQLiteOpenHelperFactory().create(
             SupportSQLiteOpenHelper.Configuration.builder(context)
