@@ -590,4 +590,50 @@ object FuneralContent {
         "التأصيل العام: البقرة 2:180؛ النساء 4:11–12 و4:176؛ صحيح البخاري، كتاب الوصايا. الوصية المالية والميراث يحتاجان مراجعة عالم موثوق ومحامٍ أو كاتب عدل وفق بلدك.",
         "General basis: Qur'an 2:180; 4:11-12 and 4:176; Sahih al-Bukhari, Book of Wills. Financial bequests and inheritance need review by a qualified scholar and a lawyer or notary in your jurisdiction.",
     )
+
+    fun searchGuideSections(
+        query: String,
+        isArabic: Boolean,
+    ): List<FuneralGuideSection> = guideSections.filter { section ->
+        section.searchableText(isArabic).containsQuery(query)
+    }
+
+    fun searchWillEducationSections(
+        query: String,
+        isArabic: Boolean,
+    ): List<WillEducationSection> = willEducationSections.filter { section ->
+        section.searchableText(isArabic).containsQuery(query)
+    }
+}
+
+private fun FuneralGuideSection.searchableText(isArabic: Boolean): String = buildString {
+    append(title.pick(isArabic))
+    append(' ')
+    append(intro.pick(isArabic))
+    append(' ')
+    steps.forEach { step ->
+        append(step.pick(isArabic))
+        append(' ')
+    }
+    append(reference.pick(isArabic))
+}
+
+private fun WillEducationSection.searchableText(isArabic: Boolean): String = buildString {
+    append(title.pick(isArabic))
+    append(' ')
+    append(intro.pick(isArabic))
+    append(' ')
+    steps.forEach { step ->
+        append(step.pick(isArabic))
+        append(' ')
+    }
+    append(reference.pick(isArabic))
+}
+
+private fun LocalizedFuneralText.pick(isArabic: Boolean): String =
+    if (isArabic) arabic else english
+
+private fun String.containsQuery(query: String): Boolean {
+    val normalizedQuery = query.trim()
+    return normalizedQuery.isEmpty() || contains(normalizedQuery, ignoreCase = true)
 }
