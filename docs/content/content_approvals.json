@@ -324,6 +324,13 @@
       "attribution": "Fiqh of Worship reference content bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of legal formulations, school-specific differences, hadith citations, and practical edge cases.",
       "notes": "First versioned edition: 57 topics, 114 sections, and 114 bilingual paragraphs covering fiqh methodology, purification, prayer, zakat, fasting, and Hajj."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_ethics_life_v2_json": {
+      "source": "Project-authored Ethics, Manners, and Muslim Life corpus using structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, and classical adab works. Modern digital-life articles apply general ethical principles transparently rather than presenting platform-specific customs as revelation.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Ethics, Manners, and Muslim Life reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, legal/ethical formulations, and modern applications.",
+      "notes": "First versioned edition: 73 topics, 146 sections, and 146 bilingual paragraphs covering character, speech, daily life, family, community, work/wealth, public responsibility, and digital ethics."
     }
   }
 }
