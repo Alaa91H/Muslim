@@ -67,6 +67,11 @@ class FuneralWillPreferencesRepository @Inject constructor(
         hidden: Boolean,
     ) {
         context.funeralWillUiDataStore.edit { preferences ->
+            if (preferences[Keys.CONTENT_VERSION] != FUNERAL_WILL_INTRO_CONTENT_VERSION) {
+                preferences[Keys.HIDE_DRAFT_INTRO] = false
+                preferences[Keys.HIDE_LEGAL_NOTICE] = false
+                preferences[Keys.HIDE_PRIVACY_NOTICE] = false
+            }
             preferences[Keys.CONTENT_VERSION] = FUNERAL_WILL_INTRO_CONTENT_VERSION
             preferences[key] = hidden
         }
