@@ -411,25 +411,39 @@ private fun ReminderMasterSwitch(
     }
 }
 
+private data class AdhkarReaderSnapshot(
+    val queue: List<Dhikr>,
+    val favoriteIds: Set<Long>,
+    val speechEnabled: Boolean,
+    val speechReady: Boolean,
+    val speakingDhikrId: Long?,
+)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun AdhkarReaderContent(
     onBack: () -> Unit,
     viewModel: AdhkarViewModel,
 ) {
-    val queue by viewModel.visibleAdhkar.collectAsStateWithLifecycle()
-    val favoriteIds by viewModel.favoriteIds.collectAsStateWithLifecycle()
-    val speechEnabled by viewModel.speechEnabled.collectAsStateWithLifecycle()
-    val speechReady by viewModel.speechReady.collectAsStateWithLifecycle()
-    val speakingDhikrId by viewModel.speakingDhikrId.collectAsStateWithLifecycle()
+    val snapshot = AdhkarReaderSnapshot(
+        queue = viewModel.visibleAdhkar.collectAsStateWithLifecycle().value,
+        favoriteIds = viewModel.favoriteIds.collectAsStateWithLifecycle().value,
+        speechEnabled = viewModel.speechEnabled.collectAsStateWithLifecycle().value,
+        speechReady = viewModel.speechReady.collectAsStateWithLifecycle().value,
+        speakingDhikrId = viewModel.speakingDhikrId.collectAsStateWithLifecycle().value,
+    )
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val copiedMessage = stringResource(R.string.adhkar_copied)
     val onCopied: () -> Unit = { scope.launch { snackbarHostState.showSnackbar(copiedMessage) } }
     var currentIndex by remember { mutableStateOf(0) }
 
-    LaunchedEffect(queue.size) {
-        currentIndex = if (queue.isEmpty()) 0 else currentIndex.coerceIn(0, queue.lastIndex)
+    LaunchedEffect(snapshot.queue.size) {
+        currentIndex = if (snapshot.queue.isEmpty()) {
+            0
+        } else {
+            currentIndex.coerceIn(0, snapshot.queue.lastIndex)
+        }
     }
 
     MuslimAppScaffold(
@@ -449,87 +463,130 @@ private fun AdhkarReaderContent(
             )
         },
     ) { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .padding(vertical = 8.dp),
-        ) {
-            if (queue.isEmpty()) {
-                Text(
-                    text = stringResource(R.string.adhkar_no_results),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(24.dp),
-                )
-                return@Column
-            }
+        AdhkarReaderBody(
+            snapshot = snapshot,
+            currentIndex = currentIndex,
+            innerPadding = innerPadding,
+            viewModel = viewModel,
+            onCopied = onCopied,
+            onIndexChanged = { currentIndex = it },
+            onFinish = onBack,
+        )
+    }
+}
 
-            val safeIndex = currentIndex.coerceIn(0, queue.lastIndex)
-            val dhikr = queue[safeIndex]
-            val progress = (safeIndex + 1).toFloat() / queue.size.toFloat()
-
-            LinearProgressIndicator(
-                progress = { progress },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-            )
+@Composable
+private fun AdhkarReaderBody(
+    snapshot: AdhkarReaderSnapshot,
+    currentIndex: Int,
+    innerPadding: PaddingValues,
+    viewModel: AdhkarViewModel,
+    onCopied: () -> Unit,
+    onIndexChanged: (Int) -> Unit,
+    onFinish: () -> Unit,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(innerPadding)
+            .padding(vertical = 8.dp),
+    ) {
+        if (snapshot.queue.isEmpty()) {
             Text(
-                text = stringResource(R.string.adhkar_reader_progress, safeIndex + 1, queue.size),
-                style = MaterialTheme.typography.labelMedium,
+                text = stringResource(R.string.adhkar_no_results),
+                style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                modifier = Modifier.padding(24.dp),
             )
+            return@Column
+        }
 
-            DhikrCard(
+        val safeIndex = currentIndex.coerceIn(0, snapshot.queue.lastIndex)
+        val dhikr = snapshot.queue[safeIndex]
+        ReaderProgress(safeIndex = safeIndex, total = snapshot.queue.size)
+
+        DhikrCard(
+            dhikr = dhikr,
+            count = viewModel.count(dhikr.id).collectAsStateWithLifecycle(),
+            isFavorite = dhikr.id in snapshot.favoriteIds,
+            actions = cardActions(
                 dhikr = dhikr,
-                count = viewModel.count(dhikr.id).collectAsStateWithLifecycle(),
-                isFavorite = dhikr.id in favoriteIds,
-                actions = cardActions(
-                    dhikr = dhikr,
-                    viewModel = viewModel,
-                    speechEnabled = speechEnabled && speechReady,
-                    isSpeaking = speakingDhikrId == dhikr.id,
-                    onCopied = onCopied,
+                viewModel = viewModel,
+                speechEnabled = snapshot.speechEnabled && snapshot.speechReady,
+                isSpeaking = snapshot.speakingDhikrId == dhikr.id,
+                onCopied = onCopied,
+            ),
+        )
+
+        Spacer(Modifier.weight(1f))
+        ReaderNavigation(
+            currentIndex = safeIndex,
+            lastIndex = snapshot.queue.lastIndex,
+            onIndexChanged = onIndexChanged,
+            onFinish = onFinish,
+        )
+    }
+}
+
+@Composable
+private fun ReaderProgress(
+    safeIndex: Int,
+    total: Int,
+) {
+    val progress = (safeIndex + 1).toFloat() / total.toFloat()
+    LinearProgressIndicator(
+        progress = { progress },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp),
+    )
+    Text(
+        text = stringResource(R.string.adhkar_reader_progress, safeIndex + 1, total),
+        style = MaterialTheme.typography.labelMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+    )
+}
+
+@Composable
+private fun ReaderNavigation(
+    currentIndex: Int,
+    lastIndex: Int,
+    onIndexChanged: (Int) -> Unit,
+    onFinish: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        OutlinedButton(
+            onClick = { onIndexChanged(currentIndex - 1) },
+            enabled = currentIndex > 0,
+            modifier = Modifier.weight(1f),
+        ) {
+            Text(stringResource(R.string.adhkar_reader_previous))
+        }
+        Button(
+            onClick = {
+                if (currentIndex < lastIndex) {
+                    onIndexChanged(currentIndex + 1)
+                } else {
+                    onFinish()
+                }
+            },
+            modifier = Modifier.weight(1f),
+        ) {
+            Text(
+                stringResource(
+                    if (currentIndex < lastIndex) {
+                        R.string.adhkar_reader_next
+                    } else {
+                        R.string.adhkar_reader_finish
+                    },
                 ),
             )
-
-            Spacer(Modifier.weight(1f))
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 8.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                OutlinedButton(
-                    onClick = { currentIndex-- },
-                    enabled = safeIndex > 0,
-                    modifier = Modifier.weight(1f),
-                ) {
-                    Text(stringResource(R.string.adhkar_reader_previous))
-                }
-                Button(
-                    onClick = {
-                        if (safeIndex < queue.lastIndex) {
-                            currentIndex++
-                        } else {
-                            onBack()
-                        }
-                    },
-                    modifier = Modifier.weight(1f),
-                ) {
-                    Text(
-                        stringResource(
-                            if (safeIndex < queue.lastIndex) {
-                                R.string.adhkar_reader_next
-                            } else {
-                                R.string.adhkar_reader_finish
-                            },
-                        ),
-                    )
-                }
-            }
         }
     }
 }
