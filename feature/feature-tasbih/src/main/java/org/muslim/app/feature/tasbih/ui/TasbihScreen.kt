@@ -38,7 +38,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SnackbarHostState
@@ -74,7 +73,10 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
+import org.muslim.app.core.ui.theme.IslamicDecorationMedallion
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.feature.tasbih.R
 import org.muslim.app.feature.tasbih.domain.DailyCount
@@ -124,7 +126,7 @@ fun TasbihScreen(
         }
     }
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
@@ -164,7 +166,11 @@ fun TasbihScreen(
                 },
             )
 
-            Spacer(Modifier.height(20.dp))
+            IslamicDecorationDivider(
+                tint = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(horizontal = 24.dp, vertical = 8.dp),
+            )
+            Spacer(Modifier.height(4.dp))
 
             // The counter remains the single, deliberately generous primary action.
             Box(
@@ -182,6 +188,10 @@ fun TasbihScreen(
                     },
                 contentAlignment = Alignment.Center,
             ) {
+                IslamicDecorationMedallion(
+                    tint = MaterialTheme.colorScheme.tertiary,
+                    modifier = Modifier.fillMaxSize(),
+                )
                 CounterRing(
                     progress = if (state.target > 0) {
                         state.count.coerceAtMost(state.target).toFloat() / state.target
