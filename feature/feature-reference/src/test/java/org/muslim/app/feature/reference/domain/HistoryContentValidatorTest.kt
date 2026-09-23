@@ -226,4 +226,20 @@ class HistoryContentValidatorTest {
         assertThat(linkedPlaces).isAtLeast(10)
     }
 
+
+    @Test
+    fun `atlas layers expose valid time ranges and unique places`() {
+        val layers = IslamicHistoryContent.atlasLayers
+        val places = layers.flatMap { it.places }
+
+        assertThat(layers).isNotEmpty()
+        layers.forEach { layer ->
+            assertThat(layer.startCe).isAtLeast(610)
+            layer.endCe?.let { end ->
+                assertThat(end).isAtLeast(layer.startCe)
+            }
+        }
+        assertThat(places.map { it.id }).containsNoDuplicates()
+    }
+
 }
