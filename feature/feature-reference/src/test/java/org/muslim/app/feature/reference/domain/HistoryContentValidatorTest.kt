@@ -45,4 +45,44 @@ class HistoryContentValidatorTest {
 
         assertThat(errors.joinToString("\n")).contains("unknown source")
     }
+    @Test
+    fun `states catalogue is chronological bilingual and source linked`() {
+        val states = IslamicHistoryStates.states
+
+        assertThat(states).hasSize(18)
+        assertThat(states.map { it.id }).containsNoDuplicates()
+        assertThat(states.mapNotNull { it.period.startCe }).isInOrder()
+        states.forEach { state ->
+            assertThat(state.title.arabic).isNotEmpty()
+            assertThat(state.title.english).isNotEmpty()
+            assertThat(state.summary.arabic).isNotEmpty()
+            assertThat(state.summary.english).isNotEmpty()
+            assertThat(state.sourceIds).isNotEmpty()
+        }
+    }
+
+    @Test
+    fun `states preserve overlapping regional histories`() {
+        val year1250 = IslamicHistoryStates.states.filter { state ->
+            val start = state.period.startCe ?: return@filter false
+            val end = state.period.endCe ?: return@filter false
+            1250 in start..end
+        }
+
+        assertThat(year1250.map { it.id }).containsAtLeast(
+            "abbasid_caliphate",
+            "seljuqs_rum",
+            "almohads",
+            "ayyubids",
+            "nasrids",
+            "mamluks",
+        )
+    }
+
+    @Test
+    fun `shared history source registry has unique ids`() {
+        assertThat(IslamicHistorySources.all.map { it.id }).containsNoDuplicates()
+        assertThat(IslamicHistorySources.byId("met_major_dynasties")).isNotNull()
+    }
+
 }
