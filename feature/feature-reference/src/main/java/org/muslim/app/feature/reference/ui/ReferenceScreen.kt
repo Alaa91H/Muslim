@@ -85,6 +85,7 @@ private val bookIcons = mapOf(
     "history_civilization" to Icons.Filled.History,
     "places_landmarks" to Icons.Filled.Place,
     "islamic_glossary" to Icons.AutoMirrored.Filled.MenuBook,
+    "faq_misconceptions" to Icons.Filled.Search,
 )
 
 /**
@@ -92,7 +93,7 @@ private val bookIcons = mapOf(
  * كتب مترابطة تشمل التعريف بالإسلام والسيرة والأنبياء والصحابة وأمهات
  * المؤمنين وأهل البيت والخلفاء الراشدين والعقيدة وعلوم القرآن والحديث وفقه العبادات
  * والأخلاق والآداب وحياة المسلم والتاريخ والحضارة الإسلامية والأماكن والمعالم
- * والمعجم الإسلامي الموسع،
+ * والمعجم الإسلامي الموسع والأسئلة الشائعة والمفاهيم الخاطئة،
  * مع بحث نصي ثنائي اللغة على مستوى المكتبة كلها.
  */
 @OptIn(ExperimentalMaterial3Api::class)
