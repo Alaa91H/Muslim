@@ -49,7 +49,7 @@ class UpdateCheckNotifier(private val context: Context) {
                 .setContentIntent(contentIntent)
                 .addAction(
                     Notification.Action.Builder(
-                        0,
+                        org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029,
                         context.getString(R.string.update_notification_action_view),
                         contentIntent,
                     ).build(),
