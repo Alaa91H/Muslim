@@ -31,3 +31,10 @@ The UI visibly labels all areas and lines as schematic. Dates, political geograp
 ## Licensing and network behavior
 
 No external historical image, scanned atlas, copyrighted textbook map, or third-party biography text is bundled. The original line/polygon/marker data is shipped as Kotlin data. The basemap is provided through the same open MapLibre/OpenFreeMap setup already used by the app, so the base map may require network access unless the user has previously downloaded an offline map area through the app’s established offline-map feature. The historical overlays themselves are local and require no map-data API key.
+
+
+## Reference Library integration
+
+The compact timeline/map destination remains an orientation layer. The Reference Library now also ships a versioned `reference_history_civilization_v2.json` corpus for long-form study. That corpus intentionally separates political chronology from science, institutions, trade, arts, regional societies, and material culture, and cross-links back to the dedicated Sira and Rashidun books instead of duplicating them.
+
+The expanded corpus uses the same source-policy principles as this feature: broad chronology is cross-checked against the Metropolitan Museum of Art's Islamic-world chronology, transregional routes are framed as changing networks using UNESCO Silk Roads material, and science articles avoid lone-inventor narratives. Every article remains `NeedsReview` until specialist historical and Islamic-content review is completed.
