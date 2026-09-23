@@ -125,6 +125,55 @@ private data class ScholarStudyStageItem(
     val bookIds: List<String>,
 )
 
+private const val LEGACY_IMPORTS_PACK_ID = "legacy-imports"
+private const val BUNDLED_PACK_ORIGIN = "bundled:scholar_library_catalog.json"
+
+private fun ScholarPack.effectivePackId(): String =
+    packId?.takeIf { it.isNotBlank() } ?: run {
+        val material = buildString {
+            append(packName.trim())
+            append('|')
+            append(books.map { it.id }.sorted().joinToString(","))
+        }
+        val digest = MessageDigest.getInstance("SHA-256").digest(material.toByteArray(Charsets.UTF_8))
+        "legacy-" + digest.take(12).joinToString("") { byte -> "%02x".format(byte) }
+    }
+
+private fun ScholarPack.effectiveSourceName(originName: String?): String =
+    sourceName?.takeIf { it.isNotBlank() }
+        ?: books.map { it.sourceName }.distinct().take(3).joinToString("، ").takeIf { it.isNotBlank() }
+        ?: originName?.takeIf { it.isNotBlank() }
+        ?: "مصادر الكتب داخل الحزمة"
+
+private fun ScholarPack.toRegistryEntity(
+    imported: Boolean,
+    originName: String?,
+    existing: ScholarContentPackEntity?,
+): ScholarContentPackEntity {
+    val now = System.currentTimeMillis()
+    return ScholarContentPackEntity(
+        packId = effectivePackId(),
+        identity = ScholarContentPackIdentityEntity(
+            packName = packName.trim(),
+            packVersion = packVersion,
+            schemaVersion = schemaVersion,
+        ),
+        source = ScholarContentPackSourceEntity(
+            licenseNotice = licenseNotice.trim(),
+            sourceName = effectiveSourceName(originName),
+            sourceUrl = sourceUrl?.trim()?.takeIf { it.isNotEmpty() },
+            originName = originName?.trim()?.takeIf { it.isNotEmpty() },
+        ),
+        installation = ScholarContentPackInstallationEntity(
+            bookIds = books.map { it.id }.toStoredIds(),
+            imported = imported,
+            managed = schemaVersion >= 4 && !packId.isNullOrBlank(),
+            installedAtEpochMillis = existing?.installation?.installedAtEpochMillis ?: now,
+            updatedAtEpochMillis = now,
+        ),
+    )
+}
+
 /**
  * Local, citation-first study library. The shipped catalog is editorial metadata
  * and study guidance only. Full texts are added only through packs that state a
