@@ -248,6 +248,118 @@ class ScholarLibraryMigrationTest {
         helper.close()
     }
 
+    @Test
+    fun migration6To7PreservesReviewHistoryAndAddsPackRegistry() {
+        createVersion6Database()
+
+        val helper = FrameworkSQLiteOpenHelperFactory().create(
+            SupportSQLiteOpenHelper.Configuration.builder(context)
+                .name(databaseName)
+                .callback(
+                    object : SupportSQLiteOpenHelper.Callback(7) {
+                        override fun onCreate(db: SupportSQLiteDatabase) = Unit
+
+                        override fun onUpgrade(
+                            db: SupportSQLiteDatabase,
+                            oldVersion: Int,
+                            newVersion: Int,
+                        ) {
+                            assertThat(oldVersion).isEqualTo(6)
+                            assertThat(newVersion).isEqualTo(7)
+                            ScholarLibraryDatabase.MIGRATION_6_7.migrate(db)
+                        }
+                    },
+                )
+                .build(),
+        )
+
+        val db = helper.writableDatabase
+        db.query(
+            "SELECT id, bookId, category, rating FROM scholar_review_events WHERE id = 1",
+        ).use { cursor ->
+            assertThat(cursor.moveToFirst()).isTrue()
+            assertThat(cursor.getString(cursor.getColumnIndexOrThrow("bookId"))).isEqualTo("book-one")
+            assertThat(cursor.getString(cursor.getColumnIndexOrThrow("category"))).isEqualTo("Hadith")
+            assertThat(cursor.getString(cursor.getColumnIndexOrThrow("rating"))).isEqualTo("Good")
+        }
+        db.query(
+            "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'scholar_content_packs'",
+        ).use { cursor ->
+            assertThat(cursor.moveToFirst()).isTrue()
+        }
+        db.query("PRAGMA table_info(scholar_content_packs)").use { cursor ->
+            val columns = buildSet {
+                val nameIndex = cursor.getColumnIndexOrThrow("name")
+                while (cursor.moveToNext()) add(cursor.getString(nameIndex))
+            }
+            assertThat(columns).containsAtLeast(
+                "packId",
+                "packName",
+                "packVersion",
+                "schemaVersion",
+                "licenseNotice",
+                "sourceName",
+                "bookIds",
+                "imported",
+                "managed",
+                "installedAtEpochMillis",
+                "updatedAtEpochMillis",
+            )
+        }
+
+        helper.close()
+    }
+
+    private fun createVersion6Database() {
+        val helper = FrameworkSQLiteOpenHelperFactory().create(
+            SupportSQLiteOpenHelper.Configuration.builder(context)
+                .name(databaseName)
+                .callback(
+                    object : SupportSQLiteOpenHelper.Callback(6) {
+                        override fun onCreate(db: SupportSQLiteDatabase) {
+                            db.execSQL(
+                                """
+                                CREATE TABLE scholar_review_events (
+                                    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                                    flashcardId INTEGER NOT NULL,
+                                    passageId TEXT NOT NULL,
+                                    bookId TEXT NOT NULL,
+                                    category TEXT NOT NULL,
+                                    reviewedAtEpochMillis INTEGER NOT NULL,
+                                    rating TEXT NOT NULL,
+                                    scheduledIntervalDays INTEGER NOT NULL,
+                                    lapseCountAfterReview INTEGER NOT NULL,
+                                    easeFactorAfterReview REAL NOT NULL
+                                )
+                                """.trimIndent(),
+                            )
+                            db.execSQL(
+                                """
+                                INSERT INTO scholar_review_events(
+                                    id, flashcardId, passageId, bookId, category,
+                                    reviewedAtEpochMillis, rating, scheduledIntervalDays,
+                                    lapseCountAfterReview, easeFactorAfterReview
+                                ) VALUES(
+                                    1, 7, 'passage-one', 'book-one', 'Hadith',
+                                    1000, 'Good', 7, 0, 2.5
+                                )
+                                """.trimIndent(),
+                            )
+                        }
+
+                        override fun onUpgrade(
+                            db: SupportSQLiteDatabase,
+                            oldVersion: Int,
+                            newVersion: Int,
+                        ) = Unit
+                    },
+                )
+                .build(),
+        )
+        helper.writableDatabase
+        helper.close()
+    }
+
     private fun createVersion5Database() {
         val helper = FrameworkSQLiteOpenHelperFactory().create(
             SupportSQLiteOpenHelper.Configuration.builder(context)
