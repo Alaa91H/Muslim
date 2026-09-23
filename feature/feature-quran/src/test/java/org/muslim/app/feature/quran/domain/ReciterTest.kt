@@ -57,6 +57,31 @@ class ReciterTest {
     }
 
     @Test
+    fun bundledPortraits_whenPresent_useHttps() {
+        val portraits = Reciter.Bundled.mapNotNull { it.portraitUrl }
+
+        assertThat(portraits).isNotEmpty()
+        portraits.forEach { portrait ->
+            assertThat(portrait).startsWith("https://")
+        }
+    }
+
+    @Test
+    fun commonBundledReaders_havePortraits() {
+        val names = setOf(
+            "عبد الباسط عبد الصمد",
+            "محمود خليل الحصري",
+            "مشاري راشد العفاسي",
+            "عبد الرحمن السديس",
+            "محمد صديق المنشاوي",
+        )
+
+        Reciter.Bundled
+            .filter { it.name in names }
+            .forEach { reciter -> assertThat(reciter.portraitUrl).isNotNull() }
+    }
+
+    @Test
     fun bundledReciters_folderNamesFollowServerSpelling() {
         // Every bundled folder must follow the live server's naming; a typo
         // yields HTTP 404 and silently broken downloads. Guards known bad
