@@ -3,8 +3,7 @@ package org.muslim.app.feature.hadith.ui
 import android.content.ClipData
 import android.content.Intent
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -12,7 +11,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -58,16 +56,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.paging.LoadState
@@ -252,6 +253,25 @@ private fun HadithCatalogue(
     }
 }
 
+private data class HadithCoverPalette(
+    val background: Color,
+    val accent: Color,
+    val foreground: Color,
+)
+
+private fun HadithCollection.coverPalette(): HadithCoverPalette = when (this) {
+    HadithCollection.Bukhari -> HadithCoverPalette(Color(0xFF174C3B), Color(0xFFD5B568), Color(0xFFF5E8C8))
+    HadithCollection.Muslim -> HadithCoverPalette(Color(0xFF30334B), Color(0xFFC9A96E), Color(0xFFF4E8CC))
+    HadithCollection.AbuDawud -> HadithCoverPalette(Color(0xFF6B352E), Color(0xFFD5AD63), Color(0xFFF7E7C5))
+    HadithCollection.Tirmidhi -> HadithCoverPalette(Color(0xFF3A4966), Color(0xFFCCAA5F), Color(0xFFF3E5C4))
+    HadithCollection.Nasai -> HadithCoverPalette(Color(0xFF28505A), Color(0xFFC7A96B), Color(0xFFF0E4C9))
+    HadithCollection.IbnMajah -> HadithCoverPalette(Color(0xFF583A60), Color(0xFFD0AA69), Color(0xFFF5E5C9))
+    HadithCollection.Muwatta -> HadithCoverPalette(Color(0xFF31543A), Color(0xFFCBAE6B), Color(0xFFF3E6CA))
+    HadithCollection.Riyad -> HadithCoverPalette(Color(0xFF4C482F), Color(0xFFD7B56B), Color(0xFFF5E7C7))
+    HadithCollection.Nawawi40 -> HadithCoverPalette(Color(0xFF67373A), Color(0xFFD3AA6A), Color(0xFFF6E4C5))
+    HadithCollection.Other -> HadithCoverPalette(Color(0xFF454545), Color(0xFFB8A77A), Color(0xFFF2ECDD))
+}
+
 @Composable
 private fun HadithBookCover(
     collection: HadithCollection,
@@ -259,48 +279,129 @@ private fun HadithBookCover(
     height: Dp,
     modifier: Modifier = Modifier,
 ) {
+    val palette = collection.coverPalette()
+    val title = stringResource(collection.titleRes)
+    val libraryLabel = stringResource(R.string.hadith_title)
+    val largeCover = width >= 80.dp
+    val titleSize = if (largeCover) 15.sp else 11.sp
+    val labelSize = if (largeCover) 7.sp else 6.sp
     val coverShape = RoundedCornerShape(13.dp)
+
     Surface(
         modifier = modifier.size(width = width, height = height),
         shape = coverShape,
-        color = MaterialTheme.colorScheme.surfaceContainerHighest,
+        color = palette.background,
         tonalElevation = 2.dp,
-        shadowElevation = 7.dp,
-        border = BorderStroke(
-            width = 1.dp,
-            color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.7f),
-        ),
+        shadowElevation = 8.dp,
+        border = BorderStroke(1.dp, palette.accent.copy(alpha = 0.78f)),
     ) {
-        Box {
-            Image(
-                painter = painterResource(collection.coverRes),
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(MaterialTheme.colorScheme.surfaceContainerHighest),
-            )
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(
-                        Brush.horizontalGradient(
-                            colors = listOf(
-                                MaterialTheme.colorScheme.onSurface.copy(alpha = 0.10f),
-                                Color.Transparent,
-                                Color.Transparent,
-                                MaterialTheme.colorScheme.onSurface.copy(alpha = 0.05f),
-                            ),
+        Box(modifier = Modifier.fillMaxSize()) {
+            Canvas(modifier = Modifier.fillMaxSize()) {
+                val stroke = (size.minDimension * 0.018f).coerceAtLeast(1f)
+                val edge = stroke * 1.7f
+                val corner = CornerRadius(size.minDimension * 0.075f)
+
+                drawRoundRect(
+                    color = palette.accent,
+                    topLeft = Offset(edge, edge),
+                    size = Size(size.width - edge * 2f, size.height - edge * 2f),
+                    cornerRadius = corner,
+                    style = Stroke(width = stroke),
+                )
+                drawRoundRect(
+                    color = palette.accent.copy(alpha = 0.56f),
+                    topLeft = Offset(edge * 2.1f, edge * 2.1f),
+                    size = Size(size.width - edge * 4.2f, size.height - edge * 4.2f),
+                    cornerRadius = CornerRadius(size.minDimension * 0.055f),
+                    style = Stroke(width = stroke * 0.55f),
+                )
+
+                val center = Offset(size.width * 0.53f, size.height * 0.43f)
+                val medallionRadius = size.width * 0.31f
+                drawCircle(
+                    color = palette.accent.copy(alpha = 0.88f),
+                    radius = medallionRadius,
+                    center = center,
+                    style = Stroke(width = stroke * 0.9f),
+                )
+                drawCircle(
+                    color = palette.accent.copy(alpha = 0.42f),
+                    radius = medallionRadius * 0.84f,
+                    center = center,
+                    style = Stroke(width = stroke * 0.5f),
+                )
+
+                val points = listOf(
+                    0f to -1f,
+                    0.707f to -0.707f,
+                    1f to 0f,
+                    0.707f to 0.707f,
+                    0f to 1f,
+                    -0.707f to 0.707f,
+                    -1f to 0f,
+                    -0.707f to -0.707f,
+                )
+                points.forEach { (dx, dy) ->
+                    drawCircle(
+                        color = palette.accent,
+                        radius = stroke * 0.75f,
+                        center = Offset(
+                            center.x + dx * medallionRadius,
+                            center.y + dy * medallionRadius,
                         ),
-                    ),
-            )
-            Box(
+                    )
+                }
+
+                val topLineY = size.height * 0.17f
+                val bottomLineY = size.height * 0.78f
+                drawLine(
+                    color = palette.accent.copy(alpha = 0.78f),
+                    start = Offset(size.width * 0.26f, topLineY),
+                    end = Offset(size.width * 0.80f, topLineY),
+                    strokeWidth = stroke * 0.65f,
+                )
+                drawLine(
+                    color = palette.accent.copy(alpha = 0.78f),
+                    start = Offset(size.width * 0.26f, bottomLineY),
+                    end = Offset(size.width * 0.80f, bottomLineY),
+                    strokeWidth = stroke * 0.65f,
+                )
+
+                // A restrained inner spine gives the artwork a physical-book silhouette.
+                drawLine(
+                    color = palette.accent.copy(alpha = 0.52f),
+                    start = Offset(size.width * 0.12f, size.height * 0.07f),
+                    end = Offset(size.width * 0.12f, size.height * 0.93f),
+                    strokeWidth = stroke * 0.8f,
+                )
+            }
+
+            Column(
                 modifier = Modifier
-                    .align(Alignment.CenterStart)
-                    .fillMaxHeight()
-                    .width(3.dp)
-                    .background(MaterialTheme.colorScheme.onSurface.copy(alpha = 0.10f)),
-            )
+                    .align(Alignment.Center)
+                    .padding(horizontal = if (largeCover) 11.dp else 7.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text(
+                    text = title,
+                    color = palette.foreground,
+                    fontSize = titleSize,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    maxLines = 3,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Spacer(Modifier.height(if (largeCover) 17.dp else 11.dp))
+                Text(
+                    text = libraryLabel,
+                    color = palette.accent.copy(alpha = 0.92f),
+                    fontSize = labelSize,
+                    fontWeight = FontWeight.Medium,
+                    textAlign = TextAlign.Center,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
         }
     }
 }
