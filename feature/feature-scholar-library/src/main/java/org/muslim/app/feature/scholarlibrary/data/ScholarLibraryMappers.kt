@@ -11,6 +11,8 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarNote
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingStatus
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewEvent
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewOutcome
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewRating
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPlan
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySession
@@ -66,6 +68,21 @@ internal fun ScholarFlashcardEntity.toDomain() = StudyFlashcard(
         lapseCount = reviewState.lapseCount,
         lastReviewedAtEpochMillis = reviewState.lastReviewedAtEpochMillis,
         lastRating = ScholarReviewRating.fromId(reviewState.lastRating),
+    ),
+)
+
+internal fun ScholarReviewEventEntity.toDomain() = ScholarReviewEvent(
+    id = id,
+    flashcardId = flashcardId,
+    passageId = passageId,
+    bookId = bookId,
+    category = ScholarCategory.fromId(category),
+    reviewedAtEpochMillis = reviewedAtEpochMillis,
+    outcome = ScholarReviewOutcome(
+        rating = ScholarReviewRating.fromId(outcome.rating) ?: ScholarReviewRating.Good,
+        scheduledIntervalDays = outcome.scheduledIntervalDays,
+        lapseCountAfterReview = outcome.lapseCountAfterReview,
+        easeFactorAfterReview = outcome.easeFactorAfterReview,
     ),
 )
 
