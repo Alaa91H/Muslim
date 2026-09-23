@@ -35,4 +35,5 @@
     <string name="funeral_will_search_clear" tools:ignore="MissingTranslation">مسح البحث</string>
     <string name="funeral_will_search_results" tools:ignore="MissingTranslation">%1$d موضوع مطابق</string>
     <string name="funeral_will_search_empty" tools:ignore="MissingTranslation">لا توجد موضوعات مطابقة. جرّب كلمة أخرى أو امسح البحث.</string>
+    <string name="funeral_will_quick_topics" tools:ignore="MissingTranslation">انتقال سريع إلى موضوع</string>
 </resources>
