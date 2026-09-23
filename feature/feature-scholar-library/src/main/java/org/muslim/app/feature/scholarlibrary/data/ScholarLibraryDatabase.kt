@@ -24,8 +24,9 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         ScholarStudyPlanEntity::class,
         ScholarStudySessionEntity::class,
         ScholarReviewEventEntity::class,
+        ScholarContentPackEntity::class,
     ],
-    version = 6,
+    version = 7,
     exportSchema = false,
 )
 abstract class ScholarLibraryDatabase : RoomDatabase() {
@@ -260,6 +261,43 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
             }
         }
 
+        /**
+         * v7 adds a local registry for bundled/imported content packs. Existing
+         * catalog and study data remain untouched.
+         */
+        internal val MIGRATION_6_7 = object : Migration(6, 7) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS scholar_content_packs (
+                        packId TEXT NOT NULL,
+                        packName TEXT NOT NULL,
+                        packVersion INTEGER NOT NULL,
+                        schemaVersion INTEGER NOT NULL,
+                        licenseNotice TEXT NOT NULL,
+                        sourceName TEXT NOT NULL,
+                        sourceUrl TEXT,
+                        originName TEXT,
+                        bookIds TEXT NOT NULL,
+                        imported INTEGER NOT NULL,
+                        managed INTEGER NOT NULL,
+                        installedAtEpochMillis INTEGER NOT NULL,
+                        updatedAtEpochMillis INTEGER NOT NULL,
+                        PRIMARY KEY(packId)
+                    )
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_content_packs_imported " +
+                        "ON scholar_content_packs (imported)",
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_content_packs_updatedAtEpochMillis " +
+                        "ON scholar_content_packs (updatedAtEpochMillis)",
+                )
+            }
+        }
+
         @Volatile
         private var instance: ScholarLibraryDatabase? = null
 
@@ -270,7 +308,14 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
                     ScholarLibraryDatabase::class.java,
                     DB_NAME,
                 )
-                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6)
+                    .addMigrations(
+                        MIGRATION_1_2,
+                        MIGRATION_2_3,
+                        MIGRATION_3_4,
+                        MIGRATION_4_5,
+                        MIGRATION_5_6,
+                        MIGRATION_6_7,
+                    )
                     .build()
                     .also { instance = it }
             }
