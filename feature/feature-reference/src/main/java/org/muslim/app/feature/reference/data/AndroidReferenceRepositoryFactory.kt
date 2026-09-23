@@ -28,6 +28,9 @@ object AndroidReferenceRepositoryFactory {
             decode(context, R.raw.reference_fiqh_worship_v2),
             decode(context, R.raw.reference_ethics_life_v2),
             decode(context, R.raw.reference_history_civilization_v2),
+            decode(context, R.raw.reference_places_landmarks_v2),
+            decode(context, R.raw.reference_islamic_glossary_v2),
+            decode(context, R.raw.reference_faq_misconceptions_v2),
         ),
     )
 

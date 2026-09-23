@@ -1,0 +1,4249 @@
+{
+  "schemaVersion": 2,
+  "book": {
+    "id": "places_landmarks",
+    "titleAr": "الأماكن والمعالم الإسلامية",
+    "titleEn": "Islamic Places and Landmarks",
+    "subtitleAr": "دليل للمشاعر والمساجد ومواضع السيرة والمدن والمراكز الحضارية",
+    "subtitleEn": "A guide to sacred sites, mosques, Sira locations, cities, and civilizational centers",
+    "contentRevision": 1,
+    "chapters": [
+      {
+        "id": "method",
+        "titleAr": "منهج فهم الأماكن",
+        "titleEn": "How to Read Places",
+        "summaryAr": "تمييز الحرمة التعبدية عن الأهمية التاريخية والحضارية.",
+        "summaryEn": "Distinguishing sacred status from historical and civilizational importance.",
+        "topicIds": [
+          "places_method"
+        ]
+      },
+      {
+        "id": "makkah_hajj",
+        "titleAr": "مكة ومشاعر الحج",
+        "titleEn": "Makkah and Hajj Sites",
+        "summaryAr": "المسجد الحرام والكعبة والمشاعر والمواضع المرتبطة بالهجرة والنسك.",
+        "summaryEn": "The Sacred Mosque, Kaaba, Hajj sites, and key Sira locations around Makkah.",
+        "topicIds": [
+          "makkah",
+          "masjid_haram",
+          "kaaba",
+          "maqam_ibrahim",
+          "safa_marwah",
+          "mina",
+          "arafat",
+          "muzdalifah",
+          "jamarat",
+          "hira",
+          "thawr",
+          "hudaybiyyah",
+          "tanim",
+          "jirranah"
+        ]
+      },
+      {
+        "id": "madinah",
+        "titleAr": "المدينة ومعالمها",
+        "titleEn": "Madinah and Its Landmarks",
+        "summaryAr": "المسجد النبوي وقباء والبقيع وأحد والمواقيت والمواضع التاريخية.",
+        "summaryEn": "The Prophet's Mosque, Quba, al-Baqi, Uhud, miqat, and historic sites.",
+        "topicIds": [
+          "madinah",
+          "masjid_nabawi",
+          "rawdah",
+          "quba",
+          "qiblatayn",
+          "baqi",
+          "uhud",
+          "hamza_cemetery",
+          "khandaq",
+          "dhul_hulayfah",
+          "wadi_aqiq",
+          "well_rumah",
+          "khaybar"
+        ]
+      },
+      {
+        "id": "arabia_sira",
+        "titleAr": "مواضع السيرة في الجزيرة",
+        "titleEn": "Sira Sites in Arabia",
+        "summaryAr": "بدر والطائف وتبوك ودومة الجندل ونجران وحنين.",
+        "summaryEn": "Badr, Ta'if, Tabuk, Dumat al-Jandal, Najran, and Hunayn.",
+        "topicIds": [
+          "badr",
+          "taif",
+          "tabuk",
+          "dawmat_jandal",
+          "najran",
+          "hunayn"
+        ]
+      },
+      {
+        "id": "levant",
+        "titleAr": "القدس وبلاد الشام",
+        "titleEn": "Jerusalem and the Levant",
+        "summaryAr": "المسجد الأقصى والقدس والخليل ودمشق ومعالم تاريخية.",
+        "summaryEn": "Al-Aqsa, Jerusalem, Hebron, Damascus, and historic sites.",
+        "topicIds": [
+          "al_aqsa",
+          "dome_rock",
+          "jerusalem",
+          "hebron",
+          "damascus",
+          "umayyad_mosque",
+          "yarmouk",
+          "bosra"
+        ]
+      },
+      {
+        "id": "iraq_egypt",
+        "titleAr": "العراق ومصر",
+        "titleEn": "Iraq and Egypt",
+        "summaryAr": "الكوفة والبصرة وبغداد وكربلاء وسامراء والفسطاط والقاهرة والأزهر.",
+        "summaryEn": "Kufa, Basra, Baghdad, Karbala, Samarra, Fustat, Cairo, and al-Azhar.",
+        "topicIds": [
+          "kufa",
+          "basra",
+          "baghdad",
+          "karbala",
+          "samarra",
+          "fustat",
+          "cairo",
+          "al_azhar"
+        ]
+      },
+      {
+        "id": "west_central_global",
+        "titleAr": "مراكز حضارية عبر العالم الإسلامي",
+        "titleEn": "Civilizational Centers Across the Islamic World",
+        "summaryAr": "القيروان وفاس وقرطبة وغرناطة وتمبكتو وبخارى وسمرقند وإسطنبول ودلهي وآتشيه.",
+        "summaryEn": "Kairouan, Fez, Cordoba, Granada, Timbuktu, Bukhara, Samarkand, Istanbul, Delhi, and Aceh.",
+        "topicIds": [
+          "kairouan",
+          "fez",
+          "cordoba",
+          "granada_alhambra",
+          "timbuktu",
+          "bukhara",
+          "samarkand",
+          "istanbul",
+          "delhi",
+          "aceh"
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "places_method",
+        "titleAr": "كيف نقرأ الأماكن والمعالم الإسلامية؟",
+        "titleEn": "How to read Islamic places and landmarks",
+        "summaryAr": "دليل يميز بين المكان ذي الحرمة التعبدية، والموقع المرتبط بالسيرة، والمعلم ذي الأهمية التاريخية أو الحضارية.",
+        "summaryEn": "A guide distinguishing ritually sacred places, Sira locations, and landmarks whose importance is primarily historical or civilizational.",
+        "keywordsAr": [
+          "كيف نقرأ الأماكن والمعالم الإسلامية؟"
+        ],
+        "keywordsEn": [
+          "How to read Islamic places and landmarks"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/history_method",
+          "fiqh_worship/hajj_obligation"
+        ],
+        "citations": [
+          {
+            "id": "internal-history-method",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/history_method"
+          },
+          {
+            "id": "internal-hajj-method",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/hajj_obligation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا تعني أهمية مكان في التاريخ الإسلامي أن له بالضرورة عبادة خاصة أو فضيلة دينية ثابتة؛ فالمكان قد يكون مقدسًا بنص، أو مرتبطًا بحدث في السيرة، أو مشهورًا بعلمه وعمرانه.",
+                "en": "Importance in Islamic history does not automatically create a special act of worship or religious merit; a place may be sacred by text, connected to Sira, or significant for learning and urban history.",
+                "citationIds": [
+                  "internal-history-method"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يعتمد هذا الكتاب على النصوص الصحيحة في مسائل الحرمة والفضيلة، وعلى المصادر التاريخية في المدن والمعالم، ويتجنب اختراع مناسك أو فضائل لم تثبت.",
+                "en": "This book relies on authentic revelation for sacred status and virtue, historical sources for cities and monuments, and avoids inventing rituals or merits that are not established.",
+                "citationIds": [
+                  "internal-history-method",
+                  "internal-hajj-method"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "makkah",
+        "titleAr": "مكة المكرمة",
+        "titleEn": "Makkah",
+        "summaryAr": "أقدس مدن الإسلام وفيها المسجد الحرام والكعبة، ومنها بدأت الدعوة النبوية.",
+        "summaryEn": "The holiest city in Islam, home to al-Masjid al-Haram and the Kaaba and the starting point of the Prophetic mission.",
+        "keywordsAr": [
+          "مكة المكرمة"
+        ],
+        "keywordsEn": [
+          "Makkah"
+        ],
+        "relatedTopicIds": [
+          "masjid_haram",
+          "kaaba",
+          "sira/persecution_early_muslims"
+        ],
+        "citations": [
+          {
+            "id": "quran-makkah-3-96",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:96"
+          },
+          {
+            "id": "internal-sira-makkah",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/persecution_early_muslims"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع مكة في الحجاز غرب الجزيرة العربية، وتحيط بها شعاب وجبال، وكانت مركزًا للحج والتجارة قبل الإسلام ثم أصبحت قبلة المسلمين ومقصد الحج.",
+                "en": "Makkah lies in the Hijaz of western Arabia among valleys and mountains. It was already a pilgrimage and commercial center before Islam and became the qibla and destination of Hajj.",
+                "citationIds": [
+                  "quran-makkah-3-96"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يرتبط بها البيت الحرام ومناسك الحج والعمرة، كما شهدت مولد النبي ﷺ وبداية الوحي والمرحلة المكية من الدعوة.",
+                "en": "It is tied to the Sacred House and the rites of Hajj and Umrah and also witnessed the Prophet's ﷺ birth, the beginning of revelation, and the Meccan phase of the mission.",
+                "citationIds": [
+                  "quran-makkah-3-96",
+                  "internal-sira-makkah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "masjid_haram",
+        "titleAr": "المسجد الحرام",
+        "titleEn": "Al-Masjid al-Haram",
+        "summaryAr": "المسجد المحيط بالكعبة وهو قبلة المسلمين وأعظم مساجد الحج والعمرة.",
+        "summaryEn": "The mosque surrounding the Kaaba, the qibla of Muslims and the central sanctuary of Hajj and Umrah.",
+        "keywordsAr": [
+          "المسجد الحرام"
+        ],
+        "keywordsEn": [
+          "Al-Masjid al-Haram"
+        ],
+        "relatedTopicIds": [
+          "makkah",
+          "kaaba",
+          "fiqh_worship/tawaf"
+        ],
+        "citations": [
+          {
+            "id": "quran-haram-22-25",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "22:25"
+          },
+          {
+            "id": "internal-tawaf",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/tawaf"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقع المسجد الحرام في قلب مكة ويحيط بالكعبة ومطافها، وقد توسع عمرانه مرات كثيرة عبر التاريخ لاستيعاب الحجاج.",
+                "en": "Al-Masjid al-Haram stands at the heart of Makkah around the Kaaba and its circumambulation area and has been repeatedly expanded across history for pilgrims.",
+                "citationIds": [
+                  "quran-haram-22-25"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ترتبط به الصلاة والطواف والحج والعمرة، وتثبت النصوص له حرمة وفضيلة لا تقاس بمجرد الأهمية التاريخية.",
+                "en": "Prayer, tawaf, Hajj, and Umrah are directly connected to it, and revelation gives it a sanctity and merit beyond ordinary historical significance.",
+                "citationIds": [
+                  "quran-haram-22-25",
+                  "internal-tawaf"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "kaaba",
+        "titleAr": "الكعبة المشرفة",
+        "titleEn": "The Kaaba",
+        "summaryAr": "البيت الحرام الذي يتجه إليه المسلمون في الصلاة ويطوف به الحجاج والمعتمرون.",
+        "summaryEn": "The Sacred House toward which Muslims pray and around which pilgrims perform tawaf.",
+        "keywordsAr": [
+          "الكعبة المشرفة"
+        ],
+        "keywordsEn": [
+          "The Kaaba"
+        ],
+        "relatedTopicIds": [
+          "masjid_haram",
+          "maqam_ibrahim",
+          "fiqh_worship/qibla"
+        ],
+        "citations": [
+          {
+            "id": "quran-kaaba-2-125",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:125"
+          },
+          {
+            "id": "quran-kaaba-5-97",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:97"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع الكعبة في وسط المسجد الحرام، وهي بناء مكعب الشكل أعيد بناؤه وترميمه في مراحل تاريخية متعددة.",
+                "en": "The Kaaba stands at the center of al-Masjid al-Haram. Its structure has been rebuilt and repaired at several points in history.",
+                "citationIds": [
+                  "quran-kaaba-2-125"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "هي قبلة الصلاة ومحور الطواف، ويربط القرآن البيت بإبراهيم وإسماعيل عليهما السلام وبمناسك التوحيد.",
+                "en": "It is the direction of prayer and center of tawaf, and the Quran connects the House with Abraham and Ishmael and the worship of God alone.",
+                "citationIds": [
+                  "quran-kaaba-2-125",
+                  "quran-kaaba-5-97"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "maqam_ibrahim",
+        "titleAr": "مقام إبراهيم",
+        "titleEn": "Maqam Ibrahim",
+        "summaryAr": "موضع في المسجد الحرام مرتبط بإبراهيم عليه السلام ويذكره القرآن في سياق الصلاة عند البيت.",
+        "summaryEn": "A site within al-Masjid al-Haram associated with Abraham and mentioned by the Quran in connection with prayer at the House.",
+        "keywordsAr": [
+          "مقام إبراهيم"
+        ],
+        "keywordsEn": [
+          "Maqam Ibrahim"
+        ],
+        "relatedTopicIds": [
+          "kaaba",
+          "masjid_haram"
+        ],
+        "citations": [
+          {
+            "id": "quran-maqam-2-125",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:125"
+          },
+          {
+            "id": "internal-hajj",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/hajj_obligation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقع مقام إبراهيم قرب الكعبة، وتغير موضعه التنظيمي داخل ساحة المطاف عبر العصور مع بقاء ارتباطه بالبيت.",
+                "en": "Maqam Ibrahim is near the Kaaba; its managed position within the tawaf area has changed over time while its connection with the House remains.",
+                "citationIds": [
+                  "quran-maqam-2-125"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يشير القرآن إلى اتخاذ مقام إبراهيم مصلى، وتتناول كتب الفقه موضع ركعتي الطواف وكيفية أدائهما مع مراعاة الزحام.",
+                "en": "The Quran mentions taking the standing place of Abraham as a place of prayer, and fiqh discusses the two rak'ahs after tawaf with consideration for crowding.",
+                "citationIds": [
+                  "quran-maqam-2-125",
+                  "internal-hajj"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "safa_marwah",
+        "titleAr": "الصفا والمروة",
+        "titleEn": "Safa and Marwah",
+        "summaryAr": "موضعا السعي في المسجد الحرام، وهما من شعائر الله بنص القرآن.",
+        "summaryEn": "The two endpoints of Sa'i in al-Masjid al-Haram, explicitly named among God's symbols in the Quran.",
+        "keywordsAr": [
+          "الصفا والمروة"
+        ],
+        "keywordsEn": [
+          "Safa and Marwah"
+        ],
+        "relatedTopicIds": [
+          "kaaba",
+          "fiqh_worship/sai"
+        ],
+        "citations": [
+          {
+            "id": "quran-safa-2-158",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:158"
+          },
+          {
+            "id": "internal-sai",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/sai"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الصفا والمروة مرتفعان تاريخيان داخل نطاق المسجد الحرام اليوم، ويسعى الحاج والمعتمر بينهما سبعة أشواط.",
+                "en": "Safa and Marwah are historic rises now enclosed within the mosque complex; pilgrims traverse between them seven times.",
+                "citationIds": [
+                  "quran-safa-2-158"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "السعي ركن أو واجب بحسب التفصيل الفقهي في النسك، وأصله ثابت في القرآن والسنة ولا يقوم على مجرد تذكار تاريخي.",
+                "en": "Sa'i has a defined legal place in Hajj and Umrah according to fiqh; its basis is revelation rather than simple historical commemoration.",
+                "citationIds": [
+                  "quran-safa-2-158",
+                  "internal-sai"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mina",
+        "titleAr": "منى",
+        "titleEn": "Mina",
+        "summaryAr": "وادٍ من مشاعر الحج قرب مكة، يقيم فيه الحجاج في أيام محددة ويرمون الجمرات.",
+        "summaryEn": "A valley among the Hajj sacred sites near Makkah where pilgrims stay on designated days and perform the stoning rites.",
+        "keywordsAr": [
+          "منى"
+        ],
+        "keywordsEn": [
+          "Mina"
+        ],
+        "relatedTopicIds": [
+          "arafat",
+          "muzdalifah",
+          "jamarat",
+          "fiqh_worship/muzdalifah_mina"
+        ],
+        "citations": [
+          {
+            "id": "internal-mina-fiqh",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/muzdalifah_mina"
+          },
+          {
+            "id": "quran-days-2-203",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:203"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع منى شرق مكة بين مكة ومزدلفة، وقد توسعت فيها مخيمات ومنشآت خدمة الحجاج مع بقاء حدود المشعر معتبرة في النسك.",
+                "en": "Mina lies east of Makkah between the city and Muzdalifah. Pilgrim camps and facilities have expanded while the ritual boundaries of the site remain relevant.",
+                "citationIds": [
+                  "internal-mina-fiqh"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ترتبط بالمبيت ورمي الجمرات وأعمال يوم النحر وأيام التشريق وفق تفصيل مناسك الحج.",
+                "en": "It is associated with overnight stays, stoning the Jamarat, and rites of the Day of Sacrifice and the days of Tashriq.",
+                "citationIds": [
+                  "internal-mina-fiqh",
+                  "quran-days-2-203"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "arafat",
+        "titleAr": "عرفات",
+        "titleEn": "Arafat",
+        "summaryAr": "المشعر الذي يقف فيه الحجاج يوم التاسع من ذي الحجة، والوقوف به ركن مركزي للحج.",
+        "summaryEn": "The plain where pilgrims stand on the ninth of Dhu al-Hijjah; standing at Arafat is a central pillar of Hajj.",
+        "keywordsAr": [
+          "عرفات"
+        ],
+        "keywordsEn": [
+          "Arafat"
+        ],
+        "relatedTopicIds": [
+          "mina",
+          "muzdalifah",
+          "fiqh_worship/arafah"
+        ],
+        "citations": [
+          {
+            "id": "internal-arafah-fiqh",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/arafah"
+          },
+          {
+            "id": "quran-arafat-2-198",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:198"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع عرفات خارج حدود الحرم المكي إلى الشرق من مكة، وتشمل سهلًا واسعًا وجبل الرحمة ضمن معالمها المعروفة.",
+                "en": "Arafat lies east of Makkah outside the boundaries of the Meccan Haram and includes a broad plain and the landmark known as Jabal al-Rahmah.",
+                "citationIds": [
+                  "internal-arafah-fiqh"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الوقوف بعرفات هو قلب يوم الحج، ولا تترتب عبادة خاصة على صعود الجبل نفسه؛ العبرة بالوقوف داخل حدود عرفات في وقته.",
+                "en": "Standing within Arafat at its appointed time is central to Hajj; climbing the hill itself is not a separate prescribed rite.",
+                "citationIds": [
+                  "internal-arafah-fiqh",
+                  "quran-arafat-2-198"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "muzdalifah",
+        "titleAr": "مزدلفة",
+        "titleEn": "Muzdalifah",
+        "summaryAr": "مشعر بين عرفات ومنى يبيت فيه الحجاج بعد الإفاضة من عرفات ويذكرون الله عند المشعر الحرام.",
+        "summaryEn": "A Hajj site between Arafat and Mina where pilgrims stay after leaving Arafat and remember God at al-Mash'ar al-Haram.",
+        "keywordsAr": [
+          "مزدلفة"
+        ],
+        "keywordsEn": [
+          "Muzdalifah"
+        ],
+        "relatedTopicIds": [
+          "arafat",
+          "mina",
+          "fiqh_worship/muzdalifah_mina"
+        ],
+        "citations": [
+          {
+            "id": "quran-muzdalifah-2-198",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:198"
+          },
+          {
+            "id": "internal-muzdalifah-fiqh",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/muzdalifah_mina"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع مزدلفة بين عرفات ومنى، وتضم نطاق المشعر الحرام وتستقبل الحجاج ليلة العاشر من ذي الحجة.",
+                "en": "Muzdalifah lies between Arafat and Mina and includes the area of al-Mash'ar al-Haram, receiving pilgrims on the night before the Day of Sacrifice.",
+                "citationIds": [
+                  "quran-muzdalifah-2-198"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ترتبط بالمبيت والذكر وجمع الحصى في التطبيق الشائع، مع تفاصيل ورخص فقهية تتعلق بالضعفاء والوقت.",
+                "en": "It is associated with overnight stay, remembrance, and commonly gathering pebbles, with juristic concessions concerning timing and vulnerable pilgrims.",
+                "citationIds": [
+                  "quran-muzdalifah-2-198",
+                  "internal-muzdalifah-fiqh"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "jamarat",
+        "titleAr": "الجمرات",
+        "titleEn": "The Jamarat",
+        "summaryAr": "مواضع الرمي في منى ضمن مناسك الحج.",
+        "summaryEn": "The designated stoning sites in Mina as part of Hajj.",
+        "keywordsAr": [
+          "الجمرات"
+        ],
+        "keywordsEn": [
+          "The Jamarat"
+        ],
+        "relatedTopicIds": [
+          "mina",
+          "fiqh_worship/jamarat_tahallul"
+        ],
+        "citations": [
+          {
+            "id": "internal-jamarat-fiqh",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/jamarat_tahallul"
+          },
+          {
+            "id": "hadith-jamarat",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih Muslim",
+            "locator": "Hajj: stoning the Jamarat"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع الجمرات الثلاث في منى، وقد أعيد تنظيم منشآتها هندسيًا في العصر الحديث لتيسير حركة الحجاج وسلامتهم.",
+                "en": "The three Jamarat are in Mina; their modern structures have been redesigned to manage pilgrim movement and safety.",
+                "citationIds": [
+                  "internal-jamarat-fiqh"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الرمي عبادة محددة بالزمان والمكان والعدد، وليس المقصود منه إصابة جدار بعينه بقدر أداء النسك في موضعه المحدد.",
+                "en": "Stoning is a prescribed ritual defined by time, place, and number; its purpose is performing the rite at the designated location rather than targeting a wall as such.",
+                "citationIds": [
+                  "internal-jamarat-fiqh",
+                  "hadith-jamarat"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hira",
+        "titleAr": "غار حراء وجبل النور",
+        "titleEn": "Cave of Hira and Jabal al-Nur",
+        "summaryAr": "الموضع الذي ارتبط ببداية نزول الوحي على النبي ﷺ.",
+        "summaryEn": "The location associated with the beginning of revelation to the Prophet ﷺ.",
+        "keywordsAr": [
+          "غار حراء وجبل النور"
+        ],
+        "keywordsEn": [
+          "Cave of Hira and Jabal al-Nur"
+        ],
+        "relatedTopicIds": [
+          "makkah",
+          "sira/first_revelation_detail"
+        ],
+        "citations": [
+          {
+            "id": "internal-first-revelation",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/first_revelation_detail"
+          },
+          {
+            "id": "hadith-hira",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Beginning of Revelation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقع غار حراء في جبل النور شمال شرقي المسجد الحرام تقريبًا، وكان النبي ﷺ يتحنث فيه قبل البعثة.",
+                "en": "The Cave of Hira is in Jabal al-Nur, roughly northeast of al-Masjid al-Haram, where the Prophet ﷺ used to retreat before prophethood.",
+                "citationIds": [
+                  "internal-first-revelation"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أهميته من السيرة لارتباطه بأول الوحي، ولا تثبت في النصوص عبادة خاصة بتسلق الجبل أو الصلاة في الغار.",
+                "en": "Its significance comes from the Sira and the first revelation; no special ritual of climbing the mountain or praying inside the cave is established by authentic texts.",
+                "citationIds": [
+                  "internal-first-revelation",
+                  "hadith-hira"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "thawr",
+        "titleAr": "غار ثور",
+        "titleEn": "Cave of Thawr",
+        "summaryAr": "الغار المرتبط باختباء النبي ﷺ وأبي بكر رضي الله عنه في بداية الهجرة.",
+        "summaryEn": "The cave associated with the Prophet ﷺ and Abu Bakr taking refuge during the beginning of the Hijrah.",
+        "keywordsAr": [
+          "غار ثور"
+        ],
+        "keywordsEn": [
+          "Cave of Thawr"
+        ],
+        "relatedTopicIds": [
+          "makkah",
+          "sira/cave_thawr"
+        ],
+        "citations": [
+          {
+            "id": "quran-thawr-9-40",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:40"
+          },
+          {
+            "id": "internal-hijrah",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/cave_thawr"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقع غار ثور في جبل ثور جنوب مكة، وبقي فيه النبي ﷺ وصاحبه مدة قصيرة قبل متابعة طريق الهجرة.",
+                "en": "The Cave of Thawr lies in Jabal Thawr south of Makkah, where the Prophet ﷺ and his companion stayed briefly before continuing the Hijrah.",
+                "citationIds": [
+                  "quran-thawr-9-40"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "القيمة الأساسية للمكان تاريخية وسيرية مرتبطة بالهجرة والثقة بالله والأخذ بالأسباب، ولا يشرع له نسك مستقل.",
+                "en": "Its main significance is historical and Sira-related, illustrating trust in God together with practical planning; it has no separate prescribed rite.",
+                "citationIds": [
+                  "quran-thawr-9-40",
+                  "internal-hijrah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hudaybiyyah",
+        "titleAr": "الحديبية",
+        "titleEn": "Al-Hudaybiyyah",
+        "summaryAr": "موضع قرب مكة ارتبط بصلح الحديبية سنة 6هـ.",
+        "summaryEn": "A site near Makkah associated with the Treaty of al-Hudaybiyyah in 6 AH.",
+        "keywordsAr": [
+          "الحديبية"
+        ],
+        "keywordsEn": [
+          "Al-Hudaybiyyah"
+        ],
+        "relatedTopicIds": [
+          "makkah",
+          "sira/hudaybiyyah_treaty"
+        ],
+        "citations": [
+          {
+            "id": "quran-hudaybiyyah-48-1",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "48:1"
+          },
+          {
+            "id": "internal-hudaybiyyah",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/hudaybiyyah_treaty"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كانت الحديبية على أطراف الحرم من جهة الطريق إلى مكة، وارتبطت بتوقف المسلمين هناك عند قدومهم للعمرة.",
+                "en": "Al-Hudaybiyyah lay near the boundary of the Haram on the approach to Makkah and was where the Muslims halted when coming for Umrah.",
+                "citationIds": [
+                  "quran-hudaybiyyah-48-1"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "شهدت بيعة الرضوان والصلح الذي عدّه القرآن فتحًا مبينًا، وهو محطة مهمة في تطور العلاقات السياسية قبل فتح مكة.",
+                "en": "It witnessed the Pledge of Ridwan and the treaty the Quran described as a clear victory, marking an important stage before the conquest of Makkah.",
+                "citationIds": [
+                  "quran-hudaybiyyah-48-1",
+                  "internal-hudaybiyyah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tanim",
+        "titleAr": "التنعيم ومسجد عائشة",
+        "titleEn": "Al-Tan'im and Masjid Aisha",
+        "summaryAr": "موضع عند حدود الحرم اشتهر بإحرام عائشة رضي الله عنها منه للعمرة.",
+        "summaryEn": "A location at the Haram boundary known for Aisha's entering ihram there for Umrah.",
+        "keywordsAr": [
+          "التنعيم ومسجد عائشة"
+        ],
+        "keywordsEn": [
+          "Al-Tan'im and Masjid Aisha"
+        ],
+        "relatedTopicIds": [
+          "makkah",
+          "fiqh_worship/miqat_ihram"
+        ],
+        "citations": [
+          {
+            "id": "hadith-tanim",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Hajj: Aisha's Umrah from al-Tan'im"
+          },
+          {
+            "id": "internal-miqat",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/miqat_ihram"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقع التنعيم شمال غرب مكة تقريبًا عند أحد حدود الحرم، ويضم المسجد المعروف اليوم بمسجد عائشة.",
+                "en": "Al-Tan'im lies near a boundary of the Meccan Haram and includes the mosque commonly known today as Masjid Aisha.",
+                "citationIds": [
+                  "hadith-tanim"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يستعمله من كان داخل مكة ويريد الإحرام بعمرة جديدة وفق التفصيل الفقهي، ولا يعني ذلك أن العمرة المتكررة منه سنة لازمة لكل زائر.",
+                "en": "It may be used by someone inside Makkah who needs to enter ihram for a new Umrah according to fiqh; this does not make repeated Umrahs from there a required practice for every visitor.",
+                "citationIds": [
+                  "hadith-tanim",
+                  "internal-miqat"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "jirranah",
+        "titleAr": "الجعرانة",
+        "titleEn": "Al-Ji'ranah",
+        "summaryAr": "موضع قرب مكة ارتبط بأحداث ما بعد حنين وبإحرام النبي ﷺ بعمرة.",
+        "summaryEn": "A site near Makkah associated with events after Hunayn and the Prophet's ﷺ entering ihram for Umrah.",
+        "keywordsAr": [
+          "الجعرانة"
+        ],
+        "keywordsEn": [
+          "Al-Ji'ranah"
+        ],
+        "relatedTopicIds": [
+          "hunayn",
+          "sira/hunayn"
+        ],
+        "citations": [
+          {
+            "id": "internal-hunayn",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/hunayn"
+          },
+          {
+            "id": "hadith-jirranah",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Hajj and Umrah: the Prophet's Umrah from al-Ji'ranah"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع الجعرانة شمال شرقي مكة تقريبًا، وكانت محطة في طريق عودة المسلمين بعد حنين والطائف.",
+                "en": "Al-Ji'ranah lies northeast of Makkah and was a stopping point after the campaigns of Hunayn and Ta'if.",
+                "citationIds": [
+                  "internal-hunayn"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أهميتها من السيرة والنسك لارتباطها بعمرة النبي ﷺ من ذلك الموضع، لكنها ليست ميقاتًا عامًا لكل قادم من خارج مكة.",
+                "en": "Its significance comes from Sira and the Prophet's ﷺ Umrah from there, but it is not a universal miqat for everyone approaching Makkah.",
+                "citationIds": [
+                  "internal-hunayn",
+                  "hadith-jirranah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "madinah",
+        "titleAr": "المدينة المنورة",
+        "titleEn": "Madinah",
+        "summaryAr": "مدينة الهجرة وعاصمة المجتمع النبوي، وفيها المسجد النبوي وقبر النبي ﷺ.",
+        "summaryEn": "The city of the Hijrah and center of the Prophetic community, home to the Prophet's Mosque and the Prophet's ﷺ burial place.",
+        "keywordsAr": [
+          "المدينة المنورة"
+        ],
+        "keywordsEn": [
+          "Madinah"
+        ],
+        "relatedTopicIds": [
+          "masjid_nabawi",
+          "quba",
+          "sira/entry_medina"
+        ],
+        "citations": [
+          {
+            "id": "internal-madinah-sira",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/entry_medina"
+          },
+          {
+            "id": "hadith-madinah",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues of Madinah"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع المدينة شمال مكة في الحجاز، وعرفت قبل الإسلام بيثرب ثم أصبحت دار الهجرة ومركز الدولة النبوية.",
+                "en": "Madinah lies north of Makkah in the Hijaz. Known earlier as Yathrib, it became the city of Hijrah and center of the Prophetic community.",
+                "citationIds": [
+                  "internal-madinah-sira"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ارتبطت ببناء المسجد النبوي والمؤاخاة والوثيقة والغزوات والتعليم، وتثبت لها في السنة حرمة وفضائل خاصة.",
+                "en": "It is associated with the Prophet's Mosque, brotherhood, the Madinah document, campaigns, and teaching, and authentic hadith establish special virtues for the city.",
+                "citationIds": [
+                  "internal-madinah-sira",
+                  "hadith-madinah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "masjid_nabawi",
+        "titleAr": "المسجد النبوي",
+        "titleEn": "The Prophet's Mosque",
+        "summaryAr": "المسجد الذي بناه النبي ﷺ في المدينة وأصبح مركزًا للعبادة والتعليم والمجتمع.",
+        "summaryEn": "The mosque established by the Prophet ﷺ in Madinah, which became a center of worship, teaching, and community life.",
+        "keywordsAr": [
+          "المسجد النبوي"
+        ],
+        "keywordsEn": [
+          "The Prophet's Mosque"
+        ],
+        "relatedTopicIds": [
+          "madinah",
+          "rawdah",
+          "baqi"
+        ],
+        "citations": [
+          {
+            "id": "hadith-masjid-nabawi",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Prayer in the Prophet's Mosque"
+          },
+          {
+            "id": "internal-madinah",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/entry_medina"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقع المسجد النبوي في قلب المدينة القديمة، وتوسع عبر العصور مرات كثيرة حتى أصبح مجمعًا واسعًا.",
+                "en": "The Prophet's Mosque stands in the historic center of Madinah and has been expanded many times across the centuries into a large complex.",
+                "citationIds": [
+                  "hadith-masjid-nabawi"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تثبت السنة فضل الصلاة فيه، كما يضم موضع حجرة عائشة التي دفن فيها النبي ﷺ وأبو بكر وعمر رضي الله عنهما.",
+                "en": "Authentic hadith establish the merit of prayer there, and the complex contains the site of Aisha's chamber where the Prophet ﷺ, Abu Bakr, and Umar were buried.",
+                "citationIds": [
+                  "hadith-masjid-nabawi",
+                  "internal-madinah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rawdah",
+        "titleAr": "الروضة في المسجد النبوي",
+        "titleEn": "Al-Rawdah in the Prophet's Mosque",
+        "summaryAr": "المساحة الواقعة بين بيت النبي ﷺ ومنبره والتي ورد فيها حديث «روضة من رياض الجنة».",
+        "summaryEn": "The area between the Prophet's ﷺ house and pulpit described in hadith as a garden from the gardens of Paradise.",
+        "keywordsAr": [
+          "الروضة في المسجد النبوي"
+        ],
+        "keywordsEn": [
+          "Al-Rawdah in the Prophet's Mosque"
+        ],
+        "relatedTopicIds": [
+          "masjid_nabawi",
+          "madinah"
+        ],
+        "citations": [
+          {
+            "id": "hadith-rawdah",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues of Madinah: between my house and pulpit"
+          },
+          {
+            "id": "internal-masjid",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "places/masjid_nabawi"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع الروضة ضمن المسجد النبوي التاريخي بين موضع الحجرة والمنبر، وحدودها العملية معروفة في تنظيم المسجد.",
+                "en": "Al-Rawdah lies within the historic Prophet's Mosque between the chamber area and the pulpit, with its operational boundaries marked in the mosque.",
+                "citationIds": [
+                  "hadith-rawdah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وردت فضيلتها في الحديث، لكن شدة الزحام تستدعي مراعاة أن إيذاء الناس أو تجاوز التنظيم لا يحقق مقصد العبادة.",
+                "en": "Its merit is established in hadith, but crowding requires remembering that harming others or violating safety arrangements does not serve the purpose of worship.",
+                "citationIds": [
+                  "hadith-rawdah",
+                  "internal-masjid"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "quba",
+        "titleAr": "مسجد قباء",
+        "titleEn": "Quba Mosque",
+        "summaryAr": "أول مسجد أسسه النبي ﷺ عند قدومه إلى منطقة المدينة في الهجرة.",
+        "summaryEn": "The mosque established by the Prophet ﷺ at Quba upon arrival in the Madinah area during the Hijrah.",
+        "keywordsAr": [
+          "مسجد قباء"
+        ],
+        "keywordsEn": [
+          "Quba Mosque"
+        ],
+        "relatedTopicIds": [
+          "madinah",
+          "sira/quba"
+        ],
+        "citations": [
+          {
+            "id": "quran-quba-9-108",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:108"
+          },
+          {
+            "id": "hadith-quba",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues of Madinah: visiting Quba"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقع قباء جنوب مركز المدينة التاريخي، وكان أول موضع نزل فيه النبي ﷺ عند وصوله من الهجرة قبل دخوله المدينة.",
+                "en": "Quba lies south of central historic Madinah and was the first area where the Prophet ﷺ stayed upon arriving from the Hijrah.",
+                "citationIds": [
+                  "quran-quba-9-108"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تثبت السنة زيارته والصلاة فيه، وهو معلم عبادي وتاريخي وليس مجرد موقع أثري.",
+                "en": "The Sunnah establishes visiting and praying there, giving it both devotional and historical significance.",
+                "citationIds": [
+                  "quran-quba-9-108",
+                  "hadith-quba"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "qiblatayn",
+        "titleAr": "مسجد القبلتين",
+        "titleEn": "Masjid al-Qiblatayn",
+        "summaryAr": "مسجد في المدينة اشتهر بارتباطه بتحول القبلة من بيت المقدس إلى الكعبة في الذاكرة التاريخية المحلية.",
+        "summaryEn": "A mosque in Madinah traditionally associated with the change of qibla from Jerusalem toward the Kaaba.",
+        "keywordsAr": [
+          "مسجد القبلتين"
+        ],
+        "keywordsEn": [
+          "Masjid al-Qiblatayn"
+        ],
+        "relatedTopicIds": [
+          "madinah",
+          "kaaba",
+          "al_aqsa"
+        ],
+        "citations": [
+          {
+            "id": "quran-qibla-2-144",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:144"
+          },
+          {
+            "id": "internal-qibla",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/qibla"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقع المسجد في شمال غربي المدينة، وارتبط اسمه بروايات وتقاليد عن وصول خبر تحول القبلة إلى المصلين.",
+                "en": "The mosque is in northwestern Madinah and its name is associated with reports and local tradition concerning the change of qibla.",
+                "citationIds": [
+                  "quran-qibla-2-144"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أصل تحويل القبلة ثابت بنص القرآن، بينما تفاصيل نسبة الحدث إلى بناء المسجد الحالي تندرج في التاريخ المحلي وتحتاج التفريق بين النص والذاكرة العمرانية.",
+                "en": "The change of qibla itself is established by the Quran, while details linking the event to the present structure belong to local historical memory and should be distinguished from revelation.",
+                "citationIds": [
+                  "quran-qibla-2-144",
+                  "internal-qibla"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "baqi",
+        "titleAr": "مقبرة البقيع",
+        "titleEn": "Al-Baqi Cemetery",
+        "summaryAr": "المقبرة التاريخية الرئيسية للمدينة ودُفن فيها عدد كبير من الصحابة وأهل البيت وأمهات المؤمنين.",
+        "summaryEn": "Madinah's major historic cemetery, where many Companions, members of the Prophet's family, and Mothers of the Believers were buried.",
+        "keywordsAr": [
+          "مقبرة البقيع"
+        ],
+        "keywordsEn": [
+          "Al-Baqi Cemetery"
+        ],
+        "relatedTopicIds": [
+          "madinah",
+          "mothers/status_definition",
+          "ahl_al_bayt/household_definition"
+        ],
+        "citations": [
+          {
+            "id": "hadith-baqi",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih Muslim",
+            "locator": "Funerals: visiting al-Baqi"
+          },
+          {
+            "id": "internal-household",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "ahl_al_bayt/household_definition"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع البقيع إلى الشرق من المسجد النبوي، واستعملت مقبرة للمسلمين منذ العصر النبوي.",
+                "en": "Al-Baqi lies east of the Prophet's Mosque and has served as a Muslim cemetery since the Prophetic period.",
+                "citationIds": [
+                  "hadith-baqi"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تثبت السنة زيارة المقابر والدعاء لأهلها، بينما لا تثبت عبادة خاصة للقبور أو طلب الحاجات من الموتى.",
+                "en": "The Sunnah establishes visiting graves and praying for the deceased, while no special worship of graves or requesting needs from the dead is established.",
+                "citationIds": [
+                  "hadith-baqi",
+                  "internal-household"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "uhud",
+        "titleAr": "جبل أحد",
+        "titleEn": "Mount Uhud",
+        "summaryAr": "جبل شمال المدينة ارتبط بغزوة أحد سنة 3هـ.",
+        "summaryEn": "A mountain north of Madinah associated with the Battle of Uhud in 3 AH.",
+        "keywordsAr": [
+          "جبل أحد"
+        ],
+        "keywordsEn": [
+          "Mount Uhud"
+        ],
+        "relatedTopicIds": [
+          "hamza_cemetery",
+          "sira/uhud"
+        ],
+        "citations": [
+          {
+            "id": "internal-uhud",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/uhud"
+          },
+          {
+            "id": "hadith-uhud",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues of Madinah: Uhud is a mountain that loves us"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمتد جبل أحد شمال المدينة، وتقع ساحة المعركة التاريخية ومقبرة شهداء أحد قرب سفحه.",
+                "en": "Mount Uhud stretches north of Madinah, with the historic battlefield and cemetery of the martyrs nearby.",
+                "citationIds": [
+                  "internal-uhud"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يرتبط بدرس الطاعة والثبات وأحداث استشهاد حمزة وعدد من الصحابة، كما ورد في السنة ذكر خاص للجبل.",
+                "en": "It is connected with lessons of discipline and perseverance and the martyrdom of Hamza and other Companions; hadith also mention the mountain specifically.",
+                "citationIds": [
+                  "internal-uhud",
+                  "hadith-uhud"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hamza_cemetery",
+        "titleAr": "مقبرة شهداء أحد",
+        "titleEn": "Cemetery of the Martyrs of Uhud",
+        "summaryAr": "موضع دفن حمزة بن عبد المطلب وعدد من شهداء غزوة أحد.",
+        "summaryEn": "The burial place of Hamza ibn Abd al-Muttalib and a number of those killed at Uhud.",
+        "keywordsAr": [
+          "مقبرة شهداء أحد"
+        ],
+        "keywordsEn": [
+          "Cemetery of the Martyrs of Uhud"
+        ],
+        "relatedTopicIds": [
+          "uhud",
+          "ahl_al_bayt/hamza"
+        ],
+        "citations": [
+          {
+            "id": "internal-hamza",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "ahl_al_bayt/hamza"
+          },
+          {
+            "id": "internal-uhud-sira",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/uhud"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع المقبرة قرب جبل أحد وساحة المعركة التاريخية شمال المدينة.",
+                "en": "The cemetery lies near Mount Uhud and the historic battlefield north of Madinah.",
+                "citationIds": [
+                  "internal-hamza"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أهميتها تاريخية وسيرية ويشرع عند زيارة المقابر السلام والدعاء للميت وفق السنة دون ممارسات غلو حول القبور.",
+                "en": "Its significance is historical and Sira-related; when visiting cemeteries, the Sunnah teaches greeting and praying for the dead without exaggerated practices around graves.",
+                "citationIds": [
+                  "internal-hamza",
+                  "internal-uhud-sira"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "khandaq",
+        "titleAr": "موضع الخندق",
+        "titleEn": "Site of the Trench",
+        "summaryAr": "النطاق المرتبط بغزوة الخندق أو الأحزاب حول الجهة الشمالية من المدينة.",
+        "summaryEn": "The area associated with the Battle of the Trench around the northern approaches to Madinah.",
+        "keywordsAr": [
+          "موضع الخندق"
+        ],
+        "keywordsEn": [
+          "Site of the Trench"
+        ],
+        "relatedTopicIds": [
+          "madinah",
+          "sira/khandaq"
+        ],
+        "citations": [
+          {
+            "id": "internal-trench",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/khandaq"
+          },
+          {
+            "id": "quran-ahzab-33-9",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:9"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان الخندق دفاعًا محفورًا في الجهات المكشوفة من المدينة بحسب طبيعة الأرض آنذاك، ولا يبقى اليوم خط أثري كامل يمكن مطابقته بدقة.",
+                "en": "The trench was dug across exposed approaches to Madinah according to the terrain of the time; no complete archaeological line survives that can be mapped with certainty today.",
+                "citationIds": [
+                  "internal-trench"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمثل الحدث مثالًا على التخطيط الدفاعي والتشاور في السيرة، لذلك يجب التفريق بين موقع الحدث العام وبين تحديدات سياحية دقيقة قد تكون تقريبية.",
+                "en": "The event illustrates strategic planning and consultation in the Sira, so the general historical area should be distinguished from precise tourist claims that may be approximate.",
+                "citationIds": [
+                  "internal-trench",
+                  "quran-ahzab-33-9"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dhul_hulayfah",
+        "titleAr": "ذو الحليفة وميقات أهل المدينة",
+        "titleEn": "Dhu al-Hulayfah",
+        "summaryAr": "الميقات المكاني لأهل المدينة ومن مر به قاصدًا الحج أو العمرة.",
+        "summaryEn": "The miqat for people coming from Madinah and those who pass it intending Hajj or Umrah.",
+        "keywordsAr": [
+          "ذو الحليفة وميقات أهل المدينة"
+        ],
+        "keywordsEn": [
+          "Dhu al-Hulayfah"
+        ],
+        "relatedTopicIds": [
+          "madinah",
+          "fiqh_worship/miqat_ihram"
+        ],
+        "citations": [
+          {
+            "id": "hadith-miqats-medina",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Hajj: the Prophet appointed Dhu al-Hulayfah for the people of Madinah"
+          },
+          {
+            "id": "internal-miqat-medina",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/miqat_ihram"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقع جنوب غربي المدينة ويعرف اليوم أيضًا بأبيار علي في الاستعمال الشائع، وفيه مسجد ميقات كبير لخدمة الحجاج.",
+                "en": "It lies southwest of Madinah and is commonly known today as Abyar Ali, with a large miqat mosque serving pilgrims.",
+                "citationIds": [
+                  "hadith-miqats-medina"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وظيفته فقهية واضحة: من مر به وهو يريد النسك يدخل في الإحرام منه وفق أحكام المواقيت.",
+                "en": "Its legal function is clear: a pilgrim passing it with the intention of Hajj or Umrah enters ihram there according to miqat rules.",
+                "citationIds": [
+                  "hadith-miqats-medina",
+                  "internal-miqat-medina"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wadi_aqiq",
+        "titleAr": "وادي العقيق",
+        "titleEn": "Wadi al-Aqiq",
+        "summaryAr": "وادٍ معروف قرب المدينة ورد ذكره في أحاديث وتاريخ المدينة.",
+        "summaryEn": "A well-known valley near Madinah mentioned in hadith and local history.",
+        "keywordsAr": [
+          "وادي العقيق"
+        ],
+        "keywordsEn": [
+          "Wadi al-Aqiq"
+        ],
+        "relatedTopicIds": [
+          "madinah",
+          "dhul_hulayfah"
+        ],
+        "citations": [
+          {
+            "id": "hadith-aqiq",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Hajj: the blessed valley of al-Aqiq"
+          },
+          {
+            "id": "internal-madinah-aqiq",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "places/madinah"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمر وادي العقيق في نطاق المدينة وما حولها، وقد تغير العمران الحديث حول أجزاء كثيرة من مساره.",
+                "en": "Wadi al-Aqiq runs through parts of Madinah and its surroundings, much of which has been transformed by modern urban development.",
+                "citationIds": [
+                  "hadith-aqiq"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ترد إشارات إليه في أخبار الحج والمدينة، لكن لا ترتبط بكل موضع منه اليوم عبادة خاصة أو مزية مستقلة.",
+                "en": "It appears in reports connected with pilgrimage and Madinah, but not every modern point along the valley carries a separate devotional status.",
+                "citationIds": [
+                  "hadith-aqiq",
+                  "internal-madinah-aqiq"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "well_rumah",
+        "titleAr": "بئر رومة",
+        "titleEn": "Well of Rumah",
+        "summaryAr": "بئر تاريخية في المدينة ارتبطت بوقف عثمان بن عفان رضي الله عنه لخدمة المسلمين.",
+        "summaryEn": "A historic well in Madinah associated with Uthman ibn Affan's provision of water for the Muslim community.",
+        "keywordsAr": [
+          "بئر رومة"
+        ],
+        "keywordsEn": [
+          "Well of Rumah"
+        ],
+        "relatedTopicIds": [
+          "companions/uthman",
+          "ethics_life/charity_generosity"
+        ],
+        "citations": [
+          {
+            "id": "internal-uthman-rumah",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "companions/uthman"
+          },
+          {
+            "id": "internal-charity",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "ethics_life/charity_generosity"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع البئر في منطقة المدينة وارتبطت منذ العصر النبوي بقصة توفير الماء للمسلمين.",
+                "en": "The well is in the Madinah area and has been associated since the Prophetic period with providing water for the community.",
+                "citationIds": [
+                  "internal-uthman-rumah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تستحضر قصتها معنى الصدقة الجارية والوقف وخدمة الناس أكثر من كونها موقعًا لعبادة خاصة.",
+                "en": "Its story highlights ongoing charity, endowment, and public service rather than a separate ritual tied to the physical site.",
+                "citationIds": [
+                  "internal-uthman-rumah",
+                  "internal-charity"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "khaybar",
+        "titleAr": "خيبر",
+        "titleEn": "Khaybar",
+        "summaryAr": "واحة شمال المدينة ارتبطت بأحداث سنة 7هـ وبمجتمعات زراعية وحصون تاريخية.",
+        "summaryEn": "An oasis north of Madinah associated with events in 7 AH and with historic agricultural settlements and forts.",
+        "keywordsAr": [
+          "خيبر"
+        ],
+        "keywordsEn": [
+          "Khaybar"
+        ],
+        "relatedTopicIds": [
+          "madinah",
+          "sira/khaybar"
+        ],
+        "citations": [
+          {
+            "id": "internal-khaybar",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/khaybar"
+          },
+          {
+            "id": "hadith-khaybar",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Military Expeditions: Khaybar"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع خيبر إلى الشمال من المدينة في منطقة واحات بركانية تضم مواقع وحصونًا تاريخية متعددة.",
+                "en": "Khaybar lies north of Madinah in a volcanic oasis region containing several historic settlement and fort sites.",
+                "citationIds": [
+                  "internal-khaybar"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أهميتها من السيرة مرتبطة بغزوة خيبر وتسويات الأراضي والزراعة بعدها، ولا ينبغي اختزال تاريخ المنطقة كله في المعركة فقط.",
+                "en": "Its Sira importance centers on the campaign of Khaybar and later land and agricultural arrangements, while the region's history is broader than the battle alone.",
+                "citationIds": [
+                  "internal-khaybar",
+                  "hadith-khaybar"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "badr",
+        "titleAr": "بدر",
+        "titleEn": "Badr",
+        "summaryAr": "منطقة جنوب غربي المدينة اشتهرت بغزوة بدر الكبرى سنة 2هـ.",
+        "summaryEn": "An area southwest of Madinah known for the Battle of Badr in 2 AH.",
+        "keywordsAr": [
+          "بدر"
+        ],
+        "keywordsEn": [
+          "Badr"
+        ],
+        "relatedTopicIds": [
+          "sira/badr",
+          "ahl_al_bayt/hamza"
+        ],
+        "citations": [
+          {
+            "id": "quran-badr-3-123",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:123"
+          },
+          {
+            "id": "internal-badr",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/badr"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع بدر على طريق تاريخي بين مكة والمدينة قرب آبار وممرات كانت مهمة للقوافل.",
+                "en": "Badr lies along a historic route between Makkah and Madinah near wells and passages important to caravan travel.",
+                "citationIds": [
+                  "quran-badr-3-123"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كانت أول مواجهة كبرى بين المسلمين وقريش، ويعرض القرآن جوانب من معناها، بينما تحديد كل نقطة في ساحة القتال الحديثة يحتاج حذرًا تاريخيًا.",
+                "en": "It was the first major battle between the Muslims and Quraysh, and the Quran reflects on its meaning; precise mapping of every battlefield point today requires historical caution.",
+                "citationIds": [
+                  "quran-badr-3-123",
+                  "internal-badr"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "taif",
+        "titleAr": "الطائف",
+        "titleEn": "Ta'if",
+        "summaryAr": "مدينة جبلية شرق مكة ارتبطت برحلة النبي ﷺ إليها قبل الهجرة ثم بأحداث لاحقة بعد حنين.",
+        "summaryEn": "A highland city east of Makkah associated with the Prophet's ﷺ journey before the Hijrah and later events after Hunayn.",
+        "keywordsAr": [
+          "الطائف"
+        ],
+        "keywordsEn": [
+          "Ta'if"
+        ],
+        "relatedTopicIds": [
+          "sira/taif_journey",
+          "hunayn"
+        ],
+        "citations": [
+          {
+            "id": "internal-taif",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/taif_journey"
+          },
+          {
+            "id": "internal-hunayn-taif",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/hunayn"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع الطائف في مرتفعات الحجاز وتتميز بمناخ وزراعة مختلفين نسبيًا عن مكة.",
+                "en": "Ta'if lies in the highlands of the Hijaz and has a cooler climate and agricultural setting compared with Makkah.",
+                "citationIds": [
+                  "internal-taif"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ترتبط في السيرة بمحاولة الدعوة فيها وما تعرض له النبي ﷺ من أذى، ثم بدخول ثقيف في الإسلام لاحقًا، ما يجعل قصتها أطول من حادثة واحدة.",
+                "en": "In the Sira it is linked to the Prophet's ﷺ difficult mission there and later to Thaqif's entry into Islam, giving the city a story broader than one episode.",
+                "citationIds": [
+                  "internal-taif",
+                  "internal-hunayn-taif"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tabuk",
+        "titleAr": "تبوك",
+        "titleEn": "Tabuk",
+        "summaryAr": "مدينة شمال غربي الجزيرة ارتبطت بغزوة تبوك سنة 9هـ وبطريق الشام.",
+        "summaryEn": "A city in northwestern Arabia associated with the Tabuk expedition in 9 AH and routes toward Syria.",
+        "keywordsAr": [
+          "تبوك"
+        ],
+        "keywordsEn": [
+          "Tabuk"
+        ],
+        "relatedTopicIds": [
+          "sira/tabuk",
+          "history_civilization/caravan_trade"
+        ],
+        "citations": [
+          {
+            "id": "internal-tabuk",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/tabuk"
+          },
+          {
+            "id": "internal-caravan",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/caravan_trade"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع تبوك في شمال غرب المملكة العربية السعودية الحالية على طرق تاريخية تربط الحجاز بجنوب الشام.",
+                "en": "Tabuk lies in northwestern Arabia on historic routes connecting the Hijaz with southern Syria.",
+                "citationIds": [
+                  "internal-tabuk"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشتهرت في السيرة بتعبئة جيش العسرة والخروج شمالًا، كما أن موقعها يوضح أهمية طرق القوافل والحدود الشمالية للحجاز.",
+                "en": "In the Sira it is known for the difficult mobilization of the Tabuk expedition, while its geography illustrates caravan routes and the Hijaz's northern connections.",
+                "citationIds": [
+                  "internal-tabuk",
+                  "internal-caravan"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dawmat_jandal",
+        "titleAr": "دومة الجندل",
+        "titleEn": "Dumat al-Jandal",
+        "summaryAr": "واحة تاريخية في شمال الجزيرة العربية تقع على طرق تربط الحجاز والشام والعراق.",
+        "summaryEn": "A historic oasis in northern Arabia located on routes linking the Hijaz, Syria, and Iraq.",
+        "keywordsAr": [
+          "دومة الجندل"
+        ],
+        "keywordsEn": [
+          "Dumat al-Jandal"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/caravan_trade",
+          "history_civilization/caravan_trade"
+        ],
+        "citations": [
+          {
+            "id": "internal-dumat",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/caravan_trade"
+          },
+          {
+            "id": "internal-trade-dumat",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/caravan_trade"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع دومة الجندل في منطقة الجوف، وازدهرت بوصفها واحة ومحطة طرق قبل الإسلام وبعده.",
+                "en": "Dumat al-Jandal lies in al-Jawf and prospered as an oasis and route station before and after the rise of Islam.",
+                "citationIds": [
+                  "internal-dumat"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وردت في أحداث من السيرة وحروب الردة والتحولات المبكرة، كما تكشف عن اتصال شمال الجزيرة بشبكات إقليمية أوسع.",
+                "en": "It appears in Sira and early-Islamic events and demonstrates northern Arabia's links with wider regional networks.",
+                "citationIds": [
+                  "internal-dumat",
+                  "internal-trade-dumat"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "najran",
+        "titleAr": "نجران",
+        "titleEn": "Najran",
+        "summaryAr": "واحة تاريخية جنوب الجزيرة ارتبطت بمجتمعات مسيحية وبوفد نجران إلى النبي ﷺ.",
+        "summaryEn": "A historic oasis in southern Arabia associated with Christian communities and the Najran delegation to the Prophet ﷺ.",
+        "keywordsAr": [
+          "نجران"
+        ],
+        "keywordsEn": [
+          "Najran"
+        ],
+        "relatedTopicIds": [
+          "sira/year_delegations",
+          "ethics_life/nonmuslims"
+        ],
+        "citations": [
+          {
+            "id": "internal-najran-delegation",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/year_delegations"
+          },
+          {
+            "id": "internal-nonmuslims",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "ethics_life/nonmuslims"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع نجران جنوب غرب الجزيرة العربية قرب طرق قديمة تصل اليمن بوسط الجزيرة.",
+                "en": "Najran lies in southwestern Arabia near old routes connecting Yemen with central Arabia.",
+                "citationIds": [
+                  "internal-najran-delegation"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أهميتها في التاريخ الإسلامي المبكر تشمل الحوار مع وفد نجران والاتفاقات السياسية والدينية، وهي مثال على التعدد الديني في الجزيرة.",
+                "en": "Its early Islamic significance includes dialogue with the Najran delegation and political-religious agreements, illustrating religious plurality in Arabia.",
+                "citationIds": [
+                  "internal-najran-delegation",
+                  "internal-nonmuslims"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hunayn",
+        "titleAr": "وادي حنين",
+        "titleEn": "Hunayn Valley",
+        "summaryAr": "منطقة بين مكة والطائف ارتبطت بغزوة حنين بعد فتح مكة سنة 8هـ.",
+        "summaryEn": "An area between Makkah and Ta'if associated with the Battle of Hunayn after the conquest of Makkah in 8 AH.",
+        "keywordsAr": [
+          "وادي حنين"
+        ],
+        "keywordsEn": [
+          "Hunayn Valley"
+        ],
+        "relatedTopicIds": [
+          "taif",
+          "sira/hunayn"
+        ],
+        "citations": [
+          {
+            "id": "quran-hunayn-9-25",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:25"
+          },
+          {
+            "id": "internal-hunayn-sira",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/hunayn"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقع نطاق حنين شرقي مكة باتجاه الطائف، وتحديد مواضع دقيقة داخله يعتمد على الدراسات التاريخية والجغرافية.",
+                "en": "The Hunayn area lies east of Makkah toward Ta'if, while precise identification of battlefield points depends on historical-geographical study.",
+                "citationIds": [
+                  "quran-hunayn-9-25"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة التوبة الحدث وتبين أن كثرة العدد لم تكن سبب النصر بذاتها، فصار الموضع مرتبطًا بدرس التوكل والانضباط.",
+                "en": "Surat al-Tawbah mentions the event and shows that numerical strength alone did not guarantee victory, making Hunayn a lesson in reliance and discipline.",
+                "citationIds": [
+                  "quran-hunayn-9-25",
+                  "internal-hunayn-sira"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "al_aqsa",
+        "titleAr": "المسجد الأقصى",
+        "titleEn": "Al-Aqsa Mosque",
+        "summaryAr": "المسجد في القدس المرتبط بالإسراء والقبلة الأولى وفضائل ثابتة في النصوص.",
+        "summaryEn": "The mosque in Jerusalem associated with the Night Journey, the first qibla, and established religious merits.",
+        "keywordsAr": [
+          "المسجد الأقصى"
+        ],
+        "keywordsEn": [
+          "Al-Aqsa Mosque"
+        ],
+        "relatedTopicIds": [
+          "jerusalem",
+          "dome_rock",
+          "sira/isra_miraj"
+        ],
+        "citations": [
+          {
+            "id": "quran-aqsa-17-1",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:1"
+          },
+          {
+            "id": "hadith-three-mosques",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Prayer: journey only to three mosques"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقع المسجد الأقصى ضمن الحرم القدسي في البلدة القديمة من القدس، ويشير الاسم في الاستعمال الإسلامي إلى نطاق المسجد المبارك لا إلى بناء واحد فقط.",
+                "en": "Al-Aqsa Mosque lies within the sacred compound in Jerusalem's Old City; in Islamic usage the name refers to the wider mosque sanctuary rather than only one building.",
+                "citationIds": [
+                  "quran-aqsa-17-1"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ترتبط به رحلة الإسراء وبكونه من المساجد الثلاثة التي تشد إليها الرحال، مع تجنب إدخال النزاعات السياسية المعاصرة في وصف حرمته الدينية.",
+                "en": "It is tied to the Night Journey and is one of the three mosques to which special religious travel is prescribed; its religious status can be described without taking positions on contemporary political disputes.",
+                "citationIds": [
+                  "quran-aqsa-17-1",
+                  "hadith-three-mosques"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dome_rock",
+        "titleAr": "قبة الصخرة",
+        "titleEn": "Dome of the Rock",
+        "summaryAr": "معلم أموي داخل الحرم القدسي اكتمل بناؤه في أواخر القرن الأول الهجري.",
+        "summaryEn": "An Umayyad monument within the Jerusalem sanctuary completed in the late first Islamic century.",
+        "keywordsAr": [
+          "قبة الصخرة"
+        ],
+        "keywordsEn": [
+          "Dome of the Rock"
+        ],
+        "relatedTopicIds": [
+          "al_aqsa",
+          "jerusalem",
+          "history_civilization/umayyad_formation"
+        ],
+        "citations": [
+          {
+            "id": "internal-umayyad-rock",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/umayyad_formation"
+          },
+          {
+            "id": "met-dome-rock",
+            "kind": "AcademicReference",
+            "titleAr": "متحف المتروبوليتان: التسلسل الزمني للعالم الإسلامي",
+            "titleEn": "The Metropolitan Museum of Art: Chronology of the Islamic World",
+            "locator": "Umayyad Jerusalem and early Islamic architecture",
+            "url": "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/introduction/chronology"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع قبة الصخرة داخل نطاق المسجد الأقصى وتغطي الصخرة المركزية، وهي من أقدم الأبنية الإسلامية الكبرى الباقية.",
+                "en": "The Dome of the Rock stands within the Al-Aqsa sanctuary over the central rock and is among the earliest surviving major Islamic monuments.",
+                "citationIds": [
+                  "internal-umayyad-rock"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أهميتها معمارية وتاريخية كبيرة، لكن فضائل الصلاة الخاصة الواردة للمسجد الأقصى لا ينبغي تحويلها تلقائيًا إلى طقوس مستقلة خاصة بالقبة.",
+                "en": "Its architectural and historical importance is immense, but the established merits of Al-Aqsa should not automatically be converted into separate rituals specific to the Dome.",
+                "citationIds": [
+                  "internal-umayyad-rock",
+                  "met-dome-rock"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "jerusalem",
+        "titleAr": "القدس",
+        "titleEn": "Jerusalem",
+        "summaryAr": "مدينة ذات مكانة مركزية في تاريخ الإسلام واليهودية والمسيحية، وفيها المسجد الأقصى.",
+        "summaryEn": "A city central to Islamic, Jewish, and Christian history and home to Al-Aqsa Mosque.",
+        "keywordsAr": [
+          "القدس"
+        ],
+        "keywordsEn": [
+          "Jerusalem"
+        ],
+        "relatedTopicIds": [
+          "al_aqsa",
+          "dome_rock",
+          "history_civilization/crusades_context"
+        ],
+        "citations": [
+          {
+            "id": "internal-jerusalem-history",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/crusades_context"
+          },
+          {
+            "id": "quran-aqsa-context",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:1"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع القدس في بلاد الشام وتضم مدينة قديمة ذات طبقات عمرانية ودينية متعاقبة عبر آلاف السنين.",
+                "en": "Jerusalem lies in the Levant and contains an old city shaped by successive religious and urban layers over millennia.",
+                "citationIds": [
+                  "internal-jerusalem-history"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في التاريخ الإسلامي ارتبطت بالإسراء والقبلة الأولى وفتوحات مبكرة والحروب الصليبية والعصور الأيوبية والمملوكية والعثمانية.",
+                "en": "In Islamic history it is associated with the Night Journey, the first qibla, early conquest, the Crusades, and Ayyubid, Mamluk, and Ottoman periods.",
+                "citationIds": [
+                  "internal-jerusalem-history",
+                  "quran-aqsa-context"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hebron",
+        "titleAr": "الخليل والحرم الإبراهيمي",
+        "titleEn": "Hebron and the Ibrahimi sanctuary",
+        "summaryAr": "مدينة في بلاد الشام ارتبطت في الذاكرة الدينية بإبراهيم عليه السلام وبمقامات منسوبة للأنبياء.",
+        "summaryEn": "A city in the Levant associated in religious memory with Abraham and tombs attributed to patriarchal figures.",
+        "keywordsAr": [
+          "الخليل والحرم الإبراهيمي"
+        ],
+        "keywordsEn": [
+          "Hebron and the Ibrahimi sanctuary"
+        ],
+        "relatedTopicIds": [
+          "prophets/ibrahim",
+          "jerusalem"
+        ],
+        "citations": [
+          {
+            "id": "internal-ibrahim",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "prophets/ibrahim"
+          },
+          {
+            "id": "hebron-history",
+            "kind": "AcademicReference",
+            "titleAr": "مرجع تاريخي عن الخليل والحرم الإبراهيمي",
+            "titleEn": "Historical reference on Hebron and the Ibrahimi sanctuary",
+            "locator": "Religious and architectural history of Hebron"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع الخليل جنوب القدس، ويضم مركزها التاريخي مبنى الحرم الإبراهيمي فوق موقع تقليدي قديم للمقابر.",
+                "en": "Hebron lies south of Jerusalem; its historic center contains the Ibrahimi sanctuary above an ancient traditional burial site.",
+                "citationIds": [
+                  "internal-ibrahim"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقدسها تقاليد دينية متعددة، ويجب التفريق بين ما يثبته القرآن والسنة عن إبراهيم عليه السلام وبين التفاصيل المحلية حول تحديد كل قبر.",
+                "en": "The city is revered in several religious traditions, but Quranic and Prophetic information about Abraham should be distinguished from local claims identifying every specific tomb.",
+                "citationIds": [
+                  "internal-ibrahim",
+                  "hebron-history"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "damascus",
+        "titleAr": "دمشق",
+        "titleEn": "Damascus",
+        "summaryAr": "مدينة شامية عريقة أصبحت عاصمة الدولة الأموية ومركزًا علميًا وتجاريًا لقرون.",
+        "summaryEn": "An ancient Levantine city that became the Umayyad capital and remained a major scholarly and commercial center.",
+        "keywordsAr": [
+          "دمشق"
+        ],
+        "keywordsEn": [
+          "Damascus"
+        ],
+        "relatedTopicIds": [
+          "umayyad_mosque",
+          "history_civilization/umayyad_formation"
+        ],
+        "citations": [
+          {
+            "id": "internal-damascus-history",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/umayyad_formation"
+          },
+          {
+            "id": "met-damascus",
+            "kind": "AcademicReference",
+            "titleAr": "متحف المتروبوليتان: التسلسل الزمني للعالم الإسلامي",
+            "titleEn": "The Metropolitan Museum of Art: Chronology of the Islamic World",
+            "locator": "Umayyad Damascus and later Islamic periods",
+            "url": "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/introduction/chronology"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع دمشق في واحة بردى جنوب غربي سوريا، وكانت مدينة كبرى قبل الإسلام واستمرت أهميتها بعد الفتح.",
+                "en": "Damascus lies in the Barada oasis in the Levant and was a major city before Islam, retaining importance afterward.",
+                "citationIds": [
+                  "internal-damascus-history"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بلغت ذروة سياسية مبكرة عندما صارت عاصمة للأمويين، ثم بقيت مركزًا للفقه والحديث والتجارة والعمارة.",
+                "en": "It reached an early political peak as the Umayyad capital and later remained a center of law, hadith, commerce, and architecture.",
+                "citationIds": [
+                  "internal-damascus-history",
+                  "met-damascus"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "umayyad_mosque",
+        "titleAr": "الجامع الأموي بدمشق",
+        "titleEn": "Umayyad Mosque of Damascus",
+        "summaryAr": "جامع تاريخي كبير بناه الأمويون في قلب دمشق فوق موقع ديني أقدم.",
+        "summaryEn": "A major historic mosque built by the Umayyads in central Damascus on a site with earlier religious structures.",
+        "keywordsAr": [
+          "الجامع الأموي بدمشق"
+        ],
+        "keywordsEn": [
+          "Umayyad Mosque of Damascus"
+        ],
+        "relatedTopicIds": [
+          "damascus",
+          "history_civilization/architecture_regions"
+        ],
+        "citations": [
+          {
+            "id": "met-umayyad-mosque",
+            "kind": "AcademicReference",
+            "titleAr": "متحف المتروبوليتان: التسلسل الزمني للعالم الإسلامي",
+            "titleEn": "The Metropolitan Museum of Art: Chronology of the Islamic World",
+            "locator": "Umayyad monumental architecture",
+            "url": "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/introduction/chronology"
+          },
+          {
+            "id": "internal-architecture",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/architecture_regions"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقع الجامع في المدينة القديمة، وقد شهد إصلاحات وترميمات متعددة بعد حرائق وزلازل وأحداث عبر القرون.",
+                "en": "The mosque stands in the Old City and has undergone repeated repairs and restorations after fires, earthquakes, and other events.",
+                "citationIds": [
+                  "met-umayyad-mosque"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمثل نموذجًا مبكرًا للعمارة المسجدية الكبرى ورعاية الدولة للفن والخط، مع استمرار وظيفته الدينية إلى اليوم.",
+                "en": "It is a major early example of monumental mosque architecture and state patronage of art and calligraphy while remaining a living place of worship.",
+                "citationIds": [
+                  "met-umayyad-mosque",
+                  "internal-architecture"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "yarmouk",
+        "titleAr": "منطقة اليرموك",
+        "titleEn": "Yarmouk region",
+        "summaryAr": "منطقة جنوب بلاد الشام ارتبطت بمعركة اليرموك في الفتوحات المبكرة.",
+        "summaryEn": "A region in the southern Levant associated with the Battle of Yarmouk during the early conquests.",
+        "keywordsAr": [
+          "منطقة اليرموك"
+        ],
+        "keywordsEn": [
+          "Yarmouk region"
+        ],
+        "relatedTopicIds": [
+          "rashidun/umar_expansion",
+          "damascus"
+        ],
+        "citations": [
+          {
+            "id": "internal-yarmouk",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "rashidun/umar_expansion"
+          },
+          {
+            "id": "internal-damascus-yarmouk",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "places/damascus"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقع وادي اليرموك في المنطقة الحدودية الجغرافية بين حوران والأردن وفلسطين التاريخية، وتحديد ساحة المعركة بدقة يعتمد على الدراسات.",
+                "en": "The Yarmouk valley lies in the wider region between Hawran, Jordan, and historical Palestine; precise battlefield mapping depends on historical study.",
+                "citationIds": [
+                  "internal-yarmouk"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ترتبط المعركة بتحول السيطرة السياسية في الشام في القرن السابع، ويعرضها كتاب الخلفاء ضمن سياق الفتوحات لا كفضيلة لموضع جغرافي.",
+                "en": "The battle is tied to the seventh-century political transition in the Levant and is treated in the Rashidun book as military history rather than a sacred quality of the landscape.",
+                "citationIds": [
+                  "internal-yarmouk",
+                  "internal-damascus-yarmouk"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bosra",
+        "titleAr": "بصرى الشام",
+        "titleEn": "Bosra",
+        "summaryAr": "مدينة تاريخية في جنوب الشام تقع على طرق القوافل والحج، وارتبطت في روايات السيرة برحلات إلى الشام.",
+        "summaryEn": "A historic city in southern Syria on caravan and pilgrimage routes, associated in Sira traditions with journeys toward Syria.",
+        "keywordsAr": [
+          "بصرى الشام"
+        ],
+        "keywordsEn": [
+          "Bosra"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/caravan_trade",
+          "sira/shepherding_and_trade"
+        ],
+        "citations": [
+          {
+            "id": "internal-bosra-trade",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/caravan_trade"
+          },
+          {
+            "id": "internal-bosra-sira",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "sira/shepherding_and_trade"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع بصرى في حوران وكانت محطة على طرق بين الحجاز ودمشق ومناطق أخرى، وتحفظ آثارًا رومانية وبيزنطية وإسلامية.",
+                "en": "Bosra lies in Hawran and was a route station between the Hijaz, Damascus, and other regions, preserving Roman, Byzantine, and Islamic remains.",
+                "citationIds": [
+                  "internal-bosra-trade"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ترد في بعض أخبار السيرة المبكرة، لكن تفاصيل تلك الروايات تختلف في القوة؛ أهميتها المؤكدة تشمل موقعها التجاري والعمراني الطويل.",
+                "en": "It appears in some early Sira reports whose details vary in strength; its well-established importance lies in its long commercial and urban history.",
+                "citationIds": [
+                  "internal-bosra-trade",
+                  "internal-bosra-sira"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "kufa",
+        "titleAr": "الكوفة",
+        "titleEn": "Kufa",
+        "summaryAr": "مدينة عراقية تأسست في العصر الراشدي وأصبحت مركزًا سياسيًا ولغويًا وفقهيًا مهمًا.",
+        "summaryEn": "An Iraqi city founded in the Rashidun period that became an important political, linguistic, and legal center.",
+        "keywordsAr": [
+          "الكوفة"
+        ],
+        "keywordsEn": [
+          "Kufa"
+        ],
+        "relatedTopicIds": [
+          "rashidun/ali_caliph",
+          "history_civilization/hadith_fiqh_schools"
+        ],
+        "citations": [
+          {
+            "id": "internal-kufa-ali",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "rashidun/ali_caliph"
+          },
+          {
+            "id": "internal-kufa-scholarship",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/hadith_fiqh_schools"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأسست الكوفة قرب الفرات في العراق بوصفها مدينة جند ثم نمت إلى مركز حضري وعلمي.",
+                "en": "Kufa was founded near the Euphrates in Iraq as a garrison city and grew into a major urban and scholarly center.",
+                "citationIds": [
+                  "internal-kufa-ali"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ارتبطت بخلافة علي رضي الله عنه وبنشأة تقاليد لغوية وفقهية وحديثية متعددة، لذا تتجاوز أهميتها الأحداث السياسية وحدها.",
+                "en": "It is associated with the caliphate of Ali and with major linguistic, legal, and hadith traditions, giving it significance beyond political events.",
+                "citationIds": [
+                  "internal-kufa-ali",
+                  "internal-kufa-scholarship"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "basra",
+        "titleAr": "البصرة",
+        "titleEn": "Basra",
+        "summaryAr": "مدينة عراقية مبكرة نشأت قرب الخليج وأصبحت مركزًا للتجارة واللغة والحديث والفكر.",
+        "summaryEn": "An early Iraqi city near the Gulf that became a center of trade, language, hadith, and intellectual life.",
+        "keywordsAr": [
+          "البصرة"
+        ],
+        "keywordsEn": [
+          "Basra"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/hadith_fiqh_schools",
+          "history_civilization/adab_literature"
+        ],
+        "citations": [
+          {
+            "id": "internal-basra-scholarship",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/hadith_fiqh_schools"
+          },
+          {
+            "id": "internal-basra-adab",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/adab_literature"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نشأت البصرة في جنوب العراق في العصر الراشدي ونمت عبر اتصالها بالأنهار والخليج وطرق التجارة.",
+                "en": "Basra arose in southern Iraq during the Rashidun period and grew through river, Gulf, and long-distance trade connections.",
+                "citationIds": [
+                  "internal-basra-scholarship"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشتهرت بمدارس اللغة والنحو والحديث والزهد والأدب، وبقيت بوابة بحرية مهمة للمشرق.",
+                "en": "It became famous for traditions of grammar, language, hadith, asceticism, and literature and remained an important maritime gateway.",
+                "citationIds": [
+                  "internal-basra-scholarship",
+                  "internal-basra-adab"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "baghdad",
+        "titleAr": "بغداد",
+        "titleEn": "Baghdad",
+        "summaryAr": "العاصمة العباسية التي تأسست في القرن الثامن وأصبحت من أكبر مراكز السياسة والعلم والتجارة.",
+        "summaryEn": "The Abbasid capital founded in the eighth century that became one of the great centers of politics, scholarship, and trade.",
+        "keywordsAr": [
+          "بغداد"
+        ],
+        "keywordsEn": [
+          "Baghdad"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/baghdad_foundation",
+          "history_civilization/translation_movement"
+        ],
+        "citations": [
+          {
+            "id": "internal-baghdad",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/baghdad_foundation"
+          },
+          {
+            "id": "met-baghdad-places",
+            "kind": "AcademicReference",
+            "titleAr": "متحف المتروبوليتان: التسلسل الزمني للعالم الإسلامي",
+            "titleEn": "The Metropolitan Museum of Art: Chronology of the Islamic World",
+            "locator": "Abbasid Baghdad",
+            "url": "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/introduction/chronology"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع بغداد على نهر دجلة في العراق، وتوسعت من المدينة المدورة العباسية إلى أحياء واسعة على ضفتي النهر.",
+                "en": "Baghdad stands on the Tigris in Iraq and expanded from the Abbasid Round City into extensive districts on both banks.",
+                "citationIds": [
+                  "internal-baghdad"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ارتبطت بالخلافة العباسية والترجمة والعلوم والأسواق والكتب، ثم تعرضت لتحولات سياسية ودمار وإعادة بناء متكررة.",
+                "en": "It is associated with the Abbasid caliphate, translation, science, markets, and book culture and later underwent repeated political changes, destruction, and rebuilding.",
+                "citationIds": [
+                  "internal-baghdad",
+                  "met-baghdad-places"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "karbala",
+        "titleAr": "كربلاء",
+        "titleEn": "Karbala",
+        "summaryAr": "مدينة عراقية ارتبطت تاريخيًا بمقتل الحسين بن علي رضي الله عنهما سنة 61هـ.",
+        "summaryEn": "An Iraqi city historically associated with the killing of Husayn ibn Ali in 61 AH.",
+        "keywordsAr": [
+          "كربلاء"
+        ],
+        "keywordsEn": [
+          "Karbala"
+        ],
+        "relatedTopicIds": [
+          "ahl_al_bayt/husayn",
+          "ahl_al_bayt/karbala_context"
+        ],
+        "citations": [
+          {
+            "id": "internal-husayn",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "ahl_al_bayt/husayn"
+          },
+          {
+            "id": "internal-karbala-context",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "ahl_al_bayt/karbala_context"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع كربلاء في وسط العراق غرب الفرات تقريبًا، ونمت المدينة لاحقًا حول موضع القبر المنسوب إلى الحسين رضي الله عنه.",
+                "en": "Karbala lies in central Iraq west of the Euphrates region and later grew around the shrine associated with Husayn's burial.",
+                "citationIds": [
+                  "internal-husayn"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أهميتها الإسلامية التاريخية متصلة بمأساة كربلاء وذاكرة أهل البيت، ويعرضها التطبيق بلغة تاريخية تحترم حساسيتها دون تبني سرد مذهبي واحد.",
+                "en": "Its Islamic historical significance is tied to the tragedy of Karbala and memory of the Prophet's family; the app presents it historically without adopting one sectarian narrative.",
+                "citationIds": [
+                  "internal-husayn",
+                  "internal-karbala-context"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "samarra",
+        "titleAr": "سامراء",
+        "titleEn": "Samarra",
+        "summaryAr": "مدينة عراقية أصبحت عاصمة عباسية في القرن التاسع وتشتهر بآثارها العمرانية.",
+        "summaryEn": "An Iraqi city that became an Abbasid capital in the ninth century and is known for major architectural remains.",
+        "keywordsAr": [
+          "سامراء"
+        ],
+        "keywordsEn": [
+          "Samarra"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/abbasid_decentralization",
+          "history_civilization/architecture_regions"
+        ],
+        "citations": [
+          {
+            "id": "met-samarra",
+            "kind": "AcademicReference",
+            "titleAr": "متحف المتروبوليتان: التسلسل الزمني للعالم الإسلامي",
+            "titleEn": "The Metropolitan Museum of Art: Chronology of the Islamic World",
+            "locator": "Abbasid Samarra and Islamic art",
+            "url": "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/introduction/chronology"
+          },
+          {
+            "id": "internal-abbasid",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/abbasid_decentralization"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع سامراء على دجلة شمال بغداد، وأنشئت فيها مجمعات قصور ومساجد واسعة عندما انتقل إليها البلاط العباسي.",
+                "en": "Samarra lies on the Tigris north of Baghdad, where large palace and mosque complexes were built after the Abbasid court moved there.",
+                "citationIds": [
+                  "met-samarra"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقدم آثارها دليلًا مهمًا على التخطيط العمراني والزخرفة العباسية، وهي مثال على مدينة عاصمة ازدهرت سريعًا ثم تغير دورها.",
+                "en": "Its remains are important evidence for Abbasid urban planning and decoration and illustrate a capital that rose rapidly and later changed function.",
+                "citationIds": [
+                  "met-samarra",
+                  "internal-abbasid"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fustat",
+        "titleAr": "الفسطاط",
+        "titleEn": "Fustat",
+        "summaryAr": "أول مركز حضري إسلامي كبير في مصر بعد الفتح، وسبق القاهرة الفاطمية.",
+        "summaryEn": "The first major Islamic urban center in Egypt after the conquest, predating Fatimid Cairo.",
+        "keywordsAr": [
+          "الفسطاط"
+        ],
+        "keywordsEn": [
+          "Fustat"
+        ],
+        "relatedTopicIds": [
+          "cairo",
+          "history_civilization/urban_life"
+        ],
+        "citations": [
+          {
+            "id": "internal-fustat-urban",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/urban_life"
+          },
+          {
+            "id": "fustat-ref",
+            "kind": "AcademicReference",
+            "titleAr": "مرجع تاريخي عن الفسطاط",
+            "titleEn": "Historical reference on Fustat",
+            "locator": "Early Islamic Egypt and urban archaeology"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نشأت الفسطاط قرب حصن بابليون والنيل، ونمت حول جامع عمرو بن العاص والأسواق والأحياء.",
+                "en": "Fustat developed near Babylon Fortress and the Nile and grew around the Mosque of Amr ibn al-As, markets, and neighborhoods.",
+                "citationIds": [
+                  "internal-fustat-urban"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كانت مركز الإدارة والتجارة في مصر لقرون قبل أن تتحول الثقل تدريجيًا إلى القاهرة والمراكز المجاورة.",
+                "en": "It served as Egypt's administrative and commercial center for centuries before political and urban weight gradually shifted toward Cairo and neighboring districts.",
+                "citationIds": [
+                  "internal-fustat-urban",
+                  "fustat-ref"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cairo",
+        "titleAr": "القاهرة",
+        "titleEn": "Cairo",
+        "summaryAr": "مدينة أسسها الفاطميون في القرن العاشر ثم أصبحت من أكبر مراكز العالم الإسلامي.",
+        "summaryEn": "A city founded by the Fatimids in the tenth century that became one of the major centers of the Islamic world.",
+        "keywordsAr": [
+          "القاهرة"
+        ],
+        "keywordsEn": [
+          "Cairo"
+        ],
+        "relatedTopicIds": [
+          "fustat",
+          "al_azhar",
+          "history_civilization/cairo_learning"
+        ],
+        "citations": [
+          {
+            "id": "internal-cairo-learning",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/cairo_learning"
+          },
+          {
+            "id": "met-cairo",
+            "kind": "AcademicReference",
+            "titleAr": "متحف المتروبوليتان: التسلسل الزمني للعالم الإسلامي",
+            "titleEn": "The Metropolitan Museum of Art: Chronology of the Islamic World",
+            "locator": "Fatimid, Ayyubid, and Mamluk Cairo",
+            "url": "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/introduction/chronology"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع القاهرة على النيل إلى جوار الفسطاط التاريخية، وامتدت عبر عصور فاطمية وأيوبية ومملوكية وعثمانية وحديثة.",
+                "en": "Cairo lies on the Nile beside historic Fustat and expanded through Fatimid, Ayyubid, Mamluk, Ottoman, and modern periods.",
+                "citationIds": [
+                  "internal-cairo-learning"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشتهرت بالحكم والتجارة والأزهر والمدارس والأوقاف والحرف والعمارة، ما يجعلها مركزًا حضاريًا متعدد الطبقات.",
+                "en": "It became renowned for government, trade, al-Azhar, madrasas, waqf institutions, crafts, and architecture, making it a multilayered civilizational center.",
+                "citationIds": [
+                  "internal-cairo-learning",
+                  "met-cairo"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "al_azhar",
+        "titleAr": "الجامع الأزهر",
+        "titleEn": "Al-Azhar Mosque",
+        "summaryAr": "جامع ومؤسسة علمية تأسست في القاهرة الفاطمية ثم تطور دورها عبر قرون.",
+        "summaryEn": "A mosque and scholarly institution founded in Fatimid Cairo whose role evolved over centuries.",
+        "keywordsAr": [
+          "الجامع الأزهر"
+        ],
+        "keywordsEn": [
+          "Al-Azhar Mosque"
+        ],
+        "relatedTopicIds": [
+          "cairo",
+          "history_civilization/cairo_learning",
+          "history_civilization/madrasa_growth"
+        ],
+        "citations": [
+          {
+            "id": "internal-azhar",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/cairo_learning"
+          },
+          {
+            "id": "azhar-ref",
+            "kind": "AcademicReference",
+            "titleAr": "مرجع أكاديمي عن تاريخ الأزهر",
+            "titleEn": "Academic reference on the history of al-Azhar",
+            "locator": "Institutional and scholarly development"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقع الأزهر في القاهرة التاريخية، وأنشئ في العصر الفاطمي ثم شهد توسعات وتحولات مؤسسية متكررة.",
+                "en": "Al-Azhar stands in historic Cairo, founded under the Fatimids and repeatedly expanded and institutionally transformed.",
+                "citationIds": [
+                  "internal-azhar"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أصبح لاحقًا مركزًا بارزًا للتعليم السني واللغة والفقه، مع تاريخ مؤسسي أطول وأكثر تعقيدًا من وصفه كـ«جامعة» بالمعنى الحديث منذ تأسيسه.",
+                "en": "It later became a major center of Sunni learning, Arabic, and law, with an institutional history more complex than calling it a modern university from its foundation.",
+                "citationIds": [
+                  "internal-azhar",
+                  "azhar-ref"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "kairouan",
+        "titleAr": "القيروان",
+        "titleEn": "Kairouan",
+        "summaryAr": "مدينة في إفريقية أسست في القرن السابع وأصبحت مركزًا سياسيًا وعلميًا بارزًا في المغرب الإسلامي.",
+        "summaryEn": "A city in Ifriqiya founded in the seventh century that became a major political and scholarly center in the Islamic Maghreb.",
+        "keywordsAr": [
+          "القيروان"
+        ],
+        "keywordsEn": [
+          "Kairouan"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/maghreb_dynamics",
+          "history_civilization/hadith_fiqh_schools"
+        ],
+        "citations": [
+          {
+            "id": "internal-kairouan",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/maghreb_dynamics"
+          },
+          {
+            "id": "met-kairouan",
+            "kind": "AcademicReference",
+            "titleAr": "متحف المتروبوليتان: التسلسل الزمني للعالم الإسلامي",
+            "titleEn": "The Metropolitan Museum of Art: Chronology of the Islamic World",
+            "locator": "Western Islamic world and Kairouan",
+            "url": "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/introduction/chronology"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع القيروان في تونس الحالية بعيدًا نسبيًا عن الساحل، ونمت حول مؤسسات عسكرية ومدنية ودينية.",
+                "en": "Kairouan lies in present-day Tunisia inland from the coast and grew around military, civil, and religious institutions.",
+                "citationIds": [
+                  "internal-kairouan"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشتهرت بجامع عقبة وبمدارس الفقه المالكي والعلم، وأثرت في مدن المغرب والأندلس عبر شبكات العلماء.",
+                "en": "It is renowned for the Great Mosque and for Maliki legal scholarship and learning that influenced the Maghreb and al-Andalus through scholarly networks.",
+                "citationIds": [
+                  "internal-kairouan",
+                  "met-kairouan"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fez",
+        "titleAr": "فاس",
+        "titleEn": "Fez",
+        "summaryAr": "مدينة مغربية عريقة أصبحت مركزًا للتجارة والعلم والحرف، وارتبطت بالقرويين.",
+        "summaryEn": "A historic Moroccan city that became a center of trade, scholarship, and crafts and is associated with al-Qarawiyyin.",
+        "keywordsAr": [
+          "فاس"
+        ],
+        "keywordsEn": [
+          "Fez"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/maghreb_dynamics",
+          "history_civilization/urban_life"
+        ],
+        "citations": [
+          {
+            "id": "internal-fez",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/maghreb_dynamics"
+          },
+          {
+            "id": "unesco-fez",
+            "kind": "AcademicReference",
+            "titleAr": "اليونسكو: مدن طرق الحرير",
+            "titleEn": "UNESCO: Cities along the Silk Roads",
+            "locator": "Historic cities as centers of learning and trade",
+            "url": "https://en.unesco.org/silkroad/silk-road-themes/cities-silk-roads"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع فاس في شمال المغرب ونمت عبر أحياء ومجتمعات متعددة حول نهرها وأسواقها ومؤسساتها.",
+                "en": "Fez lies in northern Morocco and developed through multiple quarters and communities around its river, markets, and institutions.",
+                "citationIds": [
+                  "internal-fez"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشتهرت بالقرويين والتعليم المالكي والحرف والأسواق، وصارت محطة في شبكات المغرب والأندلس والصحراء.",
+                "en": "It became known for al-Qarawiyyin, Maliki scholarship, crafts, and markets and participated in networks linking the Maghreb, al-Andalus, and the Sahara.",
+                "citationIds": [
+                  "internal-fez",
+                  "unesco-fez"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cordoba",
+        "titleAr": "قرطبة",
+        "titleEn": "Cordoba",
+        "summaryAr": "عاصمة الأمويين في الأندلس وأحد أبرز مراكز غرب المتوسط في العصور الوسطى.",
+        "summaryEn": "The Umayyad capital of al-Andalus and one of the leading centers of the medieval western Mediterranean.",
+        "keywordsAr": [
+          "قرطبة"
+        ],
+        "keywordsEn": [
+          "Cordoba"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/cordoba_culture",
+          "history_civilization/andalusi_learning"
+        ],
+        "citations": [
+          {
+            "id": "internal-cordoba",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/cordoba_culture"
+          },
+          {
+            "id": "met-cordoba-place",
+            "kind": "AcademicReference",
+            "titleAr": "متحف المتروبوليتان: التسلسل الزمني للعالم الإسلامي",
+            "titleEn": "The Metropolitan Museum of Art: Chronology of the Islamic World",
+            "locator": "Cordoba and Umayyad al-Andalus",
+            "url": "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/introduction/chronology"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع قرطبة على نهر الوادي الكبير في جنوب إسبانيا الحالية، وتضم طبقات رومانية وقوطية وإسلامية ومسيحية لاحقة.",
+                "en": "Cordoba lies on the Guadalquivir in southern Spain and preserves Roman, Visigothic, Islamic, and later Christian layers.",
+                "citationIds": [
+                  "internal-cordoba"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بلغت مكانة كبرى في عهد الإمارة والخلافة الأموية بالأندلس، واشتهرت بجامعها وعمرانها وكتبها وعلمائها.",
+                "en": "It reached great prominence under the Umayyad emirate and caliphate of al-Andalus and became famous for its mosque, urban life, books, and scholars.",
+                "citationIds": [
+                  "internal-cordoba",
+                  "met-cordoba-place"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "granada_alhambra",
+        "titleAr": "غرناطة والحمراء",
+        "titleEn": "Granada and the Alhambra",
+        "summaryAr": "غرناطة كانت مركز الدولة النصرية، والحمراء مجمع قصور وحصون بارز من العمارة الأندلسية.",
+        "summaryEn": "Granada was the center of the Nasrid kingdom, and the Alhambra is a major palace-fortress complex of Andalusi architecture.",
+        "keywordsAr": [
+          "غرناطة والحمراء"
+        ],
+        "keywordsEn": [
+          "Granada and the Alhambra"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/granada_nasrids",
+          "history_civilization/architecture_regions"
+        ],
+        "citations": [
+          {
+            "id": "internal-granada",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/granada_nasrids"
+          },
+          {
+            "id": "met-granada-place",
+            "kind": "AcademicReference",
+            "titleAr": "متحف المتروبوليتان: التسلسل الزمني للعالم الإسلامي",
+            "titleEn": "The Metropolitan Museum of Art: Chronology of the Islamic World",
+            "locator": "Nasrid Granada and the Alhambra",
+            "url": "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/introduction/chronology"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع غرناطة في جنوب إسبانيا عند سفوح جبال سييرا نيفادا، وتقع الحمراء على مرتفع يطل على المدينة.",
+                "en": "Granada lies in southern Spain near the Sierra Nevada, with the Alhambra on a hill overlooking the city.",
+                "citationIds": [
+                  "internal-granada"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تمثل الحمراء تفاعل العمارة والخط والماء والحدائق في الثقافة النصرية، بينما انتهت الدولة الإسلامية في غرناطة سنة 1492م.",
+                "en": "The Alhambra integrates architecture, calligraphy, water, and gardens in Nasrid culture, while Muslim rule in Granada ended in 1492.",
+                "citationIds": [
+                  "internal-granada",
+                  "met-granada-place"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "timbuktu",
+        "titleAr": "تمبكتو",
+        "titleEn": "Timbuktu",
+        "summaryAr": "مدينة في مالي ارتبطت بالتجارة العابرة للصحراء وبالتعليم والمخطوطات.",
+        "summaryEn": "A city in Mali associated with trans-Saharan trade, scholarship, and manuscript culture.",
+        "keywordsAr": [
+          "تمبكتو"
+        ],
+        "keywordsEn": [
+          "Timbuktu"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/timbuktu_learning",
+          "history_civilization/trans_saharan_trade"
+        ],
+        "citations": [
+          {
+            "id": "internal-timbuktu",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/timbuktu_learning"
+          },
+          {
+            "id": "unesco-timbuktu",
+            "kind": "AcademicReference",
+            "titleAr": "اليونسكو: مدن طرق الحرير",
+            "titleEn": "UNESCO: Cities along the Silk Roads",
+            "locator": "West African cities and trans-Saharan exchange",
+            "url": "https://en.unesco.org/silkroad/silk-road-themes/cities-silk-roads"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع تمبكتو قرب نهر النيجر وحافة الصحراء، ما جعلها حلقة بين طرق القوافل ومجتمعات الساحل.",
+                "en": "Timbuktu lies near the Niger River and the edge of the Sahara, linking caravan routes with Sahelian communities.",
+                "citationIds": [
+                  "internal-timbuktu"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشتهرت بمراكز التعلم والمخطوطات والتجارة، وتكشف عن عمق التاريخ العلمي الإسلامي في غرب أفريقيا.",
+                "en": "It became known for centers of learning, manuscripts, and commerce and demonstrates the depth of Islamic scholarly history in West Africa.",
+                "citationIds": [
+                  "internal-timbuktu",
+                  "unesco-timbuktu"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bukhara",
+        "titleAr": "بخارى",
+        "titleEn": "Bukhara",
+        "summaryAr": "مدينة في آسيا الوسطى اشتهرت بالعلم والتجارة وارتبطت بالسامانيين وبعلماء حديث وفقه.",
+        "summaryEn": "A Central Asian city renowned for scholarship and trade and associated with the Samanids and major hadith and legal scholars.",
+        "keywordsAr": [
+          "بخارى"
+        ],
+        "keywordsEn": [
+          "Bukhara"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/bukhara_samarkand",
+          "hadith_sciences/bukhari_muslim"
+        ],
+        "citations": [
+          {
+            "id": "internal-bukhara",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/bukhara_samarkand"
+          },
+          {
+            "id": "unesco-bukhara",
+            "kind": "AcademicReference",
+            "titleAr": "اليونسكو: مدن طرق الحرير",
+            "titleEn": "UNESCO: Cities along the Silk Roads",
+            "locator": "Bukhara as a Silk Roads city",
+            "url": "https://en.unesco.org/silkroad/silk-road-themes/cities-silk-roads"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع بخارى في أوزبكستان الحالية ضمن واحات آسيا الوسطى التي ربطتها طرق برية طويلة بمدن أخرى.",
+                "en": "Bukhara lies in present-day Uzbekistan within Central Asian oasis networks connected by long-distance routes.",
+                "citationIds": [
+                  "internal-bukhara"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "برزت مركزًا للسامانيين والعلم واللغة الفارسية والعربية، وارتبط اسمها بالبخاري نسبةً إلى أصل المدينة.",
+                "en": "It became a Samanid, scholarly, Arabic-Persian cultural center, and the name al-Bukhari reflects origin from this city.",
+                "citationIds": [
+                  "internal-bukhara",
+                  "unesco-bukhara"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "samarkand",
+        "titleAr": "سمرقند",
+        "titleEn": "Samarkand",
+        "summaryAr": "مدينة آسيوية وسطى كبرى على شبكات طرق الحرير، وبرزت خصوصًا في العهد التيموري.",
+        "summaryEn": "A major Central Asian city on Silk Roads networks that became especially prominent under the Timurids.",
+        "keywordsAr": [
+          "سمرقند"
+        ],
+        "keywordsEn": [
+          "Samarkand"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/bukhara_samarkand",
+          "history_civilization/timurids"
+        ],
+        "citations": [
+          {
+            "id": "internal-samarkand",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/bukhara_samarkand"
+          },
+          {
+            "id": "unesco-samarkand",
+            "kind": "AcademicReference",
+            "titleAr": "اليونسكو: مدن طرق الحرير",
+            "titleEn": "UNESCO: Cities along the Silk Roads",
+            "locator": "Samarkand as a center of Silk Roads exchange",
+            "url": "https://en.unesco.org/silkroad/silk-road-themes/cities-silk-roads"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع سمرقند في أوزبكستان الحالية ضمن وادٍ زراعي جعلها عقدة للقوافل والثقافات.",
+                "en": "Samarkand lies in present-day Uzbekistan in a fertile valley that made it a major caravan and cultural node.",
+                "citationIds": [
+                  "internal-samarkand"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشتهرت في العهد التيموري بالعمارة والرعاية العلمية، ومنها تقاليد مرتبطة بمرصد أولوغ بيك.",
+                "en": "It became famous under the Timurids for architecture and scholarly patronage, including traditions associated with Ulugh Beg's observatory.",
+                "citationIds": [
+                  "internal-samarkand",
+                  "unesco-samarkand"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "istanbul",
+        "titleAr": "إسطنبول",
+        "titleEn": "Istanbul",
+        "summaryAr": "مدينة على البوسفور أصبحت عاصمة عثمانية بعد 1453م ومركزًا عالميًا للإدارة والتجارة والعمران.",
+        "summaryEn": "A city on the Bosporus that became the Ottoman capital after 1453 and a global center of administration, trade, and urban culture.",
+        "keywordsAr": [
+          "إسطنبول"
+        ],
+        "keywordsEn": [
+          "Istanbul"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/ottoman_istanbul",
+          "history_civilization/architecture_regions"
+        ],
+        "citations": [
+          {
+            "id": "internal-istanbul",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/ottoman_istanbul"
+          },
+          {
+            "id": "met-istanbul-place",
+            "kind": "AcademicReference",
+            "titleAr": "متحف المتروبوليتان: التسلسل الزمني للعالم الإسلامي",
+            "titleEn": "The Metropolitan Museum of Art: Chronology of the Islamic World",
+            "locator": "Ottoman Istanbul after 1453",
+            "url": "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/introduction/chronology"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع إسطنبول بين أوروبا وآسيا عند البوسفور، وكانت القسطنطينية عاصمة بيزنطية قبل دخولها تحت الحكم العثماني.",
+                "en": "Istanbul spans the Bosporus between Europe and Asia and was Byzantine Constantinople before Ottoman rule.",
+                "citationIds": [
+                  "internal-istanbul"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "حولها العثمانيون إلى عاصمة إمبراطورية تضم مساجد ومدارس وأسواقًا وأوقافًا وموانئ، مع استمرار طبقات عمرانية أقدم.",
+                "en": "The Ottomans developed it into an imperial capital of mosques, schools, markets, waqfs, and ports while older urban layers remained.",
+                "citationIds": [
+                  "internal-istanbul",
+                  "met-istanbul-place"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "delhi",
+        "titleAr": "دلهي",
+        "titleEn": "Delhi",
+        "summaryAr": "مدينة شمال الهند ارتبطت بسلطنات دلهي ثم بالعصر المغولي ومؤسسات علمية وعمرانية متعددة.",
+        "summaryEn": "A north Indian city associated with the Delhi Sultanates, later Mughal rule, and major scholarly and architectural institutions.",
+        "keywordsAr": [
+          "دلهي"
+        ],
+        "keywordsEn": [
+          "Delhi"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/south_asia_islam",
+          "history_civilization/mughals"
+        ],
+        "citations": [
+          {
+            "id": "internal-delhi-southasia",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/south_asia_islam"
+          },
+          {
+            "id": "internal-delhi-mughal",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/mughals"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع دلهي على نهر يامونا وحولها مواقع مدن تاريخية متعاقبة بنتها سلالات مختلفة.",
+                "en": "Delhi lies near the Yamuna and contains multiple historic city sites built by successive dynasties.",
+                "citationIds": [
+                  "internal-delhi-southasia"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تكشف آثارها عن انتقالات من سلطنة دلهي إلى الحكم المغولي ثم العصور اللاحقة، وتظهر تفاعل تقاليد هندية وفارسية وآسيوية وسطى.",
+                "en": "Its monuments reveal transitions from the Delhi Sultanates to Mughal rule and later periods and show interaction among South Asian, Persianate, and Central Asian traditions.",
+                "citationIds": [
+                  "internal-delhi-southasia",
+                  "internal-delhi-mughal"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aceh",
+        "titleAr": "آتشيه",
+        "titleEn": "Aceh",
+        "summaryAr": "إقليم في شمال سومطرة ارتبط بسلطنات إسلامية وتجارة المحيط الهندي وشبكات العلماء.",
+        "summaryEn": "A region in northern Sumatra associated with Islamic sultanates, Indian Ocean trade, and scholarly networks.",
+        "keywordsAr": [
+          "آتشيه"
+        ],
+        "keywordsEn": [
+          "Aceh"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/southeast_asia_islam",
+          "history_civilization/indian_ocean_trade"
+        ],
+        "citations": [
+          {
+            "id": "internal-aceh",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/southeast_asia_islam"
+          },
+          {
+            "id": "unesco-aceh-network",
+            "kind": "AcademicReference",
+            "titleAr": "اليونسكو: مدن طرق الحرير",
+            "titleEn": "UNESCO: Cities along the Silk Roads",
+            "locator": "Maritime exchange across the Indian Ocean and Southeast Asia",
+            "url": "https://en.unesco.org/silkroad/silk-road-themes/cities-silk-roads"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "location",
+            "titleAr": "المكان والسياق",
+            "titleEn": "Place and context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقع آتشيه عند المدخل الغربي لمضيق ملقا، ما منحها موقعًا مهمًا على طرق الملاحة بين المحيط الهندي وجنوب شرق آسيا.",
+                "en": "Aceh lies near the western entrance to the Strait of Malacca, giving it an important position on maritime routes between the Indian Ocean and Southeast Asia.",
+                "citationIds": [
+                  "internal-aceh"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "significance",
+            "titleAr": "الأهمية",
+            "titleEn": "Significance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "برزت في التجارة والعلم والسلطنة خصوصًا في العصر الحديث المبكر، وكانت صلة بين علماء الحجاز والهند وجنوب شرق آسيا.",
+                "en": "It became prominent in trade, scholarship, and sultanate politics, especially in the early modern period, linking scholars from the Hijaz, India, and Southeast Asia.",
+                "citationIds": [
+                  "internal-aceh",
+                  "unesco-aceh-network"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
