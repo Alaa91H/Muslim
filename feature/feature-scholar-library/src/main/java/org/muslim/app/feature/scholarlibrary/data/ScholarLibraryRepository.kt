@@ -2,8 +2,6 @@ package org.muslim.app.feature.scholarlibrary.data
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
-import java.time.Duration
-import java.time.Instant
 import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -28,6 +26,8 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarLibraryIndex
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingStatus
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewRating
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewScheduler
 import org.muslim.app.feature.scholarlibrary.domain.ScholarSearchFilters
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPath
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPlan
@@ -156,9 +156,24 @@ class ScholarLibraryRepository @Inject constructor(
 
     fun observeFlashcards(): Flow<List<FlashcardWithCitation>> = libraryDao.observeFlashcards().map { cards ->
         cards.mapNotNull { card ->
-            citationForPassage(card.passageId)?.let { citation ->
-                FlashcardWithCitation(card.toDomain(), citation)
-            }
+            val passage = libraryDao.passageById(card.passageId)?.toDomain() ?: return@mapNotNull null
+            val book = libraryDao.bookById(passage.bookId)?.toDomain() ?: return@mapNotNull null
+            FlashcardWithCitation(
+                card = card.toDomain(),
+                citation = Citation(
+                    bookTitle = book.title,
+                    author = book.author,
+                    chapter = passage.chapter,
+                    volume = passage.volume,
+                    page = passage.page,
+                    edition = book.edition,
+                    publisher = book.publisher,
+                    publicationYear = book.publicationYear,
+                    section = passage.section,
+                ),
+                bookId = book.id,
+                category = book.category,
+            )
         }
     }
 
@@ -329,13 +344,24 @@ class ScholarLibraryRepository @Inject constructor(
         return true
     }
 
-    /** Applies a short local spaced-repetition interval after a review. */
-    suspend fun reviewFlashcard(id: Long, remembered: Boolean) {
-        val card = libraryDao.observeFlashcards().map { cards -> cards.firstOrNull { it.id == id } }.first() ?: return
-        val nextCount = if (remembered) card.reviewCount + 1 else 0
-        val interval = if (remembered) REVIEW_INTERVALS_DAYS[minOf(nextCount - 1, REVIEW_INTERVALS_DAYS.lastIndex)] else 0
-        val due = Instant.now().plus(Duration.ofDays(interval.toLong())).toEpochMilli()
-        libraryDao.updateFlashcardReview(id, nextCount, due)
+    suspend fun reviewFlashcard(id: Long, rating: ScholarReviewRating): Boolean {
+        val entity = libraryDao.flashcardById(id) ?: return false
+        val schedule = ScholarReviewScheduler.schedule(
+            card = entity.toDomain(),
+            rating = rating,
+            reviewedAtEpochMillis = System.currentTimeMillis(),
+        )
+        libraryDao.updateFlashcardReview(
+            id = id,
+            reviewCount = schedule.reviewCount,
+            dueAt = schedule.dueAtEpochMillis,
+            intervalDays = schedule.intervalDays,
+            easeFactor = schedule.easeFactor,
+            lapseCount = schedule.lapseCount,
+            lastReviewedAt = schedule.lastReviewedAtEpochMillis,
+            lastRating = schedule.lastRating.name,
+        )
+        return true
     }
 
     suspend fun deleteFlashcard(id: Long) = libraryDao.deleteFlashcard(id)
@@ -718,7 +744,6 @@ class ScholarLibraryRepository @Inject constructor(
         const val MAX_KEYWORD_LENGTH = 120
         const val KEYWORD_SEPARATOR = "\u001F"
         val ID_REGEX = Regex("[A-Za-z0-9_-]{3,120}")
-        val REVIEW_INTERVALS_DAYS = intArrayOf(1, 3, 7, 14, 30)
     }
 }
 
