@@ -178,7 +178,7 @@ class ScholarLibraryMigrationTest {
             assertThat(cursor.getString(cursor.getColumnIndexOrThrow("front"))).isEqualTo("question")
             assertThat(cursor.getInt(cursor.getColumnIndexOrThrow("reviewCount"))).isEqualTo(3)
             assertThat(cursor.getLong(cursor.getColumnIndexOrThrow("dueAtEpochMillis"))).isEqualTo(9000L)
-            assertThat(cursor.getInt(cursor.getColumnIndexOrThrow("intervalDays"))).isEqualTo(0)
+            assertThat(cursor.getInt(cursor.getColumnIndexOrThrow("intervalDays"))).isEqualTo(7)
             assertThat(cursor.getDouble(cursor.getColumnIndexOrThrow("easeFactor"))).isEqualTo(2.5)
             assertThat(cursor.getInt(cursor.getColumnIndexOrThrow("lapseCount"))).isEqualTo(0)
             assertThat(cursor.isNull(cursor.getColumnIndexOrThrow("lastReviewedAtEpochMillis"))).isTrue()
