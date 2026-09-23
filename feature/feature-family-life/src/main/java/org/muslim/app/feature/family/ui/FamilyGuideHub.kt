@@ -262,6 +262,7 @@ private fun FamilyHubHeading(text: String) {
         text = text,
         style = MaterialTheme.typography.titleLarge,
         fontWeight = FontWeight.Bold,
+        modifier = Modifier.semantics { heading() },
     )
 }
 
@@ -721,6 +722,7 @@ private fun FamilyArticleSectionCard(
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.semantics { heading() },
         )
         paragraphs.forEach { paragraph ->
             Spacer(Modifier.height(8.dp))
