@@ -1,14 +1,14 @@
 <!--
   Themed adaptive-icon monochrome for the approved v2028 launcher identity.
 
-  The full-colour launcher is built from two hollow square frames: one axis-aligned
-  and one rotated 45 degrees. Keep those frames as separate paths. Combining the
-  frame, mihrab and crescent into one evenOdd path changes parity where shapes
-  overlap and produces a different small-icon silhouette.
+  This line-art mask follows the approved full-colour mark more closely than the
+  previous heavy two-frame approximation: a thin axis-aligned square, rotated
+  diamond, inner architectural frame, mirrored upper ribbons, central mihrab and
+  crescent. The geometry is intentionally simplified only where 24dp legibility
+  requires it.
 
-  The frame uses the same 0.72 inner scale retained for small-size legibility.
-  The mihrab and crescent keep the established brand proportions. All geometry is
-  single-colour so Android can tint themed and notification surfaces safely.
+  Keep this path set byte-for-byte aligned with ic_muslim_status_bar_v2029 so
+  Android themed-icon and notification surfaces share one recognisable identity.
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
@@ -16,19 +16,49 @@
     android:viewportWidth="108"
     android:viewportHeight="108">
     <path
-        android:fillColor="#FFFFFFFF"
-        android:fillType="evenOdd"
-        android:pathData="M20.59,20.59H87.41V87.41H20.59Z M29.94,29.94H78.06V78.06H29.94Z" />
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="5.5"
+        android:strokeLineCap="square"
+        android:strokeLineJoin="miter"
+        android:pathData="M21.5,21.5H86.5V86.5H21.5Z" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="5.5"
+        android:strokeLineCap="square"
+        android:strokeLineJoin="miter"
+        android:pathData="M54,7.5L100.5,54L54,100.5L7.5,54Z" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="5.5"
+        android:strokeLineCap="square"
+        android:strokeLineJoin="miter"
+        android:pathData="M54,22L79,39V68L54,91L29,68V39Z" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="4.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M29,39C36,38 43,36 49.5,31.5" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="4.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M58.5,31.5C65,36 72,38 79,39" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="4.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M42,79V59C42,51 47,46 54,41C61,46 66,51 66,59V79" />
     <path
         android:fillColor="#FFFFFFFF"
         android:fillType="evenOdd"
-        android:pathData="M54,6.75L101.25,54L54,101.25L6.75,54Z M54,19.98L88.02,54L54,88.02L19.98,54Z" />
-    <path
-        android:fillColor="#FFFFFFFF"
-        android:fillType="evenOdd"
-        android:pathData="M54,37.125C45.225,42.975 40.5,49.95 40.5,58.5V72H67.5V58.5C67.5,49.95 62.775,42.975 54,37.125Z M54,48.15C56.79,50.85 58.5,54.225 58.5,58.5V63H49.5V58.5C49.5,54.225 51.21,50.85 54,48.15Z" />
-    <path
-        android:fillColor="#FFFFFFFF"
-        android:fillType="evenOdd"
-        android:pathData="M54,19A14.5,14.5 0,1 0,70.5,36.5A12,12 0,1 1,54,19Z" />
+        android:pathData="M53.5,28A8.5,8.5 0,1 0,63.5,38A7,7 0,1 1,53.5,28Z" />
 </vector>
