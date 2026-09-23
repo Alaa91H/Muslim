@@ -1,5 +1,6 @@
 package org.muslim.app.feature.zakat.ui
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -23,12 +24,10 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -48,7 +47,11 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.zakat.R
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicDecorationBand
+import org.muslim.app.core.ui.theme.IslamicDecorationCorners
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimCenteredStatus
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.core.ui.theme.MuslimStateSurface
@@ -75,7 +78,7 @@ fun ZakatScreen(
     // locale — this is a project-wide rule (see Digits in core-common).
     val formatter = NumberFormat.getNumberInstance(java.util.Locale.ENGLISH)
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
@@ -95,22 +98,34 @@ fun ZakatScreen(
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 16.dp),
         ) {
+            IslamicDecorationBand(
+                tint = MaterialTheme.colorScheme.tertiary,
+                compact = true,
+            )
             CountrySection(state, viewModel)
-            Spacer(Modifier.height(16.dp))
-            HorizontalDivider()
-            Spacer(Modifier.height(12.dp))
+            IslamicDecorationDivider(
+                tint = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(horizontal = 24.dp, vertical = 8.dp),
+            )
+            Spacer(Modifier.height(4.dp))
             MuslimSectionHeader(title = stringResource(R.string.zakat_money_section))
             Spacer(Modifier.height(8.dp))
             MoneyForm(state, viewModel, formatter)
             Spacer(Modifier.height(12.dp))
             ResultCard(state, formatter, viewModel)
-            Spacer(Modifier.height(20.dp))
-            HorizontalDivider()
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(16.dp))
+            IslamicDecorationDivider(
+                tint = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(horizontal = 24.dp),
+            )
+            Spacer(Modifier.height(8.dp))
             FitrSection(state, viewModel, formatter)
-            Spacer(Modifier.height(20.dp))
-            HorizontalDivider()
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(16.dp))
+            IslamicDecorationDivider(
+                tint = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(horizontal = 24.dp),
+            )
+            Spacer(Modifier.height(8.dp))
             HistorySection(state, viewModel, formatter)
             Spacer(Modifier.height(12.dp))
             Text(
@@ -331,7 +346,12 @@ private fun ResultCard(
             MaterialTheme.colorScheme.surfaceContainerLow
         },
     ) {
-        Column {
+        Box {
+            IslamicDecorationCorners(
+                tint = MaterialTheme.colorScheme.tertiary,
+                compact = true,
+            )
+            Column {
             ResultRow(stringResource(R.string.zakat_total_assets), formatter.format(result.totalAssets))
             ResultRow(stringResource(R.string.zakat_zakatable), formatter.format(result.zakatableAmount))
             ResultRow(stringResource(R.string.zakat_nisab_gold), formatter.format(result.goldNisab))
@@ -358,6 +378,7 @@ private fun ResultCard(
                     Spacer(Modifier.width(6.dp))
                     Text(stringResource(R.string.zakat_save_result))
                 }
+            }
             }
         }
     }
