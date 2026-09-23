@@ -6,15 +6,52 @@ package org.muslim.app.feature.tasbih.domain
  * The UI, widgets and Wear OS can all drive the same pure engine, preventing
  * each surface from developing slightly different counting behaviour.
  */
-enum class TasbihSessionMode {
-    Free,
-    Target,
-    Rounds,
+enum class TasbihSessionMode(val storageId: String) {
+    Free("free"),
+    Target("target"),
+    Rounds("rounds");
+
+    companion object {
+        fun fromStorageId(value: String?): TasbihSessionMode =
+            entries.firstOrNull { it.storageId == value } ?: Free
+    }
 }
 
 enum class TasbihSessionStatus {
     Active,
     Completed,
+}
+
+enum class TasbihSessionEndReason(val storageId: String) {
+    GoalReached("goal_reached"),
+    ContextChanged("context_changed"),
+    Reset("reset"),
+    ResetAll("reset_all"),
+    Manual("manual");
+
+    companion object {
+        fun fromStorageId(value: String?): TasbihSessionEndReason? =
+            entries.firstOrNull { it.storageId == value }
+    }
+}
+
+data class TasbihSessionHistoryItem(
+    val id: Long,
+    val phraseId: String,
+    val mode: TasbihSessionMode,
+    val target: Int,
+    val roundsGoal: Int,
+    val count: Long,
+    val startedAtEpochMillis: Long,
+    val lastUpdatedAtEpochMillis: Long,
+    val endedAtEpochMillis: Long?,
+    val endReason: TasbihSessionEndReason?,
+) {
+    val isActive: Boolean get() = endedAtEpochMillis == null
+
+    val durationMillis: Long
+        get() = ((endedAtEpochMillis ?: lastUpdatedAtEpochMillis) - startedAtEpochMillis)
+            .coerceAtLeast(0L)
 }
 
 data class TasbihSessionConfig(
