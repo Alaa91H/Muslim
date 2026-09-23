@@ -78,7 +78,7 @@ fun WillDraftProtectionCard(
                     color = MaterialTheme.colorScheme.primary,
                 )
                 Button(
-                    onClick = session.lockNow,
+                    onClick = session.actions.lockNow,
                     modifier = Modifier
                         .fillMaxWidth()
                         .testTag(WillDraftProtectionTestTags.LOCK_NOW),
@@ -88,7 +88,7 @@ fun WillDraftProtectionCard(
                     Text(stringResource(R.string.funeral_will_protection_lock_now))
                 }
                 OutlinedButton(
-                    onClick = session.disable,
+                    onClick = session.actions.disable,
                     modifier = Modifier
                         .fillMaxWidth()
                         .testTag(WillDraftProtectionTestTags.DISABLE),
@@ -97,7 +97,7 @@ fun WillDraftProtectionCard(
                 }
             } else {
                 Button(
-                    onClick = session.enable,
+                    onClick = session.actions.enable,
                     enabled = session.availability == WillDraftAuthenticationAvailability.Available,
                     modifier = Modifier
                         .fillMaxWidth()
@@ -150,7 +150,7 @@ fun WillDraftLockedContent(
             modifier = Modifier.padding(top = 8.dp),
         )
         Button(
-            onClick = session.unlock,
+            onClick = session.actions.unlock,
             enabled = session.availability == WillDraftAuthenticationAvailability.Available,
             modifier = Modifier
                 .fillMaxWidth()
