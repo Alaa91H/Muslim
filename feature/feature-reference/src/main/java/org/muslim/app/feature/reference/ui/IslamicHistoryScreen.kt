@@ -1171,12 +1171,24 @@ private fun AtlasList(
             )
         }
         if (layer.routes.isNotEmpty()) {
-            item { AtlasRoutesHeading(language = language) }
+            item {
+                Text(
+                    text = stringResource(R.string.history_atlas_routes),
+                    style = MaterialTheme.typography.labelLarge,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
             items(layer.routes, key = { it.id }) { route ->
                 AtlasRouteCard(route = route, language = language)
             }
         }
-        item { AtlasPlacesHeading(language = language) }
+        item {
+            Text(
+                text = stringResource(R.string.history_atlas_places),
+                style = MaterialTheme.typography.labelLarge,
+                fontWeight = FontWeight.Bold,
+            )
+        }
         items(layer.places, key = { it.id }) { place ->
             AtlasPlaceCard(
                 place = place,
@@ -1185,15 +1197,6 @@ private fun AtlasList(
             )
         }
     }
-}
-
-@Composable
-private fun AtlasRoutesHeading(language: HistoryLanguage) {
-    Text(
-        text = stringResource(R.string.history_atlas_routes),
-        style = MaterialTheme.typography.labelLarge,
-        fontWeight = FontWeight.Bold,
-    )
 }
 
 @Composable
@@ -1216,15 +1219,6 @@ private fun AtlasRouteCard(
             )
         }
     }
-}
-
-@Composable
-private fun AtlasPlacesHeading(language: HistoryLanguage) {
-    Text(
-        text = stringResource(R.string.history_atlas_places),
-        style = MaterialTheme.typography.labelLarge,
-        fontWeight = FontWeight.Bold,
-    )
 }
 
 @Composable
@@ -1363,38 +1357,6 @@ private fun PeopleTab(
         onTargetConsumed = onTargetConsumed,
         onNavigate = onNavigate,
     )
-}
-
-@Composable
-private fun PersonCard(person: HistoryPerson, language: HistoryLanguage) {
-    Card {
-        Column(modifier = Modifier.padding(18.dp)) {
-            Text(
-                text = person.name.resolve(language),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-            )
-            Text(
-                text = person.years,
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.padding(top = 3.dp),
-            )
-            Text(
-                text = stringResource(R.string.history_people_field, person.field.resolve(language)),
-                style = MaterialTheme.typography.bodySmall,
-                modifier = Modifier.padding(top = 5.dp),
-            )
-            Text(person.summary.resolve(language), style = MaterialTheme.typography.bodyMedium, modifier = Modifier.padding(top = 10.dp))
-            Text(
-                text = stringResource(R.string.history_people_contribution),
-                style = MaterialTheme.typography.labelLarge,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(top = 12.dp),
-            )
-            Text(person.contribution.resolve(language), style = MaterialTheme.typography.bodySmall, modifier = Modifier.padding(top = 4.dp))
-        }
-    }
 }
 
 @Composable
