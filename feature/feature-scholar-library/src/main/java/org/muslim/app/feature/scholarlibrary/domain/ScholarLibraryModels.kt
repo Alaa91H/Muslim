@@ -131,6 +131,46 @@ data class ScholarReadingProgress(
     val updatedAtEpochMillis: Long,
 )
 
+
+data class ScholarAuthorSummary(
+    val name: String,
+    val deathYearHijri: Int?,
+    val bookIds: List<String>,
+) {
+    val bookCount: Int get() = bookIds.size
+}
+
+data class ScholarBookOutlineSection(
+    val volume: String?,
+    val chapter: String,
+    val passageIds: List<String>,
+)
+
+data class ScholarStudyPath(
+    val id: String,
+    val title: String,
+    val summary: String,
+    val category: ScholarCategory,
+    val level: ScholarDifficulty,
+    val stages: List<ScholarStudyStage>,
+)
+
+data class ScholarStudyStage(
+    val id: String,
+    val title: String,
+    val description: String,
+    val bookIds: List<String>,
+)
+
+data class ScholarSearchFilters(
+    val category: ScholarCategory? = null,
+    val difficulty: ScholarDifficulty? = null,
+    val authorName: String? = null,
+) {
+    val isActive: Boolean
+        get() = category != null || difficulty != null || !authorName.isNullOrBlank()
+}
+
 data class Citation(
     val bookTitle: String,
     val author: String,
