@@ -7,8 +7,6 @@ import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performScrollTo
-import io.mockk.every
-import io.mockk.mockk
 import org.muslim.app.core.ui.theme.AppTheme
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.core.common.prayer.Prayer
@@ -17,15 +15,12 @@ import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerCompletionRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.SelectedLocation
-import org.muslim.app.core.common.prayer.PrayerCalculationProfile
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
-import org.muslim.app.core.common.prayer.PrayerTimesResult
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 import org.junit.Rule
 import org.junit.Test
-import kotlinx.coroutines.flow.flowOf
-import java.time.LocalDate
-import java.time.LocalTime
+import androidx.test.platform.app.InstrumentationRegistry
+import kotlinx.coroutines.runBlocking
 
 /**
  * Compose UI smoke test for the critical home screen (PROJECT_PROMPT.md §3.7).
@@ -36,11 +31,23 @@ class HomeScreenTest {
     @get:Rule
     val composeRule = createAndroidComposeRule<ComponentActivity>()
 
-    private val now = System.currentTimeMillis()
+    private val targetContext
+        get() = InstrumentationRegistry.getInstrumentation().targetContext
 
-    private fun buildViewModel(): HomeViewModel {
-        val repository = mockk<PrayerSettingsRepository>()
-        every { repository.settings } returns flowOf(
+    private fun buildViewModel(settings: PrayerSettings): HomeViewModel {
+        val repository = PrayerSettingsRepository(targetContext)
+        runBlocking { repository.save(settings) }
+        return HomeViewModel(
+            settingsRepository = repository,
+            completionRepository = PrayerCompletionRepository(targetContext),
+            calculator = PrayerTimesCalculator(),
+            appPreferencesRepository = AppPreferencesRepository(targetContext),
+        )
+    }
+
+    @Test
+    fun homeScreen_showsLocation_nextPrayer_andPrayerTimes() {
+        val viewModel = buildViewModel(
             PrayerSettings(
                 location = SelectedLocation(
                     name = "Makkah",
@@ -48,36 +55,8 @@ class HomeScreenTest {
                     longitude = 39.8262,
                     timeZone = "Asia/Riyadh",
                 ),
-            )
+            ),
         )
-
-        val completionRepository = mockk<PrayerCompletionRepository>()
-        every { completionRepository.completedPrayers(any()) } returns flowOf(emptySet())
-        val calculator = mockk<PrayerTimesCalculator>()
-        every {
-            calculator.compute(any(), any(), any<PrayerCalculationProfile>(), any())
-        } answers {
-            val date = firstArg<LocalDate>()
-            PrayerTimesResult(
-                date = date,
-                times = mapOf(
-                    Prayer.Fajr to LocalTime.of(4, 30),
-                    Prayer.Sunrise to LocalTime.of(6, 12),
-                    Prayer.Dhuhr to LocalTime.of(12, 45),
-                    Prayer.Asr to LocalTime.of(16, 20),
-                    Prayer.Maghrib to LocalTime.of(19, 5),
-                    Prayer.Isha to LocalTime.of(20, 30),
-                ),
-                // All prayers ~1h in the future so "next prayer" resolves to Fajr.
-                epochMillis = Prayer.entries.associateWith { now + 3_600_000L },
-            )
-        }
-        return HomeViewModel(repository, completionRepository, calculator, mockk(relaxed = true))
-    }
-
-    @Test
-    fun homeScreen_showsLocation_nextPrayer_andPrayerTimes() {
-        val viewModel = buildViewModel()
         composeRule.setContent {
             AppTheme(dynamicColor = false) {
                 HomeScreen(onSelectLocation = {}, viewModel = viewModel)
@@ -106,17 +85,7 @@ class HomeScreenTest {
 
     @Test
     fun homeScreen_withoutLocation_promptsForLocation() {
-        val repository = mockk<PrayerSettingsRepository>()
-        every { repository.settings } returns flowOf(PrayerSettings(location = null))
-        val completionRepository = mockk<PrayerCompletionRepository>()
-        every { completionRepository.completedPrayers(any()) } returns flowOf(emptySet())
-        val calculator = mockk<PrayerTimesCalculator>()
-        val viewModel = HomeViewModel(
-            repository,
-            completionRepository,
-            calculator,
-            mockk<AppPreferencesRepository>(relaxed = true),
-        )
+        val viewModel = buildViewModel(PrayerSettings(location = null))
 
         composeRule.setContent {
             AppTheme(dynamicColor = false) {

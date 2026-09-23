@@ -2,6 +2,8 @@ package org.muslim.app.core.location
 
 import android.Manifest
 import android.content.Context
+import android.os.Build
+import android.os.ParcelFileDescriptor
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import kotlinx.coroutines.runBlocking
@@ -25,10 +27,19 @@ class GpsFailureInstrumentationTest {
 
     @Before
     fun grantForegroundLocation() {
-        InstrumentationRegistry.getInstrumentation().uiAutomation.grantRuntimePermission(
-            context.packageName,
-            Manifest.permission.ACCESS_FINE_LOCATION,
-        )
+        val instrumentation = InstrumentationRegistry.getInstrumentation()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            instrumentation.uiAutomation.grantRuntimePermission(
+                context.packageName,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            )
+        } else {
+            ParcelFileDescriptor.AutoCloseInputStream(
+                instrumentation.uiAutomation.executeShellCommand(
+                    "pm grant ${context.packageName} ${Manifest.permission.ACCESS_FINE_LOCATION}",
+                ),
+            ).use { it.readBytes() }
+        }
     }
 
     @Test
