@@ -37,6 +37,7 @@ import androidx.compose.material.icons.filled.DeleteOutline
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.FlashOn
 import androidx.compose.material.icons.filled.Highlight
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
@@ -90,6 +91,7 @@ fun ScholarLibraryScreen(
     onOpenBook: (String) -> Unit,
     onOpenStudyDesk: () -> Unit,
     onOpenStudyPath: (String) -> Unit,
+    onOpenAuthors: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: ScholarLibraryViewModel = hiltViewModel(),
 ) {
@@ -107,7 +109,7 @@ fun ScholarLibraryScreen(
     }
     Scaffold(
         modifier = modifier.fillMaxSize(),
-        topBar = { ScholarLibraryTopBar(onBack, onOpenStudyDesk) },
+        topBar = { ScholarLibraryTopBar(onBack, onOpenStudyDesk, onOpenAuthors) },
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { padding ->
         ScholarLibraryContent(
@@ -130,7 +132,11 @@ private fun readSelectedPack(context: android.content.Context, uri: Uri?): Strin
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun ScholarLibraryTopBar(onBack: () -> Unit, onOpenStudyDesk: () -> Unit) {
+private fun ScholarLibraryTopBar(
+    onBack: () -> Unit,
+    onOpenStudyDesk: () -> Unit,
+    onOpenAuthors: () -> Unit,
+) {
     TopAppBar(
         title = { Text(stringResource(R.string.scholar_library_title)) },
         navigationIcon = {
@@ -139,6 +145,9 @@ private fun ScholarLibraryTopBar(onBack: () -> Unit, onOpenStudyDesk: () -> Unit
             }
         },
         actions = {
+            IconButton(onClick = onOpenAuthors) {
+                Icon(Icons.Filled.Person, contentDescription = stringResource(R.string.scholar_library_authors))
+            }
             IconButton(onClick = onOpenStudyDesk) {
                 Icon(Icons.Filled.Bookmarks, contentDescription = stringResource(R.string.scholar_library_study_desk))
             }
