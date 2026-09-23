@@ -76,18 +76,18 @@ data class AppPreferences(
     val autoUpdateEnabled: Boolean = false,
     /** Epoch millis of the last successful update check (0 = never checked). */
     val lastUpdateCheckEpoch: Long = 0L,
-    /**
-     * Last release version for which an update-available notification was
-     * actually posted. This prevents a daily/weekly worker from notifying the
-     * user repeatedly about the same release.
-     */
-    val lastNotifiedUpdateVersion: String = "",
     /** Radius selected for the on-demand nearby-mosque search. */
     val nearbyMosqueSearchRadiusKm: Int = DEFAULT_NEARBY_MOSQUE_RADIUS_KM,
     /** Serialized on-device mosque cache. It contains places, not old user distances. */
     val nearbyMosqueCacheJson: String = "",
     /** Epoch millis when [nearbyMosqueCacheJson] was last refreshed (0 = never). */
     val nearbyMosqueCacheSavedAtEpochMillis: Long = 0L,
+    /**
+     * Last release version for which an update-available notification was
+     * actually posted. This prevents a daily/weekly worker from notifying the
+     * user repeatedly about the same release.
+     */
+    val lastNotifiedUpdateVersion: String = "",
 ) {
     companion object {
         const val SYSTEM_LANGUAGE = "system"
