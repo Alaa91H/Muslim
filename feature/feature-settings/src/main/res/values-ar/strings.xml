@@ -11,8 +11,8 @@
     <string name="settings_more_order_desc">تخصيص أقسام شاشة المزيد (العبادات، العلم، الأدوات…)</string>
     <string name="settings_section_updates">التحديثات</string>
     <string name="settings_updates_check">التحقق من وجود تحديثات</string>
-    <string name="settings_updates_check_desc">تحقق بشكل دوري من صفحة إصدارات GitHub للحصول على إصدار جديد</string>
-    <string name="settings_updates_frequency">تحقق من التردد</string>
+    <string name="settings_updates_check_desc">فحص إصدارات GitHub دوريًا وإرسال إشعار مرة واحدة عند اكتشاف إصدار أحدث</string>
+    <string name="settings_updates_frequency">تكرار التحقق</string>
     <string name="settings_updates_daily">يوميا</string>
     <string name="settings_updates_weekly">أسبوعيا</string>
     <string name="settings_updates_monthly">شهريا</string>
@@ -23,7 +23,7 @@
     <string name="settings_updates_error">لا يمكن التحقق من وجود تحديثات. حاول مرة أخرى لاحقًا.</string>
     <string name="update_title">تحديثات التطبيق</string>
     <string name="update_checking">جارٍ التحقق من وجود تحديثات...</string>
-    <string name="update_up_to_date">أنت على اطلاع ✅</string>
+    <string name="update_up_to_date">أنت تستخدم أحدث إصدار</string>
     <string name="update_unavailable">لا يمكن الوصول إلى صفحة الإصدارات.</string>
     <string name="update_retry">أعد المحاولة</string>
     <string name="update_new_version">الإصدار الجديد %1$s</string>
@@ -35,7 +35,8 @@
     <string name="update_installing">جارٍ فتح مثبت النظام...</string>
     <string name="update_download_failed">فشل التنزيل – حاول مرة أخرى</string>
     <string name="update_available_title">تحديث جديد متاح</string>
-    <string name="update_available_text">الإصدار %1$s متوفر الآن — انقر للتحديث</string>
+    <string name="update_available_text">الإصدار %1$s متاح الآن — اضغط لعرض التفاصيل</string>
+    <string name="update_notification_action_view">عرض التفاصيل</string>
     <string name="notif_category_app_update">تحديثات التطبيق</string>
     <string name="notif_category_app_update_desc">إشعار عند توفر إصدار جديد للتطبيق</string>
     <string name="about_tagline">رفيق كامل ومجاني ومفتوح المصدر لكل مسلم - أوقات الصلاة والأذان والقرآن والحديث والأذكار والمزيد بلغتك.</string>
@@ -54,7 +55,7 @@
     <string name="settings_auto_update_confirm_body">سيتم تنزيل الإصدارات الجديدة وتثبيتها تلقائيًا في الخلفية عند توفرها. يكمل؟</string>
     <string name="settings_auto_update_confirm">يُمكَِن</string>
     <string name="settings_cancel">يلغي</string>
-    <string name="update_last_check">الفحص الأخير: %1$s</string>
+    <string name="update_last_check">آخر فحص ناجح: %1$s</string>
     <string name="update_open_releases">افتح صفحة الإصدارات في المتصفح</string>
     <string name="settings_section_managers">المديرين والأذونات</string>
 

@@ -82,6 +82,12 @@ data class AppPreferences(
     val nearbyMosqueCacheJson: String = "",
     /** Epoch millis when [nearbyMosqueCacheJson] was last refreshed (0 = never). */
     val nearbyMosqueCacheSavedAtEpochMillis: Long = 0L,
+    /**
+     * Last release version for which an update-available notification was
+     * actually posted. This prevents a daily/weekly worker from notifying the
+     * user repeatedly about the same release.
+     */
+    val lastNotifiedUpdateVersion: String = "",
 ) {
     companion object {
         const val SYSTEM_LANGUAGE = "system"

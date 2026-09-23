@@ -33,19 +33,36 @@ class GithubReleasesClient @Inject constructor(
                 if (!response.isSuccessful) return@withContext null
                 val json = JSONObject(response.body?.string().orEmpty())
                 val assets = json.optJSONArray("assets")
-                var apkUrl: String? = null
-                var apkSize = 0L
+                var selectedApk: JSONObject? = null
                 if (assets != null) {
+                    // Prefer the phone/tablet production artifact explicitly.
+                    // Release workflows may also attach wear-release.apk; never
+                    // select it just because it happens to be the first APK.
                     for (i in 0 until assets.length()) {
                         val asset = assets.getJSONObject(i)
-                        val name = asset.optString("name")
-                        if (name.endsWith(".apk", ignoreCase = true)) {
-                            apkUrl = asset.optString("browser_download_url").ifBlank { apkUrl }
-                            apkSize = asset.optLong("size", 0L)
+                        if (asset.optString("name").equals("app-release.apk", ignoreCase = true)) {
+                            selectedApk = asset
                             break
                         }
                     }
+                    if (selectedApk == null) {
+                        for (i in 0 until assets.length()) {
+                            val asset = assets.getJSONObject(i)
+                            val name = asset.optString("name")
+                            if (
+                                name.endsWith(".apk", ignoreCase = true) &&
+                                !name.contains("wear", ignoreCase = true)
+                            ) {
+                                selectedApk = asset
+                                break
+                            }
+                        }
+                    }
                 }
+                val apkUrl = selectedApk
+                    ?.optString("browser_download_url")
+                    ?.takeIf { it.isNotBlank() }
+                val apkSize = selectedApk?.optLong("size", 0L) ?: 0L
                 ReleaseInfo(
                     version = json.optString("tag_name").removePrefix("v"),
                     tagName = json.optString("tag_name"),

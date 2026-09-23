@@ -57,6 +57,7 @@ class AppPreferencesRepository @Inject constructor(
             updateCheckFrequency = prefs[Keys.UPDATE_CHECK_FREQUENCY] ?: AppPreferences.UPDATE_CHECK_DAILY,
             autoUpdateEnabled = prefs[Keys.AUTO_UPDATE_ENABLED] ?: false,
             lastUpdateCheckEpoch = prefs[Keys.LAST_UPDATE_CHECK] ?: 0L,
+            lastNotifiedUpdateVersion = prefs[Keys.LAST_NOTIFIED_UPDATE_VERSION].orEmpty(),
             nearbyMosqueSearchRadiusKm = (prefs[Keys.NEARBY_MOSQUE_SEARCH_RADIUS_KM]
                 ?: AppPreferences.DEFAULT_NEARBY_MOSQUE_RADIUS_KM)
                 .takeIf { it in AppPreferences.NEARBY_MOSQUE_RADIUS_OPTIONS_KM }
@@ -188,6 +189,11 @@ class AppPreferencesRepository @Inject constructor(
         edit { prefs -> prefs[Keys.LAST_UPDATE_CHECK] = epochMillis }
     }
 
+    /** Records the release version for which a notification was actually posted. */
+    suspend fun setLastNotifiedUpdateVersion(version: String) {
+        edit { prefs -> prefs[Keys.LAST_NOTIFIED_UPDATE_VERSION] = version.trim() }
+    }
+
     /** Persists a supported nearby-mosque radius and rejects corrupted values. */
     suspend fun setNearbyMosqueSearchRadiusKm(radiusKm: Int) {
         require(radiusKm in AppPreferences.NEARBY_MOSQUE_RADIUS_OPTIONS_KM) { "Unsupported mosque radius: $radiusKm" }
@@ -267,6 +273,7 @@ class AppPreferencesRepository @Inject constructor(
         val UPDATE_CHECK_FREQUENCY = stringPreferencesKey("update_check_frequency")
         val AUTO_UPDATE_ENABLED = booleanPreferencesKey("auto_update_enabled")
         val LAST_UPDATE_CHECK = androidx.datastore.preferences.core.longPreferencesKey("last_update_check")
+        val LAST_NOTIFIED_UPDATE_VERSION = stringPreferencesKey("last_notified_update_version")
         val NEARBY_MOSQUE_SEARCH_RADIUS_KM = androidx.datastore.preferences.core.intPreferencesKey("nearby_mosque_search_radius_km")
         val NEARBY_MOSQUE_CACHE_JSON = stringPreferencesKey("nearby_mosque_cache_json")
         val NEARBY_MOSQUE_CACHE_SAVED_AT = androidx.datastore.preferences.core.longPreferencesKey("nearby_mosque_cache_saved_at")

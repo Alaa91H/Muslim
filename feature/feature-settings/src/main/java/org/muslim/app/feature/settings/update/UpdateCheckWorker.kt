@@ -23,14 +23,19 @@ open class UpdateCheckWorker(
 
     override suspend fun doWork(): Result {
         // The toggle is the master switch even if a stale job is still queued.
-        val prefs = prefs().preferences.first()
+        val prefsRepository = prefs()
+        val prefs = prefsRepository.preferences.first()
         if (!prefs.updateCheckEnabled) return Result.success()
+
         val checker = UpdateChecker(applicationContext)
-        if (!checker.categoryAllowed()) return Result.success()
         return when (checker.checkAndNotify()) {
-            is UpdateChecker.Result.UpdateAvailable -> Result.success()
-            UpdateChecker.Result.UpToDate -> Result.success()
-            // Transient failure: try again on the next period.
+            is UpdateChecker.Result.UpdateAvailable,
+            UpdateChecker.Result.UpToDate -> {
+                prefsRepository.setLastUpdateCheck(System.currentTimeMillis())
+                Result.success()
+            }
+            // Transient failure: WorkManager retries with the scheduler's
+            // exponential backoff instead of recording a false successful check.
             UpdateChecker.Result.Unavailable -> Result.retry()
         }
     }

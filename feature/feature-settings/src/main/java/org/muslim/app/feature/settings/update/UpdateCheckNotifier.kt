@@ -23,9 +23,9 @@ class UpdateCheckNotifier(private val context: Context) {
      * we skip silently when notifications are disabled app-wide instead of
      * crashing the caller (the permissions manager guides the user there).
      */
-    fun show(release: ReleaseInfo) {
-        if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) return
-        runCatching {
+    fun show(release: ReleaseInfo): Boolean {
+        if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) return false
+        return runCatching {
             NotificationChannels.create(context)
             val contentIntent = PendingIntent.getActivity(
                 context,
@@ -47,11 +47,20 @@ class UpdateCheckNotifier(private val context: Context) {
                     ),
                 )
                 .setContentIntent(contentIntent)
+                .addAction(
+                    Notification.Action.Builder(
+                        org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029,
+                        context.getString(R.string.update_notification_action_view),
+                        contentIntent,
+                    ).build(),
+                )
+                .setOnlyAlertOnce(true)
                 .setAutoCancel(true)
                 .build()
             context.getSystemService(NotificationManager::class.java)
                 .notify(NOTIFICATION_ID, notification)
-        }
+            true
+        }.getOrDefault(false)
     }
 
     private companion object {

@@ -5,6 +5,8 @@ import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.flow.first
+import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.notificationAllowed
 
@@ -33,11 +35,25 @@ class UpdateChecker(private val context: Context) {
         }
     }
 
-    /** Runs [check] and posts the notification when an update is available. */
+    /**
+     * Runs [check] and posts at most one notification for each release version.
+     * The version is persisted only after Android accepted the notification, so
+     * a temporarily disabled notification permission does not permanently lose
+     * the update alert.
+     */
     suspend fun checkAndNotify(): Result {
         val result = check()
-        if (result is Result.UpdateAvailable) {
-            runCatching { notifier().show(result.release) }
+        if (result !is Result.UpdateAvailable || !categoryAllowed()) return result
+
+        val preferences = prefs()
+        val lastNotifiedVersion = preferences.preferences.first().lastNotifiedUpdateVersion
+        if (!UpdateNotificationPolicy.shouldNotify(result.release.version, lastNotifiedVersion)) {
+            return result
+        }
+
+        val posted = runCatching { notifier().show(result.release) }.getOrDefault(false)
+        if (posted) {
+            preferences.setLastNotifiedUpdateVersion(result.release.version)
         }
         return result
     }
@@ -52,6 +68,9 @@ class UpdateChecker(private val context: Context) {
 
     private fun notifier(): UpdateCheckNotifier = UpdateCheckNotifier(context)
 
+    private fun prefs(): AppPreferencesRepository =
+        EntryPointAccessors.fromApplication(context, UpdateEntryPoint::class.java).prefs()
+
     /** Whether the unified notification manager allows the app-update category. */
     suspend fun categoryAllowed(): Boolean =
         context.notificationAllowed(NotificationCategory.AppUpdate)
@@ -60,5 +79,6 @@ class UpdateChecker(private val context: Context) {
     @InstallIn(SingletonComponent::class)
     interface UpdateEntryPoint {
         fun releasesClient(): GithubReleasesClient
+        fun prefs(): AppPreferencesRepository
     }
 }
