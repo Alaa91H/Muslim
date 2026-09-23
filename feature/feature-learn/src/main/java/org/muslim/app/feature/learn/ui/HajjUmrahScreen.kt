@@ -40,7 +40,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -62,6 +61,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import org.muslim.app.core.common.lang.AppLanguage
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.HajjCategory
 import org.muslim.app.feature.learn.domain.HajjStep
@@ -162,7 +162,7 @@ fun HajjUmrahScreen(
 }
 
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
