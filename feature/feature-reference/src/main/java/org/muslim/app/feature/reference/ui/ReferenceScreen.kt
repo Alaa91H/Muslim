@@ -266,19 +266,65 @@ private fun BookContent(
             )
         } else {
             LazyColumn(modifier = Modifier.fillMaxSize()) {
-                items(results, key = { it.id }) { topic ->
-                    ListItem(
-                        headlineContent = { Text(topic.title(lang), fontWeight = FontWeight.Medium) },
-                        supportingContent = { Text(topic.summary(lang), maxLines = 2) },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable { onOpenTopic(topic) },
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+                if (query.isBlank() && book.chapters.isNotEmpty()) {
+                    book.chapters.forEach { chapter ->
+                        item(key = "chapter-header-${chapter.id}") {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 20.dp, vertical = 12.dp),
+                            ) {
+                                Text(
+                                    text = chapter.title(lang),
+                                    style = MaterialTheme.typography.titleMedium,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.primary,
+                                )
+                                val summary = chapter.summary(lang)
+                                if (summary.isNotBlank()) {
+                                    Spacer(Modifier.height(4.dp))
+                                    Text(
+                                        text = summary,
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    )
+                                }
+                            }
+                        }
+                        val chapterTopics = chapter.topicIds.mapNotNull { topicId ->
+                            book.topics.firstOrNull { it.id == topicId }
+                        }
+                        items(
+                            items = chapterTopics,
+                            key = { topic -> "chapter-${chapter.id}-${topic.id}" },
+                        ) { topic ->
+                            TopicListItem(topic = topic, lang = lang, onOpenTopic = onOpenTopic)
+                        }
+                    }
+                } else {
+                    items(results, key = { it.id }) { topic ->
+                        TopicListItem(topic = topic, lang = lang, onOpenTopic = onOpenTopic)
+                    }
                 }
             }
         }
     }
+}
+
+@Composable
+private fun TopicListItem(
+    topic: RefTopic,
+    lang: RefLang,
+    onOpenTopic: (RefTopic) -> Unit,
+) {
+    ListItem(
+        headlineContent = { Text(topic.title(lang), fontWeight = FontWeight.Medium) },
+        supportingContent = { Text(topic.summary(lang), maxLines = 2) },
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onOpenTopic(topic) },
+    )
+    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
 }
 
 @Composable
