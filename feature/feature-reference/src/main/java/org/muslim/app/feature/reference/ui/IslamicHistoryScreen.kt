@@ -26,6 +26,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -65,6 +66,11 @@ fun IslamicHistoryScreen(
 ) {
     var language by remember { mutableStateOf(HistoryLanguage.Arabic) }
     var selectedTab by remember { mutableIntStateOf(0) }
+    var pendingTarget by remember { mutableStateOf<HistoryNavigationTarget?>(null) }
+    val openTarget: (HistoryNavigationTarget) -> Unit = { target ->
+        pendingTarget = target
+        selectedTab = target.type.tabIndex()
+    }
 
     MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
@@ -106,12 +112,40 @@ fun IslamicHistoryScreen(
                 modifier = Modifier.padding(horizontal = 24.dp),
             )
             when (selectedTab) {
-                0 -> TimelineTab(language = language)
-                1 -> StatesTab(language = language)
-                2 -> CivilizationTab(language = language)
-                3 -> EventsTab(language = language)
-                4 -> AtlasTab(language = language)
-                else -> PeopleTab(language = language)
+                0 -> TimelineTab(
+                    language = language,
+                    target = pendingTarget,
+                    onTargetConsumed = { pendingTarget = null },
+                )
+                1 -> StatesTab(
+                    language = language,
+                    target = pendingTarget,
+                    onTargetConsumed = { pendingTarget = null },
+                )
+                2 -> CivilizationTab(
+                    language = language,
+                    target = pendingTarget,
+                    onTargetConsumed = { pendingTarget = null },
+                )
+                3 -> EventsTab(
+                    language = language,
+                    target = pendingTarget,
+                    onTargetConsumed = { pendingTarget = null },
+                    onNavigate = openTarget,
+                )
+                4 -> AtlasTab(
+                    language = language,
+                    target = pendingTarget,
+                    onTargetConsumed = { pendingTarget = null },
+                    onNavigate = openTarget,
+                )
+                5 -> PeopleTab(
+                    language = language,
+                    target = pendingTarget,
+                    onTargetConsumed = { pendingTarget = null },
+                    onNavigate = openTarget,
+                )
+                else -> HistorySearchTab(language = language, onOpen = openTarget)
             }
         }
     }
@@ -126,6 +160,7 @@ private fun HistoryTabs(selectedTab: Int, onSelect: (Int) -> Unit) {
         stringResource(R.string.history_events_tab),
         stringResource(R.string.history_atlas_tab),
         stringResource(R.string.history_people_tab),
+        stringResource(R.string.history_search_tab),
     )
     ScrollableTabRow(
         selectedTabIndex = selectedTab,
@@ -142,8 +177,18 @@ private fun HistoryTabs(selectedTab: Int, onSelect: (Int) -> Unit) {
 }
 
 @Composable
-private fun TimelineTab(language: HistoryLanguage) {
+private fun TimelineTab(
+    language: HistoryLanguage,
+    target: HistoryNavigationTarget?,
+    onTargetConsumed: () -> Unit,
+) {
     var selectedEraId by remember { mutableStateOf<String?>(null) }
+    LaunchedEffect(target) {
+        if (target?.type == HistoryTargetType.Era) {
+            selectedEraId = target.id
+            onTargetConsumed()
+        }
+    }
     val selectedArticle = selectedEraId?.let(IslamicHistoryArticles::articleForEra)
 
     if (selectedArticle != null) {
@@ -357,8 +402,28 @@ private fun eraRange(era: HistoryEra): String = stringResource(
 )
 
 @Composable
-private fun StatesTab(language: HistoryLanguage) {
+private fun StatesTab(
+    language: HistoryLanguage,
+    target: HistoryNavigationTarget?,
+    onTargetConsumed: () -> Unit,
+) {
     var selectedRegion by remember { mutableStateOf<HistoryRegion?>(null) }
+    var selectedStateId by remember { mutableStateOf<String?>(null) }
+    LaunchedEffect(target) {
+        if (target?.type == HistoryTargetType.State) {
+            selectedStateId = target.id
+            onTargetConsumed()
+        }
+    }
+    val selectedState = selectedStateId?.let(IslamicHistoryStates::byId)
+    if (selectedState != null) {
+        HistoricalStateDetail(
+            state = selectedState,
+            language = language,
+            onBack = { selectedStateId = null },
+        )
+        return
+    }
     val regions = listOf<HistoryRegion?>(
         null,
         HistoryRegion.MultiRegional,
@@ -384,7 +449,11 @@ private fun StatesTab(language: HistoryLanguage) {
         ) {
             item { HistoryNotice(stringResource(R.string.history_states_intro)) }
             items(states, key = { it.id }) { state ->
-                HistoricalStateCard(state = state, language = language)
+                HistoricalStateCard(
+                    state = state,
+                    language = language,
+                    onOpen = { selectedStateId = state.id },
+                )
             }
             item { HistoryNotice(stringResource(R.string.history_sources_notice)) }
         }
@@ -419,6 +488,7 @@ private fun HistoryRegionSelector(
 private fun HistoricalStateCard(
     state: HistoricalState,
     language: HistoryLanguage,
+    onOpen: (() -> Unit)? = null,
 ) {
     val uriHandler = LocalUriHandler.current
     val source = state.sourceIds.firstNotNullOfOrNull(IslamicHistorySources::byId)
@@ -447,11 +517,22 @@ private fun HistoricalStateCard(
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(top = 10.dp),
             )
-            source?.url?.let { url ->
+            if (onOpen != null) {
                 TextButton(
-                    onClick = { uriHandler.openUri(url) },
+                    onClick = onOpen,
                     modifier = Modifier.padding(top = 6.dp),
                 ) {
+                    Text(
+                        if (language == HistoryLanguage.Arabic) {
+                            "عرض التفاصيل"
+                        } else {
+                            "View details"
+                        },
+                    )
+                }
+            }
+            source?.url?.let { url ->
+                TextButton(onClick = { uriHandler.openUri(url) }) {
                     Text(
                         if (language == HistoryLanguage.Arabic) {
                             "فتح المصدر"
@@ -460,6 +541,78 @@ private fun HistoricalStateCard(
                         },
                     )
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun HistoricalStateDetail(
+    state: HistoricalState,
+    language: HistoryLanguage,
+    onBack: () -> Unit,
+) {
+    BackHandler(onBack = onBack)
+    val sources = state.sourceIds.mapNotNull(IslamicHistorySources::byId)
+    val events = org.muslim.app.feature.reference.domain.IslamicHistoricalEvents.events
+        .filter { state.id in it.stateIds }
+
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
+        item {
+            TextButton(onClick = onBack) {
+                Text(
+                    if (language == HistoryLanguage.Arabic) {
+                        "العودة إلى الدول"
+                    } else {
+                        "Back to states"
+                    },
+                )
+            }
+        }
+        item {
+            Text(
+                text = state.title.resolve(language),
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                text = statePeriodLabel(state, language),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(top = 4.dp),
+            )
+            Text(
+                text = state.summary.resolve(language),
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.padding(top = 10.dp),
+            )
+        }
+        if (events.isNotEmpty()) {
+            item {
+                Text(
+                    text = if (language == HistoryLanguage.Arabic) "أحداث مرتبطة" else "Related events",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
+            items(events, key = { it.id }) { event ->
+                Card {
+                    Text(
+                        text = event.title.resolve(language),
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(16.dp),
+                    )
+                }
+            }
+        }
+        if (sources.isNotEmpty()) {
+            item { HistorySourcesHeading(language) }
+            items(sources, key = { it.id }) { source ->
+                HistorySourceCard(source = source, language = language)
             }
         }
     }
@@ -497,9 +650,19 @@ private fun historyRegionLabel(region: HistoryRegion?, language: HistoryLanguage
     }
 
 @Composable
-private fun CivilizationTab(language: HistoryLanguage) {
+private fun CivilizationTab(
+    language: HistoryLanguage,
+    target: HistoryNavigationTarget?,
+    onTargetConsumed: () -> Unit,
+) {
     var selectedCategory by remember { mutableStateOf<CivilizationCategory?>(null) }
     var selectedTopicId by remember { mutableStateOf<String?>(null) }
+    LaunchedEffect(target) {
+        if (target?.type == HistoryTargetType.CivilizationTopic) {
+            selectedTopicId = target.id
+            onTargetConsumed()
+        }
+    }
     val selectedTopic = selectedTopicId?.let(IslamicCivilizationContent::byId)
 
     if (selectedTopic != null) {
@@ -685,9 +848,20 @@ private fun civilizationCategoryLabel(
     }
 
 @Composable
-private fun AtlasTab(language: HistoryLanguage) {
+private fun AtlasTab(
+    language: HistoryLanguage,
+    target: HistoryNavigationTarget?,
+    onTargetConsumed: () -> Unit,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
+) {
     var selectedIndex by remember { mutableIntStateOf(0) }
     var selectedPlaceId by remember { mutableStateOf<String?>(null) }
+    LaunchedEffect(target) {
+        if (target?.type == HistoryTargetType.Place) {
+            selectedPlaceId = target.id
+            onTargetConsumed()
+        }
+    }
     val layers = IslamicHistoryContent.atlasLayers
     val layer = layers[selectedIndex]
 
@@ -696,6 +870,7 @@ private fun AtlasTab(language: HistoryLanguage) {
             placeId = placeId,
             language = language,
             onBack = { selectedPlaceId = null },
+            onNavigate = onNavigate,
         )
         return
     }
@@ -821,8 +996,18 @@ private fun AtlasList(
 }
 
 @Composable
-private fun PeopleTab(language: HistoryLanguage) {
-    HistoryPeopleProfilesTab(language = language)
+private fun PeopleTab(
+    language: HistoryLanguage,
+    target: HistoryNavigationTarget?,
+    onTargetConsumed: () -> Unit,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
+) {
+    HistoryPeopleProfilesTab(
+        language = language,
+        target = target,
+        onTargetConsumed = onTargetConsumed,
+        onNavigate = onNavigate,
+    )
 }
 
 @Composable
