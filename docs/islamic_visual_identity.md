@@ -74,7 +74,7 @@ The system-facing application identity is intentionally split into two assets. T
 | Surface | Asset class | Design rule |
 |---|---|---|
 | App launcher and themed launcher | Full-colour adaptive foreground, navy background, monochrome themed layer | Preserve the eight-point geometry, mihrab and crescent silhouette within adaptive-icon safe zones. |
-| Status bar | Dedicated monochrome small-icon vector | Use the same approved seven-part line-art geometry as the themed launcher monochrome layer: thin axis-aligned square, rotated diamond, inner architectural frame, mirrored upper ribbons, mihrab, and crescent. Preserve transparent negative space so the mark remains readable at 24dp. |
+| Status bar | Dedicated monochrome small-icon vector | Use the exact user-approved traced silhouette shared with the themed launcher monochrome layer. The single evenOdd path preserves the square/diamond frame, architectural ribbons, mihrab, crescent, and transparent negative space while remaining readable at 24dp. |
 | Adhan, countdown and Quran playback cards | Android-owned notification and media templates | Do not provide a custom large app image merely to force branding; the current application identity may be rendered by Android itself. |
 
 The repair uses fresh resource names and fresh current notification IDs, then cancels cards known to be retained from earlier versions. This is a migration mechanism rather than a new visual style. The exact migration IDs, test coverage, user upgrade note, and platform limits are recorded in [`qa/notification_identity_repair.md`](qa/notification_identity_repair.md).
