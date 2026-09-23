@@ -78,6 +78,14 @@ jobs:
       - name: Build debug APKs
         run: ./gradlew :app:assembleDebug :wear:assembleDebug --stacktrace
 
+      - name: Smoke-test update manifest generator
+        run: |
+          set -euo pipefail
+          PHONE_APK="$(find app/build/outputs/apk/debug -name '*.apk' | head -1)"
+          [ -n "$PHONE_APK" ] || { echo "No debug phone APK found" >&2; exit 1; }
+          bash scripts/generate-update-manifest.sh "$PHONE_APK" /tmp/update-manifest.json debug debug
+          python3 -m json.tool /tmp/update-manifest.json >/dev/null
+
       - name: Run unit tests
         run: ./gradlew testDebugUnitTest :wear:testDebugUnitTest
 
