@@ -19,6 +19,7 @@ internal data class UpdateReleaseManifest(
     companion object {
         fun parse(raw: String): UpdateReleaseManifest? = runCatching {
             val json = JSONObject(raw)
+            require(json.optInt("schemaVersion", 0) == SUPPORTED_SCHEMA)
             val apk = json.getJSONObject("apk")
             val versionName = json.getString("versionName").trim().trimStart('v')
             val versionCode = json.getLong("versionCode")
@@ -43,6 +44,7 @@ internal data class UpdateReleaseManifest(
             )
         }.getOrNull()
 
+        private const val SUPPORTED_SCHEMA = 1
         private val SHA_256 = Regex("^[0-9a-f]{64}$")
     }
 }
