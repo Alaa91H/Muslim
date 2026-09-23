@@ -31,9 +31,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.muslim.app.core.ui.theme.IslamicOrnament
-import org.muslim.app.core.ui.theme.IslamicOrnamentImage
-import org.muslim.app.core.ui.theme.IslamicOrnamentOpacity
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
+import org.muslim.app.core.ui.theme.IslamicReadingHeaderDecoration
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.core.designsystem.IslamicIconSize
@@ -57,14 +56,9 @@ fun SurahListScreen(
     val state by viewModel.uiState.collectAsStateWithLifecycle()
 
     Column(modifier = modifier.fillMaxSize()) {
-        IslamicOrnamentImage(
-            ornament = IslamicOrnament.SurahHeader,
+        IslamicReadingHeaderDecoration(
             tint = MaterialTheme.colorScheme.tertiary,
-            alpha = IslamicOrnamentOpacity.LightSection,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(IslamicSpacing.Medium)
-                .padding(top = IslamicSpacing.XXSmall),
+            modifier = Modifier.padding(top = IslamicSpacing.XXSmall),
         )
         MuslimSectionHeader(
             title = stringResource(R.string.quran_title),
@@ -80,6 +74,11 @@ fun SurahListScreen(
                     )
                 }
             },
+        )
+
+        IslamicDecorationDivider(
+            tint = MaterialTheme.colorScheme.tertiary,
+            modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
         )
 
         when {

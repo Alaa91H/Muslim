@@ -20,7 +20,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -36,6 +35,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.reference.R
 import org.muslim.app.feature.reference.domain.HistoryEra
 import org.muslim.app.feature.reference.domain.HistoryLanguage
@@ -53,7 +54,7 @@ fun IslamicHistoryScreen(
     var language by remember { mutableStateOf(HistoryLanguage.Arabic) }
     var selectedTab by remember { mutableIntStateOf(0) }
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
@@ -88,6 +89,10 @@ fun IslamicHistoryScreen(
     ) { innerPadding ->
         Column(modifier = Modifier.padding(innerPadding).fillMaxSize()) {
             HistoryTabs(selectedTab = selectedTab, onSelect = { selectedTab = it })
+            IslamicDecorationDivider(
+                tint = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(horizontal = 24.dp),
+            )
             when (selectedTab) {
                 0 -> TimelineTab(language = language)
                 1 -> AtlasTab(language = language)

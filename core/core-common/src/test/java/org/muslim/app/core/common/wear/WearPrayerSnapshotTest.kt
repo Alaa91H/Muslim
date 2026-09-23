@@ -2,6 +2,8 @@ package org.muslim.app.core.common.wear
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
+import org.muslim.app.core.common.appearance.AppOrnamentStyle
+import org.muslim.app.core.common.appearance.OrnamentIntensity
 
 class WearPrayerSnapshotTest {
 
@@ -31,6 +33,39 @@ class WearPrayerSnapshotTest {
         )
 
         assertThat(invalid.isValid()).isFalse()
+    }
+
+    @Test
+    fun `appearance defaults keep old snapshots compatible`() {
+        val snapshot = WearPrayerSnapshot(
+            nextPrayerName = "الفجر",
+            nextPrayerAtEpochMillis = null,
+            tasbihPhrase = "الحمد لله",
+            tasbihCount = 0,
+            tasbihTarget = 33,
+            syncedAtEpochMillis = 1L,
+        )
+
+        assertThat(snapshot.ornamentStyle).isEqualTo(AppOrnamentStyle.Geometry)
+        assertThat(snapshot.ornamentIntensity).isEqualTo(OrnamentIntensity.Balanced)
+    }
+
+    @Test
+    fun `snapshot carries selected ornament appearance`() {
+        val snapshot = WearPrayerSnapshot(
+            nextPrayerName = "العشاء",
+            nextPrayerAtEpochMillis = null,
+            tasbihPhrase = "الله أكبر",
+            tasbihCount = 3,
+            tasbihTarget = 33,
+            syncedAtEpochMillis = 2L,
+            ornamentStyle = AppOrnamentStyle.Ottoman,
+            ornamentIntensity = OrnamentIntensity.Rich,
+        )
+
+        assertThat(snapshot.ornamentStyle).isEqualTo(AppOrnamentStyle.Ottoman)
+        assertThat(snapshot.ornamentIntensity).isEqualTo(OrnamentIntensity.Rich)
+        assertThat(snapshot.isValid()).isTrue()
     }
 
     @Test

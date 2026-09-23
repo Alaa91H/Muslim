@@ -85,7 +85,6 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
@@ -127,9 +126,11 @@ import org.muslim.app.core.designsystem.IslamicMotion
 import org.muslim.app.core.designsystem.IslamicRadius
 import org.muslim.app.core.designsystem.MuslimSepiaColors
 import org.muslim.app.core.ui.accessibility.LocalAccessibilityVisuals
-import org.muslim.app.core.ui.theme.IslamicOrnament
-import org.muslim.app.core.ui.theme.IslamicOrnamentImage
-import org.muslim.app.core.ui.theme.IslamicOrnamentOpacity
+import org.muslim.app.core.ui.theme.IslamicDecorationCorners
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
+import org.muslim.app.core.ui.theme.IslamicReadingBasmalaAccent
+import org.muslim.app.core.ui.theme.IslamicReadingDivider
+import org.muslim.app.core.ui.theme.IslamicReadingHeaderDecoration
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.TajweedMarkup
 import org.muslim.app.feature.quran.data.PlaybackState
@@ -1035,11 +1036,8 @@ private fun RecitationBar(
                     Text(stringResource(R.string.quran_play_from_selected_ayah, selectedAyahNumber))
                 }
             }
-            IslamicOrnamentImage(
-                ornament = IslamicOrnament.Arabesque,
+            IslamicDecorationDivider(
                 tint = MaterialTheme.colorScheme.tertiary,
-                alpha = IslamicOrnamentOpacity.LightSection,
-                modifier = Modifier.fillMaxWidth().height(5.dp),
             )
             // One slim now-playing line: reciter chip + surah/ayah + time, so
             // there is exactly ONE control bar. The reciter name is shown
@@ -1529,29 +1527,14 @@ private fun MushafPageCard(
             .clickable(onClick = { callbacks.onPageClick(ayahs) }),
     ) {
         Box {
-            // Edge ornaments frame the page but never sit behind Quran text.
-            IslamicOrnamentImage(
-                ornament = IslamicOrnament.Corner,
+            // Edge ornaments follow the selected app style but stay outside Quran text.
+            IslamicDecorationCorners(
                 tint = scheme.tertiary,
-                alpha = IslamicOrnamentOpacity.LightActive,
-                modifier = Modifier.align(Alignment.TopStart).padding(4.dp).size(58.dp),
-            )
-            IslamicOrnamentImage(
-                ornament = IslamicOrnament.Corner,
-                tint = scheme.tertiary,
-                alpha = IslamicOrnamentOpacity.LightActive,
-                modifier = Modifier
-                    .align(Alignment.BottomEnd)
-                    .padding(4.dp)
-                    .size(58.dp)
-                    .graphicsLayer(rotationZ = 180f),
+                compact = true,
             )
             Column(modifier = Modifier.padding(horizontal = 20.dp, vertical = 18.dp)) {
-            IslamicOrnamentImage(
-                ornament = IslamicOrnament.SurahHeader,
+            IslamicReadingHeaderDecoration(
                 tint = scheme.tertiary,
-                alpha = IslamicOrnamentOpacity.LightSection,
-                modifier = Modifier.fillMaxWidth().height(18.dp),
             )
             Spacer(Modifier.height(4.dp))
             Row(
@@ -1576,11 +1559,8 @@ private fun MushafPageCard(
             if (showBasmala) {
                 // Mushaf-style Basmala header: a decorative ornament above, the
                 // Basmala centered, and an ornamented divider below.
-                IslamicOrnamentImage(
-                    ornament = IslamicOrnament.Star8,
+                IslamicReadingBasmalaAccent(
                     tint = scheme.tertiary,
-                    alpha = IslamicOrnamentOpacity.LightActive,
-                    modifier = Modifier.fillMaxWidth().height(18.dp),
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
@@ -1654,12 +1634,7 @@ private fun MushafPageCard(
 /** Vector divider for the Basmala and compact section transitions. */
 @Composable
 private fun OrnamentedDivider(tint: Color) {
-    IslamicOrnamentImage(
-        ornament = IslamicOrnament.MushafDivider,
-        tint = tint,
-        alpha = IslamicOrnamentOpacity.LightSection,
-        modifier = Modifier.fillMaxWidth().height(14.dp),
-    )
+    IslamicReadingDivider(tint = tint)
 }
 
 @Composable
