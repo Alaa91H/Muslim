@@ -20,6 +20,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,9 +34,13 @@ import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material3.Button
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.material3.Text
-import com.google.android.gms.wearable.CapabilityClient
-import com.google.android.gms.wearable.Wearable
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.muslim.app.core.common.appearance.AppOrnamentStyle
 import org.muslim.app.core.common.appearance.OrnamentIntensity
 import org.muslim.app.core.common.wear.WearPrayerSnapshot
@@ -50,9 +55,25 @@ import java.util.Date
  */
 class WearMainActivity : ComponentActivity() {
 
+    private val connectionScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+    private var refreshJob: Job? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent { WearCompanionApp() }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshJob?.cancel()
+        refreshJob = connectionScope.launch {
+            WearConnectionManager.refreshFromPhone(applicationContext)
+        }
+    }
+
+    override fun onDestroy() {
+        connectionScope.cancel()
+        super.onDestroy()
     }
 }
 
@@ -60,6 +81,7 @@ class WearMainActivity : ComponentActivity() {
 @Composable
 private fun WearCompanionApp() {
     val context = LocalContext.current
+    val actionScope = rememberCoroutineScope()
     var snapshot by remember { mutableStateOf(WearSnapshotStore.read(context)) }
     var nowMillis by remember { mutableLongStateOf(System.currentTimeMillis()) }
     var hapticsEnabled by remember {
@@ -124,7 +146,7 @@ private fun WearCompanionApp() {
                                 HapticFeedbackConstants.CONFIRM,
                             )
                         }
-                        requestTasbihIncrement(context)
+                        actionScope.launch { WearConnectionManager.sendTasbihIncrement(context) }
                     },
                 ) {
                     Text(text = stringResource(org.muslim.app.wear.R.string.wear_increment))
@@ -253,20 +275,6 @@ private fun PrayerOverview(snapshot: WearPrayerSnapshot?, nowMillis: Long) {
         style = MaterialTheme.typography.titleMedium,
         color = MaterialTheme.colorScheme.primary,
     )
-}
-
-private fun requestTasbihIncrement(context: android.content.Context) {
-    Wearable.getCapabilityClient(context)
-        .getCapability(WearSyncContract.CAPABILITY, CapabilityClient.FILTER_REACHABLE)
-        .addOnSuccessListener { capability ->
-            capability.nodes.forEach { node ->
-                Wearable.getMessageClient(context).sendMessage(
-                    node.id,
-                    WearSyncContract.TASBIH_INCREMENT_PATH,
-                    byteArrayOf(),
-                )
-            }
-        }
 }
 
 private fun formatCountdown(millis: Long): String {
