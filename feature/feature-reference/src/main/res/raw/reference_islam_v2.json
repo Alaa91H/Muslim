@@ -6,7 +6,7 @@
     "titleEn": "Introduction to Islam",
     "subtitleAr": "مرجع شامل ومفهرس للمسلم ولغير المسلم",
     "subtitleEn": "A comprehensive, indexed reference for Muslims and non-Muslims",
-    "contentRevision": 2,
+    "contentRevision": 3,
     "chapters": [
       {
         "id": "foundations",
@@ -18,7 +18,9 @@
           "what_is_islam",
           "islam_meaning",
           "pillars_islam",
-          "pillars_faith"
+          "pillars_faith",
+          "purpose_of_life",
+          "tawhid"
         ]
       },
       {
@@ -30,7 +32,8 @@
         "topicIds": [
           "quran",
           "prophet",
-          "sources"
+          "sources",
+          "revelation_prophethood"
         ]
       },
       {
@@ -42,7 +45,9 @@
         "topicIds": [
           "god",
           "worship",
-          "afterlife"
+          "afterlife",
+          "repentance",
+          "dua"
         ]
       },
       {
@@ -53,7 +58,10 @@
         "summaryEn": "Ethics, the place of women, and social relationships.",
         "topicIds": [
           "ethics",
-          "women"
+          "women",
+          "human_dignity",
+          "justice_mercy",
+          "family_in_islam"
         ]
       },
       {
@@ -64,7 +72,8 @@
         "summaryEn": "Science, civilization, and clarification of common misconceptions.",
         "topicIds": [
           "science",
-          "misconceptions"
+          "misconceptions",
+          "seeking_knowledge"
         ]
       }
     ],
@@ -778,6 +787,824 @@
                 "ar": "المسلم يقلّد مذهبًا أو يجتهد بضوابط، والمطلوب منه اتباع الدليل حيث كان، مع احترام أهل العلم وعدم التنازع في الفروع.",
                 "en": "A Muslim may follow a school or reason within the rules; what is required is to follow the evidence wherever it leads, while respecting scholars and avoiding conflict over branches.",
                 "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "purpose_of_life",
+        "titleAr": "غاية الحياة في الإسلام",
+        "titleEn": "The purpose of life in Islam",
+        "summaryAr": "يقدّم القرآن الحياة باعتبارها عبادةً لله وابتلاءً مسؤولًا يظهر فيه صدق الإيمان وحسن العمل.",
+        "summaryEn": "The Quran presents life as worship of God and a responsible test in which faith and good action are made visible.",
+        "keywordsAr": [
+          "غاية الحياة",
+          "لماذا خلقنا",
+          "العبادة",
+          "الابتلاء"
+        ],
+        "keywordsEn": [
+          "purpose of life",
+          "why we were created",
+          "worship",
+          "test"
+        ],
+        "relatedTopicIds": [
+          "what_is_islam",
+          "worship",
+          "afterlife"
+        ],
+        "citations": [
+          {
+            "id": "quran-51-56",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "51:56"
+          },
+          {
+            "id": "quran-67-2",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "67:2"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "creation_and_worship",
+            "titleAr": "الخلق والعبادة",
+            "titleEn": "Creation and worship",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقرر القرآن أن الغاية الأساسية من خلق الإنس والجن هي عبادة الله. والعبادة في التصور الإسلامي تشمل الشعائر كما تشمل الطاعة والعمل الصالح والنية التي يتقرب بها الإنسان إلى ربه.",
+                "en": "The Quran states that the fundamental purpose for creating humankind and jinn is the worship of God. In Islamic teaching, worship includes ritual acts as well as obedience, righteous conduct, and intentions directed toward God.",
+                "citationIds": [
+                  "quran-51-56"
+                ]
+              },
+              {
+                "ar": "هذا المعنى يجعل للحياة اتجاهًا أخلاقيًا وروحيًا؛ فالمسلم لا يفصل بين علاقته بالله وبين مسؤولياته في الأسرة والعمل والمجتمع.",
+                "en": "This gives life an ethical and spiritual direction: a Muslim does not separate the relationship with God from responsibilities in family, work, and society.",
+                "citationIds": [
+                  "quran-51-56"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "life_as_test",
+            "titleAr": "الحياة ميدان ابتلاء ومسؤولية",
+            "titleEn": "Life as a test and responsibility",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن الموت والحياة بأنهما ابتلاء يظهر فيه أي الناس أحسن عملًا، ولذلك ترتبط الحرية الإنسانية بالمسؤولية والمحاسبة.",
+                "en": "The Quran describes death and life as a test that reveals excellence in action, linking human choice with responsibility and accountability.",
+                "citationIds": [
+                  "quran-67-2"
+                ]
+              },
+              {
+                "ar": "لا يعني الابتلاء أن كل ما يقع للإنسان عقوبة؛ بل يشمل أحوال الخير والشدة، ويُطلب من المؤمن أن يتعامل معها بالإيمان والصبر والعمل المشروع.",
+                "en": "A test does not mean that every hardship is a punishment. It includes ease and difficulty, and believers are called to respond with faith, patience, and lawful action.",
+                "citationIds": [
+                  "quran-67-2"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tawhid",
+        "titleAr": "التوحيد: عبادة الله وحده",
+        "titleEn": "Tawhid: worshipping God alone",
+        "summaryAr": "التوحيد هو أصل العقيدة الإسلامية: الإقرار بوحدانية الله وإفراده بالعبادة.",
+        "summaryEn": "Tawhid is the foundation of Islamic belief: affirming God's oneness and directing worship to Him alone.",
+        "keywordsAr": [
+          "التوحيد",
+          "وحدانية الله",
+          "لا إله إلا الله"
+        ],
+        "keywordsEn": [
+          "tawhid",
+          "oneness of God",
+          "monotheism"
+        ],
+        "relatedTopicIds": [
+          "god",
+          "pillars_faith",
+          "worship"
+        ],
+        "citations": [
+          {
+            "id": "quran-112-1-4",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "112:1-4"
+          },
+          {
+            "id": "quran-2-163",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:163"
+          },
+          {
+            "id": "quran-1-5",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "1:5"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "meaning",
+            "titleAr": "معنى التوحيد",
+            "titleEn": "Meaning of tawhid",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقوم التوحيد على الإيمان بأن الله واحد لا شريك له، وأنه وحده المستحق للعبادة. وتعرض سورة الإخلاص هذا الأصل بعبارات موجزة تؤكد وحدانية الله وتنزهه عن المماثلة.",
+                "en": "Tawhid rests on believing that God is One without partner and that He alone is worthy of worship. Surat al-Ikhlas expresses this foundation concisely and emphasizes God's uniqueness.",
+                "citationIds": [
+                  "quran-112-1-4"
+                ]
+              },
+              {
+                "ar": "ويؤكد القرآن أن الإله واحد، وهو ما يربط الاعتقاد النظري بمقصد الشهادة: «لا إله إلا الله».",
+                "en": "The Quran affirms that the deity is One, connecting theological belief with the meaning of the testimony that none is worthy of worship but God.",
+                "citationIds": [
+                  "quran-2-163"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "practice",
+            "titleAr": "أثر التوحيد في العبادة",
+            "titleEn": "Tawhid in practice",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يظهر التوحيد عمليًا في توجيه الصلاة والدعاء والرجاء والخضوع التعبدي لله، مع الأخذ بالأسباب المشروعة في شؤون الحياة.",
+                "en": "In practice, tawhid appears in directing prayer, supplication, hope, and devotional submission to God while using lawful worldly means.",
+                "citationIds": [
+                  "quran-1-5"
+                ]
+              },
+              {
+                "ar": "ولهذا لا يُعرض التوحيد في الإسلام كمعلومة مجردة فقط، بل كأساس يوجّه العبادة والأخلاق ونظرة الإنسان إلى المسؤولية.",
+                "en": "For this reason, tawhid is not presented merely as abstract information; it is a foundation shaping worship, ethics, and a person's sense of responsibility.",
+                "citationIds": [
+                  "quran-1-5"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "revelation_prophethood",
+        "titleAr": "الوحي ورسالات الأنبياء",
+        "titleEn": "Revelation and the messages of the prophets",
+        "summaryAr": "يقرر الإسلام أن الله أرسل الرسل لهداية الناس إلى عبادته، وأن أصل دعوتهم واحد.",
+        "summaryEn": "Islam teaches that God sent messengers to guide people to worship Him, with a shared foundation to their message.",
+        "keywordsAr": [
+          "الوحي",
+          "النبوة",
+          "الرسل",
+          "الأنبياء"
+        ],
+        "keywordsEn": [
+          "revelation",
+          "prophethood",
+          "messengers",
+          "prophets"
+        ],
+        "relatedTopicIds": [
+          "prophet",
+          "quran",
+          "pillars_faith"
+        ],
+        "citations": [
+          {
+            "id": "quran-16-36",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:36"
+          },
+          {
+            "id": "quran-21-25",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "21:25"
+          },
+          {
+            "id": "quran-33-40",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:40"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "shared_message",
+            "titleAr": "أصل رسالة الأنبياء",
+            "titleEn": "The shared prophetic message",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يعرض القرآن إرسال الرسل إلى الأمم بوصفه دعوة إلى عبادة الله واجتناب الطاغوت، وبذلك يربط الإسلام نفسه بسلسلة الرسالات السابقة.",
+                "en": "The Quran presents the sending of messengers to nations as a call to worship God and reject false objects of worship, placing Islam within the continuum of earlier revelation.",
+                "citationIds": [
+                  "quran-16-36"
+                ]
+              },
+              {
+                "ar": "كما يقرر أن الرسل دعوا إلى إفراد الله بالعبادة، مع اختلاف الشرائع والتفاصيل التي نزلت لأقوامهم.",
+                "en": "It also states that the messengers called people to worship God alone, while particular laws and details differed among their communities.",
+                "citationIds": [
+                  "quran-21-25"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "final_message",
+            "titleAr": "الرسالة الخاتمة",
+            "titleEn": "The final message",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يؤمن المسلمون بأن محمدًا ﷺ خاتم النبيين، وأن القرآن هو الوحي الذي أُنزل عليه لهداية الناس.",
+                "en": "Muslims believe that Muhammad ﷺ is the final prophet and that the Quran is the revelation sent to him as guidance.",
+                "citationIds": [
+                  "quran-33-40"
+                ]
+              },
+              {
+                "ar": "ومن ثم فإن الإيمان بالنبوة في الإسلام يتضمن احترام جميع رسل الله الذين سماهم القرآن، وعدم التفريق بينهم في أصل التصديق برسالتهم.",
+                "en": "Accordingly, belief in prophethood includes honoring all of God's messengers named in the Quran and affirming the truth of their divinely given missions.",
+                "citationIds": [
+                  "quran-21-25"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "repentance",
+        "titleAr": "التوبة والرجوع إلى الله",
+        "titleEn": "Repentance and returning to God",
+        "summaryAr": "باب التوبة في الإسلام قائم على الرجوع الصادق إلى الله وعدم اليأس من رحمته.",
+        "summaryEn": "Repentance in Islam is built on sincerely returning to God and not despairing of His mercy.",
+        "keywordsAr": [
+          "التوبة",
+          "المغفرة",
+          "الاستغفار",
+          "الرحمة"
+        ],
+        "keywordsEn": [
+          "repentance",
+          "forgiveness",
+          "seeking forgiveness",
+          "mercy"
+        ],
+        "relatedTopicIds": [
+          "god",
+          "worship",
+          "afterlife"
+        ],
+        "citations": [
+          {
+            "id": "quran-39-53",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "39:53"
+          },
+          {
+            "id": "quran-66-8",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "66:8"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "hope",
+            "titleAr": "عدم اليأس من الرحمة",
+            "titleEn": "Do not despair of mercy",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يخاطب القرآن من أسرفوا على أنفسهم بألا يقنطوا من رحمة الله، وهو أصل مهم في فهم التوبة والرجاء.",
+                "en": "The Quran addresses those who have wronged themselves and tells them not to despair of God's mercy, a central principle in understanding repentance and hope.",
+                "citationIds": [
+                  "quran-39-53"
+                ]
+              },
+              {
+                "ar": "لذلك لا تقوم التوبة على الشعور بالذنب وحده، بل على تحويله إلى رجوع وإصلاح واستقامة قدر الاستطاعة.",
+                "en": "Repentance is therefore not merely a feeling of guilt; it turns remorse into return, reform, and renewed upright conduct to the best of one's ability.",
+                "citationIds": [
+                  "quran-39-53"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sincere_repentance",
+            "titleAr": "التوبة النصوح",
+            "titleEn": "Sincere repentance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يدعو القرآن المؤمنين إلى توبة نصوح، أي توبة صادقة يظهر أثرها في ترك الذنب والندم والعزم على عدم العودة إليه.",
+                "en": "The Quran calls believers to sincere repentance, reflected in leaving wrongdoing, remorse, and a genuine resolve not to return to it.",
+                "citationIds": [
+                  "quran-66-8"
+                ]
+              },
+              {
+                "ar": "وإذا تعلق الذنب بحق إنسان آخر، فإن إصلاح الحق ورد المظلمة أو طلب المسامحة يدخل في تمام التصحيح بحسب الحال.",
+                "en": "When wrongdoing involves another person's rights, restoring what is due or seeking reconciliation forms part of putting matters right according to the circumstances.",
+                "citationIds": [
+                  "quran-66-8"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dua",
+        "titleAr": "الدعاء وعلاقة العبد بربه",
+        "titleEn": "Supplication and the believer's relationship with God",
+        "summaryAr": "الدعاء عبادة واتصال مباشر بالله يقوم على الرجاء والافتقار والثقة بحكمته.",
+        "summaryEn": "Supplication is worship and a direct turning to God grounded in hope, need, and trust in His wisdom.",
+        "keywordsAr": [
+          "الدعاء",
+          "الذكر",
+          "الإجابة",
+          "القرب من الله"
+        ],
+        "keywordsEn": [
+          "dua",
+          "supplication",
+          "remembrance",
+          "closeness to God"
+        ],
+        "relatedTopicIds": [
+          "worship",
+          "god",
+          "repentance"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-186",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:186"
+          },
+          {
+            "id": "quran-40-60",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "40:60"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "nearness",
+            "titleAr": "قرب الله وإجابة الدعاء",
+            "titleEn": "God's nearness and answering prayer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقرر القرآن قرب الله من عباده وإجابته دعوة الداعي، وهو ما يجعل الدعاء عبادة شخصية لا تحتاج إلى وسيط بشري بين العبد وربه.",
+                "en": "The Quran affirms God's nearness to His servants and His response to the caller, making supplication a personal act of worship without a human intermediary between the servant and God.",
+                "citationIds": [
+                  "quran-2-186"
+                ]
+              },
+              {
+                "ar": "ويجمع الدعاء بين طلب الحاجات والثناء على الله والاعتراف بالافتقار إليه، ويمكن أن يكون بألفاظ مأثورة أو بدعاء مباح بمعناه.",
+                "en": "Supplication combines asking for needs, praising God, and acknowledging dependence on Him. It may use transmitted prayers or other permissible words and meanings.",
+                "citationIds": [
+                  "quran-2-186"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "worship",
+            "titleAr": "الدعاء عبادة",
+            "titleEn": "Supplication as worship",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن بين الدعاء والعبادة، ولذلك يحافظ المسلم على الدعاء في الرخاء والشدة لا في الأزمات فقط.",
+                "en": "The Quran connects supplication with worship, so a Muslim turns to God in ease as well as hardship rather than only during crises.",
+                "citationIds": [
+                  "quran-40-60"
+                ]
+              },
+              {
+                "ar": "ولا تعني الإجابة دائمًا حصول المطلوب بالصورة والوقت اللذين يتوقعهما الإنسان؛ فالدعاء يقترن بالتوكل والعمل والصبر.",
+                "en": "An answer does not necessarily mean receiving exactly what a person expects at the expected time; supplication accompanies trust in God, effort, and patience.",
+                "citationIds": [
+                  "quran-40-60"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "human_dignity",
+        "titleAr": "كرامة الإنسان والمساواة الأصلية",
+        "titleEn": "Human dignity and fundamental equality",
+        "summaryAr": "يقرر القرآن تكريم بني آدم وأن معيار التفاضل الأخلاقي هو التقوى لا العرق أو النسب.",
+        "summaryEn": "The Quran affirms the dignity of the children of Adam and makes piety, not race or lineage, the moral criterion of distinction.",
+        "keywordsAr": [
+          "كرامة الإنسان",
+          "المساواة",
+          "الشعوب",
+          "القبائل"
+        ],
+        "keywordsEn": [
+          "human dignity",
+          "equality",
+          "peoples",
+          "tribes"
+        ],
+        "relatedTopicIds": [
+          "ethics",
+          "women",
+          "justice_mercy"
+        ],
+        "citations": [
+          {
+            "id": "quran-17-70",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:70"
+          },
+          {
+            "id": "quran-49-13",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:13"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "dignity",
+            "titleAr": "تكريم بني آدم",
+            "titleEn": "The dignity of the children of Adam",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن بني آدم بأنهم مكرمون، وهو أصل يضع الإنسان في موضع المسؤولية والاحترام ويحظر تحويل الاختلاف البشري إلى مبرر للاحتقار.",
+                "en": "The Quran describes the children of Adam as honored, grounding human responsibility and respect and rejecting the use of human difference as a basis for contempt.",
+                "citationIds": [
+                  "quran-17-70"
+                ]
+              },
+              {
+                "ar": "هذه الكرامة لا تلغي المحاسبة الأخلاقية؛ فالإنسان مكرم ومكلّف في الوقت نفسه، وله اختيارات يتحمل مسؤوليتها.",
+                "en": "This dignity does not remove moral accountability: the human being is both honored and responsible for choices and conduct.",
+                "citationIds": [
+                  "quran-17-70"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "diversity",
+            "titleAr": "التعارف والتنوع",
+            "titleEn": "Knowing one another amid diversity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن أن البشر جُعلوا شعوبًا وقبائل ليتعارفوا، ثم يرد معيار التفاضل إلى التقوى بدل النسب أو الأصل العرقي.",
+                "en": "The Quran says humanity was made into peoples and tribes so that people may know one another, then grounds moral distinction in piety rather than ancestry or ethnicity.",
+                "citationIds": [
+                  "quran-49-13"
+                ]
+              },
+              {
+                "ar": "وعليه فإن التنوع البشري واقع معترف به، بينما القيمة الأخلاقية لا تُقاس بالعرق أو اللغة أو المكانة الاجتماعية.",
+                "en": "Human diversity is therefore recognized as a reality, while moral worth is not measured by race, language, or social status.",
+                "citationIds": [
+                  "quran-49-13"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "justice_mercy",
+        "titleAr": "العدل والرحمة",
+        "titleEn": "Justice and mercy",
+        "summaryAr": "العدل والرحمة من القيم المركزية التي يكرر القرآن الأمر بها في علاقة الإنسان بالناس.",
+        "summaryEn": "Justice and mercy are central values repeatedly emphasized by the Quran in human relationships.",
+        "keywordsAr": [
+          "العدل",
+          "الرحمة",
+          "الإحسان",
+          "الإنصاف"
+        ],
+        "keywordsEn": [
+          "justice",
+          "mercy",
+          "excellence",
+          "fairness"
+        ],
+        "relatedTopicIds": [
+          "ethics",
+          "human_dignity",
+          "prophet"
+        ],
+        "citations": [
+          {
+            "id": "quran-16-90",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:90"
+          },
+          {
+            "id": "quran-5-8",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:8"
+          },
+          {
+            "id": "quran-21-107",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "21:107"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "justice",
+            "titleAr": "العدل حتى مع الاختلاف",
+            "titleEn": "Justice even amid disagreement",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بالعدل والإحسان، ويجعل إقامة العدل مبدأً عامًا لا يقتصر على العلاقة مع من يوافق الإنسان أو يحبه.",
+                "en": "The Quran commands justice and excellence, presenting justice as a general principle rather than one limited to people a person likes or agrees with.",
+                "citationIds": [
+                  "quran-16-90"
+                ]
+              },
+              {
+                "ar": "كما ينهى عن أن يدفع البغض إلى ترك العدل، وهو توجيه يربط الأخلاق بالمواقف الصعبة لا بالمواقف السهلة فقط.",
+                "en": "It also warns against allowing hatred to lead away from justice, applying ethical responsibility especially when relationships are difficult.",
+                "citationIds": [
+                  "quran-5-8"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mercy",
+            "titleAr": "الرحمة في الرسالة",
+            "titleEn": "Mercy in the message",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن رسالة النبي محمد ﷺ بالرحمة للعالمين، وهو معنى يظهر في الحث على الرفق والإحسان وحفظ الحقوق.",
+                "en": "The Quran describes the mission of Prophet Muhammad ﷺ as mercy to the worlds, a meaning reflected in encouragement toward gentleness, good conduct, and protection of rights.",
+                "citationIds": [
+                  "quran-21-107"
+                ]
+              },
+              {
+                "ar": "ولا تعني الرحمة إلغاء العدل أو المسؤولية؛ بل يجتمعان في منظومة أخلاقية توازن بين الحقوق والإصلاح والعفو حيث يكون مشروعًا.",
+                "en": "Mercy does not cancel justice or responsibility; the two operate together in an ethical framework balancing rights, reform, and forgiveness where appropriate.",
+                "citationIds": [
+                  "quran-16-90"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "family_in_islam",
+        "titleAr": "الأسرة والزواج في الإسلام",
+        "titleEn": "Family and marriage in Islam",
+        "summaryAr": "ينظر الإسلام إلى الأسرة باعتبارها ميثاقًا من المسؤولية والمودة والرحمة والحقوق المتبادلة.",
+        "summaryEn": "Islam views family life as a covenant of responsibility, affection, mercy, and reciprocal rights.",
+        "keywordsAr": [
+          "الأسرة",
+          "الزواج",
+          "المودة",
+          "الرحمة"
+        ],
+        "keywordsEn": [
+          "family",
+          "marriage",
+          "affection",
+          "mercy"
+        ],
+        "relatedTopicIds": [
+          "women",
+          "ethics",
+          "human_dignity"
+        ],
+        "citations": [
+          {
+            "id": "quran-30-21",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "30:21"
+          },
+          {
+            "id": "quran-4-1",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:1"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "marriage",
+            "titleAr": "المودة والرحمة في الزواج",
+            "titleEn": "Affection and mercy in marriage",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن من آيات الله أن جعل بين الزوجين مودة ورحمة وسكنًا، وهو أساس أخلاقي لفهم الحياة الزوجية إلى جانب الأحكام التفصيلية.",
+                "en": "The Quran describes affection, mercy, and tranquility between spouses as among God's signs, providing an ethical foundation for marriage alongside its detailed rulings.",
+                "citationIds": [
+                  "quran-30-21"
+                ]
+              },
+              {
+                "ar": "وتترتب على الزواج حقوق ومسؤوليات متبادلة، ولذلك لا يُختزل في الجانب العاطفي ولا في الجانب القانوني وحده.",
+                "en": "Marriage carries reciprocal rights and responsibilities, so it cannot be reduced to either emotion or legal rules alone.",
+                "citationIds": [
+                  "quran-30-21"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "shared_origin",
+            "titleAr": "الأصل الإنساني المشترك",
+            "titleEn": "Shared human origin",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يفتتح القرآن خطابًا للناس بالتذكير بأنهم خُلقوا من نفس واحدة، وهو معنى يرسخ وحدة الأصل الإنساني داخل الأسرة والمجتمع.",
+                "en": "The Quran addresses humanity by recalling creation from a single soul, reinforcing a shared human origin within family and society.",
+                "citationIds": [
+                  "quran-4-1"
+                ]
+              },
+              {
+                "ar": "ومن هذا المنطلق تُبنى صلة الرحم ورعاية الوالدين والأبناء وحفظ الحقوق باعتبارها مسؤوليات دينية وأخلاقية.",
+                "en": "From this perspective, maintaining family ties, caring for parents and children, and protecting rights are treated as religious and ethical responsibilities.",
+                "citationIds": [
+                  "quran-4-1"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "seeking_knowledge",
+        "titleAr": "العلم والتعلّم في الإسلام",
+        "titleEn": "Knowledge and learning in Islam",
+        "summaryAr": "يحض الإسلام على طلب العلم النافع، والتثبت، وربط المعرفة بالعمل والتواضع.",
+        "summaryEn": "Islam encourages beneficial learning, verification, and connecting knowledge with action and humility.",
+        "keywordsAr": [
+          "العلم",
+          "التعلم",
+          "المعرفة",
+          "التثبت"
+        ],
+        "keywordsEn": [
+          "knowledge",
+          "learning",
+          "education",
+          "verification"
+        ],
+        "relatedTopicIds": [
+          "science",
+          "quran",
+          "ethics"
+        ],
+        "citations": [
+          {
+            "id": "quran-20-114",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "20:114"
+          },
+          {
+            "id": "quran-58-11",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "58:11"
+          },
+          {
+            "id": "quran-17-36",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:36"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "seeking",
+            "titleAr": "طلب الزيادة من العلم",
+            "titleEn": "Seeking increase in knowledge",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يعلّم القرآن النبي ﷺ أن يسأل ربه الزيادة من العلم، وهو توجيه يبرز قيمة التعلم المستمر وعدم الاكتفاء بما عرفه الإنسان.",
+                "en": "The Quran teaches the Prophet ﷺ to ask God for an increase in knowledge, highlighting continuous learning and intellectual humility.",
+                "citationIds": [
+                  "quran-20-114"
+                ]
+              },
+              {
+                "ar": "كما يرفع القرآن شأن العلم وأهله، مع بقاء قيمة العلم مرتبطة بما يثمره من فهم وعمل نافع.",
+                "en": "The Quran also gives a distinguished place to knowledge and those who possess it, while meaningful knowledge remains connected to understanding and beneficial action.",
+                "citationIds": [
+                  "quran-58-11"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "verification",
+            "titleAr": "التثبت والمسؤولية المعرفية",
+            "titleEn": "Verification and intellectual responsibility",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينهى القرآن الإنسان عن اتباع ما ليس له به علم، وهو أصل في التثبت من الأخبار والدعاوى قبل تبنيها أو نشرها.",
+                "en": "The Quran warns against following what one has no knowledge of, establishing a principle of verifying claims before accepting or spreading them.",
+                "citationIds": [
+                  "quran-17-36"
+                ]
+              },
+              {
+                "ar": "لذلك يجمع المنهج الإسلامي في التعلم بين السؤال والبحث واحترام الاختصاص وبين الأمانة في نسبة الأقوال إلى مصادرها.",
+                "en": "Islamic learning therefore combines inquiry and research with respect for expertise and honesty when attributing statements to their sources.",
+                "citationIds": [
+                  "quran-17-36"
+                ]
               }
             ]
           }
