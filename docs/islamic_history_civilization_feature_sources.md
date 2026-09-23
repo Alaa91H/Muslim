@@ -2,9 +2,21 @@
 
 ## Scope
 
-The feature is an **educational orientation**, not a comprehensive or official historical account. It offers a compact bilingual timeline, selected historical figures, and interactive geographic overlays. The aim is to help a learner connect periods, centres of learning, routes, and biographies while clearly retaining uncertainty, plurality, and the need for specialist review.
+The feature is being expanded from an **educational orientation** into a layered, source-led reference library. The timeline remains the entry point, but every currently visible era now has a bilingual long-form article with multiple sections, explicit source references, related-era links, and a dedicated reader view. The first batch is still curated rather than exhaustive, and specialist review remains required before the material is treated as an official historical account.
 
-The timeline does not attempt to adjudicate contested political, sectarian, military, or biographical narratives. Its selection of periods is deliberately broad: the Prophetic era, Rashidun period, Umayyads, Abbasids, overlapping regional civilizations, Ottomans, and the modern era. Existing detailed Sira material remains separately available in the app’s Reference Library.
+The timeline does not attempt to adjudicate contested political, sectarian, military, or biographical narratives. Its current top-level periods are deliberately broad: the Prophetic era, Rashidun period, Umayyads, Abbasids, overlapping regional civilizations, Ottomans, and the modern era. Existing detailed Sira material remains separately available in the app’s Reference Library and is linked instead of duplicated.
+
+
+## Content architecture
+
+The history feature now separates **UI**, **content contracts**, and **curated content**:
+
+- `HistoryArticleModel.kt` defines long-form articles, sections, structured dates, sources, events, states, and civilization topics.
+- `IslamicHistoryArticles.kt` contains the first long-form bilingual article set and its source registry.
+- `HistoryContentValidator.kt` validates unique IDs, bilingual completeness, chronology sanity, source references, related-era references, and section structure.
+- `HistoryContentValidatorTest.kt` makes those rules part of CI so broken references or incomplete articles are caught before merge.
+
+This separation is the migration boundary for the next stage, where the growing catalogue can move from Kotlin constants to packaged JSON/Room content without rewriting the Compose reader.
 
 ## Sources reviewed
 
