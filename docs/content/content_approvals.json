@@ -254,6 +254,13 @@
       "attribution": "Islamic Reference Library content bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed by this structural migration; every migrated topic remains marked NeedsReview until article-level review is completed.",
       "notes": "Schema v2 preserves all 14 legacy topics verbatim and expands Introduction to Islam to 63 topics, 126 sections, and 252 bilingual paragraphs across 7 chapters. New articles include structured Quran/Hadith citations and remain NeedsReview pending independent article-level review."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_sira_v2_json": {
+      "source": "Project-authored Prophetic Biography corpus migrated verbatim from SiraContent.kt and expanded with structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, and Ibn Hisham's al-Sirah al-Nabawiyyah.",
+      "licence": "Project source licence; this JSON is a structured representation of project-authored reference content and bibliographic metadata.",
+      "attribution": "Prophetic Biography content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed by this migration or expansion. All migrated and newly expanded Sira topics remain marked NeedsReview pending article-level scholarly review.",
+      "notes": "Schema v2 preserves all 16 legacy Sira topics verbatim and expands the biography to 80 topics, 160 sections, and 192 bilingual paragraphs across 8 chronological/thematic chapters."
     }
   }
 }
