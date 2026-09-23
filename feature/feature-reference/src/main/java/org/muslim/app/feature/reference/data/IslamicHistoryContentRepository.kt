@@ -33,7 +33,9 @@ internal class IslamicHistoryContentRepository private constructor(
             type = StoredHistoryContentType.Article,
             id = eraId,
             serializer = HistoryArticleDto.serializer(),
-            fallback = { IslamicHistoryArticles.articleForEra(eraId) },
+            fallback = {
+                IslamicHistoryArticles.articleForEra(eraId)?.let(HistoryArticleDto::fromDomain)
+            },
         )?.toDomain()
 
     suspend fun stateById(id: String): HistoricalState? =
