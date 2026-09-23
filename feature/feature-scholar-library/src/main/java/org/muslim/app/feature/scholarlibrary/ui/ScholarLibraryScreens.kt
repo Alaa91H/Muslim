@@ -236,6 +236,7 @@ private fun ScholarLibraryCatalog(
         item { LibraryCategoryFilter(state.selectedCategory, viewModel::selectCategory) }
         item {
             LibraryAdvancedFilters(
+                selectedCategory = state.selectedCategory,
                 selectedDifficulty = state.selectedDifficulty,
                 selectedAuthorName = state.selectedAuthorName,
                 authors = state.authors.map { it.name },
@@ -289,6 +290,7 @@ private fun LibraryCategoryFilter(selected: ScholarCategory?, onChange: (Scholar
 
 @Composable
 private fun LibraryAdvancedFilters(
+    selectedCategory: ScholarCategory?,
     selectedDifficulty: ScholarDifficulty?,
     selectedAuthorName: String?,
     authors: List<String>,
@@ -342,7 +344,7 @@ private fun LibraryAdvancedFilters(
                 )
             }
         }
-        if (selectedDifficulty != null || selectedAuthorName != null) {
+        if (selectedCategory != null || selectedDifficulty != null || selectedAuthorName != null) {
             TextButton(onClick = onClear) {
                 Text(stringResource(R.string.scholar_library_clear_filters))
             }
