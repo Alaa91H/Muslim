@@ -21,6 +21,17 @@ DRAFT_REPOSITORY = (
     ROOT
     / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/data/WillDraftRepository.kt"
 )
+DRAFT_CRYPTO = (
+    ROOT
+    / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/data/WillDraftCrypto.kt"
+)
+PDF_EXPORTER = (
+    ROOT
+    / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/data/WillDraftPdfExporter.kt"
+)
+APP_MANIFEST = ROOT / "app/src/main/AndroidManifest.xml"
+BACKUP_RULES = ROOT / "app/src/main/res/xml/backup_rules.xml"
+DATA_EXTRACTION_RULES = ROOT / "app/src/main/res/xml/data_extraction_rules.xml"
 PREFERENCES = (
     ROOT
     / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/data/FuneralWillPreferencesRepository.kt"
@@ -108,6 +119,9 @@ def main() -> int:
         "funeral_will_search",
         "searchGuideSections",
         "searchWillEducationSections",
+        "funeral_will_encrypted_notice",
+        "funeral_will_export_pdf",
+        "ActivityResultContracts.CreateDocument",
     }
     missing_ui_contract = sorted(
         token for token in required_ui_contract if token not in screen_text
@@ -139,6 +153,44 @@ def main() -> int:
         print(
             "Missing expanded will-draft contract:",
             ", ".join(missing_draft_fields),
+            file=sys.stderr,
+        )
+        return 1
+
+    security_contract = {
+        "will_encrypted_payload_v1": repository_text,
+        "migrateLegacyIfNeeded": repository_text,
+        "AndroidKeyStore": DRAFT_CRYPTO.read_text(encoding="utf-8"),
+        "AES/GCM/NoPadding": DRAFT_CRYPTO.read_text(encoding="utf-8"),
+        "PdfDocument": PDF_EXPORTER.read_text(encoding="utf-8"),
+    }
+    missing_security = sorted(
+        token for token, source in security_contract.items() if token not in source
+    )
+    if missing_security:
+        print(
+            "Missing encrypted-storage/PDF contract:",
+            ", ".join(missing_security),
+            file=sys.stderr,
+        )
+        return 1
+
+    backup_path = "datastore/will_draft_prefs.preferences_pb"
+    backup_contract = {
+        "android:dataExtractionRules": APP_MANIFEST.read_text(encoding="utf-8"),
+        "android:fullBackupContent": APP_MANIFEST.read_text(encoding="utf-8"),
+        backup_path: BACKUP_RULES.read_text(encoding="utf-8"),
+        f"transfer:{backup_path}": DATA_EXTRACTION_RULES.read_text(encoding="utf-8"),
+    }
+    missing_backup = [
+        token
+        for token, source in backup_contract.items()
+        if (backup_path if token.startswith("transfer:") else token) not in source
+    ]
+    if missing_backup:
+        print(
+            "Missing private-draft backup exclusion:",
+            ", ".join(missing_backup),
             file=sys.stderr,
         )
         return 1
