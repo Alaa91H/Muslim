@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
@@ -88,122 +89,137 @@ internal fun FamilyHubContent(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 14.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        item {
-            MuslimStateSurface(
-                title = stringResource(R.string.family_hub_intro_title),
-                supportingText = stringResource(R.string.family_hub_intro_text),
-                tone = MuslimStateTone.Positive,
-                icon = Icons.Filled.FamilyRestroom,
-            )
-        }
-        item {
-            Text(
-                text = stringResource(R.string.family_hub_paths_title),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-            )
-        }
-        items(FamilyTopicCategory.entries, key = { it.name }) { category ->
-            FamilyCategoryCard(
-                category = category,
-                isArabic = isArabic,
-                articleCount = FamilyLifeContent.articlesFor(category).size,
-                onClick = { onOpenCategory(category) },
-            )
-        }
-        item {
-            Spacer(Modifier.height(4.dp))
-            Text(
-                text = stringResource(R.string.family_hub_library_title),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-            )
-        }
-        item {
-            FamilyToolCard(
-                icon = Icons.Filled.Bookmark,
-                title = stringResource(R.string.family_saved_title),
-                description = stringResource(
-                    R.string.family_saved_summary,
-                    favoriteCount,
-                    recentCount,
-                ),
-                onClick = onOpenSaved,
-            )
-        }
-        item {
-            FamilyToolCard(
-                icon = Icons.Filled.Checklist,
-                title = stringResource(R.string.family_checklists_title),
-                description = stringResource(R.string.family_checklists_summary),
-                onClick = onOpenTools,
-            )
-        }
-        item {
-            Spacer(Modifier.height(4.dp))
-            Text(
-                text = stringResource(R.string.family_hub_tools_title),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-            )
-        }
-        item {
-            FamilyToolCard(
-                icon = Icons.Filled.HealthAndSafety,
-                title = stringResource(R.string.family_tab_ruqyah),
-                description = stringResource(R.string.family_hub_ruqyah_desc),
-                onClick = onOpenRuqyah,
-            )
-        }
-        item {
-            FamilyToolCard(
-                icon = Icons.Filled.Translate,
-                title = stringResource(R.string.family_tab_names),
-                description = stringResource(R.string.family_hub_names_desc),
-                onClick = onOpenNames,
-            )
-        }
-        item {
-            FamilyToolCard(
-                icon = Icons.Filled.ChildCare,
-                title = stringResource(R.string.family_tab_aqiqah),
-                description = stringResource(R.string.family_hub_aqiqah_desc),
-                onClick = onOpenAqiqah,
-            )
-        }
-        item {
-            Spacer(Modifier.height(4.dp))
-            Text(
-                text = stringResource(R.string.family_hub_related_sections_title),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-            )
-        }
-        item {
-            FamilyToolCard(
-                icon = Icons.AutoMirrored.Filled.MenuBook,
-                title = stringResource(R.string.family_open_quran_title),
-                description = stringResource(R.string.family_open_quran_desc),
-                onClick = onOpenQuran,
-            )
-        }
-        item {
-            FamilyToolCard(
-                icon = Icons.Filled.AutoStories,
-                title = stringResource(R.string.family_open_hadith_title),
-                description = stringResource(R.string.family_open_hadith_desc),
-                onClick = onOpenHadith,
-            )
-        }
-        item {
-            FamilyToolCard(
-                icon = Icons.Filled.Favorite,
-                title = stringResource(R.string.family_open_adhkar_title),
-                description = stringResource(R.string.family_open_adhkar_desc),
-                onClick = onOpenAdhkar,
-            )
-        }
+        familyHubIntro()
+        familyCategoryItems(isArabic, onOpenCategory)
+        familyLibraryItems(favoriteCount, recentCount, onOpenSaved, onOpenTools)
+        familyPracticalToolItems(onOpenRuqyah, onOpenNames, onOpenAqiqah)
+        familyCrossFeatureItems(onOpenQuran, onOpenHadith, onOpenAdhkar)
     }
+}
+
+private fun LazyListScope.familyHubIntro() {
+    item {
+        MuslimStateSurface(
+            title = stringResource(R.string.family_hub_intro_title),
+            supportingText = stringResource(R.string.family_hub_intro_text),
+            tone = MuslimStateTone.Positive,
+            icon = Icons.Filled.FamilyRestroom,
+        )
+    }
+}
+
+private fun LazyListScope.familyCategoryItems(
+    isArabic: Boolean,
+    onOpenCategory: (FamilyTopicCategory) -> Unit,
+) {
+    item { FamilyHubHeading(stringResource(R.string.family_hub_paths_title)) }
+    items(FamilyTopicCategory.entries, key = { it.name }) { category ->
+        FamilyCategoryCard(
+            category = category,
+            isArabic = isArabic,
+            articleCount = FamilyLifeContent.articlesFor(category).size,
+            onClick = { onOpenCategory(category) },
+        )
+    }
+}
+
+private fun LazyListScope.familyLibraryItems(
+    favoriteCount: Int,
+    recentCount: Int,
+    onOpenSaved: () -> Unit,
+    onOpenTools: () -> Unit,
+) {
+    item { FamilyHubHeading(stringResource(R.string.family_hub_library_title)) }
+    item {
+        FamilyToolCard(
+            icon = Icons.Filled.Bookmark,
+            title = stringResource(R.string.family_saved_title),
+            description = stringResource(R.string.family_saved_summary, favoriteCount, recentCount),
+            onClick = onOpenSaved,
+        )
+    }
+    item {
+        FamilyToolCard(
+            icon = Icons.Filled.Checklist,
+            title = stringResource(R.string.family_checklists_title),
+            description = stringResource(R.string.family_checklists_summary),
+            onClick = onOpenTools,
+        )
+    }
+}
+
+private fun LazyListScope.familyPracticalToolItems(
+    onOpenRuqyah: () -> Unit,
+    onOpenNames: () -> Unit,
+    onOpenAqiqah: () -> Unit,
+) {
+    item { FamilyHubHeading(stringResource(R.string.family_hub_tools_title)) }
+    item {
+        FamilyToolCard(
+            icon = Icons.Filled.HealthAndSafety,
+            title = stringResource(R.string.family_tab_ruqyah),
+            description = stringResource(R.string.family_hub_ruqyah_desc),
+            onClick = onOpenRuqyah,
+        )
+    }
+    item {
+        FamilyToolCard(
+            icon = Icons.Filled.Translate,
+            title = stringResource(R.string.family_tab_names),
+            description = stringResource(R.string.family_hub_names_desc),
+            onClick = onOpenNames,
+        )
+    }
+    item {
+        FamilyToolCard(
+            icon = Icons.Filled.ChildCare,
+            title = stringResource(R.string.family_tab_aqiqah),
+            description = stringResource(R.string.family_hub_aqiqah_desc),
+            onClick = onOpenAqiqah,
+        )
+    }
+}
+
+private fun LazyListScope.familyCrossFeatureItems(
+    onOpenQuran: () -> Unit,
+    onOpenHadith: () -> Unit,
+    onOpenAdhkar: () -> Unit,
+) {
+    item { FamilyHubHeading(stringResource(R.string.family_hub_related_sections_title)) }
+    item {
+        FamilyToolCard(
+            icon = Icons.AutoMirrored.Filled.MenuBook,
+            title = stringResource(R.string.family_open_quran_title),
+            description = stringResource(R.string.family_open_quran_desc),
+            onClick = onOpenQuran,
+        )
+    }
+    item {
+        FamilyToolCard(
+            icon = Icons.Filled.AutoStories,
+            title = stringResource(R.string.family_open_hadith_title),
+            description = stringResource(R.string.family_open_hadith_desc),
+            onClick = onOpenHadith,
+        )
+    }
+    item {
+        FamilyToolCard(
+            icon = Icons.Filled.Favorite,
+            title = stringResource(R.string.family_open_adhkar_title),
+            description = stringResource(R.string.family_open_adhkar_desc),
+            onClick = onOpenAdhkar,
+        )
+    }
+}
+
+@Composable
+private fun FamilyHubHeading(text: String) {
+    Spacer(Modifier.height(4.dp))
+    Text(
+        text = text,
+        style = MaterialTheme.typography.titleLarge,
+        fontWeight = FontWeight.Bold,
+    )
 }
 
 @Composable
@@ -303,40 +319,13 @@ internal fun FamilyGuideCatalogContent(
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         item {
-            MuslimStateSurface(
-                title = category?.title(isArabic) ?: stringResource(R.string.family_guide_all_title),
-                supportingText = stringResource(R.string.family_guide_intro),
-                tone = MuslimStateTone.Information,
-                icon = category?.icon() ?: Icons.AutoMirrored.Filled.MenuBook,
+            FamilyGuideFilters(
+                isArabic = isArabic,
+                category = category,
+                query = query,
+                onQueryChange = { query = it },
+                onCategoryChange = { categoryName = it?.name },
             )
-        }
-        item {
-            DigitNormalizedOutlinedTextField(
-                value = query,
-                onValueChange = { query = it },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                placeholder = { Text(stringResource(R.string.family_articles_search)) },
-                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-            )
-        }
-        item {
-            LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                item {
-                    FilterChip(
-                        selected = category == null,
-                        onClick = { categoryName = null },
-                        label = { Text(stringResource(R.string.family_guide_filter_all)) },
-                    )
-                }
-                items(FamilyTopicCategory.entries, key = { it.name }) { item ->
-                    FilterChip(
-                        selected = category == item,
-                        onClick = { categoryName = item.name },
-                        label = { Text(item.title(isArabic)) },
-                    )
-                }
-            }
         }
         item {
             Text(
@@ -360,6 +349,48 @@ internal fun FamilyGuideCatalogContent(
                     title = stringResource(R.string.family_articles_empty),
                     tone = MuslimStateTone.Neutral,
                     icon = Icons.Filled.Search,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun FamilyGuideFilters(
+    isArabic: Boolean,
+    category: FamilyTopicCategory?,
+    query: String,
+    onQueryChange: (String) -> Unit,
+    onCategoryChange: (FamilyTopicCategory?) -> Unit,
+) {
+    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        MuslimStateSurface(
+            title = category?.title(isArabic) ?: stringResource(R.string.family_guide_all_title),
+            supportingText = stringResource(R.string.family_guide_intro),
+            tone = MuslimStateTone.Information,
+            icon = category?.icon() ?: Icons.AutoMirrored.Filled.MenuBook,
+        )
+        DigitNormalizedOutlinedTextField(
+            value = query,
+            onValueChange = onQueryChange,
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true,
+            placeholder = { Text(stringResource(R.string.family_articles_search)) },
+            leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+        )
+        LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            item {
+                FilterChip(
+                    selected = category == null,
+                    onClick = { onCategoryChange(null) },
+                    label = { Text(stringResource(R.string.family_guide_filter_all)) },
+                )
+            }
+            items(FamilyTopicCategory.entries, key = { it.name }) { item ->
+                FilterChip(
+                    selected = category == item,
+                    onClick = { onCategoryChange(item) },
+                    label = { Text(item.title(isArabic)) },
                 )
             }
         }
