@@ -76,12 +76,16 @@ private val bookIcons = mapOf(
     "mothers" to Icons.Filled.AutoStories,
     "ahl_al_bayt" to Icons.Filled.Groups,
     "rashidun" to Icons.Filled.History,
+    "aqeedah" to Icons.Filled.AutoStories,
+    "quran_sciences" to Icons.Filled.AutoStories,
+    "hadith_sciences" to Icons.Filled.History,
 )
 
 /**
  * المرجعية الإسلامية (feature-reference): مكتبة مرجعية شاملة ومفهرسة تعرض
  * كتب مترابطة تشمل التعريف بالإسلام والسيرة والأنبياء والصحابة وأمهات
- * المؤمنين وأهل البيت والخلفاء الراشدين، مع بحث نصي ثنائي اللغة.
+ * المؤمنين وأهل البيت والخلفاء الراشدين والعقيدة وعلوم القرآن والحديث،
+ * مع بحث نصي ثنائي اللغة على مستوى المكتبة كلها.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
