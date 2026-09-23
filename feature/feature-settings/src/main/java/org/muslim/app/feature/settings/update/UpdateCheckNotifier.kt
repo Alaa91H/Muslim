@@ -49,7 +49,7 @@ class UpdateCheckNotifier(private val context: Context) {
                 .setContentIntent(contentIntent)
                 .addAction(
                     Notification.Action.Builder(
-                        null,
+                        0,
                         context.getString(R.string.update_notification_action_view),
                         contentIntent,
                     ).build(),
