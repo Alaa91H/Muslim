@@ -22,6 +22,7 @@ import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.BookmarkBorder
 import androidx.compose.material.icons.filled.Checklist
+import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.DeleteSweep
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.ChildCare
@@ -35,6 +36,7 @@ import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.FilterChip
@@ -54,6 +56,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -67,6 +71,7 @@ import org.muslim.app.feature.family.domain.FamilyEvidenceReference
 import org.muslim.app.feature.family.domain.FamilyEvidenceType
 import org.muslim.app.feature.family.domain.FamilyGuideArticle
 import org.muslim.app.feature.family.domain.FamilyLifeContent
+import org.muslim.app.feature.family.domain.FamilyReferenceParser
 import org.muslim.app.feature.family.domain.FamilyTopicCategory
 import org.muslim.app.feature.family.domain.FamilyUtilityContent
 import org.muslim.app.feature.family.domain.LocalizedFamilyText
@@ -530,6 +535,9 @@ internal fun FamilyArticleDetailContent(
     isFavorite: Boolean,
     relatedArticles: List<FamilyGuideArticle>,
     onToggleFavorite: () -> Unit,
+    onCopyArticle: () -> Unit,
+    onShareArticle: () -> Unit,
+    onOpenReference: (FamilyEvidenceReference) -> Unit,
     onOpenArticle: (String) -> Unit,
 ) {
     val category = FamilyLifeContent.categoryFor(article.id)
@@ -550,6 +558,12 @@ internal fun FamilyArticleDetailContent(
                 onToggleFavorite = onToggleFavorite,
             )
         }
+        item {
+            FamilyArticleActions(
+                onCopyArticle = onCopyArticle,
+                onShareArticle = onShareArticle,
+            )
+        }
         if (sensitive) {
             item { FamilySensitiveNotice() }
         }
@@ -559,7 +573,15 @@ internal fun FamilyArticleDetailContent(
         if (article.references.isNotEmpty()) {
             item { FamilyReferencesHeading() }
             items(article.references, key = { it.citation }) { reference ->
-                FamilyReferenceCard(reference = reference, isArabic = isArabic)
+                FamilyReferenceCard(
+                    reference = reference,
+                    isArabic = isArabic,
+                    onOpen = if (FamilyReferenceParser.canOpenInApp(reference)) {
+                        { onOpenReference(reference) }
+                    } else {
+                        null
+                    },
+                )
             }
         }
         if (relatedArticles.isNotEmpty()) {
@@ -589,7 +611,9 @@ private fun FamilyArticleHeader(
             text = article.title.pick(isArabic),
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.weight(1f),
+            modifier = Modifier
+                .weight(1f)
+                .semantics { heading() },
         )
         IconButton(onClick = onToggleFavorite) {
             Icon(
@@ -614,6 +638,31 @@ private fun FamilyArticleHeader(
             style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.primary,
         )
+    }
+}
+
+@Composable
+private fun FamilyArticleActions(
+    onCopyArticle: () -> Unit,
+    onShareArticle: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .testTag(FamilyUiTags.ARTICLE_ACTIONS),
+        horizontalArrangement = Arrangement.End,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        TextButton(onClick = onCopyArticle) {
+            Icon(Icons.Filled.ContentCopy, contentDescription = null)
+            Spacer(Modifier.width(6.dp))
+            Text(stringResource(R.string.family_copy_article))
+        }
+        TextButton(onClick = onShareArticle) {
+            Icon(Icons.Filled.Share, contentDescription = null)
+            Spacer(Modifier.width(6.dp))
+            Text(stringResource(R.string.family_share_article))
+        }
     }
 }
 
@@ -663,6 +712,7 @@ private fun FamilyReferencesHeading() {
 private fun FamilyReferenceCard(
     reference: FamilyEvidenceReference,
     isArabic: Boolean,
+    onOpen: (() -> Unit)?,
 ) {
     IslamicCard(modifier = Modifier.fillMaxWidth()) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -694,6 +744,19 @@ private fun FamilyReferenceCard(
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
+                }
+                if (onOpen != null) {
+                    TextButton(onClick = onOpen) {
+                        Text(
+                            stringResource(
+                                if (reference.type == FamilyEvidenceType.Quran) {
+                                    R.string.family_open_quran_reference
+                                } else {
+                                    R.string.family_open_hadith_reference
+                                },
+                            ),
+                        )
+                    }
                 }
             }
         }
