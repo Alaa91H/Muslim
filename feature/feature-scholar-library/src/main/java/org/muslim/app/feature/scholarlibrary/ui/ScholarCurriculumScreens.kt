@@ -308,11 +308,18 @@ internal fun BookOutlineCard(outline: List<ScholarBookOutlineSection>) {
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
             )
-            outline.forEach { section ->
+            outline.take(OUTLINE_PREVIEW_LIMIT).forEach { section ->
                 val prefix = section.volume?.takeIf { it.isNotBlank() }?.let {
                     stringResource(R.string.scholar_library_volume_label, it) + " — "
                 }.orEmpty()
                 Text(prefix + section.chapter, style = MaterialTheme.typography.bodyMedium)
+            }
+            if (outline.size > OUTLINE_PREVIEW_LIMIT) {
+                Text(
+                    stringResource(R.string.scholar_library_outline_more, outline.size - OUTLINE_PREVIEW_LIMIT),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
             }
         }
     }
@@ -325,3 +332,5 @@ private fun pathLevelLabel(level: ScholarDifficulty): String = when (level) {
     ScholarDifficulty.Intermediate -> stringResource(R.string.scholar_library_level_intermediate)
     ScholarDifficulty.Advanced -> stringResource(R.string.scholar_library_level_advanced)
 }
+
+private const val OUTLINE_PREVIEW_LIMIT = 12
