@@ -467,6 +467,7 @@ object FamilyLifeContent {
             .replace('إ', 'ا')
             .replace('آ', 'ا')
             .replace('ى', 'ي')
+            .replace('ة', 'ه')
 
     fun searchNames(query: String, gender: BabyNameGender? = null): List<IslamicBabyName> {
         val normalized = query.trim().lowercase()
