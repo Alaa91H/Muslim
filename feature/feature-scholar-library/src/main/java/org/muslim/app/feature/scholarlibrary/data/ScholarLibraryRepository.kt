@@ -413,7 +413,17 @@ class ScholarLibraryRepository @Inject constructor(
 
     suspend fun startOrResumeStudySession(pathId: String): ScholarStudySession? {
         ensureSeeded()
-        libraryDao.activeStudySessionForPath(pathId)?.let { return it.toDomain() }
+        libraryDao.activeStudySessionForPath(pathId)?.let { entity ->
+            val session = entity.toDomain()
+            val targetsStillExist = session.targetPassageIds.all { id -> libraryDao.passageById(id) != null }
+            if (targetsStillExist) return session
+            libraryDao.upsertStudySession(
+                entity.copy(
+                    status = ScholarStudySessionStatus.Abandoned.name,
+                    completedAtEpochMillis = System.currentTimeMillis(),
+                ),
+            )
+        }
         val plan = libraryDao.activeStudyPlanForPath(pathId) ?: return null
         val path = studyPaths().firstOrNull { it.id == pathId } ?: return null
         val progress = libraryDao.observeReadingProgress().first().map { it.toDomain() }
