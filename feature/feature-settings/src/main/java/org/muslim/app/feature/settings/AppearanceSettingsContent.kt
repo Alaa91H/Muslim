@@ -62,6 +62,7 @@ internal fun AppearanceSettingsContent(
     preferences: AppPreferences,
     onThemeModeChanged: (AppThemeMode) -> Unit,
     onDynamicColorChanged: (Boolean) -> Unit,
+    onAmoledBlackChanged: (Boolean) -> Unit,
     onPaletteChanged: (AppColorPalette) -> Unit,
     onCornerStyleChanged: (CardCornerStyle) -> Unit,
     onOrnamentChanged: (AppOrnamentStyle) -> Unit,
@@ -80,6 +81,7 @@ internal fun AppearanceSettingsContent(
     AppearanceLivePreview(
         darkTheme = resolvedDark,
         dynamicColor = dynamicActive,
+        amoledBlack = preferences.amoledBlack,
         palette = preferences.colorPalette,
         cornerStyle = preferences.cardCornerStyle,
         ornamentStyle = preferences.ornamentStyle,
@@ -95,6 +97,18 @@ internal fun AppearanceSettingsContent(
     AppearanceThemeModeSelector(
         selected = preferences.themeMode,
         onSelect = onThemeModeChanged,
+    )
+
+    ListItem(
+        headlineContent = { Text(stringResource(R.string.settings_amoled_black)) },
+        supportingContent = { Text(stringResource(R.string.settings_amoled_black_desc)) },
+        leadingContent = { Icon(Icons.Filled.DarkMode, contentDescription = null) },
+        trailingContent = {
+            Switch(
+                checked = preferences.amoledBlack,
+                onCheckedChange = onAmoledBlackChanged,
+            )
+        },
     )
 
     ListItem(
@@ -186,6 +200,7 @@ internal fun AppearanceSettingsContent(
 private fun AppearanceLivePreview(
     darkTheme: Boolean,
     dynamicColor: Boolean,
+    amoledBlack: Boolean,
     palette: AppColorPalette,
     cornerStyle: CardCornerStyle,
     ornamentStyle: AppOrnamentStyle,
@@ -195,6 +210,7 @@ private fun AppearanceLivePreview(
     AppTheme(
         darkTheme = darkTheme,
         dynamicColor = dynamicColor,
+        amoledBlack = amoledBlack,
         colorPalette = palette,
         cardCornerStyle = cornerStyle,
         ornamentStyle = ornamentStyle,
