@@ -183,7 +183,7 @@ object IslamicHistorySearch {
         text == query -> 100
         text.startsWith(query) -> 85
         text.contains(query) -> 65
-        query.split(' ').filter { it.isNotBlank() }.all(text::contains) -> 40
+        query.split(' ').filter { it.isNotBlank() }.all { term -> text.contains(term) } -> 40
         else -> 0
     }
 
