@@ -114,7 +114,7 @@ private data class FamilyDestinationActions(
     val openArticle: (String) -> Unit,
     val openChecklist: (String) -> Unit,
     val onAudioFailure: (String) -> Unit,
-    val openQuran: (Int?) -> Unit,
+    val openQuran: (Int?, Int?) -> Unit,
     val openHadith: () -> Unit,
     val openAdhkar: () -> Unit,
 )
@@ -123,7 +123,7 @@ private data class FamilyDestinationActions(
 @Composable
 fun FamilyLifeScreen(
     onBack: () -> Unit,
-    onOpenQuran: (Int?) -> Unit,
+    onOpenQuran: (Int?, Int?) -> Unit,
     onOpenHadith: () -> Unit,
     onOpenAdhkar: () -> Unit,
     modifier: Modifier = Modifier,
@@ -375,7 +375,7 @@ private fun openFamilyHubDestination(
         FamilyHubDestination.Ruqyah -> actions.openSection(FamilySection.Ruqyah)
         FamilyHubDestination.Names -> actions.openSection(FamilySection.Names)
         FamilyHubDestination.Aqiqah -> actions.openSection(FamilySection.Aqiqah)
-        FamilyHubDestination.Quran -> actions.openQuran(null)
+        FamilyHubDestination.Quran -> actions.openQuran(null, null)
         FamilyHubDestination.Hadith -> actions.openHadith()
         FamilyHubDestination.Adhkar -> actions.openAdhkar()
     }
@@ -942,7 +942,7 @@ private fun openFamilyReference(
 ) {
     val quran = FamilyReferenceParser.quranReference(reference)
     when {
-        quran != null -> actions.openQuran(quran.surahNumber)
+        quran != null -> actions.openQuran(quran.surahNumber, quran.firstAyah)
         reference.type == org.muslim.app.feature.family.domain.FamilyEvidenceType.Hadith ->
             actions.openHadith()
     }
