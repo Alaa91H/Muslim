@@ -195,7 +195,7 @@ REQUIRED_SNIPPETS = {
         "IslamicPrimaryButton",
         "MuslimAppScaffold",
     ],
-    "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/FamilyLifeScreen.kt": [
+    "feature/feature-family-life/src/main/java/org/muslim/app/feature/family/ui/FamilyLifeScreen.kt": [
         "IslamicCard",
         "IslamicDecorationBand",
         "IslamicDecorationDivider",
