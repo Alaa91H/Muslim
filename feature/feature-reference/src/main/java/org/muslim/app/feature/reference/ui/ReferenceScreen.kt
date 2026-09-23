@@ -22,6 +22,7 @@ import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Groups
 import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -82,13 +83,16 @@ private val bookIcons = mapOf(
     "fiqh_worship" to Icons.Filled.AutoStories,
     "ethics_life" to Icons.Filled.Groups,
     "history_civilization" to Icons.Filled.History,
+    "places_landmarks" to Icons.Filled.Place,
+    "islamic_glossary" to Icons.AutoMirrored.Filled.MenuBook,
 )
 
 /**
  * المرجعية الإسلامية (feature-reference): مكتبة مرجعية شاملة ومفهرسة تعرض
  * كتب مترابطة تشمل التعريف بالإسلام والسيرة والأنبياء والصحابة وأمهات
  * المؤمنين وأهل البيت والخلفاء الراشدين والعقيدة وعلوم القرآن والحديث وفقه العبادات
- * والأخلاق والآداب وحياة المسلم والتاريخ والحضارة الإسلامية،
+ * والأخلاق والآداب وحياة المسلم والتاريخ والحضارة الإسلامية والأماكن والمعالم
+ * والمعجم الإسلامي الموسع،
  * مع بحث نصي ثنائي اللغة على مستوى المكتبة كلها.
  */
 @OptIn(ExperimentalMaterial3Api::class)
