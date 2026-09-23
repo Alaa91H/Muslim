@@ -38,7 +38,7 @@ internal data class HistorySectionDto(
         HistoryArticleSection(
             id = id,
             title = title.toDomain(),
-            paragraphs = paragraphs.map(BilingualContentDto::toDomain),
+            paragraphs = paragraphs.map { it.toDomain() },
         )
 
     companion object {
@@ -46,7 +46,7 @@ internal data class HistorySectionDto(
             HistorySectionDto(
                 id = value.id,
                 title = BilingualContentDto.fromDomain(value.title),
-                paragraphs = value.paragraphs.map(BilingualContentDto::fromDomain),
+                paragraphs = value.paragraphs.map { BilingualContentDto.fromDomain(it) },
             )
     }
 }
@@ -72,7 +72,7 @@ internal data class HistoricalDateDto(
                 startCe = value.startCe,
                 endCe = value.endCe,
                 precision = value.precision.name,
-                note = value.note?.let(BilingualContentDto::fromDomain),
+                note = value.note?.let { BilingualContentDto.fromDomain(it) },
             )
     }
 }
@@ -94,7 +94,7 @@ internal data class HistoryArticleDto(
             eraId = eraId,
             title = title.toDomain(),
             lead = lead.toDomain(),
-            sections = sections.map(HistorySectionDto::toDomain),
+            sections = sections.map { it.toDomain() },
             sourceIds = sourceIds,
             relatedEraIds = relatedEraIds,
             tags = tags,
@@ -107,7 +107,7 @@ internal data class HistoryArticleDto(
                 eraId = value.eraId,
                 title = BilingualContentDto.fromDomain(value.title),
                 lead = BilingualContentDto.fromDomain(value.lead),
-                sections = value.sections.map(HistorySectionDto::fromDomain),
+                sections = value.sections.map { HistorySectionDto.fromDomain(it) },
                 sourceIds = value.sourceIds,
                 relatedEraIds = value.relatedEraIds,
                 tags = value.tags,
@@ -230,7 +230,7 @@ internal data class CivilizationTopicDto(
             ),
             title = title.toDomain(),
             summary = summary.toDomain(),
-            sections = sections.map(HistorySectionDto::toDomain),
+            sections = sections.map { it.toDomain() },
             personIds = personIds,
             placeIds = placeIds,
             sourceIds = sourceIds,
@@ -244,7 +244,7 @@ internal data class CivilizationTopicDto(
                 category = value.category.name,
                 title = BilingualContentDto.fromDomain(value.title),
                 summary = BilingualContentDto.fromDomain(value.summary),
-                sections = value.sections.map(HistorySectionDto::fromDomain),
+                sections = value.sections.map { HistorySectionDto.fromDomain(it) },
                 personIds = value.personIds,
                 placeIds = value.placeIds,
                 sourceIds = value.sourceIds,
@@ -269,7 +269,7 @@ internal data class HistoryPersonProfileDto(
         HistoryPersonProfile(
             personId = personId,
             overview = overview.toDomain(),
-            sections = sections.map(HistorySectionDto::toDomain),
+            sections = sections.map { it.toDomain() },
             eraIds = eraIds,
             stateIds = stateIds,
             placeIds = placeIds,
@@ -283,7 +283,7 @@ internal data class HistoryPersonProfileDto(
             HistoryPersonProfileDto(
                 personId = value.personId,
                 overview = BilingualContentDto.fromDomain(value.overview),
-                sections = value.sections.map(HistorySectionDto::fromDomain),
+                sections = value.sections.map { HistorySectionDto.fromDomain(it) },
                 eraIds = value.eraIds,
                 stateIds = value.stateIds,
                 placeIds = value.placeIds,
@@ -310,7 +310,7 @@ internal data class HistoricalPlaceProfileDto(
         HistoricalPlaceProfile(
             placeId = placeId,
             overview = overview.toDomain(),
-            sections = sections.map(HistorySectionDto::toDomain),
+            sections = sections.map { it.toDomain() },
             eraIds = eraIds,
             stateIds = stateIds,
             eventIds = eventIds,
@@ -324,7 +324,7 @@ internal data class HistoricalPlaceProfileDto(
             HistoricalPlaceProfileDto(
                 placeId = value.placeId,
                 overview = BilingualContentDto.fromDomain(value.overview),
-                sections = value.sections.map(HistorySectionDto::fromDomain),
+                sections = value.sections.map { HistorySectionDto.fromDomain(it) },
                 eraIds = value.eraIds,
                 stateIds = value.stateIds,
                 eventIds = value.eventIds,
