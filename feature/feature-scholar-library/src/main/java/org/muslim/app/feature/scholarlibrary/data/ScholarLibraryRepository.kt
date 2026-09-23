@@ -25,6 +25,7 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarCategory
 import org.muslim.app.feature.scholarlibrary.domain.ScholarDifficulty
 import org.muslim.app.feature.scholarlibrary.domain.ScholarHighlight
 import org.muslim.app.feature.scholarlibrary.domain.ScholarHighlightStyle
+import org.muslim.app.feature.scholarlibrary.domain.ScholarLibraryIndex
 import org.muslim.app.feature.scholarlibrary.domain.ScholarNote
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
@@ -182,31 +183,16 @@ class ScholarLibraryRepository @Inject constructor(
 
     suspend fun authors(): List<ScholarAuthorSummary> {
         ensureSeeded()
-        return libraryDao.observeBooks().first()
-            .map { it.toDomain() }
-            .groupBy { it.author.trim() }
-            .map { (name, books) ->
-                ScholarAuthorSummary(
-                    name = name,
-                    deathYearHijri = books.mapNotNull { it.authorDeathYearHijri }.firstOrNull(),
-                    bookIds = books.map { it.id }.sorted(),
-                )
-            }
-            .sortedBy { it.name }
+        return ScholarLibraryIndex.authors(
+            libraryDao.observeBooks().first().map { it.toDomain() },
+        )
     }
 
     suspend fun bookOutline(bookId: String): List<ScholarBookOutlineSection> {
         ensureSeeded()
-        return libraryDao.observePassagesForBook(bookId).first()
-            .map { it.toDomain() }
-            .groupBy { it.volume.orEmpty() to it.chapter }
-            .map { (key, passages) ->
-                ScholarBookOutlineSection(
-                    volume = key.first.ifBlank { null },
-                    chapter = key.second,
-                    passageIds = passages.map { it.id },
-                )
-            }
+        return ScholarLibraryIndex.outline(
+            libraryDao.observePassagesForBook(bookId).first().map { it.toDomain() },
+        )
     }
 
     suspend fun studyPaths(): List<ScholarStudyPath> {
@@ -248,14 +234,14 @@ class ScholarLibraryRepository @Inject constructor(
         ensureSeeded()
         val books = libraryDao.observeBooks().first().map { it.toDomain() }
         val booksById = books.associateBy { it.id }
-        val eligibleBooks = books.filter { it.matches(filters) }.associateBy { it.id }
+        val eligibleBooks = books.filter { ScholarLibraryIndex.matches(it, filters) }.associateBy { it.id }
         if (eligibleBooks.isEmpty()) return emptyList()
 
         val normalized = ArabicText.normalizeForSearch(rawQuery.trim())
         val metadataMatches = if (normalized.isBlank()) {
             emptyList()
         } else {
-            eligibleBooks.values.filter { book -> book.matchesMetadataQuery(normalized) }
+            eligibleBooks.values.filter { book -> ScholarLibraryIndex.matchesMetadataQuery(book, normalized) }
         }
 
         val passageIds = linkedSetOf<String>()
@@ -626,21 +612,6 @@ class ScholarLibraryRepository @Inject constructor(
         volumeCount = volumeCount,
         keywords = keywords.joinToString(KEYWORD_SEPARATOR),
     )
-
-    private fun ScholarBook.matches(filters: ScholarSearchFilters): Boolean =
-        (filters.category == null || category == filters.category) &&
-            (filters.difficulty == null || difficulty == filters.difficulty) &&
-            (filters.authorName.isNullOrBlank() || author == filters.authorName)
-
-    private fun ScholarBook.matchesMetadataQuery(normalizedQuery: String): Boolean {
-        val searchable = buildList {
-            add(title)
-            add(author)
-            subtitle?.let(::add)
-            addAll(keywords)
-        }.joinToString(" ")
-        return ArabicText.normalizeForSearch(searchable).contains(normalizedQuery)
-    }
 
     private fun ScholarPackPassage.toEntity(bookId: String) = ScholarPassageEntity(
         id = id,
