@@ -123,6 +123,36 @@ interface ScholarLibraryDao {
 
     @Query("UPDATE scholar_study_plans SET active = :active, updatedAtEpochMillis = :updatedAt WHERE id = :id")
     suspend fun updateStudyPlanActive(id: Long, active: Boolean, updatedAt: Long)
+
+
+    @Query("SELECT * FROM scholar_study_sessions ORDER BY startedAtEpochMillis DESC, id DESC")
+    fun observeStudySessions(): Flow<List<ScholarStudySessionEntity>>
+
+    @Query(
+        """
+        SELECT * FROM scholar_study_sessions
+        WHERE pathId = :pathId AND status = 'InProgress'
+        ORDER BY startedAtEpochMillis DESC, id DESC
+        LIMIT 1
+        """,
+    )
+    suspend fun activeStudySessionForPath(pathId: String): ScholarStudySessionEntity?
+
+    @Query("SELECT * FROM scholar_study_sessions WHERE id = :id LIMIT 1")
+    suspend fun studySessionById(id: Long): ScholarStudySessionEntity?
+
+    @Query(
+        """
+        SELECT * FROM scholar_study_plans
+        WHERE pathId = :pathId AND active = 1
+        ORDER BY updatedAtEpochMillis DESC, id DESC
+        LIMIT 1
+        """,
+    )
+    suspend fun activeStudyPlanForPath(pathId: String): ScholarStudyPlanEntity?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertStudySession(session: ScholarStudySessionEntity): Long
 }
 
 @Dao
