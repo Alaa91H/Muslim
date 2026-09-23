@@ -204,7 +204,6 @@ object IslamicHistoryProfiles {
                 ),
             ),
             eraIds = listOf("abbasid", "regional_civilizations"),
-            placeIds = listOf("samarkand"),
             relatedTopicIds = listOf("medicine_bimaristans", "translation_books", "education_libraries"),
             sourceIds = listOf("met_science", "unesco_silk_roads"),
         ),
