@@ -12,6 +12,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -36,8 +37,19 @@ import org.muslim.app.feature.reference.domain.IslamicHistorySources
 import org.muslim.app.feature.reference.domain.IslamicHistoryStates
 
 @Composable
-internal fun HistoryPeopleProfilesTab(language: HistoryLanguage) {
+internal fun HistoryPeopleProfilesTab(
+    language: HistoryLanguage,
+    target: HistoryNavigationTarget?,
+    onTargetConsumed: () -> Unit,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
+) {
     var selectedPersonId by remember { mutableStateOf<String?>(null) }
+    LaunchedEffect(target) {
+        if (target?.type == HistoryTargetType.Person) {
+            selectedPersonId = target.id
+            onTargetConsumed()
+        }
+    }
     val profile = selectedPersonId?.let(IslamicHistoryProfiles::personById)
 
     if (profile != null) {
@@ -45,6 +57,7 @@ internal fun HistoryPeopleProfilesTab(language: HistoryLanguage) {
             profile = profile,
             language = language,
             onBack = { selectedPersonId = null },
+            onNavigate = onNavigate,
         )
         return
     }
@@ -123,6 +136,7 @@ private fun PersonProfileView(
     profile: HistoryPersonProfile,
     language: HistoryLanguage,
     onBack: () -> Unit,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
 ) {
     BackHandler(onBack = onBack)
     val person = IslamicHistoryContent.personalities.first { it.id == profile.personId }
@@ -154,7 +168,11 @@ private fun PersonProfileView(
             ProfileSectionCard(section = section, language = language)
         }
         item {
-            PersonRelationsCard(profile = profile, language = language)
+            PersonRelationsCard(
+                profile = profile,
+                language = language,
+                onNavigate = onNavigate,
+            )
         }
         if (sources.isNotEmpty()) {
             item { ProfileSourcesHeading(language) }
@@ -170,6 +188,7 @@ internal fun HistoryPlaceProfileView(
     placeId: String,
     language: HistoryLanguage,
     onBack: () -> Unit,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
 ) {
     val profile = IslamicHistoryProfiles.placeById(placeId) ?: return
     val place = IslamicHistoryProfiles.atlasPlaceById(placeId) ?: return
@@ -202,7 +221,11 @@ internal fun HistoryPlaceProfileView(
             ProfileSectionCard(section = section, language = language)
         }
         item {
-            PlaceRelationsCard(profile = profile, language = language)
+            PlaceRelationsCard(
+                profile = profile,
+                language = language,
+                onNavigate = onNavigate,
+            )
         }
         if (sources.isNotEmpty()) {
             item { ProfileSourcesHeading(language) }
@@ -266,98 +289,136 @@ private fun ProfileSectionCard(
 private fun PersonRelationsCard(
     profile: HistoryPersonProfile,
     language: HistoryLanguage,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
 ) {
-    val states = profile.stateIds.mapNotNull { IslamicHistoryStates.byId(it)?.title?.resolve(language) }
-    val places = profile.placeIds.mapNotNull {
-        IslamicHistoryProfiles.atlasPlaceById(it)?.title?.resolve(language)
+    val links = buildList {
+        profile.stateIds.forEach { id ->
+            IslamicHistoryStates.byId(id)?.let { state ->
+                add(
+                    ProfileLink(
+                        label = state.title.resolve(language),
+                        typeLabel = if (language == HistoryLanguage.Arabic) "دولة" else "State",
+                        target = HistoryNavigationTarget(HistoryTargetType.State, id),
+                    ),
+                )
+            }
+        }
+        profile.placeIds.forEach { id ->
+            IslamicHistoryProfiles.atlasPlaceById(id)?.let { place ->
+                add(
+                    ProfileLink(
+                        label = place.title.resolve(language),
+                        typeLabel = if (language == HistoryLanguage.Arabic) "مكان" else "Place",
+                        target = HistoryNavigationTarget(HistoryTargetType.Place, id),
+                    ),
+                )
+            }
+        }
+        profile.eventIds.forEach { id ->
+            IslamicHistoricalEvents.byId(id)?.let { event ->
+                add(
+                    ProfileLink(
+                        label = event.title.resolve(language),
+                        typeLabel = if (language == HistoryLanguage.Arabic) "حدث" else "Event",
+                        target = HistoryNavigationTarget(HistoryTargetType.Event, id),
+                    ),
+                )
+            }
+        }
+        profile.relatedTopicIds.forEach { id ->
+            IslamicCivilizationContent.byId(id)?.let { topic ->
+                add(
+                    ProfileLink(
+                        label = topic.title.resolve(language),
+                        typeLabel = if (language == HistoryLanguage.Arabic) "حضارة" else "Civilization",
+                        target = HistoryNavigationTarget(HistoryTargetType.CivilizationTopic, id),
+                    ),
+                )
+            }
+        }
     }
-    val events = profile.eventIds.mapNotNull {
-        IslamicHistoricalEvents.byId(it)?.title?.resolve(language)
-    }
-    val topics = profile.relatedTopicIds.mapNotNull {
-        IslamicCivilizationContent.byId(it)?.title?.resolve(language)
-    }
-    RelationsCard(
-        rows = relationRows(
-            language = language,
-            states = states,
-            places = places,
-            events = events,
-            topics = topics,
-        ),
-    )
+    ProfileRelationsCard(links = links, language = language, onNavigate = onNavigate)
 }
 
 @Composable
 private fun PlaceRelationsCard(
     profile: HistoricalPlaceProfile,
     language: HistoryLanguage,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
 ) {
-    val states = profile.stateIds.mapNotNull { IslamicHistoryStates.byId(it)?.title?.resolve(language) }
-    val events = profile.eventIds.mapNotNull {
-        IslamicHistoricalEvents.byId(it)?.title?.resolve(language)
+    val links = buildList {
+        profile.stateIds.forEach { id ->
+            IslamicHistoryStates.byId(id)?.let { state ->
+                add(
+                    ProfileLink(
+                        label = state.title.resolve(language),
+                        typeLabel = if (language == HistoryLanguage.Arabic) "دولة" else "State",
+                        target = HistoryNavigationTarget(HistoryTargetType.State, id),
+                    ),
+                )
+            }
+        }
+        profile.eventIds.forEach { id ->
+            IslamicHistoricalEvents.byId(id)?.let { event ->
+                add(
+                    ProfileLink(
+                        label = event.title.resolve(language),
+                        typeLabel = if (language == HistoryLanguage.Arabic) "حدث" else "Event",
+                        target = HistoryNavigationTarget(HistoryTargetType.Event, id),
+                    ),
+                )
+            }
+        }
+        profile.relatedPersonIds.forEach { id ->
+            IslamicHistoryContent.personalities.firstOrNull { it.id == id }?.let { person ->
+                add(
+                    ProfileLink(
+                        label = person.name.resolve(language),
+                        typeLabel = if (language == HistoryLanguage.Arabic) "شخصية" else "Person",
+                        target = HistoryNavigationTarget(HistoryTargetType.Person, id),
+                    ),
+                )
+            }
+        }
+        profile.relatedTopicIds.forEach { id ->
+            IslamicCivilizationContent.byId(id)?.let { topic ->
+                add(
+                    ProfileLink(
+                        label = topic.title.resolve(language),
+                        typeLabel = if (language == HistoryLanguage.Arabic) "حضارة" else "Civilization",
+                        target = HistoryNavigationTarget(HistoryTargetType.CivilizationTopic, id),
+                    ),
+                )
+            }
+        }
     }
-    val people = profile.relatedPersonIds.mapNotNull { id ->
-        IslamicHistoryContent.personalities.firstOrNull { it.id == id }?.name?.resolve(language)
-    }
-    val topics = profile.relatedTopicIds.mapNotNull {
-        IslamicCivilizationContent.byId(it)?.title?.resolve(language)
-    }
-    RelationsCard(
-        rows = relationRows(
-            language = language,
-            states = states,
-            events = events,
-            people = people,
-            topics = topics,
-        ),
-    )
+    ProfileRelationsCard(links = links, language = language, onNavigate = onNavigate)
 }
 
-private fun relationRows(
-    language: HistoryLanguage,
-    states: List<String> = emptyList(),
-    places: List<String> = emptyList(),
-    events: List<String> = emptyList(),
-    people: List<String> = emptyList(),
-    topics: List<String> = emptyList(),
-): List<Pair<String, List<String>>> = buildList {
-    if (states.isNotEmpty()) {
-        add((if (language == HistoryLanguage.Arabic) "الدول المرتبطة" else "Related states") to states)
-    }
-    if (places.isNotEmpty()) {
-        add((if (language == HistoryLanguage.Arabic) "الأماكن المرتبطة" else "Related places") to places)
-    }
-    if (events.isNotEmpty()) {
-        add((if (language == HistoryLanguage.Arabic) "الأحداث المرتبطة" else "Related events") to events)
-    }
-    if (people.isNotEmpty()) {
-        add((if (language == HistoryLanguage.Arabic) "الشخصيات المرتبطة" else "Related people") to people)
-    }
-    if (topics.isNotEmpty()) {
-        add((if (language == HistoryLanguage.Arabic) "موضوعات حضارية مرتبطة" else "Related civilization topics") to topics)
-    }
-}
+private data class ProfileLink(
+    val label: String,
+    val typeLabel: String,
+    val target: HistoryNavigationTarget,
+)
 
 @Composable
-private fun RelationsCard(rows: List<Pair<String, List<String>>>) {
-    if (rows.isEmpty()) return
+private fun ProfileRelationsCard(
+    links: List<ProfileLink>,
+    language: HistoryLanguage,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
+) {
+    if (links.isEmpty()) return
     Card {
         Column(modifier = Modifier.padding(18.dp)) {
-            rows.forEachIndexed { index, (label, values) ->
-                if (index > 0) {
-                    Text(text = "", modifier = Modifier.padding(top = 2.dp))
+            Text(
+                text = if (language == HistoryLanguage.Arabic) "روابط مرتبطة" else "Related entries",
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+            links.forEach { link ->
+                TextButton(onClick = { onNavigate(link.target) }) {
+                    Text("${link.typeLabel}: ${link.label}")
                 }
-                Text(
-                    text = label,
-                    style = MaterialTheme.typography.labelLarge,
-                    fontWeight = FontWeight.Bold,
-                )
-                Text(
-                    text = values.joinToString(" • "),
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(top = 4.dp),
-                )
             }
         }
     }
