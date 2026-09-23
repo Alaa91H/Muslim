@@ -202,6 +202,19 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
                 database.execSQL(
                     "ALTER TABLE scholar_flashcards ADD COLUMN lastRating TEXT",
                 )
+                database.execSQL(
+                    """
+                    UPDATE scholar_flashcards
+                    SET intervalDays = CASE
+                        WHEN reviewCount <= 0 THEN 0
+                        WHEN reviewCount = 1 THEN 1
+                        WHEN reviewCount = 2 THEN 3
+                        WHEN reviewCount = 3 THEN 7
+                        WHEN reviewCount = 4 THEN 14
+                        ELSE 30
+                    END
+                    """.trimIndent(),
+                )
             }
         }
 
