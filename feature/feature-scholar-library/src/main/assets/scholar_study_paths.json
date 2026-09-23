@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "notice": "هذه المسارات تنظيم تحريري للمطالعة داخل التطبيق وليست منهجاً إلزامياً ولا بديلاً عن التلقي على أهل الاختصاص.",
+  "paths": [
+    {
+      "id": "hadith-reading-path",
+      "title": "مسار مطالعة في الحديث وعلومه",
+      "summary": "ينظم المراجع الحديثية الموجودة حالياً من النصوص الجامعة إلى مدخل المصطلح ثم التوسع في مباحثه.",
+      "category": "Hadith",
+      "level": "Foundation",
+      "stages": [
+        {
+          "id": "hadith-foundations",
+          "title": "نصوص جامعة وفهم المعاني",
+          "description": "ابدأ بالمادة الجامعة المختصرة، مع فصل نص الحديث عن الفوائد والشرح في الملاحظات.",
+          "bookIds": ["arbaeen-nawawi", "jami-al-ulum"]
+        },
+        {
+          "id": "hadith-terminology",
+          "title": "مدخل المصطلح",
+          "description": "انتقل إلى بناء خريطة للمصطلحات وشروطها والفروق بينها مع حفظ الإحالات.",
+          "bookIds": ["muqaddimah-ibn-salah", "tadrib-al-rawi"]
+        }
+      ]
+    },
+    {
+      "id": "usul-reading-path",
+      "title": "مسار مطالعة في أصول الفقه",
+      "summary": "يجمع المراجع الأصولية الحالية في مسار يساعد على مقارنة التعريفات والأدلة ومواقع الخلاف.",
+      "category": "Usul",
+      "level": "Intermediate",
+      "stages": [
+        {
+          "id": "usul-source-reading",
+          "title": "قراءة أصول الاستدلال",
+          "description": "ركز على مسائل البيان وحجية السنة ودلالات النصوص قبل بناء الملخصات.",
+          "bookIds": ["al-risalah-shafii"]
+        },
+        {
+          "id": "usul-comparison",
+          "title": "المقارنة والتحرير",
+          "description": "قارن المصطلحات والقواعد بين المراجع، مع نسبة كل تعريف ومثال إلى مصدره.",
+          "bookIds": ["rawdat-al-nazir", "al-mustasfa-ghazali"]
+        }
+      ]
+    },
+    {
+      "id": "arabic-tools-path",
+      "title": "مسار علوم الآلة واللغة",
+      "summary": "مسار للمراجع اللغوية الموجودة حالياً يركز على ضبط القواعد وبناء بطاقات تطبيقية.",
+      "category": "Arabic",
+      "level": "Foundation",
+      "stages": [
+        {
+          "id": "arabic-grammar-foundations",
+          "title": "تأسيس النحو",
+          "description": "كوّن تعريفاً ومثالاً لكل قاعدة، ثم اربطها بموضعها في المرجع.",
+          "bookIds": ["al-ajurrumiyyah"]
+        },
+        {
+          "id": "arabic-grammar-expansion",
+          "title": "التوسع والمراجعة",
+          "description": "استخدم وحدات مراجعة قصيرة تربط القاعدة بالمثال والتطبيق.",
+          "bookIds": ["alfiyyah-ibn-malik"]
+        }
+      ]
+    },
+    {
+      "id": "tafsir-reading-path",
+      "title": "مسار مطالعة في التفسير وعلوم القرآن",
+      "summary": "يربط بين قواعد التعامل مع التفسير والرجوع إلى مرجع تفسيري موسع مع توثيق السورة والآية والموضع.",
+      "category": "Tafsir",
+      "level": "Intermediate",
+      "stages": [
+        {
+          "id": "tafsir-method",
+          "title": "منهج القراءة والتوثيق",
+          "description": "ميّز بين التفسير ووجه الاستدلال والحكم على الرواية في ملاحظات منفصلة.",
+          "bookIds": ["usul-al-tafsir"]
+        },
+        {
+          "id": "tafsir-reference-reading",
+          "title": "الرجوع إلى المرجع التفسيري",
+          "description": "اربط الفائدة بالآية وسياقها وبيانات الجزء والصفحة عند توفرها.",
+          "bookIds": ["tafsir-tabari"]
+        }
+      ]
+    }
+  ]
+}
