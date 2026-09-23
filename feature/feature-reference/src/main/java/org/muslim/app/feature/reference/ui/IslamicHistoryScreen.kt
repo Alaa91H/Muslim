@@ -234,9 +234,7 @@ private fun TimelineTab(
                 TimelineEraCard(
                     era = era,
                     language = language,
-                    onOpenDetails = IslamicHistoryArticles.articleForEra(era.id)?.let {
-                        { selectedEraId = era.id }
-                    },
+                    onOpenDetails = { selectedEraId = era.id },
                 )
             }
             item { HistoryNotice(stringResource(R.string.history_sources_notice)) }
