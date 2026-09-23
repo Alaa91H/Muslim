@@ -109,7 +109,7 @@ def main() -> None:
     require("createStudyPlan(" in repository, "repository must persist study plans")
     require("observeStudyPlans()" in repository, "repository must expose study plans")
     require("observeStudySessions()" in repository, "repository must expose study-session history")
-    require("observeReviewEvents()" in repository, "v6 repository must expose review history")
+    require("val reviewEvents: Flow<List<ScholarReviewEvent>>" in repository, "v6 repository must expose review history")
     require("applyFlashcardReview" in repository, "v6 review update must persist card state and event atomically")
     require("ScholarReviewScheduler.schedule" in repository, "repository must use graded spaced-review scheduling")
     require("reviewFlashcard(id: Long, rating: ScholarReviewRating)" in repository, "flashcard review must accept graded ratings")
