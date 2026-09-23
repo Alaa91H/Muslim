@@ -1,0 +1,26 @@
+name: Polish Muslim v1.25.34 Release Notes
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/polish-release-v1.25.34.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  polish:
+    name: Update v1.25.34 release notes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+
+      - name: Update published release notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release edit v1.25.34 \
+            --title "Muslim v1.25.34" \
+            --notes-file docs/releases/v1.25.34.md
