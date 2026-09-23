@@ -1282,7 +1282,7 @@
         "keywordsEn": [],
         "relatedTopicIds": [
           "youth",
-          "justice_mercy"
+          "islam/justice_mercy"
         ],
         "citations": [
           {
@@ -2332,7 +2332,7 @@
         "keywordsEn": [],
         "relatedTopicIds": [
           "isra_miraj_detail",
-          "prayer"
+          "islam/prayer"
         ],
         "citations": [
           {
@@ -3029,7 +3029,7 @@
         "keywordsEn": [],
         "relatedTopicIds": [
           "medina_state",
-          "prayer"
+          "islam/prayer"
         ],
         "citations": [
           {
@@ -3085,7 +3085,7 @@
         "keywordsEn": [],
         "relatedTopicIds": [
           "mosque_prophet",
-          "prayer"
+          "islam/prayer"
         ],
         "citations": [
           {
@@ -3618,7 +3618,7 @@
                 "ar": "توقفت قافلة العمرة عند الحديبية، وجرت مفاوضات مع قريش، وخلال الأزمة بايع الصحابة النبي ﷺ بيعة الرضوان.",
                 "en": "The pilgrimage party stopped at Hudaybiyyah and negotiations took place with Quraysh; during the crisis the companions gave the Prophet ﷺ the Pledge of Ridwan.",
                 "citationIds": [
-                  "quran-48-18",
+                  "quran-48-1-27",
                   "bukhari-hudaybiyyah"
                 ]
               }
