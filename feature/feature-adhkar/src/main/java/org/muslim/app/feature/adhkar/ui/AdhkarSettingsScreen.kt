@@ -698,16 +698,18 @@ private fun SpeechVoiceDropdown(
             onValueChange = {},
             readOnly = true,
             label = { Text(stringResource(R.string.adhkar_speech_voice)) },
-            supportingText = currentVoice?.let { voice ->
+            supportingText = if (currentVoice != null) {
                 {
                     Text(
-                        text = if (voice.requiresNetwork) {
+                        text = if (currentVoice.requiresNetwork) {
                             stringResource(R.string.adhkar_speech_voice_network)
                         } else {
                             stringResource(R.string.adhkar_speech_voice_local)
                         },
                     )
                 }
+            } else {
+                null
             },
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
             modifier = Modifier
