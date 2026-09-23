@@ -125,8 +125,8 @@ fun ReferenceScreen(
                         else -> onBack()
                     }
                 },
-                onToggleLanguage = {
-                    lang = if (lang == RefLang.Arabic) RefLang.English else RefLang.Arabic
+                onToggleLanguage = { lang =
+                    if (lang == RefLang.Arabic) RefLang.English else RefLang.Arabic
                 },
             )
         },
