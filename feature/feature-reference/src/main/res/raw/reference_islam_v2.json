@@ -6,7 +6,7 @@
     "titleEn": "Introduction to Islam",
     "subtitleAr": "مرجع شامل ومفهرس للمسلم ولغير المسلم",
     "subtitleEn": "A comprehensive, indexed reference for Muslims and non-Muslims",
-    "contentRevision": 3,
+    "contentRevision": 4,
     "chapters": [
       {
         "id": "foundations",
@@ -20,7 +20,15 @@
           "pillars_islam",
           "pillars_faith",
           "purpose_of_life",
-          "tawhid"
+          "tawhid",
+          "shahada",
+          "sincerity",
+          "trust_in_god",
+          "gratitude",
+          "patience",
+          "divine_decree",
+          "angels",
+          "revealed_books"
         ]
       },
       {
@@ -33,7 +41,10 @@
           "quran",
           "prophet",
           "sources",
-          "revelation_prophethood"
+          "revelation_prophethood",
+          "quran_revelation",
+          "sunnah",
+          "following_prophet"
         ]
       },
       {
@@ -47,7 +58,16 @@
           "worship",
           "afterlife",
           "repentance",
-          "dua"
+          "dua",
+          "purification",
+          "prayer",
+          "zakat",
+          "fasting",
+          "hajj_umrah",
+          "dhikr",
+          "charity",
+          "death_barzakh",
+          "resurrection_judgment"
         ]
       },
       {
@@ -1604,6 +1624,1737 @@
                 "en": "Islamic learning therefore combines inquiry and research with respect for expertise and honesty when attributing statements to their sources.",
                 "citationIds": [
                   "quran-17-36"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "shahada",
+        "titleAr": "الشهادتان ومعناهما",
+        "titleEn": "The two testimonies of faith",
+        "summaryAr": "الشهادتان إعلان للتوحيد والإيمان برسالة محمد ﷺ، وهما مدخل الإسلام وأساس هويته العقدية.",
+        "summaryEn": "The two testimonies affirm God's oneness and the mission of Muhammad ﷺ; they are the entry into Islam and the foundation of Muslim belief.",
+        "keywordsAr": [
+          "الشهادتان",
+          "لا إله إلا الله",
+          "محمد رسول الله"
+        ],
+        "keywordsEn": [
+          "shahada",
+          "testimony of faith",
+          "there is no god but Allah"
+        ],
+        "relatedTopicIds": [
+          "tawhid",
+          "prophet",
+          "pillars_islam"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-18",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:18"
+          },
+          {
+            "id": "quran-47-19",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "47:19"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "first_testimony",
+            "titleAr": "شهادة أن لا إله إلا الله",
+            "titleEn": "The testimony that none is worthy of worship but God",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تتضمن الشهادة إفراد الله بالألوهية والعبادة، ونفي استحقاق العبادة عما سواه. لذلك فهي ليست عبارة لفظية فقط، بل أصل يوجّه الاعتقاد والعبادة والسلوك.",
+                "en": "The first testimony affirms that worship belongs to God alone and denies that any other being deserves worship. It is therefore more than a spoken phrase; it directs belief, worship, and conduct.",
+                "citationIds": [
+                  "quran-3-18"
+                ]
+              },
+              {
+                "ar": "يربط القرآن العلم بوحدانية الله بالإقرار بها، ولذلك يبدأ فهم الشهادة بمعرفة معناها ثم الالتزام بما تقتضيه من توحيد وإخلاص.",
+                "en": "The Quran links knowledge of God's oneness with affirming it, so understanding the testimony begins with knowing its meaning and living by its implications of monotheism and sincerity.",
+                "citationIds": [
+                  "quran-47-19"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "second_testimony",
+            "titleAr": "شهادة أن محمدًا رسول الله",
+            "titleEn": "The testimony that Muhammad is God's Messenger",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعني الشهادة برسالة محمد ﷺ تصديقه فيما بلّغ عن الله واتباع هديه في العبادة والأخلاق ضمن ما ثبت عنه.",
+                "en": "Affirming Muhammad ﷺ as God's Messenger means accepting what he conveyed from God and following his established guidance in worship and character.",
+                "citationIds": [
+                  "quran-47-19"
+                ]
+              },
+              {
+                "ar": "وبذلك تجمع الشهادتان بين التوحيد واتباع الرسول، وهما أصلان تتفرع عنهما بقية أركان الإسلام وتعاليمه.",
+                "en": "Together, the two testimonies unite monotheism with following the Messenger, two foundations from which the remaining pillars and teachings of Islam proceed.",
+                "citationIds": [
+                  "quran-3-18"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sincerity",
+        "titleAr": "الإخلاص والنية",
+        "titleEn": "Sincerity and intention",
+        "summaryAr": "الإخلاص أن يتوجه العمل لله وحده، وهو معنى مركزي في العبادة والأخلاق الإسلامية.",
+        "summaryEn": "Sincerity means directing one's deeds to God alone and is a central principle in Islamic worship and ethics.",
+        "keywordsAr": [
+          "الإخلاص",
+          "النية",
+          "الرياء"
+        ],
+        "keywordsEn": [
+          "sincerity",
+          "intention",
+          "showing off"
+        ],
+        "relatedTopicIds": [
+          "worship",
+          "repentance",
+          "ethics"
+        ],
+        "citations": [
+          {
+            "id": "quran-98-5",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "98:5"
+          },
+          {
+            "id": "quran-39-2",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "39:2"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "meaning",
+            "titleAr": "معنى الإخلاص",
+            "titleEn": "Meaning of sincerity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بعبادة الله مخلصين له الدين، أي أن يكون القصد الأصلي من العبادة طلب رضاه لا طلب الثناء من الناس.",
+                "en": "The Quran commands worship of God with sincere devotion, meaning that the primary aim of worship is God's pleasure rather than people's praise.",
+                "citationIds": [
+                  "quran-98-5"
+                ]
+              },
+              {
+                "ar": "والنية تمنح العمل وجهته الأخلاقية والروحية؛ فالعمل الظاهر قد يتشابه بينما يختلف باختلاف المقصد الذي يحمله صاحبه.",
+                "en": "Intention gives an action its spiritual and ethical direction. Outwardly similar deeds can differ according to the purpose behind them.",
+                "citationIds": [
+                  "quran-39-2"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "protecting_sincerity",
+            "titleAr": "حفظ الإخلاص",
+            "titleEn": "Protecting sincerity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "من وسائل حفظ الإخلاص مراجعة النية قبل العمل وأثناءه وبعده، وتجنب تحويل العبادة أو الخير إلى وسيلة للمباهاة.",
+                "en": "Ways of protecting sincerity include examining intention before, during, and after an action, and avoiding turning worship or good deeds into displays for status.",
+                "citationIds": [
+                  "quran-98-5"
+                ]
+              },
+              {
+                "ar": "ولا يعني الخوف من الرياء ترك العمل الصالح، بل تصحيح القصد والاستمرار في الخير مع مجاهدة النفس.",
+                "en": "Fear of showing off does not mean abandoning good deeds; rather, one corrects the intention and continues doing good while disciplining the self.",
+                "citationIds": [
+                  "quran-39-2"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "trust_in_god",
+        "titleAr": "التوكل على الله",
+        "titleEn": "Trust in God",
+        "summaryAr": "التوكل يجمع الاعتماد القلبي على الله مع استعمال الأسباب المشروعة وبذل الجهد.",
+        "summaryEn": "Trust in God combines inward reliance on Him with lawful means and responsible effort.",
+        "keywordsAr": [
+          "التوكل",
+          "الأخذ بالأسباب",
+          "الثقة بالله"
+        ],
+        "keywordsEn": [
+          "trust in God",
+          "tawakkul",
+          "taking means"
+        ],
+        "relatedTopicIds": [
+          "god",
+          "dua",
+          "patience"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-159",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:159"
+          },
+          {
+            "id": "quran-65-3",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "65:3"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "meaning",
+            "titleAr": "معنى التوكل",
+            "titleEn": "Meaning of trust",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن العزم بالتوكل: بعد التشاور واتخاذ القرار يكون اعتماد القلب على الله مع المضي في العمل.",
+                "en": "The Quran links resolve with trust: after consultation and decision, the heart relies on God while action proceeds.",
+                "citationIds": [
+                  "quran-3-159"
+                ]
+              },
+              {
+                "ar": "لذلك لا يساوي التوكل ترك التخطيط أو الامتناع عن الأخذ بالأسباب، بل يحرر الإنسان من الاعتقاد بأن الأسباب تعمل مستقلة عن مشيئة الله.",
+                "en": "Trust is not the abandonment of planning or practical means. It frees a person from treating worldly causes as independent of God's will.",
+                "citationIds": [
+                  "quran-65-3"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "balance",
+            "titleAr": "بين الاعتماد والعمل",
+            "titleEn": "Balancing reliance and effort",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمنح التوكل المؤمن طمأنينة أمام النتائج التي لا يملك التحكم بها بعد أن يؤدي ما يستطيع من واجب وسعي.",
+                "en": "Trust gives the believer calm regarding outcomes beyond personal control after doing what responsibility and effort require.",
+                "citationIds": [
+                  "quran-65-3"
+                ]
+              },
+              {
+                "ar": "ويظل الخطأ أو التقصير بحاجة إلى تصحيح؛ فالتوكل لا يستخدم لتبرير الإهمال وإنما يصاحب الجدية والمسؤولية.",
+                "en": "Mistakes and negligence still require correction; trust in God is not a justification for carelessness but accompanies seriousness and responsibility.",
+                "citationIds": [
+                  "quran-3-159"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gratitude",
+        "titleAr": "الشكر والامتنان",
+        "titleEn": "Gratitude",
+        "summaryAr": "الشكر في الإسلام اعتراف بنعم الله يظهر في القلب واللسان والعمل.",
+        "summaryEn": "In Islam, gratitude is recognition of God's blessings expressed through the heart, speech, and action.",
+        "keywordsAr": [
+          "الشكر",
+          "النعم",
+          "الامتنان"
+        ],
+        "keywordsEn": [
+          "gratitude",
+          "blessings",
+          "thankfulness"
+        ],
+        "relatedTopicIds": [
+          "god",
+          "worship",
+          "ethics"
+        ],
+        "citations": [
+          {
+            "id": "quran-14-7",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "14:7"
+          },
+          {
+            "id": "quran-2-152",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:152"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "recognition",
+            "titleAr": "معرفة النعمة وشكر المنعم",
+            "titleEn": "Recognizing blessings and the Giver",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يدعو القرآن إلى ذكر الله وشكره، فيتجاوز الشكر مجرد المشاعر إلى وعي مصدر النعم والتعامل معها بمسؤولية.",
+                "en": "The Quran calls people to remember and thank God, so gratitude goes beyond emotion to recognizing the source of blessings and using them responsibly.",
+                "citationIds": [
+                  "quran-2-152"
+                ]
+              },
+              {
+                "ar": "ومن الشكر أن يستعمل الإنسان ما أُعطي في الخير وألا يحول النعمة إلى وسيلة للظلم أو الإفساد.",
+                "en": "Part of gratitude is using what one has been given for good rather than turning blessings into means of injustice or harm.",
+                "citationIds": [
+                  "quran-14-7"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "growth",
+            "titleAr": "الشكر والنماء",
+            "titleEn": "Gratitude and increase",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن الشكر بالزيادة، وهو معنى يربي المسلم على ملاحظة النعم وعدم التعامل معها كأمر مضمون دائمًا.",
+                "en": "The Quran connects gratitude with increase, teaching Muslims to notice blessings rather than treating them as permanently guaranteed.",
+                "citationIds": [
+                  "quran-14-7"
+                ]
+              },
+              {
+                "ar": "والشكر لا يمنع الحزن أو الشكوى المشروعة عند الشدة؛ فقد يجتمع الامتنان بما بقي من الخير مع السعي لتغيير الحال.",
+                "en": "Gratitude does not forbid sadness or legitimate complaint in hardship. Appreciation for remaining good can coexist with efforts to improve one's circumstances.",
+                "citationIds": [
+                  "quran-2-152"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "patience",
+        "titleAr": "الصبر والثبات",
+        "titleEn": "Patience and steadfastness",
+        "summaryAr": "الصبر قوة أخلاقية تعين على الطاعة وترك المعصية وتحمل الشدائد دون استسلام أو ظلم.",
+        "summaryEn": "Patience is an ethical strength that supports obedience, restraint from wrongdoing, and endurance in hardship without surrendering to injustice.",
+        "keywordsAr": [
+          "الصبر",
+          "الثبات",
+          "الابتلاء"
+        ],
+        "keywordsEn": [
+          "patience",
+          "steadfastness",
+          "hardship"
+        ],
+        "relatedTopicIds": [
+          "purpose_of_life",
+          "trust_in_god",
+          "repentance"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-153",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:153"
+          },
+          {
+            "id": "quran-39-10",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "39:10"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "support",
+            "titleAr": "الاستعانة بالصبر والصلاة",
+            "titleEn": "Seeking help through patience and prayer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بالاستعانة بالصبر والصلاة، فيجمع بين الثبات النفسي والعبادة عند مواجهة الضغوط والشدائد.",
+                "en": "The Quran commands seeking help through patience and prayer, joining inward steadfastness with worship in times of pressure and hardship.",
+                "citationIds": [
+                  "quran-2-153"
+                ]
+              },
+              {
+                "ar": "والصبر لا يعني السلبية؛ فقد يكون من الصبر العمل الطويل لإصلاح مشكلة أو حماية حق بالوسائل المشروعة.",
+                "en": "Patience does not mean passivity. It may involve sustained lawful effort to solve a problem or protect a right.",
+                "citationIds": [
+                  "quran-2-153"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "reward",
+            "titleAr": "مكانة الصابرين",
+            "titleEn": "The place of the patient",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن أجر الصابرين بأنه واسع، وهو ما يجعل الصبر قيمة مرتبطة بالرجاء لا بمجرد تحمل الألم.",
+                "en": "The Quran describes the reward of the patient in expansive terms, making patience a value connected to hope rather than merely enduring pain.",
+                "citationIds": [
+                  "quran-39-10"
+                ]
+              },
+              {
+                "ar": "ويتطلب الصبر توازنًا بين قبول ما لا يمكن تغييره الآن وبين البحث عن الأسباب المشروعة لتخفيف الضرر وتحسين الواقع.",
+                "en": "Patience requires balance between accepting what cannot presently be changed and seeking lawful means to reduce harm and improve circumstances.",
+                "citationIds": [
+                  "quran-39-10"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "divine_decree",
+        "titleAr": "القدر ومسؤولية الإنسان",
+        "titleEn": "Divine decree and human responsibility",
+        "summaryAr": "الإيمان بالقدر يثبت علم الله وتقديره، مع بقاء الإنسان مسؤولًا عن اختياراته وأعماله.",
+        "summaryEn": "Belief in divine decree affirms God's knowledge and determination while maintaining human responsibility for choices and deeds.",
+        "keywordsAr": [
+          "القدر",
+          "القضاء",
+          "المسؤولية"
+        ],
+        "keywordsEn": [
+          "divine decree",
+          "qadar",
+          "responsibility"
+        ],
+        "relatedTopicIds": [
+          "pillars_faith",
+          "purpose_of_life",
+          "afterlife"
+        ],
+        "citations": [
+          {
+            "id": "quran-54-49",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "54:49"
+          },
+          {
+            "id": "quran-57-22-23",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "57:22-23"
+          },
+          {
+            "id": "quran-13-11",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "13:11"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "belief",
+            "titleAr": "الإيمان بالتقدير",
+            "titleEn": "Belief in decree",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقرر القرآن أن الأشياء مخلوقة بقدر، وأن ما يقع في الكون داخل علم الله وتقديره.",
+                "en": "The Quran states that things are created according to measure and that events unfold within God's knowledge and decree.",
+                "citationIds": [
+                  "quran-54-49"
+                ]
+              },
+              {
+                "ar": "ويهدف هذا الإيمان إلى منع الغرور المفرط عند النعمة واليأس الساحق عند الفقد، لأن الإنسان يدرك أن الأحداث ليست خارجة عن علم الله.",
+                "en": "This belief helps restrain excessive pride in ease and crushing despair in loss, because events are not outside God's knowledge.",
+                "citationIds": [
+                  "quran-57-22-23"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "responsibility",
+            "titleAr": "الاختيار والعمل",
+            "titleEn": "Choice and action",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في الوقت نفسه يخاطب القرآن الإنسان بوصفه مسؤولًا عن سعيه واختياراته، ويحثه على تغيير ما بنفسه وعدم الاستسلام للكسل.",
+                "en": "At the same time, the Quran addresses human beings as responsible for their choices and urges them to change what is within themselves rather than surrender to laziness.",
+                "citationIds": [
+                  "quran-13-11"
+                ]
+              },
+              {
+                "ar": "لذلك لا يُفهم القدر في الإسلام ذريعة لتبرير المعصية أو الظلم أو ترك الأسباب، بل إطارًا إيمانيًا يجتمع مع التكليف والمحاسبة.",
+                "en": "Divine decree is therefore not a pretext for wrongdoing, injustice, or abandoning effort; it is a framework of belief that coexists with duty and accountability.",
+                "citationIds": [
+                  "quran-13-11"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "angels",
+        "titleAr": "الملائكة في العقيدة الإسلامية",
+        "titleEn": "Angels in Islamic belief",
+        "summaryAr": "الملائكة خلق من خلق الله، والإيمان بهم أحد أركان الإيمان الستة.",
+        "summaryEn": "Angels are creatures of God, and belief in them is one of the six pillars of faith.",
+        "keywordsAr": [
+          "الملائكة",
+          "جبريل",
+          "أركان الإيمان"
+        ],
+        "keywordsEn": [
+          "angels",
+          "Gabriel",
+          "pillars of faith"
+        ],
+        "relatedTopicIds": [
+          "pillars_faith",
+          "revelation_prophethood",
+          "quran"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-285",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:285"
+          },
+          {
+            "id": "quran-66-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "66:6"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "belief",
+            "titleAr": "الإيمان بالملائكة",
+            "titleEn": "Belief in angels",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن الإيمان بالملائكة ضمن أصول الإيمان، فلا ينظر إليهم كآلهة أو شركاء لله بل كعباد مكرمين من خلقه.",
+                "en": "The Quran includes belief in angels among the foundations of faith. They are not gods or partners with God but honored servants among His creation.",
+                "citationIds": [
+                  "quran-2-285"
+                ]
+              },
+              {
+                "ar": "وتُعرف تفاصيلهم ووظائفهم مما ثبت في القرآن والسنة، مع تجنب بناء عقائد على القصص الشعبية غير الموثقة.",
+                "en": "Details about angels and their functions are taken from established Quranic and Prophetic sources rather than unsupported popular stories.",
+                "citationIds": [
+                  "quran-2-285"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "obedience",
+            "titleAr": "طاعتهم لله",
+            "titleEn": "Their obedience to God",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن الملائكة بأنهم لا يعصون الله فيما أمرهم ويفعلون ما يؤمرون.",
+                "en": "The Quran describes angels as not disobeying God in what He commands and as carrying out their assigned duties.",
+                "citationIds": [
+                  "quran-66-6"
+                ]
+              },
+              {
+                "ar": "ولهذا يرتبط الحديث عن الملائكة بعظمة الخالق وتنظيم عالم الغيب، لا بمحاولة تصوير تفاصيل لم يأت بها النص.",
+                "en": "Discussion of angels therefore points to the greatness of the Creator and the unseen order, without inventing details not supplied by revelation.",
+                "citationIds": [
+                  "quran-66-6"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "revealed_books",
+        "titleAr": "الكتب التي أنزلها الله",
+        "titleEn": "The revealed scriptures",
+        "summaryAr": "يؤمن المسلمون بالكتب التي أنزلها الله على رسله، ويعدّون القرآن الكتاب الخاتم المهيمن على ما سبقه.",
+        "summaryEn": "Muslims believe in the scriptures revealed by God to His messengers and regard the Quran as the final revelation that confirms and guards what came before.",
+        "keywordsAr": [
+          "الكتب السماوية",
+          "التوراة",
+          "الإنجيل",
+          "الزبور"
+        ],
+        "keywordsEn": [
+          "revealed books",
+          "Torah",
+          "Gospel",
+          "Psalms"
+        ],
+        "relatedTopicIds": [
+          "pillars_faith",
+          "quran",
+          "revelation_prophethood"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-285",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:285"
+          },
+          {
+            "id": "quran-5-48",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:48"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "belief",
+            "titleAr": "الإيمان بالكتب",
+            "titleEn": "Belief in the scriptures",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن الإيمان بما أنزل الله على رسله ضمن أصول الإيمان، فيؤمن المسلم بالأصل الإلهي للكتب التي سماها الوحي.",
+                "en": "The Quran places belief in what God revealed to His messengers among the foundations of faith, so Muslims affirm the divine origin of the scriptures named in revelation.",
+                "citationIds": [
+                  "quran-2-285"
+                ]
+              },
+              {
+                "ar": "ويشمل ذلك التوراة والزبور والإنجيل وصحفًا ذكرتها النصوص، مع اعتبار القرآن المرجع النهائي للمسلم في الاعتقاد والتشريع.",
+                "en": "This includes the Torah, Psalms, Gospel, and other scrolls mentioned in revelation, while the Quran remains the Muslim's final reference in belief and guidance.",
+                "citationIds": [
+                  "quran-2-285"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "quran_relation",
+            "titleAr": "القرآن وما سبقه",
+            "titleEn": "The Quran and earlier revelation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن نفسه بأنه مصدق لما بين يديه من الكتاب ومهيمن عليه، أي أنه يؤكد أصل الوحي ويكون المرجع الحاكم في التصور الإسلامي.",
+                "en": "The Quran describes itself as confirming earlier scripture and as a guardian over it, affirming the origin of revelation while serving as the governing reference in Islamic belief.",
+                "citationIds": [
+                  "quran-5-48"
+                ]
+              },
+              {
+                "ar": "ولهذا يميز الخطاب الإسلامي بين احترام الأنبياء والوحي السابق وبين اعتماد القرآن بوصفه النص الموحى الذي يتعبد المسلم بتلاوته ويتبع أحكامه.",
+                "en": "Islamic teaching thus combines respect for earlier prophets and revelation with reliance on the Quran as the revealed text Muslims recite in worship and follow.",
+                "citationIds": [
+                  "quran-5-48"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "quran_revelation",
+        "titleAr": "نزول القرآن وحفظه",
+        "titleEn": "Revelation and preservation of the Quran",
+        "summaryAr": "نزل القرآن على النبي محمد ﷺ وحيًا بالعربية، ويؤمن المسلمون بأن الله تكفل بحفظه.",
+        "summaryEn": "The Quran was revealed to Prophet Muhammad ﷺ in Arabic, and Muslims believe God has undertaken its preservation.",
+        "keywordsAr": [
+          "نزول القرآن",
+          "حفظ القرآن",
+          "الوحي"
+        ],
+        "keywordsEn": [
+          "Quran revelation",
+          "preservation",
+          "revelation"
+        ],
+        "relatedTopicIds": [
+          "quran",
+          "revelation_prophethood",
+          "sources"
+        ],
+        "citations": [
+          {
+            "id": "quran-26-192-195",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "26:192-195"
+          },
+          {
+            "id": "quran-15-9",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "15:9"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "revelation",
+            "titleAr": "تنزيل من رب العالمين",
+            "titleEn": "A revelation from the Lord of the worlds",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن نفسه بأنه تنزيل من رب العالمين نزل به الروح الأمين على قلب النبي ﷺ بلسان عربي مبين.",
+                "en": "The Quran describes itself as a revelation from the Lord of the worlds, brought by the Trustworthy Spirit to the Prophet's heart in clear Arabic.",
+                "citationIds": [
+                  "quran-26-192-195"
+                ]
+              },
+              {
+                "ar": "امتد نزوله خلال سنوات الدعوة، فكان مرتبطًا بتربية المجتمع وبيان العقيدة والعبادة والأخلاق والأحكام.",
+                "en": "Its revelation unfolded across the years of the Prophetic mission, addressing belief, worship, ethics, law, and the formation of the Muslim community.",
+                "citationIds": [
+                  "quran-26-192-195"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "preservation",
+            "titleAr": "حفظ الذكر",
+            "titleEn": "Preservation of the Reminder",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينص القرآن على أن الله أنزل الذكر وأنه حافظ له، وهو أصل عقدي في تصور المسلمين لحفظ النص القرآني.",
+                "en": "The Quran states that God sent down the Reminder and will preserve it, a central belief in the Muslim understanding of the Quranic text.",
+                "citationIds": [
+                  "quran-15-9"
+                ]
+              },
+              {
+                "ar": "وترافق الحفظ الشفهي للقرآن مع تدوينه ونقله في المجتمع الإسلامي المبكر، ثم استمر تعليم التلاوة والقراءة جيلاً بعد جيل.",
+                "en": "Oral memorization was accompanied by written transmission in the early Muslim community, and the teaching of recitation continued across generations.",
+                "citationIds": [
+                  "quran-15-9"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sunnah",
+        "titleAr": "السنة النبوية ومكانتها",
+        "titleEn": "The Prophetic Sunnah and its place",
+        "summaryAr": "السنة تبين هدي النبي ﷺ قولًا وفعلًا وتقريرًا، وتساعد على فهم تطبيق القرآن في العبادة والحياة.",
+        "summaryEn": "The Sunnah records the Prophet's ﷺ sayings, actions, and approvals and helps explain the practical application of Quranic guidance.",
+        "keywordsAr": [
+          "السنة",
+          "الحديث",
+          "هدي النبي"
+        ],
+        "keywordsEn": [
+          "Sunnah",
+          "hadith",
+          "Prophetic guidance"
+        ],
+        "relatedTopicIds": [
+          "prophet",
+          "sources",
+          "following_prophet"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-80",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:80"
+          },
+          {
+            "id": "quran-59-7",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "59:7"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "authority",
+            "titleAr": "طاعة الرسول",
+            "titleEn": "Obeying the Messenger",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن طاعة الرسول بطاعة الله، وهو أساس مكانة السنة في فهم الدين عند المسلمين.",
+                "en": "The Quran links obedience to the Messenger with obedience to God, forming a basis for the Sunnah's place in Muslim understanding of religion.",
+                "citationIds": [
+                  "quran-4-80"
+                ]
+              },
+              {
+                "ar": "ولا يعني ذلك قبول كل رواية منسوبة للنبي ﷺ دون فحص؛ فقد نشأت علوم الحديث لتمييز الروايات ودراسة أسانيدها ومتونها.",
+                "en": "This does not mean accepting every report attributed to the Prophet ﷺ without scrutiny. Hadith scholarship developed methods to evaluate chains of transmission and texts.",
+                "citationIds": [
+                  "quran-4-80"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "practice",
+            "titleAr": "السنة والتطبيق العملي",
+            "titleEn": "Sunnah as practical guidance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعطي السنة تفصيلات تطبيقية لكثير من العبادات والأخلاق التي جاء أصلها في القرآن، ولذلك تقرأ مع القرآن لا بدلًا عنه.",
+                "en": "The Sunnah provides practical detail for many acts of worship and ethical teachings whose foundations are in the Quran, so it is read with the Quran rather than in place of it.",
+                "citationIds": [
+                  "quran-59-7"
+                ]
+              },
+              {
+                "ar": "وعند دراسة الحديث تُراعى درجة ثبوته وسياقه ودلالته وجمع النصوص ذات الصلة، وهي أمور يرجع فيها إلى أهل الاختصاص.",
+                "en": "When studying hadith, authenticity, context, meaning, and related evidence all matter; these are fields in which specialist scholarship is important.",
+                "citationIds": [
+                  "quran-59-7"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "following_prophet",
+        "titleAr": "الاقتداء بالنبي ﷺ",
+        "titleEn": "Following the Prophet ﷺ",
+        "summaryAr": "يقدّم القرآن النبي محمدًا ﷺ قدوة في الإيمان والعبادة والأخلاق، مع التمييز بين سنته وبين العادات التاريخية.",
+        "summaryEn": "The Quran presents Prophet Muhammad ﷺ as an example in faith, worship, and character, while Islamic scholarship distinguishes Prophetic guidance from historical custom.",
+        "keywordsAr": [
+          "الاقتداء",
+          "الأسوة",
+          "اتباع النبي"
+        ],
+        "keywordsEn": [
+          "following the Prophet",
+          "example",
+          "Prophetic practice"
+        ],
+        "relatedTopicIds": [
+          "prophet",
+          "sunnah",
+          "ethics"
+        ],
+        "citations": [
+          {
+            "id": "quran-33-21",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:21"
+          },
+          {
+            "id": "quran-3-31",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:31"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "example",
+            "titleAr": "الأسوة الحسنة",
+            "titleEn": "A good example",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن رسول الله ﷺ بأنه أسوة حسنة لمن يرجو الله واليوم الآخر، وهو ما يجعل دراسة سيرته وأخلاقه جزءًا من التعلم الديني.",
+                "en": "The Quran describes the Messenger of God ﷺ as a good example for those who hope in God and the Last Day, making his life and character important areas of religious learning.",
+                "citationIds": [
+                  "quran-33-21"
+                ]
+              },
+              {
+                "ar": "والاقتداء المقصود يقوم على ما ثبت من هديه، لا على كل عادة اجتماعية كانت موجودة في البيئة التاريخية نفسها.",
+                "en": "Following the Prophet means following established guidance, not treating every social custom of the historical environment as religious practice.",
+                "citationIds": [
+                  "quran-33-21"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "love_following",
+            "titleAr": "المحبة والاتباع",
+            "titleEn": "Love and following",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن محبة الله باتباع الرسول، فيتحول الحب من دعوى وجدانية إلى طاعة وسلوك.",
+                "en": "The Quran links love of God with following the Messenger, turning love from a purely emotional claim into obedience and conduct.",
+                "citationIds": [
+                  "quran-3-31"
+                ]
+              },
+              {
+                "ar": "ويجمع الاتباع بين العبادات والأخلاق والرحمة والعدل، فلا يختزل في المظاهر أو في جانب واحد من السيرة.",
+                "en": "Following the Prophet includes worship, character, mercy, and justice and is not reduced to outward forms or a single aspect of his biography.",
+                "citationIds": [
+                  "quran-3-31"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "purification",
+        "titleAr": "الطهارة والاستعداد للصلاة",
+        "titleEn": "Purification and preparation for prayer",
+        "summaryAr": "تجعل الشريعة الطهارة جزءًا من الاستعداد للعبادة، وخاصة الصلاة، مع أحكام تراعي القدرة والظروف.",
+        "summaryEn": "Islamic law makes purification part of preparation for worship, especially prayer, with rules that account for ability and circumstance.",
+        "keywordsAr": [
+          "الطهارة",
+          "الوضوء",
+          "التيمم"
+        ],
+        "keywordsEn": [
+          "purification",
+          "wudu",
+          "tayammum"
+        ],
+        "relatedTopicIds": [
+          "worship",
+          "prayer",
+          "pillars_islam"
+        ],
+        "citations": [
+          {
+            "id": "quran-5-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:6"
+          },
+          {
+            "id": "quran-2-222",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:222"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "ablution",
+            "titleAr": "الوضوء والتيمم",
+            "titleEn": "Ablution and dry ablution",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تبين آية الوضوء غسل أعضاء محددة قبل الصلاة، وتذكر التيمم عند فقد الماء أو تعذر استعماله ضمن شروطه.",
+                "en": "The Quranic verse of ablution specifies washing particular parts before prayer and provides dry ablution when water is unavailable or cannot be used under its conditions.",
+                "citationIds": [
+                  "quran-5-6"
+                ]
+              },
+              {
+                "ar": "تظهر هذه الأحكام أن الطهارة عبادة منظمة، وفي الوقت نفسه أن التكليف يراعي أحوال المرض والسفر وعدم القدرة.",
+                "en": "These rulings show purification as an ordered act of worship while also demonstrating that religious duties account for illness, travel, and inability.",
+                "citationIds": [
+                  "quran-5-6"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "meaning",
+            "titleAr": "المعنى التعبدي للطهارة",
+            "titleEn": "The devotional meaning of purification",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن الطهارة بمحبة الله للتوابين والمتطهرين، فتجتمع النظافة الحسية مع معنى روحي أوسع.",
+                "en": "The Quran associates purification with God's love for those who repent and purify themselves, joining physical cleanliness with a wider spiritual meaning.",
+                "citationIds": [
+                  "quran-2-222"
+                ]
+              },
+              {
+                "ar": "ولا تُستنبط تفاصيل أحكام الطهارة من هذه الآيات وحدها؛ بل تشرحها السنة والفقه، ولذلك تُراجع المصادر المتخصصة في المسائل العملية.",
+                "en": "Detailed purification rules are not derived from these verses alone; the Sunnah and jurisprudence explain them, so practical cases are referred to specialist sources.",
+                "citationIds": [
+                  "quran-5-6"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prayer",
+        "titleAr": "الصلاة: العبادة اليومية",
+        "titleEn": "Prayer: daily worship",
+        "summaryAr": "الصلاة خمس عبادات يومية تربط المسلم بربه وتمنح يومه إيقاعًا من الذكر والانضباط.",
+        "summaryEn": "Prayer is the central daily act of worship, connecting Muslims with God and structuring the day around remembrance and discipline.",
+        "keywordsAr": [
+          "الصلاة",
+          "الصلوات الخمس",
+          "إقامة الصلاة"
+        ],
+        "keywordsEn": [
+          "prayer",
+          "salah",
+          "five daily prayers"
+        ],
+        "relatedTopicIds": [
+          "pillars_islam",
+          "purification",
+          "dhikr"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-103",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:103"
+          },
+          {
+            "id": "quran-20-14",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "20:14"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "daily_prayer",
+            "titleAr": "الصلاة في أوقات محددة",
+            "titleEn": "Prayer at appointed times",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقرر القرآن أن الصلاة كتاب موقوت على المؤمنين، أي عبادة مرتبطة بأوقات محددة خلال اليوم.",
+                "en": "The Quran states that prayer is prescribed for believers at appointed times, making it a regular act of worship across the day.",
+                "citationIds": [
+                  "quran-4-103"
+                ]
+              },
+              {
+                "ar": "وتبيّن السنة عدد الصلوات اليومية وهيئاتها وتفاصيلها، بينما يؤكد القرآن مقصد إقامتها والمحافظة عليها.",
+                "en": "The Sunnah explains the number, form, and details of the daily prayers, while the Quran repeatedly emphasizes establishing and preserving prayer.",
+                "citationIds": [
+                  "quran-4-103"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "remembrance",
+            "titleAr": "الصلاة والذكر",
+            "titleEn": "Prayer and remembrance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن الصلاة بذكر الله، فتجمع الصلاة بين التلاوة والدعاء والقيام والركوع والسجود.",
+                "en": "The Quran links prayer with remembrance of God; prayer brings together recitation, supplication, standing, bowing, and prostration.",
+                "citationIds": [
+                  "quran-20-14"
+                ]
+              },
+              {
+                "ar": "وهي ليست مجرد حركات؛ بل عبادة تحتاج حضور القلب بقدر الاستطاعة وتؤثر في أخلاق المسلم وانضباطه.",
+                "en": "Prayer is not merely physical movement; it calls for attentive worship as far as one is able and is intended to shape character and discipline.",
+                "citationIds": [
+                  "quran-20-14"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "zakat",
+        "titleAr": "الزكاة والتكافل المالي",
+        "titleEn": "Zakat and financial solidarity",
+        "summaryAr": "الزكاة عبادة مالية واجبة على أموال مخصوصة بشروطها، وتوجه إلى مصارف حددها القرآن.",
+        "summaryEn": "Zakat is an obligatory financial act of worship on specified forms of wealth under defined conditions, distributed to categories named in the Quran.",
+        "keywordsAr": [
+          "الزكاة",
+          "مصارف الزكاة",
+          "التكافل"
+        ],
+        "keywordsEn": [
+          "zakat",
+          "alms",
+          "financial solidarity"
+        ],
+        "relatedTopicIds": [
+          "pillars_islam",
+          "charity",
+          "justice_mercy"
+        ],
+        "citations": [
+          {
+            "id": "quran-9-60",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:60"
+          },
+          {
+            "id": "quran-2-43",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:43"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "pillar",
+            "titleAr": "الزكاة ركن من أركان الإسلام",
+            "titleEn": "Zakat as a pillar",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقرن القرآن في مواضع كثيرة بين إقامة الصلاة وإيتاء الزكاة، بما يبرز الجمع بين العبادة البدنية والمسؤولية المالية.",
+                "en": "The Quran frequently pairs establishing prayer with giving zakat, highlighting the combination of bodily worship and financial responsibility.",
+                "citationIds": [
+                  "quran-2-43"
+                ]
+              },
+              {
+                "ar": "وتختلف الأنصبة والمقادير والتفاصيل باختلاف نوع المال، ولذلك تحتاج المسائل التطبيقية إلى الرجوع إلى أحكام الزكاة الموثقة.",
+                "en": "Thresholds, rates, and details vary according to the kind of wealth, so practical cases require reference to reliable zakat jurisprudence.",
+                "citationIds": [
+                  "quran-2-43"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "recipients",
+            "titleAr": "مصارف الزكاة",
+            "titleEn": "Recipients of zakat",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحدد سورة التوبة ثمانية مصارف للزكاة، مما يجعل توزيعها عبادة لها إطار محدد وليس صدقة عشوائية.",
+                "en": "Surat al-Tawbah identifies eight categories of zakat recipients, giving its distribution a defined religious framework rather than making it an unrestricted donation.",
+                "citationIds": [
+                  "quran-9-60"
+                ]
+              },
+              {
+                "ar": "وتدعم الزكاة المحتاجين وتدخل ضمن منظومة أوسع من النفقة والصدقة وحفظ الحقوق المالية.",
+                "en": "Zakat supports those in need and forms part of a wider ethical system that includes spending, voluntary charity, and financial rights.",
+                "citationIds": [
+                  "quran-9-60"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fasting",
+        "titleAr": "صيام رمضان",
+        "titleEn": "Fasting Ramadan",
+        "summaryAr": "صيام رمضان إمساك تعبدي من الفجر إلى الغروب عن المفطرات، غايته التقوى مع أحكام للتيسير عند العذر.",
+        "summaryEn": "Fasting Ramadan is devotional abstention from dawn to sunset from what breaks the fast, aimed at cultivating mindfulness of God with concessions for valid hardship.",
+        "keywordsAr": [
+          "الصيام",
+          "رمضان",
+          "التقوى"
+        ],
+        "keywordsEn": [
+          "fasting",
+          "Ramadan",
+          "taqwa"
+        ],
+        "relatedTopicIds": [
+          "pillars_islam",
+          "patience",
+          "dua"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-183",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:183"
+          },
+          {
+            "id": "quran-2-185",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:185"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "purpose",
+            "titleAr": "الصيام والتقوى",
+            "titleEn": "Fasting and mindfulness of God",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يخاطب القرآن المؤمنين بأن الصيام كُتب عليهم كما كُتب على من قبلهم لعلهم يتقون.",
+                "en": "The Quran tells believers that fasting is prescribed for them as it was for earlier communities so that they may grow in God-consciousness.",
+                "citationIds": [
+                  "quran-2-183"
+                ]
+              },
+              {
+                "ar": "ويجمع الصيام بين الامتناع الجسدي وضبط السلوك واللسان، فلا يختزل مقصد العبادة في الجوع والعطش.",
+                "en": "Fasting combines physical abstention with discipline of conduct and speech, so its purpose is not reduced to hunger and thirst.",
+                "citationIds": [
+                  "quran-2-183"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ramadan",
+            "titleAr": "شهر القرآن والتيسير",
+            "titleEn": "The month of the Quran and facilitation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن رمضان بأنه الشهر الذي أنزل فيه القرآن هدى للناس، ولذلك ترتبط أيامه بالصيام ولياليه بمزيد من التلاوة والعبادة.",
+                "en": "The Quran describes Ramadan as the month in which the Quran was revealed as guidance for humanity, linking its days with fasting and its nights with increased recitation and worship.",
+                "citationIds": [
+                  "quran-2-185"
+                ]
+              },
+              {
+                "ar": "وتذكر الآيات رخصة المريض والمسافر والتيسير في التكليف، وهو أصل مهم عند تطبيق أحكام الصيام على الحالات الخاصة.",
+                "en": "The verses mention concessions for illness and travel and emphasize ease, an important principle when applying fasting rules to particular circumstances.",
+                "citationIds": [
+                  "quran-2-185"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hajj_umrah",
+        "titleAr": "الحج والعمرة",
+        "titleEn": "Hajj and Umrah",
+        "summaryAr": "الحج عبادة تجمع المسلمين في مكة في زمن معلوم، وهو واجب مرة في العمر على المستطيع.",
+        "summaryEn": "Hajj gathers Muslims in Mecca at an appointed time and is required once in a lifetime for those who are able.",
+        "keywordsAr": [
+          "الحج",
+          "العمرة",
+          "مكة",
+          "الكعبة"
+        ],
+        "keywordsEn": [
+          "Hajj",
+          "Umrah",
+          "Mecca",
+          "Kaaba"
+        ],
+        "relatedTopicIds": [
+          "pillars_islam",
+          "worship",
+          "human_dignity"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-97",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:97"
+          },
+          {
+            "id": "quran-2-196",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:196"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "obligation",
+            "titleAr": "وجوب الحج على المستطيع",
+            "titleEn": "Hajj for those able",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينص القرآن على حج البيت لمن استطاع إليه سبيلًا، ولذلك ترتبط الفريضة بالقدرة البدنية والمالية وأمن الطريق بحسب أحكامها.",
+                "en": "The Quran prescribes pilgrimage to the House for those able to make the journey, so the duty is tied to physical and financial ability and safe access according to its rulings.",
+                "citationIds": [
+                  "quran-3-97"
+                ]
+              },
+              {
+                "ar": "لا يتكرر وجوب الحج كل عام على الفرد، بل الأصل أنه فرض مرة في العمر على من تحققت فيه الاستطاعة.",
+                "en": "The individual obligation is not annual; in principle, Hajj is required once in a lifetime for a person who meets the conditions of ability.",
+                "citationIds": [
+                  "quran-3-97"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "rites",
+            "titleAr": "إتمام النسك",
+            "titleEn": "Completing the rites",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بإتمام الحج والعمرة لله، وتشرح السنة مناسك الإحرام والطواف والسعي والوقوف بعرفة وغيرها من التفاصيل.",
+                "en": "The Quran commands completing Hajj and Umrah for God, while the Sunnah explains rites such as entering consecration, circumambulation, walking between Safa and Marwah, and standing at Arafah.",
+                "citationIds": [
+                  "quran-2-196"
+                ]
+              },
+              {
+                "ar": "وتجمع المناسك بين الذكر والتجرد والمساواة الظاهرة بين الحجاج من خلفيات متعددة.",
+                "en": "The rites bring together remembrance, simplicity, and a visible equality among pilgrims from different backgrounds.",
+                "citationIds": [
+                  "quran-2-196"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dhikr",
+        "titleAr": "ذكر الله",
+        "titleEn": "Remembering God",
+        "summaryAr": "الذكر يشمل الأذكار المأثورة وتلاوة القرآن والدعاء واستحضار مراقبة الله في الحياة اليومية.",
+        "summaryEn": "Remembering God includes transmitted remembrances, Quran recitation, supplication, and living with awareness of God in daily life.",
+        "keywordsAr": [
+          "الذكر",
+          "الأذكار",
+          "طمأنينة القلب"
+        ],
+        "keywordsEn": [
+          "dhikr",
+          "remembrance",
+          "tranquility"
+        ],
+        "relatedTopicIds": [
+          "dua",
+          "prayer",
+          "gratitude"
+        ],
+        "citations": [
+          {
+            "id": "quran-13-28",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "13:28"
+          },
+          {
+            "id": "quran-33-41-42",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:41-42"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "heart",
+            "titleAr": "الذكر وطمأنينة القلب",
+            "titleEn": "Remembrance and tranquility",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن القلوب بأنها تطمئن بذكر الله، فيربط الذكر بالاستقرار الروحي والاتصال المستمر بالخالق.",
+                "en": "The Quran describes hearts as finding tranquility in the remembrance of God, connecting remembrance with spiritual steadiness and continual awareness of the Creator.",
+                "citationIds": [
+                  "quran-13-28"
+                ]
+              },
+              {
+                "ar": "ولا يعني ذلك أن الذكر يغني عن العلاج أو حل المشكلات المادية؛ بل هو مورد روحي يصاحب الأخذ بالأسباب.",
+                "en": "This does not mean remembrance replaces treatment or practical problem-solving; it is a spiritual resource that accompanies appropriate action.",
+                "citationIds": [
+                  "quran-13-28"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "frequency",
+            "titleAr": "الإكثار من الذكر",
+            "titleEn": "Frequent remembrance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن المؤمنين بذكر الله كثيرًا وتسبيحه، ولذلك تنتشر في السنة أذكار لأوقات وأحوال مختلفة.",
+                "en": "The Quran tells believers to remember God frequently and glorify Him, and the Sunnah contains remembrances for many times and situations.",
+                "citationIds": [
+                  "quran-33-41-42"
+                ]
+              },
+              {
+                "ar": "والذكر ليس ألفاظًا منفصلة عن السلوك؛ فاستحضار الله ينبغي أن يعين على الصدق وترك الظلم وأداء الواجبات.",
+                "en": "Remembrance is not detached from conduct; awareness of God should support honesty, restraint from injustice, and fulfillment of duties.",
+                "citationIds": [
+                  "quran-33-41-42"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charity",
+        "titleAr": "الصدقة والإنفاق",
+        "titleEn": "Voluntary charity and giving",
+        "summaryAr": "الصدقة باب واسع من الخير يتجاوز الزكاة الواجبة، ويؤكد الإحسان للمحتاج مع صون كرامته.",
+        "summaryEn": "Voluntary charity is a broad form of good beyond obligatory zakat and emphasizes helping those in need while preserving their dignity.",
+        "keywordsAr": [
+          "الصدقة",
+          "الإنفاق",
+          "الإحسان"
+        ],
+        "keywordsEn": [
+          "charity",
+          "giving",
+          "spending"
+        ],
+        "relatedTopicIds": [
+          "zakat",
+          "justice_mercy",
+          "human_dignity"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-261",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:261"
+          },
+          {
+            "id": "quran-2-264",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:264"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "generosity",
+            "titleAr": "فضل الإنفاق",
+            "titleEn": "The value of giving",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يضرب القرآن مثلًا للإنفاق في سبيل الله بحبة تنبت سنابل كثيرة، فيصور أثر العطاء وأجره المتضاعف.",
+                "en": "The Quran compares giving for God's sake to a seed producing many ears of grain, illustrating the multiplied effect and reward of generosity.",
+                "citationIds": [
+                  "quran-2-261"
+                ]
+              },
+              {
+                "ar": "ويشمل الإنفاق النافع دعم الفقراء والمشروعات النافعة وصلة الأقارب وغيرها من أبواب الخير ضمن الأحكام الشرعية.",
+                "en": "Beneficial giving can include supporting the poor, useful projects, relatives, and other forms of good within Islamic ethical and legal guidance.",
+                "citationIds": [
+                  "quran-2-261"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "dignity",
+            "titleAr": "منع المن والأذى",
+            "titleEn": "Avoiding humiliation and harm",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينهى القرآن عن إبطال الصدقات بالمن والأذى، وهو توجيه يحمي كرامة المحتاج من الإهانة والتذكير المستمر بالعطاء.",
+                "en": "The Quran warns against nullifying charity through reminders of one's generosity or causing harm, protecting recipients from humiliation.",
+                "citationIds": [
+                  "quran-2-264"
+                ]
+              },
+              {
+                "ar": "لذلك يكون العطاء الأفضل بعيدًا عن الاستعراض، مع احترام خصوصية المحتاج وحقه في الكرامة.",
+                "en": "The better form of giving avoids display and respects the recipient's privacy and dignity.",
+                "citationIds": [
+                  "quran-2-264"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "death_barzakh",
+        "titleAr": "الموت والمرحلة البرزخية",
+        "titleEn": "Death and the intermediate state",
+        "summaryAr": "الموت انتقال محتوم في التصور الإسلامي، ويعقبه طور برزخي إلى يوم البعث.",
+        "summaryEn": "Death is an inevitable transition in Islamic belief, followed by an intermediate state until resurrection.",
+        "keywordsAr": [
+          "الموت",
+          "البرزخ",
+          "القبر"
+        ],
+        "keywordsEn": [
+          "death",
+          "barzakh",
+          "grave"
+        ],
+        "relatedTopicIds": [
+          "afterlife",
+          "resurrection_judgment",
+          "repentance"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-185",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:185"
+          },
+          {
+            "id": "quran-23-99-100",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "23:99-100"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "inevitability",
+            "titleAr": "كل نفس ذائقة الموت",
+            "titleEn": "Every soul will taste death",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقرر القرآن أن كل نفس ذائقة الموت وأن تمام الجزاء يكون يوم القيامة، فيضع الحياة الدنيا ضمن أفق أوسع من الوجود.",
+                "en": "The Quran states that every soul will taste death and that full recompense comes on the Day of Resurrection, placing worldly life within a wider horizon.",
+                "citationIds": [
+                  "quran-3-185"
+                ]
+              },
+              {
+                "ar": "ويحث هذا الوعي المسلم على الاستعداد بالعمل الصالح ورد الحقوق وعدم تأجيل التوبة.",
+                "en": "This awareness encourages preparation through good deeds, restoring rights, and not postponing repentance.",
+                "citationIds": [
+                  "quran-3-185"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "barzakh",
+            "titleAr": "البرزخ إلى البعث",
+            "titleEn": "The intermediate state until resurrection",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة المؤمنون وجود برزخ بعد الموت إلى يوم البعث، وهو من أمور الغيب التي تُقبل بقدر ما جاء به الوحي.",
+                "en": "Surat al-Mu'minun mentions an intermediate barrier after death until the day people are raised, an unseen matter affirmed to the extent established by revelation.",
+                "citationIds": [
+                  "quran-23-99-100"
+                ]
+              },
+              {
+                "ar": "لذلك ينبغي تجنب الجزم بتفاصيل عن عالم البرزخ لا تستند إلى نص صحيح، والتمييز بين الوحي والقصص الوعظية الشائعة.",
+                "en": "Accordingly, details about the intermediate state should not be asserted without reliable revelation, and established teaching should be distinguished from popular devotional stories.",
+                "citationIds": [
+                  "quran-23-99-100"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "resurrection_judgment",
+        "titleAr": "البعث والحساب",
+        "titleEn": "Resurrection and judgment",
+        "summaryAr": "يؤمن المسلمون ببعث الناس بعد الموت وحسابهم على أعمالهم أمام الله.",
+        "summaryEn": "Muslims believe that people will be raised after death and held accountable for their deeds before God.",
+        "keywordsAr": [
+          "البعث",
+          "الحساب",
+          "يوم القيامة"
+        ],
+        "keywordsEn": [
+          "resurrection",
+          "judgment",
+          "Day of Resurrection"
+        ],
+        "relatedTopicIds": [
+          "afterlife",
+          "death_barzakh",
+          "divine_decree"
+        ],
+        "citations": [
+          {
+            "id": "quran-22-7",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "22:7"
+          },
+          {
+            "id": "quran-99-6-8",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "99:6-8"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "resurrection",
+            "titleAr": "حقيقة البعث",
+            "titleEn": "The reality of resurrection",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقرر القرآن أن الساعة آتية وأن الله يبعث من في القبور، وهو أصل من أصول الإيمان باليوم الآخر.",
+                "en": "The Quran states that the Hour is coming and that God will raise those in the graves, a foundation of belief in the Last Day.",
+                "citationIds": [
+                  "quran-22-7"
+                ]
+              },
+              {
+                "ar": "والبعث في العقيدة الإسلامية بعث حقيقي للحساب، لا مجرد رمز لاستمرار الذكر أو التأثير بعد الموت.",
+                "en": "In Islamic belief, resurrection is a real raising for judgment, not merely a symbol of a person's memory or influence continuing after death.",
+                "citationIds": [
+                  "quran-22-7"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "accountability",
+            "titleAr": "عرض الأعمال",
+            "titleEn": "The presentation of deeds",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصور سورة الزلزلة الناس وهم يرون أعمالهم حتى ما كان منها صغيرًا، مؤكدة دقة المسؤولية الأخلاقية.",
+                "en": "Surat al-Zalzalah depicts people seeing their deeds, even very small ones, emphasizing precise moral accountability.",
+                "citationIds": [
+                  "quran-99-6-8"
+                ]
+              },
+              {
+                "ar": "ويمنح هذا الاعتقاد وزنًا للأعمال اليومية والحقوق التي قد يستخف بها الإنسان، ويربط الأخلاق بالمسؤولية أمام الله.",
+                "en": "This belief gives weight to everyday actions and rights people might otherwise dismiss, linking ethics with accountability before God.",
+                "citationIds": [
+                  "quran-99-6-8"
                 ]
               }
             ]
