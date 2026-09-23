@@ -16,6 +16,11 @@ FEATURE_RESOURCE_DIRS = (
     ROOT / "feature/feature-learn/src/main/res/values-en",
 )
 SCREEN = ROOT / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/FuneralWillScreen.kt"
+DRAFT = ROOT / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/domain/WillDraft.kt"
+DRAFT_REPOSITORY = (
+    ROOT
+    / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/data/WillDraftRepository.kt"
+)
 PREFERENCES = (
     ROOT
     / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/data/FuneralWillPreferencesRepository.kt"
@@ -108,6 +113,29 @@ def main() -> int:
         print(
             "Missing funeral/will UI contract:",
             ", ".join(missing_ui_contract),
+            file=sys.stderr,
+        )
+        return 1
+
+    expanded_fields = {
+        "documentLocation",
+        "trustedContacts",
+        "assetsAndAccounts",
+        "entrustedProperty",
+        "digitalAccessInstructions",
+        "lastReviewDate",
+    }
+    draft_text = DRAFT.read_text(encoding="utf-8")
+    repository_text = DRAFT_REPOSITORY.read_text(encoding="utf-8")
+    missing_draft_fields = sorted(
+        field
+        for field in expanded_fields
+        if field not in draft_text or field not in repository_text or field not in screen_text
+    )
+    if missing_draft_fields:
+        print(
+            "Missing expanded will-draft contract:",
+            ", ".join(missing_draft_fields),
             file=sys.stderr,
         )
         return 1
