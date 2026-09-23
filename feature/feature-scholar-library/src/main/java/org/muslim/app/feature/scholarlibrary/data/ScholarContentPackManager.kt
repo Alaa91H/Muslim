@@ -246,13 +246,22 @@ class ScholarContentPackManager @Inject constructor(
         existing: ScholarContentPackEntity?,
         newBookIds: Set<String>,
     ) {
-        if (existing == null) return
-        val previousBookIds = existing.installation.bookIds.toStoredIdList().toSet()
-        require(newBookIds.containsAll(previousBookIds)) {
+        val previousPackBookIds = existing
+            ?.installation
+            ?.bookIds
+            ?.toStoredIdList()
+            ?.toSet()
+            .orEmpty()
+        require(newBookIds.containsAll(previousPackBookIds)) {
             "التحديث الآمن لا يسمح بحذف كتاب موجود من الحزمة."
         }
-        previousBookIds.forEach { bookId ->
-            val newBook = pack.books.first { it.id == bookId }
+
+        val overwrittenBookIds = newBookIds.filterTo(mutableSetOf()) { bookId ->
+            libraryDao.bookById(bookId) != null
+        }
+        val protectedBookIds = previousPackBookIds + overwrittenBookIds
+        protectedBookIds.forEach { bookId ->
+            val newBook = pack.books.firstOrNull { it.id == bookId } ?: return@forEach
             val previousPassageIds = libraryDao.observePassagesForBook(bookId).first().map { it.id }.toSet()
             val newPassageIds = newBook.passages.map { it.id }.toSet()
             require(newPassageIds.containsAll(previousPassageIds)) {
