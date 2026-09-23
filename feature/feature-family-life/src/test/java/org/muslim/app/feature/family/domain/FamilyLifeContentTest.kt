@@ -38,9 +38,31 @@ class FamilyLifeContentTest {
             .flatMap { article -> article.sections.flatMap { it.paragraphs } }
             .joinToString(" ") { it.arabic }
         assertThat(FamilyLifeContent.familyArticles.map { it.id })
-            .containsExactly("engagement", "nikah", "marital_rights", "parenting").inOrder()
+            .containsExactly(
+                "engagement",
+                "nikah",
+                "marital_rights",
+                "parenting",
+                "conflict_resolution",
+                "separation_divorce",
+                "newborn",
+                "kinship",
+                "daily_family_life",
+            ).inOrder()
         assertThat(searchable).contains("العنف")
         assertThat(searchable).contains("الرضا")
         assertThat(searchable).contains("الأبناء")
     }
+    @Test
+    fun `family guide search handles Arabic normalization and English keywords`() {
+        assertThat(FamilyLifeContent.searchArticles("طلاق").map { it.id })
+            .contains("separation_divorce")
+        assertThat(FamilyLifeContent.searchArticles("الاسره").map { it.id })
+            .isNotEmpty()
+        assertThat(FamilyLifeContent.searchArticles("privacy").map { it.id })
+            .contains("daily_family_life")
+        assertThat(FamilyLifeContent.familyArticleMetadata.map { it.articleId }.toSet())
+            .containsExactlyElementsIn(FamilyLifeContent.familyArticles.map { it.id }.toSet())
+    }
+
 }
