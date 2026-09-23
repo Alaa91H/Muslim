@@ -367,7 +367,7 @@
         "summaryAr": "مصطلحات أساسية في الأماكن والمشاعر.",
         "summaryEn": "Core terms in Places and Sacred Geography.",
         "topicIds": [
-          "haram",
+          "haram_sanctuary",
           "mashar",
           "miqat_makani",
           "maqam_place",
@@ -12712,7 +12712,7 @@
         ]
       },
       {
-        "id": "haram",
+        "id": "haram_sanctuary",
         "titleAr": "الحرم",
         "titleEn": "Haram Sanctuary",
         "summaryAr": "نطاق ذو حرمة شرعية خاصة مثل حرم مكة، وله أحكام تتعلق بالصيد والنبات وغيرهما.",
@@ -12728,7 +12728,7 @@
         ],
         "citations": [
           {
-            "id": "source-haram",
+            "id": "source-haram-sanctuary",
             "kind": "Internal",
             "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
             "titleEn": "In-app Islamic Reference Library",
@@ -12748,7 +12748,7 @@
                 "ar": "نطاق ذو حرمة شرعية خاصة مثل حرم مكة، وله أحكام تتعلق بالصيد والنبات وغيرهما.",
                 "en": "A legally sacred sanctuary such as the Meccan Haram, with special rules concerning hunting, vegetation, and other matters.",
                 "citationIds": [
-                  "source-haram"
+                  "source-haram-sanctuary"
                 ]
               }
             ]
