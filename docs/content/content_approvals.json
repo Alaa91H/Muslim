@@ -338,6 +338,20 @@
       "attribution": "Islamic History and Civilization reference content bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending specialist review of chronology, historical reports, political terminology, sectarian-sensitive material, regional coverage, and scientific-history wording.",
       "notes": "First versioned edition: 91 topics, 182 sections, and 182 bilingual paragraphs covering methodology, dynasties and regions, Africa/Asia/Indian Ocean networks, sciences, institutions, trade, cities, arts, languages, and historiography."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_places_landmarks_v2_json": {
+      "source": "Project-authored Islamic Places and Landmarks corpus using structured Quran and authentic hadith references for sacred status and ritual significance, plus cross-links to the app's sourced Sira, Rashidun, and Islamic History corpora and selected museum/UNESCO historical references for civilizational sites.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Islamic Places and Landmarks reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending specialist review of sacred-status claims, Sira locations, local historical traditions, sectarian-sensitive sites, and geographic wording.",
+      "notes": "First versioned edition distinguishes sacred sites from Sira locations and historical/civilizational landmarks and explicitly avoids creating devotional merit where no text establishes it."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_islamic_glossary_v2_json": {
+      "source": "Project-authored 300-term Islamic glossary. Definitions are linked to the app's sourced Aqeedah, Quranic Sciences, Hadith Sciences, Fiqh of Worship, Ethics, History, and Places corpora so glossary wording remains consistent with the long-form reference library.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Expanded Islamic Glossary bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every glossary entry remains NeedsReview pending terminology review, especially school-dependent legal terms, hadith terminology, and theological usage.",
+      "notes": "First versioned edition contains exactly 300 bilingual Arabic-English entries organized across nine domains with one concise definition and an internal source link per entry."
     }
   }
 }
