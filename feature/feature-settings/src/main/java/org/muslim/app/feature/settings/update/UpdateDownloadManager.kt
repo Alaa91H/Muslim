@@ -108,6 +108,20 @@ class UpdateDownloadManager @Inject constructor(
         return File(directory, prefs.updateDownloadFileName)
     }
 
+    /** Cancels the active DownloadManager transfer and removes any partial APK. */
+    suspend fun cancelCurrent() {
+        val prefs = preferencesRepository.preferences.first()
+        if (prefs.updateDownloadId > 0L) {
+            runCatching { downloadManager.remove(prefs.updateDownloadId) }
+        }
+        if (prefs.updateDownloadFileName.isNotBlank()) {
+            updatesDirectory()?.let { directory ->
+                runCatching { File(directory, prefs.updateDownloadFileName).delete() }
+            }
+        }
+        preferencesRepository.clearUpdateDownload()
+    }
+
     suspend fun verifyCurrent(): UpdateDownloadState {
         val prefs = preferencesRepository.preferences.first()
         val directory = updatesDirectory()
