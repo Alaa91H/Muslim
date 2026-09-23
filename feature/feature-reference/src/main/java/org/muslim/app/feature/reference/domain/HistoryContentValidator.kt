@@ -11,6 +11,7 @@ object HistoryContentValidator {
         eras: List<HistoryEra> = IslamicHistoryContent.timeline,
         articles: List<HistoryArticle> = IslamicHistoryArticles.articles,
         states: List<HistoricalState> = IslamicHistoryStates.states,
+        events: List<HistoricalEvent> = IslamicHistoricalEvents.events,
         civilizationTopics: List<CivilizationTopic> = IslamicCivilizationContent.topics,
         sources: List<HistorySource> = IslamicHistorySources.all,
     ): List<String> {
@@ -19,16 +20,32 @@ object HistoryContentValidator {
         val sourceIds = sources.map { it.id }.toSet()
         val topicIds = civilizationTopics.map { it.id }.toSet()
         val personIds = IslamicHistoryContent.personalities.map { it.id }.toSet()
+        val stateIds = states.map { it.id }.toSet()
+        val placeIds = IslamicHistoryContent.atlasLayers
+            .flatMap { it.places }
+            .map { it.id }
+            .toSet()
 
         duplicateIds("era", eras.map { it.id }, errors)
         duplicateIds("article", articles.map { it.id }, errors)
         duplicateIds("state", states.map { it.id }, errors)
+        duplicateIds("event", events.map { it.id }, errors)
         duplicateIds("civilization topic", civilizationTopics.map { it.id }, errors)
         duplicateIds("source", sources.map { it.id }, errors)
 
         validateEras(eras, errors)
         validateArticles(articles, eraIds, sourceIds, errors)
         validateStates(states, eraIds, sourceIds, errors)
+        validateEvents(
+            events,
+            eraIds,
+            stateIds,
+            placeIds,
+            personIds,
+            topicIds,
+            sourceIds,
+            errors,
+        )
         validateCivilizationTopics(
             civilizationTopics,
             topicIds,
@@ -153,6 +170,63 @@ object HistoryContentValidator {
                 }
             }
         }
+    }
+
+    private fun validateEvents(
+        events: List<HistoricalEvent>,
+        eraIds: Set<String>,
+        stateIds: Set<String>,
+        placeIds: Set<String>,
+        personIds: Set<String>,
+        topicIds: Set<String>,
+        sourceIds: Set<String>,
+        errors: MutableList<String>,
+    ) {
+        events.forEach { event ->
+            validateEventText(event, errors)
+            val start = event.date.startCe
+            val end = event.date.endCe
+            if (start != null && end != null && end < start) {
+                errors += "Event ${event.id} ends before it starts"
+            }
+            event.eraIds.forEach { eraId ->
+                if (eraId !in eraIds) errors += "Event ${event.id} references unknown era $eraId"
+            }
+            event.stateIds.forEach { stateId ->
+                if (stateId !in stateIds) errors += "Event ${event.id} references unknown state $stateId"
+            }
+            event.placeIds.forEach { placeId ->
+                if (placeId !in placeIds) errors += "Event ${event.id} references unknown place $placeId"
+            }
+            event.personIds.forEach { personId ->
+                if (personId !in personIds) errors += "Event ${event.id} references unknown person $personId"
+            }
+            event.relatedTopicIds.forEach { topicId ->
+                if (topicId !in topicIds) errors += "Event ${event.id} references unknown topic $topicId"
+            }
+            event.sourceIds.forEach { sourceId ->
+                if (sourceId !in sourceIds) errors += "Event ${event.id} references unknown source $sourceId"
+            }
+        }
+    }
+
+    private fun validateEventText(
+        event: HistoricalEvent,
+        errors: MutableList<String>,
+    ) {
+        val fields = listOf(
+            "title" to event.title,
+            "summary" to event.summary,
+            "context" to event.context,
+            "significance" to event.significance,
+        )
+        fields.forEach { (label, text) ->
+            if (text.arabic.isBlank() || text.english.isBlank()) {
+                errors += "Event ${event.id} has incomplete bilingual $label"
+            }
+        }
+        if (event.eraIds.isEmpty()) errors += "Event ${event.id} has no era links"
+        if (event.sourceIds.isEmpty()) errors += "Event ${event.id} has no sources"
     }
 
     private fun validateCivilizationTopics(
