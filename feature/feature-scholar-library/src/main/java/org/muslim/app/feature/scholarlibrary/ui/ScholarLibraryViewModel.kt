@@ -1,10 +1,10 @@
 package org.muslim.app.feature.scholarlibrary.ui
 
 import androidx.lifecycle.ViewModel
-import java.time.LocalDate
-import java.time.ZoneId
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import java.time.LocalDate
+import java.time.ZoneId
 import javax.inject.Inject
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -184,6 +184,7 @@ class ScholarLibraryViewModel @Inject constructor(
                     )
                 }
             }
+        }
         viewModelScope.launch {
             repository.observeReviewEvents().collect { events ->
                 update {
@@ -196,7 +197,6 @@ class ScholarLibraryViewModel @Inject constructor(
                     )
                 }
             }
-        }
         }
     }
 
