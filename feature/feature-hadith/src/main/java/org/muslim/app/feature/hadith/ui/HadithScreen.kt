@@ -86,7 +86,9 @@ import kotlinx.coroutines.launch
 import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.text.DigitNormalizedOutlinedTextField
+import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.IslamicDecorationCorners
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimCenteredStatus
 import org.muslim.app.core.ui.theme.MuslimContentFrame
@@ -304,6 +306,12 @@ private fun HadithCatalogue(
                             ),
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
+                        IslamicDecorationBand(
+                            modifier = Modifier.fillMaxWidth(),
+                            tint = HadithGold,
+                            compact = true,
+                        )
+                        Spacer(Modifier.height(6.dp))
                         Text(
                             text = stringResource(R.string.hadith_catalog_subtitle),
                             style = MaterialTheme.typography.bodyMedium,
@@ -324,6 +332,11 @@ private fun HadithCatalogue(
                                 textAlign = TextAlign.Center,
                             )
                         }
+                        Spacer(Modifier.height(8.dp))
+                        IslamicDecorationDivider(
+                            modifier = Modifier.fillMaxWidth(),
+                            tint = HadithGold,
+                        )
                     }
                 }
 

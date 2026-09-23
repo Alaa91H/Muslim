@@ -72,6 +72,7 @@ import org.muslim.app.feature.prayertimes.ui.formatCountdown
 import org.muslim.app.feature.prayertimes.ui.localDateFormatter
 import org.muslim.app.core.common.time.TimeFormats
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.IslamicDecorationCorners
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimContentFrame
@@ -143,6 +144,11 @@ fun HomeScreen(
                     vertical = IslamicSpacing.Small,
                 ),
         ) {
+        IslamicDecorationBand(
+            compact = compactLayout,
+        )
+        Spacer(Modifier.height(IslamicSpacing.XSmall))
+
         // ---- Date header ----
         state.hijri?.let { hijri ->
             Text(
