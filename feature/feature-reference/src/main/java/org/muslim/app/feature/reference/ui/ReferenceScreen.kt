@@ -136,6 +136,17 @@ private data class ReferenceScreenActions(
     val onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
 )
 
+
+private data class TopicReaderRenderData(
+    val book: ReferenceBook,
+    val topic: RefTopic,
+    val lang: RefLang,
+    val related: List<Pair<ReferenceBook, RefTopic>>,
+    val previousTopic: RefTopic?,
+    val nextTopic: RefTopic?,
+    val bookmarked: Boolean,
+)
+
 /**
  * المرجعية الإسلامية (feature-reference): مكتبة مرجعية شاملة ومفهرسة تعرض
  * كتب مترابطة تشمل التعريف بالإسلام والسيرة والأنبياء والصحابة وأمهات
@@ -781,10 +792,15 @@ private fun TopicContent(
     val topicIndex = remember(book.id, topic.id) {
         book.topics.indexOfFirst { it.id == topic.id }
     }
-    val previousTopic = book.topics.getOrNull(topicIndex - 1)
-    val nextTopic = book.topics.getOrNull(topicIndex + 1)
-    val bookmarkKey = ReferenceReaderKeyCodec.topicKey(book.id, topic.id)
-    val bookmarked = bookmarkKey in readerState.bookmarkKeys
+    val data = TopicReaderRenderData(
+        book = book,
+        topic = topic,
+        lang = lang,
+        related = related,
+        previousTopic = book.topics.getOrNull(topicIndex - 1),
+        nextTopic = book.topics.getOrNull(topicIndex + 1),
+        bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in readerState.bookmarkKeys,
+    )
 
     LaunchedEffect(listState, book.id, topic.id) {
         snapshotFlow { listState.firstVisibleItemIndex }
@@ -792,11 +808,7 @@ private fun TopicContent(
             .collect { scrollIndex ->
                 readerState.preferences.saveScrollIndex(book.id, topic.id, scrollIndex)
                 readerState.onLastReadChanged(
-                    ReferenceReaderLocation(
-                        bookId = book.id,
-                        topicId = topic.id,
-                        scrollIndex = scrollIndex,
-                    ),
+                    ReferenceReaderLocation(book.id, topic.id, scrollIndex),
                 )
             }
     }
@@ -806,84 +818,110 @@ private fun TopicContent(
         modifier = modifier.fillMaxSize(),
         contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 32.dp),
     ) {
-        item(key = "reader-controls") {
-            ReaderControls(
-                lang = lang,
-                bookmarked = bookmarked,
-                fontStep = readerState.fontStep,
-                onToggleBookmark = {
-                    readerState.onBookmarkKeysChanged(
-                        readerState.preferences.setBookmarked(
-                            bookId = book.id,
-                            topicId = topic.id,
-                            bookmarked = !bookmarked,
-                        ),
-                    )
-                },
-                onDecreaseFont = { readerState.onFontStepChanged(readerState.fontStep - 1) },
-                onIncreaseFont = { readerState.onFontStepChanged(readerState.fontStep + 1) },
-            )
-        }
-        item(key = "topic-header") {
-            TopicHeader(topic = topic, lang = lang, fontStep = readerState.fontStep)
-        }
-        item(key = "topic-toc") {
-            TopicTableOfContents(
-                topic = topic,
-                lang = lang,
-                onJumpToSection = { sectionIndex ->
-                    scope.launch {
-                        listState.animateScrollToItem(3 + sectionIndex)
-                    }
-                },
-            )
-        }
-        items(topic.sections, key = { it.id }) { section ->
-            TopicSectionContent(
-                topic = topic,
-                section = section,
-                lang = lang,
-                fontStep = readerState.fontStep,
-            )
-        }
-        if (topic.citations.isNotEmpty()) {
-            item(key = "topic-sources") {
-                TopicSources(topic = topic, lang = lang)
-            }
-        }
-        if (related.isNotEmpty()) {
-            item(key = "related-title") {
-                SectionLabel(
-                    text = if (lang == RefLang.Arabic) "موضوعات ذات صلة" else "Related topics",
+        topicReaderItems(
+            data = data,
+            readerState = readerState,
+            listState = listState,
+            scope = scope,
+            onOpenTopic = onOpenTopic,
+        )
+    }
+}
+
+private fun LazyListScope.topicReaderItems(
+    data: TopicReaderRenderData,
+    readerState: ReferenceReaderUiState,
+    listState: androidx.compose.foundation.lazy.LazyListState,
+    scope: kotlinx.coroutines.CoroutineScope,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
+) {
+    item(key = "reader-controls") {
+        ReaderControls(
+            lang = data.lang,
+            bookmarked = data.bookmarked,
+            fontStep = readerState.fontStep,
+            onToggleBookmark = {
+                readerState.onBookmarkKeysChanged(
+                    readerState.preferences.setBookmarked(
+                        bookId = data.book.id,
+                        topicId = data.topic.id,
+                        bookmarked = !data.bookmarked,
+                    ),
                 )
-            }
-            items(
-                items = related,
-                key = { (relatedBook, relatedTopic) -> "${relatedBook.id}/${relatedTopic.id}" },
-            ) { (relatedBook, relatedTopic) ->
-                ListItem(
-                    headlineContent = {
-                        Text(relatedTopic.title(lang), fontWeight = FontWeight.Medium)
-                    },
-                    supportingContent = {
-                        Text(relatedTopic.summary(lang), maxLines = 2)
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { onOpenTopic(relatedBook, relatedTopic) },
-                )
-                HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
-            }
+            },
+            onDecreaseFont = { readerState.onFontStepChanged(readerState.fontStep - 1) },
+            onIncreaseFont = { readerState.onFontStepChanged(readerState.fontStep + 1) },
+        )
+    }
+    item(key = "topic-header") {
+        TopicHeader(topic = data.topic, lang = data.lang, fontStep = readerState.fontStep)
+    }
+    item(key = "topic-toc") {
+        TopicTableOfContents(
+            topic = data.topic,
+            lang = data.lang,
+            onJumpToSection = { sectionIndex ->
+                scope.launch { listState.animateScrollToItem(3 + sectionIndex) }
+            },
+        )
+    }
+    items(data.topic.sections, key = { it.id }) { section ->
+        TopicSectionContent(
+            topic = data.topic,
+            section = section,
+            lang = data.lang,
+            fontStep = readerState.fontStep,
+        )
+    }
+    if (data.topic.citations.isNotEmpty()) {
+        item(key = "topic-sources") {
+            TopicSources(topic = data.topic, lang = data.lang)
         }
-        item(key = "reader-navigation") {
-            TopicNavigation(
-                lang = lang,
-                previousTopic = previousTopic,
-                nextTopic = nextTopic,
-                onPrevious = { previousTopic?.let { onOpenTopic(book, it) } },
-                onNext = { nextTopic?.let { onOpenTopic(book, it) } },
-            )
-        }
+    }
+    relatedTopicItems(
+        lang = data.lang,
+        related = data.related,
+        onOpenTopic = onOpenTopic,
+    )
+    item(key = "reader-navigation") {
+        TopicNavigation(
+            lang = data.lang,
+            previousTopic = data.previousTopic,
+            nextTopic = data.nextTopic,
+            onPrevious = { data.previousTopic?.let { onOpenTopic(data.book, it) } },
+            onNext = { data.nextTopic?.let { onOpenTopic(data.book, it) } },
+        )
+    }
+}
+
+private fun LazyListScope.relatedTopicItems(
+    lang: RefLang,
+    related: List<Pair<ReferenceBook, RefTopic>>,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
+) {
+    if (related.isEmpty()) return
+
+    item(key = "related-title") {
+        SectionLabel(
+            text = if (lang == RefLang.Arabic) "موضوعات ذات صلة" else "Related topics",
+        )
+    }
+    items(
+        items = related,
+        key = { (relatedBook, relatedTopic) -> "${relatedBook.id}/${relatedTopic.id}" },
+    ) { (relatedBook, relatedTopic) ->
+        ListItem(
+            headlineContent = {
+                Text(relatedTopic.title(lang), fontWeight = FontWeight.Medium)
+            },
+            supportingContent = {
+                Text(relatedTopic.summary(lang), maxLines = 2)
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { onOpenTopic(relatedBook, relatedTopic) },
+        )
+        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
     }
 }
 
