@@ -29,6 +29,10 @@ PDF_EXPORTER = (
     ROOT
     / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/data/WillDraftPdfExporter.kt"
 )
+PRINT_ADAPTER = (
+    ROOT
+    / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/data/WillDraftPrintAdapter.kt"
+)
 DRAFT_AUTHENTICATOR = (
     ROOT
     / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/WillDraftAuthenticator.kt"
@@ -140,6 +144,9 @@ def main() -> int:
         "searchWillEducationSections",
         "funeral_will_encrypted_notice",
         "funeral_will_export_pdf",
+        "funeral_will_print",
+        "printWillDraft",
+        "widthIn(max = 900.dp)",
         "ActivityResultContracts.CreateDocument",
         "rememberWillDraftProtectionSession",
         "WillDraftLockedContent",
@@ -195,6 +202,9 @@ def main() -> int:
         "AndroidKeyStore": DRAFT_CRYPTO.read_text(encoding="utf-8"),
         "AES/GCM/NoPadding": DRAFT_CRYPTO.read_text(encoding="utf-8"),
         "PdfDocument": PDF_EXPORTER.read_text(encoding="utf-8"),
+        "Private organisational copy": PDF_EXPORTER.read_text(encoding="utf-8"),
+        "PrintDocumentAdapter": PRINT_ADAPTER.read_text(encoding="utf-8"),
+        "PrintManager": PRINT_ADAPTER.read_text(encoding="utf-8"),
         "BiometricPrompt": DRAFT_AUTHENTICATOR.read_text(encoding="utf-8"),
         "DEVICE_CREDENTIAL": DRAFT_AUTHENTICATOR.read_text(encoding="utf-8"),
     }
