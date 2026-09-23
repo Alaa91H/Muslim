@@ -60,8 +60,12 @@ import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.reference.data.AndroidReferenceRepositoryFactory
 import org.muslim.app.feature.reference.domain.ReferenceBook
+import org.muslim.app.feature.reference.domain.ReferenceCitation
 import org.muslim.app.feature.reference.domain.ReferenceRepository
+import org.muslim.app.feature.reference.domain.ReferenceReviewStatus
 import org.muslim.app.feature.reference.domain.RefLang
+import org.muslim.app.feature.reference.domain.RefParagraph
+import org.muslim.app.feature.reference.domain.RefSection
 import org.muslim.app.feature.reference.domain.RefTopic
 
 private val bookIcons = mapOf(
@@ -128,8 +132,15 @@ fun ReferenceScreen(
         val contentModifier = Modifier.padding(innerPadding)
         when {
             selectedTopic != null && book != null -> TopicContent(
+                repository = repository,
+                book = book,
                 topic = selectedTopic!!,
                 lang = lang,
+                onOpenTopic = { targetBook, targetTopic ->
+                    selectedBook = targetBook
+                    selectedTopic = targetTopic
+                    query = ""
+                },
                 modifier = contentModifier,
             )
             book != null -> BookContent(
@@ -352,81 +363,261 @@ private fun TopicListItem(
 
 @Composable
 private fun TopicContent(
+    repository: ReferenceRepository,
+    book: ReferenceBook,
     topic: RefTopic,
     lang: RefLang,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val context = LocalContext.current
-    val shareText = buildString {
-        append(topic.title(lang)).append("\n\n")
-        append(topic.summary(lang)).append("\n\n")
-        topic.sections.forEach { section ->
-            append(section.title(lang)).append("\n")
-            section.paragraphs.forEach { paragraph -> append(paragraph.text(lang)).append("\n") }
-            append("\n")
-        }
-    }
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 32.dp),
     ) {
-        item {
-            Column(modifier = Modifier.fillMaxWidth()) {
-                Text(
-                    text = topic.summary(lang),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp),
-                )
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
-                    horizontalArrangement = androidx.compose.foundation.layout.Arrangement.End,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    TextButton(onClick = {
-                        val clipboard = context.getSystemService(android.content.ClipboardManager::class.java)
-                        clipboard?.setPrimaryClip(ClipData.newPlainText(topic.title(lang), shareText))
-                    }) {
-                        Icon(Icons.Filled.ContentCopy, contentDescription = null, modifier = Modifier.size(18.dp))
-                        Spacer(Modifier.size(4.dp))
-                        Text(stringResource(R.string.reference_copy))
-                    }
-                    TextButton(onClick = {
-                        val intent = Intent(Intent.ACTION_SEND).apply {
-                            type = "text/plain"
-                            putExtra(Intent.EXTRA_TEXT, shareText)
-                        }
-                        runCatching { context.startActivity(Intent.createChooser(intent, null)) }
-                    }) {
-                        Icon(Icons.Filled.Share, contentDescription = null, modifier = Modifier.size(18.dp))
-                        Spacer(Modifier.size(4.dp))
-                        Text(stringResource(R.string.reference_share))
-                    }
-                }
-            }
+        item(key = "topic-header") {
+            TopicHeader(topic = topic, lang = lang)
         }
         items(topic.sections, key = { it.id }) { section ->
-            Text(
-                text = section.title(lang),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp),
-            )
-            section.paragraphs.forEach { paragraph ->
-                IslamicCard(
+            TopicSectionContent(topic = topic, section = section, lang = lang)
+        }
+        if (topic.citations.isNotEmpty()) {
+            item(key = "topic-sources") {
+                TopicSources(topic = topic, lang = lang)
+            }
+        }
+        val related = resolveRelatedTopics(repository, book, topic)
+        if (related.isNotEmpty()) {
+            item(key = "related-title") {
+                SectionLabel(
+                    text = if (lang == RefLang.Arabic) "موضوعات ذات صلة" else "Related topics",
+                )
+            }
+            items(
+                items = related,
+                key = { (relatedBook, relatedTopic) -> "${relatedBook.id}/${relatedTopic.id}" },
+            ) { (relatedBook, relatedTopic) ->
+                ListItem(
+                    headlineContent = {
+                        Text(relatedTopic.title(lang), fontWeight = FontWeight.Medium)
+                    },
+                    supportingContent = {
+                        Text(relatedTopic.summary(lang), maxLines = 2)
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 5.dp),
-                    containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-                ) {
+                        .clickable { onOpenTopic(relatedBook, relatedTopic) },
+                )
+                HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+            }
+        }
+    }
+}
+
+@Composable
+private fun TopicHeader(
+    topic: RefTopic,
+    lang: RefLang,
+) {
+    val context = LocalContext.current
+    val shareText = remember(topic, lang) { buildTopicShareText(topic, lang) }
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Text(
+            text = topic.summary(lang),
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp),
+        )
+        if (topic.reviewStatus != ReferenceReviewStatus.Reviewed) {
+            Text(
+                text = if (lang == RefLang.Arabic) {
+                    "المحتوى قيد المراجعة العلمية"
+                } else {
+                    "Content pending scholarly review"
+                },
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(horizontal = 20.dp, vertical = 2.dp),
+            )
+        }
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+            horizontalArrangement = androidx.compose.foundation.layout.Arrangement.End,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            TextButton(onClick = {
+                val clipboard = context.getSystemService(android.content.ClipboardManager::class.java)
+                clipboard?.setPrimaryClip(ClipData.newPlainText(topic.title(lang), shareText))
+            }) {
+                Icon(Icons.Filled.ContentCopy, contentDescription = null, modifier = Modifier.size(18.dp))
+                Spacer(Modifier.size(4.dp))
+                Text(stringResource(R.string.reference_copy))
+            }
+            TextButton(onClick = {
+                val intent = Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, shareText)
+                }
+                runCatching { context.startActivity(Intent.createChooser(intent, null)) }
+            }) {
+                Icon(Icons.Filled.Share, contentDescription = null, modifier = Modifier.size(18.dp))
+                Spacer(Modifier.size(4.dp))
+                Text(stringResource(R.string.reference_share))
+            }
+        }
+    }
+}
+
+@Composable
+private fun TopicSectionContent(
+    topic: RefTopic,
+    section: RefSection,
+    lang: RefLang,
+) {
+    SectionLabel(text = section.title(lang))
+    section.paragraphs.forEach { paragraph ->
+        ParagraphCard(
+            paragraph = paragraph,
+            citations = paragraph.citationIds.mapNotNull { citationId ->
+                topic.citations.firstOrNull { it.id == citationId }
+            },
+            lang = lang,
+        )
+    }
+    val sectionCitations = section.citationIds.mapNotNull { citationId ->
+        topic.citations.firstOrNull { it.id == citationId }
+    }
+    if (sectionCitations.isNotEmpty()) {
+        CitationLine(citations = sectionCitations, lang = lang)
+    }
+}
+
+@Composable
+private fun ParagraphCard(
+    paragraph: RefParagraph,
+    citations: List<ReferenceCitation>,
+    lang: RefLang,
+) {
+    IslamicCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 5.dp),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Column {
+            Text(
+                text = paragraph.text(lang),
+                style = MaterialTheme.typography.bodyMedium.copy(fontSize = 17.sp),
+                lineHeight = 28.sp,
+            )
+            if (citations.isNotEmpty()) {
+                Spacer(Modifier.height(8.dp))
+                CitationLine(citations = citations, lang = lang)
+            }
+        }
+    }
+}
+
+@Composable
+private fun CitationLine(
+    citations: List<ReferenceCitation>,
+    lang: RefLang,
+) {
+    Text(
+        text = citations.joinToString(" • ") { citation ->
+            "${citation.title(lang)} — ${citation.locator}"
+        },
+        style = MaterialTheme.typography.labelSmall,
+        color = MaterialTheme.colorScheme.primary,
+        modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp),
+    )
+}
+
+@Composable
+private fun TopicSources(
+    topic: RefTopic,
+    lang: RefLang,
+) {
+    SectionLabel(
+        text = if (lang == RefLang.Arabic) "المصادر والمراجع" else "Sources and references",
+    )
+    topic.citations.forEachIndexed { index, citation ->
+        IslamicCard(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 4.dp),
+            containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+        ) {
+            Column {
+                Text(
+                    text = "${index + 1}. ${citation.title(lang)}",
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Bold,
+                )
+                Spacer(Modifier.height(2.dp))
+                Text(
+                    text = citation.locator,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                citation.note(lang)?.takeIf { it.isNotBlank() }?.let { note ->
+                    Spacer(Modifier.height(4.dp))
                     Text(
-                        text = paragraph.text(lang),
-                        style = MaterialTheme.typography.bodyMedium.copy(fontSize = 17.sp),
-                        lineHeight = 28.sp,
+                        text = note,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
             }
         }
     }
+}
+
+@Composable
+private fun SectionLabel(text: String) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.Bold,
+        color = MaterialTheme.colorScheme.primary,
+        modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp),
+    )
+}
+
+private fun buildTopicShareText(topic: RefTopic, lang: RefLang): String = buildString {
+    append(topic.title(lang)).append("\n\n")
+    append(topic.summary(lang)).append("\n\n")
+    topic.sections.forEach { section ->
+        append(section.title(lang)).append("\n")
+        section.paragraphs.forEach { paragraph ->
+            append(paragraph.text(lang)).append("\n")
+        }
+        append("\n")
+    }
+    if (topic.citations.isNotEmpty()) {
+        append(if (lang == RefLang.Arabic) "المصادر والمراجع" else "Sources and references")
+        append("\n")
+        topic.citations.forEachIndexed { index, citation ->
+            append(index + 1)
+                .append(". ")
+                .append(citation.title(lang))
+                .append(" — ")
+                .append(citation.locator)
+                .append("\n")
+        }
+    }
+}
+
+private fun resolveRelatedTopics(
+    repository: ReferenceRepository,
+    currentBook: ReferenceBook,
+    topic: RefTopic,
+): List<Pair<ReferenceBook, RefTopic>> = topic.relatedTopicIds.mapNotNull { relatedId ->
+    val (bookId, topicId) = if ('/' in relatedId) {
+        relatedId.substringBefore('/') to relatedId.substringAfter('/')
+    } else {
+        currentBook.id to relatedId
+    }
+    val relatedBook = repository.byId(bookId) ?: return@mapNotNull null
+    val relatedTopic = relatedBook.topics.firstOrNull { it.id == topicId } ?: return@mapNotNull null
+    relatedBook to relatedTopic
 }
