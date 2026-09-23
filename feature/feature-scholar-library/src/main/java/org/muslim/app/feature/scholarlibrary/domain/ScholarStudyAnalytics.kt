@@ -15,16 +15,20 @@ object ScholarStudyAnalytics {
                 (it.completedAtEpochMillis ?: Long.MIN_VALUE) >= sevenDaysStartEpochMillis
         }
         return ScholarStudyActivitySummary(
-            reviewsToday = reviewEvents.count { it.reviewedAtEpochMillis >= todayStartEpochMillis },
-            reviewsLast7Days = recentReviews.size,
-            cardsReviewedLast7Days = recentReviews.map { it.flashcardId }.distinct().size,
-            againLast7Days = recentReviews.count { it.outcome.rating == ScholarReviewRating.Again },
-            hardLast7Days = recentReviews.count { it.outcome.rating == ScholarReviewRating.Hard },
-            goodLast7Days = recentReviews.count { it.outcome.rating == ScholarReviewRating.Good },
-            easyLast7Days = recentReviews.count { it.outcome.rating == ScholarReviewRating.Easy },
-            completedSessionsLast7Days = recentSessions.size,
-            studiedPassagesLast7Days = recentSessions.sumOf { it.completedPassageIds.size },
-            dueCards = cards.count { it.dueAtEpochMillis <= nowEpochMillis },
+            review = ScholarReviewActivity(
+                reviewsToday = reviewEvents.count { it.reviewedAtEpochMillis >= todayStartEpochMillis },
+                reviewsLast7Days = recentReviews.size,
+                cardsReviewedLast7Days = recentReviews.map { it.flashcardId }.distinct().size,
+                againLast7Days = recentReviews.count { it.outcome.rating == ScholarReviewRating.Again },
+                hardLast7Days = recentReviews.count { it.outcome.rating == ScholarReviewRating.Hard },
+                goodLast7Days = recentReviews.count { it.outcome.rating == ScholarReviewRating.Good },
+                easyLast7Days = recentReviews.count { it.outcome.rating == ScholarReviewRating.Easy },
+            ),
+            study = ScholarStudyActivity(
+                completedSessionsLast7Days = recentSessions.size,
+                studiedPassagesLast7Days = recentSessions.sumOf { it.completedPassageIds.size },
+                dueCards = cards.count { it.dueAtEpochMillis <= nowEpochMillis },
+            ),
         )
     }
 
