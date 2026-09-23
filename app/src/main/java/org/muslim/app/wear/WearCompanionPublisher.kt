@@ -1,17 +1,26 @@
 package org.muslim.app.wear
 
 import android.content.Context
+import android.util.Log
+import com.google.android.gms.wearable.CapabilityClient
 import com.google.android.gms.wearable.PutDataMapRequest
 import com.google.android.gms.wearable.Wearable
 import dagger.hilt.android.qualifiers.ApplicationContext
+import java.util.concurrent.atomic.AtomicBoolean
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import org.muslim.app.core.common.wear.WearPrayerSnapshot
@@ -23,8 +32,6 @@ import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.feature.prayertimes.domain.PrayerCountdownData
 import org.muslim.app.feature.tasbih.data.TasbihRepository
 import org.muslim.app.feature.tasbih.domain.TasbihState
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Publishes a minimal paired-watch snapshot. No location, calculation method,
@@ -40,11 +47,20 @@ class WearCompanionPublisher @Inject constructor(
     private val tasbihRepository: TasbihRepository,
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
-    private var started = false
+    private val started = AtomicBoolean(false)
 
     fun start() {
-        if (started) return
-        started = true
+        if (!started.compareAndSet(false, true)) return
+
+        // Match NexaFlow's reconnect behavior: whenever the remote watch
+        // capability becomes reachable, immediately re-publish a fresh state.
+        scope.launch {
+            watchReconnectEvents().collect {
+                runCatching { pushNow() }
+                    .onFailure { Log.w(TAG, "Wear reconnect push failed", it) }
+            }
+        }
+
         scope.launch {
             combine(
                 appPreferencesRepository.preferences,
@@ -59,7 +75,21 @@ class WearCompanionPublisher @Inject constructor(
         }
     }
 
-    private fun publish(inputs: WearSyncInputs) {
+    /** Builds and publishes a fresh snapshot in response to the watch. */
+    suspend fun pushNow() {
+        val preferences = appPreferencesRepository.preferences.first()
+        if (!preferences.wearCompanionEnabled) return
+        publish(
+            WearSyncInputs(
+                preferences = preferences,
+                prayerSettings = prayerSettingsRepository.settings.first(),
+                tasbih = tasbihRepository.state.first(),
+                nowMillis = System.currentTimeMillis(),
+            ),
+        )
+    }
+
+    private suspend fun publish(inputs: WearSyncInputs) {
         val countdown = PrayerCountdownData.compute(
             settings = inputs.prayerSettings,
             calculator = calculator,
@@ -67,7 +97,7 @@ class WearCompanionPublisher @Inject constructor(
         )
         val snapshot = WearPrayerSnapshot(
             nextPrayerName = countdown.nextPrayer?.watchLabel(),
-            nextPrayerAtEpochMillis = countdown.nextPrayerAt?.let { nextTime ->
+            nextPrayerAtEpochMillis = countdown.nextPrayerAt?.let {
                 inputs.nowMillis + countdown.remainingSeconds * 1_000L
             },
             tasbihPhrase = inputs.tasbih.phrase.text,
@@ -88,8 +118,52 @@ class WearCompanionPublisher @Inject constructor(
             dataMap.putLong(WearSyncContract.KEY_SYNCED_AT, snapshot.syncedAtEpochMillis)
             dataMap.putString(WearSyncContract.KEY_ORNAMENT_STYLE, snapshot.ornamentStyle.name)
             dataMap.putString(WearSyncContract.KEY_ORNAMENT_INTENSITY, snapshot.ornamentIntensity.name)
-        }.asPutDataRequest()
-        Wearable.getDataClient(context).putDataItem(request)
+        }.asPutDataRequest().setUrgent()
+
+        runCatching {
+            Wearable.getDataClient(context).putDataItem(request).await()
+        }.onFailure {
+            Log.w(TAG, "Failed to publish Wear snapshot", it)
+        }
+    }
+
+    /**
+     * Emits for an already-connected watch at startup and again when the watch
+     * capability returns after Bluetooth/Wi-Fi/cloud Data Layer reconnects.
+     */
+    private fun watchReconnectEvents(): Flow<Unit> = callbackFlow {
+        val capabilityClient = Wearable.getCapabilityClient(context)
+        val listener = CapabilityClient.OnCapabilityChangedListener { capability ->
+            if (capability.nodes.isNotEmpty()) trySend(Unit)
+        }
+
+        val listenerRegistered = runCatching {
+            capabilityClient.addListener(
+                listener,
+                WearSyncContract.CAPABILITY_WATCH_APP,
+            ).await()
+            true
+        }.getOrElse {
+            Log.w(TAG, "Failed to register Wear capability listener", it)
+            false
+        }
+
+        val reachable = runCatching {
+            capabilityClient.getCapability(
+                WearSyncContract.CAPABILITY_WATCH_APP,
+                CapabilityClient.FILTER_REACHABLE,
+            ).await().nodes.isNotEmpty()
+        }.getOrElse {
+            Log.w(TAG, "Failed to query Wear capability", it)
+            false
+        }
+        if (reachable) trySend(Unit)
+
+        awaitClose {
+            if (listenerRegistered) {
+                capabilityClient.removeListener(listener, WearSyncContract.CAPABILITY_WATCH_APP)
+            }
+        }
     }
 
     private fun minuteTicker(): Flow<Long> = flow {
@@ -116,6 +190,7 @@ class WearCompanionPublisher @Inject constructor(
     )
 
     private companion object {
+        const val TAG = "WearCompanionPublisher"
         const val MINUTE_MILLIS = 60_000L
     }
 }
