@@ -135,7 +135,6 @@
     <string name="scholar_library_filter_by_category">حسب العلم</string>
     <string name="scholar_library_filter_by_path">حسب المسار</string>
     <string name="scholar_library_filter_by_book">حسب الكتاب</string>
-    <string name="scholar_library_all_categories">كل العلوم</string>
     <string name="scholar_library_all_paths">كل المسارات</string>
     <string name="scholar_library_all_books">كل الكتب</string>
     <string name="scholar_library_focused_review">المراجعة المركزة</string>
