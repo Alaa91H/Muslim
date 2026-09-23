@@ -54,61 +54,12 @@ fun WillDraftProtectionCard(
             modifier = Modifier.padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(
-                    imageVector = Icons.Filled.Security,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
-                )
-                Spacer(Modifier.width(10.dp))
-                Text(
-                    text = stringResource(R.string.funeral_will_protection_title),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                )
-            }
+            ProtectionCardHeader()
             Text(
                 text = stringResource(R.string.funeral_will_protection_description),
                 style = MaterialTheme.typography.bodyMedium,
             )
-            if (session.enabled) {
-                Text(
-                    text = stringResource(R.string.funeral_will_protection_enabled),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-                Button(
-                    onClick = session.actions.lockNow,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .testTag(WillDraftProtectionTestTags.LOCK_NOW),
-                ) {
-                    Icon(Icons.Filled.Lock, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(stringResource(R.string.funeral_will_protection_lock_now))
-                }
-                OutlinedButton(
-                    onClick = session.actions.disable,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .testTag(WillDraftProtectionTestTags.DISABLE),
-                ) {
-                    Text(stringResource(R.string.funeral_will_protection_disable))
-                }
-            } else {
-                Button(
-                    onClick = session.actions.enable,
-                    enabled = session.availability == WillDraftAuthenticationAvailability.Available,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .testTag(WillDraftProtectionTestTags.ENABLE),
-                ) {
-                    Icon(Icons.Filled.Lock, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(stringResource(R.string.funeral_will_protection_enable))
-                }
-                ProtectionAvailabilityMessage(session)
-            }
+            ProtectionCardActions(session)
             session.errorMessage?.let { error ->
                 Text(
                     text = error,
@@ -117,6 +68,67 @@ fun WillDraftProtectionCard(
                 )
             }
         }
+    }
+}
+
+@Composable
+private fun ProtectionCardHeader() {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Icon(
+            imageVector = Icons.Filled.Security,
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.onSecondaryContainer,
+        )
+        Spacer(Modifier.width(10.dp))
+        Text(
+            text = stringResource(R.string.funeral_will_protection_title),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+        )
+    }
+}
+
+@Composable
+private fun ProtectionCardActions(
+    session: WillDraftProtectionSession,
+) {
+    if (session.enabled) {
+        Text(
+            text = stringResource(R.string.funeral_will_protection_enabled),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        Button(
+            onClick = session.actions.lockNow,
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag(WillDraftProtectionTestTags.LOCK_NOW),
+        ) {
+            Icon(Icons.Filled.Lock, contentDescription = null)
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.funeral_will_protection_lock_now))
+        }
+        OutlinedButton(
+            onClick = session.actions.disable,
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag(WillDraftProtectionTestTags.DISABLE),
+        ) {
+            Text(stringResource(R.string.funeral_will_protection_disable))
+        }
+    } else {
+        Button(
+            onClick = session.actions.enable,
+            enabled = session.availability == WillDraftAuthenticationAvailability.Available,
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag(WillDraftProtectionTestTags.ENABLE),
+        ) {
+            Icon(Icons.Filled.Lock, contentDescription = null)
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.funeral_will_protection_enable))
+        }
+        ProtectionAvailabilityMessage(session)
     }
 }
 
