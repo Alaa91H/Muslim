@@ -19,6 +19,7 @@ import org.muslim.app.feature.scholarlibrary.domain.Citation
 import org.muslim.app.feature.scholarlibrary.domain.FlashcardWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.ScholarAuthorSummary
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
+import org.muslim.app.feature.scholarlibrary.domain.ScholarBookHierarchy
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBookOutlineSection
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBookmark
 import org.muslim.app.feature.scholarlibrary.domain.ScholarCategory
@@ -32,6 +33,7 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingStatus
 import org.muslim.app.feature.scholarlibrary.domain.ScholarSearchFilters
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPath
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPlan
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyStage
 import org.muslim.app.feature.scholarlibrary.domain.SearchHit
 import org.muslim.app.feature.scholarlibrary.domain.StudyBookmarkWithCitation
@@ -82,6 +84,8 @@ private data class ScholarPackPassage(
     val volume: String? = null,
     val page: String? = null,
     val text: String,
+    val section: String? = null,
+    val orderIndex: Int = 0,
 )
 
 @Serializable
@@ -179,6 +183,9 @@ class ScholarLibraryRepository @Inject constructor(
     fun observeReadingProgress(): Flow<List<ScholarReadingProgress>> =
         libraryDao.observeReadingProgress().map { rows -> rows.map { it.toDomain() } }
 
+    fun observeStudyPlans(): Flow<List<ScholarStudyPlan>> =
+        libraryDao.observeStudyPlans().map { rows -> rows.map { it.toDomain() } }
+
     suspend fun book(bookId: String): ScholarBook? = libraryDao.bookById(bookId)?.toDomain()
 
     suspend fun authors(): List<ScholarAuthorSummary> {
@@ -191,6 +198,13 @@ class ScholarLibraryRepository @Inject constructor(
     suspend fun bookOutline(bookId: String): List<ScholarBookOutlineSection> {
         ensureSeeded()
         return ScholarLibraryIndex.outline(
+            libraryDao.observePassagesForBook(bookId).first().map { it.toDomain() },
+        )
+    }
+
+    suspend fun bookHierarchy(bookId: String): ScholarBookHierarchy {
+        ensureSeeded()
+        return ScholarLibraryIndex.hierarchy(
             libraryDao.observePassagesForBook(bookId).first().map { it.toDomain() },
         )
     }
@@ -274,6 +288,7 @@ class ScholarLibraryRepository @Inject constructor(
                     edition = book.edition,
                     publisher = book.publisher,
                     publicationYear = book.publicationYear,
+                    section = passage.section,
                 ),
             )
         }
@@ -366,6 +381,35 @@ class ScholarLibraryRepository @Inject constructor(
 
     suspend fun deleteHighlight(id: Long) = libraryDao.deleteHighlight(id)
 
+    suspend fun createStudyPlan(
+        pathId: String,
+        sessionsPerWeek: Int,
+        minutesPerSession: Int,
+        targetPassagesPerSession: Int,
+    ): Boolean {
+        ensureSeeded()
+        if (studyPaths().none { it.id == pathId }) return false
+        if (sessionsPerWeek !in 1..7) return false
+        if (minutesPerSession !in MIN_SESSION_MINUTES..MAX_SESSION_MINUTES) return false
+        if (targetPassagesPerSession !in 1..MAX_TARGET_PASSAGES_PER_SESSION) return false
+        val now = System.currentTimeMillis()
+        libraryDao.deactivateStudyPlansForPath(pathId, now)
+        libraryDao.upsertStudyPlan(
+            ScholarStudyPlanEntity(
+                pathId = pathId,
+                sessionsPerWeek = sessionsPerWeek,
+                minutesPerSession = minutesPerSession,
+                targetPassagesPerSession = targetPassagesPerSession,
+                active = true,
+                createdAtEpochMillis = now,
+                updatedAtEpochMillis = now,
+            ),
+        )
+        return true
+    }
+
+    suspend fun deleteStudyPlan(id: Long) = libraryDao.deleteStudyPlan(id)
+
     suspend fun markBookOpened(bookId: String): Boolean {
         ensureSeeded()
         if (libraryDao.bookById(bookId) == null) return false
@@ -412,8 +456,8 @@ class ScholarLibraryRepository @Inject constructor(
     /**
      * Imports a user-selected JSON pack. The pack must carry source and licence
      * information for every book; it is intentionally not a scraper or remote
-     * downloader for third-party libraries. v1 packs remain accepted while v2
-     * adds richer optional bibliography and study metadata.
+     * downloader for third-party libraries. v1/v2 packs remain accepted while
+     * v3 adds optional section/order hierarchy metadata for passages.
      */
     suspend fun importPack(rawText: String): ScholarLibraryImportResult = runCatching {
         ensureSeeded()
@@ -437,6 +481,7 @@ class ScholarLibraryRepository @Inject constructor(
             edition = book.edition,
             publisher = book.publisher,
             publicationYear = book.publicationYear,
+            section = passage.section,
         )
     }
 
@@ -521,6 +566,10 @@ class ScholarLibraryRepository @Inject constructor(
                 require(passage.chapter.isNotBlank() && passage.text.trim().length in 1..PASSAGE_MAX_LENGTH) {
                     "نص أو فصل المقطع غير صالح."
                 }
+                require(passage.section == null || passage.section.length <= MAX_SECTION_LENGTH) {
+                    "عنوان قسم المقطع طويل جداً."
+                }
+                require(passage.orderIndex >= 0) { "ترتيب المقطع يجب ألا يكون سالباً." }
             }
         }
         return pack
@@ -555,6 +604,8 @@ class ScholarLibraryRepository @Inject constructor(
         volume = volume,
         page = page,
         text = text,
+        section = section,
+        orderIndex = orderIndex,
     )
 
     private fun ScholarNoteEntity.toDomain() = ScholarNote(id, passageId, text, createdAtEpochMillis)
@@ -591,6 +642,17 @@ class ScholarLibraryRepository @Inject constructor(
         updatedAtEpochMillis = updatedAtEpochMillis,
     )
 
+    private fun ScholarStudyPlanEntity.toDomain() = ScholarStudyPlan(
+        id = id,
+        pathId = pathId,
+        sessionsPerWeek = sessionsPerWeek,
+        minutesPerSession = minutesPerSession,
+        targetPassagesPerSession = targetPassagesPerSession,
+        active = active,
+        createdAtEpochMillis = createdAtEpochMillis,
+        updatedAtEpochMillis = updatedAtEpochMillis,
+    )
+
     private fun ScholarPackBook.toEntity(imported: Boolean) = ScholarBookEntity(
         id = id,
         title = title,
@@ -620,6 +682,8 @@ class ScholarLibraryRepository @Inject constructor(
         volume = volume,
         page = page,
         text = text,
+        section = section,
+        orderIndex = orderIndex,
     )
 
     private companion object {
@@ -627,7 +691,7 @@ class ScholarLibraryRepository @Inject constructor(
         const val BUNDLED_STUDY_PATHS = "scholar_study_paths.json"
         const val STUDY_PATH_SCHEMA_VERSION = 1
         const val MIN_PACK_SCHEMA_VERSION = 1
-        const val CURRENT_PACK_SCHEMA_VERSION = 2
+        const val CURRENT_PACK_SCHEMA_VERSION = 3
         const val SEARCH_LIMIT = 100
         const val SEARCH_CANDIDATE_LIMIT = 500
         const val METADATA_MATCH_PASSAGES_PER_BOOK = 20
@@ -638,6 +702,10 @@ class ScholarLibraryRepository @Inject constructor(
         const val NOTE_MAX_LENGTH = 4_000
         const val FLASHCARD_SIDE_MAX_LENGTH = 1_000
         const val HIGHLIGHT_MAX_LENGTH = 30_000
+        const val MAX_SECTION_LENGTH = 300
+        const val MIN_SESSION_MINUTES = 5
+        const val MAX_SESSION_MINUTES = 180
+        const val MAX_TARGET_PASSAGES_PER_SESSION = 100
         const val MAX_VOLUME_COUNT = 500
         const val MAX_KEYWORDS_PER_BOOK = 100
         const val MAX_KEYWORD_LENGTH = 120
