@@ -185,15 +185,25 @@ fun ScholarStudyPathScreen(
                     progress = progress,
                     activePlan = activePlan,
                     padding = padding,
-                    onOpenBook = onOpenBook,
-                    onDailyPlan = { viewModel.createDailyStudyPlan(path.id) },
-                    onWeeklyPlan = { viewModel.createWeeklyStudyPlan(path.id) },
-                    onDeletePlan = { id -> viewModel.deleteStudyPlan(id) },
+                    actions = StudyPathActions(
+                        onOpenBook = onOpenBook,
+                        onDailyPlan = { viewModel.createDailyStudyPlan(path.id) },
+                        onWeeklyPlan = { viewModel.createWeeklyStudyPlan(path.id) },
+                        onDeletePlan = { id -> viewModel.deleteStudyPlan(id) },
+                    ),
                 )
             }
         }
     }
 }
+
+@Composable
+private data class StudyPathActions(
+    val onOpenBook: (String) -> Unit,
+    val onDailyPlan: () -> Unit,
+    val onWeeklyPlan: () -> Unit,
+    val onDeletePlan: (Long) -> Unit,
+)
 
 @Composable
 private fun StudyPathContent(
@@ -202,10 +212,7 @@ private fun StudyPathContent(
     progress: ScholarPathProgress?,
     activePlan: ScholarStudyPlan?,
     padding: PaddingValues,
-    onOpenBook: (String) -> Unit,
-    onDailyPlan: () -> Unit,
-    onWeeklyPlan: () -> Unit,
-    onDeletePlan: (Long) -> Unit,
+    actions: StudyPathActions,
 ) {
     val booksById = books.associateBy { it.id }
     LazyColumn(
@@ -230,9 +237,9 @@ private fun StudyPathContent(
         item {
             StudyPlanCard(
                 plan = activePlan,
-                onDailyPlan = onDailyPlan,
-                onWeeklyPlan = onWeeklyPlan,
-                onDeletePlan = onDeletePlan,
+                onDailyPlan = actions.onDailyPlan,
+                onWeeklyPlan = actions.onWeeklyPlan,
+                onDeletePlan = actions.onDeletePlan,
             )
         }
         path.stages.forEachIndexed { index, stage ->
@@ -248,7 +255,7 @@ private fun StudyPathContent(
             }
             items(stage.bookIds, key = { "path_${stage.id}_$it" }) { bookId ->
                 booksById[bookId]?.let { book ->
-                    CurriculumBookCard(book = book, onClick = { onOpenBook(book.id) })
+                    CurriculumBookCard(book = book, onClick = { actions.onOpenBook(book.id) })
                 }
             }
         }
