@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="funeral_will_dismiss_card">Hide this card</string>
+    <string name="funeral_will_restore_intro_cards">Show guidance and notices again</string>
+    <string name="funeral_will_education_title">Islamic will guide</string>
+    <string name="funeral_will_education_intro">Core topics to help organise the draft and identify what needs qualified Islamic and legal review before relying on a will.</string>
+    <string name="funeral_will_guide_quick_title">What should I do now?</string>
+    <string name="funeral_will_guide_quick_intro">A short practical sequence for the first steps after a death. Official procedures can differ by country, hospital, and cemetery.</string>
+</resources>
