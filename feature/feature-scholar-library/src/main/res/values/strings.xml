@@ -112,4 +112,16 @@
     <string name="scholar_library_session_history_completed">جلسة مكتملة</string>
     <string name="scholar_library_resume_session">متابعة الجلسة</string>
     <string name="scholar_library_session_history_abandoned">جلسة غير مكتملة أُغلقت بعد تغيّر محتواها.</string>
+
+    <string name="scholar_library_review_summary_v2">%1$d مستحقة من %2$d · %3$d قيد التعلّم · %4$d ناضجة · مؤشر الإتقان التقديري %5$d%%</string>
+    <string name="scholar_library_mastery_by_category">مؤشر الإتقان التقديري حسب العلم</string>
+    <string name="scholar_library_no_mastery_data">لا توجد بيانات مراجعة كافية بعد. أنشئ بطاقات وابدأ المراجعة لبناء المؤشر.</string>
+    <string name="scholar_library_mastery_category_summary">%1$d%% تقديري · %2$d بطاقة · %3$d مستحقة</string>
+    <string name="scholar_library_review_card_state">الفاصل %1$d يوم · %2$d مراجعة · %3$d إخفاق/إخفاقات</string>
+    <string name="scholar_library_rating_again">مرة أخرى</string>
+    <string name="scholar_library_rating_hard">صعب</string>
+    <string name="scholar_library_rating_good">جيد</string>
+    <string name="scholar_library_rating_easy">سهل</string>
+    <string name="scholar_library_create_review_card">إنشاء بطاقة مراجعة من المقطع</string>
+    <string name="scholar_library_mastery_disclaimer">هذا مؤشر تنظيمي مبني على تباعد المراجعات، وليس حكماً على التحصيل العلمي أو صحة الفهم.</string>
 </resources>
