@@ -97,12 +97,22 @@ class TasbihSessionRepository @Inject constructor(
         roundsGoal: Int = 1,
         nowEpochMillis: Long = System.currentTimeMillis(),
     ) = mutationMutex.withLock {
-        val active = dao.getActive() ?: return@withLock
         val config = currentUiConfig(phrase, target, mode, roundsGoal)
-        if (!active.matches(config)) return@withLock
+        val active = dao.getActive()
+        val candidate = active ?: dao.getLatest()?.takeIf { latest ->
+            latest.endReason == TasbihSessionEndReason.GoalReached.storageId &&
+                latest.sameConfig(config) &&
+                latest.endedAtEpochMillis?.let { endedAt ->
+                    nowEpochMillis >= endedAt &&
+                        nowEpochMillis - endedAt <= UNDO_REOPEN_WINDOW_MILLIS &&
+                        isSameLocalDay(endedAt, nowEpochMillis)
+                } == true
+        } ?: return@withLock
 
-        val next = TasbihSessionEngine.decrement(active.toDomainState(), nowEpochMillis)
-        dao.update(next.toEntity(id = active.id))
+        if (!candidate.sameConfig(config)) return@withLock
+
+        val next = TasbihSessionEngine.decrement(candidate.toDomainState(), nowEpochMillis)
+        dao.update(next.toEntity(id = candidate.id))
     }
 
     suspend fun endActive(
@@ -132,12 +142,14 @@ class TasbihSessionRepository @Inject constructor(
             roundsGoal = roundsGoal.coerceIn(1, TasbihRepository.MAX_ROUNDS_GOAL),
         )
 
-    private fun TasbihSessionEntity.matches(config: TasbihSessionConfig): Boolean =
+    private fun TasbihSessionEntity.sameConfig(config: TasbihSessionConfig): Boolean =
         phraseId == config.phraseId &&
             mode == config.mode.storageId &&
             target == config.target &&
-            roundsGoal == config.roundsGoal &&
-            endedAtEpochMillis == null
+            roundsGoal == config.roundsGoal
+
+    private fun TasbihSessionEntity.matches(config: TasbihSessionConfig): Boolean =
+        sameConfig(config) && endedAtEpochMillis == null
 
     private fun TasbihSessionEntity.toDomainState(): TasbihSessionState =
         TasbihSessionState(
@@ -196,5 +208,6 @@ class TasbihSessionRepository @Inject constructor(
     companion object {
         private const val DEFAULT_HISTORY_LIMIT = 50
         private const val MAX_HISTORY_LIMIT = 500
+        private const val UNDO_REOPEN_WINDOW_MILLIS = 10 * 60 * 1000L
     }
 }
