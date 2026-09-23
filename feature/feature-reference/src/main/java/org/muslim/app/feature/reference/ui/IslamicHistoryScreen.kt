@@ -21,6 +21,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ScrollableTabRow
+import androidx.compose.material3.Slider
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -855,15 +856,30 @@ private fun AtlasTab(
     onNavigate: (HistoryNavigationTarget) -> Unit,
 ) {
     var selectedIndex by remember { mutableIntStateOf(0) }
+    var selectedYear by remember { mutableIntStateOf(750) }
     var selectedPlaceId by remember { mutableStateOf<String?>(null) }
+    val layers = IslamicHistoryContent.atlasLayers
+
     LaunchedEffect(target) {
         if (target?.type == HistoryTargetType.Place) {
             selectedPlaceId = target.id
             onTargetConsumed()
         }
     }
-    val layers = IslamicHistoryContent.atlasLayers
+    LaunchedEffect(selectedYear) {
+        selectedIndex = closestAtlasLayerIndex(layers, selectedYear)
+    }
+
     val layer = layers[selectedIndex]
+    val activeStates = IslamicHistoryStates.states.filter { state ->
+        state.period.startCe?.let { start ->
+            selectedYear >= start && selectedYear <= (state.period.endCe ?: ATLAS_MAX_YEAR)
+        } ?: false
+    }
+    val nearbyEvents = org.muslim.app.feature.reference.domain.IslamicHistoricalEvents.events
+        .filter { it.date.startCe != null }
+        .sortedBy { kotlin.math.abs((it.date.startCe ?: selectedYear) - selectedYear) }
+        .take(3)
 
     selectedPlaceId?.let { placeId ->
         HistoryPlaceProfileView(
@@ -876,6 +892,11 @@ private fun AtlasTab(
     }
 
     Column(modifier = Modifier.fillMaxSize()) {
+        AtlasTimeFilter(
+            year = selectedYear,
+            language = language,
+            onYearChange = { selectedYear = it },
+        )
         AtlasSelector(
             layers = layers,
             selectedIndex = selectedIndex,
@@ -884,9 +905,47 @@ private fun AtlasTab(
         )
         AtlasList(
             layer = layer,
+            year = selectedYear,
+            activeStates = activeStates,
+            nearbyEvents = nearbyEvents,
             language = language,
             onOpenPlace = { selectedPlaceId = it },
+            onNavigate = onNavigate,
             modifier = Modifier.weight(1f),
+        )
+    }
+}
+
+@Composable
+private fun AtlasTimeFilter(
+    year: Int,
+    language: HistoryLanguage,
+    onYearChange: (Int) -> Unit,
+) {
+    Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
+        Text(
+            text = if (language == HistoryLanguage.Arabic) {
+                "السنة المختارة: $year م"
+            } else {
+                "Selected year: $year CE"
+            },
+            style = MaterialTheme.typography.labelLarge,
+            fontWeight = FontWeight.Bold,
+        )
+        Slider(
+            value = year.toFloat(),
+            onValueChange = { onYearChange(it.toInt()) },
+            valueRange = ATLAS_MIN_YEAR.toFloat()..ATLAS_MAX_YEAR.toFloat(),
+            modifier = Modifier.fillMaxWidth(),
+        )
+        Text(
+            text = if (language == HistoryLanguage.Arabic) {
+                "يغيّر شريط الزمن الطبقة الأقرب ويعرض الدول والأحداث المتزامنة تقريباً."
+            } else {
+                "The time slider selects the closest map layer and shows roughly concurrent states and events."
+            },
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
     }
 }
@@ -925,8 +984,12 @@ private fun AtlasSelector(
 @Composable
 private fun AtlasList(
     layer: HistoricalMapLayer,
+    year: Int,
+    activeStates: List<HistoricalState>,
+    nearbyEvents: List<org.muslim.app.feature.reference.domain.HistoricalEvent>,
     language: HistoryLanguage,
     onOpenPlace: (String) -> Unit,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     LazyColumn(
@@ -935,6 +998,15 @@ private fun AtlasList(
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         item { HistoryNotice(layer.summary.resolve(language)) }
+        item {
+            AtlasTimeContext(
+                year = year,
+                activeStates = activeStates,
+                nearbyEvents = nearbyEvents,
+                language = language,
+                onNavigate = onNavigate,
+            )
+        }
         if (layer.routes.isNotEmpty()) {
             item {
                 Text(
@@ -994,6 +1066,95 @@ private fun AtlasList(
         }
     }
 }
+
+@Composable
+private fun AtlasTimeContext(
+    year: Int,
+    activeStates: List<HistoricalState>,
+    nearbyEvents: List<org.muslim.app.feature.reference.domain.HistoricalEvent>,
+    language: HistoryLanguage,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
+) {
+    Card {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = if (language == HistoryLanguage.Arabic) {
+                    "السياق التاريخي سنة $year م"
+                } else {
+                    "Historical context in $year CE"
+                },
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+            if (activeStates.isNotEmpty()) {
+                Text(
+                    text = if (language == HistoryLanguage.Arabic) {
+                        "الدول والسلالات النشطة"
+                    } else {
+                        "Active states and dynasties"
+                    },
+                    style = MaterialTheme.typography.labelLarge,
+                    modifier = Modifier.padding(top = 10.dp),
+                )
+                activeStates.take(8).forEach { state ->
+                    TextButton(
+                        onClick = {
+                            onNavigate(
+                                HistoryNavigationTarget(
+                                    HistoryTargetType.State,
+                                    state.id,
+                                ),
+                            )
+                        },
+                    ) {
+                        Text(state.title.resolve(language))
+                    }
+                }
+            }
+            if (nearbyEvents.isNotEmpty()) {
+                Text(
+                    text = if (language == HistoryLanguage.Arabic) {
+                        "أقرب الأحداث زمنياً"
+                    } else {
+                        "Nearest events in time"
+                    },
+                    style = MaterialTheme.typography.labelLarge,
+                    modifier = Modifier.padding(top = 10.dp),
+                )
+                nearbyEvents.forEach { event ->
+                    TextButton(
+                        onClick = {
+                            onNavigate(
+                                HistoryNavigationTarget(
+                                    HistoryTargetType.Event,
+                                    event.id,
+                                ),
+                            )
+                        },
+                    ) {
+                        val eventYear = event.date.startCe?.toString() ?: "?"
+                        Text("$eventYear — ${event.title.resolve(language)}")
+                    }
+                }
+            }
+        }
+    }
+}
+
+private fun closestAtlasLayerIndex(
+    layers: List<HistoricalMapLayer>,
+    year: Int,
+): Int = layers.indices.minByOrNull { index ->
+    val layer = layers[index]
+    when {
+        year < layer.startCe -> layer.startCe - year
+        layer.endCe != null && year > layer.endCe -> year - layer.endCe
+        else -> 0
+    }
+} ?: 0
+
+private const val ATLAS_MIN_YEAR = 610
+private const val ATLAS_MAX_YEAR = 1924
 
 @Composable
 private fun PeopleTab(
