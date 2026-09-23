@@ -89,6 +89,7 @@ fun ScholarLibraryScreen(
     onBack: () -> Unit,
     onOpenBook: (String) -> Unit,
     onOpenStudyDesk: () -> Unit,
+    onOpenStudyPath: (String) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: ScholarLibraryViewModel = hiltViewModel(),
 ) {
@@ -114,9 +115,9 @@ fun ScholarLibraryScreen(
             padding = padding,
             onImport = { importLauncher.launch(arrayOf("application/json", "text/plain")) },
             onOpenStudyDesk = onOpenStudyDesk,
-            onQueryChange = viewModel::updateQuery,
-            onCategoryChange = viewModel::selectCategory,
             onOpenBook = onOpenBook,
+            onOpenStudyPath = onOpenStudyPath,
+            viewModel = viewModel,
         )
     }
 }
@@ -151,9 +152,9 @@ private fun ScholarLibraryContent(
     padding: PaddingValues,
     onImport: () -> Unit,
     onOpenStudyDesk: () -> Unit,
-    onQueryChange: (String) -> Unit,
-    onCategoryChange: (ScholarCategory?) -> Unit,
     onOpenBook: (String) -> Unit,
+    onOpenStudyPath: (String) -> Unit,
+    viewModel: ScholarLibraryViewModel,
 ) {
     if (state.loading) {
         LibraryLoading(padding)
@@ -163,9 +164,9 @@ private fun ScholarLibraryContent(
             padding = padding,
             onImport = onImport,
             onOpenStudyDesk = onOpenStudyDesk,
-            onQueryChange = onQueryChange,
-            onCategoryChange = onCategoryChange,
             onOpenBook = onOpenBook,
+            onOpenStudyPath = onOpenStudyPath,
+            viewModel = viewModel,
         )
     }
 }
@@ -189,12 +190,21 @@ private fun ScholarLibraryCatalog(
     padding: PaddingValues,
     onImport: () -> Unit,
     onOpenStudyDesk: () -> Unit,
-    onQueryChange: (String) -> Unit,
-    onCategoryChange: (ScholarCategory?) -> Unit,
     onOpenBook: (String) -> Unit,
+    onOpenStudyPath: (String) -> Unit,
+    viewModel: ScholarLibraryViewModel,
 ) {
-    val filteredBooks = remember(state.books, state.selectedCategory) {
-        state.books.filter { state.selectedCategory == null || it.category == state.selectedCategory }
+    val filteredBooks = remember(
+        state.books,
+        state.selectedCategory,
+        state.selectedDifficulty,
+        state.selectedAuthorName,
+    ) {
+        state.books.filter { book ->
+            (state.selectedCategory == null || book.category == state.selectedCategory) &&
+                (state.selectedDifficulty == null || book.difficulty == state.selectedDifficulty) &&
+                (state.selectedAuthorName.isNullOrBlank() || book.author == state.selectedAuthorName)
+        }
     }
     val progressByBook = remember(state.readingProgress) {
         state.readingProgress.associateBy { it.bookId }
@@ -213,11 +223,24 @@ private fun ScholarLibraryCatalog(
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         item { LibraryIntroCard(state.books.size, onImport, onOpenStudyDesk) }
-        item { LibrarySearchInput(state.query, onQueryChange) }
-        item { LibraryCategoryFilter(state.selectedCategory, onCategoryChange) }
+        item { LibrarySearchInput(state.query, viewModel::updateQuery) }
+        item { LibraryCategoryFilter(state.selectedCategory, viewModel::selectCategory) }
+        item {
+            LibraryAdvancedFilters(
+                selectedDifficulty = state.selectedDifficulty,
+                selectedAuthorName = state.selectedAuthorName,
+                authors = state.authors.map { it.name },
+                onDifficultyChange = viewModel::selectDifficulty,
+                onAuthorChange = viewModel::selectAuthor,
+                onClear = viewModel::clearSearchFilters,
+            )
+        }
         if (state.query.isNotBlank()) {
             searchResultItems(state, onOpenBook)
         } else {
+            if (state.studyPaths.isNotEmpty()) {
+                studyPathItems(state.studyPaths, onOpenStudyPath)
+            }
             if (continueReading.isNotEmpty()) {
                 continueReadingItems(continueReading, progressByBook, onOpenBook)
             }
@@ -251,6 +274,69 @@ private fun LibraryCategoryFilter(selected: ScholarCategory?, onChange: (Scholar
         }
         items(ScholarCategory.entries.toList(), key = { it.name }) { category ->
             FilterChip(selected == category, { onChange(category) }, label = { Text(category.label) })
+        }
+    }
+}
+
+@Composable
+private fun LibraryAdvancedFilters(
+    selectedDifficulty: ScholarDifficulty?,
+    selectedAuthorName: String?,
+    authors: List<String>,
+    onDifficultyChange: (ScholarDifficulty?) -> Unit,
+    onAuthorChange: (String?) -> Unit,
+    onClear: () -> Unit,
+) {
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Text(
+            stringResource(R.string.scholar_library_filters),
+            style = MaterialTheme.typography.labelLarge,
+            fontWeight = FontWeight.Bold,
+        )
+        LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            item {
+                FilterChip(
+                    selected = selectedDifficulty == null,
+                    onClick = { onDifficultyChange(null) },
+                    label = { Text(stringResource(R.string.scholar_library_all_levels)) },
+                )
+            }
+            items(
+                listOf(
+                    ScholarDifficulty.Foundation,
+                    ScholarDifficulty.Intermediate,
+                    ScholarDifficulty.Advanced,
+                    ScholarDifficulty.Unspecified,
+                ),
+                key = { it.name },
+            ) { level ->
+                FilterChip(
+                    selected = selectedDifficulty == level,
+                    onClick = { onDifficultyChange(level) },
+                    label = { Text(difficultyLabel(level)) },
+                )
+            }
+        }
+        LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            item {
+                FilterChip(
+                    selected = selectedAuthorName == null,
+                    onClick = { onAuthorChange(null) },
+                    label = { Text(stringResource(R.string.scholar_library_all_authors)) },
+                )
+            }
+            items(authors, key = { it }) { author ->
+                FilterChip(
+                    selected = selectedAuthorName == author,
+                    onClick = { onAuthorChange(author) },
+                    label = { Text(author) },
+                )
+            }
+        }
+        if (selectedDifficulty != null || selectedAuthorName != null) {
+            TextButton(onClick = onClear) {
+                Text(stringResource(R.string.scholar_library_clear_filters))
+            }
         }
     }
 }
@@ -360,6 +446,7 @@ private fun ScholarBookDetailBody(
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         item { BookMetadataCard(book) }
+        item { BookOutlineCard(state.selectedBookOutline) }
         item { SectionLabel(stringResource(R.string.scholar_library_passages)) }
         itemsIndexed(state.selectedBookPassages, key = { _, item -> item.id }) { index, passage ->
             val bookmark = state.bookmarks.any { it.bookmark.passageId == passage.id }
