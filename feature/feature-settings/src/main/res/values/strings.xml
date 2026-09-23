@@ -238,6 +238,7 @@
     <string name="update_download_paused">التنزيل متوقف مؤقتًا</string>
     <string name="update_verifying">جارٍ التحقق من ملف التحديث وتوقيعه…</string>
     <string name="update_ready_to_install">اكتمل التنزيل وتم التحقق من هوية الحزمة والتوقيع. أصبح التحديث جاهزًا للتثبيت.</string>
+    <string name="update_integrity_metadata_available">يتضمن هذا الإصدار بيانات تحقق SHA-256 ورقم إصدار موثوقًا قبل التثبيت.</string>
     <string name="update_ready_offline">التحديث الذي تم تنزيله والتحقق منه جاهز للتثبيت حتى بدون اتصال بالإنترنت.</string>
     <string name="update_install">تثبيت التحديث</string>
     <string name="update_retry_download">إعادة تنزيل التحديث</string>
@@ -246,7 +247,9 @@
     <string name="update_failed_invalid_package">ملف التحديث ليس حزمة Android صالحة.</string>
     <string name="update_failed_wrong_package">تم رفض الملف لأنه لا يخص تطبيق مسلم.</string>
     <string name="update_failed_signature">تم رفض التحديث لأن توقيعه لا يطابق النسخة المثبتة.</string>
+    <string name="update_failed_checksum">تم رفض التحديث لأن بصمة SHA-256 للملف لا تطابق الإصدار المنشور.</string>
     <string name="update_failed_version">رقم الإصدار داخل ملف APK لا يطابق الإصدار المنشور.</string>
+    <string name="update_failed_version_code">تم رفض التحديث لأن versionCode داخل APK لا يطابق بيانات الإصدار.</string>
     <string name="update_failed_not_newer">ملف APK ليس أحدث من النسخة المثبتة.</string>
     <string name="update_failed_generic">تعذر التحقق من التحديث بأمان.</string>
     <string name="update_available_title">يتوفر تحديث جديد</string>
