@@ -55,6 +55,12 @@ class AppPreferencesRepository @Inject constructor(
             hiddenMoreSections = AppPreferences.decodeHiddenSections(prefs[Keys.MORE_SECTION_HIDDEN]),
             updateCheckEnabled = prefs[Keys.UPDATE_CHECK_ENABLED] ?: false,
             updateCheckFrequency = prefs[Keys.UPDATE_CHECK_FREQUENCY] ?: AppPreferences.UPDATE_CHECK_DAILY,
+            updateChannel = prefs[Keys.UPDATE_CHANNEL]
+                ?.takeIf {
+                    it == AppPreferences.UPDATE_CHANNEL_STABLE ||
+                        it == AppPreferences.UPDATE_CHANNEL_BETA
+                }
+                ?: AppPreferences.UPDATE_CHANNEL_STABLE,
             autoUpdateEnabled = prefs[Keys.AUTO_UPDATE_ENABLED] ?: false,
             autoUpdateWifiOnly = prefs[Keys.AUTO_UPDATE_WIFI_ONLY] ?: true,
             lastUpdateCheckEpoch = prefs[Keys.LAST_UPDATE_CHECK] ?: 0L,
@@ -185,6 +191,15 @@ class AppPreferencesRepository @Inject constructor(
         edit { prefs -> prefs[Keys.UPDATE_CHECK_FREQUENCY] = frequency }
     }
 
+    /** Selects stable-only or beta-inclusive GitHub release discovery. */
+    suspend fun setUpdateChannel(channel: String) {
+        require(
+            channel == AppPreferences.UPDATE_CHANNEL_STABLE ||
+                channel == AppPreferences.UPDATE_CHANNEL_BETA,
+        ) { "Unsupported update channel: $channel" }
+        edit { prefs -> prefs[Keys.UPDATE_CHANNEL] = channel }
+    }
+
     /** Enables/disables automatic download of newly discovered releases. */
     suspend fun setAutoUpdateEnabled(enabled: Boolean) {
         edit { prefs -> prefs[Keys.AUTO_UPDATE_ENABLED] = enabled }
@@ -312,6 +327,7 @@ class AppPreferencesRepository @Inject constructor(
         val MORE_SECTION_HIDDEN = stringPreferencesKey("more_section_hidden")
         val UPDATE_CHECK_ENABLED = booleanPreferencesKey("update_check_enabled")
         val UPDATE_CHECK_FREQUENCY = stringPreferencesKey("update_check_frequency")
+        val UPDATE_CHANNEL = stringPreferencesKey("update_channel")
         val AUTO_UPDATE_ENABLED = booleanPreferencesKey("auto_update_enabled")
         val AUTO_UPDATE_WIFI_ONLY = booleanPreferencesKey("auto_update_wifi_only")
         val LAST_UPDATE_CHECK = androidx.datastore.preferences.core.longPreferencesKey("last_update_check")
