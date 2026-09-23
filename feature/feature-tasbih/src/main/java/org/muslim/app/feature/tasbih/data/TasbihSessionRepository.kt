@@ -32,7 +32,7 @@ class TasbihSessionRepository @Inject constructor(
 
     fun observeRecent(limit: Int = DEFAULT_HISTORY_LIMIT): Flow<List<TasbihSessionHistoryItem>> =
         dao.observeRecent(limit.coerceIn(1, MAX_HISTORY_LIMIT))
-            .map { sessions -> sessions.map(TasbihSessionEntity::toHistoryItem) }
+            .map { sessions -> sessions.map { it.toHistoryItem() } }
 
     suspend fun increment(
         phrase: TasbihPhrase,
