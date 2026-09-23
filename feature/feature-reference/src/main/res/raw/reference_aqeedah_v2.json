@@ -1,0 +1,1680 @@
+{
+  "schemaVersion": 2,
+  "book": {
+    "id": "aqeedah",
+    "titleAr": "العقيدة وأصول الإيمان",
+    "titleEn": "Aqeedah and Foundations of Faith",
+    "subtitleAr": "مرجع نصي منظم لأصول الاعتقاد مع تمييز مواضع الخلاف",
+    "subtitleEn": "A sourced guide to foundational beliefs with disputed questions clearly marked",
+    "contentRevision": 1,
+    "chapters": [
+      {
+        "id": "method",
+        "titleAr": "مدخل ومصادر الاعتقاد",
+        "titleEn": "Foundations and Sources",
+        "summaryAr": "التعريف بالعقيدة ومصادرها ومنهج قراءة النصوص.",
+        "summaryEn": "What creed is, its sources, and how texts are read.",
+        "topicIds": [
+          "aqeedah_foundations",
+          "aqeedah_sources",
+          "disagreement_adab"
+        ]
+      },
+      {
+        "id": "tawhid",
+        "titleAr": "التوحيد والعبادة",
+        "titleEn": "Tawhid and Worship",
+        "summaryAr": "وحدانية الله والعبادة والأسماء والصفات والشرك.",
+        "summaryEn": "God's oneness, worship, names and attributes, and shirk.",
+        "topicIds": [
+          "tawhid",
+          "worship_for_god",
+          "names_attributes",
+          "shirk"
+        ]
+      },
+      {
+        "id": "faith",
+        "titleAr": "الإيمان وأركانه",
+        "titleEn": "Faith and Its Articles",
+        "summaryAr": "الإيمان والملائكة والكتب والرسل وخاتم النبوة.",
+        "summaryEn": "Faith, angels, scriptures, messengers, and final prophethood.",
+        "topicIds": [
+          "faith_components",
+          "faith_increase",
+          "angels",
+          "revealed_books",
+          "messengers",
+          "final_prophet"
+        ]
+      },
+      {
+        "id": "decree_unseen",
+        "titleAr": "القدر والغيب",
+        "titleEn": "Divine Decree and the Unseen",
+        "summaryAr": "القدر ومسؤولية الإنسان وحدود الحديث عن الغيب.",
+        "summaryEn": "Decree, human responsibility, and the limits of unseen claims.",
+        "topicIds": [
+          "qadar",
+          "human_action",
+          "unseen"
+        ]
+      },
+      {
+        "id": "hereafter",
+        "titleAr": "اليوم الآخر",
+        "titleEn": "The Hereafter",
+        "summaryAr": "الموت والبرزخ والبعث والحساب والشفاعة والجنة والنار.",
+        "summaryEn": "Death, Barzakh, resurrection, judgment, intercession, Paradise, and Hell.",
+        "topicIds": [
+          "death_barzakh",
+          "resurrection",
+          "judgment",
+          "intercession",
+          "paradise_hell"
+        ]
+      },
+      {
+        "id": "conduct",
+        "titleAr": "الإيمان والسلوك",
+        "titleEn": "Belief and Conduct",
+        "summaryAr": "الكبائر والتوبة والرجاء والخوف وضوابط التكفير.",
+        "summaryEn": "Major sins, repentance, hope and fear, and caution in takfir.",
+        "topicIds": [
+          "major_sins",
+          "repentance",
+          "hope_fear",
+          "takfir_caution"
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "aqeedah_foundations",
+        "titleAr": "ما العقيدة؟",
+        "titleEn": "What is Aqeedah?",
+        "summaryAr": "مدخل إلى أصول الاعتقاد في الإسلام والفرق بين النصوص القطعية والمسائل التي وقع فيها اجتهاد أو خلاف.",
+        "summaryEn": "An introduction to Islamic beliefs and the distinction between foundational texts and questions that have received interpretive disagreement.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/pillars_faith",
+          "aqeedah_sources"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-285",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:285"
+          },
+          {
+            "id": "muslim-jibril",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Book of Faith: Hadith of Jibril"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "meaning",
+            "titleAr": "معنى الاعتقاد",
+            "titleEn": "Meaning of belief",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تدور العقيدة حول ما يصدق به المسلم في الله وملائكته وكتبه ورسله واليوم الآخر والقدر، وهي الأصول التي يبرزها حديث جبريل وآيات الإيمان.",
+                "en": "Aqeedah concerns what a Muslim believes about God, angels, scriptures, messengers, the Last Day, and divine decree, foundations highlighted by the Hadith of Jibril and Quranic passages on faith.",
+                "citationIds": [
+                  "quran-2-285",
+                  "muslim-jibril"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "scope",
+            "titleAr": "القطعيات ومسائل الاجتهاد",
+            "titleEn": "Foundations and interpretive questions",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ليست كل عبارة استعملها علماء العقيدة في التاريخ في الدرجة نفسها؛ فيقدم هذا الكتاب نصوص القرآن والسنة ويشير إلى مواضع الخلاف دون تحويلها إلى خصومة مذهبية.",
+                "en": "Not every later theological formulation has the same status; this book prioritizes the Quran and Sunnah and marks areas of scholarly disagreement without turning them into sectarian polemics.",
+                "citationIds": [
+                  "quran-2-285"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aqeedah_sources",
+        "titleAr": "مصادر الاعتقاد ومنهج الاستدلال",
+        "titleEn": "Sources and method in creed",
+        "summaryAr": "القرآن والسنة الصحيحة أصلان مركزيان في الاعتقاد، مع الاستفادة من اللغة والسياق وأدوات العلماء في الفهم.",
+        "summaryEn": "The Quran and authentic Sunnah are central sources for belief, interpreted through language, context, and scholarly method.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "aqeedah_foundations",
+          "hadith_sciences/sunnah_authority",
+          "quran_sciences/tafsir_principles"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-59",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:59"
+          },
+          {
+            "id": "quran-16-44",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:44"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "revelation",
+            "titleAr": "الرجوع إلى الوحي",
+            "titleEn": "Returning to revelation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يوجه القرآن عند التنازع إلى الله والرسول، ويبين أن وظيفة الرسول تشمل البيان لما نزل للناس.",
+                "en": "The Quran directs disputes back to God and the Messenger and describes the Messenger's role in explaining what was revealed to people.",
+                "citationIds": [
+                  "quran-4-59",
+                  "quran-16-44"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "method",
+            "titleAr": "فهم النصوص في مجموعها",
+            "titleEn": "Reading texts together",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تجمع النصوص المتعلقة بالمسألة قبل بناء الحكم، ويراعى السياق واللغة وصحة الحديث بدل الاعتماد على نص منفرد معزول.",
+                "en": "Relevant texts should be read together with attention to context, language, and hadith authenticity rather than building doctrine on an isolated passage.",
+                "citationIds": [
+                  "quran-4-59"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tawhid",
+        "titleAr": "التوحيد",
+        "titleEn": "Tawhid",
+        "summaryAr": "إفراد الله بالعبادة والإقرار بأنه الخالق المالك الذي لا شريك له.",
+        "summaryEn": "Affirming God as the sole Creator and Lord and directing worship to Him alone.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/god",
+          "worship_for_god",
+          "names_attributes"
+        ],
+        "citations": [
+          {
+            "id": "quran-112-1-4",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "112:1-4"
+          },
+          {
+            "id": "quran-2-163",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:163"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "oneness",
+            "titleAr": "وحدانية الله",
+            "titleEn": "God's oneness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقرر سورة الإخلاص وحدانية الله وتنفي عنه المماثل والكفء، وتقرر آيات كثيرة أنه إله واحد.",
+                "en": "Surat al-Ikhlas affirms God's oneness and denies any equal or counterpart, while many verses state that the deity worthy of worship is one.",
+                "citationIds": [
+                  "quran-112-1-4",
+                  "quran-2-163"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "life",
+            "titleAr": "أثر التوحيد",
+            "titleEn": "Tawhid in life",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "التوحيد ليس معلومة نظرية فقط؛ بل يوجه الدعاء والخوف والرجاء والعبادة والطاعة لله مع أداء حقوق الخلق.",
+                "en": "Tawhid is not merely abstract information; it shapes prayer, hope, fear, worship, and obedience to God while preserving the rights owed to creation.",
+                "citationIds": [
+                  "quran-2-163"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "worship_for_god",
+        "titleAr": "إخلاص العبادة لله",
+        "titleEn": "Worship directed to God alone",
+        "summaryAr": "الدعاء والصلاة والنسك وسائر العبادات تتوجه لله وحده.",
+        "summaryEn": "Prayer, supplication, sacrifice, and other acts of worship are directed to God alone.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "tawhid",
+          "islam/worship",
+          "shirk"
+        ],
+        "citations": [
+          {
+            "id": "quran-6-162-163",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "6:162-163"
+          },
+          {
+            "id": "quran-1-5",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "1:5"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "dedication",
+            "titleAr": "العبادة والنسك",
+            "titleEn": "Worship and devotion",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يعلن القرآن أن الصلاة والنسك والمحيا والممات لله رب العالمين لا شريك له.",
+                "en": "The Quran declares that prayer, sacrifice, life, and death belong to God, Lord of the worlds, without partner.",
+                "citationIds": [
+                  "quran-6-162-163"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "supplication",
+            "titleAr": "الاستعانة والدعاء",
+            "titleEn": "Seeking help and supplication",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقول الفاتحة «إياك نعبد وإياك نستعين»، فتجمع إخلاص العبادة وطلب العون من الله.",
+                "en": "Al-Fatihah says, 'You alone we worship and You alone we ask for help,' combining exclusive worship with dependence upon God.",
+                "citationIds": [
+                  "quran-1-5"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "names_attributes",
+        "titleAr": "أسماء الله وصفاته",
+        "titleEn": "The names and attributes of God",
+        "summaryAr": "يثبت القرآن لله أسماء حسنى وصفات كمال مع نفي المماثلة بالمخلوق.",
+        "summaryEn": "The Quran affirms beautiful names and attributes of perfection for God while denying likeness to creation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "tawhid",
+          "islam/god"
+        ],
+        "citations": [
+          {
+            "id": "quran-7-180",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "7:180"
+          },
+          {
+            "id": "quran-42-11",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "42:11"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "names",
+            "titleAr": "الأسماء الحسنى",
+            "titleEn": "The beautiful names",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بدعاء الله بأسمائه الحسنى، ويجعل معرفة الأسماء بابًا للعبادة والدعاء لا مجرد الحفظ.",
+                "en": "The Quran instructs believers to call upon God by His beautiful names, making their knowledge a path to worship and supplication rather than mere memorization.",
+                "citationIds": [
+                  "quran-7-180"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "transcendence",
+            "titleAr": "ليس كمثله شيء",
+            "titleEn": "Nothing is like Him",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يجمع القرآن بين نفي مماثلة الخلق لله وإثبات السمع والبصر له، وهو أصل في عدم قياس صفاته على صفات المخلوقين.",
+                "en": "The Quran combines denial of any likeness to God with affirmation that He hears and sees, grounding the refusal to measure divine attributes by created attributes.",
+                "citationIds": [
+                  "quran-42-11"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "shirk",
+        "titleAr": "الشرك وخطره",
+        "titleEn": "Shirk and its gravity",
+        "summaryAr": "الشرك هو جعل شريك لله في العبادة أو ما اختص به من حق، وهو أعظم الذنوب في النصوص.",
+        "summaryEn": "Shirk means assigning a partner to God in worship or what belongs uniquely to Him, and is treated in revelation as the gravest sin.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "tawhid",
+          "worship_for_god",
+          "takfir_caution"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-48",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:48"
+          },
+          {
+            "id": "quran-31-13",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "31:13"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "gravity",
+            "titleAr": "أعظم الظلم",
+            "titleEn": "The gravest wrong",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف لقمان الشرك بأنه ظلم عظيم، وتبين سورة النساء خطورته إذا مات الإنسان عليه بلا توبة.",
+                "en": "Luqman describes shirk as a tremendous wrong, and Surat al-Nisa emphasizes its seriousness when a person dies upon it without repentance.",
+                "citationIds": [
+                  "quran-31-13",
+                  "quran-4-48"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "care",
+            "titleAr": "الحكم على الأفعال والأشخاص",
+            "titleEn": "Acts and people",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وصف فعل ما بالشرك لا يساوي تلقائيًا الحكم على كل شخص بعينه؛ فالأحكام الفردية تحتاج تحقق الشروط وانتفاء الموانع وعلمًا مؤهلًا.",
+                "en": "Describing an act as shirk does not automatically settle the status of every individual who performs it; individual judgments require evidence, conditions, and qualified scholarship.",
+                "citationIds": [
+                  "quran-4-48"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "faith_components",
+        "titleAr": "الإيمان وأعمال القلب والجوارح",
+        "titleEn": "Faith, heart, and conduct",
+        "summaryAr": "يعرض القرآن الإيمان مرتبطًا بالتصديق والذكر والعمل والطاعة، لا كهوية اسمية مجردة.",
+        "summaryEn": "The Quran presents faith as connected with conviction, remembrance, action, and obedience rather than a merely nominal identity.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/pillars_faith",
+          "faith_increase",
+          "major_sins"
+        ],
+        "citations": [
+          {
+            "id": "quran-8-2-4",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "8:2-4"
+          },
+          {
+            "id": "quran-2-177",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:177"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "description",
+            "titleAr": "صفات المؤمنين",
+            "titleEn": "Characteristics of believers",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف سورة الأنفال المؤمنين بخشية القلوب وزيادة الإيمان عند تلاوة الآيات والتوكل والصلاة والإنفاق.",
+                "en": "Surat al-Anfal describes believers through trembling hearts, increased faith when revelation is recited, reliance upon God, prayer, and giving.",
+                "citationIds": [
+                  "quran-8-2-4"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "righteousness",
+            "titleAr": "الإيمان والعمل",
+            "titleEn": "Faith and action",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تجمع آية البر بين الاعتقاد بالله واليوم الآخر والملائكة والكتاب والنبيين وبين الصدقة والصلاة والوفاء والصبر.",
+                "en": "The verse of righteousness joins belief in God, the Last Day, angels, scripture, and prophets with charity, prayer, fidelity, and patience.",
+                "citationIds": [
+                  "quran-2-177"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "faith_increase",
+        "titleAr": "زيادة الإيمان ونقصه في النصوص",
+        "titleEn": "Increase and weakness of faith in revelation",
+        "summaryAr": "يصرح القرآن بزيادة الإيمان في مواقف متعددة، ويصف قوة وضعف الاستجابة القلبية.",
+        "summaryEn": "The Quran explicitly speaks of faith increasing in several contexts and portrays varying strength of spiritual response.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "faith_components",
+          "hope_fear"
+        ],
+        "citations": [
+          {
+            "id": "quran-48-4",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "48:4"
+          },
+          {
+            "id": "quran-74-31",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "74:31"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "increase",
+            "titleAr": "زيادة الإيمان",
+            "titleEn": "Increase of faith",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن إنزال السكينة ليزداد المؤمنون إيمانًا مع إيمانهم، كما يذكر زيادة الإيمان عند ظهور الآيات والأحداث.",
+                "en": "The Quran speaks of tranquility being sent down so believers may increase in faith along with their faith, and elsewhere describes revelation increasing faith.",
+                "citationIds": [
+                  "quran-48-4",
+                  "quran-74-31"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "care",
+            "titleAr": "اللغة الاصطلاحية",
+            "titleEn": "Technical language",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تناولت المدارس الكلامية والحديثية تعريف الإيمان بتفصيلات اصطلاحية متعددة؛ ويقتصر هذا المقال على الدلالات النصية المشتركة دون إصدار حكم مذهبي شامل.",
+                "en": "Theological and hadith-oriented schools developed differing technical definitions of faith; this article stays with shared textual descriptions rather than issuing a sectarian verdict.",
+                "citationIds": [
+                  "quran-48-4"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "angels",
+        "titleAr": "الإيمان بالملائكة",
+        "titleEn": "Belief in angels",
+        "summaryAr": "الملائكة خلق من عالم الغيب يعبدون الله وينفذون ما يأمرهم به.",
+        "summaryEn": "Angels belong to the unseen creation, worship God, and carry out His commands.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/pillars_faith",
+          "unseen"
+        ],
+        "citations": [
+          {
+            "id": "quran-66-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "66:6"
+          },
+          {
+            "id": "quran-35-1",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "35:1"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "nature",
+            "titleAr": "عباد مطيعون",
+            "titleEn": "Obedient servants",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن الملائكة بأنهم لا يعصون الله ما أمرهم ويفعلون ما يؤمرون.",
+                "en": "The Quran describes angels as not disobeying God's commands and doing what they are ordered.",
+                "citationIds": [
+                  "quran-66-6"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "roles",
+            "titleAr": "مهام متعددة",
+            "titleEn": "Different roles",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر النصوص أدوارًا للملائكة في تبليغ الوحي وكتابة الأعمال وقبض الأرواح وغيرها، مع الاقتصار على ما ثبت من الغيب.",
+                "en": "Revelation gives angels roles in conveying revelation, recording deeds, taking souls, and other tasks, while details of the unseen are limited to what evidence establishes.",
+                "citationIds": [
+                  "quran-35-1"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "revealed_books",
+        "titleAr": "الإيمان بالكتب المنزلة",
+        "titleEn": "Belief in revealed scriptures",
+        "summaryAr": "يؤمن المسلم بما أنزل الله من كتب على رسله، ويجعل القرآن مرجعه المنزل الخاتم.",
+        "summaryEn": "Muslims affirm the scriptures God revealed to His messengers and regard the Quran as the final revealed criterion.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/pillars_faith",
+          "quran_sciences/quran_definition"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-285",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:285"
+          },
+          {
+            "id": "quran-5-48",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:48"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "belief",
+            "titleAr": "الكتب في أصل الإيمان",
+            "titleEn": "Scriptures as an article of faith",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن الإيمان بكتب الله ضمن إيمان الرسل والمؤمنين، دون التفريق بين رسله في أصل التصديق.",
+                "en": "The Quran includes belief in God's scriptures within the faith of messengers and believers and rejects denial of some messengers while accepting others.",
+                "citationIds": [
+                  "quran-2-285"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "quran",
+            "titleAr": "القرآن مهيمنًا",
+            "titleEn": "The Quran as criterion",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف سورة المائدة القرآن بأنه مصدق لما بين يديه من الكتاب ومهيمنًا عليه في المنظور الإسلامي.",
+                "en": "Surat al-Ma'idah describes the Quran as confirming previous scripture and as a criterion over it in the Islamic understanding.",
+                "citationIds": [
+                  "quran-5-48"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "messengers",
+        "titleAr": "الإيمان بالرسل",
+        "titleEn": "Belief in the messengers",
+        "summaryAr": "بعث الله رسلًا لهداية الناس، ويؤمن المسلم بهم جميعًا دون إنكار من ثبتت رسالته بالوحي.",
+        "summaryEn": "God sent messengers for human guidance, and Muslims affirm all whose prophethood is established by revelation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "prophets/common_prophetic_message",
+          "final_prophet"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-163-165",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:163-165"
+          },
+          {
+            "id": "quran-2-285",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:285"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "mission",
+            "titleAr": "مبشرون ومنذرون",
+            "titleEn": "Bearers of good news and warning",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن الرسل بأنهم مبشرون ومنذرون حتى لا تكون للناس حجة على الله بعد الرسل.",
+                "en": "The Quran describes messengers as bearers of good news and warning so that people have no argument against God after the messengers.",
+                "citationIds": [
+                  "quran-4-163-165"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "unity",
+            "titleAr": "عدم التفريق في أصل الإيمان",
+            "titleEn": "No rejection of any messenger",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقول المؤمنون إنهم لا يفرقون بين أحد من رسل الله في أصل التصديق بهم، مع اختلاف مراتبهم وشرائعهم.",
+                "en": "Believers say they do not reject any of God's messengers in the foundation of faith, while the messengers differ in rank and particular law.",
+                "citationIds": [
+                  "quran-2-285"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "final_prophet",
+        "titleAr": "خاتم النبوة",
+        "titleEn": "Finality of prophethood",
+        "summaryAr": "يقرر القرآن أن محمدًا ﷺ رسول الله وخاتم النبيين.",
+        "summaryEn": "The Quran identifies Muhammad ﷺ as the Messenger of God and the seal of the prophets.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "messengers",
+          "sira/revelation",
+          "prophets/muhammad"
+        ],
+        "citations": [
+          {
+            "id": "quran-33-40",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:40"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "text",
+            "titleAr": "خاتم النبيين",
+            "titleEn": "Seal of the prophets",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنص سورة الأحزاب على أن محمدًا ﷺ رسول الله وخاتم النبيين، وهو أصل مركزي في الاعتقاد الإسلامي بخاتمة النبوة.",
+                "en": "Surat al-Ahzab states that Muhammad ﷺ is the Messenger of God and the seal of the prophets, a central basis for the Islamic doctrine of final prophethood.",
+                "citationIds": [
+                  "quran-33-40"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "implication",
+            "titleAr": "مرجعية الرسالة الخاتمة",
+            "titleEn": "Implication of finality",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بناء على ذلك لا يقبل المسلم دعوى نبوة تشريعية بعد محمد ﷺ، ويعود في الدين إلى القرآن والسنة الصحيحة.",
+                "en": "Accordingly, Muslims do not accept a claim of prophethood after Muhammad ﷺ and refer religious guidance back to the Quran and authentic Sunnah.",
+                "citationIds": [
+                  "quran-33-40"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "qadar",
+        "titleAr": "الإيمان بالقدر",
+        "titleEn": "Belief in divine decree",
+        "summaryAr": "يؤمن المسلم بعلم الله المحيط وتقديره للأشياء مع بقاء مسؤولية الإنسان عن اختياره وعمله.",
+        "summaryEn": "Muslims affirm God's encompassing knowledge and decree while preserving human moral responsibility.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "human_action",
+          "islam/trust_in_god"
+        ],
+        "citations": [
+          {
+            "id": "quran-54-49",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "54:49"
+          },
+          {
+            "id": "quran-57-22",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "57:22"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "decree",
+            "titleAr": "كل شيء بقدر",
+            "titleEn": "Everything by measure",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقرر القرآن أن الله خلق كل شيء بقدر وأن ما يقع في الأرض والأنفس داخل علمه السابق.",
+                "en": "The Quran states that God created everything according to measure and that events in the earth and in human lives are encompassed by His prior knowledge.",
+                "citationIds": [
+                  "quran-54-49",
+                  "quran-57-22"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "purpose",
+            "titleAr": "القدر ليس ذريعة للمعصية",
+            "titleEn": "Not an excuse for wrongdoing",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الإيمان بالقدر لا يلغي التكليف؛ فالقرآن يجمع بين علم الله وتقديره وبين الأمر والنهي والحساب على الاختيار.",
+                "en": "Belief in decree does not cancel moral obligation; the Quran combines divine knowledge and decree with commands, prohibitions, and accountability for choices.",
+                "citationIds": [
+                  "quran-54-49"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "human_action",
+        "titleAr": "اختيار الإنسان ومسؤوليته",
+        "titleEn": "Human choice and responsibility",
+        "summaryAr": "يثبت القرآن للإنسان مشيئة وعملًا يحاسب عليهما مع خضوع الوجود كله لمشيئة الله.",
+        "summaryEn": "The Quran affirms human willing and action with accountability while all existence remains under God's will.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "qadar",
+          "judgment"
+        ],
+        "citations": [
+          {
+            "id": "quran-18-29",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "18:29"
+          },
+          {
+            "id": "quran-76-29-30",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "76:29-30"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "choice",
+            "titleAr": "من شاء فليؤمن",
+            "titleEn": "Real moral choice",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يعرض القرآن الإيمان والكفر في سياق الاختيار وتحمل العاقبة، وهو أساس للمسؤولية الأخلاقية.",
+                "en": "The Quran presents belief and disbelief in the context of choice and consequence, grounding moral responsibility.",
+                "citationIds": [
+                  "quran-18-29"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "divine_will",
+            "titleAr": "ومشيئة الله",
+            "titleEn": "God's encompassing will",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة الإنسان أن العبد يشاء الطريق ثم تقرر أن مشيئته لا تخرج عن مشيئة الله، فيجمع النص بين المستويين.",
+                "en": "Surat al-Insan speaks of a person willing a path and then states that human willing does not escape God's will, holding both levels together.",
+                "citationIds": [
+                  "quran-76-29-30"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "unseen",
+        "titleAr": "الإيمان بالغيب وحدوده",
+        "titleEn": "Belief in the unseen and its limits",
+        "summaryAr": "من صفات المؤمنين الإيمان بالغيب، لكن تفاصيله لا تؤخذ من التخمين أو القصص غير الموثقة.",
+        "summaryEn": "Belief in the unseen is a Quranic characteristic of believers, but its details are not derived from speculation or unreliable stories.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "angels",
+          "death_barzakh",
+          "aqeedah_sources"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-2-3",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:2-3"
+          },
+          {
+            "id": "quran-27-65",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "27:65"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "principle",
+            "titleAr": "الإيمان بالغيب",
+            "titleEn": "Faith in the unseen",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تفتتح سورة البقرة بذكر المؤمنين الذين يؤمنون بالغيب، فيدخل في ذلك ما ثبت بالوحي من عالم لا تدركه الحواس مباشرة.",
+                "en": "Surat al-Baqarah begins by describing believers as those who believe in the unseen, including realities established by revelation beyond direct sensory access.",
+                "citationIds": [
+                  "quran-2-2-3"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "limit",
+            "titleAr": "لا يعلم الغيب استقلالًا إلا الله",
+            "titleEn": "Limits of unseen knowledge",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقرر القرآن أن علم الغيب المطلق لله، ولذلك لا تثبت تفاصيله بدعوى أو تجربة شخصية بلا دليل.",
+                "en": "The Quran states that absolute knowledge of the unseen belongs to God, so unseen claims are not established by unsupported assertion or personal experience.",
+                "citationIds": [
+                  "quran-27-65"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "death_barzakh",
+        "titleAr": "الموت والبرزخ",
+        "titleEn": "Death and Barzakh",
+        "summaryAr": "الموت انتقال من الحياة الدنيا، ويذكر القرآن برزخًا إلى يوم البعث.",
+        "summaryEn": "Death ends earthly life, and the Quran refers to a barrier or intermediate state until resurrection.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/afterlife",
+          "resurrection"
+        ],
+        "citations": [
+          {
+            "id": "quran-23-99-100",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "23:99-100"
+          },
+          {
+            "id": "quran-3-185",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:185"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "death",
+            "titleAr": "كل نفس ذائقة الموت",
+            "titleEn": "Every soul will taste death",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقرر القرآن عموم الموت على البشر وأن الجزاء التام يكون يوم القيامة.",
+                "en": "The Quran states that every soul will taste death and that full recompense occurs on the Day of Resurrection.",
+                "citationIds": [
+                  "quran-3-185"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "barzakh",
+            "titleAr": "إلى يوم يبعثون",
+            "titleEn": "Until the day they are raised",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة المؤمنون وجود برزخ بعد الموت إلى يوم البعث، بينما تفاصيل هذا العالم تؤخذ من النصوص الصحيحة ولا تبنى على التخيل.",
+                "en": "Surat al-Mu'minun mentions a barrier after death until resurrection; details of this realm are taken from reliable revelation rather than imagination.",
+                "citationIds": [
+                  "quran-23-99-100"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "resurrection",
+        "titleAr": "البعث والنشور",
+        "titleEn": "Resurrection",
+        "summaryAr": "يؤكد القرآن أن الله يبعث الخلق بعد الموت للحساب.",
+        "summaryEn": "The Quran repeatedly affirms that God will raise creation after death for judgment.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "death_barzakh",
+          "judgment",
+          "islam/resurrection_judgment"
+        ],
+        "citations": [
+          {
+            "id": "quran-22-5-7",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "22:5-7"
+          },
+          {
+            "id": "quran-36-77-83",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "36:77-83"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "proof",
+            "titleAr": "الخلق الأول والبعث",
+            "titleEn": "First creation and resurrection",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يحتج القرآن على إمكان البعث بالخلق الأول وبإحياء الأرض بعد موتها.",
+                "en": "The Quran argues for resurrection through the first creation and through dead earth being brought back to life.",
+                "citationIds": [
+                  "quran-22-5-7"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "certainty",
+            "titleAr": "الساعة آتية",
+            "titleEn": "The Hour is coming",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن الإيمان بالبعث باليقين بالساعة وأن الله يبعث من في القبور.",
+                "en": "The Quran connects faith in resurrection with certainty that the Hour is coming and that God will raise those in the graves.",
+                "citationIds": [
+                  "quran-22-7"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "judgment",
+        "titleAr": "الحساب والميزان",
+        "titleEn": "Judgment and the scales",
+        "summaryAr": "توزن الأعمال ويحاسب الإنسان على ما قدم ضمن عدل الله ورحمته.",
+        "summaryEn": "Deeds are weighed and people are called to account within God's justice and mercy.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "resurrection",
+          "intercession",
+          "paradise_hell"
+        ],
+        "citations": [
+          {
+            "id": "quran-21-47",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "21:47"
+          },
+          {
+            "id": "quran-99-6-8",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "99:6-8"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "scales",
+            "titleAr": "موازين القسط",
+            "titleEn": "Scales of justice",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة الأنبياء وضع موازين القسط ليوم القيامة وأن أحدًا لا يظلم شيئًا.",
+                "en": "Surat al-Anbiya speaks of just scales on the Day of Resurrection and states that no one will be wronged at all.",
+                "citationIds": [
+                  "quran-21-47"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "deeds",
+            "titleAr": "رؤية العمل",
+            "titleEn": "Seeing one's deeds",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة الزلزلة أن من يعمل مثقال ذرة خيرًا أو شرًا يره، فيبرز معنى دقة الحساب والمسؤولية.",
+                "en": "Surat al-Zalzalah states that whoever does an atom's weight of good or evil will see it, underscoring accountability and precision.",
+                "citationIds": [
+                  "quran-99-6-8"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "intercession",
+        "titleAr": "الشفاعة بإذن الله",
+        "titleEn": "Intercession by God's permission",
+        "summaryAr": "تثبت النصوص أصل الشفاعة مع التأكيد أنها لا تكون استقلالًا عن إذن الله ورضاه.",
+        "summaryEn": "Revelation affirms intercession while stressing that it occurs only by God's permission and approval.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "judgment",
+          "paradise_hell"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-255",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:255"
+          },
+          {
+            "id": "quran-20-109",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "20:109"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "permission",
+            "titleAr": "من ذا الذي يشفع عنده إلا بإذنه",
+            "titleEn": "Only by His permission",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنفي آية الكرسي أن يشفع أحد عند الله إلا بإذنه، فترد تصور الشفاعة المستقلة.",
+                "en": "Ayat al-Kursi denies that anyone can intercede before God except by His permission, rejecting any idea of independent intercessory power.",
+                "citationIds": [
+                  "quran-2-255"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "approval",
+            "titleAr": "الإذن والرضا",
+            "titleEn": "Permission and approval",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقرر سورة طه أن الشفاعة لا تنفع يومئذ إلا لمن أذن له الرحمن ورضي له قولًا.",
+                "en": "Surat Ta-Ha states that intercession will benefit only where the Most Merciful grants permission and approves.",
+                "citationIds": [
+                  "quran-20-109"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "paradise_hell",
+        "titleAr": "الجنة والنار في الاعتقاد",
+        "titleEn": "Paradise and Hell in creed",
+        "summaryAr": "الجنة والنار من حقائق اليوم الآخر في القرآن، وتعرض النصوص أوصافًا للعاقبة مع بقاء حقيقتها من الغيب.",
+        "summaryEn": "Paradise and Hell are realities of the Hereafter in the Quran, described through revelation while their full reality remains unseen.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/paradise_hell",
+          "judgment"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-133",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:133"
+          },
+          {
+            "id": "quran-4-56",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:56"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "paradise",
+            "titleAr": "دار الكرامة",
+            "titleEn": "Paradise",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يدعو القرآن إلى المسارعة إلى مغفرة وجنة أعدت للمتقين، ويربطها بالإيمان والعمل الصالح.",
+                "en": "The Quran calls people to hasten toward forgiveness and a Paradise prepared for the God-conscious, connecting it with faith and righteous action.",
+                "citationIds": [
+                  "quran-3-133"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "hell",
+            "titleAr": "العقوبة الأخروية",
+            "titleEn": "Hell",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف النصوص النار عقوبة أخروية، ولا يصح التوسع في تفاصيلها beyond ما ثبت أو الجزم بمصير شخص معين بلا دليل.",
+                "en": "Revelation describes Hell as afterlife punishment; details should not be expanded beyond reliable texts, nor should a particular person's final destiny be asserted without evidence.",
+                "citationIds": [
+                  "quran-4-56"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "major_sins",
+        "titleAr": "الكبائر والإيمان والتوبة",
+        "titleEn": "Major sins, faith, and repentance",
+        "summaryAr": "المعصية خطيرة لكنها لا تبرر التسرع في إخراج المسلم من الدين، وباب التوبة مفتوح ما دام الإنسان حيًا.",
+        "summaryEn": "Serious sin matters, but it does not justify careless excommunication, and repentance remains open during life.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "faith_components",
+          "repentance",
+          "takfir_caution"
+        ],
+        "citations": [
+          {
+            "id": "quran-39-53",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "39:53"
+          },
+          {
+            "id": "quran-4-31",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:31"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "sins",
+            "titleAr": "الكبائر والصغائر",
+            "titleEn": "Major and lesser sins",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تفرق النصوص بين كبائر وصغائر وتعد باجتناب الكبائر بتكفير السيئات، مع وجوب التوبة من الذنب كله.",
+                "en": "Revelation distinguishes major and lesser sins and promises forgiveness of lesser wrongs when major sins are avoided, while repentance is encouraged for all wrongdoing.",
+                "citationIds": [
+                  "quran-4-31"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mercy",
+            "titleAr": "لا تقنطوا من رحمة الله",
+            "titleEn": "Do not despair of God's mercy",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تدعو سورة الزمر المسرفين على أنفسهم إلى عدم القنوط من رحمة الله والرجوع إليه.",
+                "en": "Surat al-Zumar tells those who have greatly wronged themselves not to despair of God's mercy and to return to Him.",
+                "citationIds": [
+                  "quran-39-53"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "repentance",
+        "titleAr": "التوبة وشروطها العامة",
+        "titleEn": "Repentance and its general conditions",
+        "summaryAr": "التوبة رجوع إلى الله بترك الذنب والندم والعزم على الإصلاح، ومع حقوق الناس يلزم ردها أو استحلالها بحسب الحال.",
+        "summaryEn": "Repentance is a return to God through leaving sin, regret, and resolve to reform; where human rights are involved, restoration is also required as appropriate.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "major_sins",
+          "islam/repentance"
+        ],
+        "citations": [
+          {
+            "id": "quran-66-8",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "66:8"
+          },
+          {
+            "id": "quran-25-70-71",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "25:70-71"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "sincere",
+            "titleAr": "توبة نصوح",
+            "titleEn": "Sincere repentance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بتوبة نصوح، وتجمع النصوص معناها في صدق الرجوع وترك المعصية وعدم الإصرار عليها.",
+                "en": "The Quran commands sincere repentance, understood through revelation as genuine return to God, leaving wrongdoing, and not persisting in it.",
+                "citationIds": [
+                  "quran-66-8"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "change",
+            "titleAr": "التوبة والإصلاح",
+            "titleEn": "Repentance and reform",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تربط سورة الفرقان التوبة بالإيمان والعمل الصالح وتذكر تبديل السيئات حسنات لمن صدق في الرجوع.",
+                "en": "Surat al-Furqan connects repentance with faith and righteous action and speaks of God replacing evil deeds with good for those who genuinely return.",
+                "citationIds": [
+                  "quran-25-70-71"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hope_fear",
+        "titleAr": "الرجاء والخوف وحسن الظن بالله",
+        "titleEn": "Hope, fear, and trust in God",
+        "summaryAr": "يسير المؤمن بين رجاء رحمة الله والخوف من التقصير دون يأس أو أمن من الحساب.",
+        "summaryEn": "Believers balance hope in God's mercy with fear of wrongdoing, avoiding both despair and complacency.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/trust_in_god",
+          "faith_increase"
+        ],
+        "citations": [
+          {
+            "id": "quran-15-49-50",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "15:49-50"
+          },
+          {
+            "id": "quran-39-53",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "39:53"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "balance",
+            "titleAr": "الغفور والعذاب الأليم",
+            "titleEn": "Mercy and accountability",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يجمع القرآن بين تعريف الله بالغفور الرحيم والتنبيه إلى شدة العقاب، فينشأ توازن تربوي بين الرجاء والخوف.",
+                "en": "The Quran brings together God's forgiveness and mercy with warning of punishment, creating a moral balance between hope and fear.",
+                "citationIds": [
+                  "quran-15-49-50"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "no_despair",
+            "titleAr": "منع اليأس",
+            "titleEn": "No despair",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "مهما عظم الذنب لا يشرع اليأس من رحمة الله ما دام باب التوبة مفتوحًا.",
+                "en": "However serious the sin, despair of God's mercy is not encouraged while repentance remains open.",
+                "citationIds": [
+                  "quran-39-53"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "takfir_caution",
+        "titleAr": "ضوابط التكفير والتحذير من التسرع",
+        "titleEn": "Caution in declaring unbelief",
+        "summaryAr": "الحكم على اعتقاد أو قول شيء، والحكم على شخص معين شيء آخر؛ والتكفير الفردي باب خطير يحتاج علمًا وقضاءً منضبطًا.",
+        "summaryEn": "Judging a belief or statement and judging a particular person are distinct; declaring a specific person outside Islam is a grave matter requiring qualified, careful judgment.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "shirk",
+          "major_sins",
+          "disagreement_adab"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-94",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:94"
+          },
+          {
+            "id": "bukhari-takfir-warning",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Manners: warning against calling a Muslim unbeliever"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "verification",
+            "titleAr": "ولا تقولوا لمن ألقى إليكم السلام لست مؤمنًا",
+            "titleEn": "Do not deny faith carelessly",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينهى القرآن عن نفي الإيمان عمن أظهر شعار الإسلام في سياق يدعو إلى التثبت وعدم التسرع في الدماء والأحكام.",
+                "en": "The Quran warns against carelessly denying faith to someone who presents a sign of Islam, in a context emphasizing verification and restraint.",
+                "citationIds": [
+                  "quran-4-94"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "warning",
+            "titleAr": "خطورة إطلاق الكفر",
+            "titleEn": "Gravity of the label",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تتضمن السنة وعيدًا شديدًا في اتهام المسلم بالكفر بغير حق، ولذلك لا يحول التطبيق مسائل الخلاف إلى أحكام على أفراد.",
+                "en": "The Sunnah gives severe warnings against wrongfully calling a Muslim an unbeliever, so the app does not turn disputed questions into verdicts on individuals.",
+                "citationIds": [
+                  "bukhari-takfir-warning"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "disagreement_adab",
+        "titleAr": "أدب الخلاف في مسائل الاعتقاد",
+        "titleEn": "Ethics of theological disagreement",
+        "summaryAr": "تعرض مسائل الاعتقاد المختلف في صياغتها أو دلالتها مع التفريق بين أصل الإيمان وبين الاصطلاحات والمدارس.",
+        "summaryEn": "Disputed theological formulations are presented with a distinction between foundational belief and later terminology or schools.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "aqeedah_foundations",
+          "takfir_caution",
+          "companions/honesty_model"
+        ],
+        "citations": [
+          {
+            "id": "quran-16-125",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:125"
+          },
+          {
+            "id": "quran-49-10",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:10"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "dialogue",
+            "titleAr": "الحكمة والمجادلة بالتي هي أحسن",
+            "titleEn": "Wisdom and good argument",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بالدعوة بالحكمة والموعظة الحسنة والمجادلة بالتي هي أحسن، وهو أصل في تناول الخلاف العلمي دون إساءة.",
+                "en": "The Quran commands calling with wisdom, good instruction, and the best manner of argument, providing a basis for discussing disagreement without abuse.",
+                "citationIds": [
+                  "quran-16-125"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "brotherhood",
+            "titleAr": "حفظ الأخوة والعدل",
+            "titleEn": "Preserving brotherhood and fairness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الخلاف العلمي لا يبيح الظلم أو السب أو إسقاط حقوق المسلم، وتبقى الأخوة والإصلاح والعدل قيمًا حاكمة.",
+                "en": "Scholarly disagreement does not permit injustice, abuse, or denial of Muslim rights; brotherhood, reconciliation, and fairness remain governing values.",
+                "citationIds": [
+                  "quran-49-10"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
