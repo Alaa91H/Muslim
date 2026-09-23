@@ -202,6 +202,48 @@ data class ScholarStudyPlan(
     val updatedAtEpochMillis: Long,
 )
 
+enum class ScholarStudySessionStatus {
+    InProgress,
+    Completed,
+    Abandoned,
+    ;
+
+    companion object {
+        fun fromId(id: String): ScholarStudySessionStatus =
+            entries.firstOrNull { it.name.equals(id, ignoreCase = true) } ?: InProgress
+    }
+}
+
+data class ScholarStudySession(
+    val id: Long,
+    val pathId: String,
+    val planId: Long?,
+    val bookId: String,
+    val targetPassageIds: List<String>,
+    val completedPassageIds: List<String>,
+    val plannedMinutes: Int,
+    val status: ScholarStudySessionStatus,
+    val startedAtEpochMillis: Long,
+    val completedAtEpochMillis: Long?,
+) {
+    val nextPassageId: String?
+        get() = targetPassageIds.firstOrNull { it !in completedPassageIds }
+
+    val progressPercent: Int
+        get() = if (targetPassageIds.isEmpty()) {
+            0
+        } else {
+            (completedPassageIds.size * 100 / targetPassageIds.size).coerceIn(0, 100)
+        }
+}
+
+data class ScholarWeeklyStudySummary(
+    val pathId: String,
+    val completedSessions: Int,
+    val studiedMinutes: Int,
+    val completedPassages: Int,
+)
+
 data class ScholarSearchFilters(
     val category: ScholarCategory? = null,
     val difficulty: ScholarDifficulty? = null,
