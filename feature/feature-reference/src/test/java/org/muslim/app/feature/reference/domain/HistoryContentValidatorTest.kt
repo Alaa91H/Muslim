@@ -174,4 +174,56 @@ class HistoryContentValidatorTest {
         assertThat(linked.size).isAtLeast(18)
     }
 
+
+    @Test
+    fun `every exposed person and atlas place has a full profile`() {
+        val personIds = IslamicHistoryContent.personalities.map { it.id }.toSet()
+        val profiledPeople = IslamicHistoryProfiles.people.map { it.personId }.toSet()
+        val placeIds = IslamicHistoryContent.atlasLayers
+            .flatMap { it.places }
+            .map { it.id }
+            .toSet()
+        val profiledPlaces = IslamicHistoryProfiles.places.map { it.placeId }.toSet()
+
+        assertThat(profiledPeople).containsExactlyElementsIn(personIds)
+        assertThat(profiledPlaces).containsExactlyElementsIn(placeIds)
+        assertThat(IslamicHistoryProfiles.people).hasSize(8)
+        assertThat(IslamicHistoryProfiles.places).hasSize(13)
+    }
+
+    @Test
+    fun `people and place profiles contain bilingual long form sections and sources`() {
+        IslamicHistoryProfiles.people.forEach { profile ->
+            assertThat(profile.sections.size).isAtLeast(2)
+            assertThat(profile.sourceIds).isNotEmpty()
+            assertThat(profile.overview.arabic).isNotEmpty()
+            assertThat(profile.overview.english).isNotEmpty()
+        }
+        IslamicHistoryProfiles.places.forEach { profile ->
+            assertThat(profile.sections.size).isAtLeast(2)
+            assertThat(profile.sourceIds).isNotEmpty()
+            assertThat(profile.overview.arabic).isNotEmpty()
+            assertThat(profile.overview.english).isNotEmpty()
+        }
+    }
+
+    @Test
+    fun `profiles cross link into events states topics and atlas entities`() {
+        val linkedPeople = IslamicHistoryProfiles.people.count { profile ->
+            profile.eventIds.isNotEmpty() ||
+                profile.stateIds.isNotEmpty() ||
+                profile.placeIds.isNotEmpty() ||
+                profile.relatedTopicIds.isNotEmpty()
+        }
+        val linkedPlaces = IslamicHistoryProfiles.places.count { profile ->
+            profile.eventIds.isNotEmpty() ||
+                profile.stateIds.isNotEmpty() ||
+                profile.relatedTopicIds.isNotEmpty() ||
+                profile.relatedPersonIds.isNotEmpty()
+        }
+
+        assertThat(linkedPeople).isAtLeast(7)
+        assertThat(linkedPlaces).isAtLeast(10)
+    }
+
 }
