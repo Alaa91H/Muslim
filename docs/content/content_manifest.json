@@ -509,6 +509,20 @@
       "required_actions": []
     },
     {
+      "id": "feature_feature-reference_src_main_res_raw_reference_aqeedah_v2_json",
+      "kind": "reference_corpus",
+      "path": "feature/feature-reference/src/main/res/raw/reference_aqeedah_v2.json",
+      "size_bytes": 68903,
+      "sha256": "51bd7b068e093834fad74649b4b84dad93e3280c1a4d326e29a8c399b39b44ef",
+      "production_status": "approved",
+      "source": "Project-authored Aqeedah reference corpus using structured Quran and authentic hadith citations. The corpus explicitly distinguishes foundational texts from later theological terminology and marks disputed questions without sectarian verdicts.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Aqeedah and Foundations of Faith reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, hadith grading, technical terminology, and disputed scholarly formulations.",
+      "notes": "First versioned edition: tawhid, worship, divine names and attributes, faith, angels, scriptures, messengers, final prophethood, qadar, unseen matters, the Hereafter, repentance, and caution in takfir.",
+      "required_actions": []
+    },
+    {
       "id": "feature_feature-reference_src_main_res_raw_reference_companions_v2_json",
       "kind": "reference_corpus",
       "path": "feature/feature-reference/src/main/res/raw/reference_companions_v2.json",
@@ -520,6 +534,20 @@
       "attribution": "Companions reference content bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed. All articles remain marked NeedsReview pending article-level review of hadith grading, historical transmission, names, chronology, and contested reports.",
       "notes": "First versioned edition: selected Companion biographies covering early Mecca, Muhajirun and Ansar, knowledge transmission, women Companions, and source methodology.",
+      "required_actions": []
+    },
+    {
+      "id": "feature_feature-reference_src_main_res_raw_reference_hadith_sciences_v2_json",
+      "kind": "reference_corpus",
+      "path": "feature/feature-reference/src/main/res/raw/reference_hadith_sciences_v2.json",
+      "size_bytes": 80269,
+      "sha256": "9e51768e59d8dc0cc47042df4bc7674ce0e478d54b3b190aa3b2d4f2366b8b19",
+      "production_status": "approved",
+      "source": "Project-authored Hadith and Sunnah Sciences corpus using structured references to the Quran, Sahih collections, Ibn al-Salah, Ibn Hajar, al-Suyuti, al-Khatib al-Baghdadi, and other classical hadith-method works.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Hadith and Sunnah Sciences reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, hadith grading, technical terminology, and disputed scholarly formulations.",
+      "notes": "First versioned edition: Sunnah authority, isnad/matn, hadith grades, chain continuity, narrator criticism, hidden defects, takhrij, grading disagreement, major collections, apparent conflict, weak reports, numbering, and digital verification.",
       "required_actions": []
     },
     {
@@ -565,6 +593,20 @@
       "required_actions": []
     },
     {
+      "id": "feature_feature-reference_src_main_res_raw_reference_quran_sciences_v2_json",
+      "kind": "reference_corpus",
+      "path": "feature/feature-reference/src/main/res/raw/reference_quran_sciences_v2.json",
+      "size_bytes": 71711,
+      "sha256": "05b2937a7b200b7e9046b666369a1417ecf813db8bc7c2128b1d5c261b5a7528",
+      "production_status": "approved",
+      "source": "Project-authored Quranic Sciences corpus using structured references to the Quran, Sahih hadith, and recognized classical works in Quranic studies including al-Itqan, al-Muqni, al-Nashr, and foundational tafsir-method works.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Quranic Sciences reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, hadith grading, technical terminology, and disputed scholarly formulations.",
+      "notes": "First versioned edition: revelation, preservation, compilation, Uthmanic codices, rasm, notation, Makki/Madani, occasions of revelation, seven ahruf, qira'at, tajwid, abrogation, muhkam/mutashabih, tafsir principles, translation, and digital verification.",
+      "required_actions": []
+    },
+    {
       "id": "feature_feature-reference_src_main_res_raw_reference_rashidun_v2_json",
       "kind": "reference_corpus",
       "path": "feature/feature-reference/src/main/res/raw/reference_rashidun_v2.json",
@@ -594,8 +636,8 @@
     }
   ],
   "summary": {
-    "asset_count": 40,
-    "approved_for_production": 40,
+    "asset_count": 43,
+    "approved_for_production": 43,
     "blocked_pending_review": 0
   }
 }
