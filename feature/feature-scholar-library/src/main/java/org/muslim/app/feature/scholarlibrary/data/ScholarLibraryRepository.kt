@@ -60,7 +60,7 @@ private data class ScholarPackBook(
     val passages: List<ScholarPackPassage>,
     val subtitle: String? = null,
     val language: String = "ar",
-    val difficulty: String = ScholarDifficulty.Foundation.name,
+    val difficulty: String = ScholarDifficulty.Unspecified.name,
     val publisher: String? = null,
     val edition: String? = null,
     val editor: String? = null,
