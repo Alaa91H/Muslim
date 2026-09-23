@@ -106,6 +106,15 @@ interface ScholarLibraryDao {
     @Query("SELECT * FROM scholar_study_plans ORDER BY active DESC, updatedAtEpochMillis DESC, id DESC")
     fun observeStudyPlans(): Flow<List<ScholarStudyPlanEntity>>
 
+    @Query(
+        """
+        UPDATE scholar_study_plans
+        SET active = 0, updatedAtEpochMillis = :updatedAt
+        WHERE pathId = :pathId AND active = 1
+        """,
+    )
+    suspend fun deactivateStudyPlansForPath(pathId: String, updatedAt: Long)
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertStudyPlan(plan: ScholarStudyPlanEntity): Long
 
