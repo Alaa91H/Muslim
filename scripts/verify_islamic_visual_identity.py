@@ -48,6 +48,9 @@ REQUIRED_SNIPPETS = {
         "fun IslamicDecorationBand",
         "fun IslamicDecorationDivider",
         "fun IslamicDecorationCorners",
+        "fun IslamicReadingHeaderDecoration",
+        "fun IslamicReadingDivider",
+        "fun IslamicReadingBasmalaAccent",
         "OrnamentIntensity.Off",
     ],
     "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/IslamicComponents.kt": [
@@ -63,9 +66,10 @@ REQUIRED_SNIPPETS = {
     ],
     "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/QuranReaderScreen.kt": [
         "MuslimSepiaColors",
-        "IslamicOrnament.SurahHeader",
-        "IslamicOrnament.MushafDivider",
-        "IslamicOrnament.Arabesque",
+        "IslamicReadingHeaderDecoration",
+        "IslamicReadingDivider",
+        "IslamicReadingBasmalaAccent",
+        "IslamicDecorationCorners",
         "IslamicMotion",
         "IslamicRadius.Card",
     ],
@@ -75,7 +79,8 @@ REQUIRED_SNIPPETS = {
         "IslamicDecorationDivider",
     ],
     "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/SurahListScreen.kt": [
-        "IslamicOrnament.SurahHeader",
+        "IslamicReadingHeaderDecoration",
+        "IslamicDecorationDivider",
     ],
     "feature/feature-qibla/src/main/java/org/muslim/app/feature/qibla/ui/QiblaScreen.kt": [
         "IslamicCard",
@@ -90,8 +95,16 @@ REQUIRED_SNIPPETS = {
     ],
     "feature/feature-adhkar/src/main/java/org/muslim/app/feature/adhkar/ui/AdhkarScreen.kt": [
         "IslamicCard",
+        "IslamicDecorationDivider",
+        "MuslimAppScaffold",
         "MuslimSectionHeader",
         "LocalAccessibilityVisuals",
+    ],
+    "feature/feature-hadith/src/main/java/org/muslim/app/feature/hadith/ui/HadithScreen.kt": [
+        "IslamicDecorationBand",
+        "IslamicDecorationCorners",
+        "IslamicDecorationDivider",
+        "MuslimAppScaffold",
     ],
     "feature/feature-finance/src/main/java/org/muslim/app/feature/finance/ui/IslamicFinanceScreen.kt": [
         "IslamicCard",

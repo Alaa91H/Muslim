@@ -171,6 +171,60 @@ fun IslamicDecorationLayer(
 }
 
 /**
+ * Reader-specific decoration keeps a recognisable Mushaf identity while still
+ * respecting the app-wide ornament intensity. Sacred text remains the focus:
+ * these vectors are short header/divider accents and never form a text
+ * background.
+ */
+@Composable
+fun IslamicReadingHeaderDecoration(
+    modifier: Modifier = Modifier,
+    tint: Color = MaterialTheme.colorScheme.tertiary,
+) {
+    val preferences = LocalIslamicDecoration.current
+    if (preferences.intensity == OrnamentIntensity.Off) return
+
+    IslamicOrnamentImage(
+        ornament = IslamicOrnament.SurahHeader,
+        tint = tint,
+        alpha = preferences.intensity.featureAlpha(preferences.darkTheme) * 0.72f,
+        modifier = modifier.fillMaxWidth().height(18.dp),
+    )
+}
+
+@Composable
+fun IslamicReadingDivider(
+    modifier: Modifier = Modifier,
+    tint: Color = MaterialTheme.colorScheme.tertiary,
+) {
+    val preferences = LocalIslamicDecoration.current
+    if (preferences.intensity == OrnamentIntensity.Off) return
+
+    IslamicOrnamentImage(
+        ornament = IslamicOrnament.MushafDivider,
+        tint = tint,
+        alpha = preferences.intensity.featureAlpha(preferences.darkTheme) * 0.78f,
+        modifier = modifier.fillMaxWidth().height(14.dp),
+    )
+}
+
+@Composable
+fun IslamicReadingBasmalaAccent(
+    modifier: Modifier = Modifier,
+    tint: Color = MaterialTheme.colorScheme.tertiary,
+) {
+    val preferences = LocalIslamicDecoration.current
+    if (preferences.intensity == OrnamentIntensity.Off) return
+
+    IslamicOrnamentImage(
+        ornament = IslamicOrnament.Star8,
+        tint = tint,
+        alpha = preferences.intensity.featureAlpha(preferences.darkTheme) * 0.86f,
+        modifier = modifier.fillMaxWidth().height(18.dp),
+    )
+}
+
+/**
  * Compact live preview used by Appearance settings. It reuses the exact same
  * renderer as the app background, so the chooser never lies about the result.
  */
