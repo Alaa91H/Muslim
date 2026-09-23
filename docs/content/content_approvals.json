@@ -317,6 +317,13 @@
       "attribution": "Hadith and Sunnah Sciences reference content bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, hadith grading, technical terminology, and disputed scholarly formulations.",
       "notes": "First versioned edition: Sunnah authority, isnad/matn, hadith grades, chain continuity, narrator criticism, hidden defects, takhrij, grading disagreement, major collections, apparent conflict, weak reports, numbering, and digital verification."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_fiqh_worship_v2_json": {
+      "source": "Project-authored Fiqh of Worship corpus using structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, and recognized comparative/classical fiqh works including Bidayat al-Mujtahid, al-Majmu', al-Mughni, and usul/ifta literature. Disputed juristic questions are explicitly marked rather than flattened into a single ruling.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Fiqh of Worship reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of legal formulations, school-specific differences, hadith citations, and practical edge cases.",
+      "notes": "First versioned edition: 57 topics, 114 sections, and 114 bilingual paragraphs covering fiqh methodology, purification, prayer, zakat, fasting, and Hajj."
     }
   }
 }
