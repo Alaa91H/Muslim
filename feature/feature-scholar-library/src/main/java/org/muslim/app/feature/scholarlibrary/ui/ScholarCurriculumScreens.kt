@@ -192,7 +192,7 @@ fun ScholarStudyPathScreen(
                     displayState = StudyPathDisplayState(
                         progress = progress,
                         activePlan = activePlan,
-                        hasActiveSession = displayState.hasActiveSession,
+                        hasActiveSession = hasActiveSession,
                         weeklySummary = weeklySummary,
                     ),
                     padding = padding,
@@ -255,7 +255,7 @@ private fun StudyPathContent(
         item {
             StudyPlanCard(
                 plan = displayState.activePlan,
-                hasActiveSession = hasActiveSession,
+                hasActiveSession = displayState.hasActiveSession,
                 onOpenSession = actions.onOpenSession,
                 onDailyPlan = actions.onDailyPlan,
                 onWeeklyPlan = actions.onWeeklyPlan,
