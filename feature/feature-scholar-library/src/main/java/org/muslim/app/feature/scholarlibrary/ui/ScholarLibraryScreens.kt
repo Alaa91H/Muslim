@@ -51,6 +51,7 @@ import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
@@ -83,6 +84,7 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarDifficulty
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingStatus
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewRating
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySessionStatus
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -635,12 +637,20 @@ private fun LazyListScope.studyReviewItems(
                     fontWeight = FontWeight.Bold,
                 )
                 Text(
-                    stringResource(R.string.scholar_library_review_summary, dueCards.size, state.flashcards.size),
+                    stringResource(
+                        R.string.scholar_library_review_summary_v2,
+                        state.reviewSummary.dueCards,
+                        state.reviewSummary.totalCards,
+                        state.reviewSummary.learningCards,
+                        state.reviewSummary.matureCards,
+                        state.reviewSummary.estimatedMasteryPercent,
+                    ),
                     style = MaterialTheme.typography.bodyMedium,
                 )
             }
         }
     }
+    studyMasteryItems(state)
     item { SectionLabel(stringResource(R.string.scholar_library_due_cards)) }
     if (dueCards.isEmpty()) {
         item { EmptyState(stringResource(R.string.scholar_library_no_due_cards)) }
@@ -650,16 +660,44 @@ private fun LazyListScope.studyReviewItems(
                 card = card,
                 showAnswer = showingAnswerFor == card.card.id,
                 onReveal = { onShowingAnswerChange(card.card.id) },
-                onRemembered = {
+                onRate = { rating ->
                     onShowingAnswerChange(null)
-                    viewModel.reviewFlashcard(card.card.id, remembered = true)
-                },
-                onAgain = {
-                    onShowingAnswerChange(null)
-                    viewModel.reviewFlashcard(card.card.id, remembered = false)
+                    viewModel.reviewFlashcard(card.card.id, rating)
                 },
                 onDelete = { viewModel.deleteFlashcard(card.card.id) },
             )
+        }
+    }
+}
+
+private fun LazyListScope.studyMasteryItems(state: ScholarLibraryUiState) {
+    item { SectionLabel(stringResource(R.string.scholar_library_mastery_by_category)) }
+    if (state.categoryMastery.isEmpty()) {
+        item { EmptyState(stringResource(R.string.scholar_library_no_mastery_data)) }
+        return
+    }
+    items(state.categoryMastery, key = { "mastery_${it.category.name}" }) { mastery ->
+        Card {
+            Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(7.dp)) {
+                Text(
+                    mastery.category.label,
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Bold,
+                )
+                LinearProgressIndicator(
+                    progress = { mastery.estimatedMasteryPercent / 100f },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Text(
+                    stringResource(
+                        R.string.scholar_library_mastery_category_summary,
+                        mastery.estimatedMasteryPercent,
+                        mastery.totalCards,
+                        mastery.dueCards,
+                    ),
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
         }
     }
 }
@@ -955,8 +993,7 @@ private fun FlashcardCard(
     card: org.muslim.app.feature.scholarlibrary.domain.FlashcardWithCitation,
     showAnswer: Boolean,
     onReveal: () -> Unit,
-    onRemembered: () -> Unit,
-    onAgain: () -> Unit,
+    onRate: (ScholarReviewRating) -> Unit,
     onDelete: () -> Unit,
 ) {
     Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)) {
@@ -965,17 +1002,39 @@ private fun FlashcardCard(
             if (showAnswer) {
                 Text(card.card.back, style = MaterialTheme.typography.bodyLarge)
                 CitationLabel(card.citation)
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Button(onClick = onRemembered) {
+                Text(
+                    stringResource(
+                        R.string.scholar_library_review_card_state,
+                        card.card.intervalDays,
+                        card.card.reviewCount,
+                        card.card.lapseCount,
+                    ),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                FlowRow(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    OutlinedButton(onClick = { onRate(ScholarReviewRating.Again) }) {
+                        Text(stringResource(R.string.scholar_library_rating_again))
+                    }
+                    OutlinedButton(onClick = { onRate(ScholarReviewRating.Hard) }) {
+                        Text(stringResource(R.string.scholar_library_rating_hard))
+                    }
+                    Button(onClick = { onRate(ScholarReviewRating.Good) }) {
                         Icon(Icons.Filled.Check, contentDescription = null)
                         Spacer(Modifier.width(6.dp))
-                        Text(stringResource(R.string.scholar_library_remembered))
+                        Text(stringResource(R.string.scholar_library_rating_good))
                     }
-                    OutlinedButton(onClick = onAgain) {
-                        Text(stringResource(R.string.scholar_library_again))
+                    OutlinedButton(onClick = { onRate(ScholarReviewRating.Easy) }) {
+                        Text(stringResource(R.string.scholar_library_rating_easy))
                     }
                     IconButton(onClick = onDelete) {
-                        Icon(Icons.Filled.DeleteOutline, contentDescription = stringResource(R.string.scholar_library_delete_flashcard))
+                        Icon(
+                            Icons.Filled.DeleteOutline,
+                            contentDescription = stringResource(R.string.scholar_library_delete_flashcard),
+                        )
                     }
                 }
             } else {
