@@ -94,19 +94,14 @@ fun ReferenceScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val appContext = LocalContext.current.applicationContext
-    val repository = remember(appContext) { AndroidReferenceRepositoryFactory.create(appContext) }
+    val repository = rememberReferenceRepository()
     var lang by remember { mutableStateOf(RefLang.Arabic) }
     var selectedBook by remember { mutableStateOf<ReferenceBook?>(null) }
     var selectedTopic by remember { mutableStateOf<RefTopic?>(null) }
     var query by rememberSaveable { mutableStateOf("") }
     var hubQuery by rememberSaveable { mutableStateOf("") }
 
-    ReferenceBackHandler(
-        selectedTopic,
-        selectedBook,
-        { selectedTopic = null },
-    ) {
+    ReferenceBackHandler(selectedTopic, selectedBook, { selectedTopic = null }) {
         selectedBook = null
         query = ""
     }
@@ -179,6 +174,12 @@ fun ReferenceScreen(
 
 private fun RefLang.toggled(): RefLang =
     if (this == RefLang.Arabic) RefLang.English else RefLang.Arabic
+
+@Composable
+private fun rememberReferenceRepository(): ReferenceRepository {
+    val appContext = LocalContext.current.applicationContext
+    return remember(appContext) { AndroidReferenceRepositoryFactory.create(appContext) }
+}
 
 @Composable
 private fun ReferenceBackHandler(
