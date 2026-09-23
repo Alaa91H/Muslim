@@ -53,14 +53,28 @@ data class HistoryArticle(
     val tags: Set<String> = emptySet(),
 )
 
+enum class HistoricalEventCategory {
+    ReligiousAndCommunity,
+    PoliticalTransition,
+    Conflict,
+    FoundationAndUrbanism,
+    KnowledgeAndCulture,
+    InstitutionalChange,
+}
+
 data class HistoricalEvent(
     val id: String,
     val date: HistoricalDate,
+    val category: HistoricalEventCategory,
     val title: HistoryText,
     val summary: HistoryText,
+    val context: HistoryText,
+    val significance: HistoryText,
     val eraIds: List<String>,
+    val stateIds: List<String> = emptyList(),
     val placeIds: List<String> = emptyList(),
     val personIds: List<String> = emptyList(),
+    val relatedTopicIds: List<String> = emptyList(),
     val sourceIds: List<String> = emptyList(),
 )
 
