@@ -16,17 +16,24 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.School
 import androidx.compose.material3.Card
+import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -37,12 +44,15 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.scholarlibrary.R
 import org.muslim.app.feature.scholarlibrary.domain.ScholarAuthorSummary
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
-import org.muslim.app.feature.scholarlibrary.domain.ScholarBookOutlineSection
+import org.muslim.app.feature.scholarlibrary.domain.ScholarBookHierarchy
 import org.muslim.app.feature.scholarlibrary.domain.ScholarDifficulty
+import org.muslim.app.feature.scholarlibrary.domain.ScholarPathProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPath
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPlan
 
 internal fun LazyListScope.studyPathItems(
     paths: List<ScholarStudyPath>,
+    progressByPath: Map<String, ScholarPathProgress>,
     onOpenPath: (String) -> Unit,
 ) {
     item {
@@ -54,12 +64,20 @@ internal fun LazyListScope.studyPathItems(
         )
     }
     items(paths, key = { it.id }) { path ->
-        StudyPathSummaryCard(path = path, onClick = { onOpenPath(path.id) })
+        StudyPathSummaryCard(
+            path = path,
+            progress = progressByPath[path.id],
+            onClick = { onOpenPath(path.id) },
+        )
     }
 }
 
 @Composable
-private fun StudyPathSummaryCard(path: ScholarStudyPath, onClick: () -> Unit) {
+private fun StudyPathSummaryCard(
+    path: ScholarStudyPath,
+    progress: ScholarPathProgress?,
+    onClick: () -> Unit,
+) {
     val bookCount = path.stages.sumOf { it.bookIds.size }
     Card(
         modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
@@ -86,6 +104,21 @@ private fun StudyPathSummaryCard(path: ScholarStudyPath, onClick: () -> Unit) {
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
             )
+            progress?.let {
+                LinearProgressIndicator(
+                    progress = { it.progressPercent / 100f },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Text(
+                    stringResource(
+                        R.string.scholar_library_path_progress,
+                        it.progressPercent,
+                        it.completedBooks,
+                        it.totalBooks,
+                    ),
+                    style = MaterialTheme.typography.labelMedium,
+                )
+            }
         }
     }
 }
@@ -101,9 +134,20 @@ fun ScholarStudyPathScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val path = state.studyPaths.firstOrNull { it.id == pathId }
+    val progress = state.pathProgress.firstOrNull { it.pathId == pathId }
+    val activePlan = state.studyPlans.firstOrNull { it.pathId == pathId && it.active }
+    val snackbarHostState = remember { SnackbarHostState() }
+
+    LaunchedEffect(state.statusMessage) {
+        state.statusMessage?.let { message ->
+            snackbarHostState.showSnackbar(message)
+            viewModel.consumeStatusMessage()
+        }
+    }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
                 title = { Text(path?.title ?: stringResource(R.string.scholar_library_study_paths)) },
@@ -138,8 +182,13 @@ fun ScholarStudyPathScreen(
                 StudyPathContent(
                     path = path,
                     books = state.books,
+                    progress = progress,
+                    activePlan = activePlan,
                     padding = padding,
                     onOpenBook = onOpenBook,
+                    onDailyPlan = { viewModel.createDailyStudyPlan(path.id) },
+                    onWeeklyPlan = { viewModel.createWeeklyStudyPlan(path.id) },
+                    onDeletePlan = { id -> viewModel.deleteStudyPlan(id) },
                 )
             }
         }
@@ -150,8 +199,13 @@ fun ScholarStudyPathScreen(
 private fun StudyPathContent(
     path: ScholarStudyPath,
     books: List<ScholarBook>,
+    progress: ScholarPathProgress?,
+    activePlan: ScholarStudyPlan?,
     padding: PaddingValues,
     onOpenBook: (String) -> Unit,
+    onDailyPlan: () -> Unit,
+    onWeeklyPlan: () -> Unit,
+    onDeletePlan: (Long) -> Unit,
 ) {
     val booksById = books.associateBy { it.id }
     LazyColumn(
@@ -169,6 +223,17 @@ private fun StudyPathContent(
                     )
                 }
             }
+        }
+        item {
+            PathProgressCard(progress = progress, books = books)
+        }
+        item {
+            StudyPlanCard(
+                plan = activePlan,
+                onDailyPlan = onDailyPlan,
+                onWeeklyPlan = onWeeklyPlan,
+                onDeletePlan = onDeletePlan,
+            )
         }
         path.stages.forEachIndexed { index, stage ->
             item(key = "stage_${stage.id}") {
@@ -299,27 +364,121 @@ private fun AuthorCard(
 }
 
 @Composable
-internal fun BookOutlineCard(outline: List<ScholarBookOutlineSection>) {
-    if (outline.isEmpty()) return
+internal fun BookHierarchyCard(hierarchy: ScholarBookHierarchy?) {
+    val volumes = hierarchy?.volumes.orEmpty()
+    if (volumes.isEmpty()) return
     Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Text(
-                stringResource(R.string.scholar_library_book_outline),
+                stringResource(R.string.scholar_library_book_hierarchy),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
             )
-            outline.take(OUTLINE_PREVIEW_LIMIT).forEach { section ->
-                val prefix = section.volume?.takeIf { it.isNotBlank() }?.let {
-                    stringResource(R.string.scholar_library_volume_label, it) + " — "
-                }.orEmpty()
-                Text(prefix + section.chapter, style = MaterialTheme.typography.bodyMedium)
-            }
-            if (outline.size > OUTLINE_PREVIEW_LIMIT) {
+            volumes.take(HIERARCHY_VOLUME_PREVIEW_LIMIT).forEach { volume ->
                 Text(
-                    stringResource(R.string.scholar_library_outline_more, outline.size - OUTLINE_PREVIEW_LIMIT),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    volume.label?.let { stringResource(R.string.scholar_library_volume_label, it) }
+                        ?: stringResource(R.string.scholar_library_without_volume),
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Bold,
                 )
+                volume.chapters.take(HIERARCHY_CHAPTER_PREVIEW_LIMIT).forEach { chapter ->
+                    Text(
+                        "• " + chapter.title,
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                    chapter.sections.take(HIERARCHY_SECTION_PREVIEW_LIMIT).forEach { section ->
+                        Text(
+                            stringResource(
+                                R.string.scholar_library_hierarchy_section,
+                                section.title ?: stringResource(R.string.scholar_library_section_unspecified),
+                                section.passageIds.size,
+                            ),
+                            style = MaterialTheme.typography.bodySmall,
+                            modifier = Modifier.padding(start = 12.dp),
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun PathProgressCard(
+    progress: ScholarPathProgress?,
+    books: List<ScholarBook>,
+) {
+    val currentBook = progress?.currentBookId?.let { id -> books.firstOrNull { it.id == id } }
+    Card {
+        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text(
+                stringResource(R.string.scholar_library_path_progress_title),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+            val percent = progress?.progressPercent ?: 0
+            LinearProgressIndicator(
+                progress = { percent / 100f },
+                modifier = Modifier.fillMaxWidth(),
+            )
+            Text(
+                stringResource(
+                    R.string.scholar_library_path_progress,
+                    percent,
+                    progress?.completedBooks ?: 0,
+                    progress?.totalBooks ?: 0,
+                ),
+            )
+            currentBook?.let {
+                Text(
+                    stringResource(R.string.scholar_library_path_next_book, it.title),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun StudyPlanCard(
+    plan: ScholarStudyPlan?,
+    onDailyPlan: () -> Unit,
+    onWeeklyPlan: () -> Unit,
+    onDeletePlan: (Long) -> Unit,
+) {
+    Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)) {
+        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text(
+                stringResource(R.string.scholar_library_study_plan),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+            if (plan == null) {
+                Text(stringResource(R.string.scholar_library_no_study_plan))
+            } else {
+                Text(
+                    stringResource(
+                        R.string.scholar_library_study_plan_summary,
+                        plan.sessionsPerWeek,
+                        plan.minutesPerSession,
+                        plan.targetPassagesPerSession,
+                    ),
+                )
+            }
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Button(onClick = onDailyPlan) {
+                    Text(stringResource(R.string.scholar_library_daily_plan))
+                }
+                OutlinedButton(onClick = onWeeklyPlan) {
+                    Text(stringResource(R.string.scholar_library_weekly_plan))
+                }
+            }
+            plan?.let {
+                OutlinedButton(onClick = { onDeletePlan(it.id) }) {
+                    Text(stringResource(R.string.scholar_library_delete_study_plan))
+                }
             }
         }
     }
@@ -333,4 +492,6 @@ private fun pathLevelLabel(level: ScholarDifficulty): String = when (level) {
     ScholarDifficulty.Advanced -> stringResource(R.string.scholar_library_level_advanced)
 }
 
-private const val OUTLINE_PREVIEW_LIMIT = 12
+private const val HIERARCHY_VOLUME_PREVIEW_LIMIT = 4
+private const val HIERARCHY_CHAPTER_PREVIEW_LIMIT = 6
+private const val HIERARCHY_SECTION_PREVIEW_LIMIT = 6
