@@ -81,13 +81,14 @@ private val bookIcons = mapOf(
     "hadith_sciences" to Icons.Filled.History,
     "fiqh_worship" to Icons.Filled.AutoStories,
     "ethics_life" to Icons.Filled.Groups,
+    "history_civilization" to Icons.Filled.History,
 )
 
 /**
  * المرجعية الإسلامية (feature-reference): مكتبة مرجعية شاملة ومفهرسة تعرض
  * كتب مترابطة تشمل التعريف بالإسلام والسيرة والأنبياء والصحابة وأمهات
  * المؤمنين وأهل البيت والخلفاء الراشدين والعقيدة وعلوم القرآن والحديث وفقه العبادات
- * والأخلاق والآداب وحياة المسلم،
+ * والأخلاق والآداب وحياة المسلم والتاريخ والحضارة الإسلامية،
  * مع بحث نصي ثنائي اللغة على مستوى المكتبة كلها.
  */
 @OptIn(ExperimentalMaterial3Api::class)
