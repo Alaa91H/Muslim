@@ -166,10 +166,34 @@ fun FuneralWillScreen(
     var draft by rememberSaveable(stateSaver = WillDraftSaver) { mutableStateOf(WillDraft()) }
     var selectedTab by rememberSaveable { mutableIntStateOf(FuneralWillTab.Will.ordinal) }
     var showClearConfirmation by rememberSaveable { mutableStateOf(false) }
+    var showShareConfirmation by rememberSaveable { mutableStateOf(false) }
     val context = LocalContext.current
 
     LaunchedEffect(storedDraft) {
         draft = storedDraft
+    }
+
+    if (showShareConfirmation) {
+        AlertDialog(
+            onDismissRequest = { showShareConfirmation = false },
+            title = { Text(stringResource(R.string.funeral_will_share_dialog_title)) },
+            text = { Text(stringResource(R.string.funeral_will_share_dialog_text)) },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        shareWillDraft(context, draft, isArabic)
+                        showShareConfirmation = false
+                    },
+                ) {
+                    Text(stringResource(R.string.funeral_will_share_confirm))
+                }
+            },
+            dismissButton = {
+                OutlinedButton(onClick = { showShareConfirmation = false }) {
+                    Text(stringResource(R.string.funeral_will_cancel))
+                }
+            },
+        )
     }
 
     if (showClearConfirmation) {
@@ -234,7 +258,7 @@ fun FuneralWillScreen(
                     draftActions = WillDraftActions(
                         onChange = { draft = it },
                         onSave = { viewModel.save(draft) },
-                        onShare = { shareWillDraft(context, draft, isArabic) },
+                        onShare = { showShareConfirmation = true },
                         onClear = { showClearConfirmation = true },
                     ),
                     introActions = WillIntroActions(
