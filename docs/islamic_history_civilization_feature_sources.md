@@ -17,10 +17,11 @@ The history feature now separates **UI**, **content contracts**, and **curated c
 - `IslamicHistoryStates.kt` adds 18 major overlapping states and dynasties, grouped by broad region instead of forcing them into a single succession.
 - `IslamicCivilizationContent.kt` adds 12 long-form thematic topics across knowledge/sciences, institutions, society/economy, and arts/built environment.
 - `IslamicHistoricalEvents.kt` adds 22 structured chronological anchors with context, significance, category, and links to eras, states, atlas places, people, civilization topics, and sources.
-- `HistoryContentValidator.kt` validates unique IDs, bilingual completeness, chronology sanity, source references, related-era/topic references, state/era links, event references, person/place links, and section structure.
+- `IslamicHistoryProfiles.kt` adds long-form profiles for all 8 exposed historical figures and all 13 atlas places, with sections, cross-links, and explicit sources.
+- `HistoryContentValidator.kt` validates unique IDs, bilingual completeness, chronology sanity, source references, related-era/topic references, state/era links, event references, person/place links, profile coverage, and section structure.
 - `HistoryContentValidatorTest.kt` makes those rules part of CI so broken references or incomplete articles are caught before merge.
 
-The Compose screen now exposes dedicated **States & Dynasties**, **Civilization**, and **Events** tabs. States use regional filters to make overlapping political histories visible side by side; Civilization uses thematic filters and dedicated readers so science, institutions, economic life, cities, architecture, and visual culture are not reduced to political chronology; Events adds chronological anchors with category and era filters plus detailed context/significance views. The tab row is scrollable so the expanded information architecture remains usable on small screens. This separation is also the migration boundary for a later move from Kotlin constants to packaged JSON/Room content without rewriting the readers.
+The Compose screen now exposes dedicated **States & Dynasties**, **Civilization**, and **Events** tabs. States use regional filters to make overlapping political histories visible side by side; Civilization uses thematic filters and dedicated readers so science, institutions, economic life, cities, architecture, and visual culture are not reduced to political chronology; Events adds chronological anchors with category and era filters plus detailed context/significance views. The People tab and atlas place cards now open full profiles rather than ending at short summaries. The tab row is scrollable so the expanded information architecture remains usable on small screens. This separation is also the migration boundary for a later move from Kotlin constants to packaged JSON/Room content without rewriting the readers.
 
 ## Sources reviewed
 
@@ -37,6 +38,20 @@ The Compose screen now exposes dedicated **States & Dynasties**, **Civilization*
 | Caliphal chronology context | [World History Encyclopedia: Islamic Caliphates](https://www.worldhistory.org/Islamic_Caliphates/) | Used only as a supplementary overview and cross-checked against the museum chronology; the app avoids importing its interpretive language. |
 | Ibn Khaldun profile | [Ibn Haldun University: About Ibn Haldun](https://www.ihu.edu.tr/en/ibn-haldun-kimdir) | Used for basic dates, roles, and the scope of the *Muqaddimah* in the Ibn Khaldun card. |
 
+
+
+## People and place profile policy
+
+People and places are treated as reusable entities rather than isolated cards. Every person currently shown in the People tab and every place currently exposed by an atlas layer has a corresponding long-form profile.
+
+Profiles provide:
+
+- a bilingual overview and multiple long-form sections;
+- links to known eras, states, events, civilization topics, and related entities where appropriate;
+- explicit source IDs;
+- atlas coordinates for places through the existing canonical map entity rather than duplicate coordinates in the profile record.
+
+The profile layer deliberately avoids inventing a precise association where the existing atlas catalogue does not yet contain the correct city. A person can therefore have no place link until the relevant place is added rather than being attached to a merely nearby or regionally related city.
 
 ## Event catalogue policy
 
