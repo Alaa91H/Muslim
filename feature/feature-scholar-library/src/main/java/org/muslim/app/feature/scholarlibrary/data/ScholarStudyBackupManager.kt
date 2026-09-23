@@ -7,6 +7,10 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.muslim.app.feature.scholarlibrary.domain.ScholarCategory
+import org.muslim.app.feature.scholarlibrary.domain.ScholarHighlightStyle
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingStatus
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewRating
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySessionStatus
 
 data class ScholarBackupCoreCounts(
     val notes: Int,
@@ -252,14 +256,37 @@ class ScholarStudyBackupManager @Inject constructor(
             libraryDao.observePassagesForBook(bookId).first()
         }.associateBy { it.id }
 
-        backup.core.notes.forEach { requirePassage(passages, it.passageId) }
-        backup.core.flashcards.forEach { requirePassage(passages, it.passageId) }
+        backup.core.notes.forEach {
+            requirePassage(passages, it.passageId)
+            require(it.text.isNotBlank() && it.text.length <= 4_000) { "نص ملاحظة غير صالح." }
+        }
+        backup.core.flashcards.forEach {
+            requirePassage(passages, it.passageId)
+            require(it.front.isNotBlank() && it.front.length <= 1_000) { "وجه بطاقة مراجعة غير صالح." }
+            require(it.back.isNotBlank() && it.back.length <= 1_000) { "جواب بطاقة مراجعة غير صالح." }
+            require(it.review.reviewCount >= 0 && it.review.intervalDays >= 0 && it.review.lapseCount >= 0) {
+                "حالة جدولة بطاقة المراجعة غير صالحة."
+            }
+            require(it.review.easeFactor in 1.0..5.0) { "معامل سهولة بطاقة المراجعة غير صالح." }
+            require(it.review.lastRating == null || ScholarReviewRating.fromId(it.review.lastRating) != null) {
+                "آخر تقييم للبطاقة غير معروف."
+            }
+        }
         backup.core.bookmarks.forEach { requirePassage(passages, it.passageId) }
-        backup.core.highlights.forEach { requirePassage(passages, it.passageId) }
+        backup.core.highlights.forEach {
+            requirePassage(passages, it.passageId)
+            require(it.quote.isNotBlank() && it.quote.length <= 30_000) { "نص تظليل غير صالح." }
+            require(ScholarHighlightStyle.entries.any { style -> style.name == it.style }) {
+                "نمط تظليل غير معروف."
+            }
+        }
 
         backup.progress.readingProgress.forEach { progress ->
             require(progress.bookId in books) { "النسخة تشير إلى كتاب غير مثبت: ${progress.bookId}" }
             require(progress.progressPercent in 0..100) { "نسبة تقدم غير صالحة." }
+            require(ScholarReadingStatus.entries.any { it.name == progress.status }) {
+                "حالة قراءة غير معروفة."
+            }
             progress.lastPassageId?.let { passageId ->
                 require(passages[passageId]?.bookId == progress.bookId) {
                     "موضع القراءة لا ينتمي إلى الكتاب المحدد."
@@ -275,6 +302,9 @@ class ScholarStudyBackupManager @Inject constructor(
         backup.progress.studySessions.forEach { session ->
             require(session.context.pathId in validPathIds) { "جلسة مرتبطة بمسار غير موجود." }
             require(session.context.bookId in books) { "جلسة مرتبطة بكتاب غير مثبت." }
+            require(ScholarStudySessionStatus.entries.any { it.name == session.status }) {
+                "حالة جلسة غير معروفة."
+            }
             require(session.targets.targetPassageIds.isNotEmpty()) { "جلسة بدون أهداف." }
             require(session.targets.completedPassageIds.all { it in session.targets.targetPassageIds }) {
                 "الجلسة تحتوي على مقاطع مكتملة خارج أهدافها."
@@ -293,6 +323,9 @@ class ScholarStudyBackupManager @Inject constructor(
                 "علم غير معروف في سجل المراجعة."
             }
             require(event.outcome.scheduledIntervalDays >= 0) { "فاصل مراجعة غير صالح." }
+            require(ScholarReviewRating.fromId(event.outcome.rating) != null) {
+                "تقييم غير معروف في سجل المراجعة."
+            }
         }
     }
 
