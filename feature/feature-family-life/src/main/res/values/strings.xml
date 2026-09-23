@@ -81,4 +81,11 @@
     <string name="family_checklists_back" tools:ignore="MissingTranslation">العودة إلى القوائم</string>
     <string name="family_checklists_notice_title" tools:ignore="MissingTranslation">أداة تنظيمية</string>
     <string name="family_checklists_notice_text" tools:ignore="MissingTranslation">يمكنك تعديل استخدام القائمة حسب ظروف أسرتك. البنود ليست فتوى ولا تشخيصًا ولا التزامًا قانونيًا.</string>
+    <string name="family_hub_related_sections_title" tools:ignore="MissingTranslation">أقسام مرتبطة</string>
+    <string name="family_open_quran_title" tools:ignore="MissingTranslation">القرآن الكريم</string>
+    <string name="family_open_quran_desc" tools:ignore="MissingTranslation">افتح قسم القرآن للقراءة والتدبر والرجوع إلى الآيات</string>
+    <string name="family_open_hadith_title" tools:ignore="MissingTranslation">الحديث الشريف</string>
+    <string name="family_open_hadith_desc" tools:ignore="MissingTranslation">ارجع إلى قسم الحديث للمطالعة والبحث في الأحاديث</string>
+    <string name="family_open_adhkar_title" tools:ignore="MissingTranslation">الأذكار</string>
+    <string name="family_open_adhkar_desc" tools:ignore="MissingTranslation">افتح قسم الأذكار للأذكار اليومية والصباحية والمسائية</string>
 </resources>
