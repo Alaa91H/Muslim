@@ -15,8 +15,6 @@ data class ReferenceValidationIssue(
  */
 object ReferenceContentValidator {
 
-    private val isoDate = Regex("""\d{4}-\d{2}-\d{2}""")
-
     fun validate(books: List<ReferenceBook>): List<ReferenceValidationIssue> = buildList {
         books.groupBy { it.id }
             .filterValues { it.size > 1 }
@@ -283,28 +281,30 @@ object ReferenceContentValidator {
         }
     }
 
-    private fun validateReviewState(
-        topic: RefTopic,
-        path: String,
-        destination: MutableList<ReferenceValidationIssue>,
-    ) {
-        if (topic.reviewStatus != ReferenceReviewStatus.Reviewed) return
-        if (topic.citations.isEmpty()) {
-            destination += issue(
-                "reviewed_without_citations",
-                path,
-                "Reviewed topics must contain at least one structured citation.",
-            )
-        }
-        if (topic.lastReviewed == null || !isoDate.matches(topic.lastReviewed)) {
-            destination += issue(
-                "invalid_review_date",
-                path,
-                "Reviewed topics require lastReviewed in yyyy-MM-dd format.",
-            )
-        }
-    }
+}
 
+private val reviewDatePattern = Regex("""\d{4}-\d{2}-\d{2}""")
+
+private fun validateReviewState(
+    topic: RefTopic,
+    path: String,
+    destination: MutableList<ReferenceValidationIssue>,
+) {
+    if (topic.reviewStatus != ReferenceReviewStatus.Reviewed) return
+    if (topic.citations.isEmpty()) {
+        destination += issue(
+            "reviewed_without_citations",
+            path,
+            "Reviewed topics must contain at least one structured citation.",
+        )
+    }
+    if (topic.lastReviewed == null || !reviewDatePattern.matches(topic.lastReviewed)) {
+        destination += issue(
+            "invalid_review_date",
+            path,
+            "Reviewed topics require lastReviewed in yyyy-MM-dd format.",
+        )
+    }
 }
 
 private fun validateCitationIds(
