@@ -40,7 +40,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.PrimaryScrollableTabRow
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Tab
@@ -67,7 +66,10 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.core.common.text.Digits
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicDecorationBand
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
@@ -133,7 +135,7 @@ fun IslamicFinanceScreen(
     val isArabic = AppLanguage.isArabicUi()
     var selectedTab by rememberSaveable { mutableIntStateOf(FinanceTab.Transactions.ordinal) }
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
@@ -147,6 +149,10 @@ fun IslamicFinanceScreen(
         },
     ) { innerPadding ->
         Column(Modifier.fillMaxSize().padding(innerPadding)) {
+            IslamicDecorationBand(
+                tint = MaterialTheme.colorScheme.tertiary,
+                compact = true,
+            )
             PrimaryScrollableTabRow(selectedTabIndex = selectedTab, edgePadding = 12.dp) {
                 FinanceTab.entries.forEach { tab ->
                     Tab(
@@ -165,6 +171,10 @@ fun IslamicFinanceScreen(
                     )
                 }
             }
+            IslamicDecorationDivider(
+                tint = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(horizontal = 24.dp),
+            )
             when (FinanceTab.entries[selectedTab]) {
                 FinanceTab.Transactions -> TransactionsContent(isArabic = isArabic)
                 FinanceTab.Stocks -> StockCheckerContent(isArabic = isArabic)
