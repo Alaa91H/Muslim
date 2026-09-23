@@ -138,6 +138,9 @@ fun ScholarStudyPathScreen(
     val path = state.studyPaths.firstOrNull { it.id == pathId }
     val progress = state.pathProgress.firstOrNull { it.pathId == pathId }
     val activePlan = state.studyPlans.firstOrNull { it.pathId == pathId && it.active }
+    val hasActiveSession = state.studySessions.any {
+        it.pathId == pathId && it.status.name == "InProgress"
+    }
     val weeklySummary = state.weeklyStudySummaries.firstOrNull { it.pathId == pathId }
     val snackbarHostState = remember { SnackbarHostState() }
 
@@ -187,6 +190,7 @@ fun ScholarStudyPathScreen(
                     books = state.books,
                     progress = progress,
                     activePlan = activePlan,
+                    hasActiveSession = hasActiveSession,
                     weeklySummary = weeklySummary,
                     padding = padding,
                     actions = StudyPathActions(
@@ -216,6 +220,7 @@ private fun StudyPathContent(
     books: List<ScholarBook>,
     progress: ScholarPathProgress?,
     activePlan: ScholarStudyPlan?,
+    hasActiveSession: Boolean,
     weeklySummary: ScholarWeeklyStudySummary?,
     padding: PaddingValues,
     actions: StudyPathActions,
@@ -243,6 +248,7 @@ private fun StudyPathContent(
         item {
             StudyPlanCard(
                 plan = activePlan,
+                hasActiveSession = hasActiveSession,
                 onOpenSession = actions.onOpenSession,
                 onDailyPlan = actions.onDailyPlan,
                 onWeeklyPlan = actions.onWeeklyPlan,
@@ -461,6 +467,7 @@ private fun PathProgressCard(
 @Composable
 private fun StudyPlanCard(
     plan: ScholarStudyPlan?,
+    hasActiveSession: Boolean,
     onOpenSession: () -> Unit,
     onDailyPlan: () -> Unit,
     onWeeklyPlan: () -> Unit,
@@ -493,10 +500,12 @@ private fun StudyPlanCard(
                     Text(stringResource(R.string.scholar_library_weekly_plan))
                 }
             }
-            plan?.let {
+            if (plan != null || hasActiveSession) {
                 Button(onClick = onOpenSession) {
                     Text(stringResource(R.string.scholar_library_open_study_session))
                 }
+            }
+            plan?.let {
                 OutlinedButton(onClick = { onDeletePlan(it.id) }) {
                     Text(stringResource(R.string.scholar_library_delete_study_plan))
                 }
