@@ -3,6 +3,7 @@ package org.muslim.app.core.datastore
 import org.muslim.app.core.common.appearance.AppColorPalette
 import org.muslim.app.core.common.appearance.CardCornerStyle
 import org.muslim.app.core.common.appearance.AppOrnamentStyle
+import org.muslim.app.core.common.appearance.OrnamentIntensity
 
 /**
  * App-wide (non-prayer) user preferences, persisted in DataStore
@@ -16,8 +17,10 @@ data class AppPreferences(
     val colorPalette: AppColorPalette = AppColorPalette.Classic,
     /** Global corner softness for cards, sheets, and controls. */
     val cardCornerStyle: CardCornerStyle = CardCornerStyle.Soft,
-    /** Decorative background motif for supported screens. */
+    /** Decorative background motif used by the app-wide Islamic decoration engine. */
     val ornamentStyle: AppOrnamentStyle = AppOrnamentStyle.Geometry,
+    /** Visual prominence of the selected ornament. */
+    val ornamentIntensity: OrnamentIntensity = OrnamentIntensity.Balanced,
     /** BCP-47 language tag; "system" = follow the device language. */
     val languageCode: String = SYSTEM_LANGUAGE,
     /** Respect the system "remove animations" accessibility setting. */
