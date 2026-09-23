@@ -62,6 +62,7 @@ import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -122,9 +123,21 @@ fun HomeScreen(
 
     MuslimContentFrame(modifier = modifier) {
         BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-        val compactLayout = maxHeight < 760.dp
+        val narrowLayout = maxWidth < 360.dp
+        val wideLayout = maxWidth >= 600.dp
+        val compactLayout = narrowLayout || maxHeight < 760.dp
+        val pageHorizontalPadding = when {
+            narrowLayout -> IslamicSpacing.Compact
+            wideLayout -> IslamicSpacing.Section
+            else -> IslamicSpacing.PageHorizontal
+        }
         val cardPadding = if (compactLayout) IslamicSpacing.Compact else IslamicSpacing.Comfortable
         val sectionGap = if (compactLayout) IslamicSpacing.Medium else IslamicSpacing.SectionVertical
+        val heroIconSize = if (narrowLayout) IslamicIconSize.Prominent else IslamicIconSize.Hero
+        val prayerRowOuterVerticalPadding = if (compactLayout) 0.dp else IslamicSpacing.XXSmall
+        val prayerRowHorizontalPadding = if (narrowLayout) IslamicSpacing.Small else IslamicSpacing.Compact
+        val prayerRowInnerVerticalPadding = if (compactLayout) IslamicSpacing.XXSmall else IslamicSpacing.XSmall
+        val prayerIconSize = if (narrowLayout) IslamicIconSize.Supporting else IslamicIconSize.Standard
         IslamicOrnamentImage(
             ornament = ornamentStyle.toIslamicOrnament(),
             tint = MaterialTheme.colorScheme.primary,
@@ -139,7 +152,7 @@ fun HomeScreen(
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(
-                    horizontal = IslamicSpacing.PageHorizontal,
+                    horizontal = pageHorizontalPadding,
                     vertical = IslamicSpacing.Small,
                 ),
         ) {
@@ -151,31 +164,51 @@ fun HomeScreen(
                 fontWeight = FontWeight.SemiBold,
             )
         }
-        Row(verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
             Text(
                 text = state.hijri?.gregorian?.format(localDateFormatter) ?: "",
-                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.weight(if (narrowLayout) 0.8f else 1f),
+                style = if (narrowLayout) MaterialTheme.typography.bodyMedium else MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 1,
+                overflow = TextOverflow.Clip,
             )
-            Spacer(Modifier.weight(1f))
+            Spacer(Modifier.width(IslamicSpacing.Small))
             Surface(
                 onClick = onSelectLocation,
                 shape = MaterialTheme.shapes.large,
                 color = MaterialTheme.colorScheme.secondaryContainer,
-                modifier = Modifier.semantics {
-                    contentDescription = locationDescription
-                    role = Role.Button
-                },
+                modifier = Modifier
+                    .weight(if (narrowLayout) 1.45f else 1.15f)
+                    .semantics {
+                        contentDescription = locationDescription
+                        role = Role.Button
+                    },
             ) {
                 Row(
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
+                    modifier = Modifier.padding(
+                        horizontal = if (narrowLayout) IslamicSpacing.Small else IslamicSpacing.Compact,
+                        vertical = if (compactLayout) IslamicSpacing.XSmall else 6.dp,
+                    ),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Icon(Icons.Default.Place, contentDescription = null, modifier = Modifier.height(16.dp))
-                    Spacer(Modifier.padding(start = 4.dp))
+                    Icon(
+                        Icons.Default.Place,
+                        contentDescription = null,
+                        modifier = Modifier.size(
+                            if (narrowLayout) IslamicIconSize.Supporting else IslamicIconSize.Standard,
+                        ),
+                    )
+                    Spacer(Modifier.width(IslamicSpacing.XSmall))
                     Text(
                         text = locationLabel,
-                        style = MaterialTheme.typography.labelLarge,
+                        modifier = Modifier.weight(1f),
+                        style = if (narrowLayout) MaterialTheme.typography.labelMedium else MaterialTheme.typography.labelLarge,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
                     )
                 }
             }
@@ -202,7 +235,10 @@ fun HomeScreen(
             contentPadding = androidx.compose.foundation.layout.PaddingValues(cardPadding),
         ) {
             Box {
-                PrayerCardEdgeOrnaments(tint = MaterialTheme.colorScheme.tertiary)
+                PrayerCardEdgeOrnaments(
+                    tint = MaterialTheme.colorScheme.tertiary,
+                    compact = compactLayout,
+                )
                 Column {
                     Text(
                         text = stringResource(R.string.home_next_prayer),
@@ -215,7 +251,11 @@ fun HomeScreen(
                             state.nextPrayer?.let { prayer ->
                                 Text(
                                     text = stringResource(prayerLabelRes(prayer)),
-                                    style = MaterialTheme.typography.headlineMedium,
+                                    style = if (narrowLayout) {
+                                        MaterialTheme.typography.headlineSmall
+                                    } else {
+                                        MaterialTheme.typography.headlineMedium
+                                    },
                                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                                 )
                             }
@@ -225,7 +265,7 @@ fun HomeScreen(
                                 imageVector = prayerIcon(prayer),
                                 contentDescription = null,
                                 tint = MaterialTheme.colorScheme.tertiary,
-                                modifier = Modifier.size(IslamicIconSize.Hero),
+                                modifier = Modifier.size(heroIconSize),
                             )
                         }
                     }
@@ -233,14 +273,22 @@ fun HomeScreen(
                         state.nextPrayerAt?.let { at ->
                             Text(
                                 text = at.format(TimeFormats.timeFormatter(use24h)),
-                                style = MaterialTheme.typography.headlineMedium,
+                                style = if (narrowLayout) {
+                                    MaterialTheme.typography.headlineSmall
+                                } else {
+                                    MaterialTheme.typography.headlineMedium
+                                },
                                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                             )
                         }
                         Spacer(Modifier.weight(1f))
                         Text(
                             text = formatCountdown(state.countdownSeconds),
-                            style = MaterialTheme.typography.headlineSmall,
+                            style = if (narrowLayout) {
+                                MaterialTheme.typography.titleLarge
+                            } else {
+                                MaterialTheme.typography.headlineSmall
+                            },
                             fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace,
                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                         )
@@ -271,14 +319,21 @@ fun HomeScreen(
             modifier = Modifier.fillMaxWidth(),
             containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
             contentPadding = androidx.compose.foundation.layout.PaddingValues(
-                horizontal = if (compactLayout) IslamicSpacing.Compact else IslamicSpacing.Medium,
+                horizontal = when {
+                    narrowLayout -> IslamicSpacing.XSmall
+                    compactLayout -> IslamicSpacing.Compact
+                    else -> IslamicSpacing.Medium
+                },
                 vertical = IslamicSpacing.XSmall,
             ),
         ) {
             Box {
-                PrayerCardEdgeOrnaments(tint = MaterialTheme.colorScheme.primary)
+                PrayerCardEdgeOrnaments(
+                    tint = MaterialTheme.colorScheme.primary,
+                    compact = compactLayout,
+                )
                 Column {
-                    Prayer.entries.forEachIndexed { index, prayer ->
+                    trackablePrayers.forEachIndexed { index, prayer ->
                     if (index > 0) HorizontalDivider()
                     val isNextPrayer = prayer == state.nextPrayer
                     val nextPrayerStateDescription = if (isNextPrayer) {
@@ -289,14 +344,14 @@ fun HomeScreen(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = IslamicSpacing.XXSmall)
+                            .padding(vertical = prayerRowOuterVerticalPadding)
                             .clip(MaterialTheme.shapes.medium)
                             .background(
                                 if (isNextPrayer) MaterialTheme.colorScheme.tertiaryContainer else Color.Transparent,
                             )
                             .padding(
-                                horizontal = IslamicSpacing.Compact,
-                                vertical = IslamicSpacing.XSmall,
+                                horizontal = prayerRowHorizontalPadding,
+                                vertical = prayerRowInnerVerticalPadding,
                             )
                             .then(
                                 nextPrayerStateDescription?.let { description ->
@@ -310,12 +365,12 @@ fun HomeScreen(
                             contentDescription = null,
                             tint = if (isNextPrayer) MaterialTheme.colorScheme.onTertiaryContainer
                             else MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.size(IslamicIconSize.Standard),
+                            modifier = Modifier.size(prayerIconSize),
                         )
                         Spacer(Modifier.width(IslamicSpacing.Small))
                         Text(
                             text = stringResource(prayerLabelRes(prayer)),
-                            style = MaterialTheme.typography.bodyLarge,
+                            style = if (narrowLayout) MaterialTheme.typography.bodyMedium else MaterialTheme.typography.bodyLarge,
                             fontWeight = if (isNextPrayer) FontWeight.Bold else FontWeight.Normal,
                             color = if (isNextPrayer) MaterialTheme.colorScheme.onTertiaryContainer
                             else MaterialTheme.colorScheme.onSurface,
@@ -324,7 +379,7 @@ fun HomeScreen(
                         state.times[prayer]?.let { time ->
                             Text(
                                 text = time.format(TimeFormats.timeFormatter(use24h)),
-                                style = MaterialTheme.typography.titleMedium,
+                                style = if (narrowLayout) MaterialTheme.typography.titleSmall else MaterialTheme.typography.titleMedium,
                                 fontWeight = if (isNextPrayer) FontWeight.Bold else FontWeight.Normal,
                                 color = if (isNextPrayer) MaterialTheme.colorScheme.onTertiaryContainer
                                 else MaterialTheme.colorScheme.onSurface,
@@ -334,6 +389,7 @@ fun HomeScreen(
                             prayer = prayer,
                             alert = state.prayerAlerts[prayer] ?: HomeViewModel.PrayerAlert(),
                             isNextPrayer = isNextPrayer,
+                            compact = compactLayout,
                             onClick = { customizingPrayer = prayer },
                         )
                     }
@@ -435,6 +491,7 @@ private fun PrayerAlertAction(
     prayer: Prayer,
     alert: HomeViewModel.PrayerAlert,
     isNextPrayer: Boolean,
+    compact: Boolean,
     onClick: () -> Unit,
 ) {
     val configurable = prayer != Prayer.Sunrise
@@ -456,7 +513,9 @@ private fun PrayerAlertAction(
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.padding(start = IslamicSpacing.Compact),
+        modifier = Modifier.padding(
+            start = if (compact) IslamicSpacing.Small else IslamicSpacing.Compact,
+        ),
     ) {
         if (configurable) {
             Text(
@@ -470,14 +529,20 @@ private fun PrayerAlertAction(
                 imageVector = icon,
                 contentDescription = contentDescription,
                 tint = contentColor,
-                modifier = Modifier.size(IslamicIconSize.Standard),
+                modifier = Modifier.size(
+                    if (compact) IslamicIconSize.Supporting else IslamicIconSize.Standard,
+                ),
             )
         }
     }
 }
 
 @Composable
-private fun PrayerCardEdgeOrnaments(tint: Color) {
+private fun PrayerCardEdgeOrnaments(
+    tint: Color,
+    compact: Boolean = false,
+) {
+    val ornamentSize = if (compact) 56.dp else 72.dp
     Box(modifier = Modifier.fillMaxSize()) {
         IslamicOrnamentImage(
             ornament = IslamicOrnament.Corner,
@@ -486,7 +551,7 @@ private fun PrayerCardEdgeOrnaments(tint: Color) {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .padding(4.dp)
-                .size(72.dp),
+                .size(ornamentSize),
         )
         IslamicOrnamentImage(
             ornament = IslamicOrnament.Corner,
@@ -495,7 +560,7 @@ private fun PrayerCardEdgeOrnaments(tint: Color) {
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(4.dp)
-                .size(72.dp)
+                .size(ornamentSize)
                 .graphicsLayer(rotationZ = 180f),
         )
     }
@@ -575,7 +640,7 @@ private fun shareDailyTimes(context: Context, state: HomeViewModel.UiState, use2
         add(context.getString(R.string.times_export_header, state.selectedDate.format(localDateFormatter)))
         if (state.hasLocation) add(context.getString(R.string.times_export_location, state.locationName))
         add("")
-        Prayer.entries.forEach { prayer ->
+        trackablePrayers.forEach { prayer ->
             state.times[prayer]?.let { add("${label(prayer)}: ${it.format(TimeFormats.timeFormatter(use24h))}") }
         }
     }
