@@ -63,8 +63,11 @@ object ScholarLibraryIndex {
             } else {
                 bookIds.sumOf { progressByBook[it]?.progressPercent ?: 0 } / total
             }
-            val currentBook = bookIds.firstOrNull { (progressByBook[it]?.progressPercent ?: 0) in 1..99 }
-                ?: bookIds.firstOrNull { (progressByBook[it]?.progressPercent ?: 0) < 100 }
+            val currentBook = bookIds.firstOrNull {
+                progressByBook[it]?.status == ScholarReadingStatus.InProgress
+            } ?: bookIds.firstOrNull {
+                progressByBook[it]?.status != ScholarReadingStatus.Completed
+            }
             ScholarPathProgress(
                 pathId = path.id,
                 completedBooks = completedBooks,
