@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="funeral_will_dismiss_card">Hide this card</string>
+    <string name="funeral_will_restore_intro_cards">Show guidance and notices again</string>
+    <string name="funeral_will_education_title">Islamic will guide</string>
+    <string name="funeral_will_education_intro">Core topics to help organise the draft and identify what needs qualified Islamic and legal review before relying on a will.</string>
+    <string name="funeral_will_guide_quick_title">What should I do now?</string>
+    <string name="funeral_will_guide_quick_intro">A short practical sequence for the first steps after a death. Official procedures can differ by country, hospital, and cemetery.</string>
+
+    <string name="funeral_will_section_identity">Identity and document access</string>
+    <string name="funeral_will_section_financial">Rights, finances, and entrusted property</string>
+    <string name="funeral_will_section_family">Family, funeral, and bequests</string>
+    <string name="funeral_will_section_review">Review and notes</string>
+
+    <string name="funeral_will_document_location">Important document location</string>
+    <string name="funeral_will_document_location_hint">For example, a home safe or documented file location; do not enter passwords or unlock codes</string>
+    <string name="funeral_will_trusted_contacts">Trusted contacts</string>
+    <string name="funeral_will_trusted_contacts_hint">Names and contact methods for people who should be informed or consulted</string>
+    <string name="funeral_will_assets_accounts">Assets, accounts, and document locations</string>
+    <string name="funeral_will_assets_accounts_hint">Describe assets, organisations, and document locations without storing login secrets</string>
+    <string name="funeral_will_entrusted_property">Entrusted or third-party property</string>
+    <string name="funeral_will_entrusted_property_hint">What must be returned to its owner and where evidence or documents can be found</string>
+    <string name="funeral_will_digital_access">Secure digital-access instructions</string>
+    <string name="funeral_will_digital_access_hint">Record only where a separate secure access plan is kept; never enter passwords, PINs, recovery phrases, or private keys</string>
+    <string name="funeral_will_last_review">Last review date</string>
+    <string name="funeral_will_last_review_hint">For example: 2026-09-23</string>
+
+    <string name="funeral_will_unsaved_changes">There are unsaved changes on this device.</string>
+    <string name="funeral_will_saved_locally">All current changes are saved locally on this device.</string>
+    <string name="funeral_will_sensitive_data_notice">Security: do not store passwords, PINs, recovery phrases, or private keys in this draft. Record only where a separate secure access plan can be found.</string>
+    <string name="funeral_will_share_dialog_title">Share a copy of the draft?</string>
+    <string name="funeral_will_share_dialog_text">The app will create a text copy of the currently displayed draft and open Android\'s share sheet. Review the content and recipient, and do not share access secrets or sensitive information with an untrusted destination.</string>
+    <string name="funeral_will_share_confirm">Continue to share</string>
+    <string name="funeral_will_search">Search this section</string>
+    <string name="funeral_will_search_clear">Clear search</string>
+    <string name="funeral_will_search_results">%1$d matching topics</string>
+    <string name="funeral_will_search_empty">No topics match this search. Try a different word or clear the search.</string>
+    <string name="funeral_will_quick_topics">Quick topic navigation</string>
+    <string name="funeral_will_encrypted_notice">Protection: when you save the draft, it is encrypted on this device with an app-specific key stored in Android Keystore.</string>
+    <string name="funeral_will_encryption_error">This encrypted draft could not be opened on this device. Do not overwrite it until you verify the original copy or restore the device data.</string>
+    <string name="funeral_will_export_pdf">Export PDF copy</string>
+    <string name="funeral_will_export_pdf_title">Save a PDF copy of the draft</string>
+    <string name="funeral_will_export_pdf_success">The PDF was saved successfully.</string>
+    <string name="funeral_will_export_pdf_error">The PDF could not be created. Try another location or try again.</string>
+    <string name="funeral_will_pdf_filename">islamic-will-draft.pdf</string>
+    <string name="funeral_will_protection_title">Private draft lock</string>
+    <string name="funeral_will_protection_description">You can require an enrolled biometric or the device PIN, pattern, or password before showing the will draft. The app does not store its own PIN.</string>
+    <string name="funeral_will_protection_enabled">Protection is enabled for this draft.</string>
+    <string name="funeral_will_protection_enable">Enable device lock</string>
+    <string name="funeral_will_protection_disable">Turn off protection</string>
+    <string name="funeral_will_protection_lock_now">Lock draft now</string>
+    <string name="funeral_will_locked_title">Draft locked</string>
+    <string name="funeral_will_locked_text">The draft content and save, share, and export actions are hidden. Unlock it with an authentication method enrolled on this device.</string>
+    <string name="funeral_will_unlock">Unlock draft</string>
+    <string name="funeral_will_auth_prompt_title">Unlock will draft</string>
+    <string name="funeral_will_auth_prompt_subtitle">Use biometrics or your device lock to continue</string>
+    <string name="funeral_will_auth_not_configured">No eligible authentication method is configured. Set up a screen lock or biometric in Android settings first.</string>
+    <string name="funeral_will_auth_unavailable">Biometric or device-lock authentication is not available on this device.</string>
+    <string name="funeral_will_protection_loading">Checking draft protection settings…</string>
+    <string name="funeral_will_print">Print draft</string>
+    <string name="funeral_will_print_job_name">Islamic will draft</string>
+    <string name="funeral_will_print_error">The system print service could not be opened on this device.</string>
+    <string name="funeral_will_reference_index_title">Sources and review index</string>
+    <string name="funeral_will_reference_index_intro">General references for the guidance above. Do not use this index alone to decide a personal ruling or final legal instrument.</string>
+</resources>

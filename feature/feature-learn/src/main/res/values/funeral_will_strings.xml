@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="funeral_will_dismiss_card" tools:ignore="MissingTranslation">إخفاء هذه البطاقة</string>
+    <string name="funeral_will_restore_intro_cards" tools:ignore="MissingTranslation">إظهار الإرشادات والتنبيهات مرة أخرى</string>
+    <string name="funeral_will_education_title" tools:ignore="MissingTranslation">دليل الوصية الشرعية</string>
+    <string name="funeral_will_education_intro" tools:ignore="MissingTranslation">موضوعات أساسية تساعدك على تنظيم المسودة وفهم ما يحتاج إلى مراجعة شرعية وقانونية قبل اعتماد الوصية.</string>
+    <string name="funeral_will_guide_quick_title" tools:ignore="MissingTranslation">ماذا أفعل الآن؟</string>
+    <string name="funeral_will_guide_quick_intro" tools:ignore="MissingTranslation">ترتيب عملي مختصر للحظات الأولى بعد الوفاة. قد تختلف الإجراءات الرسمية حسب البلد والمستشفى والمقبرة.</string>
+
+    <string name="funeral_will_section_identity" tools:ignore="MissingTranslation">البيانات والوصول إلى الوثائق</string>
+    <string name="funeral_will_section_financial" tools:ignore="MissingTranslation">الحقوق والأموال والأمانات</string>
+    <string name="funeral_will_section_family" tools:ignore="MissingTranslation">الأسرة والجنازة والوصايا</string>
+    <string name="funeral_will_section_review" tools:ignore="MissingTranslation">المراجعة والملاحظات</string>
+
+    <string name="funeral_will_document_location" tools:ignore="MissingTranslation">مكان حفظ الوثائق المهمة</string>
+    <string name="funeral_will_document_location_hint" tools:ignore="MissingTranslation">مثال: خزنة منزلية أو ملف موثق؛ لا تكتب كلمات مرور أو رموز فتح</string>
+    <string name="funeral_will_trusted_contacts" tools:ignore="MissingTranslation">جهات اتصال موثوقة</string>
+    <string name="funeral_will_trusted_contacts_hint" tools:ignore="MissingTranslation">أسماء وطرق تواصل أشخاص ينبغي إبلاغهم أو الرجوع إليهم</string>
+    <string name="funeral_will_assets_accounts" tools:ignore="MissingTranslation">الأصول والحسابات ومكان مستنداتها</string>
+    <string name="funeral_will_assets_accounts_hint" tools:ignore="MissingTranslation">صف الأصول والجهات ومكان المستندات دون تسجيل أسرار الدخول</string>
+    <string name="funeral_will_entrusted_property" tools:ignore="MissingTranslation">الأمانات وممتلكات الغير</string>
+    <string name="funeral_will_entrusted_property_hint" tools:ignore="MissingTranslation">ما يجب رده إلى أصحابه وكيف يمكن إثباته أو الوصول إلى مستنداته</string>
+    <string name="funeral_will_digital_access" tools:ignore="MissingTranslation">تعليمات الوصول الرقمي الآمن</string>
+    <string name="funeral_will_digital_access_hint" tools:ignore="MissingTranslation">اكتب مكان خطة الوصول الآمنة فقط؛ لا تكتب كلمات المرور أو PIN أو عبارات الاسترداد أو المفاتيح الخاصة</string>
+    <string name="funeral_will_last_review" tools:ignore="MissingTranslation">تاريخ آخر مراجعة</string>
+    <string name="funeral_will_last_review_hint" tools:ignore="MissingTranslation">مثال: 2026-09-23</string>
+
+    <string name="funeral_will_unsaved_changes" tools:ignore="MissingTranslation">توجد تغييرات غير محفوظة على هذا الجهاز.</string>
+    <string name="funeral_will_saved_locally" tools:ignore="MissingTranslation">جميع التغييرات الحالية محفوظة محليًا على هذا الجهاز.</string>
+    <string name="funeral_will_sensitive_data_notice" tools:ignore="MissingTranslation">للأمان: لا تحفظ في هذه المسودة كلمات المرور أو رموز PIN أو عبارات الاسترداد أو المفاتيح الخاصة. اكتب فقط مكان الوصول إلى خطة آمنة منفصلة.</string>
+    <string name="funeral_will_share_dialog_title" tools:ignore="MissingTranslation">مشاركة نسخة من المسودة؟</string>
+    <string name="funeral_will_share_dialog_text" tools:ignore="MissingTranslation">سيُنشئ التطبيق نسخة نصية من البيانات الظاهرة حاليًا ويفتح نافذة المشاركة في Android. راجع المحتوى وتحقق من المستلم، ولا تشارك أسرار الدخول أو البيانات الحساسة مع جهة غير موثوقة.</string>
+    <string name="funeral_will_share_confirm" tools:ignore="MissingTranslation">متابعة للمشاركة</string>
+    <string name="funeral_will_search" tools:ignore="MissingTranslation">البحث في هذا القسم</string>
+    <string name="funeral_will_search_clear" tools:ignore="MissingTranslation">مسح البحث</string>
+    <string name="funeral_will_search_results" tools:ignore="MissingTranslation">%1$d موضوع مطابق</string>
+    <string name="funeral_will_search_empty" tools:ignore="MissingTranslation">لا توجد موضوعات مطابقة. جرّب كلمة أخرى أو امسح البحث.</string>
+    <string name="funeral_will_quick_topics" tools:ignore="MissingTranslation">انتقال سريع إلى موضوع</string>
+    <string name="funeral_will_encrypted_notice" tools:ignore="MissingTranslation">الحماية: عند حفظ المسودة، تُشفَّر على هذا الجهاز باستخدام مفتاح خاص بالتطبيق محفوظ في Android Keystore.</string>
+    <string name="funeral_will_encryption_error" tools:ignore="MissingTranslation">تعذر فتح المسودة المشفرة على هذا الجهاز. لا تحفظ فوقها قبل التحقق من النسخة الأصلية أو استعادة بيانات الجهاز.</string>
+    <string name="funeral_will_export_pdf" tools:ignore="MissingTranslation">تصدير نسخة PDF</string>
+    <string name="funeral_will_export_pdf_title" tools:ignore="MissingTranslation">حفظ نسخة PDF من المسودة</string>
+    <string name="funeral_will_export_pdf_success" tools:ignore="MissingTranslation">تم حفظ ملف PDF بنجاح.</string>
+    <string name="funeral_will_export_pdf_error" tools:ignore="MissingTranslation">تعذر إنشاء ملف PDF. حاول اختيار مكان آخر أو إعادة المحاولة.</string>
+    <string name="funeral_will_pdf_filename" tools:ignore="MissingTranslation">مسودة-وصية-شرعية.pdf</string>
+    <string name="funeral_will_protection_title" tools:ignore="MissingTranslation">قفل المسودة الخاصة</string>
+    <string name="funeral_will_protection_description" tools:ignore="MissingTranslation">يمكنك طلب بصمة أو وجه أو رمز/نمط/كلمة مرور قفل الجهاز قبل عرض مسودة الوصية. لا يخزن التطبيق رمز PIN خاصًا به.</string>
+    <string name="funeral_will_protection_enabled" tools:ignore="MissingTranslation">الحماية مفعلة لهذه المسودة.</string>
+    <string name="funeral_will_protection_enable" tools:ignore="MissingTranslation">تفعيل قفل الجهاز</string>
+    <string name="funeral_will_protection_disable" tools:ignore="MissingTranslation">إيقاف الحماية</string>
+    <string name="funeral_will_protection_lock_now" tools:ignore="MissingTranslation">قفل المسودة الآن</string>
+    <string name="funeral_will_locked_title" tools:ignore="MissingTranslation">المسودة مقفلة</string>
+    <string name="funeral_will_locked_text" tools:ignore="MissingTranslation">تم إخفاء محتوى المسودة وعمليات الحفظ والمشاركة والتصدير. افتحها باستخدام وسيلة التحقق المسجلة على جهازك.</string>
+    <string name="funeral_will_unlock" tools:ignore="MissingTranslation">فتح المسودة</string>
+    <string name="funeral_will_auth_prompt_title" tools:ignore="MissingTranslation">فتح مسودة الوصية</string>
+    <string name="funeral_will_auth_prompt_subtitle" tools:ignore="MissingTranslation">استخدم البصمة أو الوجه أو قفل الجهاز للمتابعة</string>
+    <string name="funeral_will_auth_not_configured" tools:ignore="MissingTranslation">لا توجد وسيلة تحقق مؤهلة على الجهاز. أعدّ قفل الشاشة أو البصمة/الوجه من إعدادات Android أولًا.</string>
+    <string name="funeral_will_auth_unavailable" tools:ignore="MissingTranslation">التحقق بالبصمة أو قفل الجهاز غير متاح على هذا الجهاز.</string>
+    <string name="funeral_will_protection_loading" tools:ignore="MissingTranslation">جارٍ التحقق من إعدادات حماية المسودة…</string>
+    <string name="funeral_will_print" tools:ignore="MissingTranslation">طباعة المسودة</string>
+    <string name="funeral_will_print_job_name" tools:ignore="MissingTranslation">مسودة وصية شرعية</string>
+    <string name="funeral_will_print_error" tools:ignore="MissingTranslation">تعذر فتح خدمة الطباعة على هذا الجهاز.</string>
+    <string name="funeral_will_reference_index_title" tools:ignore="MissingTranslation">فهرس المصادر والمراجعة</string>
+    <string name="funeral_will_reference_index_intro" tools:ignore="MissingTranslation">مراجع عامة لما ورد في الدليل. لا تستخدم هذا الفهرس وحده لإصدار حكم على حالة شخصية أو لصياغة وثيقة قانونية نهائية.</string>
+</resources>

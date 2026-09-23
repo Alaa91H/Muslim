@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- The will draft is encrypted with an Android Keystore key that is not
+         transferable through cloud backup. Excluding the ciphertext prevents
+         unusable restored copies and avoids backing up this sensitive draft. -->
+    <exclude
+        domain="file"
+        path="datastore/will_draft_prefs.preferences_pb" />
+</full-backup-content>

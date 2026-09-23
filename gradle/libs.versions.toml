@@ -15,6 +15,8 @@ activityCompose = "1.13.0"
 lifecycle = "2.11.0"
 navigationCompose = "2.9.8"
 window = "1.5.1"
+fragment = "1.9.0"
+biometric = "1.1.0"
 media = "1.7.0"
 wearCompose = "1.6.2"
 playServicesWearable = "20.0.1"
@@ -69,6 +71,8 @@ androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "l
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 androidx-window = { group = "androidx.window", name = "window", version.ref = "window" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
+androidx-biometric = { group = "androidx.biometric", name = "biometric", version.ref = "biometric" }
 google-play-services-wearable = { group = "com.google.android.gms", name = "play-services-wearable", version.ref = "playServicesWearable" }
 
 # --- Compose (versions come from the BOM) ---
