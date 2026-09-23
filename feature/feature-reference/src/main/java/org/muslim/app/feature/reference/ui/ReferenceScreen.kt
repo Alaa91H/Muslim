@@ -98,14 +98,13 @@ fun ReferenceScreen(
     var hubQuery by rememberSaveable { mutableStateOf("") }
 
     ReferenceBackHandler(
-        selectedTopic = selectedTopic,
-        selectedBook = selectedBook,
-        onClearTopic = { selectedTopic = null },
-        onClearBook = {
-            selectedBook = null
-            query = ""
-        },
-    )
+        selectedTopic,
+        selectedBook,
+        { selectedTopic = null },
+    ) {
+        selectedBook = null
+        query = ""
+    }
 
     val book = selectedBook
 
