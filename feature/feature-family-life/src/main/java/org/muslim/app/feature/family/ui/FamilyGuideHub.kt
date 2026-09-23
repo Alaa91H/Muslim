@@ -60,6 +60,7 @@ import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.family.R
 import org.muslim.app.feature.family.domain.FamilyChecklist
+import org.muslim.app.feature.family.domain.FamilyEvidenceReference
 import org.muslim.app.feature.family.domain.FamilyEvidenceType
 import org.muslim.app.feature.family.domain.FamilyGuideArticle
 import org.muslim.app.feature.family.domain.FamilyLifeContent
@@ -388,6 +389,10 @@ private fun FamilyGuideResultCard(
 internal fun FamilyArticleDetailContent(
     article: FamilyGuideArticle,
     isArabic: Boolean,
+    isFavorite: Boolean,
+    relatedArticles: List<FamilyGuideArticle>,
+    onToggleFavorite: () -> Unit,
+    onOpenArticle: (String) -> Unit,
 ) {
     val category = FamilyLifeContent.categoryFor(article.id)
     val sensitive = category == FamilyTopicCategory.ConflictResolution ||
@@ -398,7 +403,15 @@ internal fun FamilyArticleDetailContent(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 14.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        item { FamilyArticleHeader(article, category, isArabic) }
+        item {
+            FamilyArticleHeader(
+                article = article,
+                category = category,
+                isArabic = isArabic,
+                isFavorite = isFavorite,
+                onToggleFavorite = onToggleFavorite,
+            )
+        }
         if (sensitive) {
             item { FamilySensitiveNotice() }
         }
@@ -408,7 +421,17 @@ internal fun FamilyArticleDetailContent(
         if (article.references.isNotEmpty()) {
             item { FamilyReferencesHeading() }
             items(article.references, key = { it.citation }) { reference ->
-                FamilyReferenceCard(reference.title, reference.citation, isArabic)
+                FamilyReferenceCard(reference = reference, isArabic = isArabic)
+            }
+        }
+        if (relatedArticles.isNotEmpty()) {
+            item { FamilyRelatedHeading() }
+            items(relatedArticles, key = { it.id }) { related ->
+                FamilyRelatedArticleCard(
+                    article = related,
+                    isArabic = isArabic,
+                    onClick = { onOpenArticle(related.id) },
+                )
             }
         }
         item { FamilyEducationNotice() }
@@ -420,12 +443,26 @@ private fun FamilyArticleHeader(
     article: FamilyGuideArticle,
     category: FamilyTopicCategory?,
     isArabic: Boolean,
+    isFavorite: Boolean,
+    onToggleFavorite: () -> Unit,
 ) {
-    Text(
-        text = article.title.pick(isArabic),
-        style = MaterialTheme.typography.headlineSmall,
-        fontWeight = FontWeight.Bold,
-    )
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Text(
+            text = article.title.pick(isArabic),
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.weight(1f),
+        )
+        IconButton(onClick = onToggleFavorite) {
+            Icon(
+                imageVector = if (isFavorite) Icons.Filled.Bookmark else Icons.Filled.BookmarkBorder,
+                contentDescription = stringResource(
+                    if (isFavorite) R.string.family_remove_favorite else R.string.family_add_favorite,
+                ),
+                tint = MaterialTheme.colorScheme.primary,
+            )
+        }
+    }
     Spacer(Modifier.height(6.dp))
     Text(
         text = article.summary.pick(isArabic),
@@ -486,8 +523,7 @@ private fun FamilyReferencesHeading() {
 
 @Composable
 private fun FamilyReferenceCard(
-    title: LocalizedFamilyText,
-    citation: String,
+    reference: FamilyEvidenceReference,
     isArabic: Boolean,
 ) {
     IslamicCard(modifier = Modifier.fillMaxWidth()) {
@@ -500,16 +536,63 @@ private fun FamilyReferenceCard(
             Spacer(Modifier.width(10.dp))
             Column {
                 Text(
-                    text = title.pick(isArabic),
+                    text = reference.title.pick(isArabic),
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.SemiBold,
                 )
                 Text(
-                    text = citation,
+                    text = reference.type.label(isArabic),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                Text(
+                    text = reference.citation,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
+                reference.note?.let { note ->
+                    Text(
+                        text = note.pick(isArabic),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
             }
+        }
+    }
+}
+
+
+@Composable
+private fun FamilyRelatedHeading() {
+    Text(
+        text = stringResource(R.string.family_related_title),
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.Bold,
+    )
+}
+
+@Composable
+private fun FamilyRelatedArticleCard(
+    article: FamilyGuideArticle,
+    isArabic: Boolean,
+    onClick: () -> Unit,
+) {
+    IslamicCard(modifier = Modifier.fillMaxWidth(), onClick = onClick) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Column(Modifier.weight(1f)) {
+                Text(
+                    text = article.title.pick(isArabic),
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.SemiBold,
+                )
+                Text(
+                    text = article.summary.pick(isArabic),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null)
         }
     }
 }
@@ -525,6 +608,15 @@ private fun FamilyEducationNotice() {
 }
 
 private fun LocalizedFamilyText.pick(isArabic: Boolean): String = if (isArabic) arabic else english
+
+private fun FamilyEvidenceType.label(isArabic: Boolean): String = when (this) {
+    FamilyEvidenceType.Quran -> if (isArabic) "القرآن الكريم" else "Quran"
+    FamilyEvidenceType.Hadith -> if (isArabic) "الحديث" else "Hadith"
+    FamilyEvidenceType.Fiqh -> if (isArabic) "فقه" else "Fiqh"
+    FamilyEvidenceType.Legal -> if (isArabic) "قانوني" else "Legal"
+    FamilyEvidenceType.Health -> if (isArabic) "صحي" else "Health"
+    FamilyEvidenceType.Guidance -> if (isArabic) "إرشاد متخصص" else "Qualified guidance"
+}
 
 private fun FamilyTopicCategory.title(isArabic: Boolean): String = when (this) {
     FamilyTopicCategory.BeforeMarriage -> if (isArabic) "قبل الزواج" else "Before marriage"
