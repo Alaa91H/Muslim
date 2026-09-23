@@ -218,42 +218,8 @@ private fun RuqyahContent(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
-        item {
-            FamilyIntroCard(
-                icon = Icons.Filled.Security,
-                title = stringResource(R.string.family_ruqyah_method_title),
-                text = stringResource(R.string.family_ruqyah_method_intro),
-            )
-        }
-        item {
-            NoticeCard(
-                icon = Icons.Filled.Info,
-                text = stringResource(R.string.family_ruqyah_health_notice),
-            )
-        }
-        item {
-            Text(
-                text = stringResource(R.string.family_ruqyah_steps_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-            )
-        }
-        items(FamilyLifeContent.ruqyahGuidance) { guidance ->
-            Text(
-                text = guidance.pick(isArabic),
-                style = MaterialTheme.typography.bodyLarge,
-                lineHeight = MaterialTheme.typography.bodyLarge.lineHeight,
-                modifier = Modifier.padding(horizontal = 4.dp),
-            )
-        }
-        item {
-            Text(
-                text = stringResource(R.string.family_ruqyah_passages_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(top = 4.dp),
-            )
-        }
+        item { RuqyahIntroAndGuidance(isArabic) }
+        item { FamilySectionHeading(stringResource(R.string.family_ruqyah_passages_title)) }
         items(FamilyLifeContent.ruqyahPassages, key = { it.id }) { passage ->
             RuqyahPassageCard(
                 passage = passage,
@@ -264,25 +230,11 @@ private fun RuqyahContent(
                 },
             )
         }
-        item {
-            Text(
-                text = stringResource(R.string.family_ruqyah_supplications_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(top = 4.dp),
-            )
-        }
+        item { FamilySectionHeading(stringResource(R.string.family_ruqyah_supplications_title)) }
         items(FamilyLifeContent.ruqyahSupplications, key = { it.id }) { supplication ->
             RuqyahSupplicationCard(supplication = supplication, isArabic = isArabic)
         }
-        item {
-            Text(
-                text = stringResource(R.string.family_ruqyah_audio_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(top = 4.dp),
-            )
-        }
+        item { FamilySectionHeading(stringResource(R.string.family_ruqyah_audio_title)) }
         items(FamilyLifeContent.ruqyahAudio, key = { it.id }) { track ->
             AudioTrackCard(
                 track = track,
@@ -294,6 +246,39 @@ private fun RuqyahContent(
             )
         }
     }
+}
+
+@Composable
+private fun RuqyahIntroAndGuidance(isArabic: Boolean) {
+    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        FamilyIntroCard(
+            icon = Icons.Filled.Security,
+            title = stringResource(R.string.family_ruqyah_method_title),
+            text = stringResource(R.string.family_ruqyah_method_intro),
+        )
+        NoticeCard(
+            icon = Icons.Filled.Info,
+            text = stringResource(R.string.family_ruqyah_health_notice),
+        )
+        FamilySectionHeading(stringResource(R.string.family_ruqyah_steps_title))
+        FamilyLifeContent.ruqyahGuidance.forEach { guidance ->
+            Text(
+                text = guidance.pick(isArabic),
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.padding(horizontal = 4.dp),
+            )
+        }
+    }
+}
+
+@Composable
+private fun FamilySectionHeading(text: String) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.Bold,
+        modifier = Modifier.padding(top = 4.dp),
+    )
 }
 
 @Composable
@@ -535,37 +520,20 @@ private fun AqiqahContent(
             )
         }
         item {
-            DigitNormalizedOutlinedTextField(
+            AqiqahBirthDateEditor(
                 value = birthDateText,
+                parseError = parseError,
                 onValueChange = {
                     birthDateText = it
                     parseError = false
                 },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                label = { Text(stringResource(R.string.family_aqiqah_birth_date)) },
-                placeholder = { Text(stringResource(R.string.family_aqiqah_date_hint)) },
-                isError = parseError,
-                supportingText = if (parseError) {
-                    { Text(stringResource(R.string.family_aqiqah_invalid_date)) }
-                } else null,
-                keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(keyboardType = KeyboardType.Text),
-            )
-        }
-        item {
-            IslamicSecondaryButton(
-                onClick = {
+                onSave = {
                     if (birthDate == null) parseError = true else viewModel.setBirthDate(birthDate)
                 },
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(stringResource(R.string.family_aqiqah_apply))
-            }
+            )
         }
-        if (schedule != null) {
-            item {
-                AqiqahDatesCard(schedule = schedule)
-            }
+        schedule?.let { calculated ->
+            item { AqiqahDatesCard(schedule = calculated) }
         }
         item {
             AqiqahReminderDaySelector(
@@ -587,6 +555,36 @@ private fun AqiqahContent(
                 icon = Icons.Filled.Info,
                 text = stringResource(R.string.family_aqiqah_fiqh_note),
             )
+        }
+    }
+}
+
+@Composable
+private fun AqiqahBirthDateEditor(
+    value: String,
+    parseError: Boolean,
+    onValueChange: (String) -> Unit,
+    onSave: () -> Unit,
+) {
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        DigitNormalizedOutlinedTextField(
+            value = value,
+            onValueChange = onValueChange,
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true,
+            label = { Text(stringResource(R.string.family_aqiqah_birth_date)) },
+            placeholder = { Text(stringResource(R.string.family_aqiqah_date_hint)) },
+            isError = parseError,
+            supportingText = if (parseError) {
+                { Text(stringResource(R.string.family_aqiqah_invalid_date)) }
+            } else null,
+            keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(keyboardType = KeyboardType.Text),
+        )
+        IslamicSecondaryButton(
+            onClick = onSave,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Text(stringResource(R.string.family_aqiqah_apply))
         }
     }
 }
