@@ -24,7 +24,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         ScholarStudyPlanEntity::class,
         ScholarStudySessionEntity::class,
     ],
-    version = 4,
+    version = 5,
     exportSchema = false,
 )
 abstract class ScholarLibraryDatabase : RoomDatabase() {
@@ -181,6 +181,30 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
             }
         }
 
+        /**
+         * v5 enriches existing flashcards with adaptive spaced-review state.
+         * Existing cards remain due exactly when they were before this upgrade.
+         */
+        internal val MIGRATION_4_5 = object : Migration(4, 5) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    "ALTER TABLE scholar_flashcards ADD COLUMN intervalDays INTEGER NOT NULL DEFAULT 0",
+                )
+                database.execSQL(
+                    "ALTER TABLE scholar_flashcards ADD COLUMN easeFactor REAL NOT NULL DEFAULT 2.5",
+                )
+                database.execSQL(
+                    "ALTER TABLE scholar_flashcards ADD COLUMN lapseCount INTEGER NOT NULL DEFAULT 0",
+                )
+                database.execSQL(
+                    "ALTER TABLE scholar_flashcards ADD COLUMN lastReviewedAtEpochMillis INTEGER",
+                )
+                database.execSQL(
+                    "ALTER TABLE scholar_flashcards ADD COLUMN lastRating TEXT",
+                )
+            }
+        }
+
         @Volatile
         private var instance: ScholarLibraryDatabase? = null
 
@@ -191,7 +215,7 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
                     ScholarLibraryDatabase::class.java,
                     DB_NAME,
                 )
-                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
+                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5)
                     .build()
                     .also { instance = it }
             }
