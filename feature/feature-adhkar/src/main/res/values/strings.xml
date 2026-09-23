@@ -21,7 +21,7 @@
     <string name="adhkar_settings_title">إعدادات الأذكار</string>
     <string name="adhkar_speech_section">القراءة الصوتية</string>
     <string name="adhkar_speech_toggle">قراءة الأذكار بصوت مسموع</string>
-    <string name="adhkar_speech_desc">يستخدم صوتًا عربيًا محليًا متاحًا على جهازك لقراءة نص الذكر، وتبقى الميزة متوقفة افتراضيًا.</string>
+    <string name="adhkar_speech_desc">عند تفعيلها مع الرسالة العائمة، يُقرأ الذكر الظاهر تلقائيًا بصوت عربي محلي ثم تُغلق الرسالة بعد انتهاء القراءة. تبقى الميزة متوقفة افتراضيًا.</string>
     <string name="adhkar_speech_voice">الصوت</string>
     <string name="adhkar_speech_voice_default">الصوت العربي المحلي الافتراضي</string>
     <string name="adhkar_speech_rate_value">السرعة: %1$s×</string>
