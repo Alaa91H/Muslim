@@ -1,7 +1,10 @@
 package org.muslim.app.feature.prayertimes.ui.location
 
 import android.Manifest
+import android.content.ComponentName
 import android.content.Context
+import android.content.ContextWrapper
+import android.content.Intent
 import android.os.Build
 import android.os.ParcelFileDescriptor
 import androidx.activity.ComponentActivity
@@ -66,6 +69,12 @@ class LocationScreenGpsInstrumentationTest {
         }
         val repository = PrayerSettingsRepository(targetContext)
         runBlocking { repository.save(PrayerSettings(adhanEnabled = false)) }
+        val viewModelContext = object : ContextWrapper(targetContext) {
+            override fun getApplicationContext(): Context = this
+
+            override fun startForegroundService(service: Intent): ComponentName? =
+                service.component
+        }
         val scheduler = AdhanScheduler(
             context = targetContext,
             calculator = PrayerTimesCalculator(),
@@ -76,7 +85,7 @@ class LocationScreenGpsInstrumentationTest {
                 "Riyadh, Saudi Arabia"
         }
         val viewModel = LocationViewModel(
-            context = targetContext,
+            context = viewModelContext,
             repository = repository,
             locationProvider = locationProvider,
             scheduler = scheduler,
