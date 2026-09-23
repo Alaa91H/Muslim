@@ -296,6 +296,27 @@
       "attribution": "Rightly Guided Caliphs historical reference content bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed. All articles remain marked NeedsReview pending article-level review of hadith grading, historical transmission, names, chronology, and contested reports.",
       "notes": "First versioned edition: succession, Abu Bakr, Umar, Uthman, Ali, the First Fitna, Hasan's reconciliation, and institutional development. Contested political narratives are explicitly presented as source-dependent."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_aqeedah_v2_json": {
+      "source": "Project-authored Aqeedah reference corpus using structured Quran and authentic hadith citations. The corpus explicitly distinguishes foundational texts from later theological terminology and marks disputed questions without sectarian verdicts.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Aqeedah and Foundations of Faith reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, hadith grading, technical terminology, and disputed scholarly formulations.",
+      "notes": "First versioned edition: tawhid, worship, divine names and attributes, faith, angels, scriptures, messengers, final prophethood, qadar, unseen matters, the Hereafter, repentance, and caution in takfir."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_quran_sciences_v2_json": {
+      "source": "Project-authored Quranic Sciences corpus using structured references to the Quran, Sahih hadith, and recognized classical works in Quranic studies including al-Itqan, al-Muqni, al-Nashr, and foundational tafsir-method works.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Quranic Sciences reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, hadith grading, technical terminology, and disputed scholarly formulations.",
+      "notes": "First versioned edition: revelation, preservation, compilation, Uthmanic codices, rasm, notation, Makki/Madani, occasions of revelation, seven ahruf, qira'at, tajwid, abrogation, muhkam/mutashabih, tafsir principles, translation, and digital verification."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_hadith_sciences_v2_json": {
+      "source": "Project-authored Hadith and Sunnah Sciences corpus using structured references to the Quran, Sahih collections, Ibn al-Salah, Ibn Hajar, al-Suyuti, al-Khatib al-Baghdadi, and other classical hadith-method works.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Hadith and Sunnah Sciences reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, hadith grading, technical terminology, and disputed scholarly formulations.",
+      "notes": "First versioned edition: Sunnah authority, isnad/matn, hadith grades, chain continuity, narrator criticism, hidden defects, takhrij, grading disagreement, major collections, apparent conflict, weak reports, numbering, and digital verification."
     }
   }
 }
