@@ -24,15 +24,21 @@ data class FuneralWillIntroVisibility(
 }
 
 /**
- * Stores only UI acknowledgement state for the funerals and Islamic-will screen.
+ * Stores non-content preferences for the funerals and Islamic-will screen.
  *
- * The acknowledgement flags are deliberately separated from the private will draft,
- * so clearing or restoring these cards never changes the user's will text.
+ * These preferences are deliberately separated from the encrypted private will
+ * payload, so changing guidance visibility or device-auth protection never
+ * changes the user's will text.
  */
 @Singleton
 class FuneralWillPreferencesRepository @Inject constructor(
     @ApplicationContext private val context: Context,
 ) {
+    val draftProtectionEnabled: Flow<Boolean> =
+        context.funeralWillUiDataStore.data.map { preferences ->
+            preferences[Keys.PROTECT_DRAFT_WITH_DEVICE_AUTH] ?: false
+        }
+
     val introVisibility: Flow<FuneralWillIntroVisibility> =
         context.funeralWillUiDataStore.data.map { preferences ->
             val storedVersion = preferences[Keys.CONTENT_VERSION]
@@ -46,6 +52,12 @@ class FuneralWillPreferencesRepository @Inject constructor(
                 )
             }
         }
+
+    suspend fun setDraftProtectionEnabled(enabled: Boolean) {
+        context.funeralWillUiDataStore.edit { preferences ->
+            preferences[Keys.PROTECT_DRAFT_WITH_DEVICE_AUTH] = enabled
+        }
+    }
 
     suspend fun dismissDraftIntro() = updateHiddenFlag(Keys.HIDE_DRAFT_INTRO, hidden = true)
 
@@ -82,5 +94,7 @@ class FuneralWillPreferencesRepository @Inject constructor(
         val HIDE_DRAFT_INTRO = booleanPreferencesKey("hide_draft_intro")
         val HIDE_LEGAL_NOTICE = booleanPreferencesKey("hide_legal_notice")
         val HIDE_PRIVACY_NOTICE = booleanPreferencesKey("hide_privacy_notice")
+        val PROTECT_DRAFT_WITH_DEVICE_AUTH =
+            booleanPreferencesKey("protect_draft_with_device_auth")
     }
 }
