@@ -3,37 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layoutDirection="locale"
-    android:background="@drawable/notification_prayer_panel"
     android:orientation="vertical"
-    android:paddingStart="1dp"
-    android:paddingTop="8dp"
-    android:paddingEnd="1dp"
-    android:paddingBottom="8dp">
+    android:paddingStart="0dp"
+    android:paddingTop="2dp"
+    android:paddingEnd="0dp"
+    android:paddingBottom="0dp">
 
     <!--
-      Android 12+ always places custom notification content inside a system
-      template, so the app cannot remove the outer SystemUI inset. Keep our own
-      horizontal inset almost zero to use the full width SystemUI actually gives
-      the RemoteViews, especially on narrow Samsung/One UI notification cards.
+      SystemUI owns the outer notification template on modern Android.
+      Keep this custom surface edge-to-edge inside the width Android gives us,
+      rather than drawing a second framed card that makes the content look
+      narrower than it really is.
     -->
     <TextView
         android:id="@+id/notification_expanded_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:gravity="start"
+        android:gravity="center_horizontal"
         android:maxLines="1"
-        android:paddingStart="2dp"
-        android:paddingEnd="2dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
         android:textColor="@color/notification_text_primary"
-        android:textSize="15sp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/notification_prayer_row"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:baselineAligned="false"
         android:layoutDirection="locale"
         android:orientation="horizontal"
@@ -42,17 +41,17 @@
         <LinearLayout
             android:id="@+id/notification_prayer_fajr_cell"
             android:layout_width="0dp"
-            android:layout_height="100dp"
+            android:layout_height="108dp"
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
             android:layout_weight="1"
             android:background="@drawable/notification_prayer_cell"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingStart="1dp"
-            android:paddingTop="6dp"
-            android:paddingEnd="1dp"
-            android:paddingBottom="6dp">
+            android:paddingStart="2dp"
+            android:paddingTop="7dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="7dp">
 
             <TextView
                 android:id="@+id/notification_prayer_fajr_name"
@@ -69,7 +68,7 @@
                 android:id="@+id/notification_prayer_fajr_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="4dp"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"
@@ -81,12 +80,12 @@
                 android:id="@+id/notification_prayer_fajr_status_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="6dp"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"
                 android:textColor="@color/notification_text_muted"
-                android:textSize="8sp"
+                android:textSize="9sp"
                 android:visibility="invisible" />
 
             <Chronometer
@@ -97,26 +96,25 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:textColor="@color/notification_text_secondary"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textStyle="bold"
                 android:visibility="invisible" />
-
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/notification_prayer_dhuhr_cell"
             android:layout_width="0dp"
-            android:layout_height="100dp"
+            android:layout_height="108dp"
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
             android:layout_weight="1"
             android:background="@drawable/notification_prayer_cell"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingStart="1dp"
-            android:paddingTop="6dp"
-            android:paddingEnd="1dp"
-            android:paddingBottom="6dp">
+            android:paddingStart="2dp"
+            android:paddingTop="7dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="7dp">
 
             <TextView
                 android:id="@+id/notification_prayer_dhuhr_name"
@@ -133,7 +131,7 @@
                 android:id="@+id/notification_prayer_dhuhr_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="4dp"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"
@@ -145,12 +143,12 @@
                 android:id="@+id/notification_prayer_dhuhr_status_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="6dp"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"
                 android:textColor="@color/notification_text_muted"
-                android:textSize="8sp"
+                android:textSize="9sp"
                 android:visibility="invisible" />
 
             <Chronometer
@@ -161,26 +159,25 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:textColor="@color/notification_text_secondary"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textStyle="bold"
                 android:visibility="invisible" />
-
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/notification_prayer_asr_cell"
             android:layout_width="0dp"
-            android:layout_height="100dp"
+            android:layout_height="108dp"
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
             android:layout_weight="1"
             android:background="@drawable/notification_prayer_cell"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingStart="1dp"
-            android:paddingTop="6dp"
-            android:paddingEnd="1dp"
-            android:paddingBottom="6dp">
+            android:paddingStart="2dp"
+            android:paddingTop="7dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="7dp">
 
             <TextView
                 android:id="@+id/notification_prayer_asr_name"
@@ -197,7 +194,7 @@
                 android:id="@+id/notification_prayer_asr_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="4dp"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"
@@ -209,12 +206,12 @@
                 android:id="@+id/notification_prayer_asr_status_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="6dp"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"
                 android:textColor="@color/notification_text_muted"
-                android:textSize="8sp"
+                android:textSize="9sp"
                 android:visibility="invisible" />
 
             <Chronometer
@@ -225,26 +222,25 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:textColor="@color/notification_text_secondary"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textStyle="bold"
                 android:visibility="invisible" />
-
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/notification_prayer_maghrib_cell"
             android:layout_width="0dp"
-            android:layout_height="100dp"
+            android:layout_height="108dp"
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
             android:layout_weight="1"
             android:background="@drawable/notification_prayer_cell"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingStart="1dp"
-            android:paddingTop="6dp"
-            android:paddingEnd="1dp"
-            android:paddingBottom="6dp">
+            android:paddingStart="2dp"
+            android:paddingTop="7dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="7dp">
 
             <TextView
                 android:id="@+id/notification_prayer_maghrib_name"
@@ -261,7 +257,7 @@
                 android:id="@+id/notification_prayer_maghrib_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="4dp"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"
@@ -273,12 +269,12 @@
                 android:id="@+id/notification_prayer_maghrib_status_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="6dp"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"
                 android:textColor="@color/notification_text_muted"
-                android:textSize="8sp"
+                android:textSize="9sp"
                 android:visibility="invisible" />
 
             <Chronometer
@@ -289,26 +285,25 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:textColor="@color/notification_text_secondary"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textStyle="bold"
                 android:visibility="invisible" />
-
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/notification_prayer_isha_cell"
             android:layout_width="0dp"
-            android:layout_height="100dp"
+            android:layout_height="108dp"
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
             android:layout_weight="1"
             android:background="@drawable/notification_prayer_cell"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingStart="1dp"
-            android:paddingTop="6dp"
-            android:paddingEnd="1dp"
-            android:paddingBottom="6dp">
+            android:paddingStart="2dp"
+            android:paddingTop="7dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="7dp">
 
             <TextView
                 android:id="@+id/notification_prayer_isha_name"
@@ -325,7 +320,7 @@
                 android:id="@+id/notification_prayer_isha_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="4dp"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"
@@ -337,12 +332,12 @@
                 android:id="@+id/notification_prayer_isha_status_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="6dp"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"
                 android:textColor="@color/notification_text_muted"
-                android:textSize="8sp"
+                android:textSize="9sp"
                 android:visibility="invisible" />
 
             <Chronometer
@@ -353,10 +348,9 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:textColor="@color/notification_text_secondary"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textStyle="bold"
                 android:visibility="invisible" />
-
         </LinearLayout>
 
     </LinearLayout>
