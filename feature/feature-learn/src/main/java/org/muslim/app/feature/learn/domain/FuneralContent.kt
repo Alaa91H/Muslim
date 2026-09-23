@@ -22,6 +22,12 @@ data class WillEducationSection(
     val reference: LocalizedFuneralText,
 )
 
+data class WillReferenceEntry(
+    val id: String,
+    val source: LocalizedFuneralText,
+    val scope: LocalizedFuneralText,
+)
+
 /**
  * General educational content for funerals and Islamic-will preparation.
  *
@@ -344,6 +350,9 @@ object FuneralContent {
 
     val willReferences: LocalizedFuneralText
         get() = WillEducationContent.willReferences
+
+    val willReferenceIndex: List<WillReferenceEntry>
+        get() = WillEducationContent.willReferenceIndex
 
     fun searchGuideSections(
         query: String,
