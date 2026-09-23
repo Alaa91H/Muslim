@@ -119,4 +119,59 @@ class HistoryContentValidatorTest {
         assertThat(science.map { it.id }).doesNotContain("architecture")
     }
 
+
+    @Test
+    fun `historical events are chronological bilingual and fully categorized`() {
+        val events = IslamicHistoricalEvents.events
+
+        assertThat(events).hasSize(22)
+        assertThat(events.map { it.id }).containsNoDuplicates()
+        assertThat(events.mapNotNull { it.date.startCe }).isInOrder()
+        assertThat(events.map { it.category }.toSet())
+            .containsExactlyElementsIn(HistoricalEventCategory.entries)
+        events.forEach { event ->
+            assertThat(event.title.arabic).isNotEmpty()
+            assertThat(event.title.english).isNotEmpty()
+            assertThat(event.summary.arabic).isNotEmpty()
+            assertThat(event.summary.english).isNotEmpty()
+            assertThat(event.context.arabic).isNotEmpty()
+            assertThat(event.context.english).isNotEmpty()
+            assertThat(event.significance.arabic).isNotEmpty()
+            assertThat(event.significance.english).isNotEmpty()
+            assertThat(event.sourceIds).isNotEmpty()
+        }
+    }
+
+    @Test
+    fun `events can be filtered by era and category without losing chronology`() {
+        val abbasid = IslamicHistoricalEvents.byEra("abbasid")
+        val foundations = IslamicHistoricalEvents.byCategory(
+            HistoricalEventCategory.FoundationAndUrbanism,
+        )
+
+        assertThat(abbasid.map { it.id }).containsAtLeast(
+            "abbasid_revolution_750",
+            "baghdad_founded_762",
+            "abbasid_translation_scholarship",
+            "baghdad_1258",
+        )
+        assertThat(abbasid.mapNotNull { it.date.startCe }).isInOrder()
+        assertThat(foundations.map { it.id }).containsAtLeast(
+            "baghdad_founded_762",
+            "cairo_founded_969",
+        )
+    }
+
+    @Test
+    fun `event catalogue links into states people places and civilization topics`() {
+        val linked = IslamicHistoricalEvents.events.filter { event ->
+            event.stateIds.isNotEmpty() ||
+                event.personIds.isNotEmpty() ||
+                event.placeIds.isNotEmpty() ||
+                event.relatedTopicIds.isNotEmpty()
+        }
+
+        assertThat(linked.size).isAtLeast(18)
+    }
+
 }
