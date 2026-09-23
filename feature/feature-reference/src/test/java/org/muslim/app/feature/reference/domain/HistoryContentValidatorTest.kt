@@ -45,6 +45,7 @@ class HistoryContentValidatorTest {
 
         assertThat(errors.joinToString("\n")).contains("unknown source")
     }
+
     @Test
     fun `states catalogue is chronological bilingual and source linked`() {
         val states = IslamicHistoryStates.states
@@ -83,6 +84,39 @@ class HistoryContentValidatorTest {
     fun `shared history source registry has unique ids`() {
         assertThat(IslamicHistorySources.all.map { it.id }).containsNoDuplicates()
         assertThat(IslamicHistorySources.byId("met_major_dynasties")).isNotNull()
+    }
+
+
+    @Test
+    fun `civilization catalogue covers all four thematic categories`() {
+        val topics = IslamicCivilizationContent.topics
+
+        assertThat(topics).hasSize(12)
+        assertThat(topics.map { it.id }).containsNoDuplicates()
+        assertThat(topics.map { it.category }.toSet())
+            .containsExactlyElementsIn(CivilizationCategory.entries)
+        topics.forEach { topic ->
+            assertThat(topic.sections).isNotEmpty()
+            assertThat(topic.sourceIds).isNotEmpty()
+            assertThat(topic.title.arabic).isNotEmpty()
+            assertThat(topic.title.english).isNotEmpty()
+        }
+    }
+
+    @Test
+    fun `civilization category filtering keeps unrelated topics out`() {
+        val science = IslamicCivilizationContent.byCategory(
+            CivilizationCategory.KnowledgeAndSciences,
+        )
+
+        assertThat(science.map { it.id }).containsAtLeast(
+            "translation_books",
+            "mathematics",
+            "astronomy",
+            "medicine_bimaristans",
+            "optics",
+        )
+        assertThat(science.map { it.id }).doesNotContain("architecture")
     }
 
 }
