@@ -160,6 +160,9 @@ class AdhkarSettingsViewModel @Inject constructor(
                 current.overlayBackgroundColor,
                 current.overlayCornerRadiusDp,
                 current.overlayFontSizeSp,
+                readAloud = current.speechEnabled,
+                speechVoiceName = current.speechVoiceName,
+                speechRate = current.speechRate,
             )
         }
     }
