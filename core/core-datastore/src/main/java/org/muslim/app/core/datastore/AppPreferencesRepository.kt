@@ -57,7 +57,7 @@ class AppPreferencesRepository @Inject constructor(
             lastUpdateCheckEpoch = prefs[Keys.LAST_UPDATE_CHECK] ?: 0L,
             nearbyMosqueSearchRadiusKm = (prefs[Keys.NEARBY_MOSQUE_SEARCH_RADIUS_KM]
                 ?: AppPreferences.DEFAULT_NEARBY_MOSQUE_RADIUS_KM)
-                .takeIf { it in NEARBY_MOSQUE_RADIUS_OPTIONS_KM }
+                .takeIf { it in AppPreferences.NEARBY_MOSQUE_RADIUS_OPTIONS_KM }
                 ?: AppPreferences.DEFAULT_NEARBY_MOSQUE_RADIUS_KM,
             nearbyMosqueCacheJson = prefs[Keys.NEARBY_MOSQUE_CACHE_JSON].orEmpty(),
             nearbyMosqueCacheSavedAtEpochMillis = prefs[Keys.NEARBY_MOSQUE_CACHE_SAVED_AT] ?: 0L,
@@ -184,7 +184,7 @@ class AppPreferencesRepository @Inject constructor(
 
     /** Persists a supported nearby-mosque radius and rejects corrupted values. */
     suspend fun setNearbyMosqueSearchRadiusKm(radiusKm: Int) {
-        require(radiusKm in NEARBY_MOSQUE_RADIUS_OPTIONS_KM) { "Unsupported mosque radius: $radiusKm" }
+        require(radiusKm in AppPreferences.NEARBY_MOSQUE_RADIUS_OPTIONS_KM) { "Unsupported mosque radius: $radiusKm" }
         edit { prefs -> prefs[Keys.NEARBY_MOSQUE_SEARCH_RADIUS_KM] = radiusKm }
     }
 
@@ -234,7 +234,6 @@ class AppPreferencesRepository @Inject constructor(
         /** Mirror file/key for the UI language (see [setLanguage]). */
         const val LOCALE_MIRROR_FILE = "app_locale"
         const val LOCALE_MIRROR_KEY = "language"
-        private val NEARBY_MOSQUE_RADIUS_OPTIONS_KM = setOf(1, 3, 5, 10)
     }
 
     private object Keys {
