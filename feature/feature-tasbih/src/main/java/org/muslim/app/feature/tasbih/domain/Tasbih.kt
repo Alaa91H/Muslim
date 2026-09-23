@@ -238,6 +238,8 @@ data class TasbihState(
     val target: Int,
     val phrase: TasbihPhrase,
     val history: List<DailyCount>,
+    val sessionMode: TasbihSessionMode = TasbihSessionMode.Free,
+    val roundsGoal: Int = 3,
 ) {
     /** Count for the currently selected phrase. */
     val count: Int get() = counts[phrase] ?: 0
