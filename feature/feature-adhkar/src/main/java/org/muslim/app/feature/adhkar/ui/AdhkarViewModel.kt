@@ -47,6 +47,7 @@ class AdhkarViewModel @Inject constructor(
     ) { list, category, prefs ->
         list.filter { dhikr ->
             prefs.isDhikrEnabled(dhikr.id) &&
+                dhikr.id !in prefs.favoriteDhikrIds &&
                 (category == null || dhikr.category == category)
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
