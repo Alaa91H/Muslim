@@ -57,4 +57,7 @@
     <string name="funeral_will_auth_not_configured" tools:ignore="MissingTranslation">لا توجد وسيلة تحقق مؤهلة على الجهاز. أعدّ قفل الشاشة أو البصمة/الوجه من إعدادات Android أولًا.</string>
     <string name="funeral_will_auth_unavailable" tools:ignore="MissingTranslation">التحقق بالبصمة أو قفل الجهاز غير متاح على هذا الجهاز.</string>
     <string name="funeral_will_protection_loading" tools:ignore="MissingTranslation">جارٍ التحقق من إعدادات حماية المسودة…</string>
+    <string name="funeral_will_print" tools:ignore="MissingTranslation">طباعة المسودة</string>
+    <string name="funeral_will_print_job_name" tools:ignore="MissingTranslation">مسودة وصية شرعية</string>
+    <string name="funeral_will_print_error" tools:ignore="MissingTranslation">تعذر فتح خدمة الطباعة على هذا الجهاز.</string>
 </resources>
