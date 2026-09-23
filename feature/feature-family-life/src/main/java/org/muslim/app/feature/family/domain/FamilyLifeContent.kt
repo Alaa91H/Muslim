@@ -419,6 +419,7 @@ object FamilyLifeContent {
         )
     )
 
+
     val familyArticleMetadata: List<FamilyTopicMetadata> = listOf(
         FamilyTopicMetadata("engagement", FamilyTopicCategory.BeforeMarriage, listOf("خطبة", "تعارف", "engagement", "istikhara")),
         FamilyTopicMetadata("nikah", FamilyTopicCategory.Marriage, listOf("نكاح", "مهر", "ولي", "marriage", "mahr")),
@@ -467,4 +468,32 @@ object FamilyLifeContent {
             .replace('آ', 'ا')
             .replace('ى', 'ي')
 
-    fun searchNames
+    fun searchNames(query: String, gender: BabyNameGender? = null): List<IslamicBabyName> {
+        val normalized = query.trim().lowercase()
+        return babyNames.filter { item ->
+            (gender == null || item.gender == gender) &&
+                (normalized.isEmpty() || listOf(
+                    item.nameArabic,
+                    item.transliteration.lowercase(),
+                    item.meaningArabic,
+                    item.meaningEnglish.lowercase(),
+                ).any { it.contains(normalized) })
+        }
+    }
+
+    fun isSafeAudioUrl(url: String): Boolean =
+        url.startsWith("https://everyayah.com/data/") &&
+            url.endsWith(".mp3") &&
+            !url.contains("..") &&
+            !url.contains('\n') &&
+            !url.contains('\r')
+
+    private fun name(
+        id: String,
+        arabic: String,
+        transliteration: String,
+        gender: BabyNameGender,
+        meaningArabic: String,
+        meaningEnglish: String,
+    ) = IslamicBabyName(id, arabic, transliteration, gender, meaningArabic, meaningEnglish)
+}
