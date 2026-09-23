@@ -218,6 +218,8 @@
     <string name="settings_updates_weekly">أسبوعي</string>
     <string name="settings_updates_monthly">شهري</string>
     <string name="settings_updates_check_now">تحقق الآن</string>
+    <string name="settings_updates_checking">جارٍ الفحص…</string>
+    <string name="settings_updates_last_successful">آخر فحص ناجح: %1$s</string>
     <string name="settings_updates_open">عرض التحديثات</string>
     <string name="settings_updates_found">توجد نسخة أحدث: %1$s</string>
     <string name="settings_updates_latest">أنت على أحدث إصدار.</string>
