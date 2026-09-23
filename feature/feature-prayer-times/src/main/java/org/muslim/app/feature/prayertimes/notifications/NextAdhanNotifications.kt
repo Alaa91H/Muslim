@@ -20,9 +20,13 @@ import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 /**
  * Builders for the permanent next-Adhan countdown notification.
  *
- * The compact line marks the upcoming prayer's wall-clock time in Islamic green
- * and the remaining duration in red. The expanded elapsed duration follows the
- * same red danger/status treatment; these semantic colours are not user-tinted.
+ * The collapsed card intentionally uses a two-level hierarchy:
+ * prayer + wall-clock time as the title, then the live remaining duration.
+ * When expanded, the missed prayer is added as a compact second status row.
+ *
+ * Keeping each piece of information on its own system-managed row avoids the
+ * awkward wrapping and oversized whitespace that BigTextStyle can produce on
+ * RTL layouts and OEM notification surfaces.
  */
 object NextAdhanNotifications {
 
@@ -49,13 +53,13 @@ object NextAdhanNotifications {
         showMissed: Boolean = true,
         use24h: Boolean = false,
     ): Notification {
-        val upcomingTimeColor = context.getColor(R.color.adhan_accent)
+        val upcomingColor = context.getColor(R.color.adhan_accent)
         val textLines = buildTextLines(
             context = context,
             data = data,
             showMissed = showMissed,
             use24h = use24h,
-            upcomingTimeColor = upcomingTimeColor,
+            upcomingColor = upcomingColor,
         )
 
         // Tapping the notification opens the prayer-times screen directly.
@@ -66,8 +70,7 @@ object NextAdhanNotifications {
             // This is a silent status/countdown card, not the active Adhan alert.
             // It must never attach a large icon that could make the compact card
             // look like a duplicate, retired, or active alarm notification.
-            .setContentTitle(textLines.compact)
-            .setSubText(data.nextPrayer?.let { context.getString(prayerLabelRes(it)) })
+            .setContentTitle(textLines.title)
             .setCategory(NotificationCompat.CATEGORY_STATUS)
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .setBadgeIconType(NotificationCompat.BADGE_ICON_NONE)
@@ -78,20 +81,35 @@ object NextAdhanNotifications {
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             .setContentIntent(contentIntent)
 
-        // BigText is deliberately supplied only for the optional second line.
-        // The system keeps [compactLine] as the one-line collapsed presentation.
-        if (textLines.expandedMissed.isNotEmpty()) {
-            builder.setStyle(NotificationCompat.BigTextStyle().bigText(textLines.expandedMissed))
+        if (textLines.remaining.isNotEmpty()) {
+            builder.setContentText(textLines.remaining)
         }
+
+        // InboxStyle keeps the expanded layout dense and predictable: the
+        // upcoming prayer remains the visual anchor and the optional missed
+        // prayer becomes one additional row instead of a separate BigText block.
+        if (textLines.remaining.isNotEmpty() || textLines.missed.isNotEmpty()) {
+            val expanded = NotificationCompat.InboxStyle()
+                .setBigContentTitle(textLines.title)
+            if (textLines.remaining.isNotEmpty()) {
+                expanded.addLine(textLines.remaining)
+            }
+            if (textLines.missed.isNotEmpty()) {
+                expanded.addLine(textLines.missed)
+            }
+            builder.setStyle(expanded)
+        }
+
         if (data.nextPrayerAt != null) {
-            builder.setColor(upcomingTimeColor)
+            builder.setColor(upcomingColor)
         }
         return builder.build()
     }
 
     private data class CountdownTextLines(
-        val compact: SpannableStringBuilder,
-        val expandedMissed: SpannableStringBuilder,
+        val title: SpannableStringBuilder,
+        val remaining: SpannableStringBuilder,
+        val missed: SpannableStringBuilder,
     )
 
     private fun buildTextLines(
@@ -99,59 +117,66 @@ object NextAdhanNotifications {
         data: PrayerCountdownData,
         showMissed: Boolean,
         use24h: Boolean,
-        upcomingTimeColor: Int,
+        upcomingColor: Int,
     ): CountdownTextLines {
-        val compact = SpannableStringBuilder()
-        val expandedMissed = SpannableStringBuilder()
-        val durationColor = MissedAdhanColors.DEFAULT
+        val title = SpannableStringBuilder()
+        val remaining = SpannableStringBuilder()
+        val missed = SpannableStringBuilder()
+        val missedColor = MissedAdhanColors.DEFAULT
         val nextPrayer = data.nextPrayer
-        if (!data.hasLocation || nextPrayer == null) {
-            compact.append(context.getString(R.string.next_adhan_no_location))
-            return CountdownTextLines(compact, expandedMissed)
+
+        if (!data.hasLocation || nextPrayer == null || data.nextPrayerAt == null) {
+            title.append(context.getString(R.string.next_adhan_no_location))
+            return CountdownTextLines(title, remaining, missed)
         }
 
+        val prayerLabel = context.getString(prayerLabelRes(nextPrayer))
         val wallClockTime = TimeFormats.timeFormatter(use24h).format(data.nextPrayerAt)
-        val title = context.getString(
-            R.string.next_adhan_notification_title,
-            context.getString(prayerLabelRes(nextPrayer)),
-            wallClockTime,
-        )
-        compact.append(title)
-        compact.setSpan(
-            ForegroundColorSpan(upcomingTimeColor),
-            title.lastIndexOf(wallClockTime).coerceAtLeast(0),
-            (title.lastIndexOf(wallClockTime).coerceAtLeast(0) + wallClockTime.length).coerceAtMost(compact.length),
-            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
-        )
-        compact.append(" · ")
-        val remainingStart = compact.length
-        compact.append(context.getString(R.string.next_adhan_remaining, formatCountdown(data.remainingSeconds)))
-        compact.setSpan(
-            ForegroundColorSpan(durationColor),
-            remainingStart,
-            compact.length,
+        title.append(prayerLabel)
+        title.append("  ·  ")
+        val wallClockStart = title.length
+        title.append(wallClockTime)
+        title.setSpan(
+            ForegroundColorSpan(upcomingColor),
+            wallClockStart,
+            title.length,
             Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
         )
 
-        data.missedPrayer?.takeIf { showMissed }?.let { missed ->
-            expandedMissed.append(
+        val remainingValue = formatCountdown(data.remainingSeconds)
+        val remainingText = context.getString(R.string.next_adhan_remaining, remainingValue)
+        remaining.append(remainingText)
+        val remainingValueStart = remainingText.lastIndexOf(remainingValue).coerceAtLeast(0)
+        remaining.setSpan(
+            ForegroundColorSpan(upcomingColor),
+            remainingValueStart,
+            (remainingValueStart + remainingValue.length).coerceAtMost(remaining.length),
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
+        )
+
+        data.missedPrayer?.takeIf { showMissed }?.let { missedPrayer ->
+            missed.append(
                 context.getString(
                     R.string.next_adhan_missed,
-                    context.getString(prayerLabelRes(missed)),
+                    context.getString(prayerLabelRes(missedPrayer)),
                     TimeFormats.timeFormatter(use24h).format(data.missedPrayerAt),
                 ),
             )
-            expandedMissed.append(" · ")
-            val elapsedStart = expandedMissed.length
-            expandedMissed.append(context.getString(R.string.next_adhan_elapsed, formatCountdown(data.elapsedSeconds)))
-            expandedMissed.setSpan(
-                ForegroundColorSpan(durationColor),
-                elapsedStart,
-                expandedMissed.length,
+            missed.append("  ·  ")
+            val elapsedValue = formatCountdown(data.elapsedSeconds)
+            val elapsedText = context.getString(R.string.next_adhan_elapsed, elapsedValue)
+            val elapsedStart = missed.length
+            missed.append(elapsedText)
+            val elapsedValueOffset = elapsedText.lastIndexOf(elapsedValue).coerceAtLeast(0)
+            missed.setSpan(
+                ForegroundColorSpan(missedColor),
+                elapsedStart + elapsedValueOffset,
+                (elapsedStart + elapsedValueOffset + elapsedValue.length).coerceAtMost(missed.length),
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
             )
         }
-        return CountdownTextLines(compact, expandedMissed)
+
+        return CountdownTextLines(title, remaining, missed)
     }
 
     private fun createContentIntent(context: Context): PendingIntent? = runCatching {
