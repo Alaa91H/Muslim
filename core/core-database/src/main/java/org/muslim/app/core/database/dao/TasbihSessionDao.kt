@@ -39,6 +39,15 @@ interface TasbihSessionDao {
     )
     fun observeRecent(limit: Int): Flow<List<TasbihSessionEntity>>
 
+    @Query(
+        """
+        SELECT * FROM tasbih_sessions
+        ORDER BY lastUpdatedAtEpochMillis DESC
+        LIMIT 1
+        """
+    )
+    suspend fun getLatest(): TasbihSessionEntity?
+
     @Insert
     suspend fun insert(session: TasbihSessionEntity): Long
 
