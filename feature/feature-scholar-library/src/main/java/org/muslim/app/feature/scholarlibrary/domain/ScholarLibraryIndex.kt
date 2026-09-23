@@ -27,7 +27,6 @@ object ScholarLibraryIndex {
 
     fun hierarchy(passages: List<ScholarPassage>): ScholarBookHierarchy {
         val volumes = passages
-            .sortedWith(compareBy<ScholarPassage> { it.orderIndex }.thenBy { it.id })
             .groupBy { it.volume.orEmpty() }
             .map { (volume, volumePassages) ->
                 ScholarVolumeNode(
