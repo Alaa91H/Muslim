@@ -1,6 +1,7 @@
 package org.muslim.app.feature.reference.data
 
 import com.google.common.truth.Truth.assertThat
+import java.io.File
 import kotlinx.serialization.json.Json
 import org.junit.Test
 import org.muslim.app.feature.reference.domain.HistorySearchType
@@ -60,4 +61,29 @@ class HistorySearchPersistenceTest {
         assertThat(asset.documents).hasSize(1)
         assertThat(asset.documents.single().typeOrNull()).isEqualTo(HistorySearchType.Era)
     }
+
+    @Test
+    fun `packaged search index covers the complete current catalogue`() {
+        val file = File("src/main/assets/history/search_index.json")
+        assertThat(file.exists()).isTrue()
+
+        val asset = Json {
+            ignoreUnknownKeys = true
+        }.decodeFromString(
+            HistorySearchAsset.serializer(),
+            file.readText(),
+        ).validated()
+
+        assertThat(asset.documents).hasSize(79)
+        assertThat(asset.documents.groupingBy { it.entityType }.eachCount())
+            .containsExactly(
+                "Era", 6,
+                "State", 18,
+                "Event", 22,
+                "CivilizationTopic", 12,
+                "Person", 8,
+                "Place", 13,
+            )
+    }
+
 }
