@@ -363,7 +363,7 @@ internal data class HistoryContentAsset(
         require(recordCount > 0) { "History content asset must not be empty" }
 
         val keys = buildList {
-            addAll(articles.map { "Article:${it.id}" })
+            addAll(articles.map { "Article:${it.eraId}" })
             addAll(states.map { "State:${it.id}" })
             addAll(events.map { "Event:${it.id}" })
             addAll(civilizationTopics.map { "CivilizationTopic:${it.id}" })
