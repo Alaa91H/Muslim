@@ -170,23 +170,10 @@ fun FuneralWillScreen(
                 tint = MaterialTheme.colorScheme.tertiary,
                 compact = true,
             )
-            PrimaryScrollableTabRow(selectedTabIndex = selectedTab, edgePadding = 12.dp) {
-                FuneralWillTab.entries.forEach { tab ->
-                    Tab(
-                        selected = selectedTab == tab.ordinal,
-                        onClick = { selectedTab = tab.ordinal },
-                        text = {
-                            Text(
-                                when (tab) {
-                                    FuneralWillTab.Will -> stringResource(R.string.funeral_will_tab_will)
-                                    FuneralWillTab.FuneralGuide -> stringResource(R.string.funeral_will_tab_guide)
-                                },
-                            )
-                        },
-                        icon = { Icon(tab.icon, contentDescription = null, modifier = Modifier.size(18.dp)) },
-                    )
-                }
-            }
+            FuneralWillTabs(
+                selectedTab = selectedTab,
+                onSelect = { selectedTab = it },
+            )
             IslamicDecorationDivider(
                 tint = MaterialTheme.colorScheme.tertiary,
                 modifier = Modifier.padding(horizontal = 24.dp),
@@ -202,6 +189,30 @@ fun FuneralWillScreen(
                 )
                 FuneralWillTab.FuneralGuide -> FuneralGuideContent(isArabic = isArabic)
             }
+        }
+    }
+}
+
+@Composable
+private fun FuneralWillTabs(
+    selectedTab: Int,
+    onSelect: (Int) -> Unit,
+) {
+    PrimaryScrollableTabRow(selectedTabIndex = selectedTab, edgePadding = 12.dp) {
+        FuneralWillTab.entries.forEach { tab ->
+            Tab(
+                selected = selectedTab == tab.ordinal,
+                onClick = { onSelect(tab.ordinal) },
+                text = {
+                    Text(
+                        when (tab) {
+                            FuneralWillTab.Will -> stringResource(R.string.funeral_will_tab_will)
+                            FuneralWillTab.FuneralGuide -> stringResource(R.string.funeral_will_tab_guide)
+                        },
+                    )
+                },
+                icon = { Icon(tab.icon, contentDescription = null, modifier = Modifier.size(18.dp)) },
+            )
         }
     }
 }
