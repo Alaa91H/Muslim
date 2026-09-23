@@ -14,7 +14,6 @@ import org.muslim.app.feature.tasbih.data.TasbihActionCoordinator
 import org.muslim.app.feature.tasbih.data.TasbihRepository
 import org.muslim.app.feature.tasbih.data.TasbihSessionRepository
 import org.muslim.app.feature.tasbih.domain.TargetSoundSettings
-import org.muslim.app.feature.tasbih.domain.TasbihCounter
 import org.muslim.app.feature.tasbih.domain.TasbihPhrase
 import org.muslim.app.feature.tasbih.domain.TasbihSessionHistoryItem
 import org.muslim.app.feature.tasbih.domain.TasbihSessionMode
@@ -132,8 +131,20 @@ class TasbihViewModel @Inject constructor(
         mode: TasbihSessionMode,
         target: Int,
         roundsGoal: Int,
-    ) = viewModelScope.launch {
-        actionCoordinator.configureSession(mode, target, roundsGoal)
+    ) {
+        val current = state.value
+        val normalizedTarget = target.coerceIn(1, 100_000)
+        val normalizedRounds = roundsGoal.coerceIn(1, TasbihRepository.MAX_ROUNDS_GOAL)
+        if (
+            current.sessionMode == mode &&
+            current.target == normalizedTarget &&
+            current.roundsGoal == normalizedRounds
+        ) {
+            return
+        }
+        viewModelScope.launch {
+            actionCoordinator.configureSession(mode, normalizedTarget, normalizedRounds)
+        }
     }
 
     fun setPhrase(phrase: TasbihPhrase) {
