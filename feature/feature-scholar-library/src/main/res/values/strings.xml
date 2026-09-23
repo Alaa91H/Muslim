@@ -37,4 +37,28 @@
     <string name="scholar_library_again">أعدها الآن</string>
     <string name="scholar_library_flashcard_front">السؤال أو المطلع</string>
     <string name="scholar_library_flashcard_back">الجواب أو الفائدة</string>
+
+    <string name="scholar_library_continue_reading">تابع الدراسة</string>
+    <string name="scholar_library_completed">مكتمل</string>
+    <string name="scholar_library_progress_percent">التقدم: %1$d%%</string>
+    <string name="scholar_library_add_bookmark">إضافة إشارة</string>
+    <string name="scholar_library_remove_bookmark">إزالة الإشارة</string>
+    <string name="scholar_library_add_highlight">تظليل المقطع</string>
+    <string name="scholar_library_remove_highlight">إزالة التظليل</string>
+    <string name="scholar_library_mark_studied">درست حتى هنا</string>
+    <string name="scholar_library_bookmarks">الإشارات المرجعية</string>
+    <string name="scholar_library_no_bookmarks">لا توجد إشارات مرجعية بعد. أضف إشارة من أي مقطع لتعود إليه سريعاً.</string>
+    <string name="scholar_library_highlights">التظليلات</string>
+    <string name="scholar_library_no_highlights">لا توجد تظليلات بعد. يمكنك حفظ مقطع مهم من صفحة الكتاب.</string>
+    <string name="scholar_library_delete_highlight">حذف التظليل</string>
+    <string name="scholar_library_level">المستوى: %1$s</string>
+    <string name="scholar_library_level_foundation">تأسيسي</string>
+    <string name="scholar_library_level_intermediate">متوسط</string>
+    <string name="scholar_library_level_advanced">متقدم</string>
+    <string name="scholar_library_language">اللغة: %1$s</string>
+    <string name="scholar_library_publisher">الناشر: %1$s</string>
+    <string name="scholar_library_edition">الطبعة: %1$s</string>
+    <string name="scholar_library_editor">المحقق/المحرر: %1$s</string>
+    <string name="scholar_library_publication_year">سنة النشر: %1$s</string>
+    <string name="scholar_library_volume_count">عدد المجلدات: %1$d</string>
 </resources>
