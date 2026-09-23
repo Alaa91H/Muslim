@@ -348,7 +348,7 @@ data class ScholarReviewEvent(
     val outcome: ScholarReviewOutcome,
 )
 
-data class ScholarStudyActivitySummary(
+data class ScholarReviewActivity(
     val reviewsToday: Int,
     val reviewsLast7Days: Int,
     val cardsReviewedLast7Days: Int,
@@ -356,9 +356,17 @@ data class ScholarStudyActivitySummary(
     val hardLast7Days: Int,
     val goodLast7Days: Int,
     val easyLast7Days: Int,
+)
+
+data class ScholarStudyActivity(
     val completedSessionsLast7Days: Int,
     val studiedPassagesLast7Days: Int,
     val dueCards: Int,
+)
+
+data class ScholarStudyActivitySummary(
+    val review: ScholarReviewActivity,
+    val study: ScholarStudyActivity,
 )
 
 data class ScholarCategoryMastery(
