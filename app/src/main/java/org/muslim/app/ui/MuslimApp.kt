@@ -428,7 +428,12 @@ fun MuslimApp(
                     )
                 }
                 composable(SCHOLAR_LIBRARY_STUDY_ROUTE) {
-                    ScholarStudyDeskScreen(onBack = { navController.popBackStack() })
+                    ScholarStudyDeskScreen(
+                        onBack = { navController.popBackStack() },
+                        onOpenSession = { pathId ->
+                            navController.navigate("$SCHOLAR_LIBRARY_SESSION_ROUTE/$pathId")
+                        },
+                    )
                 }
                 composable(SCHOLAR_LIBRARY_AUTHORS_ROUTE) {
                     ScholarAuthorsScreen(
