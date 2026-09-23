@@ -23,7 +23,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -40,6 +39,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import org.muslim.app.core.common.time.HijriDate
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicDecorationBand
+import org.muslim.app.core.ui.theme.IslamicDecorationCorners
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.learn.R
@@ -61,7 +63,7 @@ fun HajjDaysCalculatorScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
@@ -103,15 +105,25 @@ private fun HajjDaysCalculatorContent(modifier: Modifier = Modifier) {
             .verticalScroll(rememberScrollState())
             .padding(16.dp),
     ) {
+        IslamicDecorationBand(
+            tint = MaterialTheme.colorScheme.tertiary,
+            compact = true,
+        )
         IslamicCard(
             modifier = Modifier.fillMaxWidth(),
             containerColor = MaterialTheme.colorScheme.primaryContainer,
         ) {
-            Text(
+            androidx.compose.foundation.layout.Box {
+                IslamicDecorationCorners(
+                    tint = MaterialTheme.colorScheme.tertiary,
+                    compact = true,
+                )
+                Text(
                 text = stringResource(R.string.hajj_calc_intro),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
-            )
+                )
+            }
         }
 
         Spacer(Modifier.height(16.dp))

@@ -7,8 +7,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.glance.ColorFilter
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
+import androidx.glance.Image
+import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
 import androidx.glance.LocalSize
 import androidx.glance.action.clickable
@@ -27,6 +30,7 @@ import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.height
 import androidx.glance.layout.padding
+import androidx.glance.layout.size
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextAlign
@@ -42,6 +46,8 @@ import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
+import org.muslim.app.core.ui.theme.WidgetOrnamentSpec
+import org.muslim.app.core.ui.theme.widgetOrnamentSpec
 
 /**
  * Home-screen widget (Glance) showing the next prayer and a live countdown,
@@ -65,14 +71,19 @@ class PrayerTimesWidget : GlanceAppWidget() {
             context.applicationContext, PrayerTimesWidgetEntryPoint::class.java,
         )
         val settings = entryPoint.settingsRepository().settings.first()
-        val use24h = entryPoint.appPreferencesRepository().readTimeFormat24hSync()
+        val appPreferences = entryPoint.appPreferencesRepository().preferences.first()
+        val use24h = appPreferences.timeFormat24h
+        val ornament = widgetOrnamentSpec(
+            style = appPreferences.ornamentStyle,
+            intensity = appPreferences.ornamentIntensity,
+        )
         val data = PrayerTimesWidgetData.compute(
             settings = settings,
             calculator = entryPoint.calculator(),
             nowMillis = System.currentTimeMillis(),
         )
         provideContent {
-            WidgetRoot(data, use24h)
+            WidgetRoot(data, use24h, ornament)
         }
     }
 
@@ -122,7 +133,11 @@ private val PrayerNames = listOf(Prayer.Fajr, Prayer.Dhuhr, Prayer.Asr, Prayer.M
 // ---- Root: picks the layout for the current bucket size ----
 
 @Composable
-private fun WidgetRoot(data: PrayerTimesWidgetData, use24h: Boolean) {
+private fun WidgetRoot(
+    data: PrayerTimesWidgetData,
+    use24h: Boolean,
+    ornament: WidgetOrnamentSpec?,
+) {
     val size = LocalSize.current
     val openApp = PrayerTimesWidget.openAppIntent(LocalContext.current)
     val modifier = GlanceModifier
@@ -132,6 +147,10 @@ private fun WidgetRoot(data: PrayerTimesWidgetData, use24h: Boolean) {
         .then(if (openApp != null) GlanceModifier.clickable(actionStartActivity(openApp)) else GlanceModifier)
 
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
+        WidgetOrnamentAccent(
+            ornament = ornament,
+            compact = size.width < 150.dp,
+        )
         if (!data.hasLocation) {
             NoLocationContent()
         } else if (size.height >= 200.dp) {
@@ -142,6 +161,23 @@ private fun WidgetRoot(data: PrayerTimesWidgetData, use24h: Boolean) {
             CompactContent(data, use24h)
         }
     }
+}
+
+@Composable
+private fun WidgetOrnamentAccent(
+    ornament: WidgetOrnamentSpec?,
+    compact: Boolean,
+) {
+    if (ornament == null) return
+    Image(
+        provider = ImageProvider(ornament.drawableRes),
+        contentDescription = null,
+        colorFilter = ColorFilter.tint(
+            ColorProvider(Color(0xFFB49A62).copy(alpha = ornament.tintAlpha)),
+        ),
+        modifier = GlanceModifier.size(if (compact) 9.dp else 13.dp),
+    )
+    Spacer(GlanceModifier.height(if (compact) 1.dp else 3.dp))
 }
 
 @Composable

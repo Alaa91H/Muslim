@@ -56,6 +56,7 @@ import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.prayertimes.ui.home.HomeScreen
 import org.muslim.app.feature.prayertimes.ui.location.LocationScreen
 import org.muslim.app.feature.prayertimes.ui.settings.PrayerSettingsScreen
+import org.muslim.app.feature.prayertimes.widget.refreshPrayerTimesWidgets
 import org.muslim.app.feature.adhkar.ui.AdhkarScreen
 import org.muslim.app.feature.hadith.ui.HadithScreen
 import org.muslim.app.feature.learn.ui.LearnScreen
@@ -84,6 +85,7 @@ import org.muslim.app.feature.settings.SettingsScreen
 import org.muslim.app.feature.settings.SmartDevicesScreen
 import org.muslim.app.feature.settings.update.UpdateScreen
 import org.muslim.app.feature.tasbih.ui.TasbihScreen
+import org.muslim.app.feature.tasbih.widget.refreshMisbahaWidgets
 import org.muslim.app.feature.finance.ui.IslamicFinanceScreen
 import org.muslim.app.feature.zakat.ui.ZakatScreen
 
@@ -167,6 +169,13 @@ fun MuslimApp(
     val today = rememberMidnightLocalDate()
     val isRamadan = RamadanNavigation.isRamadan(today, hijriAdjustment)
     val visibleTabs = tabsForRamadan(isRamadan)
+
+    // Home-screen widgets live outside the Compose hierarchy, so explicitly
+    // refresh them when the shared ornament preference changes.
+    LaunchedEffect(preferences.ornamentStyle, preferences.ornamentIntensity) {
+        refreshPrayerTimesWidgets(context)
+        refreshMisbahaWidgets(context)
+    }
 
     // Route to the tab requested by an App Shortcut (cold start or onNewIntent).
     LaunchedEffect(initialRoute) {
