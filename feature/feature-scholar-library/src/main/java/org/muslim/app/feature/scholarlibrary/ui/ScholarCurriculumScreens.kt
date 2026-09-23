@@ -49,6 +49,7 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarDifficulty
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPathProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPath
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPlan
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySessionStatus
 import org.muslim.app.feature.scholarlibrary.domain.ScholarWeeklyStudySummary
 
 internal fun LazyListScope.studyPathItems(
@@ -139,7 +140,7 @@ fun ScholarStudyPathScreen(
     val progress = state.pathProgress.firstOrNull { it.pathId == pathId }
     val activePlan = state.studyPlans.firstOrNull { it.pathId == pathId && it.active }
     val hasActiveSession = state.studySessions.any {
-        it.pathId == pathId && it.status.name == "InProgress"
+        it.pathId == pathId && it.status == ScholarStudySessionStatus.InProgress
     }
     val weeklySummary = state.weeklyStudySummaries.firstOrNull { it.pathId == pathId }
     val snackbarHostState = remember { SnackbarHostState() }
