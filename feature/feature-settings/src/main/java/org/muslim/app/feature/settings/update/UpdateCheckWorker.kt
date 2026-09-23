@@ -31,10 +31,11 @@ open class UpdateCheckWorker(
         return when (val result = checker.checkAndNotify()) {
             is UpdateChecker.Result.UpdateAvailable -> {
                 prefsRepository.setLastUpdateCheck(System.currentTimeMillis())
-                if (prefs.autoUpdateEnabled) {
+                val currentPreferences = prefsRepository.preferences.first()
+                if (currentPreferences.updateCheckEnabled && currentPreferences.autoUpdateEnabled) {
                     UpdateDownloadManager(applicationContext, prefsRepository).enqueue(
                         release = result.release,
-                        wifiOnly = prefs.autoUpdateWifiOnly,
+                        wifiOnly = currentPreferences.autoUpdateWifiOnly,
                     )
                 }
                 Result.success()
