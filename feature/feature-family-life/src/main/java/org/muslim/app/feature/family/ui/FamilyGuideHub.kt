@@ -394,30 +394,46 @@ internal fun FamilyGuideCatalogContent(
                 ),
             )
         }
+        familyGuideResultItems(
+            results = results,
+            isArabic = isArabic,
+            favoriteIds = favoriteIds,
+            onOpenArticle = onOpenArticle,
+            onToggleFavorite = onToggleFavorite,
+        )
+    }
+}
+
+private fun LazyListScope.familyGuideResultItems(
+    results: List<FamilyGuideArticle>,
+    isArabic: Boolean,
+    favoriteIds: Set<String>,
+    onOpenArticle: (String) -> Unit,
+    onToggleFavorite: (String) -> Unit,
+) {
+    item {
+        Text(
+            text = stringResource(R.string.family_articles_count, results.size),
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.primary,
+        )
+    }
+    items(results, key = { it.id }) { article ->
+        FamilyGuideResultCard(
+            article = article,
+            isArabic = isArabic,
+            isFavorite = article.id in favoriteIds,
+            onClick = { onOpenArticle(article.id) },
+            onToggleFavorite = { onToggleFavorite(article.id) },
+        )
+    }
+    if (results.isEmpty()) {
         item {
-            Text(
-                text = stringResource(R.string.family_articles_count, results.size),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.primary,
+            MuslimStateSurface(
+                title = stringResource(R.string.family_articles_empty),
+                tone = MuslimStateTone.Neutral,
+                icon = Icons.Filled.Search,
             )
-        }
-        items(results, key = { it.id }) { article ->
-            FamilyGuideResultCard(
-                article = article,
-                isArabic = isArabic,
-                isFavorite = article.id in favoriteIds,
-                onClick = { onOpenArticle(article.id) },
-                onToggleFavorite = { onToggleFavorite(article.id) },
-            )
-        }
-        if (results.isEmpty()) {
-            item {
-                MuslimStateSurface(
-                    title = stringResource(R.string.family_articles_empty),
-                    tone = MuslimStateTone.Neutral,
-                    icon = Icons.Filled.Search,
-                )
-            }
         }
     }
 }
