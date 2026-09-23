@@ -8,6 +8,9 @@ import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.SystemClock
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.KeyEvent
@@ -29,10 +32,46 @@ import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
  */
 class AdhanAlarmActivity : Activity() {
 
+    private val mainHandler = Handler(Looper.getMainLooper())
+    private var playbackObserved = false
+    private var openedAtElapsedRealtime = 0L
+
+    private val closeWhenPlaybackStops = object : Runnable {
+        override fun run() {
+            if (AdhanPlaybackStatus.isPlaying.value) {
+                playbackObserved = true
+            } else if (
+                playbackObserved ||
+                SystemClock.elapsedRealtime() - openedAtElapsedRealtime >= PLAYBACK_START_GRACE_MS
+            ) {
+                finishAndRemoveTask()
+                return
+            }
+            mainHandler.postDelayed(this, PLAYBACK_STATE_POLL_MS)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        openedAtElapsedRealtime = SystemClock.elapsedRealtime()
         configureLockScreenPresentation()
         render(intent)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mainHandler.removeCallbacks(closeWhenPlaybackStops)
+        mainHandler.post(closeWhenPlaybackStops)
+    }
+
+    override fun onStop() {
+        mainHandler.removeCallbacks(closeWhenPlaybackStops)
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        mainHandler.removeCallbacksAndMessages(null)
+        super.onDestroy()
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -142,6 +181,8 @@ class AdhanAlarmActivity : Activity() {
 
     companion object {
         private const val EXTRA_PRAYER = "extra_prayer"
+        private const val PLAYBACK_START_GRACE_MS = 5_000L
+        private const val PLAYBACK_STATE_POLL_MS = 250L
 
         private val STOP_KEY_CODES = setOf(
             KeyEvent.KEYCODE_VOLUME_UP,
