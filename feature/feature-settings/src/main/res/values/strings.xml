@@ -25,7 +25,17 @@
     <string name="settings_ornament_geometry">هندسية</string>
     <string name="settings_ornament_arabesque">أرابيسك</string>
     <string name="settings_ornament_stars">نجوم</string>
+    <string name="settings_ornament_andalusian" tools:ignore="MissingTranslation">أندلسية</string>
+    <string name="settings_ornament_mashrabiya" tools:ignore="MissingTranslation">مشربية</string>
+    <string name="settings_ornament_ottoman" tools:ignore="MissingTranslation">عثمانية</string>
+    <string name="settings_ornament_mushaf" tools:ignore="MissingTranslation">مصحف</string>
+    <string name="settings_ornament_royal" tools:ignore="MissingTranslation">ملكية</string>
     <string name="settings_ornament_minimal">بسيطة</string>
+    <string name="settings_ornament_intensity" tools:ignore="MissingTranslation">كثافة الزخرفة</string>
+    <string name="settings_ornament_intensity_off" tools:ignore="MissingTranslation">إيقاف</string>
+    <string name="settings_ornament_intensity_subtle" tools:ignore="MissingTranslation">خفيفة</string>
+    <string name="settings_ornament_intensity_balanced" tools:ignore="MissingTranslation">متوازنة</string>
+    <string name="settings_ornament_intensity_rich" tools:ignore="MissingTranslation">غنية</string>
     <string name="settings_reduce_animations">تقليل الحركات</string>
     <string name="settings_reduce_animations_desc">إيقاف الحركات غير الضرورية لتفضيلات إتاحة الوصول</string>
 

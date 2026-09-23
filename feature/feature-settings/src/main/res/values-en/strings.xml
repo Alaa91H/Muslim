@@ -25,7 +25,17 @@
     <string name="settings_ornament_geometry">Geometric</string>
     <string name="settings_ornament_arabesque">Arabesque</string>
     <string name="settings_ornament_stars">Stars</string>
+    <string name="settings_ornament_andalusian">Andalusian</string>
+    <string name="settings_ornament_mashrabiya">Mashrabiya</string>
+    <string name="settings_ornament_ottoman">Ottoman</string>
+    <string name="settings_ornament_mushaf">Mushaf</string>
+    <string name="settings_ornament_royal">Royal</string>
     <string name="settings_ornament_minimal">Minimal</string>
+    <string name="settings_ornament_intensity">Ornament intensity</string>
+    <string name="settings_ornament_intensity_off">Off</string>
+    <string name="settings_ornament_intensity_subtle">Subtle</string>
+    <string name="settings_ornament_intensity_balanced">Balanced</string>
+    <string name="settings_ornament_intensity_rich">Rich</string>
     <string name="settings_reduce_animations">Reduce animations</string>
     <string name="settings_reduce_animations_desc">Disable non-essential motion for accessibility</string>
 

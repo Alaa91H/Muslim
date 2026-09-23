@@ -15,6 +15,7 @@ import javax.inject.Inject
 import org.muslim.app.core.common.appearance.AppColorPalette
 import org.muslim.app.core.common.appearance.CardCornerStyle
 import org.muslim.app.core.common.appearance.AppOrnamentStyle
+import org.muslim.app.core.common.appearance.OrnamentIntensity
 import javax.inject.Singleton
 
 private val Context.appPreferencesDataStore by preferencesDataStore(name = "app_preferences")
@@ -37,6 +38,7 @@ class AppPreferencesRepository @Inject constructor(
             colorPalette = enumOr(prefs[Keys.COLOR_PALETTE], AppColorPalette.Classic),
             cardCornerStyle = enumOr(prefs[Keys.CARD_CORNER_STYLE], CardCornerStyle.Soft),
             ornamentStyle = enumOr(prefs[Keys.ORNAMENT_STYLE], AppOrnamentStyle.Geometry),
+            ornamentIntensity = enumOr(prefs[Keys.ORNAMENT_INTENSITY], OrnamentIntensity.Balanced),
             languageCode = prefs[Keys.LANGUAGE] ?: AppPreferences.SYSTEM_LANGUAGE,
             reduceAnimations = prefs[Keys.REDUCE_ANIMATIONS] ?: false,
             startTab = prefs[Keys.START_TAB] ?: AppPreferences.START_TAB_HOME,
@@ -78,6 +80,10 @@ class AppPreferencesRepository @Inject constructor(
 
     suspend fun setOrnamentStyle(style: AppOrnamentStyle) = edit { prefs ->
         prefs[Keys.ORNAMENT_STYLE] = style.name
+    }
+
+    suspend fun setOrnamentIntensity(intensity: OrnamentIntensity) = edit { prefs ->
+        prefs[Keys.ORNAMENT_INTENSITY] = intensity.name
     }
 
     suspend fun setLanguage(languageCode: String) {
@@ -243,6 +249,7 @@ class AppPreferencesRepository @Inject constructor(
         val COLOR_PALETTE = stringPreferencesKey("color_palette")
         val CARD_CORNER_STYLE = stringPreferencesKey("card_corner_style")
         val ORNAMENT_STYLE = stringPreferencesKey("ornament_style")
+        val ORNAMENT_INTENSITY = stringPreferencesKey("ornament_intensity")
         val LANGUAGE = stringPreferencesKey("language")
         val REDUCE_ANIMATIONS = booleanPreferencesKey("reduce_animations")
         val START_TAB = stringPreferencesKey("start_tab")

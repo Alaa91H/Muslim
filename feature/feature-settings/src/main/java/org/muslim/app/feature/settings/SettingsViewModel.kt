@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 import org.muslim.app.core.common.appearance.AppColorPalette
 import org.muslim.app.core.common.appearance.CardCornerStyle
 import org.muslim.app.core.common.appearance.AppOrnamentStyle
+import org.muslim.app.core.common.appearance.OrnamentIntensity
 import org.muslim.app.core.datastore.AppPreferences
 import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.AppThemeMode
@@ -52,6 +53,10 @@ class SettingsViewModel @Inject constructor(
 
     fun setOrnamentStyle(style: AppOrnamentStyle) = launch {
         appPreferencesRepository.setOrnamentStyle(style)
+    }
+
+    fun setOrnamentIntensity(intensity: OrnamentIntensity) = launch {
+        appPreferencesRepository.setOrnamentIntensity(intensity)
     }
 
     fun setReduceAnimations(enabled: Boolean) = launch { appPreferencesRepository.setReduceAnimations(enabled) }

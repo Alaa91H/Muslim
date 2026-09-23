@@ -71,12 +71,14 @@ import kotlinx.coroutines.launch
 import org.muslim.app.core.common.appearance.AppColorPalette
 import org.muslim.app.core.common.appearance.CardCornerStyle
 import org.muslim.app.core.common.appearance.AppOrnamentStyle
+import org.muslim.app.core.common.appearance.OrnamentIntensity
 import org.muslim.app.core.datastore.AppPreferences
 import org.muslim.app.core.datastore.AppThemeMode
 import org.muslim.app.feature.settings.R
 import org.muslim.app.core.designsystem.IslamicIconSize
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicDecorationPreview
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimContentFrame
 
@@ -281,7 +283,17 @@ fun SettingsScreen(
                     )
                     OrnamentSelector(
                         selected = preferences.ornamentStyle,
+                        intensity = preferences.ornamentIntensity,
                         onSelect = viewModel::setOrnamentStyle,
+                    )
+                    Text(
+                        text = stringResource(R.string.settings_ornament_intensity),
+                        style = MaterialTheme.typography.labelLarge,
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                    )
+                    OrnamentIntensitySelector(
+                        selected = preferences.ornamentIntensity,
+                        onSelect = viewModel::setOrnamentIntensity,
                     )
                     ListItem(
                         headlineContent = { Text(stringResource(R.string.settings_reduce_animations)) },
@@ -846,37 +858,122 @@ private fun CardCornerStyle.labelRes(): Int = when (this) {
 @Composable
 private fun OrnamentSelector(
     selected: AppOrnamentStyle,
+    intensity: OrnamentIntensity,
     onSelect: (AppOrnamentStyle) -> Unit,
 ) {
-    Column(modifier = Modifier.padding(horizontal = 16.dp)) {
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            OrnamentChip(AppOrnamentStyle.Geometry, selected, onSelect)
-            OrnamentChip(AppOrnamentStyle.Arabesque, selected, onSelect)
-        }
-        Spacer(Modifier.height(6.dp))
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            OrnamentChip(AppOrnamentStyle.Stars, selected, onSelect)
-            OrnamentChip(AppOrnamentStyle.Minimal, selected, onSelect)
+    val previewIntensity = if (intensity == OrnamentIntensity.Off) {
+        OrnamentIntensity.Balanced
+    } else {
+        intensity
+    }
+
+    Column(
+        modifier = Modifier.padding(horizontal = 16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        AppOrnamentStyle.entries.chunked(2).forEach { rowStyles ->
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                rowStyles.forEach { ornament ->
+                    OrnamentPreviewCard(
+                        ornament = ornament,
+                        selected = selected == ornament,
+                        intensity = previewIntensity,
+                        onSelect = onSelect,
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+                if (rowStyles.size == 1) {
+                    Spacer(modifier = Modifier.weight(1f))
+                }
+            }
         }
     }
 }
 
 @Composable
-private fun OrnamentChip(
+private fun OrnamentPreviewCard(
     ornament: AppOrnamentStyle,
-    selected: AppOrnamentStyle,
+    selected: Boolean,
+    intensity: OrnamentIntensity,
     onSelect: (AppOrnamentStyle) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
-    FilterChip(
-        selected = selected == ornament,
-        onClick = { onSelect(ornament) },
-        label = { Text(stringResource(ornament.labelRes())) },
-    )
+    Column(
+        modifier = modifier
+            .selectable(
+                selected = selected,
+                onClick = { onSelect(ornament) },
+            )
+            .padding(4.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        IslamicDecorationPreview(
+            style = ornament,
+            intensity = intensity,
+            selected = selected,
+            modifier = Modifier.fillMaxWidth(),
+        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            RadioButton(
+                selected = selected,
+                onClick = null,
+            )
+            Text(
+                text = stringResource(ornament.labelRes()),
+                style = MaterialTheme.typography.labelMedium,
+                color = if (selected) {
+                    MaterialTheme.colorScheme.primary
+                } else {
+                    MaterialTheme.colorScheme.onSurfaceVariant
+                },
+            )
+        }
+    }
+}
+
+@Composable
+private fun OrnamentIntensitySelector(
+    selected: OrnamentIntensity,
+    onSelect: (OrnamentIntensity) -> Unit,
+) {
+    Column(
+        modifier = Modifier.padding(horizontal = 16.dp),
+        verticalArrangement = Arrangement.spacedBy(6.dp),
+    ) {
+        OrnamentIntensity.entries.chunked(2).forEach { rowIntensities ->
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                rowIntensities.forEach { intensity ->
+                    FilterChip(
+                        selected = selected == intensity,
+                        onClick = { onSelect(intensity) },
+                        label = { Text(stringResource(intensity.labelRes())) },
+                    )
+                }
+            }
+        }
+    }
 }
 
 private fun AppOrnamentStyle.labelRes(): Int = when (this) {
     AppOrnamentStyle.Geometry -> R.string.settings_ornament_geometry
     AppOrnamentStyle.Arabesque -> R.string.settings_ornament_arabesque
     AppOrnamentStyle.Stars -> R.string.settings_ornament_stars
+    AppOrnamentStyle.Andalusian -> R.string.settings_ornament_andalusian
+    AppOrnamentStyle.Mashrabiya -> R.string.settings_ornament_mashrabiya
+    AppOrnamentStyle.Ottoman -> R.string.settings_ornament_ottoman
+    AppOrnamentStyle.Mushaf -> R.string.settings_ornament_mushaf
+    AppOrnamentStyle.Royal -> R.string.settings_ornament_royal
     AppOrnamentStyle.Minimal -> R.string.settings_ornament_minimal
+}
+
+private fun OrnamentIntensity.labelRes(): Int = when (this) {
+    OrnamentIntensity.Off -> R.string.settings_ornament_intensity_off
+    OrnamentIntensity.Subtle -> R.string.settings_ornament_intensity_subtle
+    OrnamentIntensity.Balanced -> R.string.settings_ornament_intensity_balanced
+    OrnamentIntensity.Rich -> R.string.settings_ornament_intensity_rich
 }

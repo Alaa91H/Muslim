@@ -50,7 +50,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -67,16 +66,15 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.prayertimes.R
-import org.muslim.app.core.common.appearance.AppOrnamentStyle
 import org.muslim.app.core.common.prayer.AdhanSoundOption
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.feature.prayertimes.ui.formatCountdown
 import org.muslim.app.feature.prayertimes.ui.localDateFormatter
 import org.muslim.app.core.common.time.TimeFormats
-import org.muslim.app.core.ui.theme.IslamicOrnament
-import org.muslim.app.core.ui.theme.IslamicOrnamentImage
-import org.muslim.app.core.ui.theme.IslamicOrnamentOpacity
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicDecorationBand
+import org.muslim.app.core.ui.theme.IslamicDecorationCorners
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimContentFrame
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.core.ui.theme.MuslimStateSurface
@@ -99,7 +97,6 @@ fun HomeScreen(
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
-    val ornamentStyle by viewModel.ornamentStyle.collectAsStateWithLifecycle()
     val showPrayerTrackerOnHome by viewModel.showPrayerTrackerOnHome.collectAsStateWithLifecycle()
 
     val context = LocalContext.current
@@ -138,13 +135,11 @@ fun HomeScreen(
         val prayerRowHorizontalPadding = if (narrowLayout) IslamicSpacing.Small else IslamicSpacing.Compact
         val prayerRowInnerVerticalPadding = if (compactLayout) IslamicSpacing.XXSmall else IslamicSpacing.XSmall
         val prayerIconSize = if (narrowLayout) IslamicIconSize.Supporting else IslamicIconSize.Standard
-        IslamicOrnamentImage(
-            ornament = ornamentStyle.toIslamicOrnament(),
+        IslamicDecorationBand(
             tint = MaterialTheme.colorScheme.primary,
-            alpha = IslamicOrnamentOpacity.LightBackground,
+            compact = compactLayout,
             modifier = Modifier
-                .fillMaxWidth()
-                .height(if (compactLayout) 72.dp else 104.dp)
+                .align(Alignment.TopCenter)
                 .padding(top = if (compactLayout) IslamicSpacing.Small else IslamicSpacing.Medium),
         )
         Column(
@@ -235,7 +230,7 @@ fun HomeScreen(
             contentPadding = androidx.compose.foundation.layout.PaddingValues(cardPadding),
         ) {
             Box {
-                PrayerCardEdgeOrnaments(
+                IslamicDecorationCorners(
                     tint = MaterialTheme.colorScheme.tertiary,
                     compact = compactLayout,
                 )
@@ -304,6 +299,11 @@ fun HomeScreen(
             title = stringResource(R.string.home_today_times),
             supportingText = state.selectedDate.format(localDateFormatter),
         )
+        IslamicDecorationDivider(
+            modifier = Modifier.padding(
+                horizontal = if (narrowLayout) IslamicSpacing.Section else IslamicSpacing.PageHorizontal,
+            ),
+        )
         Spacer(Modifier.height(IslamicSpacing.Small))
 
         if (!state.isValid) {
@@ -328,7 +328,7 @@ fun HomeScreen(
             ),
         ) {
             Box {
-                PrayerCardEdgeOrnaments(
+                IslamicDecorationCorners(
                     tint = MaterialTheme.colorScheme.primary,
                     compact = compactLayout,
                 )
@@ -469,13 +469,6 @@ fun HomeScreen(
     }
 }
 
-private fun AppOrnamentStyle.toIslamicOrnament(): IslamicOrnament = when (this) {
-    AppOrnamentStyle.Geometry -> IslamicOrnament.Geometric12
-    AppOrnamentStyle.Arabesque -> IslamicOrnament.Arabesque
-    AppOrnamentStyle.Stars -> IslamicOrnament.Star12
-    AppOrnamentStyle.Minimal -> IslamicOrnament.Corner
-}
-
 private fun prayerIcon(prayer: Prayer): ImageVector = when (prayer) {
     Prayer.Fajr -> Icons.Filled.Nightlight
     Prayer.Sunrise -> Icons.Filled.WbSunny
@@ -538,35 +531,6 @@ private fun PrayerAlertAction(
 }
 
 @Composable
-private fun PrayerCardEdgeOrnaments(
-    tint: Color,
-    compact: Boolean = false,
-) {
-    val ornamentSize = if (compact) 56.dp else 72.dp
-    Box(modifier = Modifier.fillMaxSize()) {
-        IslamicOrnamentImage(
-            ornament = IslamicOrnament.Corner,
-            tint = tint,
-            alpha = IslamicOrnamentOpacity.LightActive,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .padding(4.dp)
-                .size(ornamentSize),
-        )
-        IslamicOrnamentImage(
-            ornament = IslamicOrnament.Corner,
-            tint = tint,
-            alpha = IslamicOrnamentOpacity.LightActive,
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .padding(4.dp)
-                .size(ornamentSize)
-                .graphicsLayer(rotationZ = 180f),
-        )
-    }
-}
-
-@Composable
 private fun PrayerCompletionCard(
     completedPrayers: Set<Prayer>,
     onToggle: (Prayer) -> Unit,
@@ -576,7 +540,7 @@ private fun PrayerCompletionCard(
         contentPadding = androidx.compose.foundation.layout.PaddingValues(IslamicSpacing.Compact),
     ) {
         Box {
-            PrayerCardEdgeOrnaments(tint = MaterialTheme.colorScheme.primary)
+            IslamicDecorationCorners(tint = MaterialTheme.colorScheme.primary)
             Column {
             Text(
                 text = stringResource(R.string.home_prayer_tracker_title),

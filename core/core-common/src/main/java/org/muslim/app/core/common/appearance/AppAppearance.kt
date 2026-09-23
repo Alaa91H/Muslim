@@ -20,5 +20,18 @@ enum class AppOrnamentStyle {
     Geometry,
     Arabesque,
     Stars,
+    Andalusian,
+    Mashrabiya,
+    Ottoman,
+    Mushaf,
+    Royal,
     Minimal,
+}
+
+/** Controls how prominent the selected Islamic ornament is across app surfaces. */
+enum class OrnamentIntensity {
+    Off,
+    Subtle,
+    Balanced,
+    Rich,
 }

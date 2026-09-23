@@ -1,5 +1,6 @@
 package org.muslim.app.core.ui.theme
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.PaddingValues
@@ -11,6 +12,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -45,16 +47,21 @@ fun MuslimAppScaffold(
     floatingActionButton: @Composable () -> Unit = {},
     content: @Composable (PaddingValues) -> Unit,
 ) {
-    Scaffold(
-        modifier = modifier,
-        containerColor = MaterialTheme.colorScheme.background,
-        contentColor = MaterialTheme.colorScheme.onBackground,
-        topBar = topBar,
-        bottomBar = bottomBar,
-        snackbarHost = snackbarHost,
-        floatingActionButton = floatingActionButton,
-        content = content,
-    )
+    Box(
+        modifier = modifier.background(MaterialTheme.colorScheme.background),
+    ) {
+        IslamicDecorationLayer(modifier = Modifier.fillMaxSize())
+        Scaffold(
+            modifier = Modifier.fillMaxSize(),
+            containerColor = Color.Transparent,
+            contentColor = MaterialTheme.colorScheme.onBackground,
+            topBar = topBar,
+            bottomBar = bottomBar,
+            snackbarHost = snackbarHost,
+            floatingActionButton = floatingActionButton,
+            content = content,
+        )
+    }
 }
 
 /**

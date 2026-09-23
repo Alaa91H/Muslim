@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -70,6 +71,9 @@ import kotlinx.coroutines.launch
 import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.text.DigitNormalizedOutlinedTextField
+import org.muslim.app.core.ui.theme.IslamicDecorationBand
+import org.muslim.app.core.ui.theme.IslamicDecorationCorners
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimCenteredStatus
 import org.muslim.app.core.ui.theme.MuslimContentFrame
@@ -214,6 +218,10 @@ private fun HadithCatalogue(
     ) {
         item(key = "catalogue-header") {
             Column(modifier = Modifier.padding(IslamicSpacing.PageHorizontal)) {
+                IslamicDecorationBand(
+                    tint = MaterialTheme.colorScheme.tertiary,
+                    compact = true,
+                )
                 Text(
                     text = stringResource(R.string.hadith_title),
                     style = MaterialTheme.typography.headlineSmall,
@@ -423,6 +431,12 @@ private fun HadithBookIndexOrPages(
         contentPadding = PaddingValues(bottom = IslamicSpacing.Large),
     ) {
         item(key = "book-header") { HadithBookHeader(collection) }
+        item(key = "book-decoration") {
+            IslamicDecorationDivider(
+                tint = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
+            )
+        }
         item(key = "search") {
             DigitNormalizedOutlinedTextField(
                 value = state.query,
@@ -713,14 +727,20 @@ private fun DailyHadithCard(hadith: Hadith, bookmarked: Boolean, onToggleBookmar
         modifier = Modifier.fillMaxWidth().padding(horizontal = IslamicSpacing.PageHorizontal, vertical = IslamicSpacing.Compact),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
     ) {
-        Column(modifier = Modifier.padding(IslamicSpacing.Medium)) {
-            Text(
-                text = stringResource(R.string.hadith_of_the_day),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onSecondaryContainer,
+        Box {
+            IslamicDecorationCorners(
+                tint = MaterialTheme.colorScheme.tertiary,
+                compact = true,
             )
-            Spacer(Modifier.height(IslamicSpacing.Compact))
-            HadithBody(hadith, bookmarked, onToggleBookmark, onCopied)
+            Column(modifier = Modifier.padding(IslamicSpacing.Medium)) {
+                Text(
+                    text = stringResource(R.string.hadith_of_the_day),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                )
+                Spacer(Modifier.height(IslamicSpacing.Compact))
+                HadithBody(hadith, bookmarked, onToggleBookmark, onCopied)
+            }
         }
     }
 }

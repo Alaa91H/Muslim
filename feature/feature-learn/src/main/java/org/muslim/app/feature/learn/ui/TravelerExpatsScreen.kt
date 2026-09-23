@@ -32,7 +32,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -59,7 +58,9 @@ import org.muslim.app.core.location.MagneticDeclination
 import org.muslim.app.core.permissions.AppPermission
 import org.muslim.app.core.permissions.PermissionEntryPoint
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
@@ -111,7 +112,7 @@ fun TravelerExpatsScreen(
         }
     }
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
@@ -126,6 +127,10 @@ fun TravelerExpatsScreen(
     ) { innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)) {
             TravelerTabs(selectedTab = selectedTab, onSelect = { selectedTab = it })
+            IslamicDecorationDivider(
+                tint = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(horizontal = 24.dp),
+            )
             when (selectedTab) {
                 0 -> TravelDistanceTab(
                     state = state,

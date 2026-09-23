@@ -29,7 +29,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Scaffold
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -61,7 +61,7 @@ fun UpdateScreen(
     val downloadState by viewModel.downloadState.collectAsStateWithLifecycle()
     val lastCheckEpoch by viewModel.lastCheckEpoch.collectAsStateWithLifecycle()
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(

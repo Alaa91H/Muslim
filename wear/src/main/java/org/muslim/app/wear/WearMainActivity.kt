@@ -6,6 +6,7 @@ import android.view.HapticFeedbackConstants
 import androidx.activity.ComponentActivity
 import androidx.core.content.edit
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -22,6 +23,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -33,6 +36,8 @@ import androidx.wear.compose.material3.Text
 import com.google.android.gms.wearable.CapabilityClient
 import com.google.android.gms.wearable.Wearable
 import kotlinx.coroutines.delay
+import org.muslim.app.core.common.appearance.AppOrnamentStyle
+import org.muslim.app.core.common.appearance.OrnamentIntensity
 import org.muslim.app.core.common.wear.WearPrayerSnapshot
 import org.muslim.app.core.common.wear.WearSyncContract
 import java.text.DateFormat
@@ -80,6 +85,10 @@ private fun WearCompanionApp() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
+            WearOrnamentBand(
+                style = snapshot?.ornamentStyle ?: AppOrnamentStyle.Geometry,
+                intensity = snapshot?.ornamentIntensity ?: OrnamentIntensity.Balanced,
+            )
             Text(
                 text = stringResource(org.muslim.app.wear.R.string.wear_next_prayer),
                 style = MaterialTheme.typography.labelMedium,
@@ -143,6 +152,77 @@ private fun WearCompanionApp() {
                         },
                     ),
                 )
+            }
+        }
+    }
+}
+
+@Composable
+private fun WearOrnamentBand(
+    style: AppOrnamentStyle,
+    intensity: OrnamentIntensity,
+) {
+    if (intensity == OrnamentIntensity.Off) return
+    val baseColor = MaterialTheme.colorScheme.primary
+    val alpha = when (intensity) {
+        OrnamentIntensity.Off -> 0f
+        OrnamentIntensity.Subtle -> 0.22f
+        OrnamentIntensity.Balanced -> 0.34f
+        OrnamentIntensity.Rich -> 0.48f
+    }
+    Canvas(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(10.dp),
+    ) {
+        val color = baseColor.copy(alpha = alpha)
+        val centerY = size.height / 2f
+        val centerX = size.width / 2f
+        val unit = size.height * 0.34f
+        val stroke = 1.dp.toPx()
+
+        when (style) {
+            AppOrnamentStyle.Geometry,
+            AppOrnamentStyle.Andalusian,
+            AppOrnamentStyle.Mashrabiya -> listOf(centerX - size.height, centerX, centerX + size.height).forEach { x ->
+                drawLine(color, Offset(x, centerY - unit), Offset(x + unit, centerY), stroke)
+                drawLine(color, Offset(x + unit, centerY), Offset(x, centerY + unit), stroke)
+                drawLine(color, Offset(x, centerY + unit), Offset(x - unit, centerY), stroke)
+                drawLine(color, Offset(x - unit, centerY), Offset(x, centerY - unit), stroke)
+            }
+
+            AppOrnamentStyle.Stars,
+            AppOrnamentStyle.Royal -> listOf(centerX - size.height, centerX, centerX + size.height).forEach { x ->
+                drawCircle(color = color, radius = unit * 0.48f, center = Offset(x, centerY))
+                drawLine(color, Offset(x - unit, centerY), Offset(x + unit, centerY), stroke)
+                drawLine(color, Offset(x, centerY - unit), Offset(x, centerY + unit), stroke)
+            }
+
+            AppOrnamentStyle.Arabesque,
+            AppOrnamentStyle.Ottoman -> {
+                drawCircle(
+                    color = color,
+                    radius = unit,
+                    center = Offset(centerX - unit * 0.72f, centerY),
+                    style = Stroke(width = stroke),
+                )
+                drawCircle(
+                    color = color,
+                    radius = unit,
+                    center = Offset(centerX + unit * 0.72f, centerY),
+                    style = Stroke(width = stroke),
+                )
+            }
+
+            AppOrnamentStyle.Mushaf,
+            AppOrnamentStyle.Minimal -> {
+                drawLine(
+                    color = color,
+                    start = Offset(centerX - size.width * 0.22f, centerY),
+                    end = Offset(centerX + size.width * 0.22f, centerY),
+                    strokeWidth = stroke,
+                )
+                drawCircle(color = color, radius = unit * 0.45f, center = Offset(centerX, centerY))
             }
         }
     }
