@@ -10,6 +10,8 @@
     <string name="settings_theme_system">System</string>
     <string name="settings_theme_light">Light</string>
     <string name="settings_theme_dark">Dark</string>
+    <string name="settings_amoled_black">Pure AMOLED black</string>
+    <string name="settings_amoled_black_desc">Use true #000000 backgrounds and core surfaces in dark mode for OLED/AMOLED displays while preserving the selected accent colors.</string>
     <string name="settings_dynamic_color">Dynamic color</string>
     <string name="settings_dynamic_color_desc">Use your wallpaper colors (Material You) on Android 12+</string>
     <string name="settings_color_palette">Color palette</string>
@@ -17,6 +19,17 @@
     <string name="settings_palette_emerald">Emerald</string>
     <string name="settings_palette_midnight">Midnight</string>
     <string name="settings_palette_sand">Sand</string>
+    <string name="settings_palette_royal_blue">Royal Blue</string>
+    <string name="settings_palette_turquoise">Turquoise</string>
+    <string name="settings_palette_olive">Olive</string>
+    <string name="settings_palette_burgundy">Burgundy</string>
+    <string name="settings_palette_amethyst">Amethyst</string>
+    <string name="settings_palette_copper">Copper</string>
+    <string name="settings_palette_slate">Slate</string>
+    <string name="settings_palette_sepia">Sepia</string>
+    <string name="settings_color_palette_desc">Choose a complete color identity with coordinated light and dark variants.</string>
+    <string name="settings_appearance_preview">Appearance preview</string>
+    <string name="settings_dynamic_color_unavailable">Dynamic color requires Android 12 or newer; the selected palette will be used instead.</string>
     <string name="settings_card_corners">Card corner softness</string>
     <string name="settings_corners_compact">Compact</string>
     <string name="settings_corners_soft">Soft</string>

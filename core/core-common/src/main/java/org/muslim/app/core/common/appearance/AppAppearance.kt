@@ -6,6 +6,14 @@ enum class AppColorPalette {
     Emerald,
     Midnight,
     Sand,
+    RoyalBlue,
+    Turquoise,
+    Olive,
+    Burgundy,
+    Amethyst,
+    Copper,
+    Slate,
+    Sepia,
 }
 
 /** Controls the global Material card and control corner softness. */

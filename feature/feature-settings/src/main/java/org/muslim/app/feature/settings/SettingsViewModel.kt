@@ -43,6 +43,8 @@ class SettingsViewModel @Inject constructor(
 
     fun setDynamicColor(enabled: Boolean) = launch { appPreferencesRepository.setDynamicColor(enabled) }
 
+    fun setAmoledBlack(enabled: Boolean) = launch { appPreferencesRepository.setAmoledBlack(enabled) }
+
     fun setColorPalette(palette: AppColorPalette) = launch {
         appPreferencesRepository.setColorPalette(palette)
     }
