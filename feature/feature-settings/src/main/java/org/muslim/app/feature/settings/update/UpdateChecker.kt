@@ -28,13 +28,11 @@ class UpdateChecker(private val context: Context) {
     /** Fetches the latest release and compares it with the installed build. */
     suspend fun check(): Result {
         val release = client().latestRelease() ?: return Result.Unavailable
-        val installedName = installedVersion()
-        val installedCode = installedVersionCode()
-        val newer = release.versionCode
-            ?.takeIf { it > 0L }
-            ?.let { it > installedCode }
-            ?: VersionCompare.isNewer(release.version, installedName)
-
+        val newer = ReleaseVersionPolicy.isNewer(
+            release = release,
+            installedVersionCode = installedVersionCode(),
+            installedVersion = installedVersion(),
+        )
         return if (newer) Result.UpdateAvailable(release) else Result.UpToDate
     }
 
