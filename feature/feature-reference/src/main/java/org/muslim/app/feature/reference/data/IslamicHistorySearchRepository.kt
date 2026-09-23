@@ -2,6 +2,7 @@ package org.muslim.app.feature.reference.data
 
 import android.content.Context
 import androidx.room.withTransaction
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import org.muslim.app.feature.reference.domain.HistorySearchResult
@@ -25,27 +26,31 @@ internal class IslamicHistorySearchRepository private constructor(
     ): List<HistorySearchResult> {
         if (query.isBlank()) return emptyList()
 
-        return runCatching {
+        return try {
             ensureSeeded()
             val normalizedQuery = IslamicHistorySearch.normalize(query)
             val matchQuery = buildMatchQuery(normalizedQuery)
-            if (matchQuery.isBlank()) return@runCatching emptyList()
-
-            val rows = if (type == null) {
-                dao.search(matchQuery = matchQuery, limit = limit)
+            if (matchQuery.isBlank()) {
+                emptyList()
             } else {
-                dao.searchByType(
-                    matchQuery = matchQuery,
-                    entityType = type.name,
-                    limit = limit,
-                )
+                val rows = if (type == null) {
+                    dao.search(matchQuery = matchQuery, limit = limit)
+                } else {
+                    dao.searchByType(
+                        matchQuery = matchQuery,
+                        entityType = type.name,
+                        limit = limit,
+                    )
+                }
+                rows.mapNotNull { row -> row.toSearchResult(normalizedQuery) }
+                    .sortedWith(
+                        compareByDescending<HistorySearchResult> { it.score }
+                            .thenBy { IslamicHistorySearch.normalize(it.title.english) },
+                    )
             }
-            rows.mapNotNull { row -> row.toSearchResult(normalizedQuery) }
-                .sortedWith(
-                    compareByDescending<HistorySearchResult> { it.score }
-                        .thenBy { IslamicHistorySearch.normalize(it.title.english) },
-                )
-        }.getOrElse {
+        } catch (cancellation: CancellationException) {
+            throw cancellation
+        } catch (_: Exception) {
             IslamicHistorySearch.search(query = query, type = type)
         }
     }
