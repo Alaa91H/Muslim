@@ -312,6 +312,27 @@ internal fun AppOrnamentStyle.cornerOrnament(): IslamicOrnament = when (this) {
 }
 
 /**
+ * Centered motif for circular worship controls such as the Qibla compass and
+ * digital misbaha. It is intentionally a single vector so it remains cheap
+ * while the surrounding sensor/counter UI updates frequently.
+ */
+@Composable
+fun IslamicDecorationMedallion(
+    modifier: Modifier = Modifier,
+    tint: Color = MaterialTheme.colorScheme.tertiary,
+) {
+    val preferences = LocalIslamicDecoration.current
+    if (preferences.intensity == OrnamentIntensity.Off) return
+
+    IslamicOrnamentImage(
+        ornament = preferences.style.sectionOrnament(),
+        tint = tint,
+        alpha = preferences.intensity.featureAlpha(preferences.darkTheme) * 0.56f,
+        modifier = modifier.fillMaxSize(),
+    )
+}
+
+/**
  * A short decorative band for feature headers. It follows the globally
  * selected ornament and intensity and disappears completely when decoration
  * is disabled.
