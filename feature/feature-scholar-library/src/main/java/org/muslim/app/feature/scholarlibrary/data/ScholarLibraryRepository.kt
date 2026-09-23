@@ -701,17 +701,79 @@ class ScholarLibraryRepository @Inject constructor(
     }
 
     /**
-     * Imports a user-selected JSON pack. The pack must carry source and licence
-     * information for every book; it is intentionally not a scraper or remote
-     * downloader for third-party libraries. v1/v2 packs remain accepted while
-     * v3 adds optional section/order hierarchy metadata for passages.
+     * Imports a user-selected JSON pack. v4 adds stable pack identity/version
+     * metadata while v1-v3 remain accepted as legacy, locally managed imports.
+     * Updates are intentionally non-destructive to citation-linked study data.
      */
-    suspend fun importPack(rawText: String): ScholarLibraryImportResult = runCatching {
+    suspend fun importPack(
+        rawText: String,
+        originName: String? = null,
+    ): ScholarLibraryImportResult = runCatching {
         ensureSeeded()
         if (rawText.length > PACK_MAX_CHARS) error("حزمة المكتبة كبيرة جداً؛ الحد الأقصى 5 ميغابايت من النص.")
         val pack = decodeAndValidate(rawText)
-        persistPack(pack, imported = true)
-        ScholarLibraryImportResult.Success(pack.books.size, pack.books.sumOf { it.passages.size })
+        val packId = pack.effectivePackId()
+        val existing = libraryDao.contentPackById(packId)
+        require(existing == null || pack.packVersion >= existing.identity.packVersion) {
+            "لا يمكن تثبيت إصدار أقدم من الحزمة المثبتة."
+        }
+
+        val newBookIds = pack.books.map { it.id }.toSet()
+        val conflictingOwner = libraryDao.observeContentPacks().first().firstOrNull { installed ->
+            installed.packId != packId &&
+                installed.packId != LEGACY_IMPORTS_PACK_ID &&
+                installed.installation.bookIds.toStoredIdList().any { it in newBookIds }
+        }
+        require(conflictingOwner == null) {
+            "تتعارض الحزمة مع كتب مملوكة لحزمة أخرى: ${conflictingOwner?.identity?.packName}."
+        }
+
+        existing?.let { current ->
+            val previousBookIds = current.installation.bookIds.toStoredIdList().toSet()
+            require(newBookIds.containsAll(previousBookIds)) {
+                "التحديث الآمن لا يسمح بحذف كتاب موجود من الحزمة."
+            }
+            previousBookIds.forEach { bookId ->
+                val newBook = pack.books.first { it.id == bookId }
+                val previousPassageIds = libraryDao.observePassagesForBook(bookId).first().map { it.id }.toSet()
+                val newPassageIds = newBook.passages.map { it.id }.toSet()
+                require(newPassageIds.containsAll(previousPassageIds)) {
+                    "التحديث الآمن لا يسمح بحذف مقاطع مرتبطة بالكتاب: ${newBook.title}."
+                }
+            }
+        }
+
+        persistPack(
+            pack = pack,
+            imported = true,
+            originName = originName,
+            existing = existing,
+        )
+
+        libraryDao.contentPackById(LEGACY_IMPORTS_PACK_ID)?.let { legacy ->
+            val previousLegacyIds = legacy.installation.bookIds.toStoredIdList()
+            val remaining = previousLegacyIds.filterNot { it in newBookIds }
+            if (remaining.isEmpty()) {
+                libraryDao.deleteContentPack(LEGACY_IMPORTS_PACK_ID)
+            } else if (remaining.size != previousLegacyIds.size) {
+                libraryDao.upsertContentPack(
+                    legacy.copy(
+                        installation = legacy.installation.copy(
+                            bookIds = remaining.toStoredIds(),
+                            updatedAtEpochMillis = System.currentTimeMillis(),
+                        ),
+                    ),
+                )
+            }
+        }
+
+        ScholarLibraryImportResult.Success(
+            importedBooks = pack.books.size,
+            importedPassages = pack.books.sumOf { it.passages.size },
+            packName = pack.packName,
+            packVersion = pack.packVersion,
+            replacedExisting = existing != null,
+        )
     }.getOrElse { error ->
         ScholarLibraryImportResult.Failure(error.message ?: "تعذر استيراد حزمة المكتبة.")
     }
@@ -732,31 +794,33 @@ class ScholarLibraryRepository @Inject constructor(
         )
     }
 
-    private suspend fun persistPack(pack: ScholarPack, imported: Boolean) {
+    private suspend fun persistPack(
+        pack: ScholarPack,
+        imported: Boolean,
+        originName: String?,
+        existing: ScholarContentPackEntity?,
+    ) {
         val books = pack.books.map { item -> item.toEntity(imported) }
         val passages = pack.books.flatMap { book ->
             book.passages.map { passage -> passage.toEntity(book.id) }
         }
-        libraryDao.upsertBooks(books)
-        libraryDao.upsertPassages(passages)
-        // FTS4 tables have no practical unique constraint for contentless rows;
-        // rebuilding avoids stale/duplicated results after a pack replaces text.
+        libraryDao.installContentPack(
+            pack = pack.toRegistryEntity(imported, originName, existing),
+            books = books,
+            passages = passages,
+        )
+        if (imported) {
+            rebuildIndex()
+            return
+        }
         ftsDao.clearAll()
-        val allRows = buildList {
-            pack.books.forEach { book ->
-                book.passages.forEach { passage ->
-                    add(
-                        ScholarPassageFtsEntity(
-                            normalizedText = ArabicText.normalizeForSearch(passage.text),
-                            passageId = passage.id,
-                        ),
-                    )
-                }
-            }
+        val allRows = passages.map { passage ->
+            ScholarPassageFtsEntity(
+                normalizedText = ArabicText.normalizeForSearch(passage.text),
+                passageId = passage.id,
+            )
         }
         if (allRows.isNotEmpty()) ftsDao.upsertRows(allRows)
-        if (!imported) return
-        rebuildIndex()
     }
 
     private suspend fun rebuildIndex() {
