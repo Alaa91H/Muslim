@@ -72,6 +72,33 @@ object IslamicHistorySources {
             url = "https://www.metmuseum.org/essays/the-art-of-the-timurid-period-ca-1370-1507",
         ),
         HistorySource(
+            id = "met_islamic_art",
+            title = HistoryText(
+                "فن العالم الإسلامي — مواد تعليمية من متحف المتروبوليتان للفنون",
+                "Art of the Islamic World — educator resources from The Metropolitan Museum of Art",
+            ),
+            kind = HistorySourceKind.Museum,
+            url = "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world",
+        ),
+        HistorySource(
+            id = "britannica_waqf",
+            title = HistoryText(
+                "الوقف — الموسوعة البريطانية",
+                "Waqf — Encyclopaedia Britannica",
+            ),
+            kind = HistorySourceKind.Reference,
+            url = "https://www.britannica.com/topic/waqf",
+        ),
+        HistorySource(
+            id = "britannica_madrasah",
+            title = HistoryText(
+                "المدرسة — الموسوعة البريطانية",
+                "Madrasah — Encyclopaedia Britannica",
+            ),
+            kind = HistorySourceKind.Reference,
+            url = "https://www.britannica.com/topic/madrasah",
+        ),
+        HistorySource(
             id = "unesco_silk_roads",
             title = HistoryText(
                 "حول طرق الحرير — اليونسكو",
