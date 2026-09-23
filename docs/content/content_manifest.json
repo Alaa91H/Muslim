@@ -607,6 +607,20 @@
       "required_actions": []
     },
     {
+      "id": "feature_feature-reference_src_main_res_raw_reference_islamic_glossary_v2_json",
+      "kind": "reference_corpus",
+      "path": "feature/feature-reference/src/main/res/raw/reference_islamic_glossary_v2.json",
+      "size_bytes": 491623,
+      "sha256": "61ef07a33cb362b1d5616f8811d01c2d58a8a54b7fc83078510f5d55070dcbb7",
+      "production_status": "approved",
+      "source": "Project-authored 300-term Islamic glossary. Definitions are linked to the app's sourced Aqeedah, Quranic Sciences, Hadith Sciences, Fiqh of Worship, Ethics, History, and Places corpora so glossary wording remains consistent with the long-form reference library.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Expanded Islamic Glossary bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every glossary entry remains NeedsReview pending terminology review, especially school-dependent legal terms, hadith terminology, and theological usage.",
+      "notes": "First versioned edition contains exactly 300 bilingual Arabic-English entries organized across nine domains with one concise definition and an internal source link per entry.",
+      "required_actions": []
+    },
+    {
       "id": "feature_feature-reference_src_main_res_raw_reference_mothers_v2_json",
       "kind": "reference_corpus",
       "path": "feature/feature-reference/src/main/res/raw/reference_mothers_v2.json",
@@ -618,6 +632,20 @@
       "attribution": "Mothers of the Believers reference content bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed. All articles remain marked NeedsReview pending article-level review of hadith grading, historical transmission, names, chronology, and contested reports.",
       "notes": "First versioned edition: dedicated biographies of the eleven wives represented in the corpus plus methodology, household learning, and charity/simplicity articles.",
+      "required_actions": []
+    },
+    {
+      "id": "feature_feature-reference_src_main_res_raw_reference_places_landmarks_v2_json",
+      "kind": "reference_corpus",
+      "path": "feature/feature-reference/src/main/res/raw/reference_places_landmarks_v2.json",
+      "size_bytes": 177787,
+      "sha256": "f47e43367ab0f0436a04504fcf60a1562600e85db9581105872ead5c5bcd65a5",
+      "production_status": "approved",
+      "source": "Project-authored Islamic Places and Landmarks corpus using structured Quran and authentic hadith references for sacred status and ritual significance, plus cross-links to the app's sourced Sira, Rashidun, and Islamic History corpora and selected museum/UNESCO historical references for civilizational sites.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Islamic Places and Landmarks reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending specialist review of sacred-status claims, Sira locations, local historical traditions, sectarian-sensitive sites, and geographic wording.",
+      "notes": "First versioned edition distinguishes sacred sites from Sira locations and historical/civilizational landmarks and explicitly avoids creating devotional merit where no text establishes it.",
       "required_actions": []
     },
     {
@@ -678,8 +706,8 @@
     }
   ],
   "summary": {
-    "asset_count": 46,
-    "approved_for_production": 46,
+    "asset_count": 48,
+    "approved_for_production": 48,
     "blocked_pending_review": 0
   }
 }
