@@ -135,9 +135,14 @@ class HomeViewModel @Inject constructor(
 
         val result = calculator.compute(date, coordinates, profile, zone)
 
+        // Sunrise is calculated for astronomical context, but it is not one of
+        // the five daily prayers and must never become the "next prayer".
+        fun findNextPrayer(epochMillis: Map<Prayer, Long>) =
+            NextPrayer.nextPrayer(epochMillis.filterKeys { it != Prayer.Sunrise }, now)
+
         // The countdown always tracks the REAL next prayer (from now), even
         // while the user browses a different day's times below.
-        var next = NextPrayer.nextPrayer(result.epochMillis, now)
+        var next = findNextPrayer(result.epochMillis)
         if (next == null) {
             val tomorrowResult = calculator.compute(
                 date = today.plusDays(1),
@@ -145,19 +150,19 @@ class HomeViewModel @Inject constructor(
                 profile = profile,
                 timeZone = zone,
             )
-            if (tomorrowResult.isValid) next = NextPrayer.nextPrayer(tomorrowResult.epochMillis, now)
+            if (tomorrowResult.isValid) next = findNextPrayer(tomorrowResult.epochMillis)
         }
         // When the user browsed away from today, keep showing the true next
         // prayer by recomputing against "today" instead of the selected date.
         if (date != today) {
             val todayResult = calculator.compute(today, coordinates, profile, zone)
-            next = NextPrayer.nextPrayer(todayResult.epochMillis, now)
+            next = findNextPrayer(todayResult.epochMillis)
                 ?: calculator.compute(
                     date = today.plusDays(1),
                     coordinates = coordinates,
                     profile = profile,
                     timeZone = zone,
-                ).let { NextPrayer.nextPrayer(it.epochMillis, now) }
+                ).let { findNextPrayer(it.epochMillis) }
         }
 
         return UiState(
