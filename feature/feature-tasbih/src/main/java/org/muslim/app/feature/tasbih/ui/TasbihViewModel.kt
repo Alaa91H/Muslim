@@ -17,6 +17,7 @@ import org.muslim.app.feature.tasbih.domain.TargetSoundSettings
 import org.muslim.app.feature.tasbih.domain.TasbihCounter
 import org.muslim.app.feature.tasbih.domain.TasbihPhrase
 import org.muslim.app.feature.tasbih.domain.TasbihSessionHistoryItem
+import org.muslim.app.feature.tasbih.domain.TasbihSessionMode
 import org.muslim.app.feature.tasbih.domain.TasbihState
 import javax.inject.Inject
 
@@ -42,7 +43,7 @@ class TasbihViewModel @Inject constructor(
     /** Emitted whenever a full round completes (count reaches a multiple of the target). */
     val roundCompleted: SharedFlow<RoundCompleted> = _roundCompleted.asSharedFlow()
 
-    /** Durable recent sessions, ready for the next statistics/history UI phase. */
+    /** Durable recent sessions, ready for statistics/history UI. */
     val sessionHistory: StateFlow<List<TasbihSessionHistoryItem>> = sessionRepository.observeRecent()
         .stateIn(
             viewModelScope,
@@ -50,15 +51,27 @@ class TasbihViewModel @Inject constructor(
             emptyList(),
         )
 
+    /** The current continuous session, independent from today's aggregate count. */
+    val activeSession: StateFlow<TasbihSessionHistoryItem?> = sessionRepository.observeActive()
+        .stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(5_000),
+            null,
+        )
+
     fun increment() = viewModelScope.launch {
         val current = state.value
-        val newCount = current.count + 1
-        actionCoordinator.increment(current.phrase, current.target)
-        if (TasbihCounter.completesRound(newCount, current.target)) {
+        val transition = actionCoordinator.increment(
+            phrase = current.phrase,
+            target = current.target,
+            mode = current.sessionMode,
+            roundsGoal = current.roundsGoal,
+        )
+        if (transition?.roundCompleted == true) {
             _roundCompleted.tryEmit(
                 RoundCompleted(
-                    count = newCount,
-                    round = TasbihCounter.roundNumberAt(newCount, current.target),
+                    count = transition.state.count.coerceAtMost(Int.MAX_VALUE.toLong()).toInt(),
+                    round = transition.state.completedRounds.coerceAtMost(Int.MAX_VALUE.toLong()).toInt(),
                 ),
             )
         }
@@ -66,7 +79,12 @@ class TasbihViewModel @Inject constructor(
 
     fun decrement() = viewModelScope.launch {
         val current = state.value
-        actionCoordinator.decrement(current.phrase, current.target)
+        actionCoordinator.decrement(
+            phrase = current.phrase,
+            target = current.target,
+            mode = current.sessionMode,
+            roundsGoal = current.roundsGoal,
+        )
     }
 
     fun reset() = viewModelScope.launch { actionCoordinator.reset(state.value.phrase) }
@@ -74,8 +92,48 @@ class TasbihViewModel @Inject constructor(
     fun resetAll() = viewModelScope.launch { actionCoordinator.resetAll() }
 
     fun setTarget(target: Int) {
-        if (target == state.value.target) return
-        viewModelScope.launch { actionCoordinator.setTarget(target) }
+        val current = state.value
+        if (target == current.target) return
+        viewModelScope.launch {
+            actionCoordinator.configureSession(
+                mode = current.sessionMode,
+                target = target,
+                roundsGoal = current.roundsGoal,
+            )
+        }
+    }
+
+    fun setSessionMode(mode: TasbihSessionMode) {
+        val current = state.value
+        if (mode == current.sessionMode) return
+        viewModelScope.launch {
+            actionCoordinator.configureSession(
+                mode = mode,
+                target = current.target,
+                roundsGoal = current.roundsGoal,
+            )
+        }
+    }
+
+    fun setRoundsGoal(roundsGoal: Int) {
+        val current = state.value
+        val normalized = roundsGoal.coerceIn(1, TasbihRepository.MAX_ROUNDS_GOAL)
+        if (normalized == current.roundsGoal) return
+        viewModelScope.launch {
+            actionCoordinator.configureSession(
+                mode = current.sessionMode,
+                target = current.target,
+                roundsGoal = normalized,
+            )
+        }
+    }
+
+    fun applySessionPreset(
+        mode: TasbihSessionMode,
+        target: Int,
+        roundsGoal: Int,
+    ) = viewModelScope.launch {
+        actionCoordinator.configureSession(mode, target, roundsGoal)
     }
 
     fun setPhrase(phrase: TasbihPhrase) {
