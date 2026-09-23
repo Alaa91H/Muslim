@@ -15,14 +15,18 @@ import org.muslim.app.feature.scholarlibrary.data.ScholarLibraryRepository
 import org.muslim.app.feature.scholarlibrary.domain.FlashcardWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.ScholarAuthorSummary
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
+import org.muslim.app.feature.scholarlibrary.domain.ScholarBookHierarchy
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBookOutlineSection
 import org.muslim.app.feature.scholarlibrary.domain.ScholarCategory
 import org.muslim.app.feature.scholarlibrary.domain.ScholarDifficulty
 import org.muslim.app.feature.scholarlibrary.domain.ScholarHighlightStyle
+import org.muslim.app.feature.scholarlibrary.domain.ScholarLibraryIndex
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
+import org.muslim.app.feature.scholarlibrary.domain.ScholarPathProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarSearchFilters
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPath
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPlan
 import org.muslim.app.feature.scholarlibrary.domain.SearchHit
 import org.muslim.app.feature.scholarlibrary.domain.StudyBookmarkWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.StudyHighlightWithCitation
@@ -33,6 +37,8 @@ internal data class ScholarLibraryUiState(
     val books: List<ScholarBook> = emptyList(),
     val authors: List<ScholarAuthorSummary> = emptyList(),
     val studyPaths: List<ScholarStudyPath> = emptyList(),
+    val pathProgress: List<ScholarPathProgress> = emptyList(),
+    val studyPlans: List<ScholarStudyPlan> = emptyList(),
     val catalogMetadataLoading: Boolean = true,
     val selectedCategory: ScholarCategory? = null,
     val selectedDifficulty: ScholarDifficulty? = null,
@@ -42,6 +48,7 @@ internal data class ScholarLibraryUiState(
     val selectedBook: ScholarBook? = null,
     val selectedBookPassages: List<ScholarPassage> = emptyList(),
     val selectedBookOutline: List<ScholarBookOutlineSection> = emptyList(),
+    val selectedBookHierarchy: ScholarBookHierarchy? = null,
     val notes: List<StudyNoteWithCitation> = emptyList(),
     val flashcards: List<FlashcardWithCitation> = emptyList(),
     val bookmarks: List<StudyBookmarkWithCitation> = emptyList(),
@@ -95,7 +102,19 @@ class ScholarLibraryViewModel @Inject constructor(
             repository.observeHighlights().collect { highlights -> update { it.copy(highlights = highlights) } }
         }
         viewModelScope.launch {
-            repository.observeReadingProgress().collect { progress -> update { it.copy(readingProgress = progress) } }
+            repository.observeReadingProgress().collect { progress ->
+                update {
+                    it.copy(
+                        readingProgress = progress,
+                        pathProgress = ScholarLibraryIndex.pathProgress(it.studyPaths, progress),
+                    )
+                }
+            }
+        }
+        viewModelScope.launch {
+            repository.observeStudyPlans().collect { plans ->
+                update { it.copy(studyPlans = plans) }
+            }
         }
     }
 
@@ -161,11 +180,13 @@ class ScholarLibraryViewModel @Inject constructor(
         bookJob = viewModelScope.launch {
             val book = repository.book(bookId)
             val outline = if (book == null) emptyList() else repository.bookOutline(bookId)
+            val hierarchy = if (book == null) null else repository.bookHierarchy(bookId)
             update {
                 it.copy(
                     selectedBook = book,
                     selectedBookPassages = emptyList(),
                     selectedBookOutline = outline,
+                    selectedBookHierarchy = hierarchy,
                 )
             }
             if (book != null) {
@@ -184,6 +205,7 @@ class ScholarLibraryViewModel @Inject constructor(
                 selectedBook = null,
                 selectedBookPassages = emptyList(),
                 selectedBookOutline = emptyList(),
+                selectedBookHierarchy = null,
             )
         }
     }
@@ -294,6 +316,53 @@ class ScholarLibraryViewModel @Inject constructor(
         }
     }
 
+    fun createDailyStudyPlan(pathId: String) {
+        saveStudyPlan(
+            pathId = pathId,
+            sessionsPerWeek = 7,
+            minutesPerSession = 20,
+            targetPassagesPerSession = 1,
+            successMessage = "تم تفعيل خطة يومية للمسار.",
+        )
+    }
+
+    fun createWeeklyStudyPlan(pathId: String) {
+        saveStudyPlan(
+            pathId = pathId,
+            sessionsPerWeek = 3,
+            minutesPerSession = 45,
+            targetPassagesPerSession = 2,
+            successMessage = "تم تفعيل خطة أسبوعية للمسار.",
+        )
+    }
+
+    fun deleteStudyPlan(id: Long) {
+        viewModelScope.launch {
+            repository.deleteStudyPlan(id)
+            update { it.copy(statusMessage = "حُذفت خطة الدراسة.") }
+        }
+    }
+
+    private fun saveStudyPlan(
+        pathId: String,
+        sessionsPerWeek: Int,
+        minutesPerSession: Int,
+        targetPassagesPerSession: Int,
+        successMessage: String,
+    ) {
+        viewModelScope.launch {
+            val saved = repository.createStudyPlan(
+                pathId = pathId,
+                sessionsPerWeek = sessionsPerWeek,
+                minutesPerSession = minutesPerSession,
+                targetPassagesPerSession = targetPassagesPerSession,
+            )
+            update {
+                it.copy(statusMessage = if (saved) successMessage else "تعذر حفظ خطة الدراسة.")
+            }
+        }
+    }
+
     fun importPack(rawText: String) {
         viewModelScope.launch {
             update { it.copy(statusMessage = "يجري فحص الحزمة واستيرادها محلياً…") }
@@ -320,6 +389,7 @@ class ScholarLibraryViewModel @Inject constructor(
             it.copy(
                 authors = authors,
                 studyPaths = paths,
+                pathProgress = ScholarLibraryIndex.pathProgress(paths, it.readingProgress),
                 catalogMetadataLoading = false,
             )
         }
