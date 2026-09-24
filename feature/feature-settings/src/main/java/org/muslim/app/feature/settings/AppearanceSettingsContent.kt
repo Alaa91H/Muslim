@@ -425,7 +425,7 @@ private fun AppearancePaletteCard(
             ) {
                 Box(
                     modifier = Modifier
-                        .padding(8.dp)
+                        .padding(IslamicSpacing.Small)
                         .fillMaxWidth(0.72f)
                         .height(14.dp)
                         .clip(CircleShape)
@@ -433,7 +433,7 @@ private fun AppearancePaletteCard(
                 )
                 Box(
                     modifier = Modifier
-                        .padding(start = 8.dp, top = 29.dp)
+                        .padding(start = IslamicSpacing.Small, top = 29.dp)
                         .size(width = 42.dp, height = 10.dp)
                         .clip(CircleShape)
                         .background(colors.primary),
