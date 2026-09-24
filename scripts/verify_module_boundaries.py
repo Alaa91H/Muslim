@@ -21,10 +21,7 @@ PROJECT_DEPENDENCY = re.compile(
 )
 
 # Temporary legacy edges. Do not add new entries here as a shortcut.
-ALLOWED_FEATURE_EDGES: set[tuple[str, str]] = {
-    (":feature:feature-settings", ":feature:feature-hadith"),
-    (":feature:feature-settings", ":feature:feature-learn"),
-}
+ALLOWED_FEATURE_EDGES: set[tuple[str, str]] = set()
 
 
 def discover_feature_edges() -> set[tuple[str, str]]:
