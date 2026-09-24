@@ -37,6 +37,7 @@ data class PersistedRecitationSession(
     val intent: RecitationSessionIntent,
     val currentGlobalNumber: Int,
     val positionMs: Long,
+    val remainingRepeats: Int,
     val wasPlaying: Boolean,
     val savedAtEpochMs: Long,
 )
@@ -48,6 +49,7 @@ internal fun PersistedRecitationSession.asRestorableOrNull(): PersistedRecitatio
     if (request.globalNumbers.isEmpty()) return null
     if (currentGlobalNumber !in request.globalNumbers) return null
     if (positionMs < 0L) return null
+    if (remainingRepeats < 1) return null
     return this
 }
 
@@ -132,6 +134,11 @@ class RecitationSessionRuntime @Inject constructor(
             intent = intent,
             currentGlobalNumber = firstGlobal,
             positionMs = 0L,
+            remainingRepeats = if (intent.continuous || intent.repeatCount <= 0) {
+                1
+            } else {
+                intent.repeatCount.coerceAtLeast(1)
+            },
             wasPlaying = false,
             savedAtEpochMs = System.currentTimeMillis(),
         )
@@ -152,6 +159,7 @@ class RecitationSessionRuntime @Inject constructor(
     fun persist(
         currentGlobalNumber: Int?,
         positionMs: Long,
+        remainingRepeats: Int,
         state: PlaybackState,
     ) {
         val intent = activeIntent ?: return
@@ -165,6 +173,7 @@ class RecitationSessionRuntime @Inject constructor(
             intent = intent,
             currentGlobalNumber = global,
             positionMs = positionMs.coerceAtLeast(0L),
+            remainingRepeats = remainingRepeats.coerceAtLeast(1),
             wasPlaying = state == PlaybackState.Playing,
             savedAtEpochMs = System.currentTimeMillis(),
         )
