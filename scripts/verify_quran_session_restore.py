@@ -56,7 +56,19 @@ def main() -> None:
     require("fun discardRestorableSession()" in view_model, "restore candidate must be dismissible")
     require("startPositionMs = session.positionMs" in view_model, "restore must pass the persisted media position")
     require("remainingRepeatsForCurrent = session.remainingRepeats" in view_model, "restore must preserve repeat remainder")
-    require("sessionRuntime.begin(intent)" in view_model, "new playback must establish durable session ownership")
+    require("sessionRuntime.begin(" in view_model, "new playback must establish durable session ownership")
+    require(
+        "positionMs = startPositionMs" in view_model,
+        "restored position must be retained when durable session ownership begins",
+    )
+    require(
+        "initialRemainingRepeats = remainingRepeatsForCurrent" in view_model,
+        "restored repeat remainder must be retained when durable session ownership begins",
+    )
+    require(
+        "positionMs: Long = 0L" in store and "initialRemainingRepeats: Int? = null" in store,
+        "session runtime must accept an initial restored snapshot",
+    )
 
     require("viewModel.resumeRestorableSession()" in reader, "reader must expose explicit resume")
     require("viewModel::discardRestorableSession" in reader, "reader must expose explicit discard")
