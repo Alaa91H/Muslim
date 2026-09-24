@@ -20,6 +20,7 @@ data class NewMuslimRoadmapStage(
     val title: BeginnerLocalizedText,
     val goal: BeginnerLocalizedText,
     val checklist: List<BeginnerLocalizedText>,
+    val lessonIds: List<String>,
 )
 
 object NewMuslimRoadmapContent {
@@ -65,6 +66,12 @@ object NewMuslimRoadmapContent {
                     "Elige una persona o mezquita de confianza para tus preguntas.",
                 ),
             ),
+            lessonIds = listOf(
+                "new_muslim_welcome",
+                "new_muslim_belief",
+                "new_muslim_prayer",
+                "new_muslim_purification",
+            ),
         ),
         NewMuslimRoadmapStage(
             id = "first_30_days",
@@ -107,6 +114,12 @@ object NewMuslimRoadmapContent {
                     "Aprende primero las normas que afectan directamente tu vida actual.",
                 ),
             ),
+            lessonIds = listOf(
+                "new_muslim_quran",
+                "new_muslim_daily_life",
+                "pillars_islam",
+                "pillars_iman",
+            ),
         ),
         NewMuslimRoadmapStage(
             id = "first_90_days",
@@ -148,6 +161,14 @@ object NewMuslimRoadmapContent {
                     "Préparez-vous à l'avance pour Ramadan, la zakat et les autres actes lorsqu'ils deviennent pertinents.",
                     "Prepárate con antelación para Ramadán, zakat y otras prácticas cuando correspondan.",
                 ),
+            ),
+            lessonIds = listOf(
+                "faith_tawhid_worship",
+                "wudu",
+                "salah",
+                "quran_understanding",
+                "ethics_foundation",
+                "new_muslim_roadmap",
             ),
         ),
     )
