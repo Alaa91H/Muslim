@@ -733,116 +733,164 @@ private fun MonthlyPrayerTable(state: HomeViewModel.UiState, use24h: Boolean) {
         contentPadding = androidx.compose.foundation.layout.PaddingValues(0.dp),
     ) {
         Column(modifier = Modifier.fillMaxWidth()) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.72f))
-                    .padding(vertical = IslamicSpacing.XSmall),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Column(
-                    modifier = Modifier.weight(0.92f),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Text(
-                        text = "${state.month.monthValue}/${state.month.year}",
-                        style = MaterialTheme.typography.labelMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
-                        maxLines = 1,
-                    )
-                }
-                prayers.forEach { prayer ->
-                    Column(
-                        modifier = Modifier.weight(1f),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                    ) {
-                        PrayerTimeIcon(
-                            prayer = prayer,
-                            tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                            modifier = Modifier.size(IslamicIconSize.Supporting),
-                        )
-                        Text(
-                            text = stringResource(prayerLabelRes(prayer)),
-                            style = MaterialTheme.typography.labelSmall,
-                            fontWeight = FontWeight.SemiBold,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer,
-                            maxLines = 1,
-                            overflow = TextOverflow.Clip,
-                        )
-                    }
-                }
-            }
-
+            MonthlyTableHeader(
+                monthLabel = "${state.month.monthValue}/${state.month.year}",
+                prayers = prayers,
+            )
             state.monthDays.forEachIndexed { index, day ->
                 if (index > 0) HorizontalDivider()
-                val selected = day.date == state.selectedDate
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(
-                            when {
-                                selected -> MaterialTheme.colorScheme.tertiaryContainer
-                                index % 2 == 1 -> MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.34f)
-                                else -> Color.Transparent
-                            },
-                        )
-                        .padding(vertical = 6.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Column(
-                        modifier = Modifier.weight(0.92f),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                    ) {
-                        Text(
-                            text = day.date.dayOfMonth.toString(),
-                            style = MaterialTheme.typography.labelLarge,
-                            fontWeight = FontWeight.Bold,
-                            color = if (selected) {
-                                MaterialTheme.colorScheme.onTertiaryContainer
-                            } else {
-                                MaterialTheme.colorScheme.onSurface
-                            },
-                        )
-                        Text(
-                            text = monthWeekdayLabel(day.date.dayOfWeek),
-                            style = MaterialTheme.typography.labelSmall,
-                            color = if (selected) {
-                                MaterialTheme.colorScheme.onTertiaryContainer
-                            } else {
-                                MaterialTheme.colorScheme.onSurfaceVariant
-                            },
-                            maxLines = 1,
-                        )
-                        Text(
-                            text = day.hijriDay.toString(),
-                            style = MaterialTheme.typography.labelSmall,
-                            color = if (selected) {
-                                MaterialTheme.colorScheme.onTertiaryContainer
-                            } else {
-                                MaterialTheme.colorScheme.primary
-                            },
-                        )
-                    }
-                    prayers.forEach { prayer ->
-                        Text(
-                            text = day.timeFor(prayer)?.format(formatter) ?: "—",
-                            modifier = Modifier.weight(1f),
-                            textAlign = TextAlign.Center,
-                            style = MaterialTheme.typography.labelSmall,
-                            fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
-                            color = if (selected) {
-                                MaterialTheme.colorScheme.onTertiaryContainer
-                            } else {
-                                MaterialTheme.colorScheme.onSurface
-                            },
-                            maxLines = 1,
-                            overflow = TextOverflow.Clip,
-                        )
-                    }
-                }
+                MonthlyTableDayRow(
+                    index = index,
+                    day = day,
+                    prayers = prayers,
+                    formatter = formatter,
+                    selected = day.date == state.selectedDate,
+                )
             }
         }
     }
+}
+
+@Composable
+private fun MonthlyTableHeader(
+    monthLabel: String,
+    prayers: List<Prayer>,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.72f))
+            .padding(vertical = IslamicSpacing.XSmall),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Column(
+            modifier = Modifier.weight(0.92f),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Text(
+                text = monthLabel,
+                style = MaterialTheme.typography.labelMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                maxLines = 1,
+            )
+        }
+        prayers.forEach { prayer ->
+            Column(
+                modifier = Modifier.weight(1f),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                PrayerTimeIcon(
+                    prayer = prayer,
+                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                    modifier = Modifier.size(IslamicIconSize.Supporting),
+                )
+                Text(
+                    text = stringResource(prayerLabelRes(prayer)),
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    maxLines = 1,
+                    overflow = TextOverflow.Clip,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun MonthlyTableDayRow(
+    index: Int,
+    day: HomeViewModel.DayTimes,
+    prayers: List<Prayer>,
+    formatter: java.time.format.DateTimeFormatter,
+    selected: Boolean,
+) {
+    val contentColor = if (selected) {
+        MaterialTheme.colorScheme.onTertiaryContainer
+    } else {
+        MaterialTheme.colorScheme.onSurface
+    }
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(
+                when {
+                    selected -> MaterialTheme.colorScheme.tertiaryContainer
+                    index % 2 == 1 -> MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.34f)
+                    else -> Color.Transparent
+                },
+            )
+            .padding(vertical = 6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        MonthlyDateCell(day = day, selected = selected)
+        prayers.forEach { prayer ->
+            MonthlyPrayerTimeCell(
+                value = day.timeFor(prayer)?.format(formatter) ?: "—",
+                selected = selected,
+                contentColor = contentColor,
+            )
+        }
+    }
+}
+
+@Composable
+private fun MonthlyDateCell(
+    day: HomeViewModel.DayTimes,
+    selected: Boolean,
+) {
+    Column(
+        modifier = Modifier.weight(0.92f),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(
+            text = day.date.dayOfMonth.toString(),
+            style = MaterialTheme.typography.labelLarge,
+            fontWeight = FontWeight.Bold,
+            color = if (selected) {
+                MaterialTheme.colorScheme.onTertiaryContainer
+            } else {
+                MaterialTheme.colorScheme.onSurface
+            },
+        )
+        Text(
+            text = monthWeekdayLabel(day.date.dayOfWeek),
+            style = MaterialTheme.typography.labelSmall,
+            color = if (selected) {
+                MaterialTheme.colorScheme.onTertiaryContainer
+            } else {
+                MaterialTheme.colorScheme.onSurfaceVariant
+            },
+            maxLines = 1,
+        )
+        Text(
+            text = day.hijriDay.toString(),
+            style = MaterialTheme.typography.labelSmall,
+            color = if (selected) {
+                MaterialTheme.colorScheme.onTertiaryContainer
+            } else {
+                MaterialTheme.colorScheme.primary
+            },
+        )
+    }
+}
+
+@Composable
+private fun MonthlyPrayerTimeCell(
+    value: String,
+    selected: Boolean,
+    contentColor: Color,
+) {
+    Text(
+        text = value,
+        modifier = Modifier.weight(1f),
+        textAlign = TextAlign.Center,
+        style = MaterialTheme.typography.labelSmall,
+        fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
+        color = contentColor,
+        maxLines = 1,
+        overflow = TextOverflow.Clip,
+    )
 }
 
