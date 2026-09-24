@@ -530,10 +530,6 @@ private fun QiblaDirectionDetails(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(if (compact) 8.dp else 12.dp),
         ) {
-            Text(
-                text = "🕋",
-                fontSize = if (compact) 22.sp else 26.sp,
-            )
             Column(modifier = Modifier.weight(0.9f)) {
                 Text(
                     text = stringResource(R.string.qibla_bearing_degree, presentation.bearing),

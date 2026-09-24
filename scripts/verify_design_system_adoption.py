@@ -28,6 +28,7 @@ PERMISSIONS_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim
 ABOUT_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/AboutScreen.kt"
 PRIVACY_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/PrivacyScreen.kt"
 SMART_DEVICES_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/SmartDevicesScreen.kt"
+APPEARANCE_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/AppearanceSettingsContent.kt"
 
 
 def require(condition: bool, message: str) -> None:
@@ -50,6 +51,7 @@ def main() -> None:
     require("reduceAnimations = preferences.reduceAnimations" in app, "app must bind the stored reduce-motion preference")
     require("MuslimAppScaffold" in app, "root app must use the shared scaffold")
     require("fun IslamicListItem" in components, "shared list item component is required")
+    require("fun IslamicSelectableCard" in components, "shared selectable card component is required")
     for state_component in (
         "fun MuslimLoadingState",
         "fun MuslimEmptyState",
@@ -84,6 +86,7 @@ def main() -> None:
     about_settings = ABOUT_SETTINGS.read_text(encoding="utf-8")
     privacy_settings = PRIVACY_SETTINGS.read_text(encoding="utf-8")
     smart_devices_settings = SMART_DEVICES_SETTINGS.read_text(encoding="utf-8")
+    appearance_settings = APPEARANCE_SETTINGS.read_text(encoding="utf-8")
     require("MuslimEmptyState" in bookmarks, "Quran bookmarks must use the shared empty state")
     require("MuslimEmptyState" in scholar_data, "Scholar data manager must use the shared empty state")
     for state_component in (
@@ -193,6 +196,31 @@ def main() -> None:
     require(
         "IslamicPrimaryButton" in smart_devices_settings,
         "Smart devices settings must use the shared primary action",
+    )
+    require(
+        raw_material_component.search(SETTINGS.read_text(encoding="utf-8")) is None,
+        "Main settings must use shared Islamic card/button components",
+    )
+    require(
+        raw_spacing_literal.search(SETTINGS.read_text(encoding="utf-8")) is None,
+        "Main settings must use IslamicSpacing tokens for layout spacing",
+    )
+    require(
+        "IslamicPrimaryButton" in SETTINGS.read_text(encoding="utf-8")
+        and "IslamicSecondaryButton" in SETTINGS.read_text(encoding="utf-8"),
+        "Main settings update actions must use shared primary/secondary actions",
+    )
+    require(
+        raw_material_component.search(appearance_settings) is None,
+        "Appearance settings must use shared selectable cards instead of raw Material cards",
+    )
+    require(
+        appearance_settings.count("IslamicSelectableCard") >= 2,
+        "Appearance palette and corner previews must use IslamicSelectableCard",
+    )
+    require(
+        "IslamicSpacing" in appearance_settings,
+        "Appearance settings must use the shared spacing scale",
     )
 
     print("Adaptive design-system, shared states, and token adoption verified.")

@@ -33,7 +33,6 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.SystemUpdate
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
@@ -41,7 +40,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -72,6 +70,8 @@ import org.muslim.app.feature.settings.update.formatCheckDate
 import org.muslim.app.core.designsystem.IslamicIconSize
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicPrimaryButton
+import org.muslim.app.core.ui.theme.IslamicSecondaryButton
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimContentFrame
 
@@ -260,13 +260,13 @@ fun SettingsScreen(
                                         selected = preferences.startTab == option.route,
                                         onClick = { viewModel.setStartTab(option.route) },
                                     )
-                                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                                    .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Compact),
                             ) {
                                 Text(
                                     text = stringResource(option.labelRes),
                                     modifier = Modifier
                                         .weight(1f)
-                                        .padding(start = 16.dp),
+                                        .padding(start = IslamicSpacing.Medium),
                                     style = MaterialTheme.typography.bodyLarge,
                                 )
                                 RadioButton(
@@ -295,7 +295,7 @@ fun SettingsScreen(
                                         selected = preferences.timeFormat24h == option.use24h,
                                         onClick = { viewModel.setTimeFormat24h(option.use24h) },
                                     )
-                                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                                    .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Compact),
                             ) {
                                 Icon(
                                     imageVector = Icons.Filled.Schedule,
@@ -306,7 +306,7 @@ fun SettingsScreen(
                                     text = stringResource(option.labelRes),
                                     modifier = Modifier
                                         .weight(1f)
-                                        .padding(start = 16.dp),
+                                        .padding(start = IslamicSpacing.Medium),
                                     style = MaterialTheme.typography.bodyLarge,
                                 )
                                 RadioButton(
@@ -340,7 +340,7 @@ fun SettingsScreen(
                                             }
                                         },
                                     )
-                                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                                    .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Compact),
                             ) {
                                 Icon(
                                     imageVector = Icons.Filled.Language,
@@ -351,7 +351,7 @@ fun SettingsScreen(
                                     text = option.label,
                                     modifier = Modifier
                                         .weight(1f)
-                                        .padding(start = 16.dp),
+                                        .padding(start = IslamicSpacing.Medium),
                                     style = MaterialTheme.typography.bodyLarge,
                                 )
                                 RadioButton(
@@ -497,14 +497,14 @@ fun SettingsScreen(
                         Text(
                             text = stringResource(R.string.settings_updates_channel),
                             style = MaterialTheme.typography.labelLarge,
-                            modifier = Modifier.padding(start = 16.dp, top = 8.dp, bottom = 4.dp),
+                            modifier = Modifier.padding(start = IslamicSpacing.Medium, top = IslamicSpacing.Small, bottom = IslamicSpacing.XSmall),
                         )
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = 16.dp)
+                                .padding(horizontal = IslamicSpacing.Medium)
                                 .selectableGroup(),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
                         ) {
                             updateChannelOptions.forEach { option ->
                                 FilterChip(
@@ -524,20 +524,20 @@ fun SettingsScreen(
                             ),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+                            modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
                         )
 
                         Text(
                             text = stringResource(R.string.settings_updates_frequency),
                             style = MaterialTheme.typography.labelLarge,
-                            modifier = Modifier.padding(start = 16.dp, top = 8.dp, bottom = 4.dp),
+                            modifier = Modifier.padding(start = IslamicSpacing.Medium, top = IslamicSpacing.Small, bottom = IslamicSpacing.XSmall),
                         )
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = 16.dp)
+                                .padding(horizontal = IslamicSpacing.Medium)
                                 .selectableGroup(),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
                         ) {
                             updateFrequencyOptions.forEach { option ->
                                 androidx.compose.material3.FilterChip(
@@ -547,31 +547,31 @@ fun SettingsScreen(
                                 )
                             }
                         }
-                        Spacer(Modifier.height(8.dp))
+                        Spacer(Modifier.height(IslamicSpacing.Small))
                     }
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 4.dp),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
+                        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
                     ) {
-                        OutlinedButton(
+                        IslamicSecondaryButton(
                             onClick = viewModel::checkForUpdatesNow,
                             enabled = !isCheckingForUpdates,
                             modifier = Modifier.weight(1f),
                         ) {
                             if (isCheckingForUpdates) {
                                 CircularProgressIndicator(
-                                    modifier = Modifier.size(18.dp),
+                                    modifier = Modifier.size(IslamicIconSize.Supporting),
                                     strokeWidth = 2.dp,
                                 )
-                                Spacer(Modifier.width(8.dp))
+                                Spacer(Modifier.width(IslamicSpacing.Small))
                                 Text(stringResource(R.string.settings_updates_checking))
                             } else {
                                 Text(stringResource(R.string.settings_updates_check_now))
                             }
                         }
-                        Button(
+                        IslamicPrimaryButton(
                             onClick = onOpenUpdates,
                             modifier = Modifier.weight(1f),
                         ) {
@@ -586,7 +586,7 @@ fun SettingsScreen(
                             ),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+                            modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
                         )
                     }
                     when (updateCheckResult) {
@@ -596,7 +596,7 @@ fun SettingsScreen(
                                 text = stringResource(R.string.settings_updates_found, release.version),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+                                modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
                             )
                             LaunchedEffect(updateCheckResult) {
                                 viewModel.consumeUpdateCheckResult()
@@ -608,7 +608,7 @@ fun SettingsScreen(
                                 text = stringResource(R.string.settings_updates_latest),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+                                modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
                             )
                             LaunchedEffect(updateCheckResult) {
                                 viewModel.consumeUpdateCheckResult()
@@ -619,14 +619,14 @@ fun SettingsScreen(
                                 text = stringResource(R.string.settings_updates_error),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.error,
-                                modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+                                modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
                             )
                             updateCheckError?.let { message ->
                                 Text(
                                     text = message,
                                     style = MaterialTheme.typography.labelSmall,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+                                    modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
                                 )
                             }
                             LaunchedEffect(updateCheckResult) {
