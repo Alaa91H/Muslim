@@ -192,6 +192,69 @@ object LearnContent {
             notes = "يجوز التيمم عند فقد الماء أو المرض الذي يمنع استعماله. يبطل التيمم بوجود الماء (مع القدرة) وبما يبطل الوضوء. الضربة الواحدة تكفي عند الشافعية لمسح الوجه واليدين، والضربتان مذهب الجمهور.",
         ),
         LearnTopic(
+            id = "prayer_intro",
+            category = CATEGORY_SALAH,
+            titleRes = R.string.learn_topic_prayer_intro,
+            subtitleRes = R.string.learn_topic_prayer_intro_sub,
+            steps = listOf(
+                LearnStep("مدخل إلى الصلاة", "خريطة كاملة لما قبل الصلاة وصفة أدائها وأحكام السهو والجماعة والأعذار."),
+            ),
+        ),
+        LearnTopic(
+            id = "qibla_niyyah",
+            category = CATEGORY_SALAH,
+            titleRes = R.string.learn_topic_qibla_niyyah,
+            subtitleRes = R.string.learn_topic_qibla_niyyah_sub,
+            steps = listOf(
+                LearnStep("القبلة والنية", "كيفية التحري للقبلة وفهم النية دون تكلف أو وسوسة."),
+            ),
+        ),
+        LearnTopic(
+            id = "sujud_sahw",
+            category = CATEGORY_SALAH,
+            titleRes = R.string.learn_topic_sujud_sahw,
+            subtitleRes = R.string.learn_topic_sujud_sahw_sub,
+            steps = listOf(
+                LearnStep("سجود السهو", "الزيادة والنقص والشك وموضع السجود قبل السلام أو بعده."),
+            ),
+        ),
+        LearnTopic(
+            id = "congregation_imamah",
+            category = CATEGORY_SALAH,
+            titleRes = R.string.learn_topic_congregation_imamah,
+            subtitleRes = R.string.learn_topic_congregation_imamah_sub,
+            steps = listOf(
+                LearnStep("الجماعة والإمامة", "متابعة الإمام والصفوف والمسبوق وأساسيات الإمامة."),
+            ),
+        ),
+        LearnTopic(
+            id = "traveler_prayer",
+            category = CATEGORY_SALAH,
+            titleRes = R.string.learn_topic_traveler_prayer,
+            subtitleRes = R.string.learn_topic_traveler_prayer_sub,
+            steps = listOf(
+                LearnStep("صلاة المسافر", "القصر والجمع والصلاة أثناء الطريق والإقامة المؤقتة."),
+            ),
+        ),
+        LearnTopic(
+            id = "sick_prayer",
+            category = CATEGORY_SALAH,
+            titleRes = R.string.learn_topic_sick_prayer,
+            subtitleRes = R.string.learn_topic_sick_prayer_sub,
+            steps = listOf(
+                LearnStep("صلاة المريض", "القيام والجلوس والإيماء والطهارة في حدود الاستطاعة."),
+            ),
+        ),
+        LearnTopic(
+            id = "jumuah",
+            category = CATEGORY_SALAH,
+            titleRes = R.string.learn_topic_jumuah,
+            subtitleRes = R.string.learn_topic_jumuah_sub,
+            steps = listOf(
+                LearnStep("صلاة الجمعة", "الحضور والخطبة والصلاة والأعذار وأحكام العمل والدراسة."),
+            ),
+        ),
+        LearnTopic(
             id = "salah",
             category = CATEGORY_SALAH,
             titleRes = R.string.learn_topic_salah,
