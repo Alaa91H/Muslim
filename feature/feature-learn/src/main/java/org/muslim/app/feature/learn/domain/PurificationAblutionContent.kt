@@ -5,12 +5,12 @@ import org.muslim.app.feature.learn.R
 internal object PurificationAblutionContent {
 
     val lessons: List<LearningLesson> = listOf(
-        wudu(),
-        wuduNullifiers(),
-        wipingOverFootwear(),
+        wudu,
+        wuduNullifiers,
+        wipingOverFootwear,
     )
 
-    private fun wudu() = LearningLesson(
+    private val wudu = LearningLesson(
         id = "wudu",
         titleRes = R.string.learn_topic_wudu,
         subtitleRes = R.string.learn_topic_wudu_sub,
@@ -126,7 +126,7 @@ internal object PurificationAblutionContent {
         ),
     )
 
-    private fun wuduNullifiers() = LearningLesson(
+    private val wuduNullifiers = LearningLesson(
         id = "wudu_nullifiers",
         titleRes = R.string.learn_topic_wudu_nullifiers,
         subtitleRes = R.string.learn_topic_wudu_nullifiers_sub,
@@ -185,7 +185,7 @@ internal object PurificationAblutionContent {
         ),
     )
 
-    private fun wipingOverFootwear() = LearningLesson(
+    private val wipingOverFootwear = LearningLesson(
         id = "wiping_footwear",
         titleRes = R.string.learn_topic_wiping_footwear,
         subtitleRes = R.string.learn_topic_wiping_footwear_sub,
