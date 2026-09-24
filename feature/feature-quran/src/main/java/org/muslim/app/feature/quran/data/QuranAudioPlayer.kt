@@ -53,8 +53,10 @@ class QuranAudioPlayer @Inject constructor(
     private var queue: List<RecitationQueueItem> = emptyList()
     private var queueIndex = -1
     private var repeatPerAyah = 1
-    private var remainingRepeats = 0
+    private val _remainingRepeats = MutableStateFlow(0)
+    val remainingRepeats: StateFlow<Int> = _remainingRepeats.asStateFlow()
     private var pendingStartPositionMs = 0L
+    private var pendingRemainingRepeats: Int? = null
 
     private val _playbackState = MutableStateFlow(PlaybackState.Idle)
     val playbackState: StateFlow<PlaybackState> = _playbackState.asStateFlow()
@@ -103,6 +105,7 @@ class QuranAudioPlayer @Inject constructor(
         repeatCount: Int,
         continuous: Boolean = false,
         startPositionMs: Long = 0L,
+        remainingRepeatsForCurrent: Int? = null,
     ) {
         if (items.isEmpty()) return
         _lastFailure.value = null
@@ -110,6 +113,8 @@ class QuranAudioPlayer @Inject constructor(
         repeatPerAyah = repeatCount.coerceAtLeast(1)
         this.continuous = continuous
         pendingStartPositionMs = startPositionMs.coerceAtLeast(0L)
+        pendingRemainingRepeats = remainingRepeatsForCurrent
+            ?.coerceIn(1, repeatPerAyah)
         queueIndex = startIndex.coerceIn(0, items.lastIndex)
         loadCurrent()
     }
@@ -155,6 +160,8 @@ class QuranAudioPlayer @Inject constructor(
         continuous = false
         onQueueCompleted = null
         pendingStartPositionMs = 0L
+        pendingRemainingRepeats = null
+        _remainingRepeats.value = 0
         _playbackState.value = PlaybackState.Idle
         _currentAyah.value = null
         resetProgress()
@@ -175,7 +182,8 @@ class QuranAudioPlayer @Inject constructor(
         }
         releaseEngine()
         _currentAyah.value = item.globalNumber
-        remainingRepeats = repeatPerAyah
+        _remainingRepeats.value = pendingRemainingRepeats ?: repeatPerAyah
+        pendingRemainingRepeats = null
         resetProgress()
         updateNavState()
 
@@ -212,8 +220,8 @@ class QuranAudioPlayer @Inject constructor(
                 }
         }
         engine.setOnCompletionListener {
-            remainingRepeats--
-            if (remainingRepeats > 0) {
+            _remainingRepeats.value -= 1
+            if (_remainingRepeats.value > 0) {
                 runCatching {
                     engine.seekTo(0)
                     engine.start()
