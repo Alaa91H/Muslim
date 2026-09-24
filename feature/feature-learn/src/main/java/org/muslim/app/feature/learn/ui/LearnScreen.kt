@@ -214,7 +214,31 @@ private fun categoryTitleRes(category: String): Int = when (category) {
  * nullifiers, rawatib, special prayers, rak'ah table), fasting, zakat,
  * funerals and a neutral madhhab differences overview.
  */
-@OptIn(ExperimentalMaterial3Api::class)
+private data class LearnScreenState(
+    val topic: LearnTopic?,
+    val favoriteIds: Set<String>,
+    val completedLessonIds: Set<String>,
+    val quizAnswers: Map<String, String>,
+    val searchQuery: String,
+    val continueTopic: LearnTopic?,
+    val mistakeCount: Int,
+)
+
+private data class LearnScreenActions(
+    val onBack: () -> Unit,
+    val onSearchQueryChange: (String) -> Unit,
+    val onToggleFavorite: (String) -> Unit,
+    val onReviewMistakes: () -> Unit,
+    val onOpenTopic: (LearnTopic) -> Unit,
+    val onOpenSpecial: (LearnSpecialDestination) -> Unit,
+)
+
+private data class LearnLessonActions(
+    val onSetCompleted: (LearnTopic, Boolean) -> Unit,
+    val onAnswerQuiz: (LearnTopic, String, String) -> Unit,
+    val onOpenFeature: (LearningFeatureDestination) -> Unit,
+)
+
 @Composable
 fun LearnScreen(
     onBack: () -> Unit,
@@ -232,10 +256,8 @@ fun LearnScreen(
     val quizAnswers by viewModel.quizAnswers.collectAsStateWithLifecycle()
     val topic = selected
     val continueTopic = remember(lastOpenedLessonId, completedLessonIds) {
-        LearningProgressPlanner.continueLessonId(
-            lastOpenedLessonId = lastOpenedLessonId,
-            completedLessonIds = completedLessonIds,
-        )?.let { id -> LearnContent.topics.firstOrNull { it.id == id } }
+        LearningProgressPlanner.continueLessonId(lastOpenedLessonId, completedLessonIds)
+            ?.let { id -> LearnContent.topics.firstOrNull { it.id == id } }
     }
     val mistakeCount = remember(quizAnswers) {
         LearningAssessmentCatalog.incorrectEntries(quizAnswers).size
@@ -244,8 +266,6 @@ fun LearnScreen(
     LaunchedEffect(topic?.id) {
         topic?.id?.let(viewModel::openLesson)
     }
-
-    // Back always resolves the inner learning destination before returning to More.
     BackHandler(enabled = showMistakes) { showMistakes = false }
     BackHandler(enabled = specialDestination != null) { specialDestination = null }
     BackHandler(enabled = topic != null) { selected = null }
@@ -266,26 +286,68 @@ fun LearnScreen(
         LearningMistakesScreen(
             quizAnswers = quizAnswers,
             onBack = { showMistakes = false },
-            onOpenLesson = { lessonTopic ->
+            onOpenLesson = {
                 showMistakes = false
-                selected = lessonTopic
+                selected = it
             },
             modifier = modifier,
         )
         return
     }
 
+    LearnScreenScaffold(
+        state = LearnScreenState(
+            topic = topic,
+            favoriteIds = favoriteIds,
+            completedLessonIds = completedLessonIds,
+            quizAnswers = quizAnswers,
+            searchQuery = searchQuery,
+            continueTopic = continueTopic,
+            mistakeCount = mistakeCount,
+        ),
+        actions = LearnScreenActions(
+            onBack = onBack,
+            onSearchQueryChange = { searchQuery = it },
+            onToggleFavorite = viewModel::toggleFavorite,
+            onReviewMistakes = { showMistakes = true },
+            onOpenTopic = { selected = it },
+            onOpenSpecial = { specialDestination = it },
+        ),
+        lessonActions = LearnLessonActions(
+            onSetCompleted = { lesson, completed ->
+                viewModel.setLessonCompleted(lesson.id, completed)
+            },
+            onAnswerQuiz = { lesson, quizId, optionId ->
+                viewModel.answerQuiz(lesson.id, quizId, optionId)
+            },
+            onOpenFeature = onOpenFeature,
+        ),
+        modifier = modifier,
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun LearnScreenScaffold(
+    state: LearnScreenState,
+    actions: LearnScreenActions,
+    lessonActions: LearnLessonActions,
+    modifier: Modifier,
+) {
+    val topic = state.topic
     MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
                 title = {
-                    Text(
-                        stringResource(if (topic == null) R.string.learn_title else topic.titleRes)
-                    )
+                    Text(stringResource(if (topic == null) R.string.learn_title else topic.titleRes))
                 },
                 navigationIcon = {
-                    IconButton(onClick = { if (topic == null) onBack() else selected = null }) {
+                    IconButton(
+                        onClick = {
+                            if (topic == null) actions.onBack() else actions.onOpenTopic(topic)
+                        },
+                    ) {
                         Icon(
                             Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = stringResource(R.string.learn_back),
@@ -293,9 +355,9 @@ fun LearnScreen(
                     }
                 },
                 actions = {
-                    if (topic != null) {
-                        val isFav = topic.id in favoriteIds
-                        IconButton(onClick = { viewModel.toggleFavorite(topic.id) }) {
+                    topic?.let { current ->
+                        val isFav = current.id in state.favoriteIds
+                        IconButton(onClick = { actions.onToggleFavorite(current.id) }) {
                             Icon(
                                 imageVector = if (isFav) Icons.Filled.Star else Icons.Outlined.StarBorder,
                                 contentDescription = stringResource(
@@ -315,30 +377,20 @@ fun LearnScreen(
     ) { innerPadding ->
         if (topic == null) {
             TopicList(
-                favoriteIds = favoriteIds,
-                completedLessonIds = completedLessonIds,
-                searchQuery = searchQuery,
-                continueTopic = continueTopic,
-                mistakeCount = mistakeCount,
-                onSearchQueryChange = { searchQuery = it },
-                onToggleFavorite = viewModel::toggleFavorite,
-                onReviewMistakes = { showMistakes = true },
+                state = state,
+                actions = actions,
                 modifier = Modifier.padding(innerPadding),
-                onOpen = { selected = it },
-                onOpenSpecial = { specialDestination = it },
             )
         } else {
             LearningLessonReader(
                 topic = topic,
-                completed = topic.id in completedLessonIds,
-                quizAnswers = quizAnswers,
-                onSetCompleted = { completed ->
-                    viewModel.setLessonCompleted(topic.id, completed)
-                },
+                completed = topic.id in state.completedLessonIds,
+                quizAnswers = state.quizAnswers,
+                onSetCompleted = { lessonActions.onSetCompleted(topic, it) },
                 onAnswerQuiz = { quizId, optionId ->
-                    viewModel.answerQuiz(topic.id, quizId, optionId)
+                    lessonActions.onAnswerQuiz(topic, quizId, optionId)
                 },
-                onOpenFeature = onOpenFeature,
+                onOpenFeature = lessonActions.onOpenFeature,
                 modifier = Modifier.padding(innerPadding),
             )
         }
@@ -347,21 +399,13 @@ fun LearnScreen(
 
 @Composable
 private fun TopicList(
-    favoriteIds: Set<String>,
-    completedLessonIds: Set<String>,
-    searchQuery: String,
-    continueTopic: LearnTopic?,
-    mistakeCount: Int,
-    onSearchQueryChange: (String) -> Unit,
-    onToggleFavorite: (String) -> Unit,
-    onReviewMistakes: () -> Unit,
+    state: LearnScreenState,
+    actions: LearnScreenActions,
     modifier: Modifier = Modifier,
-    onOpen: (LearnTopic) -> Unit,
-    onOpenSpecial: (LearnSpecialDestination) -> Unit,
 ) {
     val resources = LocalResources.current
     val locale = LocalConfiguration.current.locales[0]
-    val normalizedQuery = searchQuery.trim().lowercase(locale)
+    val normalizedQuery = state.searchQuery.trim().lowercase(locale)
     val visibleTopics = if (normalizedQuery.isBlank()) {
         LearnContent.topics
     } else {
@@ -370,7 +414,7 @@ private fun TopicList(
                 resources.getString(topic.subtitleRes).lowercase(locale).contains(normalizedQuery)
         }
     }
-    val overallProgress = LearningProgressPlanner.overallSummary(completedLessonIds)
+    val overallProgress = LearningProgressPlanner.overallSummary(state.completedLessonIds)
 
     LazyColumn(
         modifier = modifier.fillMaxSize(),
@@ -385,31 +429,31 @@ private fun TopicList(
         }
         item(key = "learning-hub-controls") {
             LearningHubControls(
-                query = searchQuery,
-                onQueryChange = onSearchQueryChange,
+                query = state.searchQuery,
+                onQueryChange = actions.onSearchQueryChange,
                 progress = overallProgress,
-                continueTopic = continueTopic,
-                mistakeCount = mistakeCount,
-                onContinue = onOpen,
-                onReviewMistakes = onReviewMistakes,
+                continueTopic = state.continueTopic,
+                mistakeCount = state.mistakeCount,
+                onContinue = actions.onOpenTopic,
+                onReviewMistakes = actions.onReviewMistakes,
             )
         }
         if (normalizedQuery.isBlank()) {
-            specialDestinationItems(onOpenSpecial)
+            specialDestinationItems(actions.onOpenSpecial)
         }
         favouriteTopicItems(
             topics = visibleTopics,
-            favoriteIds = favoriteIds,
-            completedLessonIds = completedLessonIds,
-            onToggleFavorite = onToggleFavorite,
-            onOpen = onOpen,
+            favoriteIds = state.favoriteIds,
+            completedLessonIds = state.completedLessonIds,
+            onToggleFavorite = actions.onToggleFavorite,
+            onOpen = actions.onOpenTopic,
         )
         categoryTopicItems(
             topics = visibleTopics,
-            favoriteIds = favoriteIds,
-            completedLessonIds = completedLessonIds,
-            onToggleFavorite = onToggleFavorite,
-            onOpen = onOpen,
+            favoriteIds = state.favoriteIds,
+            completedLessonIds = state.completedLessonIds,
+            onToggleFavorite = actions.onToggleFavorite,
+            onOpen = actions.onOpenTopic,
         )
         if (normalizedQuery.isNotBlank() && visibleTopics.isEmpty()) {
             item(key = "search-empty") {
