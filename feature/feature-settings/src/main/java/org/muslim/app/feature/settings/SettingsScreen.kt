@@ -562,7 +562,7 @@ fun SettingsScreen(
                         ) {
                             if (isCheckingForUpdates) {
                                 CircularProgressIndicator(
-                                    modifier = Modifier.size(1IslamicSpacing.Small),
+                                    modifier = Modifier.size(IslamicIconSize.Supporting),
                                     strokeWidth = 2.dp,
                                 )
                                 Spacer(Modifier.width(IslamicSpacing.Small))
