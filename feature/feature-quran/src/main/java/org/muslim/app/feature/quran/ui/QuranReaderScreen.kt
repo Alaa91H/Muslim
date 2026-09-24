@@ -62,9 +62,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.SnackbarResult
+import androidx.compose.material3.Snackbar
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -148,7 +146,6 @@ import org.muslim.app.core.ui.theme.IslamicReadingHeaderDecoration
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.TajweedMarkup
 import org.muslim.app.feature.quran.data.PlaybackState
-import org.muslim.app.feature.quran.data.RecitationFailureReason
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.ReaderTheme
@@ -296,33 +293,9 @@ fun QuranReaderScreen(
 
     // Playback/download failures are actionable and retain the last queue
     // request, so retry resumes the same recitation intent instead of silently
-    // restarting from ayah one.
-    val snackbarHostState = remember { SnackbarHostState() }
-    val downloadFailureText = stringResource(R.string.quran_playback_error)
-    val engineFailureText = stringResource(R.string.quran_playback_engine_error)
-    val retryText = stringResource(R.string.quran_retry)
-    LaunchedEffect(recitationFailure?.sequence) {
-        val failure = recitationFailure ?: return@LaunchedEffect
-        val message = when (failure.reason) {
-            RecitationFailureReason.DownloadFailed,
-            RecitationFailureReason.AudioFileUnavailable,
-            -> downloadFailureText
-            RecitationFailureReason.EngineUnavailable,
-            RecitationFailureReason.PreparationFailed,
-            RecitationFailureReason.StartFailed,
-            RecitationFailureReason.EngineError,
-            -> engineFailureText
-        }
-        if (
-            snackbarHostState.showSnackbar(
-                message = message,
-                actionLabel = retryText,
-                withDismissAction = true,
-            ) == SnackbarResult.ActionPerformed
-        ) {
-            viewModel.retryPlaybackAfterFailure()
-        }
-    }
+    // restarting from ayah one. Reuse the already-localized playback message;
+    // the typed failure reason remains available to the state layer.
+    val playbackFailureText = stringResource(R.string.quran_playback_error)
 
     var fontSize by rememberSaveable { mutableFloatStateOf(DEFAULT_FONT_SP) }
     var repeatCount by rememberSaveable { mutableIntStateOf(1) }
@@ -967,12 +940,23 @@ fun QuranReaderScreen(
 
             }
 
-            SnackbarHost(
-                hostState = snackbarHostState,
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .padding(IslamicSpacing.Medium),
-            )
+            if (recitationFailure != null) {
+                Snackbar(
+                    modifier = Modifier
+                        .align(Alignment.BottomCenter)
+                        .padding(IslamicSpacing.Medium),
+                    action = {
+                        IconButton(onClick = viewModel::retryPlaybackAfterFailure) {
+                            Icon(
+                                imageVector = Icons.Filled.Refresh,
+                                contentDescription = playbackFailureText,
+                            )
+                        }
+                    },
+                ) {
+                    Text(playbackFailureText)
+                }
+            }
 
             if (showDetails) {
             state.surah?.let { surah ->
