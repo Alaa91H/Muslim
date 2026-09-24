@@ -144,6 +144,20 @@ private val topicIcons = mapOf(
     "seerah_madinah" to Icons.Filled.Mosque,
     "seerah_major_events" to Icons.Filled.Star,
     "seerah_character_legacy" to Icons.Filled.VerifiedUser,
+    "ethics_foundation" to Icons.Filled.Book,
+    "ethics_speech" to Icons.AutoMirrored.Filled.VolumeUp,
+    "ethics_family" to Icons.Filled.ChildCare,
+    "ethics_neighbours" to Icons.Filled.Mosque,
+    "ethics_conflict" to Icons.Filled.Warning,
+    "ethics_privacy" to Icons.Filled.VerifiedUser,
+    "ethics_work_digital" to Icons.Filled.Checklist,
+    "new_muslim_welcome" to Icons.Filled.Star,
+    "new_muslim_belief" to Icons.Filled.Book,
+    "new_muslim_prayer" to Icons.Filled.Mosque,
+    "new_muslim_purification" to Icons.Filled.WaterDrop,
+    "new_muslim_quran" to Icons.AutoMirrored.Filled.MenuBook,
+    "new_muslim_daily_life" to Icons.Filled.LocalFlorist,
+    "new_muslim_roadmap" to Icons.Filled.Schedule,
     "funeral" to Icons.Filled.LocalFlorist,
     "madhhab" to Icons.Filled.ChildCare,
 )
@@ -162,6 +176,8 @@ private fun categoryTitleRes(category: String): Int = when (category) {
     LearnContent.CATEGORY_QURAN -> R.string.learn_category_quran
     LearnContent.CATEGORY_SUNNAH -> R.string.learn_category_sunnah
     LearnContent.CATEGORY_SEERAH -> R.string.learn_category_seerah
+    LearnContent.CATEGORY_ETHICS -> R.string.learn_category_ethics
+    LearnContent.CATEGORY_NEW_MUSLIM -> R.string.learn_category_new_muslim
     LearnContent.CATEGORY_REFERENCE -> R.string.learn_category_reference
     else -> R.string.learn_category_reference
 }
