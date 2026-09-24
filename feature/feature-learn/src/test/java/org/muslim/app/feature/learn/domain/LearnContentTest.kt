@@ -140,6 +140,7 @@ class LearnContentTest {
 .toSet()
         assertThat(ids).containsAtLeast(
             "pillars_islam", "pillars_iman",
+            "faith_tawhid_worship", "faith_knowing_allah", "faith_last_day", "faith_qadar", "faith_questions",
             "wudu", "ghusl", "tayammum",
             "salah", "salah_arkan", "salah_times", "adhan", "shurut", "nullifiers", "rawatib", "rakats", "special",
             "fasting", "zakat", "funeral",
