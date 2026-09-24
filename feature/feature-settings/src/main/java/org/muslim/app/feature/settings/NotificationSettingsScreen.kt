@@ -8,6 +8,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -38,8 +39,6 @@ import androidx.compose.material.icons.filled.Groups
 import androidx.compose.material.icons.filled.SystemUpdate
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
@@ -47,7 +46,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicPrimaryButton
+import org.muslim.app.core.ui.theme.IslamicSecondaryButton
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
@@ -168,7 +170,7 @@ fun NotificationSettingsScreen(
                     text = stringResource(R.string.notifications_intro),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                    modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
                 )
             }
             item {
@@ -248,28 +250,28 @@ private fun PermissionBanner(
     onAllow: () -> Unit,
     onOpenSystemSettings: () -> Unit,
 ) {
-    Card(
+    IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
     ) {
-        Column(Modifier.padding(16.dp)) {
+        Column {
             Text(
                 text = stringResource(R.string.notif_permission_title),
                 style = MaterialTheme.typography.titleMedium,
             )
-            Spacer(Modifier.height(4.dp))
+            Spacer(Modifier.height(IslamicSpacing.XSmall))
             Text(
                 text = stringResource(R.string.notif_permission_desc),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Button(onClick = onAllow) {
+                IslamicPrimaryButton(onClick = onAllow) {
                     Text(stringResource(R.string.notif_permission_allow))
                 }
-                Spacer(Modifier.width(12.dp))
+                Spacer(Modifier.width(IslamicSpacing.Compact))
                 TextButton(onClick = onOpenSystemSettings) {
                     Text(stringResource(R.string.notif_open_system_settings))
                 }
@@ -287,10 +289,11 @@ private fun QuietHoursCard(
     onStartClick: () -> Unit,
     onEndClick: () -> Unit,
 ) {
-    Card(
+    IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
+        contentPadding = PaddingValues(0.dp),
     ) {
         Column {
             ListItem(
@@ -305,16 +308,16 @@ private fun QuietHoursCard(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(start = 16.dp, end = 16.dp, bottom = 12.dp),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                        .padding(start = IslamicSpacing.Medium, end = IslamicSpacing.Medium, bottom = IslamicSpacing.Compact),
+                    horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
                 ) {
-                    OutlinedButton(onClick = onStartClick, modifier = Modifier.weight(1f)) {
+                    IslamicSecondaryButton(onClick = onStartClick, modifier = Modifier.weight(1f)) {
                         Text(
                             stringResource(R.string.notif_quiet_start) + "  " +
                                 timeLabel(quietHours.startMinutes, use24h),
                         )
                     }
-                    OutlinedButton(onClick = onEndClick, modifier = Modifier.weight(1f)) {
+                    IslamicSecondaryButton(onClick = onEndClick, modifier = Modifier.weight(1f)) {
                         Text(
                             stringResource(R.string.notif_quiet_end) + "  " +
                                 timeLabel(quietHours.endMinutes, use24h),
@@ -454,7 +457,7 @@ private fun CountdownPreviewDetails(
             style = MaterialTheme.typography.labelLarge,
             fontWeight = FontWeight.SemiBold,
         )
-        Spacer(Modifier.height(2.dp))
+        Spacer(Modifier.height(IslamicSpacing.XXSmall))
         Text(
             text = countdownPreviewStatusLine(preview, showMissed, use24h),
             style = MaterialTheme.typography.bodyMedium,
@@ -513,10 +516,11 @@ private fun NotificationCategoryCard(
     details: NotificationCategoryDetails,
 ) {
     var expanded by remember { mutableStateOf(false) }
-    Card(
+    IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 4.dp),
+            .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
+        contentPadding = PaddingValues(0.dp),
     ) {
         Column {
             NotificationCategorySummary(
@@ -537,7 +541,7 @@ private fun NotificationCategoryCard(
             }
         }
     }
-    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
+    HorizontalDivider(modifier = Modifier.padding(horizontal = IslamicSpacing.Medium))
 }
 
 @Composable
@@ -560,7 +564,7 @@ private fun NotificationCategorySummary(
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.size(20.dp),
                 )
-                Spacer(Modifier.width(8.dp))
+                Spacer(Modifier.width(IslamicSpacing.Small))
                 Switch(checked = enabled, onCheckedChange = onEnabledChange)
             }
         },
@@ -663,13 +667,13 @@ private fun NotificationImportanceSelector(
     selected: NotificationImportance,
     onSelect: (NotificationImportance) -> Unit,
 ) {
-    Spacer(Modifier.height(8.dp))
+    Spacer(Modifier.height(IslamicSpacing.Small))
     Text(
         text = stringResource(R.string.notif_importance),
         style = MaterialTheme.typography.labelLarge,
     )
     Spacer(Modifier.height(4.dp))
-    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+    Row(horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small)) {
         NotificationImportance.entries.forEach { importance ->
             FilterChip(
                 selected = selected == importance,
@@ -725,7 +729,7 @@ private fun HadithTimeRow(
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.weight(1f),
         )
-        OutlinedButton(onClick = onClick) {
+        IslamicSecondaryButton(onClick = onClick) {
             Text(timeLabel(minutes, use24h))
         }
     }
@@ -758,7 +762,7 @@ private fun SystemChannelStatusRow(
                 contentDescription = null,
                 modifier = Modifier.size(16.dp),
             )
-            Spacer(Modifier.width(4.dp))
+            Spacer(Modifier.width(IslamicSpacing.XSmall))
             Text(stringResource(R.string.notif_open_channel_settings))
         }
     }

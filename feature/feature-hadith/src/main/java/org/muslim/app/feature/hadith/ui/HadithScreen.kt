@@ -37,8 +37,6 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -88,6 +86,7 @@ import org.muslim.app.core.ui.text.DigitNormalizedOutlinedTextField
 import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.IslamicDecorationCorners
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
+import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimContentFrame
 import org.muslim.app.core.ui.theme.MuslimEmptyState
@@ -1085,16 +1084,19 @@ private fun HadithNotificationPreview(hadith: Hadith?, timeMinutes: Int, enabled
 
 @Composable
 private fun DailyHadithCard(hadith: Hadith, bookmarked: Boolean, onToggleBookmark: () -> Unit, onCopied: () -> Unit) {
-    Card(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = IslamicSpacing.PageHorizontal, vertical = IslamicSpacing.Compact),
-        colors = CardDefaults.cardColors(containerColor = HadithLibrarySurfaceRaised),
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth().padding(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Compact,
+        ),
+        containerColor = HadithLibrarySurfaceRaised,
     ) {
         Box {
             IslamicDecorationCorners(
                 tint = MaterialTheme.colorScheme.tertiary,
                 compact = true,
             )
-            Column(modifier = Modifier.padding(IslamicSpacing.Medium)) {
+            Column {
                 Text(
                     text = stringResource(R.string.hadith_of_the_day),
                     style = MaterialTheme.typography.labelLarge,
