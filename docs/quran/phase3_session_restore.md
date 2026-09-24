@@ -21,6 +21,7 @@ Each session stores:
 - per-ayah repeat count
 - continuous/advance-to-next/end-of-Quran behavior
 - media position in milliseconds
+- remaining repeat count for the current ayah
 - whether the session was playing or paused
 - save timestamp
 
