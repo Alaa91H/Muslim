@@ -158,7 +158,8 @@ object LearningAcademyCatalog {
                 ZakatLearningContent.lessons +
                 QuranTajweedLearningContent.lessons +
                 HadithSeerahLearningContent.lessons +
-                EthicsNewMuslimLearningContent.lessons
+                EthicsNewMuslimLearningContent.lessons +
+                FamilyFinanceLearningContent.lessons
         ).associateBy { it.id }
 
     val lessons: List<LearningLesson> = LearnContent.topics.map { topic ->
@@ -219,6 +220,20 @@ object LearningAcademyCatalog {
                 LearnContent.CATEGORY_SALAH,
                 LearnContent.CATEGORY_QURAN,
                 LearnContent.CATEGORY_ETHICS,
+            ),
+        ),
+        LearningPath(
+            id = "family",
+            courseIds = listOf(
+                LearnContent.CATEGORY_FAMILY,
+                LearnContent.CATEGORY_ETHICS,
+            ),
+        ),
+        LearningPath(
+            id = "finance",
+            courseIds = listOf(
+                LearnContent.CATEGORY_FINANCE,
+                LearnContent.CATEGORY_IBADAH,
             ),
         ),
         LearningPath(
