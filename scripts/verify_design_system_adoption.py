@@ -179,7 +179,7 @@ def main() -> None:
         )
     for source, label in (
         (accessibility_settings, "Accessibility settings"),
-        (permissions_settings, "About/permissions settings"),
+        (permissions_settings, "Permissions settings"),
         (about_settings, "About settings"),
     ):
         require(
