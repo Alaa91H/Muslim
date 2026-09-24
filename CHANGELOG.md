@@ -1,5 +1,73 @@
 # Changelog
 
+## Muslim v1.25.36
+
+This release expands Muslim's learning and family experiences, strengthens daily worship workflows, improves update safety and Wear OS integration, and closes the remaining CI/build issues before publication.
+
+### Reference Library Expansion
+
+- Introduced the **Reference Library v2** architecture with stronger content organization, sourcing metadata, editorial policy support, and persistent reader state.
+- Expanded **Introduction to Islam** into a comprehensive reference experience.
+- Added a substantially expanded chronological **Sira** and a sourced **Stories of the Prophets** corpus.
+- Added dedicated material for the **Companions**, **Mothers of the Believers**, **Ahl al-Bayt**, and the **Rightly Guided Caliphs**.
+- Added comprehensive reference books for **Fiqh of Worship**, **Ethics, Manners and Muslim Life**, and **Islamic History and Civilization**.
+- Added **Islamic Places**, a **300-term glossary**, sourced **FAQs and common misconceptions**, and improved reader navigation with persistent progress.
+
+### Family Life
+
+- Established **Family Life** as a dedicated feature module with a categorized hub and structured guidance.
+- Expanded marriage, parenting, newborn, baby-name, ruqyah, and aqiqah experiences.
+- Added saved-library support, practical checklists, daily-life guidance, and kinship-focused content.
+- Improved reader search, sharing, references, accessibility, and emulator-backed feature verification.
+
+### Scholar Library & Study Tools
+
+- Expanded the Scholar Library with structured curricula, an author index, deeper hierarchy, study paths, and progress-aware plans.
+- Added resumable study sessions and weekly activity tracking.
+- Added adaptive review scheduling, mastery insights, a focused review center, and durable activity history.
+- Added managed content packs plus backup support for study data and progress.
+
+### Adhkar & Tasbih
+
+- Expanded the Adhkar library with search, sequential reading, refined cards, stronger voice handling, and improved seed-data integrity.
+- Fixed the Adhkar counter crash caused by duplicate DataStore instances.
+- Added durable Tasbih sessions, multiple counting modes, and session history.
+
+### Appearance & Wear OS
+
+- Added a professional palette editor with live preview and broader appearance customization.
+- Added a **pure AMOLED black** mode.
+- Reworked the Islamic ornament system and consolidated its appearance behavior across supported surfaces.
+- Improved Wear OS connection behavior and aligned companion-app language handling with the phone experience.
+
+### Updates & Release Integrity
+
+- Improved release checks and one-time update notifications.
+- Added a persistent, verified download-and-install flow.
+- Added release-integrity metadata used to validate update artifacts.
+- Improved manual update checks and download controls.
+
+### Additional Experience Improvements
+
+- Expanded the funeral guidance and Islamic will experience.
+- Improved application backup/data-extraction rules and related platform integration.
+- Consolidated completed feature branches and removed obsolete one-time branch-cleanup automation.
+
+### Quality, CI & Build Reliability
+
+- Fixed the final CI failures affecting AndroidJUnit4 instrumentation return types, Tasbih translation lint, and an obsolete Compose UI test import.
+- Expanded automated verification across content integrity, Family Life, Scholar Library, Wear/IoT integration, visual identity, accessibility, prayer logic, and update contracts.
+- Keeps production publication gated by signed-build verification, approved-content checks, unit tests, Android Lint, Detekt, and emulator instrumentation on supported API levels.
+
+### Release Assets
+
+The production tag workflow publishes signed artifacts after all release gates pass:
+
+- `app-release.apk` — Android phone/tablet APK
+- `app-release.aab` — Android App Bundle
+- `wear-release.apk` — Wear OS APK
+- `update-manifest.json` — integrity metadata used by the in-app update flow
+
 ## Muslim v1.25.34
 
 ### Prayer Times Home — Five Daily Prayers
