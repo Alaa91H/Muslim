@@ -183,6 +183,12 @@ object LearningAssessmentCatalog {
     fun find(lessonId: String, quizId: String): LearningAssessmentEntry? =
         byLessonId[lessonId]?.firstOrNull { it.quiz.id == quizId }
 
+    fun incorrectEntries(quizAnswers: Map<String, String>): List<LearningAssessmentEntry> =
+        entries.filter { entry ->
+            val selected = quizAnswers[LearningQuizKey.of(entry.lessonId, entry.quiz.id)]
+            selected != null && selected != entry.quiz.correctOptionId
+        }
+
     private fun entry(
         lessonId: String,
         quizId: String,
