@@ -38,6 +38,8 @@ object LearnContent {
     const val CATEGORY_QURAN = "quran"
     const val CATEGORY_SUNNAH = "sunnah"
     const val CATEGORY_SEERAH = "seerah"
+    const val CATEGORY_ETHICS = "ethics"
+    const val CATEGORY_NEW_MUSLIM = "new_muslim"
     const val CATEGORY_REFERENCE = "reference"
 
     /** Display order of the categories in the learning hub. */
@@ -49,6 +51,8 @@ object LearnContent {
         CATEGORY_QURAN,
         CATEGORY_SUNNAH,
         CATEGORY_SEERAH,
+        CATEGORY_ETHICS,
+        CATEGORY_NEW_MUSLIM,
         CATEGORY_REFERENCE,
     )
 
@@ -606,7 +610,11 @@ object LearnContent {
             ),
             notes = "هذه الفروق عرض محايد لا ترجيح فيه؛ يختار المسلم ما يطمئن إليه مع مراجعة أهل العلم. المشروع لا يرجّح مذهبًا على آخر (§6 المرحلة 5 و§10).",
         ),
-    ) + QuranLearnTopics.topics + HadithLearnTopics.topics + SeerahLearnTopics.topics
+    ) + QuranLearnTopics.topics +
+        HadithLearnTopics.topics +
+        SeerahLearnTopics.topics +
+        EthicsLearnTopics.topics +
+        NewMuslimLearnTopics.topics
 
     fun byId(id: String): LearnTopic? = topics.firstOrNull { it.id == id }
 }
