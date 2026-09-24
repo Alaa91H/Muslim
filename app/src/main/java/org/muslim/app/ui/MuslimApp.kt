@@ -59,6 +59,7 @@ import org.muslim.app.feature.prayertimes.ui.settings.PrayerSettingsScreen
 import org.muslim.app.feature.prayertimes.widget.refreshPrayerTimesWidgets
 import org.muslim.app.feature.adhkar.ui.AdhkarScreen
 import org.muslim.app.feature.hadith.ui.HadithScreen
+import org.muslim.app.feature.learn.domain.LearningFeatureDestination
 import org.muslim.app.feature.learn.ui.LearnScreen
 import org.muslim.app.feature.family.ui.FamilyLifeScreen
 import org.muslim.app.feature.learn.ui.FuneralWillScreen
@@ -505,7 +506,17 @@ fun MuslimApp(
                     IslamicFinanceScreen(onBack = { navController.popBackStack() })
                 }
                 composable(LEARN_ROUTE) {
-                    LearnScreen(onBack = { navController.popBackStack() })
+                    LearnScreen(
+                        onBack = { navController.popBackStack() },
+                        onOpenFeature = { destination ->
+                            when (destination) {
+                                LearningFeatureDestination.FAMILY_LIFE ->
+                                    navController.navigate(FAMILY_LIFE_ROUTE)
+                                LearningFeatureDestination.FINANCE ->
+                                    navController.navigate(ISLAMIC_FINANCE_ROUTE)
+                            }
+                        },
+                    )
                 }
                 composable(FAMILY_LIFE_ROUTE) {
                     FamilyLifeScreen(
