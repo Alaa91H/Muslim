@@ -22,6 +22,7 @@ class RecitationSessionModelTest {
         ),
         currentGlobalNumber = current,
         positionMs = positionMs,
+        remainingRepeats = 2,
         wasPlaying = true,
         savedAtEpochMs = 123L,
     )
@@ -43,6 +44,7 @@ class RecitationSessionModelTest {
         ).isNull()
         assertThat(session(globals = emptyList(), current = 1).asRestorableOrNull()).isNull()
         assertThat(session(positionMs = -1L).asRestorableOrNull()).isNull()
+        assertThat(session().copy(remainingRepeats = 0).asRestorableOrNull()).isNull()
     }
 
     @Test
