@@ -141,3 +141,23 @@ The Design System rollout now covers the primary prayer entry surfaces:
 
 Search fields and coordinate fields remain Material `OutlinedTextField` controls
 because they are specialized data-entry widgets rather than generic app surfaces.
+
+
+## Quran reader and Hadith library
+
+The Design System rollout now protects the main reading surfaces without flattening
+their specialized reading geometry:
+
+- Quran Reader uses `IslamicCard` for the translation/tafsir supplement panel and
+  `IslamicSelectableCard` for reciter selection. Raw Material `Card` patterns are
+  no longer allowed in the reader.
+- Surah List is already clean and is now protected from raw ordinary cards/actions
+  and raw dp layout spacing.
+- Hadith catalogue, book header, stat cards, chapter rows, and grade/source metadata
+  use `IslamicSpacing` for ordinary padding/gaps while their custom book-cover
+  dimensions, typography, palette, and decorative geometry remain feature-owned.
+
+Quran page composition, active-ayah highlighting, Arabic text metrics, audio-control
+geometry, and other reader-specific measurements remain explicit. They are not
+forced into the generic spacing scale because changing them can affect Mushaf
+readability and playback ergonomics.
