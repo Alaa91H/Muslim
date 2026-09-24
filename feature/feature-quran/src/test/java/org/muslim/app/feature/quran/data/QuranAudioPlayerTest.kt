@@ -18,6 +18,7 @@ class QuranAudioPlayerTest {
         var released = false
         var prepareAsyncCalls = 0
         var seekToCalls = 0
+        var lastSeekToMs: Int? = null
         var position = 0
         var throwOnPrepare = false
         var throwOnStart = false
@@ -46,6 +47,8 @@ class QuranAudioPlayerTest {
 
         override fun seekTo(msec: Int) {
             seekToCalls++
+            lastSeekToMs = msec
+            position = msec
         }
 
         override fun stop() {
@@ -87,12 +90,18 @@ class QuranAudioPlayerTest {
         }
     }
 
-    /** Records the foreground-service bridge transitions (active/inactive). */
+    /** Records foreground-service transitions and terminal reasons. */
     private class RecordingBridge : RecitationPlaybackBridge {
         val transitions = mutableListOf<Boolean>()
+        val deactivationReasons = mutableListOf<PlaybackDeactivationReason?>()
         val isActive get() = transitions.lastOrNull() == true
-        override fun onPlaybackActiveChanged(active: Boolean) {
+
+        override fun onPlaybackActiveChanged(
+            active: Boolean,
+            reason: PlaybackDeactivationReason?,
+        ) {
             transitions.add(active)
+            deactivationReasons.add(reason)
         }
     }
 
@@ -100,7 +109,7 @@ class QuranAudioPlayerTest {
 
     private fun player(
         factory: FakeFactory,
-        bridge: RecitationPlaybackBridge = RecitationPlaybackBridge { },
+        bridge: RecitationPlaybackBridge = RecitationPlaybackBridge { _, _ -> },
     ) = QuranAudioPlayer(factory, bridge)
 
     @Test
@@ -168,6 +177,7 @@ class QuranAudioPlayerTest {
         player.stop()
 
         assertThat(bridge.transitions.last()).isFalse()
+        assertThat(bridge.deactivationReasons.last()).isEqualTo(PlaybackDeactivationReason.Stopped)
         assertThat(bridge.isActive).isFalse()
     }
 
@@ -183,6 +193,7 @@ class QuranAudioPlayerTest {
         factory.engines.single().fireCompletion()
 
         assertThat(bridge.transitions.last()).isFalse()
+        assertThat(bridge.deactivationReasons.last()).isEqualTo(PlaybackDeactivationReason.Completed)
     }
 
     @Test
@@ -197,6 +208,7 @@ class QuranAudioPlayerTest {
         factory.engines.single().fireError()
 
         assertThat(bridge.transitions.last()).isFalse()
+        assertThat(bridge.deactivationReasons.last()).isEqualTo(PlaybackDeactivationReason.Failed)
     }
 
     @Test
@@ -387,6 +399,63 @@ class QuranAudioPlayerTest {
         assertThat(player.playbackState.value).isEqualTo(PlaybackState.Idle)
         assertThat(player.lastFailure.value?.reason).isEqualTo(RecitationFailureReason.StartFailed)
         assertThat(bridge.transitions).doesNotContain(true)
+    }
+
+    @Test
+    fun `restored start position seeks only the first prepared ayah`() {
+        val factory = FakeFactory()
+        val player = player(factory)
+        player.playQueue(
+            items = listOf(item(1), item(2)),
+            startIndex = 0,
+            repeatCount = 1,
+            startPositionMs = 640L,
+        )
+
+        factory.engines[0].firePrepared()
+        assertThat(factory.engines[0].lastSeekToMs).isEqualTo(640)
+
+        factory.engines[0].fireCompletion()
+        factory.engines[1].firePrepared()
+        assertThat(factory.engines[1].lastSeekToMs).isNull()
+    }
+
+    @Test
+    fun `restored remaining repeats apply only to the current ayah`() {
+        val factory = FakeFactory()
+        val player = player(factory)
+        player.playQueue(
+            items = listOf(item(1), item(2)),
+            startIndex = 0,
+            repeatCount = 3,
+            remainingRepeatsForCurrent = 2,
+        )
+
+        assertThat(player.remainingRepeats.value).isEqualTo(2)
+        factory.engines[0].fireCompletion()
+        assertThat(player.currentAyah.value).isEqualTo(1)
+        assertThat(player.remainingRepeats.value).isEqualTo(1)
+
+        factory.engines[0].fireCompletion()
+        assertThat(player.currentAyah.value).isEqualTo(2)
+        assertThat(player.remainingRepeats.value).isEqualTo(3)
+    }
+
+    @Test
+    fun `restored position is clamped below duration`() {
+        val factory = FakeFactory()
+        val player = player(factory)
+        player.playQueue(
+            items = listOf(item(1)),
+            startIndex = 0,
+            repeatCount = 1,
+            startPositionMs = 5_000L,
+        )
+
+        factory.engines.single().firePrepared()
+
+        assertThat(factory.engines.single().lastSeekToMs).isEqualTo(999)
+        assertThat(player.positionMs.value).isEqualTo(999L)
     }
 
     @Test
