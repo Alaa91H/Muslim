@@ -152,7 +152,8 @@ object LearningAcademyCatalog {
 
     private val migratedLessonsById: Map<String, LearningLesson> =
         (
-            PurificationLearningContent.lessons +
+            FaithAqidahLearningContent.lessons +
+                PurificationLearningContent.lessons +
                 PrayerLearningContent.lessons +
                 FastingLearningContent.lessons +
                 ZakatLearningContent.lessons +
@@ -183,6 +184,10 @@ object LearningAcademyCatalog {
     }
 
     val paths: List<LearningPath> = listOf(
+        LearningPath(
+            id = "faith",
+            courseIds = listOf(LearnContent.CATEGORY_FAITH),
+        ),
         LearningPath(
             id = "foundations",
             courseIds = listOf(
