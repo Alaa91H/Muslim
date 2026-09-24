@@ -281,9 +281,7 @@ fun LearnScreen(
         LearningAssessmentCatalog.incorrectEntries(quizAnswers).size
     }
 
-    LaunchedEffect(topic?.id) {
-        topic?.id?.let(viewModel::openLesson)
-    }
+    LaunchedEffect(topic?.id) { topic?.id?.let(viewModel::openLesson) }
     BackHandler(enabled = showMistakes) { showMistakes = false }
     BackHandler(enabled = specialDestination != null) { specialDestination = null }
     BackHandler(enabled = topic != null) { selected = null }
