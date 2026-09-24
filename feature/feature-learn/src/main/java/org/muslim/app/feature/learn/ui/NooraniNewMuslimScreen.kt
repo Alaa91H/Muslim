@@ -34,6 +34,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Tab
@@ -46,6 +47,8 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -65,6 +68,8 @@ import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.ArabicLetter
 import org.muslim.app.feature.learn.domain.BeginnerLanguage
 import org.muslim.app.feature.learn.domain.MakhrajGroup
+import org.muslim.app.feature.learn.domain.NewMuslimRoadmapContent
+import org.muslim.app.feature.learn.domain.NewMuslimRoadmapStage
 import org.muslim.app.feature.learn.domain.NewMuslimStep
 import org.muslim.app.feature.learn.domain.NooraniContent
 import org.muslim.app.feature.learn.domain.ReadingStage
@@ -78,8 +83,10 @@ import org.muslim.app.feature.learn.domain.ReadingStage
 fun NooraniNewMuslimScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
+    viewModel: LearnViewModel = hiltViewModel(),
 ) {
     var selectedTab by remember { mutableIntStateOf(0) }
+    val completedLessonIds by viewModel.completedLessonIds.collectAsStateWithLifecycle()
     val context = LocalContext.current
     val speaker = remember(context) { ArabicSpeechController(context) }
 
@@ -113,7 +120,7 @@ fun NooraniNewMuslimScreen(
             when (selectedTab) {
                 0 -> LetterLesson(speaker = speaker)
                 1 -> ReadingBasics(speaker = speaker)
-                else -> NewMuslimCorner()
+                else -> NewMuslimCorner(completedLessonIds = completedLessonIds)
             }
         }
     }
@@ -347,7 +354,7 @@ private fun ReadingStageCard(
 }
 
 @Composable
-private fun NewMuslimCorner() {
+private fun NewMuslimCorner(completedLessonIds: Set<String>) {
     var language by remember { mutableStateOf(BeginnerLanguage.ARABIC) }
     val guide = NooraniContent.guide(language)
     LazyColumn(
@@ -360,6 +367,14 @@ private fun NewMuslimCorner() {
         item { WelcomeCard(welcome = guide.welcome) }
         items(guide.steps.withIndex().toList(), key = { it.index }) { indexed ->
             GuideStepCard(index = indexed.index + 1, step = indexed.value)
+        }
+        item { SectionLabel(newMuslimRoadmapHeading(language)) }
+        items(NewMuslimRoadmapContent.stages, key = { it.id }) { stage ->
+            NewMuslimRoadmapCard(
+                stage = stage,
+                language = language,
+                completedLessonIds = completedLessonIds,
+            )
         }
         item { ReviewNotice(text = guide.reviewNote) }
     }
@@ -442,6 +457,78 @@ private fun GuideStepCard(index: Int, step: NewMuslimStep) {
             }
         }
     }
+}
+
+@Composable
+private fun NewMuslimRoadmapCard(
+    stage: NewMuslimRoadmapStage,
+    language: BeginnerLanguage,
+    completedLessonIds: Set<String>,
+) {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+        ),
+    ) {
+        Column(modifier = Modifier.padding(18.dp)) {
+            Text(
+                text = stage.title.resolve(language),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                text = stage.goal.resolve(language),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 6.dp, bottom = 10.dp),
+            )
+            val completedLessons = stage.lessonIds.count { it in completedLessonIds }
+            val progress = if (stage.lessonIds.isEmpty()) {
+                0f
+            } else {
+                completedLessons.toFloat() / stage.lessonIds.size.toFloat()
+            }
+            LinearProgressIndicator(
+                progress = { progress },
+                modifier = Modifier.fillMaxWidth(),
+            )
+            Text(
+                text = stringResource(
+                    R.string.learn_roadmap_academy_progress,
+                    completedLessons,
+                    stage.lessonIds.size,
+                ),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 6.dp, bottom = 8.dp),
+            )
+            stage.checklist.forEach { item ->
+                Row(
+                    verticalAlignment = Alignment.Top,
+                    modifier = Modifier.padding(vertical = 4.dp),
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.CheckCircle,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(18.dp),
+                    )
+                    Text(
+                        text = item.resolve(language),
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(start = 8.dp),
+                    )
+                }
+            }
+        }
+    }
+}
+
+private fun newMuslimRoadmapHeading(language: BeginnerLanguage): String = when (language) {
+    BeginnerLanguage.ARABIC -> "خطة 7 / 30 / 90 يومًا"
+    BeginnerLanguage.ENGLISH -> "7 / 30 / 90 day roadmap"
+    BeginnerLanguage.FRENCH -> "Parcours 7 / 30 / 90 jours"
+    BeginnerLanguage.SPANISH -> "Plan de 7 / 30 / 90 días"
 }
 
 @Composable
