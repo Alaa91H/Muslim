@@ -557,13 +557,13 @@ private fun SurahCoverageSection(
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Spacer(Modifier.height(6.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             OverallCoverageRow(
                 coverages = coverages,
                 activeReciterCount = activeReciterCount,
                 totalMushafAyahs = totalMushafAyahs,
             )
-            Spacer(Modifier.height(6.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             SurahCoverageList(coverages)
         }
     }
@@ -613,7 +613,7 @@ private fun SurahCoverageList(coverages: List<SurahCoverage>) {
 @Composable
 private fun SurahCoverageRow(coverage: SurahCoverage) {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(vertical = 3.dp),
+        modifier = Modifier.fillMaxWidth().padding(vertical = IslamicSpacing.XXSmall),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
@@ -756,7 +756,7 @@ private fun ReciterHeaderSummary(
                 tint = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.size(20.dp),
             )
-            Spacer(Modifier.width(10.dp))
+            Spacer(Modifier.width(IslamicSpacing.Compact))
             Column(Modifier.weight(1f)) {
                 Text(
                     text = reciterName,
@@ -774,7 +774,7 @@ private fun ReciterHeaderSummary(
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.primary,
                 )
-                Spacer(Modifier.height(6.dp))
+                Spacer(Modifier.height(IslamicSpacing.Small))
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     LinearProgressIndicator(
                         progress = { progress.coerceIn(0f, 1f) },
@@ -917,7 +917,7 @@ private fun ReciterStateSection(
                 }
             }
             Row(
-                modifier = Modifier.padding(start = 26.dp, top = 2.dp),
+                modifier = Modifier.padding(start = IslamicSpacing.Large, top = IslamicSpacing.XXSmall),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 LinearProgressIndicator(
