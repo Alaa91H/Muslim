@@ -69,6 +69,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dagger.hilt.android.EntryPointAccessors
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.location.MagneticDeclination
 import org.muslim.app.core.permissions.AppPermission
 import org.muslim.app.core.permissions.PermissionEntryPoint
@@ -165,7 +166,7 @@ internal fun QiblaTopTabs(selectedTab: Int, onSelect: (Int) -> Unit) {
         selectedTabIndex = selectedTab,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 12.dp, vertical = 4.dp),
+            .padding(horizontal = IslamicSpacing.Compact, vertical = IslamicSpacing.XSmall),
     ) {
         labels.forEachIndexed { index, label ->
             val selected = selectedTab == index
@@ -425,7 +426,7 @@ private fun QiblaLocationSummary(
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(10.dp),
+            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
@@ -436,7 +437,7 @@ private fun QiblaLocationSummary(
                     fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                 )
-                Spacer(Modifier.height(2.dp))
+                Spacer(Modifier.height(IslamicSpacing.XXSmall))
                 Text(
                     text = stringResource(R.string.qibla_bearing_cardinal, presentation.bearingCardinal),
                     maxLines = 1,
@@ -452,7 +453,7 @@ private fun QiblaLocationSummary(
             )
         }
         if (gpsState == QiblaGpsState.Error) {
-            Spacer(Modifier.height(6.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             MuslimStateSurface(
                 title = stringResource(R.string.qibla_gps_error),
                 tone = MuslimStateTone.Critical,
@@ -570,7 +571,7 @@ private fun QiblaDirectionDetails(
 
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
         ) {
             Text(
                 text = stringResource(
