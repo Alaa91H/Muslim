@@ -40,6 +40,8 @@ object LearnContent {
     const val CATEGORY_SEERAH = "seerah"
     const val CATEGORY_ETHICS = "ethics"
     const val CATEGORY_NEW_MUSLIM = "new_muslim"
+    const val CATEGORY_FAMILY = "family"
+    const val CATEGORY_FINANCE = "finance"
     const val CATEGORY_REFERENCE = "reference"
 
     /** Display order of the categories in the learning hub. */
@@ -53,6 +55,8 @@ object LearnContent {
         CATEGORY_SEERAH,
         CATEGORY_ETHICS,
         CATEGORY_NEW_MUSLIM,
+        CATEGORY_FAMILY,
+        CATEGORY_FINANCE,
         CATEGORY_REFERENCE,
     )
 
@@ -614,7 +618,9 @@ object LearnContent {
         HadithLearnTopics.topics +
         SeerahLearnTopics.topics +
         EthicsLearnTopics.topics +
-        NewMuslimLearnTopics.topics
+        NewMuslimLearnTopics.topics +
+        FamilyLearnTopics.topics +
+        FinanceLearnTopics.topics
 
     fun byId(id: String): LearnTopic? = topics.firstOrNull { it.id == id }
 }
