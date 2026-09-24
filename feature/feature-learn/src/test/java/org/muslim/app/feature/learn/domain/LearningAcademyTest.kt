@@ -95,7 +95,7 @@ class LearningAcademyTest {
 
                         is LearningContentBlock.Quiz -> {
                             assertThat(block.question).isNotEmpty()
-                            assertThat(block.options).hasSizeAtLeast(2)
+                            assertThat(block.options.size).isAtLeast(2)
                             assertThat(block.options.map { it.id }).contains(block.correctOptionId)
                         }
                     }
