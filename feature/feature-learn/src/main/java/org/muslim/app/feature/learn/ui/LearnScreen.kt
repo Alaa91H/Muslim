@@ -39,6 +39,7 @@ import androidx.compose.material.icons.filled.VerifiedUser
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.filled.WaterDrop
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -69,6 +70,8 @@ import org.muslim.app.feature.learn.domain.LearnTopic
 import org.muslim.app.feature.learn.domain.LearningAcademyCatalog
 import org.muslim.app.feature.learn.domain.LearningCalloutTone
 import org.muslim.app.feature.learn.domain.LearningContentBlock
+import org.muslim.app.feature.learn.domain.LearningFeatureDestination
+import org.muslim.app.feature.learn.domain.LearningFeatureLink
 import org.muslim.app.feature.learn.domain.LearningReference
 import org.muslim.app.feature.learn.domain.LearningStepItem
 
@@ -193,6 +196,7 @@ private fun categoryTitleRes(category: String): Int = when (category) {
 @Composable
 fun LearnScreen(
     onBack: () -> Unit,
+    onOpenFeature: (LearningFeatureDestination) -> Unit = {},
     modifier: Modifier = Modifier,
     viewModel: LearnViewModel = hiltViewModel(),
 ) {
@@ -266,6 +270,7 @@ fun LearnScreen(
         } else {
             GuideContent(
                 topic = topic,
+                onOpenFeature = onOpenFeature,
                 modifier = Modifier.padding(innerPadding),
             )
         }
@@ -462,7 +467,11 @@ private fun CategoryHeader(title: String) {
 }
 
 @Composable
-private fun GuideContent(topic: LearnTopic, modifier: Modifier = Modifier) {
+private fun GuideContent(
+    topic: LearnTopic,
+    onOpenFeature: (LearningFeatureDestination) -> Unit,
+    modifier: Modifier = Modifier,
+) {
     val lesson = remember(topic.id) { LearningAcademyCatalog.lessonFor(topic) }
 
     LazyColumn(
@@ -509,6 +518,15 @@ private fun GuideContent(topic: LearnTopic, modifier: Modifier = Modifier) {
             }
         }
 
+        lesson.featureLink?.let { link ->
+            item(key = "${lesson.id}_feature_link") {
+                LearningFeatureLinkCard(
+                    link = link,
+                    onOpenFeature = onOpenFeature,
+                )
+            }
+        }
+
         if (lesson.references.isNotEmpty()) {
             item(key = "${lesson.id}_references_header") {
                 CategoryHeader(title = stringResource(R.string.learn_references))
@@ -548,6 +566,34 @@ private fun LearningLessonMetadataCard(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+        }
+    }
+}
+
+@Composable
+private fun LearningFeatureLinkCard(
+    link: LearningFeatureLink,
+    onOpenFeature: (LearningFeatureDestination) -> Unit,
+) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.secondaryContainer,
+    ) {
+        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text(
+                text = stringResource(link.titleRes),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
+            Text(
+                text = stringResource(link.bodyRes),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
+            Button(onClick = { onOpenFeature(link.destination) }) {
+                Text(stringResource(link.actionRes))
+            }
         }
     }
 }
