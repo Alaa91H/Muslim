@@ -72,6 +72,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicDecorationMedallion
@@ -163,17 +164,17 @@ fun TasbihScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = IslamicSpacing.Medium),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
 
             CategorySelector(
                 selected = selectedCategory,
                 onSelect = { selectedCategory = it },
             )
 
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
 
             PhraseSelector(
                 phrases = TasbihPhrase.entries.filter { it.category == selectedCategory },
@@ -186,9 +187,9 @@ fun TasbihScreen(
 
             IslamicDecorationDivider(
                 tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 24.dp, vertical = 8.dp),
+                modifier = Modifier.padding(horizontal = IslamicSpacing.Large, vertical = IslamicSpacing.Small),
             )
-            Spacer(Modifier.height(4.dp))
+            Spacer(Modifier.height(IslamicSpacing.XSmall))
 
             // The counter remains the single, deliberately generous primary action.
             Box(
@@ -250,14 +251,14 @@ fun TasbihScreen(
                 }
             }
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
             Text(
                 text = state.phrase.text,
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
             )
-            Spacer(Modifier.height(2.dp))
+            Spacer(Modifier.height(IslamicSpacing.XXSmall))
             Text(
                 text = state.phrase.transliteration,
                 style = MaterialTheme.typography.bodySmall,
@@ -265,14 +266,14 @@ fun TasbihScreen(
                 textAlign = TextAlign.Center,
             )
 
-            Spacer(Modifier.height(4.dp))
+            Spacer(Modifier.height(IslamicSpacing.XSmall))
             Text(
                 text = stringResource(R.string.tasbih_tap_hint),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
 
             // Supporting meaning stays present but subordinate to the counting action.
             IslamicCard(
@@ -285,7 +286,7 @@ fun TasbihScreen(
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSecondaryContainer,
                 )
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(IslamicSpacing.XSmall))
                 Text(
                     text = state.phrase.virtue,
                     style = MaterialTheme.typography.bodyMedium,
@@ -293,19 +294,19 @@ fun TasbihScreen(
                 )
             }
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
 
             // Undo / reset / reset-all actions
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
             ) {
                 IslamicSecondaryButton(
                     onClick = viewModel::decrement,
                     modifier = Modifier.weight(1f),
                 ) {
                     Icon(Icons.AutoMirrored.Filled.Undo, contentDescription = null, modifier = Modifier.size(18.dp))
-                    Spacer(Modifier.width(6.dp))
+                    Spacer(Modifier.width(IslamicSpacing.Small))
                     Text(stringResource(R.string.tasbih_undo))
                 }
                 IslamicSecondaryButton(
@@ -313,7 +314,7 @@ fun TasbihScreen(
                     modifier = Modifier.weight(1f),
                 ) {
                     Icon(Icons.Filled.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
-                    Spacer(Modifier.width(6.dp))
+                    Spacer(Modifier.width(IslamicSpacing.Small))
                     Text(stringResource(R.string.tasbih_reset))
                 }
                 IslamicSecondaryButton(
@@ -321,12 +322,12 @@ fun TasbihScreen(
                     modifier = Modifier.weight(1f),
                 ) {
                     Icon(Icons.Filled.DeleteSweep, contentDescription = null, modifier = Modifier.size(18.dp))
-                    Spacer(Modifier.width(6.dp))
+                    Spacer(Modifier.width(IslamicSpacing.Small))
                     Text(stringResource(R.string.tasbih_reset_all))
                 }
             }
 
-            Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(IslamicSpacing.Medium))
 
             TasbihSessionControls(
                 state = state,
@@ -336,14 +337,14 @@ fun TasbihScreen(
                 onPresetSelected = viewModel::applySessionPreset,
             )
 
-            Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(IslamicSpacing.Medium))
 
             // Target presets + custom target
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .horizontalScroll(rememberScrollState()),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 TARGETS.forEach { target ->
@@ -363,7 +364,7 @@ fun TasbihScreen(
                 )
             }
 
-            Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(IslamicSpacing.Medium))
 
             // Sound-on-target settings
             TargetSoundCard(
@@ -371,24 +372,24 @@ fun TasbihScreen(
                 onToggle = viewModel::setTargetSoundEnabled,
             )
 
-            Spacer(Modifier.height(20.dp))
+            Spacer(Modifier.height(IslamicSpacing.Comfortable))
 
             // Keep the summary compact and readable after the primary devotional action.
             MuslimSectionHeader(
                 title = stringResource(R.string.tasbih_week_stats),
                 supportingText = stringResource(R.string.tasbih_total_today, state.totalToday),
             )
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             WeeklyChart(
                 days = (state.history + DailyCount(java.time.LocalDate.now(), state.totalToday))
                     .sortedBy { it.date }
                     .takeLast(7),
             )
 
-            Spacer(Modifier.height(20.dp))
+            Spacer(Modifier.height(IslamicSpacing.Comfortable))
             RecentTasbihSessions(sessions = sessionHistory)
 
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(IslamicSpacing.Large))
         }
     }
 
@@ -413,7 +414,7 @@ private fun CategorySelector(
         modifier = Modifier
             .fillMaxWidth()
             .horizontalScroll(rememberScrollState()),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         TasbihCategory.entries.forEach { category ->
             FilterChip(
@@ -435,7 +436,7 @@ private fun PhraseSelector(
         modifier = Modifier
             .fillMaxWidth()
             .horizontalScroll(rememberScrollState()),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         phrases.forEach { phrase ->
             FilterChip(
@@ -466,7 +467,7 @@ private fun CustomTargetDialog(
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(IslamicSpacing.Small))
                 OutlinedTextField(
                     value = text,
                     // Normalize so Arabic-Indic/Persian keyboard digits are
@@ -582,7 +583,7 @@ private fun WeeklyChart(days: List<DailyCount>) {
         modifier = Modifier
             .fillMaxWidth()
             .height(120.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
         verticalAlignment = Alignment.Bottom,
     ) {
         days.forEach { day ->
@@ -599,7 +600,7 @@ private fun WeeklyChart(days: List<DailyCount>) {
                         .clip(RoundedCornerShape(topStart = 6.dp, topEnd = 6.dp))
                         .background(MaterialTheme.colorScheme.primary),
                 )
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(IslamicSpacing.XSmall))
                 Text(
                     text = day.date.format(DateTimeFormatter.ofPattern("d")),
                     style = MaterialTheme.typography.labelSmall,
