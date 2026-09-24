@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="tasbih_title">المسبحة</string>
     <string name="tasbih_back">رجوع</string>
     <string name="tasbih_of_target">من %1$s</string>
@@ -20,30 +20,30 @@
     <string name="tasbih_virtue_label">فضل الذكر</string>
     <string name="tasbih_total_today">إجمالي اليوم: %1$d</string>
     <string name="tasbih_rounds">الجولات: %1$d</string>
-    <string name="tasbih_session_mode_title">وضع الجلسة</string>
-    <string name="tasbih_session_mode_free">حر</string>
-    <string name="tasbih_session_mode_target">هدف</string>
-    <string name="tasbih_session_mode_rounds">جولات</string>
-    <string name="tasbih_session_mode_free_desc">عدّ مفتوح دون إيقاف الجلسة عند بلوغ الهدف.</string>
-    <string name="tasbih_session_mode_target_desc">تُغلق الجلسة تلقائيًا عند بلوغ الهدف المحدد.</string>
-    <string name="tasbih_session_mode_rounds_desc">أكمل عددًا محددًا من الجولات، وكل جولة تساوي الهدف.</string>
-    <string name="tasbih_session_rounds_goal">عدد الجولات</string>
-    <string name="tasbih_session_active">الجلسة الحالية</string>
-    <string name="tasbih_session_ready">ابدأ بالضغط لإنشاء جلسة جديدة.</string>
-    <string name="tasbih_session_progress">%1$d من %2$d</string>
-    <string name="tasbih_session_free_count">عدد الجلسة: %1$d</string>
-    <string name="tasbih_session_presets">إعدادات سريعة</string>
-    <string name="tasbih_preset_free">حر</string>
-    <string name="tasbih_preset_33">هدف 33</string>
-    <string name="tasbih_preset_100">هدف 100</string>
-    <string name="tasbih_preset_33x3">3 جولات × 33</string>
-    <string name="tasbih_recent_sessions">الجلسات الأخيرة</string>
-    <string name="tasbih_recent_sessions_empty">ستظهر الجلسات المكتملة هنا بعد بدء العد.</string>
-    <string name="tasbih_session_item_count">%1$d ذكر</string>
-    <string name="tasbih_session_item_rounds">%1$d جولة</string>
-    <string name="tasbih_session_duration_seconds">%1$d ث</string>
-    <string name="tasbih_session_duration_minutes">%1$d د</string>
-    <string name="tasbih_session_duration_hours">%1$d س %2$d د</string>
+    <string name="tasbih_session_mode_title" tools:ignore="MissingTranslation">وضع الجلسة</string>
+    <string name="tasbih_session_mode_free" tools:ignore="MissingTranslation">حر</string>
+    <string name="tasbih_session_mode_target" tools:ignore="MissingTranslation">هدف</string>
+    <string name="tasbih_session_mode_rounds" tools:ignore="MissingTranslation">جولات</string>
+    <string name="tasbih_session_mode_free_desc" tools:ignore="MissingTranslation">عدّ مفتوح دون إيقاف الجلسة عند بلوغ الهدف.</string>
+    <string name="tasbih_session_mode_target_desc" tools:ignore="MissingTranslation">تُغلق الجلسة تلقائيًا عند بلوغ الهدف المحدد.</string>
+    <string name="tasbih_session_mode_rounds_desc" tools:ignore="MissingTranslation">أكمل عددًا محددًا من الجولات، وكل جولة تساوي الهدف.</string>
+    <string name="tasbih_session_rounds_goal" tools:ignore="MissingTranslation">عدد الجولات</string>
+    <string name="tasbih_session_active" tools:ignore="MissingTranslation">الجلسة الحالية</string>
+    <string name="tasbih_session_ready" tools:ignore="MissingTranslation">ابدأ بالضغط لإنشاء جلسة جديدة.</string>
+    <string name="tasbih_session_progress" tools:ignore="MissingTranslation">%1$d من %2$d</string>
+    <string name="tasbih_session_free_count" tools:ignore="MissingTranslation">عدد الجلسة: %1$d</string>
+    <string name="tasbih_session_presets" tools:ignore="MissingTranslation">إعدادات سريعة</string>
+    <string name="tasbih_preset_free" tools:ignore="MissingTranslation">حر</string>
+    <string name="tasbih_preset_33" tools:ignore="MissingTranslation">هدف 33</string>
+    <string name="tasbih_preset_100" tools:ignore="MissingTranslation">هدف 100</string>
+    <string name="tasbih_preset_33x3" tools:ignore="MissingTranslation">3 جولات × 33</string>
+    <string name="tasbih_recent_sessions" tools:ignore="MissingTranslation">الجلسات الأخيرة</string>
+    <string name="tasbih_recent_sessions_empty" tools:ignore="MissingTranslation">ستظهر الجلسات المكتملة هنا بعد بدء العد.</string>
+    <string name="tasbih_session_item_count" tools:ignore="MissingTranslation">%1$d ذكر</string>
+    <string name="tasbih_session_item_rounds" tools:ignore="MissingTranslation">%1$d جولة</string>
+    <string name="tasbih_session_duration_seconds" tools:ignore="MissingTranslation">%1$d ث</string>
+    <string name="tasbih_session_duration_minutes" tools:ignore="MissingTranslation">%1$d د</string>
+    <string name="tasbih_session_duration_hours" tools:ignore="MissingTranslation">%1$d س %2$d د</string>
 
 
     <string name="tasbih_round_complete">أتممت جولة كاملة (%1$s) 🎉</string>
