@@ -39,7 +39,6 @@ import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -90,10 +89,10 @@ import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.IslamicDecorationCorners
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
-import org.muslim.app.core.ui.theme.MuslimCenteredStatus
 import org.muslim.app.core.ui.theme.MuslimContentFrame
-import org.muslim.app.core.ui.theme.MuslimStateSurface
-import org.muslim.app.core.ui.theme.MuslimStateTone
+import org.muslim.app.core.ui.theme.MuslimEmptyState
+import org.muslim.app.core.ui.theme.MuslimErrorState
+import org.muslim.app.core.ui.theme.MuslimLoadingState
 import org.muslim.app.feature.hadith.R
 import org.muslim.app.feature.hadith.data.HadithCorpusState
 import org.muslim.app.feature.hadith.domain.Hadith
@@ -637,27 +636,19 @@ private fun HadithBookProgress(
     importedCount: Int,
     modifier: Modifier = Modifier,
 ) {
-    Column(
-        modifier = modifier.fillMaxSize().padding(IslamicSpacing.Large),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    ) {
-        CircularProgressIndicator(modifier = Modifier.size(28.dp), strokeWidth = 3.dp)
-        Spacer(Modifier.height(IslamicSpacing.Medium))
-        Text(
-            text = if (importedCount == 0) {
-                stringResource(R.string.hadith_loading_book, stringResource(collection.titleRes))
-            } else {
-                stringResource(
-                    R.string.hadith_loading_book_progress,
-                    stringResource(collection.titleRes),
-                    importedCount,
-                )
-            },
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+    val title = if (importedCount == 0) {
+        stringResource(R.string.hadith_loading_book, stringResource(collection.titleRes))
+    } else {
+        stringResource(
+            R.string.hadith_loading_book_progress,
+            stringResource(collection.titleRes),
+            importedCount,
         )
     }
+    MuslimLoadingState(
+        title = title,
+        modifier = modifier.padding(IslamicSpacing.Large),
+    )
 }
 
 @Composable
@@ -666,14 +657,13 @@ private fun HadithBookFailure(
     onRetry: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    MuslimStateSurface(
+    MuslimErrorState(
         title = stringResource(R.string.hadith_book_load_failed),
         supportingText = stringResource(
             R.string.hadith_book_load_failed_supporting,
             stringResource(collection.titleRes),
         ),
         modifier = modifier.padding(IslamicSpacing.Large),
-        tone = MuslimStateTone.Critical,
         actionLabel = stringResource(R.string.hadith_retry),
         onAction = onRetry,
     )
@@ -1192,19 +1182,18 @@ private fun HadithBody(
 
 @Composable
 private fun HadithPageLoading() {
-    Row(
-        modifier = Modifier.fillMaxWidth().padding(IslamicSpacing.Large),
-        horizontalArrangement = Arrangement.Center,
-    ) { CircularProgressIndicator(modifier = Modifier.size(20.dp), strokeWidth = 2.dp) }
+    MuslimLoadingState(
+        title = stringResource(R.string.hadith_preview_loading),
+        modifier = Modifier.padding(IslamicSpacing.PageHorizontal),
+    )
 }
 
 @Composable
 private fun HadithPageFailure(message: String?, onRetry: () -> Unit) {
-    MuslimStateSurface(
+    MuslimErrorState(
         title = stringResource(R.string.hadith_load_failed),
         supportingText = message ?: stringResource(R.string.hadith_load_failed),
         modifier = Modifier.padding(IslamicSpacing.PageHorizontal),
-        tone = MuslimStateTone.Critical,
         actionLabel = stringResource(R.string.hadith_retry),
         onAction = onRetry,
     )
@@ -1212,9 +1201,10 @@ private fun HadithPageFailure(message: String?, onRetry: () -> Unit) {
 
 @Composable
 private fun HadithEmptyState() {
-    MuslimCenteredStatus(
-        text = stringResource(R.string.hadith_no_results),
-        modifier = Modifier.padding(IslamicSpacing.Large),
+    MuslimEmptyState(
+        title = stringResource(R.string.hadith_no_results),
+        icon = Icons.Filled.Search,
+        modifier = Modifier.padding(IslamicSpacing.PageHorizontal),
     )
 }
 
