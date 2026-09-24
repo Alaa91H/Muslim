@@ -54,6 +54,7 @@ class QuranAudioPlayer @Inject constructor(
     private var queueIndex = -1
     private var repeatPerAyah = 1
     private var remainingRepeats = 0
+    private var pendingStartPositionMs = 0L
 
     private val _playbackState = MutableStateFlow(PlaybackState.Idle)
     val playbackState: StateFlow<PlaybackState> = _playbackState.asStateFlow()
@@ -101,12 +102,14 @@ class QuranAudioPlayer @Inject constructor(
         startIndex: Int,
         repeatCount: Int,
         continuous: Boolean = false,
+        startPositionMs: Long = 0L,
     ) {
         if (items.isEmpty()) return
         _lastFailure.value = null
         queue = items
         repeatPerAyah = repeatCount.coerceAtLeast(1)
         this.continuous = continuous
+        pendingStartPositionMs = startPositionMs.coerceAtLeast(0L)
         queueIndex = startIndex.coerceIn(0, items.lastIndex)
         loadCurrent()
     }
@@ -151,6 +154,7 @@ class QuranAudioPlayer @Inject constructor(
         queueIndex = -1
         continuous = false
         onQueueCompleted = null
+        pendingStartPositionMs = 0L
         _playbackState.value = PlaybackState.Idle
         _currentAyah.value = null
         resetProgress()
@@ -184,7 +188,19 @@ class QuranAudioPlayer @Inject constructor(
         engine.setOnPreparedListener {
             _durationMs.value = engine.durationMs.toLong()
             _positionMs.value = 0L
-            runCatching { engine.start() }
+            val requestedStart = pendingStartPositionMs
+            pendingStartPositionMs = 0L
+            runCatching {
+                if (requestedStart > 0L && engine.durationMs > 0) {
+                    val maxPosition = (engine.durationMs - 1).coerceAtLeast(0)
+                    val seekPosition = requestedStart.coerceAtMost(maxPosition.toLong()).toInt()
+                    if (seekPosition > 0) {
+                        engine.seekTo(seekPosition)
+                        _positionMs.value = seekPosition.toLong()
+                    }
+                }
+                engine.start()
+            }
                 .onSuccess {
                     _playbackState.value = PlaybackState.Playing
                     // Keep the process alive in the background only after the
