@@ -48,18 +48,9 @@ class HajjUmrahContentTest {
                 assertThat(step.what).isNotEmpty()
                 assertThat(step.whatEn).isNotEmpty()
 
-                if (step.evidence != null) {
-                    assertThat(step.evidenceEn).isNotNull()
-                    assertThat(step.evidenceEn).isNotEmpty()
-                }
-                if (step.why != null) {
-                    assertThat(step.whyEn).isNotNull()
-                    assertThat(step.whyEn).isNotEmpty()
-                }
-                if (step.say != null) {
-                    assertThat(step.sayEn).isNotNull()
-                    assertThat(step.sayEn).isNotEmpty()
-                }
+                step.evidenceEn?.let { assertThat(it).isNotEmpty() }
+                step.whyEn?.let { assertThat(it).isNotEmpty() }
+                step.sayEn?.let { assertThat(it).isNotEmpty() }
             }
     }
 
