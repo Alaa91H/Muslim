@@ -57,6 +57,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import kotlinx.coroutines.launch
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.feature.quran.R
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
@@ -135,7 +136,7 @@ fun QuranDownloadsScreen(
         ) {
             IslamicReadingHeaderDecoration(
                 tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+                modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
             )
             // Everything downloaded across all reciters, at a glance.
             TotalSummaryCard(summary = totalSummary)
@@ -167,7 +168,7 @@ fun QuranDownloadsScreen(
             }
             IslamicDecorationDivider(
                 tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 24.dp),
+                modifier = Modifier.padding(horizontal = IslamicSpacing.Large),
             )
 
             HorizontalPager(
@@ -181,9 +182,9 @@ fun QuranDownloadsScreen(
                     modifier = Modifier
                         .fillMaxSize()
                         .verticalScroll(rememberScrollState())
-                        .padding(horizontal = 16.dp),
+                        .padding(horizontal = IslamicSpacing.Medium),
                 ) {
-                    Spacer(Modifier.height(12.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Compact))
 
                     // Immediate per-reciter summary in the page header: how
                     // many ayahs are on disk for this reciter and their size.
@@ -194,10 +195,10 @@ fun QuranDownloadsScreen(
                         onDeleteReciter = { confirmDeleteReciter = true },
                     )
 
-                    Spacer(Modifier.height(12.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Compact))
 
                     Row(
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         FilterChip(
@@ -217,7 +218,7 @@ fun QuranDownloadsScreen(
                         )
                     }
 
-                    Spacer(Modifier.height(12.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Compact))
 
                     when (scope) {
                         DownloadScope.Ayah -> {
@@ -229,7 +230,7 @@ fun QuranDownloadsScreen(
                                     singleLine = true,
                                     modifier = Modifier.weight(1f),
                                 )
-                                Spacer(Modifier.width(12.dp))
+                                Spacer(Modifier.width(IslamicSpacing.Compact))
                                 OutlinedTextField(
                                     value = ayahInput,
                                     onValueChange = viewModel::setAyahInput,
@@ -257,7 +258,7 @@ fun QuranDownloadsScreen(
                         }
                     }
 
-                    Spacer(Modifier.height(12.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Compact))
 
                     when {
                         verifiedBytes != null -> {
@@ -283,7 +284,7 @@ fun QuranDownloadsScreen(
                         }
                     }
 
-                    Spacer(Modifier.height(12.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Compact))
 
                     // Night-only downloads (التحميل الليلي): defer the transfer
                     // to the configured window to save data and battery.
@@ -312,13 +313,13 @@ fun QuranDownloadsScreen(
                     }
 
                     if (nightOnly) {
-                        Spacer(Modifier.height(8.dp))
+                        Spacer(Modifier.height(IslamicSpacing.Small))
                         Text(
                             text = stringResource(R.string.quran_download_night_window_title),
                             style = MaterialTheme.typography.titleSmall,
                             color = MaterialTheme.colorScheme.primary,
                         )
-                        Spacer(Modifier.height(4.dp))
+                        Spacer(Modifier.height(IslamicSpacing.XSmall))
                         Row {
                             TimeDropdown(
                                 label = stringResource(R.string.quran_download_night_start),
@@ -327,7 +328,7 @@ fun QuranDownloadsScreen(
                                 onSelected = viewModel::setNightWindowStart,
                                 modifier = Modifier.weight(1f),
                             )
-                            Spacer(Modifier.width(12.dp))
+                            Spacer(Modifier.width(IslamicSpacing.Compact))
                             TimeDropdown(
                                 label = stringResource(R.string.quran_download_night_end),
                                 selectedMinutes = nightWindowEnd,
@@ -338,7 +339,7 @@ fun QuranDownloadsScreen(
                         }
                     }
 
-                    Spacer(Modifier.height(12.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Compact))
 
                     IslamicPrimaryButton(
                         onClick = viewModel::startDownload,
@@ -348,7 +349,7 @@ fun QuranDownloadsScreen(
                         Text(stringResource(R.string.quran_download_start))
                     }
 
-                    Spacer(Modifier.height(24.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Large))
 
                     // What is already downloaded for this reciter's page.
                     ReciterStateSection(
@@ -362,14 +363,14 @@ fun QuranDownloadsScreen(
                         onDeleteReciter = { confirmDeleteReciter = true },
                     )
 
-                    Spacer(Modifier.height(24.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Large))
 
                     Text(
                         text = stringResource(R.string.quran_downloads_active_title),
                         style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.primary,
                     )
-                    Spacer(Modifier.height(8.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Small))
 
                     val pageTasks = tasks.filter { it.reciterId == pageReciter.id }
                     if (pageTasks.isEmpty()) {
@@ -384,11 +385,11 @@ fun QuranDownloadsScreen(
                                 onResume = { viewModel.resume(task.id) },
                                 onCancel = { viewModel.cancel(task.id) },
                             )
-                            Spacer(Modifier.height(8.dp))
+                            Spacer(Modifier.height(IslamicSpacing.Small))
                         }
                     }
 
-                    Spacer(Modifier.height(24.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Large))
                 }
             }
         }
@@ -481,7 +482,7 @@ private fun TotalSummaryCard(summary: TotalDownloadSummary) {
     IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
         containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
     ) {
         Row(
@@ -492,7 +493,7 @@ private fun TotalSummaryCard(summary: TotalDownloadSummary) {
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
             )
-            Spacer(Modifier.width(12.dp))
+            Spacer(Modifier.width(IslamicSpacing.Compact))
             Column {
                 Text(
                     text = stringResource(R.string.quran_downloads_summary_title),
@@ -539,7 +540,7 @@ private fun SurahCoverageSection(
             supportingText = stringResource(R.string.quran_downloads_coverage_empty),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 4.dp),
+                .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
         )
         return
     }
@@ -547,7 +548,7 @@ private fun SurahCoverageSection(
     IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 4.dp),
+            .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
         containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
     ) {
         Column {
@@ -591,7 +592,7 @@ private fun OverallCoverageRow(
                 .width(96.dp)
                 .height(6.dp),
         )
-        Spacer(Modifier.width(8.dp))
+        Spacer(Modifier.width(IslamicSpacing.Small))
         Text(
             text = percentText(overall),
             style = MaterialTheme.typography.labelMedium,
@@ -627,7 +628,7 @@ private fun SurahCoverageRow(coverage: SurahCoverage) {
                 .weight(1f)
                 .height(4.dp),
         )
-        Spacer(Modifier.width(8.dp))
+        Spacer(Modifier.width(IslamicSpacing.Small))
         Text(
             text = percentText(coverage.fraction),
             style = MaterialTheme.typography.labelSmall,
@@ -694,7 +695,7 @@ private fun TaskRow(
                 }
             }
             if (task.status == DownloadStatus.Downloading || task.status == DownloadStatus.Queued) {
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(IslamicSpacing.Small))
                 LinearProgressIndicator(
                     progress = { task.progress.coerceIn(0f, 1f) },
                     modifier = Modifier.fillMaxWidth(),
@@ -781,13 +782,13 @@ private fun ReciterHeaderSummary(
                             .weight(1f)
                             .height(6.dp),
                     )
-                    Spacer(Modifier.width(8.dp))
+                    Spacer(Modifier.width(IslamicSpacing.Small))
                     Text(
                         text = percentText(progress),
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.primary,
                     )
-                    Spacer(Modifier.width(8.dp))
+                    Spacer(Modifier.width(IslamicSpacing.Small))
                     Text(
                         text = stringResource(
                             R.string.quran_download_mushaf_progress,
@@ -799,7 +800,7 @@ private fun ReciterHeaderSummary(
                     )
                 }
             }
-            Spacer(Modifier.width(8.dp))
+            Spacer(Modifier.width(IslamicSpacing.Small))
             IconButton(
                 onClick = onDeleteReciter,
                 enabled = downloaded > 0,
@@ -833,7 +834,7 @@ private fun ReciterStateSection(
         style = MaterialTheme.typography.titleMedium,
         color = MaterialTheme.colorScheme.primary,
     )
-    Spacer(Modifier.height(8.dp))
+    Spacer(Modifier.height(IslamicSpacing.Small))
     val current = state
     if (current == null || current.downloadedAyahs == 0) {
         Text(
@@ -853,11 +854,11 @@ private fun ReciterStateSection(
         style = MaterialTheme.typography.bodyMedium,
         color = MaterialTheme.colorScheme.primary,
     )
-    Spacer(Modifier.height(8.dp))
+    Spacer(Modifier.height(IslamicSpacing.Small))
 
     // Sort the downloaded surahs by mushaf order or by completion (incomplete
     // first, so the user sees what needs finishing). Persisted in DataStore.
-    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+    Row(horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small)) {
         FilterChip(
             selected = sortMode == SurahSort.Mushaf,
             onClick = { onSortModeChanged(SurahSort.Mushaf) },
@@ -869,7 +870,7 @@ private fun ReciterStateSection(
             label = { Text(stringResource(R.string.quran_download_sort_completion)) },
         )
     }
-    Spacer(Modifier.height(4.dp))
+    Spacer(Modifier.height(IslamicSpacing.XSmall))
 
     val sortedEntries = current.surahCounts.entries.sortedWith(
         when (sortMode) {
@@ -884,7 +885,7 @@ private fun ReciterStateSection(
         val total = surahAyahTotals[surahNumber] ?: ayahs
         val fraction = if (total > 0) ayahs.toFloat() / total else 0f
         Column(
-            modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+            modifier = Modifier.fillMaxWidth().padding(vertical = IslamicSpacing.XSmall),
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -896,7 +897,7 @@ private fun ReciterStateSection(
                     tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(18.dp),
                 )
-                Spacer(Modifier.width(8.dp))
+                Spacer(Modifier.width(IslamicSpacing.Small))
                 Text(
                     text = stringResource(R.string.quran_surah_number_short, surahNumber),
                     style = MaterialTheme.typography.bodyMedium,
@@ -925,7 +926,7 @@ private fun ReciterStateSection(
                         .weight(1f)
                         .height(4.dp),
                 )
-                Spacer(Modifier.width(8.dp))
+                Spacer(Modifier.width(IslamicSpacing.Small))
                 Text(
                     text = percentText(fraction),
                     style = MaterialTheme.typography.labelSmall,
@@ -934,7 +935,7 @@ private fun ReciterStateSection(
             }
         }
     }
-    Spacer(Modifier.height(4.dp))
+    Spacer(Modifier.height(IslamicSpacing.XSmall))
     TextButton(onClick = onDeleteReciter) {
         Icon(
             imageVector = Icons.Filled.Delete,
@@ -942,7 +943,7 @@ private fun ReciterStateSection(
             tint = MaterialTheme.colorScheme.error,
             modifier = Modifier.size(18.dp),
         )
-        Spacer(Modifier.width(6.dp))
+        Spacer(Modifier.width(IslamicSpacing.Small))
         Text(stringResource(R.string.quran_download_delete_reciter))
     }
 }
