@@ -53,8 +53,6 @@ import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material.icons.outlined.RadioButtonUnchecked
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -135,8 +133,11 @@ import org.muslim.app.core.common.text.ArabicText
 import org.muslim.app.core.designsystem.IslamicElevation
 import org.muslim.app.core.designsystem.IslamicMotion
 import org.muslim.app.core.designsystem.IslamicRadius
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.designsystem.MuslimSepiaColors
 import org.muslim.app.core.ui.accessibility.LocalAccessibilityVisuals
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicSelectableCard
 import org.muslim.app.core.ui.theme.IslamicDecorationCorners
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicReadingBasmalaAccent
@@ -643,7 +644,7 @@ fun QuranReaderScreen(
                                 tint = MaterialTheme.colorScheme.primary,
                                 modifier = Modifier.size(18.dp),
                             )
-                            Spacer(Modifier.width(4.dp))
+                            Spacer(Modifier.width(IslamicSpacing.XSmall))
                             val percent = downloadProgress
                             if (percent != null) {
                                 Text(
@@ -653,7 +654,7 @@ fun QuranReaderScreen(
                                 )
                             }
                         }
-                        Spacer(Modifier.width(4.dp))
+                        Spacer(Modifier.width(IslamicSpacing.XSmall))
                     }
                     IconButton(onClick = { viewModel.setReaderTheme(theme.next) }) {
                         Icon(
@@ -979,37 +980,40 @@ private fun SupplementPanel(
     val hasContent = supplements.translations.isNotEmpty() || supplements.tafsir.isNotEmpty()
     if (!hasContent || currentAyah == null) return
 
-    Card(modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 4.dp)) {
-        Column(modifier = Modifier.padding(12.dp)) {
+    IslamicCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = IslamicSpacing.Compact, vertical = IslamicSpacing.XSmall),
+        contentPadding = PaddingValues(IslamicSpacing.Compact),
+    ) {
+        Text(
+            text = stringResource(R.string.quran_supplement_title),
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        supplements.translations.forEach { translation ->
+            Spacer(Modifier.height(IslamicSpacing.Small))
             Text(
-                text = stringResource(R.string.quran_supplement_title),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.primary,
+                text = translation.text,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurface,
             )
-            supplements.translations.forEach { translation ->
-                Spacer(Modifier.height(6.dp))
-                Text(
-                    text = translation.text,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface,
-                )
-            }
-            supplements.tafsir.forEach { entry ->
-                Spacer(Modifier.height(8.dp))
-                HorizontalDivider()
-                Spacer(Modifier.height(6.dp))
-                Text(
-                    text = stringResource(R.string.quran_tafsir_source, entry.source),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    text = entry.text,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
+        }
+        supplements.tafsir.forEach { entry ->
+            Spacer(Modifier.height(IslamicSpacing.Small))
+            HorizontalDivider()
+            Spacer(Modifier.height(IslamicSpacing.Small))
+            Text(
+                text = stringResource(R.string.quran_tafsir_source, entry.source),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Spacer(Modifier.height(IslamicSpacing.XSmall))
+            Text(
+                text = entry.text,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
     }
 }
@@ -1090,7 +1094,7 @@ private fun RecitationBar(
                         contentDescription = null,
                         modifier = Modifier.size(18.dp),
                     )
-                    Spacer(Modifier.width(6.dp))
+                    Spacer(Modifier.width(IslamicSpacing.Small))
                     Text(stringResource(R.string.quran_play_from_selected_ayah, selectedAyahNumber))
                 }
             }
@@ -1114,7 +1118,7 @@ private fun RecitationBar(
                         modifier = Modifier.widthIn(max = 190.dp),
                     ) {
                         ReciterPortrait(reciter = reciter, size = 26.dp)
-                        Spacer(Modifier.width(6.dp))
+                        Spacer(Modifier.width(IslamicSpacing.Small))
                         Text(
                             text = reciter.name,
                             style = MaterialTheme.typography.labelMedium,
@@ -1129,40 +1133,35 @@ private fun RecitationBar(
                     ) {
                         reciters.forEach { option ->
                             val selected = option.id == reciter.id
-                            Card(
+                            IslamicSelectableCard(
+                                selected = selected,
                                 onClick = {
                                     reciterMenu = false
                                     onReciterSelected(option)
                                 },
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(horizontal = 8.dp, vertical = 4.dp),
-                                shape = RoundedCornerShape(16.dp),
-                                colors = CardDefaults.cardColors(
-                                    containerColor = if (selected) {
-                                        MaterialTheme.colorScheme.primaryContainer
-                                    } else {
-                                        MaterialTheme.colorScheme.surfaceContainerHigh
-                                    },
+                                    .padding(
+                                        horizontal = IslamicSpacing.Small,
+                                        vertical = IslamicSpacing.XSmall,
+                                    ),
+                                shape = RoundedCornerShape(IslamicRadius.AyahMarker),
+                                contentPadding = PaddingValues(
+                                    horizontal = IslamicSpacing.Compact,
+                                    vertical = IslamicSpacing.Compact,
                                 ),
-                                border = BorderStroke(
-                                    width = if (selected) 1.5.dp else 1.dp,
-                                    color = if (selected) {
-                                        MaterialTheme.colorScheme.primary
-                                    } else {
-                                        MaterialTheme.colorScheme.outlineVariant
-                                    },
-                                ),
-                                elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
+                                containerColor = if (selected) {
+                                    MaterialTheme.colorScheme.primaryContainer
+                                } else {
+                                    MaterialTheme.colorScheme.surfaceContainerHigh
+                                },
                             ) {
                                 Row(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(horizontal = 12.dp, vertical = 10.dp),
+                                    modifier = Modifier.fillMaxWidth(),
                                     verticalAlignment = Alignment.CenterVertically,
                                 ) {
                                     ReciterPortrait(reciter = option, size = 48.dp)
-                                    Spacer(Modifier.width(12.dp))
+                                    Spacer(Modifier.width(IslamicSpacing.Compact))
                                     Column(modifier = Modifier.weight(1f)) {
                                         Text(
                                             text = option.name,
@@ -1175,7 +1174,7 @@ private fun RecitationBar(
                                             maxLines = 1,
                                             overflow = TextOverflow.Ellipsis,
                                         )
-                                        Spacer(Modifier.height(2.dp))
+                                        Spacer(Modifier.height(IslamicSpacing.XXSmall))
                                         Text(
                                             text = option.style,
                                             style = MaterialTheme.typography.labelMedium,
@@ -1185,7 +1184,7 @@ private fun RecitationBar(
                                         )
                                     }
                                     if (selected) {
-                                        Spacer(Modifier.width(8.dp))
+                                        Spacer(Modifier.width(IslamicSpacing.Small))
                                         Icon(
                                             imageVector = Icons.Filled.Check,
                                             contentDescription = null,
@@ -1199,7 +1198,7 @@ private fun RecitationBar(
                     }
                 }
                 if (playingAyahNumber != null && playbackState != PlaybackState.Idle) {
-                    Spacer(Modifier.width(4.dp))
+                    Spacer(Modifier.width(IslamicSpacing.XSmall))
                     Text(
                         text = stringResource(
                             R.string.quran_mini_surah_ayah,
@@ -1264,7 +1263,7 @@ private fun RecitationBar(
                         contentDescription = stringResource(R.string.quran_repeat),
                         modifier = Modifier.size(18.dp),
                     )
-                    Spacer(Modifier.width(4.dp))
+                    Spacer(Modifier.width(IslamicSpacing.XSmall))
                     Text(repeatButtonLabel(repeatCount))
                 }
                 DropdownMenu(expanded = repeatMenu, onDismissRequest = { repeatMenu = false }) {
@@ -1318,7 +1317,7 @@ private fun RecitationBar(
                         contentDescription = stringResource(R.string.quran_play_range),
                         modifier = Modifier.size(18.dp),
                     )
-                    Spacer(Modifier.width(4.dp))
+                    Spacer(Modifier.width(IslamicSpacing.XSmall))
                     Text(rangeButtonLabel(range))
                 }
                 DropdownMenu(expanded = rangeMenu, onDismissRequest = { rangeMenu = false }) {
