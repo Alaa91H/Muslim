@@ -196,7 +196,7 @@ internal fun extractLeadingBasmala(text: String): String? =
     leadingBasmalaEndIndex(text)?.let { end -> text.substring(0, end).trimEnd() }
 
 internal fun stripLeadingBasmala(text: String): String =
-    leadingBasmalaEndIndex(text)?.let(text::substring) ?: text
+    leadingBasmalaEndIndex(text)?.let { end -> text.substring(end) } ?: text
 
 internal data class SurahOpeningPresentation(
     val ayahText: String,
