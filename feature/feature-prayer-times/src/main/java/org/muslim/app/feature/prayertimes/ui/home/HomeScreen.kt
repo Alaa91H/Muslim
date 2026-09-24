@@ -39,7 +39,6 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -72,6 +71,7 @@ import org.muslim.app.feature.prayertimes.ui.formatCountdown
 import org.muslim.app.feature.prayertimes.ui.localDateFormatter
 import org.muslim.app.core.common.time.TimeFormats
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicSecondaryButton
 import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.IslamicDecorationCorners
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
@@ -427,7 +427,7 @@ fun HomeScreen(
                 .padding(vertical = IslamicSpacing.XSmall),
             horizontalArrangement = Arrangement.End,
         ) {
-            OutlinedButton(
+            IslamicSecondaryButton(
                 modifier = Modifier.weight(1f),
                 onClick = { shareDailyTimes(context, state, use24h) },
                 enabled = state.isValid,
@@ -435,7 +435,7 @@ fun HomeScreen(
                 Text(stringResource(R.string.times_share))
             }
             Spacer(Modifier.width(IslamicSpacing.Small))
-            OutlinedButton(
+            IslamicSecondaryButton(
                 modifier = Modifier.weight(1f),
                 onClick = viewModel::toggleMonthly,
             ) {
@@ -640,7 +640,7 @@ private fun MonthlyGrid(state: HomeViewModel.UiState, use24h: Boolean) {
                 )
             }
         }
-        Spacer(Modifier.height(4.dp))
+        Spacer(Modifier.height(IslamicSpacing.XSmall))
         LazyVerticalGrid(
             columns = GridCells.Fixed(7),
             modifier = Modifier.height(380.dp),
