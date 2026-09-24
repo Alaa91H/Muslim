@@ -123,7 +123,11 @@ class RecitationSessionRuntime @Inject constructor(
     private var operationSequence = 0L
 
     @Synchronized
-    fun begin(intent: RecitationSessionIntent) {
+    fun begin(
+        intent: RecitationSessionIntent,
+        positionMs: Long = 0L,
+        initialRemainingRepeats: Int? = null,
+    ) {
         activeIntent = intent
         generation += 1L
         operationSequence += 1L
@@ -133,12 +137,13 @@ class RecitationSessionRuntime @Inject constructor(
         val snapshot = PersistedRecitationSession(
             intent = intent,
             currentGlobalNumber = firstGlobal,
-            positionMs = 0L,
-            remainingRepeats = if (intent.continuous || intent.repeatCount <= 0) {
-                1
-            } else {
-                intent.repeatCount.coerceAtLeast(1)
-            },
+            positionMs = positionMs.coerceAtLeast(0L),
+            remainingRepeats = initialRemainingRepeats?.coerceAtLeast(1)
+                ?: if (intent.continuous || intent.repeatCount <= 0) {
+                    1
+                } else {
+                    intent.repeatCount.coerceAtLeast(1)
+                },
             wasPlaying = false,
             savedAtEpochMs = System.currentTimeMillis(),
         )
