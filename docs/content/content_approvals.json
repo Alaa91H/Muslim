@@ -247,6 +247,118 @@
       "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
       "notes": "The product owner confirmed this historically named sample file is an approved production pack under OA-2026-08-25-01. Reconfirm before replacing it.",
       "production_pack_confirmed": true
+    },
+    "feature_feature-reference_src_main_res_raw_reference_islam_v2_json": {
+      "source": "Project-authored Introduction to Islam corpus migrated verbatim from IslamIntroContent.kt; migration parity is enforced by scripts/verify_reference_library_assets.py.",
+      "licence": "Project source licence; this JSON is a structured representation of project-authored reference content.",
+      "attribution": "Islamic Reference Library content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed by this structural migration; every migrated topic remains marked NeedsReview until article-level review is completed.",
+      "notes": "Schema v2 preserves all 14 legacy topics verbatim and expands Introduction to Islam to 63 topics, 126 sections, and 252 bilingual paragraphs across 7 chapters. New articles include structured Quran/Hadith citations and remain NeedsReview pending independent article-level review."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_sira_v2_json": {
+      "source": "Project-authored Prophetic Biography corpus migrated verbatim from SiraContent.kt and expanded with structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, and Ibn Hisham's al-Sirah al-Nabawiyyah.",
+      "licence": "Project source licence; this JSON is a structured representation of project-authored reference content and bibliographic metadata.",
+      "attribution": "Prophetic Biography content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed by this migration or expansion. All migrated and newly expanded Sira topics remain marked NeedsReview pending article-level scholarly review.",
+      "notes": "Schema v2 preserves all 16 legacy Sira topics verbatim and expands the biography to 80 topics, 160 sections, and 192 bilingual paragraphs across 8 chronological/thematic chapters."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_prophets_v2_json": {
+      "source": "Project-authored Stories of the Prophets corpus migrated verbatim from ProphetsContent.kt and expanded with structured Quran references. The expansion distinguishes Quran-established material from uncertain chronology and Israelite/historical reports.",
+      "licence": "Project source licence; this JSON is a structured representation of project-authored reference content and bibliographic metadata.",
+      "attribution": "Stories of the Prophets content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed by this migration or expansion. All migrated and newly expanded topics remain marked NeedsReview pending article-level scholarly review.",
+      "notes": "Schema v2 preserves all 21 legacy Prophets topics verbatim and expands the book to 65 topics, 140 sections, and 190 bilingual paragraphs across 9 thematic/chronological chapters."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_companions_v2_json": {
+      "source": "Project-authored Companion biographies using structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, Ibn Hajar's al-Isabah, and Ibn Sa'd's al-Tabaqat. Cross-book links connect biographies to Sira and related reference books.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Companions reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. All articles remain marked NeedsReview pending article-level review of hadith grading, historical transmission, names, chronology, and contested reports.",
+      "notes": "First versioned edition: selected Companion biographies covering early Mecca, Muhajirun and Ansar, knowledge transmission, women Companions, and source methodology."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_mothers_v2_json": {
+      "source": "Project-authored Mothers of the Believers biographies using structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, Ibn Hajar's al-Isabah, and Ibn Sa'd's al-Tabaqat.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Mothers of the Believers reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. All articles remain marked NeedsReview pending article-level review of hadith grading, historical transmission, names, chronology, and contested reports.",
+      "notes": "First versioned edition: dedicated biographies of the eleven wives represented in the corpus plus methodology, household learning, and charity/simplicity articles."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_ahl_al_bayt_v2_json": {
+      "source": "Project-authored Ahl al-Bayt reference corpus using structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, and classical biographical works. The definition article explicitly preserves differing textual contexts without adopting sectarian polemics.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Ahl al-Bayt reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. All articles remain marked NeedsReview pending article-level review of hadith grading, historical transmission, names, chronology, and contested reports.",
+      "notes": "First versioned edition: definitions, Ahl al-Kisa, Ali, Fatimah, Hasan, Husayn, Karbala source method, Hashimite relatives, descendants, genealogy, and balanced respect."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_rashidun_v2_json": {
+      "source": "Project-authored early-caliphate history using structured references to Sahih al-Bukhari, Sahih Muslim, al-Tabari's History, al-Baladhuri's Futuh al-Buldan, Ibn Hajar, and relevant Quran passages.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Rightly Guided Caliphs historical reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. All articles remain marked NeedsReview pending article-level review of hadith grading, historical transmission, names, chronology, and contested reports.",
+      "notes": "First versioned edition: succession, Abu Bakr, Umar, Uthman, Ali, the First Fitna, Hasan's reconciliation, and institutional development. Contested political narratives are explicitly presented as source-dependent."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_aqeedah_v2_json": {
+      "source": "Project-authored Aqeedah reference corpus using structured Quran and authentic hadith citations. The corpus explicitly distinguishes foundational texts from later theological terminology and marks disputed questions without sectarian verdicts.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Aqeedah and Foundations of Faith reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, hadith grading, technical terminology, and disputed scholarly formulations.",
+      "notes": "First versioned edition: tawhid, worship, divine names and attributes, faith, angels, scriptures, messengers, final prophethood, qadar, unseen matters, the Hereafter, repentance, and caution in takfir."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_quran_sciences_v2_json": {
+      "source": "Project-authored Quranic Sciences corpus using structured references to the Quran, Sahih hadith, and recognized classical works in Quranic studies including al-Itqan, al-Muqni, al-Nashr, and foundational tafsir-method works.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Quranic Sciences reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, hadith grading, technical terminology, and disputed scholarly formulations.",
+      "notes": "First versioned edition: revelation, preservation, compilation, Uthmanic codices, rasm, notation, Makki/Madani, occasions of revelation, seven ahruf, qira'at, tajwid, abrogation, muhkam/mutashabih, tafsir principles, translation, and digital verification."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_hadith_sciences_v2_json": {
+      "source": "Project-authored Hadith and Sunnah Sciences corpus using structured references to the Quran, Sahih collections, Ibn al-Salah, Ibn Hajar, al-Suyuti, al-Khatib al-Baghdadi, and other classical hadith-method works.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Hadith and Sunnah Sciences reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, hadith grading, technical terminology, and disputed scholarly formulations.",
+      "notes": "First versioned edition: Sunnah authority, isnad/matn, hadith grades, chain continuity, narrator criticism, hidden defects, takhrij, grading disagreement, major collections, apparent conflict, weak reports, numbering, and digital verification."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_fiqh_worship_v2_json": {
+      "source": "Project-authored Fiqh of Worship corpus using structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, and recognized comparative/classical fiqh works including Bidayat al-Mujtahid, al-Majmu', al-Mughni, and usul/ifta literature. Disputed juristic questions are explicitly marked rather than flattened into a single ruling.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Fiqh of Worship reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of legal formulations, school-specific differences, hadith citations, and practical edge cases.",
+      "notes": "First versioned edition: 57 topics, 114 sections, and 114 bilingual paragraphs covering fiqh methodology, purification, prayer, zakat, fasting, and Hajj."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_ethics_life_v2_json": {
+      "source": "Project-authored Ethics, Manners, and Muslim Life corpus using structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, and classical adab works. Modern digital-life articles apply general ethical principles transparently rather than presenting platform-specific customs as revelation.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Ethics, Manners, and Muslim Life reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, legal/ethical formulations, and modern applications.",
+      "notes": "First versioned edition: 73 topics, 146 sections, and 146 bilingual paragraphs covering character, speech, daily life, family, community, work/wealth, public responsibility, and digital ethics."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_history_civilization_v2_json": {
+      "source": "Project-authored Islamic History and Civilization corpus using structured references to the Metropolitan Museum of Art chronology/resources, UNESCO Silk Roads materials, selected classical historical works, and academic references. Political chronology is kept separate from civilizational analysis, and contested or schematic material is explicitly qualified.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Islamic History and Civilization reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending specialist review of chronology, historical reports, political terminology, sectarian-sensitive material, regional coverage, and scientific-history wording.",
+      "notes": "First versioned edition: 91 topics, 182 sections, and 182 bilingual paragraphs covering methodology, dynasties and regions, Africa/Asia/Indian Ocean networks, sciences, institutions, trade, cities, arts, languages, and historiography."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_places_landmarks_v2_json": {
+      "source": "Project-authored Islamic Places and Landmarks corpus using structured Quran and authentic hadith references for sacred status and ritual significance, plus cross-links to the app's sourced Sira, Rashidun, and Islamic History corpora and selected museum/UNESCO historical references for civilizational sites.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Islamic Places and Landmarks reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending specialist review of sacred-status claims, Sira locations, local historical traditions, sectarian-sensitive sites, and geographic wording.",
+      "notes": "First versioned edition distinguishes sacred sites from Sira locations and historical/civilizational landmarks and explicitly avoids creating devotional merit where no text establishes it."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_islamic_glossary_v2_json": {
+      "source": "Project-authored 300-term Islamic glossary. Definitions are linked to the app's sourced Aqeedah, Quranic Sciences, Hadith Sciences, Fiqh of Worship, Ethics, History, and Places corpora so glossary wording remains consistent with the long-form reference library.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Expanded Islamic Glossary bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every glossary entry remains NeedsReview pending terminology review, especially school-dependent legal terms, hadith terminology, and theological usage.",
+      "notes": "First versioned edition contains exactly 300 bilingual Arabic-English entries organized across nine domains with one concise definition and an internal source link per entry."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_faq_misconceptions_v2_json": {
+      "source": "Project-authored FAQ and common-misconceptions corpus. Answers are intentionally short and cite the app's sourced Aqeedah, Quranic Sciences, Hadith Sciences, Fiqh, Ethics, History, Places, and Introduction-to-Islam corpora, with direct Quran or authentic-hadith references where a concise primary citation materially improves the answer.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "FAQs and Common Misconceptions reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every FAQ remains NeedsReview pending specialist review, with heightened review required for sectarian-sensitive questions, family-law wording, jihad/armed-conflict framing, inheritance/testimony summaries, and any answer that could be mistaken for a personal fatwa.",
+      "notes": "First versioned edition: 72 questions, 9 chapters, 144 sections, and 144 bilingual paragraphs. The book explicitly distinguishes education from personalized fatwa and links every answer to long-form source material."
     }
   }
 }

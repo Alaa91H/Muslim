@@ -1,0 +1,3756 @@
+{
+  "schemaVersion": 2,
+  "book": {
+    "id": "fiqh_worship",
+    "titleAr": "فقه العبادات",
+    "titleEn": "Fiqh of Worship",
+    "subtitleAr": "مرجع مقارن للطهارة والصلاة والزكاة والصيام والحج مع تمييز مواضع الخلاف",
+    "subtitleEn": "A comparative guide to purification, prayer, zakat, fasting, and Hajj with disagreements clearly identified",
+    "contentRevision": 1,
+    "chapters": [
+      {
+        "id": "method",
+        "titleAr": "مدخل إلى الفقه",
+        "titleEn": "Introduction to Fiqh",
+        "summaryAr": "المصادر والمذاهب والخلاف والفتوى والقواعد العامة.",
+        "summaryEn": "Sources, schools, disagreement, fatwa, and general legal principles.",
+        "topicIds": [
+          "fiqh_intro",
+          "fiqh_sources",
+          "madhhabs",
+          "fiqh_disagreement",
+          "fatwa_guidance",
+          "certainty_doubt",
+          "hardship_facilitation"
+        ]
+      },
+      {
+        "id": "purification",
+        "titleAr": "الطهارة",
+        "titleEn": "Purification",
+        "summaryAr": "الماء والنجاسة والوضوء والغسل والتيمم وأحكام خاصة.",
+        "summaryEn": "Water, impurity, wudu, ghusl, tayammum, and special cases.",
+        "topicIds": [
+          "water_purification",
+          "najasa",
+          "wudu",
+          "wudu_nullifiers",
+          "ghusl",
+          "tayammum",
+          "menstruation_nifas",
+          "wiping_footwear",
+          "toilet_etiquette"
+        ]
+      },
+      {
+        "id": "prayer",
+        "titleAr": "الصلاة",
+        "titleEn": "Prayer",
+        "summaryAr": "الأوقات والقبلة والأذان والشروط والجماعة والرخص والنوافل.",
+        "summaryEn": "Times, qibla, adhan, conditions, congregation, concessions, and voluntary prayer.",
+        "topicIds": [
+          "prayer_times",
+          "qibla",
+          "adhan",
+          "prayer_conditions",
+          "prayer_pillars",
+          "congregational_prayer",
+          "jumuah",
+          "traveler_prayer",
+          "sick_prayer",
+          "missed_prayers",
+          "sujud_sahw",
+          "nafl_witr",
+          "night_prayer",
+          "eid_prayer",
+          "janazah_prayer"
+        ]
+      },
+      {
+        "id": "zakat",
+        "titleAr": "الزكاة",
+        "titleEn": "Zakat",
+        "summaryAr": "النصاب والحول وأنواع الأموال والمصارف وزكاة الفطر.",
+        "summaryEn": "Thresholds, holding periods, wealth categories, recipients, and Zakat al-Fitr.",
+        "topicIds": [
+          "zakat_principles",
+          "nisab_haul",
+          "zakat_cash_metals",
+          "zakat_trade",
+          "zakat_crops_livestock",
+          "zakat_recipients",
+          "zakat_fitr"
+        ]
+      },
+      {
+        "id": "fasting",
+        "titleAr": "الصيام",
+        "titleEn": "Fasting",
+        "summaryAr": "رمضان والنية والمفسدات والأعذار والقضاء والنوافل والاعتكاف.",
+        "summaryEn": "Ramadan, intention, invalidators, excuses, make-up, voluntary fasting, and i'tikaf.",
+        "topicIds": [
+          "fasting_obligation",
+          "ramadan_entry",
+          "fasting_intention",
+          "fasting_invalidators",
+          "fasting_excuses",
+          "qada_fidya_kaffara",
+          "voluntary_fasting",
+          "ramadan_qiyam_qadr",
+          "itikaf"
+        ]
+      },
+      {
+        "id": "hajj",
+        "titleAr": "الحج والعمرة",
+        "titleEn": "Hajj and Umrah",
+        "summaryAr": "الاستطاعة والإحرام والطواف والسعي والمشاعر والهدي.",
+        "summaryEn": "Ability, ihram, tawaf, sa'i, sacred sites, and offerings.",
+        "topicIds": [
+          "hajj_obligation",
+          "miqat_ihram",
+          "ihram_prohibitions",
+          "tawaf",
+          "sai",
+          "arafah",
+          "muzdalifah_mina",
+          "jamarat_tahallul",
+          "hajj_forms",
+          "hajj_sacrifice_compensation"
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "fiqh_intro",
+        "titleAr": "ما الفقه؟",
+        "titleEn": "What is Fiqh?",
+        "summaryAr": "الفقه فهم الأحكام العملية من أدلتها، وهو اجتهاد بشري منضبط يختلف عن نص الوحي نفسه.",
+        "summaryEn": "Fiqh is the disciplined understanding of practical rulings from evidence; it is scholarly interpretation rather than revelation itself.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/schools_of_law",
+          "fiqh_sources"
+        ],
+        "citations": [
+          {
+            "id": "quran-16-43",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:43"
+          },
+          {
+            "id": "bidaya-fiqh",
+            "kind": "ClassicalBook",
+            "titleAr": "بداية المجتهد ونهاية المقتصد لابن رشد",
+            "titleEn": "Ibn Rushd, Bidayat al-Mujtahid",
+            "locator": "Introduction to legal reasoning"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "meaning",
+            "titleAr": "معنى الفقه",
+            "titleEn": "Meaning of fiqh",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يشمل الفقه أحكام الطهارة والصلاة والزكاة والصيام والحج وغيرها من الأعمال، ويستند إلى النصوص وقواعد الاستنباط وفهم العلماء.",
+                "en": "Fiqh covers practical rulings such as purification, prayer, zakat, fasting, and pilgrimage, drawing on revelation and disciplined legal reasoning.",
+                "citationIds": [
+                  "bidaya-fiqh"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "revelation_scholarship",
+            "titleAr": "النص والاجتهاد",
+            "titleEn": "Revelation and interpretation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "القرآن والسنة وحي وهدي، أما صياغة الحكم الفقهي في كثير من المسائل فهي فهم بشري قد يتفق فيه العلماء أو يختلفون.",
+                "en": "The Quran and Sunnah provide revelation and guidance, while many juristic formulations are scholarly interpretations on which jurists may agree or disagree.",
+                "citationIds": [
+                  "quran-16-43"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fiqh_sources",
+        "titleAr": "مصادر الفقه وأدوات الاستنباط",
+        "titleEn": "Sources of Fiqh",
+        "summaryAr": "ينطلق الفقه من القرآن والسنة، وتستعمل المدارس الفقهية أدوات مثل الإجماع والقياس وقواعد أخرى بضوابط مختلفة.",
+        "summaryEn": "Fiqh begins with the Quran and Sunnah and employs tools such as consensus, analogy, and other principles with school-specific methodologies.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "fiqh_intro",
+          "hadith_sciences/sunnah_authority",
+          "quran_sciences/tafsir_principles"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-59",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:59"
+          },
+          {
+            "id": "mustasfa-usul",
+            "kind": "ClassicalBook",
+            "titleAr": "المستصفى للغزالي",
+            "titleEn": "Al-Ghazali, al-Mustasfa",
+            "locator": "Sources and principles of legal reasoning"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "primary",
+            "titleAr": "القرآن والسنة",
+            "titleEn": "Quran and Sunnah",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يرجع الفقيه إلى القرآن والسنة الصحيحة، ويجمع الأدلة ذات الصلة قبل استنباط الحكم العملي.",
+                "en": "Jurists return to the Quran and authentic Sunnah and gather relevant evidence before deriving practical rulings.",
+                "citationIds": [
+                  "quran-4-59"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "tools",
+            "titleAr": "أدوات الاستنباط",
+            "titleEn": "Tools of legal reasoning",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تختلف المذاهب في ترتيب بعض الأدلة الاجتهادية وحدود القياس والاستصحاب والمصلحة والعرف وغيرها، مع اشتراكها في قواعد واسعة.",
+                "en": "Legal schools differ in how they rank and define tools such as analogy, presumption, public interest, and custom, while sharing broad foundations.",
+                "citationIds": [
+                  "mustasfa-usul"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "madhhabs",
+        "titleAr": "المذاهب الفقهية الأربعة",
+        "titleEn": "The four Sunni legal schools",
+        "summaryAr": "الحنفي والمالكي والشافعي والحنبلي مدارس فقهية تاريخية لها أصول وتراكم علمي وليست أديانًا منفصلة.",
+        "summaryEn": "Hanafi, Maliki, Shafi'i, and Hanbali are historical legal schools with developed methods, not separate religions.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/schools_of_law",
+          "fiqh_disagreement"
+        ],
+        "citations": [
+          {
+            "id": "bidaya-madhhabs",
+            "kind": "ClassicalBook",
+            "titleAr": "بداية المجتهد ونهاية المقتصد لابن رشد",
+            "titleEn": "Ibn Rushd, Bidayat al-Mujtahid",
+            "locator": "Comparative juristic disagreement"
+          },
+          {
+            "id": "majmu-method",
+            "kind": "ClassicalBook",
+            "titleAr": "المجموع شرح المهذب للنووي",
+            "titleEn": "Al-Nawawi, al-Majmu'",
+            "locator": "Comparative fiqh discussions"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "schools",
+            "titleAr": "مدارس اجتهاد",
+            "titleEn": "Schools of legal interpretation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تكوّنت المذاهب حول مناهج علمية وتلاميذ ومتون وشروح، وتطورت عبر قرون ولم تختزل في رأي إمام واحد.",
+                "en": "The schools developed through methods, students, manuals, and commentaries over centuries and are not reducible to a single imam's personal opinion.",
+                "citationIds": [
+                  "bidaya-madhhabs"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "respect",
+            "titleAr": "الاختلاف داخل إطار الإسلام",
+            "titleEn": "Disagreement within Islam",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اختلاف المذاهب في فروع العبادات لا يعني بالضرورة اختلافًا في أصول الدين، ويعرض هذا الكتاب الرأي المختلف فيه بوضوح دون تعصب.",
+                "en": "Differences among schools in branches of worship do not necessarily indicate disagreement in foundational belief; this book marks such differences without sectarian partisanship.",
+                "citationIds": [
+                  "majmu-method"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fiqh_disagreement",
+        "titleAr": "كيف نتعامل مع الخلاف الفقهي؟",
+        "titleEn": "How to handle juristic disagreement",
+        "summaryAr": "الخلاف قد ينشأ من ثبوت الحديث أو دلالته أو الجمع بين الأدلة أو اختلاف القواعد، ولا يحل بالتشهير أو التسرع.",
+        "summaryEn": "Fiqh disagreement can arise from hadith authenticity, interpretation, reconciliation of evidence, or methodological rules and should not be handled through hostility.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "madhhabs",
+          "fatwa_guidance"
+        ],
+        "citations": [
+          {
+            "id": "quran-16-125",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:125"
+          },
+          {
+            "id": "bidaya-disagreement",
+            "kind": "ClassicalBook",
+            "titleAr": "بداية المجتهد ونهاية المقتصد",
+            "titleEn": "Ibn Rushd, Bidayat al-Mujtahid",
+            "locator": "Reasons for juristic disagreement"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "causes",
+            "titleAr": "أسباب معتبرة للاختلاف",
+            "titleEn": "Legitimate causes of disagreement",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قد يبلغ حديث فقيهًا دون آخر، أو يختلف العلماء في صحته أو دلالته أو في حمل العام على الخاص، فينتج أكثر من اجتهاد معتبر.",
+                "en": "A jurist may know evidence another did not, or scholars may differ over authenticity, implication, or how texts qualify one another, producing more than one recognized view.",
+                "citationIds": [
+                  "bidaya-disagreement"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "practice",
+            "titleAr": "العمل دون نزاع",
+            "titleEn": "Practice without hostility",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "للمسلم أن يتعلم عبادته من مصدر موثوق، وعند الحاجة يسأل أهل العلم بدل جمع أقوال متفرقة بلا منهج ثم اختيار الأسهل دائمًا.",
+                "en": "A Muslim can learn worship from a reliable scholarly method and seek qualified advice when needed rather than mixing isolated rulings without method merely to find the easiest answer.",
+                "citationIds": [
+                  "quran-16-125"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fatwa_guidance",
+        "titleAr": "الفتوى والسؤال عن المسائل الخاصة",
+        "titleEn": "Fatwa and personal cases",
+        "summaryAr": "المكتبة للتعليم العام وليست بديلًا عن فتوى شخصية عندما تتوقف الإجابة على ظروف دقيقة.",
+        "summaryEn": "This library provides general learning and is not a substitute for individualized legal advice when facts materially affect the ruling.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "fiqh_disagreement",
+          "certainty_doubt"
+        ],
+        "citations": [
+          {
+            "id": "quran-16-43",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:43"
+          },
+          {
+            "id": "adab-mufti",
+            "kind": "ClassicalBook",
+            "titleAr": "آداب الفتوى والمفتي والمستفتي للنووي",
+            "titleEn": "Al-Nawawi, Adab al-Fatwa",
+            "locator": "Ethics of fatwa and seeking rulings"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "qualified",
+            "titleAr": "فاسألوا أهل الذكر",
+            "titleEn": "Ask qualified people",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في المسائل التي تحتاج تحقيقًا للواقع أو معرفة تفاصيل الشخص يرجع إلى عالم موثوق يفهم السؤال وأدلته.",
+                "en": "Questions depending on detailed facts should be taken to a qualified scholar who understands both the case and relevant evidence.",
+                "citationIds": [
+                  "quran-16-43"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "app_scope",
+            "titleAr": "حدود المحتوى العام",
+            "titleEn": "Limits of general content",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يعرض التطبيق قواعد وتعريفات وخلافات مشهورة، لكنه لا يفترض ظروف المستخدم ولا يصدر حكمًا فرديًا في النوازل المعقدة.",
+                "en": "The app presents principles, definitions, and well-known disagreements but does not assume a user's circumstances or issue individualized rulings in complex cases.",
+                "citationIds": [
+                  "adab-mufti"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "certainty_doubt",
+        "titleAr": "اليقين والشك في العبادة",
+        "titleEn": "Certainty and doubt in worship",
+        "summaryAr": "من القواعد المشهورة أن اليقين لا يزول بمجرد الشك، ويظهر أصلها في نصوص الطهارة والصلاة.",
+        "summaryEn": "A well-known legal maxim holds that certainty is not removed by mere doubt, grounded in reports concerning purity and prayer.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "fatwa_guidance",
+          "wudu_nullifiers",
+          "sujud_sahw"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-doubt-wudu",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Ablutions: doubt about passing wind"
+          },
+          {
+            "id": "muslim-doubt-wudu",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Purification: doubt about ritual state"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "principle",
+            "titleAr": "البناء على المتيقن",
+            "titleEn": "Build on what is certain",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "إذا كان الشخص متيقنًا من الطهارة ثم طرأ شك مجرد في الحدث فلا ينتقل عن اليقين بمجرد الوهم.",
+                "en": "If someone is certain of being in a state of purity and only later experiences bare doubt, certainty is not displaced by mere suspicion.",
+                "citationIds": [
+                  "bukhari-doubt-wudu",
+                  "muslim-doubt-wudu"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "obsession",
+            "titleAr": "منع الوسواس",
+            "titleEn": "Avoiding obsessive doubt",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تكرار الشكوك غير المستندة إلى قرينة قد يفتح باب الوسواس؛ لذلك يقرر الفقهاء ضوابط تمنع إعادة العبادة بلا سبب معتبر.",
+                "en": "Repeated unsupported doubts can feed obsessive repetition, so jurists developed principles against restarting worship without a valid basis.",
+                "citationIds": [
+                  "muslim-doubt-wudu"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hardship_facilitation",
+        "titleAr": "المشقة والتيسير",
+        "titleEn": "Hardship and facilitation",
+        "summaryAr": "تتضمن الشريعة رخصًا للمريض والمسافر والعاجز، لكن التيسير يعمل ضمن نصوص وضوابط لا بمجرد الرغبة.",
+        "summaryEn": "Islamic law includes concessions for illness, travel, and incapacity, but facilitation operates within evidence and defined conditions.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "traveler_prayer",
+          "sick_prayer",
+          "fasting_excuses"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-185",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:185"
+          },
+          {
+            "id": "quran-22-78",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "22:78"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "ease",
+            "titleAr": "يريد الله بكم اليسر",
+            "titleEn": "God intends ease",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن أحكام الصيام بقاعدة اليسر، وينفي جعل الحرج في الدين في موضع آخر.",
+                "en": "The Quran connects fasting law with ease and elsewhere states that religion was not made to impose undue hardship.",
+                "citationIds": [
+                  "quran-2-185",
+                  "quran-22-78"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "limits",
+            "titleAr": "الرخصة لها سبب",
+            "titleEn": "Concessions have conditions",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الرخصة الشرعية تتعلق بسبب معتبر مثل السفر أو المرض أو العجز، وقد تختلف تفاصيلها بين المذاهب بحسب الأدلة.",
+                "en": "Legal concessions are tied to recognized circumstances such as travel, illness, or incapacity, with details sometimes differing among schools.",
+                "citationIds": [
+                  "quran-2-185"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "water_purification",
+        "titleAr": "الماء وأحكام الطهارة",
+        "titleEn": "Water and purification",
+        "summaryAr": "الأصل في الماء الطهورية ما لم يتغير بما يخرجه عن وصفه أو يتنجس وفق ضوابط الفقهاء.",
+        "summaryEn": "Water is generally treated as purifying unless changed in a way that affects its legal status, with juristic details varying.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/purification",
+          "najasa"
+        ],
+        "citations": [
+          {
+            "id": "quran-25-48",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "25:48"
+          },
+          {
+            "id": "bidaya-water",
+            "kind": "ClassicalBook",
+            "titleAr": "بداية المجتهد",
+            "titleEn": "Ibn Rushd, Bidayat al-Mujtahid",
+            "locator": "Water and purification"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "pure",
+            "titleAr": "ماء طهور",
+            "titleEn": "Purifying water",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن إنزال ماء طهور من السماء، وبنى الفقهاء أبواب الطهارة على الماء المطلق مع تفصيل حالات التغير والاختلاط.",
+                "en": "The Quran describes rain as purifying water, and jurists built purification rules around ordinary water while detailing changes and mixtures.",
+                "citationIds": [
+                  "quran-25-48"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "differences",
+            "titleAr": "تفاصيل تغير الماء",
+            "titleEn": "Details differ",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اختلف الفقهاء في بعض صور الماء القليل والمتغير بالمخالط الطاهر أو النجاسة، لذلك تعرض الحالة المختلف فيها بوصفها خلافية.",
+                "en": "Jurists differ over some cases involving small quantities of water or water changed by clean substances or impurity, so disputed cases should be marked as such.",
+                "citationIds": [
+                  "bidaya-water"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "najasa",
+        "titleAr": "النجاسة وإزالتها",
+        "titleEn": "Impurity and its removal",
+        "summaryAr": "تبحث أبواب الطهارة في المواد المحكوم بنجاستها وكيفية تطهير البدن والثوب والمكان.",
+        "summaryEn": "Fiqh of purification addresses substances treated as ritually impure and how body, clothing, and place are cleaned.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "water_purification",
+          "prayer_conditions"
+        ],
+        "citations": [
+          {
+            "id": "quran-74-4",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "74:4"
+          },
+          {
+            "id": "majmu-najasa",
+            "kind": "ClassicalBook",
+            "titleAr": "المجموع للنووي",
+            "titleEn": "Al-Nawawi, al-Majmu'",
+            "locator": "Removal of impurity"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "cleanliness",
+            "titleAr": "طهارة الثوب والموضع",
+            "titleEn": "Clean clothing and place",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط الفقهاء صحة الصلاة بإزالة النجاسة عن البدن والثوب والمكان ضمن تفصيلات معروفة.",
+                "en": "Jurists connect valid prayer with removal of ritual impurity from body, clothing, and place, subject to established details.",
+                "citationIds": [
+                  "quran-74-4",
+                  "majmu-najasa"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "disagreement",
+            "titleAr": "ما يعد نجسًا وكيف يطهر",
+            "titleEn": "What counts as impurity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تختلف المذاهب في بعض الأعيان وطرق التطهير ومقادير المعفو عنه، فلا يقدم الخلاف التفصيلي على أنه إجماع.",
+                "en": "Schools differ over some substances, cleaning methods, and excused traces, so detailed disagreements should not be presented as consensus.",
+                "citationIds": [
+                  "majmu-najasa"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wudu",
+        "titleAr": "الوضوء: أركانه وصفته",
+        "titleEn": "Wudu: foundations and method",
+        "summaryAr": "يبين القرآن غسل الوجه واليدين ومسح الرأس وغسل الرجلين، وتفصل السنة صفة وضوء النبي ﷺ.",
+        "summaryEn": "The Quran specifies washing the face and arms, wiping the head, and washing the feet, while the Sunnah gives the Prophet's ﷺ practical method.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/purification",
+          "wudu_nullifiers"
+        ],
+        "citations": [
+          {
+            "id": "quran-5-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:6"
+          },
+          {
+            "id": "bukhari-wudu",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Ablutions: description of the Prophet's wudu"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "quran",
+            "titleAr": "أصل الوضوء في القرآن",
+            "titleEn": "Quranic foundation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر آية المائدة أعضاء الوضوء الأساسية عند القيام إلى الصلاة مع الحدث.",
+                "en": "The verse in al-Ma'idah names the main limbs of wudu when preparing for prayer from a state requiring ablution.",
+                "citationIds": [
+                  "quran-5-6"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sunnah",
+            "titleAr": "الصفة العملية",
+            "titleEn": "Practical description",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نقلت السنة تفاصيل الترتيب والتكرار والمضمضة والاستنشاق وغيرها، مع اختلاف فقهي في مرتبة بعض الأفعال بين فرض وسنة.",
+                "en": "The Sunnah transmits ordering, repetition, rinsing the mouth and nose, and other details, while jurists differ over whether some acts are obligatory or recommended.",
+                "citationIds": [
+                  "bukhari-wudu"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wudu_nullifiers",
+        "titleAr": "نواقض الوضوء",
+        "titleEn": "What breaks wudu",
+        "summaryAr": "يتفق الفقهاء على جملة من النواقض ويختلفون في بعض الصور مثل لمس الجنس الآخر أو لمس الفرج أو خروج الدم.",
+        "summaryEn": "Jurists agree on several nullifiers of wudu and differ over cases such as skin contact, touching the private parts, or bleeding.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "wudu",
+          "certainty_doubt"
+        ],
+        "citations": [
+          {
+            "id": "quran-5-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:6"
+          },
+          {
+            "id": "bidaya-nullifiers",
+            "kind": "ClassicalBook",
+            "titleAr": "بداية المجتهد",
+            "titleEn": "Ibn Rushd, Bidayat al-Mujtahid",
+            "locator": "Nullifiers of ablution"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "agreed",
+            "titleAr": "الخارج من السبيلين ونحوه",
+            "titleEn": "Commonly accepted nullifiers",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "من أوضح النواقض خروج البول والغائط والريح، وتفصل كتب الفقه مسائل النوم وزوال العقل ونحوها.",
+                "en": "Urination, defecation, and passing wind are among the clearest nullifiers, while fiqh works further discuss sleep, loss of consciousness, and similar cases.",
+                "citationIds": [
+                  "quran-5-6"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "disputed",
+            "titleAr": "صور خلافية",
+            "titleEn": "Disputed cases",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في لمس المرأة أو الفرج وخروج الدم خلاف معروف بين المذاهب، لذلك يحتاج المستخدم إلى اتباع منهج فقهي موثوق في التفاصيل.",
+                "en": "There is well-known disagreement among schools over skin contact, touching the private parts, and bleeding, so detailed practice should follow a reliable juristic method.",
+                "citationIds": [
+                  "bidaya-nullifiers"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ghusl",
+        "titleAr": "الغسل من الجنابة",
+        "titleEn": "Ghusl from major ritual impurity",
+        "summaryAr": "الغسل واجب عند الجنابة، وتبين السنة صفة الغسل الكامل.",
+        "summaryEn": "Ghusl is required for major ritual impurity, and the Sunnah transmits the Prophet's ﷺ complete washing method.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "wudu",
+          "menstruation_nifas"
+        ],
+        "citations": [
+          {
+            "id": "quran-5-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:6"
+          },
+          {
+            "id": "bukhari-ghusl",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Ghusl: description of the Prophet's bath"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "obligation",
+            "titleAr": "وإن كنتم جنبًا فاطهروا",
+            "titleEn": "If in major impurity, purify yourselves",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأمر آية المائدة بالتطهر من الجنابة، وهو أصل وجوب الغسل في هذه الحالة.",
+                "en": "The verse in al-Ma'idah commands purification from major ritual impurity, establishing the obligation of ghusl in this state.",
+                "citationIds": [
+                  "quran-5-6"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "method",
+            "titleAr": "صفة الغسل",
+            "titleEn": "Method of ghusl",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف الأحاديث غسل النبي ﷺ ببدء الطهارة ثم إفاضة الماء على الرأس والجسد، مع فروق فقهية في بعض السنن والترتيب.",
+                "en": "Hadith describe the Prophet's ﷺ ghusl beginning with cleansing and then washing the head and body, with juristic differences over some recommended details and sequence.",
+                "citationIds": [
+                  "bukhari-ghusl"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tayammum",
+        "titleAr": "التيمم",
+        "titleEn": "Tayammum",
+        "summaryAr": "شرع التيمم عند فقد الماء أو تعذر استعماله بسبب معتبر، وهو من صور التيسير في الطهارة.",
+        "summaryEn": "Tayammum is permitted when water is unavailable or cannot validly be used, representing a legal concession in purification.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hardship_facilitation",
+          "wudu",
+          "sick_prayer"
+        ],
+        "citations": [
+          {
+            "id": "quran-5-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:6"
+          },
+          {
+            "id": "bukhari-tayammum",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Tayammum: reports on dry ablution"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "cause",
+            "titleAr": "فلم تجدوا ماء",
+            "titleEn": "When water is unavailable",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر آية المائدة التيمم بالصعيد الطيب عند فقد الماء ضمن حالات الحدث والجنابة.",
+                "en": "The verse in al-Ma'idah permits tayammum with clean earth when water is unavailable in circumstances requiring purification.",
+                "citationIds": [
+                  "quran-5-6"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "details",
+            "titleAr": "الصفة والمدة",
+            "titleEn": "Method and duration",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تختلف تفاصيل ما يمسح وعدد الضربات وما ينقض التيمم بين المذاهب في بعض الجوانب، مع اتفاقهم على أصل الرخصة.",
+                "en": "Schools differ in some details such as what is wiped and how, while agreeing on the underlying concession.",
+                "citationIds": [
+                  "bukhari-tayammum"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "menstruation_nifas",
+        "titleAr": "الحيض والنفاس والعبادات",
+        "titleEn": "Menstruation, postnatal bleeding, and worship",
+        "summaryAr": "للحيض والنفاس أحكام تتعلق بالصلاة والصيام والطهارة، وتحتاج الحالات غير المعتادة إلى تمييز بين الدماء.",
+        "summaryEn": "Menstruation and postnatal bleeding affect prayer, fasting, and purification, while irregular bleeding requires further classification.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ghusl",
+          "fasting_excuses"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-menstruation",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Menstruation: rulings concerning prayer and fasting"
+          },
+          {
+            "id": "muslim-menstruation",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Menstruation: ritual rulings"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "worship",
+            "titleAr": "الصلاة والصيام",
+            "titleEn": "Prayer and fasting",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تدل السنة على أن الحائض تترك الصلاة والصوم، ثم تقضي صوم رمضان دون قضاء الصلوات الفائتة بسبب الحيض.",
+                "en": "The Sunnah indicates that a menstruating woman does not perform prayer or fasting and later makes up missed Ramadan fasts but not the prayers missed for menstruation.",
+                "citationIds": [
+                  "bukhari-menstruation",
+                  "muslim-menstruation"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "irregular",
+            "titleAr": "الاستحاضة والحالات الملتبسة",
+            "titleEn": "Irregular bleeding",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الاستحاضة ليست في حكم الحيض في كل شيء، وتفاصيل التمييز بحسب العادة والصفات والمدد من أكثر أبواب الفقه التي تحتاج سؤالًا متخصصًا عند الالتباس.",
+                "en": "Irregular bleeding does not share every ruling of menstruation, and distinguishing cases by pattern and characteristics can be complex enough to require qualified guidance.",
+                "citationIds": [
+                  "bukhari-menstruation"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wiping_footwear",
+        "titleAr": "المسح على الخفين والجوارب",
+        "titleEn": "Wiping over footwear",
+        "summaryAr": "ثبت المسح على الخفين في السنة، واختلف الفقهاء في بعض شروط الجوارب والمدة والتفاصيل.",
+        "summaryEn": "Wiping over leather socks is established in the Sunnah, while jurists differ over some conditions for socks, duration, and details.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "wudu",
+          "traveler_prayer"
+        ],
+        "citations": [
+          {
+            "id": "muslim-khuff",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Purification: wiping over leather socks"
+          },
+          {
+            "id": "bidaya-khuff",
+            "kind": "ClassicalBook",
+            "titleAr": "بداية المجتهد",
+            "titleEn": "Ibn Rushd, Bidayat al-Mujtahid",
+            "locator": "Wiping over footwear"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "sunnah",
+            "titleAr": "ثبوت المسح",
+            "titleEn": "Established practice",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نقلت أحاديث صحيحة مسح النبي ﷺ على الخفين في الوضوء بدل غسل القدمين عند تحقق الشروط.",
+                "en": "Authentic reports describe the Prophet ﷺ wiping over leather footwear during wudu instead of washing the feet when applicable.",
+                "citationIds": [
+                  "muslim-khuff"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "conditions",
+            "titleAr": "الشروط والمدة",
+            "titleEn": "Conditions and time limits",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تختلف بعض تفاصيل لبس الخف على طهارة ومدة المسح وحكم أنواع الجوارب بين المدارس الفقهية.",
+                "en": "Schools differ over some conditions of putting footwear on in purity, time limits, and which sock types qualify.",
+                "citationIds": [
+                  "bidaya-khuff"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "toilet_etiquette",
+        "titleAr": "قضاء الحاجة والاستنجاء",
+        "titleEn": "Toilet etiquette and cleansing",
+        "summaryAr": "تتناول السنة والفقه آداب قضاء الحاجة وتنظيف موضع الخارج بالماء أو ما يقوم مقامه وفق الشروط.",
+        "summaryEn": "The Sunnah and fiqh discuss privacy, etiquette, and cleansing after relieving oneself using water or suitable cleaning material.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "water_purification",
+          "najasa"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-istinja",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Ablutions: cleansing after relieving oneself"
+          },
+          {
+            "id": "muslim-istinja",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Purification: cleansing and toilet etiquette"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "cleaning",
+            "titleAr": "الاستنجاء والاستجمار",
+            "titleEn": "Cleansing methods",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يجوز التنظيف بالماء، وجاءت السنة أيضًا بالاستجمار بمواد طاهرة منقية ضمن ضوابط معروفة.",
+                "en": "Cleansing with water is valid, and the Sunnah also recognizes dry cleansing with suitable clean materials under established conditions.",
+                "citationIds": [
+                  "bukhari-istinja",
+                  "muslim-istinja"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "etiquette",
+            "titleAr": "الستر وعدم الأذى",
+            "titleEn": "Privacy and avoiding harm",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تؤكد آداب قضاء الحاجة على الستر والنظافة وعدم تلويث طرق الناس وأماكن انتفاعهم.",
+                "en": "Toilet etiquette emphasizes privacy, cleanliness, and avoiding contamination of places used by others.",
+                "citationIds": [
+                  "muslim-istinja"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prayer_times",
+        "titleAr": "أوقات الصلوات الخمس",
+        "titleEn": "Times of the five prayers",
+        "summaryAr": "لكل صلاة وقت محدد يبدأ بعلامات فلكية وشرعية، وتفصل السنة بدايات الأوقات ونهاياتها.",
+        "summaryEn": "Each obligatory prayer has a defined time tied to observable signs, with the Sunnah detailing beginnings and endings.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/prayer",
+          "qibla",
+          "adhan"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-103",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:103"
+          },
+          {
+            "id": "muslim-prayer-times",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Mosques and Prayer: prayer times"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "fixed",
+            "titleAr": "كتابًا موقوتًا",
+            "titleEn": "Prescribed times",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن الصلاة بأنها كتاب موقوت على المؤمنين، أي مرتبطة بأوقات معلومة.",
+                "en": "The Quran describes prayer as prescribed at fixed times for believers.",
+                "citationIds": [
+                  "quran-4-103"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "details",
+            "titleAr": "الظهر والعصر والمغرب والعشاء والفجر",
+            "titleEn": "Five daily windows",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تشرح السنة علامات دخول الأوقات، وتوجد فروق فقهية محدودة في بعض الحدود مثل أول وقت العصر ونهاية بعض الأوقات.",
+                "en": "The Sunnah explains the time markers, with limited juristic differences over boundaries such as the beginning of Asr and the end of some prayer windows.",
+                "citationIds": [
+                  "muslim-prayer-times"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "qibla",
+        "titleAr": "استقبال القبلة",
+        "titleEn": "Facing the Qibla",
+        "summaryAr": "استقبال الكعبة شرط للصلاة مع القدرة، وتسقط الدقة المتعذرة أو تتغير الأحكام في بعض حالات السفر والخوف.",
+        "summaryEn": "Facing the Kaaba is required for prayer when reasonably possible, with concessions in circumstances such as inability, fear, or some travel cases.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "prayer_times",
+          "prayer_conditions",
+          "islam/mosques"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-144",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:144"
+          },
+          {
+            "id": "majmu-qibla",
+            "kind": "ClassicalBook",
+            "titleAr": "المجموع للنووي",
+            "titleEn": "Al-Nawawi, al-Majmu'",
+            "locator": "Facing the qibla"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "command",
+            "titleAr": "فول وجهك شطر المسجد الحرام",
+            "titleEn": "Turn toward the Sacred Mosque",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأمر آية البقرة النبي ﷺ والمؤمنين باستقبال المسجد الحرام في الصلاة.",
+                "en": "The Quran commands the Prophet ﷺ and believers to turn toward the Sacred Mosque in prayer.",
+                "citationIds": [
+                  "quran-2-144"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "estimation",
+            "titleAr": "الاجتهاد عند خفاء الاتجاه",
+            "titleEn": "Estimating direction",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "إذا تعذر اليقين بجهة القبلة يجتهد المصلي بالعلامات والوسائل المتاحة، وتفصل كتب الفقه حكم الخطأ بعد الاجتهاد.",
+                "en": "When exact direction is unknown, the worshipper estimates using available signs and tools; jurists discuss what happens if an honest estimate later proves mistaken.",
+                "citationIds": [
+                  "majmu-qibla"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "adhan",
+        "titleAr": "الأذان والإقامة",
+        "titleEn": "Adhan and iqamah",
+        "summaryAr": "شرع الأذان للإعلام بدخول الصلاة واجتماع الناس، والإقامة إعلان للشروع في الفريضة.",
+        "summaryEn": "The adhan announces the prayer time and gathers worshippers, while the iqamah signals the beginning of the obligatory prayer.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/adhan",
+          "prayer_times",
+          "congregational_prayer"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-adhan",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Call to Prayer: origin and wording of the Adhan"
+          },
+          {
+            "id": "muslim-adhan",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Prayer: Adhan and response"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "origin",
+            "titleAr": "تشريع الأذان",
+            "titleEn": "Institution of the call",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف الروايات الصحيحة اعتماد الأذان في المدينة بعد التشاور في كيفية إعلام الناس بالصلاة.",
+                "en": "Authentic reports describe the adoption of the adhan in Medina after discussion of how to call people to prayer.",
+                "citationIds": [
+                  "bukhari-adhan"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "response",
+            "titleAr": "إجابة المؤذن",
+            "titleEn": "Responding to the call",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تندب السنة ترديد ألفاظ المؤذن والدعاء بعد الأذان، مع تفاصيل معروفة في كتب الحديث والفقه.",
+                "en": "The Sunnah recommends repeating the caller's phrases and supplicating after the adhan, with established details in hadith and fiqh.",
+                "citationIds": [
+                  "muslim-adhan"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prayer_conditions",
+        "titleAr": "شروط الصلاة",
+        "titleEn": "Conditions for valid prayer",
+        "summaryAr": "تسبق الصلاة شروط مثل دخول الوقت والطهارة وستر العورة واستقبال القبلة والنية بحسب التفصيل الفقهي.",
+        "summaryEn": "Prayer is preceded by conditions such as time, purification, covering, qibla, and intention, with juristic detail.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "prayer_times",
+          "qibla",
+          "wudu",
+          "prayer_pillars"
+        ],
+        "citations": [
+          {
+            "id": "quran-5-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:6"
+          },
+          {
+            "id": "majmu-prayer-conditions",
+            "kind": "ClassicalBook",
+            "titleAr": "المجموع للنووي",
+            "titleEn": "Al-Nawawi, al-Majmu'",
+            "locator": "Conditions of prayer"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "before",
+            "titleAr": "شروط تسبق التكبير",
+            "titleEn": "Conditions before starting",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا تبدأ الصلاة الصحيحة عادة إلا بعد تحقق الطهارة ودخول الوقت وستر العورة واستقبال القبلة عند القدرة.",
+                "en": "Valid prayer generally begins only after purification, entry of the time, appropriate covering, and facing the qibla where possible.",
+                "citationIds": [
+                  "quran-5-6",
+                  "majmu-prayer-conditions"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "intention",
+            "titleAr": "النية",
+            "titleEn": "Intention",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "النية محلها القصد، ويتفق الفقهاء على اعتبارها مع اختلافهم في بعض تفصيلات تعيين الصلاة والتلفظ.",
+                "en": "Intention is fundamentally an act of resolve; jurists agree it matters while differing over some details of specifying the prayer and verbalization.",
+                "citationIds": [
+                  "majmu-prayer-conditions"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prayer_pillars",
+        "titleAr": "أركان الصلاة وواجباتها",
+        "titleEn": "Pillars and obligatory acts of prayer",
+        "summaryAr": "تتكون الصلاة من قيام وقراءة وركوع وسجود وجلوس وأذكار، وتختلف المذاهب في تصنيف بعض الأفعال.",
+        "summaryEn": "Prayer consists of standing, recitation, bowing, prostration, sitting, and remembrance, while schools differ in classifying some acts.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "prayer_conditions",
+          "sujud_sahw"
+        ],
+        "citations": [
+          {
+            "id": "quran-22-77",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "22:77"
+          },
+          {
+            "id": "bukhari-pray-as-seen",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Call to Prayer: pray as you have seen me pray"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "core",
+            "titleAr": "القيام والركوع والسجود",
+            "titleEn": "Standing, bowing, and prostrating",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يبين القرآن والسنة أصل الركوع والسجود، وتنقل الأحاديث صفة الصلاة العملية عن النبي ﷺ.",
+                "en": "The Quran and Sunnah establish bowing and prostration, while hadith transmit the Prophet's ﷺ practical prayer method.",
+                "citationIds": [
+                  "quran-22-77",
+                  "bukhari-pray-as-seen"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "classification",
+            "titleAr": "الركن والواجب والسنة",
+            "titleEn": "Pillar, obligation, and Sunnah",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تختلف المدارس في تسمية بعض أفعال الصلاة ركنًا أو واجبًا أو سنة وما يترتب على تركها، لذلك يراعى المنهج الفقهي المتبع.",
+                "en": "Schools differ in labeling some prayer acts as pillars, obligations, or Sunnah and in the consequences of omission, so users should follow a coherent juristic method.",
+                "citationIds": [
+                  "bukhari-pray-as-seen"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "congregational_prayer",
+        "titleAr": "صلاة الجماعة",
+        "titleEn": "Congregational prayer",
+        "summaryAr": "للجماعة فضل عظيم في السنة، وتختلف تفاصيل حكمها على الأعيان باختلاف المذاهب والظروف.",
+        "summaryEn": "Congregational prayer has major virtue in the Sunnah, while schools differ over the exact legal degree of obligation in various circumstances.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/mosques",
+          "adhan",
+          "jumuah"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-congregation",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Call to Prayer: virtue of congregational prayer"
+          },
+          {
+            "id": "muslim-congregation",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Mosques: congregational prayer"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "virtue",
+            "titleAr": "فضل الجماعة",
+            "titleEn": "Virtue of congregation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر الأحاديث فضل صلاة الجماعة على صلاة المنفرد وارتباطها بالمسجد وبناء المجتمع.",
+                "en": "Hadith describe congregational prayer as greatly superior to solitary prayer and connect it with mosque life and communal worship.",
+                "citationIds": [
+                  "bukhari-congregation",
+                  "muslim-congregation"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ruling",
+            "titleAr": "تفصيل الحكم",
+            "titleEn": "Legal degree",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اختلف الفقهاء في كون الجماعة فرض عين أو سنة مؤكدة أو غير ذلك في بعض الصور، مع اتفاق واسع على مشروعيتها وعظيم فضلها.",
+                "en": "Jurists differ over whether congregation is individually obligatory or strongly recommended in some circumstances, while broadly agreeing on its legitimacy and importance.",
+                "citationIds": [
+                  "bukhari-congregation"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "jumuah",
+        "titleAr": "صلاة الجمعة",
+        "titleEn": "Friday prayer",
+        "summaryAr": "الجمعة عبادة أسبوعية جماعية لها نداء وخطبة وشروط تتعلق بالمكلف والمكان والوقت.",
+        "summaryEn": "Friday prayer is a weekly communal act with a call, sermon, and conditions related to the worshipper, place, and time.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "congregational_prayer",
+          "islam/mosques"
+        ],
+        "citations": [
+          {
+            "id": "quran-62-9",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "62:9"
+          },
+          {
+            "id": "muslim-jumuah",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Friday Prayer: rulings and sermon"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "command",
+            "titleAr": "إذا نودي للصلاة من يوم الجمعة",
+            "titleEn": "When the Friday call is made",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأمر سورة الجمعة المؤمنين بالسعي إلى ذكر الله وترك البيع عند النداء للجمعة.",
+                "en": "Surat al-Jumu'ah commands believers to proceed to God's remembrance and leave trade when called to Friday prayer.",
+                "citationIds": [
+                  "quran-62-9"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "details",
+            "titleAr": "الشروط والخطبة",
+            "titleEn": "Conditions and sermon",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تفصل السنة والفقه عدد الركعات والخطبة ومن تلزمه الجمعة وأحكام الأعذار والسفر، مع فروق بين المذاهب في بعض الشروط.",
+                "en": "Hadith and fiqh detail the sermon, two-rak'ah prayer, who is obligated, and excuses, with school differences over some conditions.",
+                "citationIds": [
+                  "muslim-jumuah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traveler_prayer",
+        "titleAr": "صلاة المسافر: القصر والجمع",
+        "titleEn": "Traveler prayer: shortening and combining",
+        "summaryAr": "شرع للمسافر قصر الصلاة الرباعية، وتوجد أحكام للجمع بحسب السفر والحاجة ومناهج المذاهب.",
+        "summaryEn": "Travelers are permitted to shorten four-rak'ah prayers, while combining prayers depends on circumstances and juristic approach.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hardship_facilitation",
+          "wiping_footwear",
+          "fasting_excuses"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-101",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:101"
+          },
+          {
+            "id": "muslim-travel-prayer",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Prayer of Travelers: shortening and combining"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "qasr",
+            "titleAr": "القصر",
+            "titleEn": "Shortening",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ثبت قصر الظهر والعصر والعشاء إلى ركعتين في السفر، وتفصل المذاهب مسافة السفر ومدته وحكم القصر من حيث الوجوب أو السنة.",
+                "en": "Shortening Dhuhr, Asr, and Isha to two rak'ahs is established in travel, while schools differ over travel distance, duration, and the precise legal status of shortening.",
+                "citationIds": [
+                  "quran-4-101",
+                  "muslim-travel-prayer"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "jam",
+            "titleAr": "الجمع",
+            "titleEn": "Combining",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ثبت الجمع في أحوال سفر وغيرها، لكن اتساع أسبابه وطريقته من المسائل التي تختلف فيها المذاهب.",
+                "en": "Combining prayers is established in travel and some other circumstances, while schools differ over its scope and method.",
+                "citationIds": [
+                  "muslim-travel-prayer"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sick_prayer",
+        "titleAr": "صلاة المريض والعاجز",
+        "titleEn": "Prayer for the sick and unable",
+        "summaryAr": "يصلي المسلم بحسب استطاعته قائمًا أو قاعدًا أو على هيئة تناسب عجزه، ولا يسقط أصل الصلاة ما دام العقل حاضرًا إلا في أحوال مخصوصة.",
+        "summaryEn": "A sick person prays according to ability—standing, sitting, or in another feasible posture—with detailed rulings for incapacity.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hardship_facilitation",
+          "tayammum",
+          "traveler_prayer"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-sick-prayer",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Shortening of Prayer: pray standing, then sitting if unable"
+          },
+          {
+            "id": "majmu-sick-prayer",
+            "kind": "ClassicalBook",
+            "titleAr": "المجموع للنووي",
+            "titleEn": "Al-Nawawi, al-Majmu'",
+            "locator": "Prayer of the sick"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "ability",
+            "titleAr": "صل قائمًا فإن لم تستطع فقاعدًا",
+            "titleEn": "Pray according to ability",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأمر السنة المريض بالصلاة قائمًا إن استطاع، فإن عجز فقعودًا، ثم على حسب ما يقدر عليه.",
+                "en": "The Sunnah instructs the sick person to pray standing if able, otherwise sitting, and then according to further ability.",
+                "citationIds": [
+                  "bukhari-sick-prayer"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "adaptation",
+            "titleAr": "تكييف الهيئة",
+            "titleEn": "Adapting the posture",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تفصل كتب الفقه الإيماء والجلوس والاتجاه والطهارة عند العجز، ويطبق منها ما يوافق الحالة الحقيقية للمريض.",
+                "en": "Fiqh works detail gesturing, sitting, direction, and purification for incapacity; the applicable ruling depends on the person's actual ability.",
+                "citationIds": [
+                  "majmu-sick-prayer"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "missed_prayers",
+        "titleAr": "الصلاة الفائتة والقضاء",
+        "titleEn": "Missed prayers and making them up",
+        "summaryAr": "من نام عن صلاة أو نسيها يصليها عند تذكرها، بينما ترك الصلاة عمدًا له نقاش فقهي أشد وتعقيد أكبر.",
+        "summaryEn": "Someone who sleeps through or forgets a prayer performs it when remembered, while deliberately abandoned prayer raises more serious juristic questions.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "prayer_times",
+          "fatwa_guidance"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-missed-prayer",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Times of Prayer: sleep or forgetfulness"
+          },
+          {
+            "id": "muslim-missed-prayer",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Mosques: making up a missed prayer"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "sleep_forget",
+            "titleAr": "النوم والنسيان",
+            "titleEn": "Sleep and forgetfulness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ورد الأمر بالصلاة عند التذكر لمن نام عنها أو نسيها، من غير إثم النسيان نفسه.",
+                "en": "Hadith instruct someone who slept through or forgot a prayer to perform it upon remembering, without treating involuntary forgetfulness itself as sin.",
+                "citationIds": [
+                  "bukhari-missed-prayer",
+                  "muslim-missed-prayer"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "deliberate",
+            "titleAr": "الترك المتعمد",
+            "titleEn": "Deliberate abandonment",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اختلف الفقهاء في تفاصيل قضاء من ترك الصلاة عمدًا مع اتفاقهم على خطورة الفعل ووجوب التوبة، فهذه المسألة لا تختزل في جواب واحد بلا تفصيل.",
+                "en": "Jurists differ over details of making up deliberately abandoned prayers while agreeing on the gravity of the act and need for repentance, so the issue should not be reduced to a simplistic answer.",
+                "citationIds": [
+                  "muslim-missed-prayer"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sujud_sahw",
+        "titleAr": "سجود السهو",
+        "titleEn": "Prostration of forgetfulness",
+        "summaryAr": "شرع سجود السهو لجبر بعض أخطاء الصلاة من زيادة أو نقص أو شك وفق تفاصيل السنة والفقه.",
+        "summaryEn": "Sujud al-sahw is prescribed to address certain prayer mistakes involving addition, omission, or doubt, with detailed rules.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "prayer_pillars",
+          "certainty_doubt"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-sahw",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Forgetfulness in Prayer: prostration for mistakes"
+          },
+          {
+            "id": "muslim-sahw",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Mosques: prostration of forgetfulness"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "cases",
+            "titleAr": "الزيادة والنقص والشك",
+            "titleEn": "Addition, omission, and doubt",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف الأحاديث سجود النبي ﷺ للسهو في صور متعددة، ومنها الزيادة أو النقص أو الشك في عدد الركعات.",
+                "en": "Hadith describe the Prophet ﷺ performing sujud al-sahw in several situations involving addition, omission, or uncertainty in prayer units.",
+                "citationIds": [
+                  "bukhari-sahw",
+                  "muslim-sahw"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "timing",
+            "titleAr": "قبل السلام أو بعده",
+            "titleEn": "Before or after salam",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اختلف الفقهاء في ترتيب السجود قبل السلام أو بعده باختلاف سبب السهو وطريقة جمع الروايات.",
+                "en": "Jurists differ over whether the prostrations occur before or after the final salam depending on the type of mistake and how reports are reconciled.",
+                "citationIds": [
+                  "muslim-sahw"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "nafl_witr",
+        "titleAr": "النوافل والوتر",
+        "titleEn": "Voluntary prayers and Witr",
+        "summaryAr": "تشمل النوافل السنن الرواتب والوتر وغيرها، وهي تكمل الفرائض وتزيد صلة العبد بالله.",
+        "summaryEn": "Voluntary prayers include regular Sunnah prayers, Witr, and others, complementing obligatory worship.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "night_prayer",
+          "islam/prayer"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-witr",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Witr Prayer"
+          },
+          {
+            "id": "muslim-rawatib",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Prayer of Travelers: regular voluntary prayers"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "rawatib",
+            "titleAr": "السنن الرواتب",
+            "titleEn": "Regular Sunnah prayers",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ثبتت نوافل مرتبطة بالفرائض قبلها أو بعدها، وتختلف تفاصيل عددها ودرجة التأكيد بين الروايات والمدارس.",
+                "en": "Voluntary prayers are established before or after obligatory prayers, with details and emphasis differing somewhat across reports and schools.",
+                "citationIds": [
+                  "muslim-rawatib"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "witr",
+            "titleAr": "صلاة الوتر",
+            "titleEn": "Witr",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ثبت الوتر في السنة بصفات متعددة، واختلف الفقهاء في حكمه من واجب عند الحنفية إلى سنة مؤكدة عند الجمهور.",
+                "en": "Witr is established in the Sunnah in several forms; Hanafis classify it as wajib while the majority regard it as an emphasized Sunnah.",
+                "citationIds": [
+                  "bukhari-witr"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "night_prayer",
+        "titleAr": "قيام الليل والتراويح",
+        "titleEn": "Night prayer and Tarawih",
+        "summaryAr": "قيام الليل نافلة عظيمة، وفي رمضان اشتهر قيام الجماعة بالتراويح مع سعة في عدد الركعات ضمن الموروث الفقهي.",
+        "summaryEn": "Night prayer is a major voluntary act, and Ramadan congregational night prayer became widely practiced as Tarawih with juristic flexibility in rak'ah counts.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "nafl_witr",
+          "ramadan_qiyam_qadr"
+        ],
+        "citations": [
+          {
+            "id": "quran-73-1-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "73:1-6"
+          },
+          {
+            "id": "bukhari-night-prayer",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Night Prayer: Ramadan and qiyam"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "qiyam",
+            "titleAr": "قيام الليل",
+            "titleEn": "Night worship",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحث سورة المزمل على قيام الليل، وتنقل السنة صلاة النبي ﷺ ليلًا بأوصاف متعددة.",
+                "en": "Surat al-Muzzammil encourages night worship, and the Sunnah transmits several descriptions of the Prophet's ﷺ night prayer.",
+                "citationIds": [
+                  "quran-73-1-6",
+                  "bukhari-night-prayer"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "tarawih",
+            "titleAr": "التراويح",
+            "titleEn": "Tarawih",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ثبت قيام رمضان جماعة وفرادى، وتنوعت أعداد الركعات في العمل الفقهي التاريخي؛ فلا ينبغي تحويل العدد إلى نزاع ينقض أصل العبادة.",
+                "en": "Ramadan night prayer is established both individually and congregationally, while historical juristic practice varies in rak'ah counts; the number should not obscure the shared basis of the worship.",
+                "citationIds": [
+                  "bukhari-night-prayer"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "eid_prayer",
+        "titleAr": "صلاة العيد",
+        "titleEn": "Eid prayer",
+        "summaryAr": "صلاة العيد شعيرة جماعية في الفطر والأضحى، وتختلف المذاهب في درجة وجوبها وبعض تفاصيل التكبير والخطبة.",
+        "summaryEn": "Eid prayer is a communal rite for al-Fitr and al-Adha, with schools differing over its precise legal status and some details.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/eid",
+          "congregational_prayer"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-eid",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Two Eids: prayer and sermon"
+          },
+          {
+            "id": "muslim-eid",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Eid Prayers"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "practice",
+            "titleAr": "الصلاة والخطبة",
+            "titleEn": "Prayer and sermon",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ثبت خروج النبي ﷺ والمسلمين لصلاة العيد ثم الخطبة، مع مشاركة واسعة للمجتمع.",
+                "en": "Authentic reports describe the Prophet ﷺ and community going out for Eid prayer followed by a sermon, with broad communal participation.",
+                "citationIds": [
+                  "bukhari-eid",
+                  "muslim-eid"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "details",
+            "titleAr": "التكبيرات والحكم",
+            "titleEn": "Takbirs and legal degree",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تختلف المذاهب في عدد التكبيرات الزائدة ومواضعها وفي حكم صلاة العيد من فرض أو واجب أو سنة مؤكدة.",
+                "en": "Schools differ over the number and placement of extra takbirs and over whether Eid prayer is obligatory, wajib, or strongly recommended.",
+                "citationIds": [
+                  "bukhari-eid"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "janazah_prayer",
+        "titleAr": "صلاة الجنازة بإيجاز",
+        "titleEn": "Funeral prayer in brief",
+        "summaryAr": "صلاة الجنازة دعاء للميت تؤدى قيامًا بتكبيرات دون ركوع أو سجود، ولتفاصيل الجنائز قسم مستقل في التطبيق.",
+        "summaryEn": "Funeral prayer is a standing supplication for the deceased with takbirs and no bowing or prostration; fuller funeral guidance belongs in the dedicated funeral section.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/death_barzakh",
+          "companions/abu_hurayra"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-janazah-prayer",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Funerals: funeral prayer"
+          },
+          {
+            "id": "muslim-janazah-prayer",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Funerals: prayer over the deceased"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "form",
+            "titleAr": "تكبير ودعاء",
+            "titleEn": "Takbir and supplication",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تثبت السنة صلاة الجنازة قيامًا مع التكبير والدعاء للميت، بلا ركوع ولا سجود.",
+                "en": "The Sunnah establishes funeral prayer standing with takbirs and supplication for the deceased, without bowing or prostration.",
+                "citationIds": [
+                  "bukhari-janazah-prayer",
+                  "muslim-janazah-prayer"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "scope",
+            "titleAr": "الرجوع إلى قسم الجنائز",
+            "titleEn": "Dedicated funeral guidance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أحكام الغسل والتكفين والدفن والتعزية والوصية أوسع من هذا المقال، ويحال فيها إلى قسم الجنائز والوصية في التطبيق.",
+                "en": "Washing, shrouding, burial, condolences, and bequests go beyond this article and belong in the app's dedicated funeral and will section.",
+                "citationIds": [
+                  "muslim-janazah-prayer"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "zakat_principles",
+        "titleAr": "الزكاة: المعنى والوجوب",
+        "titleEn": "Zakat: meaning and obligation",
+        "summaryAr": "الزكاة عبادة مالية مفروضة في أنواع من المال عند تحقق شروطها، ولها مصارف محددة.",
+        "summaryEn": "Zakat is an obligatory financial act of worship applying to certain wealth when its conditions are met, with defined recipient categories.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/zakat",
+          "zakat_recipients",
+          "nisab_haul"
+        ],
+        "citations": [
+          {
+            "id": "quran-9-103",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:103"
+          },
+          {
+            "id": "quran-9-60",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:60"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "worship",
+            "titleAr": "خذ من أموالهم صدقة",
+            "titleEn": "Financial worship",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن الزكاة بالتطهير والتزكية ويأمر بها إلى جانب الصلاة في مواضع كثيرة.",
+                "en": "The Quran connects zakat with purification and repeatedly places it alongside prayer.",
+                "citationIds": [
+                  "quran-9-103"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "conditions",
+            "titleAr": "المال والشروط",
+            "titleEn": "Wealth and conditions",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا تجب الزكاة في كل ما يملكه الإنسان بالطريقة نفسها؛ بل تختلف الأنواع والأنصبة والحول والمقادير بحسب باب المال.",
+                "en": "Not every possession is zakatable in the same way; categories of wealth, thresholds, holding periods, and rates differ by asset type.",
+                "citationIds": [
+                  "quran-9-60"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "nisab_haul",
+        "titleAr": "النصاب والحول",
+        "titleEn": "Nisab and lunar-year conditions",
+        "summaryAr": "النصاب حد مالي يتعلق بوجوب الزكاة في أبواب متعددة، والحول معتبر في أنواع من الأموال لا كلها.",
+        "summaryEn": "Nisab is a minimum threshold relevant to several zakat categories, while a lunar holding year applies to some wealth but not all.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "zakat_principles",
+          "zakat_cash_metals"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-zakat-nisab",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Zakat: thresholds and rates"
+          },
+          {
+            "id": "mughni-zakat-thresholds",
+            "kind": "ClassicalBook",
+            "titleAr": "المغني لابن قدامة",
+            "titleEn": "Ibn Qudamah, al-Mughni",
+            "locator": "Zakat thresholds and hawl"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "threshold",
+            "titleAr": "حد الوجوب",
+            "titleEn": "Minimum threshold",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحدد السنة أنصبة لأنواع من المال، فلا تجب الزكاة في بعض الأموال حتى تبلغ مقدارًا معينًا.",
+                "en": "The Sunnah establishes thresholds for types of wealth, so zakat is not due on certain assets until a defined minimum is reached.",
+                "citationIds": [
+                  "bukhari-zakat-nisab"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "year",
+            "titleAr": "الحول القمري",
+            "titleEn": "Lunar holding period",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يشترط مرور حول في أنواع من النقود وعروض التجارة والأنعام في الجملة، بينما الزروع والثمار لها توقيت مختلف.",
+                "en": "A lunar holding year generally applies to cash, trade goods, and livestock categories, while crops and produce follow different timing.",
+                "citationIds": [
+                  "mughni-zakat-thresholds"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "zakat_cash_metals",
+        "titleAr": "زكاة الذهب والفضة والنقود",
+        "titleEn": "Zakat on gold, silver, and cash",
+        "summaryAr": "تلحق النقود المعاصرة بباب الأثمان في الفقه الحديث، ويحسب النصاب والمقدار وفق قيمة معتبرة ومنهج موثوق.",
+        "summaryEn": "Modern cash is generally treated within monetary zakat, with threshold and calculation based on a recognized valuation method.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "nisab_haul",
+          "zakat_trade"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-silver-zakat",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Zakat: silver thresholds"
+          },
+          {
+            "id": "fiqh-zakat-cash",
+            "kind": "ClassicalBook",
+            "titleAr": "فقه الزكاة",
+            "titleEn": "Contemporary Fiqh of Zakat",
+            "locator": "Modern currency and monetary zakat"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "metals",
+            "titleAr": "الذهب والفضة",
+            "titleEn": "Gold and silver",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وردت أنصبة ومقادير في السنة للفضة والذهب في الموروث الفقهي، وتبنى عليها مقارنات مع النقود المعاصرة.",
+                "en": "The Sunnah and juristic tradition establish thresholds and rates for silver and gold, which inform modern monetary zakat discussions.",
+                "citationIds": [
+                  "bukhari-silver-zakat"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "currency",
+            "titleAr": "النقود الحديثة",
+            "titleEn": "Modern currency",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تختلف الهيئات والعلماء في بعض تفاصيل اعتماد نصاب الذهب أو الفضة عند حساب النقد الحديث، لذا ينبغي أن يبين الحاسبة أو المرجع منهجه بوضوح.",
+                "en": "Scholars and institutions differ over some details of using gold or silver thresholds for modern cash, so calculators and references should disclose their method clearly.",
+                "citationIds": [
+                  "fiqh-zakat-cash"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "zakat_trade",
+        "titleAr": "زكاة عروض التجارة",
+        "titleEn": "Zakat on trade goods",
+        "summaryAr": "تبحث كتب الفقه زكاة السلع المعدة للبيع والشراء ضمن عروض التجارة، مع تقويمها عند تمام الحول.",
+        "summaryEn": "Fiqh works discuss zakat on goods held for trade, generally valuing them when the relevant year is completed.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "zakat_cash_metals",
+          "nisab_haul"
+        ],
+        "citations": [
+          {
+            "id": "mughni-trade-zakat",
+            "kind": "ClassicalBook",
+            "titleAr": "المغني لابن قدامة",
+            "titleEn": "Ibn Qudamah, al-Mughni",
+            "locator": "Zakat on trade goods"
+          },
+          {
+            "id": "majmu-trade-zakat",
+            "kind": "ClassicalBook",
+            "titleAr": "المجموع للنووي",
+            "titleEn": "Al-Nawawi, al-Majmu'",
+            "locator": "Trade-goods zakat"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "intention",
+            "titleAr": "مال معد للتجارة",
+            "titleEn": "Assets intended for trade",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط جمهور الفقهاء عروض التجارة بالمال المعد للبيع بقصد التجارة، لا بكل مقتنى يمكن بيعه.",
+                "en": "The majority of jurists connect trade-goods zakat with property held for commercial sale, not every personal possession that could be sold.",
+                "citationIds": [
+                  "mughni-trade-zakat"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "valuation",
+            "titleAr": "التقويم",
+            "titleEn": "Valuation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقوم البضاعة عند الحول وفق منهج فقهي معتبر ثم تضم إلى المال الزكوي ذي الصلة في الحساب.",
+                "en": "Trade inventory is valued at the zakat date under a recognized juristic method and combined with related zakatable assets as applicable.",
+                "citationIds": [
+                  "majmu-trade-zakat"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "zakat_crops_livestock",
+        "titleAr": "زكاة الزروع والثمار والأنعام",
+        "titleEn": "Zakat on crops, produce, and livestock",
+        "summaryAr": "للزروع والثمار والأنعام أنصبة ومقادير خاصة تختلف عن زكاة النقد.",
+        "summaryEn": "Crops, produce, and livestock have specialized zakat thresholds and rates distinct from cash zakat.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "zakat_principles",
+          "nisab_haul"
+        ],
+        "citations": [
+          {
+            "id": "quran-6-141",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "6:141"
+          },
+          {
+            "id": "bukhari-livestock-zakat",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Zakat: livestock and agricultural rates"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "crops",
+            "titleAr": "وآتوا حقه يوم حصاده",
+            "titleEn": "Harvest-related duty",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن إخراج الحق بالحصاد، وتبين السنة اختلاف مقدار الزكاة باختلاف طريقة السقي في الزروع التي تجب فيها.",
+                "en": "The Quran links giving the due with harvest, while the Sunnah differentiates rates according to irrigation for qualifying crops.",
+                "citationIds": [
+                  "quran-6-141",
+                  "bukhari-livestock-zakat"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "animals",
+            "titleAr": "أنصبة الأنعام",
+            "titleEn": "Livestock thresholds",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "للإبل والبقر والغنم جداول نصاب معروفة في السنة والفقه، وتفاصيل السوم والاستعمال ونحوها من مسائل الخلاف.",
+                "en": "Camels, cattle, and sheep have established threshold schedules in the Sunnah and fiqh, with additional juristic details concerning grazing and use.",
+                "citationIds": [
+                  "bukhari-livestock-zakat"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "zakat_recipients",
+        "titleAr": "مصارف الزكاة",
+        "titleEn": "Recipients of zakat",
+        "summaryAr": "حدد القرآن ثمانية أصناف لمصارف الزكاة، وتفصل كتب الفقه شروط كل مصرف وأولويات التوزيع.",
+        "summaryEn": "The Quran identifies eight zakat recipient categories, while fiqh details eligibility and distribution.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "zakat_principles",
+          "islam/care_orphans_poor"
+        ],
+        "citations": [
+          {
+            "id": "quran-9-60",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:60"
+          },
+          {
+            "id": "majmu-zakat-recipients",
+            "kind": "ClassicalBook",
+            "titleAr": "المجموع للنووي",
+            "titleEn": "Al-Nawawi, al-Majmu'",
+            "locator": "Zakat recipients"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "eight",
+            "titleAr": "الأصناف الثمانية",
+            "titleEn": "Eight categories",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر آية التوبة الفقراء والمساكين والعاملين عليها والمؤلفة قلوبهم وفي الرقاب والغارمين وفي سبيل الله وابن السبيل.",
+                "en": "Surat al-Tawbah lists the poor, needy, zakat administrators, those whose hearts are reconciled, emancipation, debtors, God's cause, and stranded travelers.",
+                "citationIds": [
+                  "quran-9-60"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "application",
+            "titleAr": "شروط الاستحقاق",
+            "titleEn": "Eligibility details",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تتفاوت تطبيقات بعض الأصناف بحسب الزمان والنظام المؤسسي، وتحتاج المؤسسات إلى سياسة موثقة في التحقق والتوزيع.",
+                "en": "Application of some categories varies with context and institutional structure, so zakat organizations need transparent eligibility and distribution policies.",
+                "citationIds": [
+                  "majmu-zakat-recipients"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "zakat_fitr",
+        "titleAr": "زكاة الفطر",
+        "titleEn": "Zakat al-Fitr",
+        "summaryAr": "صدقة واجبة مرتبطة بخاتمة رمضان، تخرج قبل صلاة العيد عن المسلم ومن تلزمه نفقته وفق التفصيل.",
+        "summaryEn": "Zakat al-Fitr is an obligatory charity linked to the end of Ramadan and is given before Eid prayer, with juristic details concerning dependents and form.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/eid",
+          "zakat_recipients",
+          "fasting_obligation"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-zakat-fitr",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Zakat al-Fitr"
+          },
+          {
+            "id": "muslim-zakat-fitr",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Zakat al-Fitr"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "timing",
+            "titleAr": "قبل صلاة العيد",
+            "titleEn": "Before Eid prayer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تثبت السنة إخراج زكاة الفطر في نهاية رمضان قبل صلاة العيد، وجاءت بمقادير من الطعام المتداول في عصر النبوة.",
+                "en": "The Sunnah establishes Zakat al-Fitr at the end of Ramadan before Eid prayer, using specified measures of staple foods in the Prophetic period.",
+                "citationIds": [
+                  "bukhari-zakat-fitr",
+                  "muslim-zakat-fitr"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "cash_food",
+            "titleAr": "الطعام أو القيمة",
+            "titleEn": "Food or monetary value",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اختلف الفقهاء في إخراج القيمة النقدية بدل الطعام، ولذلك ينبغي أن يبين التطبيق الرأي المعتمد إذا قدم حاسبة أو تذكيرًا عمليًا.",
+                "en": "Jurists differ over paying monetary value instead of food, so an app offering practical guidance or calculators should state the juristic basis it follows.",
+                "citationIds": [
+                  "bukhari-zakat-fitr"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fasting_obligation",
+        "titleAr": "صيام رمضان وفضله",
+        "titleEn": "Ramadan fasting and obligation",
+        "summaryAr": "فرض صيام رمضان على المسلم البالغ القادر وفق الشروط، وهو أحد أركان الإسلام.",
+        "summaryEn": "Fasting Ramadan is obligatory on eligible adult Muslims and is one of Islam's foundational acts of worship.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/fasting",
+          "ramadan_entry",
+          "fasting_intention"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-183",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:183"
+          },
+          {
+            "id": "quran-2-185",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:185"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "obligation",
+            "titleAr": "كتب عليكم الصيام",
+            "titleEn": "Fasting prescribed",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقرر سورة البقرة فرض الصيام وتربطه بالتقوى، ثم تخص شهر رمضان بالصيام لمن شهده.",
+                "en": "Surat al-Baqarah prescribes fasting and connects it with God-consciousness, then specifies Ramadan for those present and able.",
+                "citationIds": [
+                  "quran-2-183",
+                  "quran-2-185"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ease",
+            "titleAr": "الرخصة مع المشقة",
+            "titleEn": "Concessions",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في الآيات نفسها رخصة للمريض والمسافر بالقضاء، وهو نموذج للجمع بين الفرض والتيسير.",
+                "en": "The same passage grants concessions to the sick and traveler with later make-up, illustrating obligation alongside facilitation.",
+                "citationIds": [
+                  "quran-2-185"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ramadan_entry",
+        "titleAr": "دخول رمضان وخروجه",
+        "titleEn": "Beginning and ending Ramadan",
+        "summaryAr": "يثبت الشهر بالرؤية أو إكمال عدة الشهر السابق وفق السنة، وتوجد مسائل معاصرة في اختلاف المطالع والحساب.",
+        "summaryEn": "Ramadan begins and ends through moon-sighting principles or completing the preceding month, with modern debate over regional sighting and calculation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "fasting_obligation",
+          "islam/islamic_calendar"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-moon-sighting",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Fasting: sighting the crescent"
+          },
+          {
+            "id": "muslim-moon-sighting",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Fasting: crescent sighting"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "sighting",
+            "titleAr": "صوموا لرؤيته",
+            "titleEn": "Fast upon sighting",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأمر الأحاديث بالصوم لرؤية الهلال والفطر لرؤيته، فإن غم أكمل الشهر السابق ثلاثين.",
+                "en": "Hadith instruct fasting upon sighting the crescent and ending the fast upon the next sighting, completing thirty days when visibility prevents sighting.",
+                "citationIds": [
+                  "bukhari-moon-sighting",
+                  "muslim-moon-sighting"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "modern",
+            "titleAr": "المطالع والحساب",
+            "titleEn": "Regional sighting and calculation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اختلف العلماء والهيئات المعاصرة في توحيد المطالع والاستفادة من الحساب الفلكي، لذلك يتبع المسلم إعلان جهة موثوقة في مجتمعه.",
+                "en": "Contemporary scholars and institutions differ over global versus local sighting and the role of astronomical calculation, so Muslims commonly follow a trusted competent authority in their community.",
+                "citationIds": [
+                  "muslim-moon-sighting"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fasting_intention",
+        "titleAr": "نية الصيام",
+        "titleEn": "Intention for fasting",
+        "summaryAr": "النية أصل في العبادة، وتختلف تفاصيل وقت نية الصوم الواجب والنفل بين المذاهب.",
+        "summaryEn": "Intention is foundational to worship, while schools differ over timing requirements for obligatory and voluntary fasts.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "fasting_obligation",
+          "fiqh_disagreement"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-intentions",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Beginning of Revelation: actions are by intentions"
+          },
+          {
+            "id": "bidaya-fasting-intention",
+            "kind": "ClassicalBook",
+            "titleAr": "بداية المجتهد",
+            "titleEn": "Ibn Rushd, Bidayat al-Mujtahid",
+            "locator": "Intention in fasting"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "principle",
+            "titleAr": "إنما الأعمال بالنيات",
+            "titleEn": "Actions are by intentions",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "حديث النيات أصل عام، ويطبق الفقهاء معناه على الصيام وغيره من العبادات.",
+                "en": "The hadith 'actions are by intentions' is a general foundation applied by jurists to fasting and other acts of worship.",
+                "citationIds": [
+                  "bukhari-intentions"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "timing",
+            "titleAr": "متى تنعقد النية؟",
+            "titleEn": "When intention must be formed",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اختلفت المدارس في اشتراط تبييت النية قبل الفجر لكل يوم من رمضان أو كفاية نية أوسع في بعض الصور، وفي نية صوم النفل نهارًا.",
+                "en": "Schools differ over whether intention must be formed before dawn for each Ramadan day, whether a broader intention can suffice in some cases, and daytime intention for voluntary fasting.",
+                "citationIds": [
+                  "bidaya-fasting-intention"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fasting_invalidators",
+        "titleAr": "مفسدات الصوم",
+        "titleEn": "What invalidates the fast",
+        "summaryAr": "الأكل والشرب والجماع عمدًا من أوضح المفسدات، وتفصل كتب الفقه مسائل القيء والحقن والدواء وغيرها.",
+        "summaryEn": "Deliberate eating, drinking, and intercourse are among the clearest invalidators, while jurists discuss vomiting, injections, medicine, and other cases in detail.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "fasting_intention",
+          "fasting_excuses",
+          "qada_fidya_kaffara"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-187",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:187"
+          },
+          {
+            "id": "bukhari-forgetful-fasting",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Fasting: eating or drinking forgetfully"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "clear",
+            "titleAr": "الأكل والشرب والجماع",
+            "titleEn": "Clear invalidators",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تبيح آية الصيام الأكل والشرب والجماع ليلًا حتى الفجر، فيفهم منها الامتناع عنها نهار الصوم.",
+                "en": "The fasting verse permits eating, drinking, and marital relations at night until dawn, establishing abstention from them during the fasting day.",
+                "citationIds": [
+                  "quran-2-187"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "forgetful",
+            "titleAr": "النسيان",
+            "titleEn": "Forgetfulness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تثبت السنة أن من أكل أو شرب ناسيًا يتم صومه، وهو فرق مهم بين العمد وغير العمد.",
+                "en": "The Sunnah states that someone who eats or drinks forgetfully completes the fast, showing an important distinction between deliberate and accidental acts.",
+                "citationIds": [
+                  "bukhari-forgetful-fasting"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fasting_excuses",
+        "titleAr": "أعذار الفطر: المرض والسفر وغيرها",
+        "titleEn": "Excuses from fasting",
+        "summaryAr": "أجاز القرآن للمريض والمسافر الفطر والقضاء، وتوجد أحكام للحمل والرضاعة وكبر السن والعمل الشاق بحسب الحال والفقه.",
+        "summaryEn": "The Quran permits the sick and traveler to break the fast and make it up, while pregnancy, nursing, old age, and severe hardship receive further juristic treatment.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hardship_facilitation",
+          "traveler_prayer",
+          "qada_fidya_kaffara"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-184-185",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:184-185"
+          },
+          {
+            "id": "bidaya-fasting-excuses",
+            "kind": "ClassicalBook",
+            "titleAr": "بداية المجتهد",
+            "titleEn": "Ibn Rushd, Bidayat al-Mujtahid",
+            "locator": "Excuses from fasting"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "text",
+            "titleAr": "المريض والمسافر",
+            "titleEn": "Illness and travel",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنص سورة البقرة على أن المريض والمسافر يقضيان عدد الأيام في وقت آخر، مع قصد اليسر لا العسر.",
+                "en": "Surat al-Baqarah states that the sick and traveler make up the same number of days later, expressly connecting the rule with ease.",
+                "citationIds": [
+                  "quran-2-184-185"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "other",
+            "titleAr": "الحمل والرضاعة والكبر",
+            "titleEn": "Pregnancy, nursing, and old age",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تختلف تفاصيل القضاء والفدية للحامل والمرضع والعاجز عجزًا دائمًا بين الفقهاء، ويحتاج التطبيق إلى بيان الرأي المعتمد بوضوح.",
+                "en": "Jurists differ over make-up and fidya details for pregnancy, nursing, and permanent incapacity, so practical app guidance should identify the view it follows.",
+                "citationIds": [
+                  "bidaya-fasting-excuses"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "qada_fidya_kaffara",
+        "titleAr": "القضاء والفدية والكفارة في الصيام",
+        "titleEn": "Qada, fidya, and kaffarah in fasting",
+        "summaryAr": "هذه ثلاثة مفاهيم مختلفة: القضاء بدل اليوم، والفدية إطعام في حالات، والكفارة جبر مغلظ لبعض المخالفات.",
+        "summaryEn": "Qada, fidya, and kaffarah are distinct: making up a day, compensatory feeding in specified cases, and a heavier expiation for certain violations.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "fasting_excuses",
+          "fasting_invalidators"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-184",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:184"
+          },
+          {
+            "id": "bukhari-fasting-expiation",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Fasting: expiation for intercourse in Ramadan"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "distinguish",
+            "titleAr": "تمييز المصطلحات",
+            "titleEn": "Distinguishing the terms",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ليس كل فطر في رمضان يوجب كفارة؛ فكثير من الحالات فيها قضاء فقط، وبعض العجز الدائم يرتبط بالفدية عند الفقهاء.",
+                "en": "Not every broken Ramadan fast requires kaffarah; many cases require only make-up, while permanent incapacity is associated with fidya in juristic treatment.",
+                "citationIds": [
+                  "quran-2-184"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "intercourse",
+            "titleAr": "الكفارة المغلظة",
+            "titleEn": "Major expiation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف السنة كفارة من جامع عمدًا في نهار رمضان، وتختلف تفاصيل إلحاق مخالفات أخرى بها بين المذاهب.",
+                "en": "The Sunnah describes expiation for deliberate intercourse during a Ramadan fast, while schools differ over extending similar kaffarah to other violations.",
+                "citationIds": [
+                  "bukhari-fasting-expiation"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "voluntary_fasting",
+        "titleAr": "صيام التطوع",
+        "titleEn": "Voluntary fasting",
+        "summaryAr": "ثبتت أيام وأنماط متعددة لصيام النفل مثل الاثنين والخميس وعرفة وعاشوراء والست من شوال.",
+        "summaryEn": "Several voluntary fasting patterns are established, including Mondays and Thursdays, Arafah, Ashura, and six days of Shawwal.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "fasting_obligation",
+          "ramadan_qiyam_qadr"
+        ],
+        "citations": [
+          {
+            "id": "muslim-voluntary-fasts",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Fasting: voluntary fasts"
+          },
+          {
+            "id": "bukhari-ashura",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Fasting: Ashura"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "days",
+            "titleAr": "أيام فاضلة",
+            "titleEn": "Recommended days",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر السنة فضائل صيام أيام معينة، مع اختلاف متعلق بمن يكون حاجًا في عرفة وبعض التفاصيل الأخرى.",
+                "en": "The Sunnah praises fasting on certain days, with some contextual distinctions such as fasting Arafah for pilgrims versus non-pilgrims.",
+                "citationIds": [
+                  "muslim-voluntary-fasts",
+                  "bukhari-ashura"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "balance",
+            "titleAr": "عدم الإضرار بالنفس والحقوق",
+            "titleEn": "Balance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "النفل لا يبرر إهمال حقوق البدن والأسرة أو إضعاف الفرائض، وتدل السنة على موازنة العبادة مع الحقوق.",
+                "en": "Voluntary fasting should not undermine bodily, family, or obligatory duties, and the Sunnah teaches balance among competing responsibilities.",
+                "citationIds": [
+                  "muslim-voluntary-fasts"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ramadan_qiyam_qadr",
+        "titleAr": "قيام رمضان وليلة القدر",
+        "titleEn": "Ramadan night prayer and Laylat al-Qadr",
+        "summaryAr": "يرتبط رمضان بالقيام وطلب ليلة القدر في العشر الأواخر، وهي ليلة وصفها القرآن بأنها خير من ألف شهر.",
+        "summaryEn": "Ramadan is associated with night prayer and seeking Laylat al-Qadr in the last ten nights, a night the Quran describes as better than a thousand months.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "night_prayer",
+          "itikaf"
+        ],
+        "citations": [
+          {
+            "id": "quran-97-1-5",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "97:1-5"
+          },
+          {
+            "id": "bukhari-laylat-qadr",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtue of the Night of Qadr"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "qadr",
+            "titleAr": "خير من ألف شهر",
+            "titleEn": "Better than a thousand months",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف سورة القدر نزول القرآن في ليلة القدر وفضلها العظيم وسلامها حتى مطلع الفجر.",
+                "en": "Surat al-Qadr describes the Quran's revelation on Laylat al-Qadr, its extraordinary virtue, and peace until dawn.",
+                "citationIds": [
+                  "quran-97-1-5"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "last_ten",
+            "titleAr": "التحري في العشر الأواخر",
+            "titleEn": "Seeking it in the last ten",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحث الأحاديث على تحري ليلة القدر في العشر الأواخر من رمضان، خصوصًا الليالي الوترية في بعض الروايات.",
+                "en": "Hadith encourage seeking Laylat al-Qadr in the final ten nights of Ramadan, especially odd-numbered nights in some reports.",
+                "citationIds": [
+                  "bukhari-laylat-qadr"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "itikaf",
+        "titleAr": "الاعتكاف",
+        "titleEn": "I'tikaf",
+        "summaryAr": "الاعتكاف لزوم المسجد للعبادة مدة بنية، واشتهر اعتكاف النبي ﷺ في العشر الأواخر من رمضان.",
+        "summaryEn": "I'tikaf is staying in a mosque for worship with intention, especially associated with the Prophet's ﷺ practice in the last ten nights of Ramadan.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ramadan_qiyam_qadr",
+          "islam/mosques"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-187",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:187"
+          },
+          {
+            "id": "bukhari-itikaf",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "I'tikaf"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "quran",
+            "titleAr": "وأنتم عاكفون في المساجد",
+            "titleEn": "While in retreat in the mosques",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر آية الصيام الاعتكاف في المساجد ضمن أحكام رمضان.",
+                "en": "The fasting verse mentions spiritual retreat in mosques within Ramadan rulings.",
+                "citationIds": [
+                  "quran-2-187"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "practice",
+            "titleAr": "العشر الأواخر",
+            "titleEn": "The final ten nights",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنقل السنة مواظبة النبي ﷺ على الاعتكاف في العشر الأواخر، وتفصل كتب الفقه مدته وما يفسده والخروج للحاجة.",
+                "en": "The Sunnah transmits the Prophet's ﷺ regular retreat in the final ten nights, while fiqh details duration, invalidators, and leaving for necessities.",
+                "citationIds": [
+                  "bukhari-itikaf"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hajj_obligation",
+        "titleAr": "وجوب الحج والاستطاعة",
+        "titleEn": "Hajj obligation and ability",
+        "summaryAr": "الحج واجب مرة في العمر على المستطيع، والاستطاعة تشمل القدرة الواقعية التي يفصلها الفقهاء.",
+        "summaryEn": "Hajj is obligatory once in a lifetime for those able, with jurists detailing what practical ability entails.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/hajj_umrah",
+          "miqat_ihram"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-97",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:97"
+          },
+          {
+            "id": "muslim-hajj-pillar",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Faith and Hajj: obligation of pilgrimage"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "text",
+            "titleAr": "ولله على الناس حج البيت",
+            "titleEn": "Pilgrimage owed to God",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "توجب آية آل عمران الحج على من استطاع إليه سبيلًا، وهو أصل شرط الاستطاعة.",
+                "en": "Surat Al Imran makes pilgrimage to the House obligatory for those able to find a way to it.",
+                "citationIds": [
+                  "quran-3-97"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "once",
+            "titleAr": "مرة في العمر",
+            "titleEn": "Once in a lifetime",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقرر السنة أن فرض الحج على المستطيع ليس عبادة سنوية لازمة لكل شخص، بل الأصل مرة واحدة ثم يكون التكرار نافلة.",
+                "en": "The Sunnah establishes that obligatory Hajj for an able person is once in a lifetime; repetition is voluntary.",
+                "citationIds": [
+                  "muslim-hajj-pillar"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "miqat_ihram",
+        "titleAr": "المواقيت والإحرام",
+        "titleEn": "Miqat and entering ihram",
+        "summaryAr": "من قصد النسك لا يتجاوز الميقات المحدد له دون إحرام وفق أحكام الحج والعمرة.",
+        "summaryEn": "Someone intending pilgrimage enters ihram by the relevant miqat according to Hajj and Umrah rulings.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hajj_obligation",
+          "ihram_prohibitions"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-miqats",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Hajj: appointed miqats"
+          },
+          {
+            "id": "muslim-miqats",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Hajj: miqats"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "places",
+            "titleAr": "المواقيت المكانية",
+            "titleEn": "Geographic miqats",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "حدد النبي ﷺ مواقيت لجهات مختلفة، ويلحق بها من مر بمحاذاتها جوًا أو برًا بحسب الاجتهاد المعاصر.",
+                "en": "The Prophet ﷺ designated miqats for different directions; modern jurists apply them to those crossing their alignment by air or land.",
+                "citationIds": [
+                  "bukhari-miqats",
+                  "muslim-miqats"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "intention",
+            "titleAr": "نية النسك والتلبية",
+            "titleEn": "Intention and talbiyah",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الإحرام حالة نية للنسك وما يتبعها من أحكام، وليس مجرد لبس الثياب البيضاء.",
+                "en": "Ihram is a state entered by intending the rite and its legal restrictions, not merely wearing white garments.",
+                "citationIds": [
+                  "muslim-miqats"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ihram_prohibitions",
+        "titleAr": "محظورات الإحرام",
+        "titleEn": "Restrictions of ihram",
+        "summaryAr": "توجد أفعال يمتنع عنها المحرم مثل الجماع والتطيب بعد الإحرام وقص الشعر والأظفار والصيد البري، مع تفصيلات للرجال والنساء.",
+        "summaryEn": "Ihram carries restrictions including intercourse, applying fragrance after ihram, removing hair or nails, and hunting land game, with sex-specific details.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "miqat_ihram",
+          "hajj_sacrifice_compensation"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-197",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:197"
+          },
+          {
+            "id": "quran-5-95",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:95"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "conduct",
+            "titleAr": "فلا رفث ولا فسوق ولا جدال",
+            "titleEn": "Conduct in Hajj",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنهى آية الحج عن الرفث والفسوق والجدال أثناء الحج، وتؤكد البعد الأخلاقي للنسك.",
+                "en": "The Hajj verse forbids sexual relations, sinful conduct, and quarrelling during pilgrimage, emphasizing its moral dimension.",
+                "citationIds": [
+                  "quran-2-197"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "hunting",
+            "titleAr": "صيد البر",
+            "titleEn": "Land hunting",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تمنع سورة المائدة صيد البر للمحرم وتذكر جزاءً عند المخالفة، مع تفصيل فقهي لبقية المحظورات.",
+                "en": "Surat al-Ma'idah prohibits land hunting during ihram and discusses compensation, while fiqh details other restrictions.",
+                "citationIds": [
+                  "quran-5-95"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tawaf",
+        "titleAr": "الطواف",
+        "titleEn": "Tawaf",
+        "summaryAr": "الطواف سبعة أشواط حول الكعبة، وهو من أعمال الحج والعمرة وله شروط وآداب تختلف بعض تفاصيلها بين الفقهاء.",
+        "summaryEn": "Tawaf consists of seven circuits around the Kaaba and is central to Hajj and Umrah, with conditions and etiquette detailed by jurists.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "miqat_ihram",
+          "sai"
+        ],
+        "citations": [
+          {
+            "id": "quran-22-29",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "22:29"
+          },
+          {
+            "id": "bukhari-tawaf",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Hajj: tawaf"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "rite",
+            "titleAr": "وليطوفوا بالبيت العتيق",
+            "titleEn": "Circumambulate the Ancient House",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأمر سورة الحج بالطواف بالبيت العتيق ضمن أعمال النسك.",
+                "en": "Surat al-Hajj commands circumambulation of the Ancient House as part of pilgrimage rites.",
+                "citationIds": [
+                  "quran-22-29"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "seven",
+            "titleAr": "سبعة أشواط",
+            "titleEn": "Seven circuits",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تثبت السنة الطواف سبعة أشواط مع البدء من الحجر الأسود بحسب الإمكان، وتفصل كتب الفقه مسائل الطهارة والازدحام والرمل.",
+                "en": "The Sunnah establishes seven circuits beginning from the Black Stone where feasible, while fiqh details purification, crowding, and brisk walking.",
+                "citationIds": [
+                  "bukhari-tawaf"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sai",
+        "titleAr": "السعي بين الصفا والمروة",
+        "titleEn": "Sa'i between Safa and Marwah",
+        "summaryAr": "السعي سبعة أشواط بين الصفا والمروة، وهو من أعمال الحج والعمرة.",
+        "summaryEn": "Sa'i consists of seven traversals between Safa and Marwah and is part of Hajj and Umrah.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "tawaf",
+          "arafah"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-158",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:158"
+          },
+          {
+            "id": "muslim-hajj-description",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Hajj: Jabir's description of the Prophet's pilgrimage"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "quran",
+            "titleAr": "من شعائر الله",
+            "titleEn": "Among God's symbols",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف سورة البقرة الصفا والمروة بأنهما من شعائر الله وتذكر الطواف بهما في الحج والعمرة.",
+                "en": "Surat al-Baqarah identifies Safa and Marwah as among God's symbols and refers to traversing between them in Hajj and Umrah.",
+                "citationIds": [
+                  "quran-2-158"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "method",
+            "titleAr": "البداية والنهاية",
+            "titleEn": "Beginning and end",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تشرح سنة الحج بدء السعي بالصفا وانتهاءه بالمروة بعد سبعة أشواط، مع ذكر ودعاء في المواضع المأثورة.",
+                "en": "The Prophetic Hajj description explains beginning at Safa and ending at Marwah after seven traversals, with remembrance and supplication at established points.",
+                "citationIds": [
+                  "muslim-hajj-description"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "arafah",
+        "titleAr": "الوقوف بعرفة",
+        "titleEn": "Standing at Arafah",
+        "summaryAr": "الوقوف بعرفة هو الركن المركزي في الحج يوم التاسع من ذي الحجة، وله زمن ومكان محددان.",
+        "summaryEn": "Standing at Arafah is the central Hajj rite on the ninth of Dhu al-Hijjah, with defined time and location.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sai",
+          "muzdalifah_mina"
+        ],
+        "citations": [
+          {
+            "id": "muslim-arafah",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Hajj: Arafah in the Prophet's pilgrimage"
+          },
+          {
+            "id": "mughni-arafah",
+            "kind": "ClassicalBook",
+            "titleAr": "المغني لابن قدامة",
+            "titleEn": "Ibn Qudamah, al-Mughni",
+            "locator": "Standing at Arafah"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "central",
+            "titleAr": "الحج عرفة في المعنى الفقهي",
+            "titleEn": "Central rite",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اتفق الفقهاء على أن الوقوف بعرفة ركن لا يصح الحج بدونه، اعتمادًا على السنة العملية والنصوص الواردة في النسك.",
+                "en": "Jurists agree that standing at Arafah is an indispensable Hajj pillar, based on Prophetic practice and transmitted pilgrimage rulings.",
+                "citationIds": [
+                  "muslim-arafah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "time",
+            "titleAr": "حدود الوقت",
+            "titleEn": "Time limits",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تختلف بعض تفاصيل بداية وقت الوقوف ونهايته والجمع بين الليل والنهار لمن وقف نهارًا بين المذاهب.",
+                "en": "Schools differ over some details of the start and end of Arafah's standing period and whether someone present by day must remain into the night.",
+                "citationIds": [
+                  "mughni-arafah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "muzdalifah_mina",
+        "titleAr": "مزدلفة ومنى والمبيت",
+        "titleEn": "Muzdalifah and Mina",
+        "summaryAr": "بعد عرفة ينتقل الحاج إلى مزدلفة ثم منى، وتفصل السنة المبيت والذكر والرمي وأحكام الأعذار.",
+        "summaryEn": "After Arafah, pilgrims proceed to Muzdalifah and then Mina, with the Sunnah detailing overnight stay, remembrance, stoning, and concessions.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "arafah",
+          "jamarat_tahallul"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-198-203",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:198-203"
+          },
+          {
+            "id": "muslim-hajj-description-2",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Hajj: Muzdalifah and Mina in Jabir's report"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "muzdalifah",
+            "titleAr": "المشعر الحرام",
+            "titleEn": "Al-Mash'ar al-Haram",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأمر سورة البقرة بذكر الله عند المشعر الحرام بعد الإفاضة من عرفات.",
+                "en": "Surat al-Baqarah commands remembrance of God at al-Mash'ar al-Haram after departing from Arafah.",
+                "citationIds": [
+                  "quran-2-198-203"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mina",
+            "titleAr": "أيام معدودات",
+            "titleEn": "Numbered days",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر الآيات ذكر الله في أيام معدودات، وتفصل السنة المبيت بمنى والرمي والتنقل بين المشاعر مع رخص لأصحاب الأعذار.",
+                "en": "The verses mention remembering God during numbered days, while the Sunnah details staying at Mina, stoning, movement between sites, and concessions for valid needs.",
+                "citationIds": [
+                  "muslim-hajj-description-2"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "jamarat_tahallul",
+        "titleAr": "رمي الجمرات والتحلل",
+        "titleEn": "Stoning and release from ihram",
+        "summaryAr": "يرمي الحاج الجمرات في أوقاتها ثم يرتبط التحلل بأعمال مثل الرمي والحلق أو التقصير والطواف بحسب المرحلة.",
+        "summaryEn": "Pilgrims stone the designated pillars at their times, while release from ihram is linked to acts such as stoning, shaving or trimming, and tawaf.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "muzdalifah_mina",
+          "hajj_sacrifice_compensation"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-jamarat",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Hajj: stoning the Jamarat"
+          },
+          {
+            "id": "muslim-jamarat",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Hajj: stoning and shaving"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "stoning",
+            "titleAr": "الرمي",
+            "titleEn": "Stoning",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنقل السنة رمي جمرة العقبة يوم النحر ثم الجمرات في أيام التشريق بترتيب وأوقات معروفة.",
+                "en": "The Sunnah transmits stoning Jamrat al-Aqabah on the day of sacrifice and the three Jamarat during the days of Tashriq in established order and times.",
+                "citationIds": [
+                  "bukhari-jamarat",
+                  "muslim-jamarat"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "release",
+            "titleAr": "الحلق أو التقصير والتحلل",
+            "titleEn": "Shaving or trimming and release",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الحلق أو التقصير من أعمال النسك ويرتبط مع بقية الأعمال بدرجات التحلل من محظورات الإحرام.",
+                "en": "Shaving or trimming is a pilgrimage rite and, together with other acts, contributes to stages of release from ihram restrictions.",
+                "citationIds": [
+                  "muslim-jamarat"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hajj_forms",
+        "titleAr": "التمتع والقران والإفراد",
+        "titleEn": "Tamattu, Qiran, and Ifrad",
+        "summaryAr": "للحج ثلاثة أنساك مشهورة تختلف في الجمع بين العمرة والحج والهدي وبعض الترتيب.",
+        "summaryEn": "Three well-known Hajj forms differ in how Umrah and Hajj are combined and in sacrifice and sequence.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hajj_obligation",
+          "hajj_sacrifice_compensation"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-196",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:196"
+          },
+          {
+            "id": "muslim-hajj-forms",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Hajj: forms of pilgrimage"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "forms",
+            "titleAr": "ثلاثة أنساك",
+            "titleEn": "Three pilgrimage forms",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يفرد الحاج الحج وحده في الإفراد، ويجمع الحج والعمرة بإحرام واحد في القران، ويعتمر ثم يتحلل ثم يحرم بالحج في التمتع.",
+                "en": "Ifrad is Hajj alone, Qiran combines Hajj and Umrah in one ihram, and Tamattu performs Umrah followed by release and a new ihram for Hajj.",
+                "citationIds": [
+                  "muslim-hajj-forms"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sacrifice",
+            "titleAr": "الهدي في التمتع والقران",
+            "titleEn": "Sacrifice in Tamattu and Qiran",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يرتبط التمتع والقران بالهدي لمن وجده وفق نص القرآن وتفصيل السنة والفقه.",
+                "en": "Tamattu and Qiran are linked with sacrificial offering for those able, based on the Quran and detailed in Sunnah and fiqh.",
+                "citationIds": [
+                  "quran-2-196"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hajj_sacrifice_compensation",
+        "titleAr": "الهدي والفدية في الحج",
+        "titleEn": "Hady and compensatory offerings",
+        "summaryAr": "توجد ذبائح مرتبطة ببعض الأنساك أو جبر بعض المخالفات، وتختلف أسبابها وأحكامها فلا تجمع في حكم واحد.",
+        "summaryEn": "Pilgrimage includes offerings tied to certain Hajj forms or compensation for specific violations, and these should not be conflated.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ihram_prohibitions",
+          "hajj_forms"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-196",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:196"
+          },
+          {
+            "id": "quran-5-95",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:95"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "hady",
+            "titleAr": "هدي التمتع والقران",
+            "titleEn": "Hady for pilgrimage form",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنص سورة البقرة على الهدي في سياق التمتع لمن تيسر له، مع بديل الصيام عند العجز وفق الآية.",
+                "en": "Surat al-Baqarah requires an offering in the context of Tamattu when available and prescribes fasting when it is not.",
+                "citationIds": [
+                  "quran-2-196"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "compensation",
+            "titleAr": "فدية بعض المحظورات",
+            "titleEn": "Compensation for violations",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر النصوص فدية للحلق عند الأذى وجزاء الصيد للمحرم، وتختلف بقية صور الدم والفدية بحسب سببها وحكمها الفقهي.",
+                "en": "Revelation mentions compensation for shaving due to harm and for hunting while in ihram; other offerings and penalties depend on the specific cause and juristic ruling.",
+                "citationIds": [
+                  "quran-2-196",
+                  "quran-5-95"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

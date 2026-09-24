@@ -1,0 +1,1829 @@
+{
+  "schemaVersion": 2,
+  "book": {
+    "id": "hadith_sciences",
+    "titleAr": "علوم الحديث والسنة",
+    "titleEn": "Hadith and Sunnah Sciences",
+    "subtitleAr": "الإسناد والمتن والدرجات والعلل وكتب الحديث والتحقق الرقمي",
+    "subtitleEn": "Isnad, matn, grading, hidden defects, hadith collections, and digital verification",
+    "contentRevision": 1,
+    "chapters": [
+      {
+        "id": "authority_terms",
+        "titleAr": "مكانة السنة والمصطلحات",
+        "titleEn": "Authority and Core Terms",
+        "summaryAr": "السنة والحديث والإسناد والمتن وأنواع الإضافة.",
+        "summaryEn": "Sunnah authority, terminology, isnad, matn, and attribution.",
+        "topicIds": [
+          "sunnah_authority",
+          "hadith_terms",
+          "isnad_matn",
+          "marfu_mauquf_maqtu",
+          "companion_tafsir_link"
+        ]
+      },
+      {
+        "id": "grading",
+        "titleAr": "درجات الحديث",
+        "titleEn": "Hadith Grades",
+        "summaryAr": "الصحيح والحسن والضعيف والموضوع والمتواتر والآحاد.",
+        "summaryEn": "Sahih, hasan, weak, fabricated, mutawatir, and ahad.",
+        "topicIds": [
+          "sahih",
+          "hasan",
+          "daif",
+          "fabricated",
+          "mutawatir_ahad"
+        ]
+      },
+      {
+        "id": "continuity",
+        "titleAr": "اتصال السند وأنواع الانقطاع",
+        "titleEn": "Chain Continuity",
+        "summaryAr": "المتصل والمرسل والمعلق والتدليس.",
+        "summaryEn": "Connected chains, mursal, mu'allaq, and tadlis.",
+        "topicIds": [
+          "connected_disconnected",
+          "mursal",
+          "muallaq",
+          "tadlis"
+        ]
+      },
+      {
+        "id": "narrators_criticism",
+        "titleAr": "نقد الرواة والعلل",
+        "titleEn": "Narrator and Defect Criticism",
+        "summaryAr": "العدالة والضبط والجرح والتعديل والعلل والشذوذ.",
+        "summaryEn": "Integrity, precision, narrator criticism, hidden defects, and irregularity.",
+        "topicIds": [
+          "narrator_integrity",
+          "narrator_precision",
+          "jarh_tadil",
+          "hidden_defects",
+          "shadh_munkar"
+        ]
+      },
+      {
+        "id": "research",
+        "titleAr": "التخريج والحكم على الحديث",
+        "titleEn": "Takhrij and Evaluation",
+        "summaryAr": "تتبع الطرق واختلاف النقاد والتعامل مع التعارض والضعيف.",
+        "summaryEn": "Tracing routes, grading disagreement, apparent conflict, and weak reports.",
+        "topicIds": [
+          "takhrij",
+          "grading_disagreement",
+          "apparent_conflict",
+          "weak_hadith_practice"
+        ]
+      },
+      {
+        "id": "books",
+        "titleAr": "كتب الحديث ومناهجها",
+        "titleEn": "Hadith Collections and Genres",
+        "summaryAr": "الصحيحان والكتب الستة والمسانيد والمصنفات.",
+        "summaryEn": "The two Sahihs, six major books, Musnad and Musannaf genres.",
+        "topicIds": [
+          "bukhari_muslim",
+          "six_books",
+          "muwatta_musnad"
+        ]
+      },
+      {
+        "id": "digital",
+        "titleAr": "التوثيق الرقمي",
+        "titleEn": "Digital Verification",
+        "summaryAr": "ترقيم الأحاديث والتحقق من المصادر في التطبيقات وقواعد البيانات.",
+        "summaryEn": "Hadith numbering and responsible digital verification.",
+        "topicIds": [
+          "hadith_numbering",
+          "digital_hadith_verification"
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "sunnah_authority",
+        "titleAr": "مكانة السنة في الإسلام",
+        "titleEn": "Authority of the Sunnah",
+        "summaryAr": "السنة بيان للقرآن ومصدر لهدي النبي ﷺ في الاعتقاد والعبادة والأخلاق والأحكام.",
+        "summaryEn": "The Sunnah explains the Quran and preserves the Prophet's ﷺ guidance in belief, worship, ethics, and law.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "aqeedah/aqeedah_sources",
+          "quran_sciences/sunnah_explanation",
+          "islam/sunnah"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-59",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:59"
+          },
+          {
+            "id": "quran-16-44",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:44"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "obedience",
+            "titleAr": "طاعة الرسول",
+            "titleEn": "Obedience to the Messenger",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بطاعة الله والرسول والرجوع إليهما عند التنازع، وهو أصل في الاحتجاج بالسنة الصحيحة.",
+                "en": "The Quran commands obedience to God and the Messenger and directs disputes back to them, grounding the authority of authentic Sunnah.",
+                "citationIds": [
+                  "quran-4-59"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "explanation",
+            "titleAr": "البيان النبوي",
+            "titleEn": "Prophetic explanation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة النحل أن النبي ﷺ يبين للناس ما نزل إليهم، فتشرح السنة تطبيق الصلاة والزكاة والحج وغيرها.",
+                "en": "Surat al-Nahl states that the Prophet ﷺ explains what was revealed, and the Sunnah preserves practical details of prayer, zakat, pilgrimage, and more.",
+                "citationIds": [
+                  "quran-16-44"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hadith_terms",
+        "titleAr": "الحديث والسنة والخبر والأثر",
+        "titleEn": "Hadith, Sunnah, khabar, and athar",
+        "summaryAr": "مصطلحات تتداخل معانيها في كتب العلماء، ويختلف استعمالها بحسب الفن والمؤلف.",
+        "summaryEn": "These terms overlap in scholarly literature and can be used differently depending on discipline and author.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sunnah_authority",
+          "isnad_matn"
+        ],
+        "citations": [
+          {
+            "id": "ibn-salah-terms",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة ابن الصلاح",
+            "titleEn": "Ibn al-Salah, Muqaddimah",
+            "locator": "Hadith terminology"
+          },
+          {
+            "id": "nukhba-terms",
+            "kind": "ClassicalBook",
+            "titleAr": "نخبة الفكر لابن حجر",
+            "titleEn": "Ibn Hajar, Nukhbat al-Fikar",
+            "locator": "Core hadith terminology"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "usage",
+            "titleAr": "اختلاف الاصطلاح",
+            "titleEn": "Different technical usage",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قد يستعمل «الحديث» لما نقل عن النبي ﷺ، و«الأثر» لما نقل عن الصحابة أو من بعدهم، لكن هذا التفريق ليس مطردًا عند جميع المصنفين.",
+                "en": "Hadith may be used for material attributed to the Prophet ﷺ and athar for reports from Companions or later figures, but this distinction is not uniform across all authors.",
+                "citationIds": [
+                  "ibn-salah-terms"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "فهم اصطلاح المؤلف",
+            "titleEn": "Read terms in context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الأدق فهم المصطلح بحسب الكتاب والمدرسة العلمية بدل افتراض تعريف واحد في كل المصادر.",
+                "en": "Terms are best understood according to the author and scholarly context rather than assuming one universal definition in every source.",
+                "citationIds": [
+                  "nukhba-terms"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "isnad_matn",
+        "titleAr": "الإسناد والمتن",
+        "titleEn": "Isnad and matn",
+        "summaryAr": "يتكون الخبر الحديثي من سلسلة نقل ومتن، ويبحث النقد في كليهما.",
+        "summaryEn": "A hadith report consists of a chain of transmission and a text, both of which are examined critically.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hadith_terms",
+          "narrator_integrity",
+          "hidden_defects"
+        ],
+        "citations": [
+          {
+            "id": "ibn-salah-isnad",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة ابن الصلاح",
+            "titleEn": "Ibn al-Salah, Muqaddimah",
+            "locator": "Isnad and matn criticism"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "isnad",
+            "titleAr": "سلسلة الرواة",
+            "titleEn": "The chain",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الإسناد يبين من نقل الخبر عمن قبله حتى مصدره، ويتيح دراسة الاتصال والعدالة والضبط.",
+                "en": "The isnad identifies who transmitted the report from whom back to its source, allowing analysis of continuity, integrity, and precision.",
+                "citationIds": [
+                  "ibn-salah-isnad"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "matn",
+            "titleAr": "نص الرواية",
+            "titleEn": "The text",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المتن هو صياغة الخبر نفسه، ويبحث المحدثون في ألفاظه واختلاف طرقه وموافقته للروايات الأقوى وخلوه من العلة.",
+                "en": "The matn is the report's wording, examined through variant transmissions, comparison with stronger evidence, and analysis for hidden defects.",
+                "citationIds": [
+                  "ibn-salah-isnad"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sahih",
+        "titleAr": "الحديث الصحيح",
+        "titleEn": "Sahih hadith",
+        "summaryAr": "الصحيح عند المحدثين خبر تتوافر فيه شروط تتعلق باتصال السند وعدالة الرواة وضبطهم والسلامة من الشذوذ والعلة.",
+        "summaryEn": "In hadith criticism, a sahih report fulfills conditions involving chain continuity, narrator integrity and precision, and freedom from irregularity and hidden defect.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hasan",
+          "daif",
+          "hidden_defects"
+        ],
+        "citations": [
+          {
+            "id": "ibn-salah-sahih",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة ابن الصلاح",
+            "titleEn": "Ibn al-Salah, Muqaddimah",
+            "locator": "Definition of sahih"
+          },
+          {
+            "id": "nukhba-sahih",
+            "kind": "ClassicalBook",
+            "titleAr": "نخبة الفكر لابن حجر",
+            "titleEn": "Ibn Hajar, Nukhbat al-Fikar",
+            "locator": "Accepted reports"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "conditions",
+            "titleAr": "شروط الصحة",
+            "titleEn": "Conditions of authenticity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يلخص العلماء شروط الصحيح في اتصال السند وعدالة الرواة وضبطهم وعدم الشذوذ والعلة القادحة.",
+                "en": "Scholars commonly summarize sahih conditions as a connected chain, upright and precise narrators, and absence of damaging irregularity or hidden defect.",
+                "citationIds": [
+                  "ibn-salah-sahih"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "not_absolute",
+            "titleAr": "الصحة حكم اجتهادي علمي",
+            "titleEn": "A scholarly critical judgment",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الحكم بالصحة مبني على دراسة طرق ورواة وقرائن، وقد يقع اختلاف بين النقاد في حديث معين دون أن يعني ذلك أن المنهج اعتباطي.",
+                "en": "Authentication is based on analysis of chains, narrators, and corroborating evidence; critics can disagree on a particular report without the method being arbitrary.",
+                "citationIds": [
+                  "nukhba-sahih"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hasan",
+        "titleAr": "الحديث الحسن",
+        "titleEn": "Hasan hadith",
+        "summaryAr": "الحسن مقبول في الجملة، ويكون ضبط بعض رواته دون مرتبة رجال الصحيح مع سلامة بقية الشروط.",
+        "summaryEn": "Hasan reports are generally accepted, often with narrator precision below the level required for sahih while other conditions remain satisfied.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sahih",
+          "daif"
+        ],
+        "citations": [
+          {
+            "id": "ibn-salah-hasan",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة ابن الصلاح",
+            "titleEn": "Ibn al-Salah, Muqaddimah",
+            "locator": "Hasan hadith"
+          },
+          {
+            "id": "nukhba-hasan",
+            "kind": "ClassicalBook",
+            "titleAr": "نخبة الفكر لابن حجر",
+            "titleEn": "Ibn Hajar, Nukhbat al-Fikar",
+            "locator": "Hasan classification"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "definition",
+            "titleAr": "مرتبة القبول",
+            "titleEn": "An accepted category",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يستعمل المحدثون وصف الحسن لخبر صالح للاحتجاج مع درجة ضبط أخف من الصحيح في بعض صوره.",
+                "en": "Hadith critics use hasan for reports suitable as evidence while allowing a somewhat lower level of precision than sahih in some cases.",
+                "citationIds": [
+                  "nukhba-hasan"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "variants",
+            "titleAr": "تنوع الاستعمال التاريخي",
+            "titleEn": "Historical variation in usage",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "استعمال لفظ «حسن» عند الترمذي وبعض المتقدمين قد يحمل دلالات سياقية لا تختزل دائمًا في التعريف المدرسي المتأخر.",
+                "en": "The term hasan in al-Tirmidhi and some early scholars can carry contextual meanings not always reducible to later textbook definitions.",
+                "citationIds": [
+                  "ibn-salah-hasan"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "daif",
+        "titleAr": "الحديث الضعيف",
+        "titleEn": "Weak hadith",
+        "summaryAr": "الضعيف هو ما لم يستوف شروط القبول، وتتفاوت أسبابه ودرجاته من ضعف يسير إلى شديد.",
+        "summaryEn": "A weak hadith fails one or more acceptance conditions, with weakness ranging from mild to severe.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sahih",
+          "hasan",
+          "weak_hadith_practice",
+          "fabricated"
+        ],
+        "citations": [
+          {
+            "id": "ibn-salah-daif",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة ابن الصلاح",
+            "titleEn": "Ibn al-Salah, Muqaddimah",
+            "locator": "Weak hadith"
+          },
+          {
+            "id": "nukhba-daif",
+            "kind": "ClassicalBook",
+            "titleAr": "نخبة الفكر لابن حجر",
+            "titleEn": "Ibn Hajar, Nukhbat al-Fikar",
+            "locator": "Rejected reports"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "causes",
+            "titleAr": "أسباب الضعف",
+            "titleEn": "Causes of weakness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قد يكون الضعف لانقطاع السند أو ضعف راو أو جهالته أو مخالفة الرواية لما هو أوثق أو وجود علة.",
+                "en": "Weakness may result from chain interruption, narrator weakness or anonymity, contradiction of stronger transmission, or hidden defect.",
+                "citationIds": [
+                  "nukhba-daif"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "degrees",
+            "titleAr": "الضعف ليس درجة واحدة",
+            "titleEn": "Weakness has degrees",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا تتساوى جميع الأحاديث الضعيفة؛ فقد ينجبر بعضها بطرق معتبرة بينما يكون بعضها شديد الضعف لا يقوى بمثل ذلك.",
+                "en": "Weak reports are not all alike; some may be strengthened by suitable corroboration while severely weak material may not be.",
+                "citationIds": [
+                  "ibn-salah-daif"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fabricated",
+        "titleAr": "الحديث الموضوع",
+        "titleEn": "Fabricated hadith",
+        "summaryAr": "الموضوع خبر مختلق نُسب إلى النبي ﷺ زورًا، ولا يجوز روايته بلا بيان حاله.",
+        "summaryEn": "A fabricated hadith is invented material falsely attributed to the Prophet ﷺ and should not be transmitted without identifying its status.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "daif",
+          "digital_hadith_verification"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-lying-prophet",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Knowledge: warning against lying about the Prophet"
+          },
+          {
+            "id": "muslim-lying-prophet",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Introduction: warning against fabricating reports"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "warning",
+            "titleAr": "الوعيد في الكذب على النبي",
+            "titleEn": "Severe warning against fabrication",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وردت أحاديث متواترة المعنى في الوعيد على من يكذب على النبي ﷺ متعمدًا.",
+                "en": "Widely transmitted hadith give a severe warning against deliberately lying about the Prophet ﷺ.",
+                "citationIds": [
+                  "bukhari-lying-prophet",
+                  "muslim-lying-prophet"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sharing",
+            "titleAr": "مسؤولية النشر",
+            "titleEn": "Responsibility when sharing",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يصح نشر رواية موضوعة على أنها حديث صحيح، وحتى عند ذكرها للتنبيه ينبغي بيان أنها موضوعة أو غير ثابتة.",
+                "en": "Fabricated reports should not be shared as authentic hadith; even when cited for warning or study, their fabricated or unestablished status should be stated.",
+                "citationIds": [
+                  "muslim-lying-prophet"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mutawatir_ahad",
+        "titleAr": "المتواتر والآحاد",
+        "titleEn": "Mutawatir and ahad reports",
+        "summaryAr": "تقسيم يتعلق بعدد طرق الخبر وطبقات نقله، وقد طوره علماء الحديث والأصول بصيغ مختلفة.",
+        "summaryEn": "A classification concerned with the number and spread of transmission routes, developed in hadith and legal theory with differing formulations.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sahih",
+          "grading_disagreement"
+        ],
+        "citations": [
+          {
+            "id": "nukhba-mutawatir",
+            "kind": "ClassicalBook",
+            "titleAr": "نخبة الفكر لابن حجر",
+            "titleEn": "Ibn Hajar, Nukhbat al-Fikar",
+            "locator": "Mutawatir and khabar al-wahid"
+          },
+          {
+            "id": "ibn-salah-ahad",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة ابن الصلاح",
+            "titleEn": "Ibn al-Salah, Muqaddimah",
+            "locator": "Transmission categories"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "mutawatir",
+            "titleAr": "كثرة يستحيل معها التواطؤ عادة",
+            "titleEn": "Mass transmission",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف الأصوليون المتواتر بما نقله جمع في طبقات متعددة على وجه يفيد العلم عند تحقق شروطه.",
+                "en": "Usul scholars describe mutawatir transmission as reports carried by sufficiently large groups across levels such that collusion is ordinarily excluded when the required conditions are met.",
+                "citationIds": [
+                  "nukhba-mutawatir"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ahad",
+            "titleAr": "ما دون التواتر",
+            "titleEn": "Reports below mutawatir level",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يشمل خبر الآحاد المشهور والعزيز والغريب في تقسيمات المحدثين، ولا يعني «آحاد» أنه خبر شخص واحد في جميع طبقاته.",
+                "en": "Ahad includes categories such as mashhur, aziz, and gharib; the label does not mean a report necessarily has only one narrator at every level.",
+                "citationIds": [
+                  "ibn-salah-ahad"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "marfu_mauquf_maqtu",
+        "titleAr": "المرفوع والموقوف والمقطوع",
+        "titleEn": "Marfu, mawquf, and maqtu reports",
+        "summaryAr": "تصنيف بحسب من ينتهي إليه الخبر: النبي ﷺ أو الصحابي أو التابعي.",
+        "summaryEn": "A classification based on where attribution ends: the Prophet ﷺ, a Companion, or a Successor.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hadith_terms",
+          "companion_tafsir_link"
+        ],
+        "citations": [
+          {
+            "id": "nukhba-attribution",
+            "kind": "ClassicalBook",
+            "titleAr": "نخبة الفكر لابن حجر",
+            "titleEn": "Ibn Hajar, Nukhbat al-Fikar",
+            "locator": "Attribution levels"
+          },
+          {
+            "id": "ibn-salah-attribution",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة ابن الصلاح",
+            "titleEn": "Ibn al-Salah, Muqaddimah",
+            "locator": "Marfu, mawquf, and maqtu"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "levels",
+            "titleAr": "جهة الإضافة",
+            "titleEn": "Level of attribution",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المرفوع ما أضيف إلى النبي ﷺ، والموقوف إلى الصحابي، والمقطوع إلى التابعي في الاصطلاح الشائع.",
+                "en": "In common terminology, marfu is attributed to the Prophet ﷺ, mawquf to a Companion, and maqtu to a Successor.",
+                "citationIds": [
+                  "nukhba-attribution"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "importance",
+            "titleAr": "ليست مرتبة صحة",
+            "titleEn": "Not an authenticity grade",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "هذه الأوصاف تحدد جهة الإضافة ولا تعني بذاتها أن الخبر صحيح أو ضعيف؛ فقد يكون الموقوف صحيح السند أو المرفوع ضعيفًا.",
+                "en": "These labels identify attribution level rather than authenticity; a mawquf report can have an authentic chain while a marfu report may be weak.",
+                "citationIds": [
+                  "ibn-salah-attribution"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "connected_disconnected",
+        "titleAr": "اتصال السند والانقطاع",
+        "titleEn": "Connected and disconnected chains",
+        "summaryAr": "الاتصال شرط أساسي في كثير من أحكام القبول، وتوجد أنواع متعددة من الانقطاع.",
+        "summaryEn": "Chain continuity is central to many authenticity judgments, and discontinuity takes several forms.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "mursal",
+          "muallaq",
+          "tadlis"
+        ],
+        "citations": [
+          {
+            "id": "nukhba-continuity",
+            "kind": "ClassicalBook",
+            "titleAr": "نخبة الفكر لابن حجر",
+            "titleEn": "Ibn Hajar, Nukhbat al-Fikar",
+            "locator": "Connected and disconnected isnads"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "connected",
+            "titleAr": "السند المتصل",
+            "titleEn": "Connected chain",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "السند المتصل هو الذي ثبت سماع كل راو فيه ممن فوقه أو لقاؤه على الوجه المعتبر في ذلك النوع من الرواية.",
+                "en": "A connected chain establishes transmission between each narrator and the preceding source according to the standards relevant to that report.",
+                "citationIds": [
+                  "nukhba-continuity"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "breaks",
+            "titleAr": "صور الانقطاع",
+            "titleEn": "Forms of discontinuity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يندرج تحت الانقطاع المرسل والمنقطع والمعضل والمعلق وغيرها، ولكل نوع أثر في الحكم يحتاج إلى دراسة الطرق والقرائن.",
+                "en": "Discontinuity includes forms such as mursal, munqati, mu'dal, and mu'allaq, each affecting evaluation in ways that require study of routes and context.",
+                "citationIds": [
+                  "nukhba-continuity"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mursal",
+        "titleAr": "المرسل",
+        "titleEn": "Mursal hadith",
+        "summaryAr": "من أشهر تعريفاته رواية التابعي عن النبي ﷺ مباشرة دون ذكر الصحابي، واختلف الفقهاء والمحدثون في الاحتجاج به بشروط.",
+        "summaryEn": "A common definition is a Successor narrating directly from the Prophet ﷺ without naming the Companion, with scholarly disagreement over when it may serve as evidence.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "connected_disconnected",
+          "grading_disagreement"
+        ],
+        "citations": [
+          {
+            "id": "ibn-salah-mursal",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة ابن الصلاح",
+            "titleEn": "Ibn al-Salah, Muqaddimah",
+            "locator": "Mursal reports"
+          },
+          {
+            "id": "tadrib-mursal",
+            "kind": "ClassicalBook",
+            "titleAr": "تدريب الراوي للسيوطي",
+            "titleEn": "Al-Suyuti, Tadrib al-Rawi",
+            "locator": "Mursal and juristic approaches"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "definition",
+            "titleAr": "سقوط الصحابي من ظاهر السند",
+            "titleEn": "Companion omitted from the visible chain",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في التعريف المشهور يرفع التابعي الحديث إلى النبي ﷺ دون تسمية من حدثه من الصحابة أو غيرهم.",
+                "en": "In the common definition, a Successor attributes a report directly to the Prophet ﷺ without naming the intermediary.",
+                "citationIds": [
+                  "ibn-salah-mursal"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "usage",
+            "titleAr": "الخلاف في قبوله",
+            "titleEn": "Disagreement over acceptance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تفاوتت مناهج العلماء في قبول المرسل بحسب الراوي والشواهد والقرائن والمدرسة الفقهية، فلا يحكم عليه بحكم واحد دون تفصيل.",
+                "en": "Scholars differed over accepting mursal reports depending on transmitter, corroboration, context, and legal school, so they cannot all be assigned one blanket ruling.",
+                "citationIds": [
+                  "tadrib-mursal"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "muallaq",
+        "titleAr": "المعلّق",
+        "titleEn": "Mu'allaq hadith",
+        "summaryAr": "ما حذف من أول إسناده راوٍ فأكثر، ويظهر كثيرًا بصيغ مختصرة في بعض المصنفات.",
+        "summaryEn": "A report with one or more narrators omitted from the beginning of the chain, often appearing in abbreviated citation form in some works.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "connected_disconnected",
+          "bukhari_muslim"
+        ],
+        "citations": [
+          {
+            "id": "nukhba-muallaq",
+            "kind": "ClassicalBook",
+            "titleAr": "نخبة الفكر لابن حجر",
+            "titleEn": "Ibn Hajar, Nukhbat al-Fikar",
+            "locator": "Mu'allaq reports"
+          },
+          {
+            "id": "hady-sari-muallaqat",
+            "kind": "ClassicalBook",
+            "titleAr": "هدي الساري لابن حجر",
+            "titleEn": "Ibn Hajar, Hady al-Sari",
+            "locator": "Mu'allaqat in Sahih al-Bukhari"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "definition",
+            "titleAr": "حذف من مبدأ السند",
+            "titleEn": "Omission from the beginning of the chain",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "التعليق وصف لشكل الإسناد في الموضع الذي ورد فيه، وقد يوجد للخبر نفسه سند موصول في موضع آخر.",
+                "en": "Ta'liq describes the chain as presented in that location; the same report may have a connected chain elsewhere.",
+                "citationIds": [
+                  "nukhba-muallaq"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "bukhari",
+            "titleAr": "معلقات البخاري",
+            "titleEn": "Bukhari's mu'allaqat",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وجود تعليق في صحيح البخاري لا يعني أن كل معلّق على شرط أحاديث الكتاب المسندة، وقد درس ابن حجر وصل طرقها وصيغ الجزم والتمريض.",
+                "en": "A mu'allaq in Sahih al-Bukhari does not automatically share the exact status of its fully chained main reports; Ibn Hajar analyzed their connected routes and citation formulas.",
+                "citationIds": [
+                  "hady-sari-muallaqat"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tadlis",
+        "titleAr": "التدليس",
+        "titleEn": "Tadlis",
+        "summaryAr": "أسلوب في الرواية قد يخفي واسطة أو يوهم السماع بصيغة محتملة، ويؤثر في تقييم بعض الأسانيد.",
+        "summaryEn": "A transmission practice that can obscure an intermediary or imply direct hearing through ambiguous wording, affecting chain evaluation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "connected_disconnected",
+          "narrator_precision"
+        ],
+        "citations": [
+          {
+            "id": "nukhba-tadlis",
+            "kind": "ClassicalBook",
+            "titleAr": "نخبة الفكر لابن حجر",
+            "titleEn": "Ibn Hajar, Nukhbat al-Fikar",
+            "locator": "Tadlis"
+          },
+          {
+            "id": "tabaqat-mudallisin",
+            "kind": "ClassicalBook",
+            "titleAr": "طبقات المدلسين لابن حجر",
+            "titleEn": "Ibn Hajar, Tabaqat al-Mudallisin",
+            "locator": "Classes of narrators known for tadlis"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "meaning",
+            "titleAr": "إيهام الاتصال",
+            "titleEn": "Appearance of direct transmission",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قد يروي المدلس عمن لقيه ما لم يسمعه منه بصيغة «عن» أو نحوها، فيحتاج الناقد إلى معرفة ثبوت السماع في الطريق المعين.",
+                "en": "A mudallis may narrate from someone he met material not directly heard from that person using an ambiguous formula such as 'an, so critics investigate direct hearing in the specific chain.",
+                "citationIds": [
+                  "nukhba-tadlis"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "levels",
+            "titleAr": "الرواة ليسوا درجة واحدة",
+            "titleEn": "Narrators differ in severity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "صنف النقاد المدلسين طبقات بحسب كثرة التدليس ونوعه ومن يدلسون عنهم، لذلك لا يعامل كل راو موصوف بالتدليس بالحكم نفسه.",
+                "en": "Critics classified narrators known for tadlis by frequency, type, and whom they omitted, so the label does not carry one identical consequence in every case.",
+                "citationIds": [
+                  "tabaqat-mudallisin"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "narrator_integrity",
+        "titleAr": "عدالة الراوي",
+        "titleEn": "Narrator integrity",
+        "summaryAr": "تبحث العدالة في ديانة الراوي وصدقه وسلوكه المؤثر في قبول خبره.",
+        "summaryEn": "Narrator integrity concerns honesty, religious reliability, and conduct relevant to accepting transmission.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "narrator_precision",
+          "jarh_tadil"
+        ],
+        "citations": [
+          {
+            "id": "ibn-salah-adalah",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة ابن الصلاح",
+            "titleEn": "Ibn al-Salah, Muqaddimah",
+            "locator": "Narrator integrity"
+          },
+          {
+            "id": "nukhba-adalah",
+            "kind": "ClassicalBook",
+            "titleAr": "نخبة الفكر لابن حجر",
+            "titleEn": "Ibn Hajar, Nukhbat al-Fikar",
+            "locator": "Accepted narrators"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "meaning",
+            "titleAr": "الصدق والاستقامة",
+            "titleEn": "Truthfulness and uprightness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يكفي أن يكون الراوي مشهورًا أو صاحب مكانة؛ بل يبحث النقاد في صدقه واستقامته وما يؤثر في أمانة النقل.",
+                "en": "Fame or status alone is not enough; critics examine truthfulness, upright conduct, and factors relevant to reliable transmission.",
+                "citationIds": [
+                  "ibn-salah-adalah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "evidence",
+            "titleAr": "أحكام مبنية على تراكم نقدي",
+            "titleEn": "Cumulative critical judgments",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تتكون أحكام الرواة من أقوال نقاد متعددين ومعرفة طبقاتهم ومناهجهم، لا من تعليق منفرد بلا سياق.",
+                "en": "Narrator evaluation draws on accumulated judgments from critics, their methods, and historical context rather than an isolated label without explanation.",
+                "citationIds": [
+                  "nukhba-adalah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "narrator_precision",
+        "titleAr": "ضبط الراوي",
+        "titleEn": "Narrator precision",
+        "summaryAr": "الضبط يتعلق بقدرة الراوي على حفظ ما سمعه أو صيانة كتابه وأدائه دون أخطاء مؤثرة.",
+        "summaryEn": "Narrator precision concerns accurate memory or preservation of written material and reliable transmission without damaging error.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "narrator_integrity",
+          "hidden_defects"
+        ],
+        "citations": [
+          {
+            "id": "ibn-salah-dabt",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة ابن الصلاح",
+            "titleEn": "Ibn al-Salah, Muqaddimah",
+            "locator": "Narrator precision"
+          },
+          {
+            "id": "nukhba-dabt",
+            "kind": "ClassicalBook",
+            "titleAr": "نخبة الفكر لابن حجر",
+            "titleEn": "Ibn Hajar, Nukhbat al-Fikar",
+            "locator": "Precision and narrator grading"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "memory_book",
+            "titleAr": "حفظ الصدر والكتاب",
+            "titleEn": "Memory and written preservation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قد يكون الضبط من الذاكرة أو من كتاب مصون، ويختبر بمقارنة مرويات الراوي بروايات الثقات.",
+                "en": "Precision can come through reliable memory or protected written notes and is tested by comparing a narrator's reports with stronger transmitters.",
+                "citationIds": [
+                  "ibn-salah-dabt"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "change",
+            "titleAr": "الاختلاط وتغير الحفظ",
+            "titleEn": "Changes in reliability",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قد يتغير حفظ راو في آخر عمره أو بعد فقد كتبه، ولذلك يفرق النقاد أحيانًا بين من سمع منه قبل الاختلاط وبعده.",
+                "en": "A narrator's memory may deteriorate late in life or after loss of books, so critics sometimes distinguish transmissions received before and after such change.",
+                "citationIds": [
+                  "nukhba-dabt"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "jarh_tadil",
+        "titleAr": "الجرح والتعديل",
+        "titleEn": "Jarh wa ta'dil",
+        "summaryAr": "علم نقد الرواة ببيان ما يقوي قبول روايتهم أو يضعفها وفق اصطلاحات النقاد.",
+        "summaryEn": "The discipline of evaluating narrators through evidence that strengthens or weakens confidence in their transmission.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "narrator_integrity",
+          "narrator_precision",
+          "grading_disagreement"
+        ],
+        "citations": [
+          {
+            "id": "kifaya-jarh",
+            "kind": "ClassicalBook",
+            "titleAr": "الكفاية في علم الرواية للخطيب البغدادي",
+            "titleEn": "Al-Khatib al-Baghdadi, al-Kifayah",
+            "locator": "Narrator criticism"
+          },
+          {
+            "id": "tahdhib-method",
+            "kind": "ClassicalBook",
+            "titleAr": "تهذيب التهذيب لابن حجر",
+            "titleEn": "Ibn Hajar, Tahdhib al-Tahdhib",
+            "locator": "Narrator evaluations"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "criticism",
+            "titleAr": "نقد علمي لا غيبة عشوائية",
+            "titleEn": "Critical discipline",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "طور المحدثون ألفاظًا ومراتب لوصف الثقة والضعف، وربطوا ذلك بالحاجة إلى حماية الأخبار من الخطأ والكذب.",
+                "en": "Hadith critics developed ranked terminology for reliability and weakness as part of protecting transmitted reports from error and fabrication.",
+                "citationIds": [
+                  "kifaya-jarh"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "فهم ألفاظ النقاد",
+            "titleEn": "Interpreting critic terminology",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ألفاظ مثل «ثقة» و«صدوق» و«لين» و«متروك» تحتاج إلى فهم اصطلاح الناقد وعصره ومقارنة أقوال غيره.",
+                "en": "Terms such as thiqah, saduq, layyin, and matruk must be read in the critic's own usage and period and compared with other evaluations.",
+                "citationIds": [
+                  "tahdhib-method"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hidden_defects",
+        "titleAr": "العِلَل الخفية",
+        "titleEn": "Hidden defects",
+        "summaryAr": "قد يبدو السند صحيحًا ظاهريًا ثم يكشف جمع الطرق عن وهم أو إرسال أو قلب يؤثر في الحكم.",
+        "summaryEn": "A chain can appear sound at first while comparison of routes reveals a subtle error, hidden disconnection, or reversal affecting the judgment.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sahih",
+          "narrator_precision",
+          "shadh_munkar"
+        ],
+        "citations": [
+          {
+            "id": "ilal-method",
+            "kind": "ClassicalBook",
+            "titleAr": "العلل لابن أبي حاتم",
+            "titleEn": "Ibn Abi Hatim, al-Ilal",
+            "locator": "Hidden hadith defects"
+          },
+          {
+            "id": "ibn-salah-ilal",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة ابن الصلاح",
+            "titleEn": "Ibn al-Salah, Muqaddimah",
+            "locator": "Hadith defects"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "comparison",
+            "titleAr": "جمع الطرق",
+            "titleEn": "Comparing transmission routes",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يظهر كثير من العلل عند مقارنة روايات التلاميذ والشيوخ ومعرفة من خالف ومن حفظ على الوجه الأثبت.",
+                "en": "Many hidden defects emerge only by comparing routes, students, teachers, and identifying which narrator preserved the stronger form.",
+                "citationIds": [
+                  "ilal-method"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "expertise",
+            "titleAr": "باب دقيق",
+            "titleEn": "A specialized discipline",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "علم العلل من أدق أبواب الحديث، ولا تكفي فيه قراءة سلسلة أسماء أو الاعتماد على تقييم آلي بسيط.",
+                "en": "Hidden-defect analysis is among the most specialized areas of hadith criticism and cannot be reduced to reading a chain list or an automated score.",
+                "citationIds": [
+                  "ibn-salah-ilal"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "shadh_munkar",
+        "titleAr": "الشاذ والمنكر",
+        "titleEn": "Shadh and munkar reports",
+        "summaryAr": "مصطلحان يرتبطان بمخالفة رواية لروايات أقوى، مع اختلاف استعمال النقاد قديمًا وحديثًا.",
+        "summaryEn": "Terms associated with problematic contradiction of stronger transmission, with variation in how early and later critics used them.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hidden_defects",
+          "grading_disagreement"
+        ],
+        "citations": [
+          {
+            "id": "nukhba-shadh",
+            "kind": "ClassicalBook",
+            "titleAr": "نخبة الفكر لابن حجر",
+            "titleEn": "Ibn Hajar, Nukhbat al-Fikar",
+            "locator": "Shadh and munkar"
+          },
+          {
+            "id": "ibn-salah-shadh",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة ابن الصلاح",
+            "titleEn": "Ibn al-Salah, Muqaddimah",
+            "locator": "Irregular reports"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "comparison",
+            "titleAr": "المخالفة مع الترجيح",
+            "titleEn": "Contradiction and weighting",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يرتبط الشذوذ في التعريف المدرسي بمخالفة الثقة لمن هو أوثق، بينما يطلق المنكر غالبًا على مخالفة الضعيف أو على رواية شديدة النكارة بحسب اصطلاح الناقد.",
+                "en": "In later textbook usage, shudhudh often involves a reliable narrator contradicting stronger transmitters, while munkar is often tied to weak narrators or severely objectionable reports, depending on critic usage.",
+                "citationIds": [
+                  "nukhba-shadh"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "historical_usage",
+            "titleAr": "اصطلاحات غير جامدة",
+            "titleEn": "Terminology is not perfectly uniform",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يجوز قراءة كل استعمال قديم لكلمة «منكر» أو «شاذ» بالتعريف المتأخر نفسه دون معرفة منهج الإمام القائل.",
+                "en": "An early critic's use of munkar or shadh should not automatically be forced into a later standardized definition without understanding that critic's method.",
+                "citationIds": [
+                  "ibn-salah-shadh"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "takhrij",
+        "titleAr": "التخريج وتتبع طرق الحديث",
+        "titleEn": "Takhrij and tracing hadith routes",
+        "summaryAr": "التخريج يحدد مصادر الحديث ومواضعه وطرقه وألفاظه ليسهل نقده وفهمه.",
+        "summaryEn": "Takhrij identifies a report's sources, locations, transmission routes, and wording variants to support evaluation and interpretation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "grading_disagreement",
+          "digital_hadith_verification"
+        ],
+        "citations": [
+          {
+            "id": "takhrij-method",
+            "kind": "ClassicalBook",
+            "titleAr": "أصول التخريج ودراسة الأسانيد",
+            "titleEn": "Principles of Takhrij and Isnad Study",
+            "locator": "Source tracing and route comparison"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "locate",
+            "titleAr": "العثور على المصادر الأصلية",
+            "titleEn": "Locating primary sources",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يكتفى بعبارة «رواه فلان» في منشور ثانوي؛ بل يرجع إلى الكتاب والموضع والطريق ما أمكن.",
+                "en": "A secondary post saying 'reported by so-and-so' is not enough; takhrij seeks the original work, location, and chain where possible.",
+                "citationIds": [
+                  "takhrij-method"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "compare",
+            "titleAr": "مقارنة الألفاظ والطرق",
+            "titleEn": "Comparing wording and routes",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قد يتغير الحكم أو الفهم عند العثور على طرق أخرى أو لفظ أكمل أو متابعة تقوي الطريق، لذلك يجمع الباحث ما أمكن من الشواهد.",
+                "en": "Additional routes, fuller wording, or corroboration can change evaluation or interpretation, so researchers gather relevant transmissions when possible.",
+                "citationIds": [
+                  "takhrij-method"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "grading_disagreement",
+        "titleAr": "لماذا يختلف المحدثون في التصحيح والتضعيف؟",
+        "titleEn": "Why hadith critics can disagree",
+        "summaryAr": "قد يختلف النقاد بسبب اختلاف معلوماتهم عن الرواة والطرق أو تقديرهم للقرائن والعلل.",
+        "summaryEn": "Critics can disagree because of different information about narrators and routes or different weighting of corroboration and defects.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sahih",
+          "jarh_tadil",
+          "hidden_defects"
+        ],
+        "citations": [
+          {
+            "id": "ibn-salah-disagreement",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة ابن الصلاح",
+            "titleEn": "Ibn al-Salah, Muqaddimah",
+            "locator": "Critical judgments and differing evaluations"
+          },
+          {
+            "id": "nukhba-disagreement",
+            "kind": "ClassicalBook",
+            "titleAr": "نخبة الفكر",
+            "titleEn": "Ibn Hajar, Nukhbat al-Fikar",
+            "locator": "Hadith grading principles"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "evidence",
+            "titleAr": "اختلاف المعطيات",
+            "titleEn": "Different evidence sets",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قد يصل إلى ناقد طريق لا يصل إلى آخر، أو يعرف تاريخ سماع راو واختلاطه على نحو أدق، فيؤثر ذلك في الحكم.",
+                "en": "One critic may know a route, listening date, or narrator circumstance unavailable to another, affecting the resulting grade.",
+                "citationIds": [
+                  "ibn-salah-disagreement"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ijtihad",
+            "titleAr": "مساحة الاجتهاد النقدي",
+            "titleEn": "Critical judgment",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعض أحكام الحديث اجتهادية مبنية على قرائن، ولذلك ينبغي نقل اسم المصحح أو المضعف عند وجود خلاف بدل إخفائه.",
+                "en": "Some hadith evaluations involve expert judgment based on cumulative evidence, so when grading is disputed the app should attribute the judgment rather than hide disagreement.",
+                "citationIds": [
+                  "nukhba-disagreement"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bukhari_muslim",
+        "titleAr": "صحيحا البخاري ومسلم",
+        "titleEn": "Sahih al-Bukhari and Sahih Muslim",
+        "summaryAr": "أشهر مجموعتين للحديث الصحيح عند أهل السنة، ولهما مناهج في الانتقاء والترتيب والأسانيد.",
+        "summaryEn": "The two best-known Sunni collections of authentic hadith, each with its own methods of selection, arrangement, and transmission.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "six_books",
+          "muallaq"
+        ],
+        "citations": [
+          {
+            "id": "hady-sari",
+            "kind": "ClassicalBook",
+            "titleAr": "هدي الساري مقدمة فتح الباري لابن حجر",
+            "titleEn": "Ibn Hajar, Hady al-Sari",
+            "locator": "Method of Sahih al-Bukhari"
+          },
+          {
+            "id": "nawawi-muslim-intro",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة شرح صحيح مسلم للنووي",
+            "titleEn": "Al-Nawawi, Introduction to Sharh Sahih Muslim",
+            "locator": "Method and status of Sahih Muslim"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "status",
+            "titleAr": "مكانتهما العلمية",
+            "titleEn": "Scholarly status",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "حظي الصحيحان بقبول واسع في التقليد السني، مع بقاء دراسة الألفاظ والطرق والمسائل النقدية المتخصصة داخل علم الحديث.",
+                "en": "The two Sahihs received broad acceptance in Sunni scholarship while individual wording, routes, and specialized critical questions continued to be studied.",
+                "citationIds": [
+                  "hady-sari",
+                  "nawawi-muslim-intro"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "method",
+            "titleAr": "ليس الكتابان متماثلين في الصناعة",
+            "titleEn": "Different compilation methods",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يختلف البخاري ومسلم في الترتيب وتكرار الأحاديث وجمع الطرق وشروط إخراج بعض الرواة، فلا يتعامل معهما ككتاب واحد بمنهج واحد.",
+                "en": "Bukhari and Muslim differ in arrangement, repetition, presentation of routes, and some narrator-selection practices, so they should not be treated as one book with one identical method.",
+                "citationIds": [
+                  "hady-sari",
+                  "nawawi-muslim-intro"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "six_books",
+        "titleAr": "الكتب الستة ومكانتها",
+        "titleEn": "The six major hadith books",
+        "summaryAr": "اصطلاح «الكتب الستة» يجمع الصحيحين وسنن أبي داود والترمذي والنسائي وابن ماجه في الاستعمال الشائع.",
+        "summaryEn": "The common term 'six books' includes the two Sahihs and the Sunan works of Abu Dawud, al-Tirmidhi, al-Nasa'i, and Ibn Majah.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "bukhari_muslim",
+          "muwatta_musnad"
+        ],
+        "citations": [
+          {
+            "id": "hadith-books-survey",
+            "kind": "ClassicalBook",
+            "titleAr": "تدريب الراوي للسيوطي",
+            "titleEn": "Al-Suyuti, Tadrib al-Rawi",
+            "locator": "Major hadith collections and genres"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "collection",
+            "titleAr": "اصطلاح مكتبي لا درجة واحدة",
+            "titleEn": "A library category, not one authenticity grade",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وجود الحديث في أحد الكتب الستة لا يعني تلقائيًا أنه صحيح؛ فكتب السنن تضم الصحيح والحسن والضعيف بحسب منهج المصنف.",
+                "en": "A report's presence in one of the six books does not automatically make it sahih; the Sunan collections include reports of differing grades according to compiler method.",
+                "citationIds": [
+                  "hadith-books-survey"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "use",
+            "titleAr": "معرفة منهج كل كتاب",
+            "titleEn": "Know each compiler's method",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لفهم موضع الحديث يفيد معرفة غرض الكتاب وطريقة ترتيبه وتعليقات مؤلفه ومناهج النقاد في أحاديثه.",
+                "en": "Understanding a report requires awareness of the collection's purpose, arrangement, compiler comments, and later critical scholarship.",
+                "citationIds": [
+                  "hadith-books-survey"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "muwatta_musnad",
+        "titleAr": "الموطأ والمسانيد والمصنفات",
+        "titleEn": "Muwatta, Musnad, and Musannaf genres",
+        "summaryAr": "صنف المحدثون كتبًا بأشكال متعددة: على الأبواب الفقهية أو أسماء الصحابة أو الآثار والفتاوى.",
+        "summaryEn": "Hadith literature developed multiple genres organized by legal chapters, Companion names, or broader collections of reports and opinions.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "six_books",
+          "hadith_terms"
+        ],
+        "citations": [
+          {
+            "id": "hadith-genres",
+            "kind": "ClassicalBook",
+            "titleAr": "تدريب الراوي للسيوطي",
+            "titleEn": "Al-Suyuti, Tadrib al-Rawi",
+            "locator": "Hadith book genres"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "muwatta",
+            "titleAr": "الموطأ والمصنف",
+            "titleEn": "Muwatta and musannaf",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كتب مثل موطأ مالك تجمع المرفوع وآثار الصحابة والتابعين ضمن أبواب العلم والفقه، بينما توسعت المصنفات في جمع المرويات والآثار.",
+                "en": "Works such as Malik's Muwatta combine Prophetic reports with Companion and Successor material in legal chapters, while musannaf collections preserve a broad range of reports and early opinions.",
+                "citationIds": [
+                  "hadith-genres"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "musnad",
+            "titleAr": "المسانيد",
+            "titleEn": "Musnad collections",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المسند يرتب غالبًا الروايات بحسب الصحابي الراوي، كما في مسند أحمد، وهو تنظيم مختلف عن كتب الأبواب.",
+                "en": "A musnad commonly organizes reports by the Companion narrator, as in Musnad Ahmad, unlike collections arranged by subject chapters.",
+                "citationIds": [
+                  "hadith-genres"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hadith_numbering",
+        "titleAr": "أرقام الأحاديث واختلاف الطبعات",
+        "titleEn": "Hadith numbering and editions",
+        "summaryAr": "رقم الحديث أداة حديثة نسبية تختلف بين الطبعات وقواعد البيانات، لذلك لا يكفي الرقم وحده لتحديد الرواية عالميًا.",
+        "summaryEn": "Hadith numbering varies across editions and databases, so a number alone is not a universal identifier.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "takhrij",
+          "digital_hadith_verification"
+        ],
+        "citations": [
+          {
+            "id": "edition-method",
+            "kind": "ClassicalBook",
+            "titleAr": "منهج تحقيق كتب الحديث وترقيمها",
+            "titleEn": "Hadith Edition and Numbering Methodology",
+            "locator": "Edition-dependent numbering and citation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "variation",
+            "titleAr": "اختلاف الترقيم",
+            "titleEn": "Numbering varies",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قد يحمل الحديث نفسه أرقامًا مختلفة في طبعات صحيح البخاري أو مسلم بحسب منهج العد وإدخال المعلقات والتكرار.",
+                "en": "The same hadith can carry different numbers in editions of Bukhari or Muslim depending on counting method, repetition, and inclusion of suspended reports.",
+                "citationIds": [
+                  "edition-method"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "citation",
+            "titleAr": "المرجع الأكمل",
+            "titleEn": "Better citation practice",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الأدق ذكر اسم الكتاب والباب أو الموضع مع الرقم ونظام الترقيم عند الإمكان، خاصة في تطبيقات رقمية متعددة المصادر.",
+                "en": "A better citation gives collection, book or chapter, and number together with the numbering system where possible, especially in multi-source digital apps.",
+                "citationIds": [
+                  "edition-method"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "apparent_conflict",
+        "titleAr": "التعارض الظاهري بين الأحاديث",
+        "titleEn": "Apparent conflict between hadith reports",
+        "summaryAr": "قد يبدو حديثان متعارضين أولًا، ويبحث العلماء الجمع والسياق والنسخ والترجيح قبل الحكم.",
+        "summaryEn": "Two reports can appear contradictory at first; scholars examine reconciliation, context, chronology, and weighting before deciding.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "grading_disagreement",
+          "quran_sciences/nasikh_mansukh"
+        ],
+        "citations": [
+          {
+            "id": "mukhtalif-hadith",
+            "kind": "ClassicalBook",
+            "titleAr": "اختلاف الحديث للشافعي",
+            "titleEn": "Al-Shafi'i, Ikhtilaf al-Hadith",
+            "locator": "Reconciling apparently conflicting reports"
+          },
+          {
+            "id": "tawil-mukhtalif",
+            "kind": "ClassicalBook",
+            "titleAr": "تأويل مختلف الحديث لابن قتيبة",
+            "titleEn": "Ibn Qutaybah, Ta'wil Mukhtalif al-Hadith",
+            "locator": "Apparent hadith conflict"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "reconcile",
+            "titleAr": "الجمع أولًا",
+            "titleEn": "Reconciliation first",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "إذا أمكن حمل الحديثين على حالين مختلفين أو تخصيص العام أو بيان المقصود زال التعارض دون إسقاط أحد النصين.",
+                "en": "When reports can apply to different circumstances, specify one another, or clarify distinct meanings, apparent contradiction can disappear without rejecting either text.",
+                "citationIds": [
+                  "mukhtalif-hadith"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "weight",
+            "titleAr": "الترجيح بعد التحقق",
+            "titleEn": "Weighting after verification",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "إذا تعذر الجمع ينظر في صحة الطرق والتاريخ والقرائن، ولا يحسم التعارض بمقارنة ترجمتين مقتطعتين من سياقهما.",
+                "en": "If reconciliation fails, critics examine authenticity, chronology, and context; the issue cannot be settled by comparing two isolated translations.",
+                "citationIds": [
+                  "tawil-mukhtalif"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "weak_hadith_practice",
+        "titleAr": "العمل بالحديث الضعيف",
+        "titleEn": "Using weak hadith",
+        "summaryAr": "اختلف العلماء في استعمال بعض الضعيف في فضائل الأعمال بشروط، مع اتفاق على عدم نسبة الموضوع إلى النبي ﷺ.",
+        "summaryEn": "Scholars differed over limited use of some weak reports in virtues of deeds under conditions, while fabricated reports are not treated as Prophetic evidence.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "daif",
+          "fabricated",
+          "grading_disagreement"
+        ],
+        "citations": [
+          {
+            "id": "tadrib-weak-practice",
+            "kind": "ClassicalBook",
+            "titleAr": "تدريب الراوي للسيوطي",
+            "titleEn": "Al-Suyuti, Tadrib al-Rawi",
+            "locator": "Using weak hadith"
+          },
+          {
+            "id": "adhkar-method",
+            "kind": "ClassicalBook",
+            "titleAr": "الأذكار للنووي",
+            "titleEn": "Al-Nawawi, al-Adhkar",
+            "locator": "Use of weak reports in virtues and cautions"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "difference",
+            "titleAr": "مذاهب العلماء",
+            "titleEn": "Scholarly approaches",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "من العلماء من أجاز رواية أو العمل ببعض الضعيف في فضائل الأعمال بضوابط، ومنهم من شدد وفضل الاقتصار على الثابت.",
+                "en": "Some scholars allowed limited use of weak reports in virtues of deeds under conditions, while others were stricter and preferred relying on established reports.",
+                "citationIds": [
+                  "tadrib-weak-practice",
+                  "adhkar-method"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "limits",
+            "titleAr": "لا يثبت به ما لا يثبت",
+            "titleEn": "Limits",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يجعل الخبر شديد الضعف أو الموضوع أصلًا لعقيدة أو حكم ملزم، ولا ينسب للنبي ﷺ بصيغة الجزم إذا لم تثبت نسبته.",
+                "en": "Severely weak or fabricated material should not establish creed or binding law, and an unverified report should not be attributed to the Prophet ﷺ with certainty.",
+                "citationIds": [
+                  "tadrib-weak-practice"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "digital_hadith_verification",
+        "titleAr": "التحقق من الحديث في العصر الرقمي",
+        "titleEn": "Digital hadith verification",
+        "summaryAr": "البحث الإلكتروني يسرع الوصول إلى المصادر لكنه لا يحول نتيجة محرك البحث إلى حكم حديثي موثوق.",
+        "summaryEn": "Digital search greatly improves access to hadith sources but a search result is not itself a reliable hadith grading.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "takhrij",
+          "hadith_numbering",
+          "fabricated"
+        ],
+        "citations": [
+          {
+            "id": "digital-hadith-method",
+            "kind": "ClassicalBook",
+            "titleAr": "منهج التحقق الرقمي من الحديث",
+            "titleEn": "Digital Hadith Verification Methodology",
+            "locator": "Source provenance, edition mapping, and grading attribution"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "source",
+            "titleAr": "العودة إلى المصدر",
+            "titleEn": "Return to the source",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينبغي حفظ اسم الكتاب والباب والنص العربي والطريق أو الموضع وتقييم الناقد، بدل الاكتفاء بصورة منشور أو رقم بلا طبعة.",
+                "en": "Digital verification should retain collection, chapter, Arabic wording, chain/location, edition, and attributed critic judgment rather than a screenshot or unexplained number.",
+                "citationIds": [
+                  "digital-hadith-method"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "attribution",
+            "titleAr": "نسبة الحكم لصاحبه",
+            "titleEn": "Attribute grading",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "إذا اختلف التصحيح والتضعيف يذكر اسم العالم أو قاعدة البيانات ومصدرها، ولا يعرض التطبيق تقييمًا آليًا كأنه إجماع علمي.",
+                "en": "When grading differs, the app should identify the scholar or sourced database behind the judgment and should not present an automated score as scholarly consensus.",
+                "citationIds": [
+                  "digital-hadith-method"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "companion_tafsir_link",
+        "titleAr": "الأثر وتفسير الصحابة",
+        "titleEn": "Athar and Companion interpretation",
+        "summaryAr": "كثير من مواد التفسير والفقه المبكر تنقل موقوفات وآثارًا عن الصحابة والتابعين، وتحتاج إلى نقد الإسناد أيضًا.",
+        "summaryEn": "Much early tafsir and law relies on mawquf reports and athar from Companions and Successors, which also require transmission criticism.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "marfu_mauquf_maqtu",
+          "quran_sciences/companion_tafsir"
+        ],
+        "citations": [
+          {
+            "id": "tabari-athar",
+            "kind": "ClassicalBook",
+            "titleAr": "جامع البيان للطبري",
+            "titleEn": "Al-Tabari, Jami al-Bayan",
+            "locator": "Companion and Successor reports in tafsir"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "role",
+            "titleAr": "أثر الصحابة في التفسير",
+            "titleEn": "Role in tafsir",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنقل كتب التفسير أقوالًا كثيرة عن ابن عباس وابن مسعود وغيرهما، وبعضها قوي وبعضها لا يثبت.",
+                "en": "Tafsir works preserve many reports from Ibn Abbas, Ibn Mas'ud, and others; some have strong transmission while others do not.",
+                "citationIds": [
+                  "tabari-athar"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "method",
+            "titleAr": "الموقوف يحتاج دراسة",
+            "titleEn": "Mawquf reports still need evaluation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كون الخبر موقوفًا على صحابي لا يلغي الحاجة إلى النظر في صحة الطريق إليه، ثم في دلالة قوله وسياقه.",
+                "en": "A report being attributed to a Companion does not remove the need to evaluate the chain to that Companion and then interpret the statement in context.",
+                "citationIds": [
+                  "tabari-athar"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,4654 @@
+{
+  "schemaVersion": 2,
+  "book": {
+    "id": "faq_misconceptions",
+    "titleAr": "الأسئلة الشائعة والمفاهيم الخاطئة",
+    "titleEn": "FAQs and Common Misconceptions",
+    "subtitleAr": "72 سؤالًا موجزًا بإجابات موثقة وروابط إلى المقالات التفصيلية",
+    "subtitleEn": "72 concise, sourced answers linked to detailed reference articles",
+    "contentRevision": 1,
+    "chapters": [
+      {
+        "id": "understanding_islam",
+        "titleAr": "فهم الإسلام والأسئلة الأولى",
+        "titleEn": "Understanding Islam",
+        "summaryAr": "أسئلة البداية عن معنى الإسلام والله والعبادة والغاية والنجاة.",
+        "summaryEn": "First questions about Islam, God, worship, purpose, and salvation.",
+        "topicIds": [
+          "faq_method",
+          "what_is_islam_faq",
+          "islam_means_peace_faq",
+          "who_is_allah_faq",
+          "muslims_worship_muhammad",
+          "purpose_of_life_faq",
+          "why_worship_faq",
+          "salvation_deeds_faq"
+        ]
+      },
+      {
+        "id": "faith_questions",
+        "titleAr": "أسئلة العقيدة والإيمان",
+        "titleEn": "Questions of Faith",
+        "summaryAr": "القدر والشر والألم والدعاء والغيب والتوبة والآخرة.",
+        "summaryEn": "Divine decree, suffering, supplication, the unseen, repentance, and the Hereafter.",
+        "topicIds": [
+          "qadar_free_will",
+          "why_suffering",
+          "dua_unanswered",
+          "forgiveness_major_sins",
+          "belief_unseen",
+          "angels_divine",
+          "afterlife_why",
+          "hope_fear_balance"
+        ]
+      },
+      {
+        "id": "quran_questions",
+        "titleAr": "أسئلة القرآن",
+        "titleEn": "Questions About the Quran",
+        "summaryAr": "حفظ القرآن والمصحف والقراءات والترجمة والنسخ والتفسير وعلاقة القرآن بالعلم.",
+        "summaryEn": "Preservation, the mushaf, readings, translation, abrogation, interpretation, and science.",
+        "topicIds": [
+          "quran_preserved_faq",
+          "uthman_burned_quran",
+          "qiraat_contradictions",
+          "seven_ahruf_qiraat",
+          "translation_is_quran",
+          "abrogation_contradiction",
+          "ambiguous_verses",
+          "quran_science_textbook"
+        ]
+      },
+      {
+        "id": "sunnah_prophet",
+        "titleAr": "السنة والحديث والنبي ﷺ",
+        "titleEn": "Sunnah, Hadith, and the Prophet",
+        "summaryAr": "حجية السنة ونقد الحديث وصحيح البخاري واختلاف التصحيح ومكانة النبي.",
+        "summaryEn": "Authority of Sunnah, hadith criticism, Bukhari, grading differences, and the Prophet's status.",
+        "topicIds": [
+          "why_sunnah",
+          "hadith_compiled_late",
+          "bukhari_infallible",
+          "hadith_grading_diff",
+          "weak_hadith",
+          "prophet_human",
+          "follow_not_worship",
+          "hadith_numbering"
+        ]
+      },
+      {
+        "id": "worship_questions",
+        "titleAr": "أسئلة العبادات",
+        "titleEn": "Questions About Worship",
+        "summaryAr": "الصلاة والطهارة والصيام والزكاة والحج والرخص.",
+        "summaryEn": "Prayer, purification, fasting, zakat, Hajj, and concessions.",
+        "topicIds": [
+          "why_five_prayers",
+          "prayer_arabic",
+          "why_wudu",
+          "missed_prayer",
+          "fasting_only_hunger",
+          "fasting_sick_traveler",
+          "zakat_tax",
+          "hajj_kaaba_worship"
+        ]
+      },
+      {
+        "id": "women_family",
+        "titleAr": "المرأة والأسرة",
+        "titleEn": "Women and Family",
+        "summaryAr": "أسئلة متكررة عن الكرامة والحجاب والزواج والميراث والشهادة والعمل والتعليم.",
+        "summaryEn": "Recurring questions about dignity, hijab, marriage, inheritance, testimony, work, and education.",
+        "topicIds": [
+          "women_spiritual_equal",
+          "hijab_oppression",
+          "polygyny",
+          "inheritance_half",
+          "testimony_half",
+          "marriage_consent",
+          "divorce_islam",
+          "women_work_study"
+        ]
+      },
+      {
+        "id": "law_society",
+        "titleAr": "الشريعة والأخلاق والمجتمع",
+        "titleEn": "Sharia, Ethics, and Society",
+        "summaryAr": "معنى الشريعة والفتوى والمذاهب والحلال والحرام والحرية الدينية والعلاقات والتكفير.",
+        "summaryEn": "Meaning of Sharia, fatwa, madhhabs, halal/haram, religious freedom, relations, and takfir.",
+        "topicIds": [
+          "sharia_punishments",
+          "fatwa_binding",
+          "madhhabs_contradict",
+          "everything_haram",
+          "forced_conversion",
+          "nonmuslim_relations",
+          "lying_nonmuslims",
+          "takfir_people"
+        ]
+      },
+      {
+        "id": "history_misconceptions",
+        "titleAr": "الجهاد والتاريخ والحضارة",
+        "titleEn": "Jihad, History, and Civilization",
+        "summaryAr": "أسئلة عن معنى الجهاد والحرب وانتشار الإسلام وتاريخ الدول والعرب والعلم.",
+        "summaryEn": "Questions about jihad, war, the spread of Islam, political history, Arabs, and science.",
+        "topicIds": [
+          "jihad_holy_war",
+          "islam_aggression",
+          "terrorism_islam",
+          "spread_by_sword",
+          "one_caliphate_history",
+          "all_muslims_arabs",
+          "civilization_only_copied",
+          "science_religion_conflict"
+        ]
+      },
+      {
+        "id": "disagreement_practice",
+        "titleAr": "الخلاف والممارسة والمعلومات",
+        "titleEn": "Disagreement, Practice, and Information",
+        "summaryAr": "كيف يتعامل المستخدم مع اختلاف العلماء والثقافة والإنترنت والقبور والمحتوى الديني.",
+        "summaryEn": "How to handle scholarly disagreement, culture, online information, graves, and religious content.",
+        "topicIds": [
+          "why_muslims_disagree",
+          "follow_strongest_online",
+          "difference_deviation",
+          "grave_visiting",
+          "arabic_superiority",
+          "culture_vs_islam",
+          "verify_religious_content",
+          "app_reference_limits"
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "faq_method",
+        "titleAr": "كيف أستخدم هذا القسم؟",
+        "titleEn": "How should I use this FAQ?",
+        "summaryAr": "إجابات موجزة تفتح الطريق إلى المقالات التفصيلية ولا تستبدل الفتوى المتخصصة.",
+        "summaryEn": "Concise answers that lead into detailed articles and do not replace qualified personal fatwa.",
+        "keywordsAr": [
+          "كيف أستخدم هذا القسم"
+        ],
+        "keywordsEn": [
+          "How should I use this FAQ"
+        ],
+        "relatedTopicIds": [
+          "fiqh_worship/fatwa_guidance",
+          "islam/sources"
+        ],
+        "citations": [
+          {
+            "id": "internal-faq_method",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/fatwa_guidance"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "استخدم الجواب المختصر لفهم الفكرة ثم افتح الموضوع المرتبط للمصادر والتفصيل. المسائل الشخصية التي تتغير بحال السائل تحتاج عالمًا مؤهلًا.",
+                "en": "Use the short answer to understand the idea, then open the linked topic for sources and detail. Personal cases that depend on circumstances need a qualified scholar.",
+                "citationIds": [
+                  "internal-faq_method"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "هذا القسم يعالج الأسئلة المتكررة والمفاهيم الخاطئة، ولذلك يتجنب تحويل كل سؤال إلى حكم فردي أو جواب قطعي في مسائل الخلاف.",
+                "en": "This section addresses recurring questions and misconceptions, so it avoids turning every question into a personalized ruling or pretending disputed matters have only one view.",
+                "citationIds": [
+                  "internal-faq_method"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "what_is_islam_faq",
+        "titleAr": "ما الإسلام باختصار؟",
+        "titleEn": "What is Islam in brief?",
+        "summaryAr": "الإسلام عبادة الله وحده واتباع رسله، ويقوم على إيمان وعبادة وأخلاق ومسؤولية.",
+        "summaryEn": "Islam centers on worshipping God alone and following His messengers, combining faith, worship, ethics, and responsibility.",
+        "keywordsAr": [
+          "ما الإسلام باختصار"
+        ],
+        "keywordsEn": [
+          "What is Islam in brief"
+        ],
+        "relatedTopicIds": [
+          "islam/what_is_islam",
+          "islam/pillars_islam",
+          "islam/pillars_faith"
+        ],
+        "citations": [
+          {
+            "id": "internal-what_is_islam_faq",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/what_is_islam"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الإسلام ليس هوية قومية ولا مجموعة طقوس فقط؛ بل دين توحيد وهداية يشمل علاقة الإنسان بالله وبنفسه وبالناس.",
+                "en": "Islam is neither an ethnicity nor merely a set of rituals; it is a monotheistic way of guidance covering a person's relationship with God, self, and others.",
+                "citationIds": [
+                  "internal-what_is_islam_faq"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعرض أركان الإسلام والإيمان الهيكل الأساسي، بينما تتوسع بقية المكتبة في الأخلاق والأسرة والعبادات والتاريخ والعلم.",
+                "en": "The pillars of Islam and faith give the basic structure, while the rest of the library expands on ethics, family, worship, history, and learning.",
+                "citationIds": [
+                  "internal-what_is_islam_faq"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "islam_means_peace_faq",
+        "titleAr": "هل كلمة الإسلام تعني «السلام» فقط؟",
+        "titleEn": "Does the word Islam simply mean “peace”?",
+        "summaryAr": "ترتبط الكلمة بجذر يفيد السلامة، لكن المعنى الديني الأساس هو الاستسلام لله بالتوحيد والطاعة.",
+        "summaryEn": "The word shares a root associated with peace and wholeness, but its primary religious meaning is submission to God in monotheistic obedience.",
+        "keywordsAr": [
+          "هل كلمة الإسلام تعني «السلام» فقط"
+        ],
+        "keywordsEn": [
+          "Does the word Islam simply mean “peace”"
+        ],
+        "relatedTopicIds": [
+          "islam/islam_meaning"
+        ],
+        "citations": [
+          {
+            "id": "internal-islam_means_peace_faq",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/islam_meaning"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اختزال الإسلام في كلمة «السلام» وحدها غير دقيق لغويًا وشرعيًا؛ السلام ثمرة مهمة، لكن تعريف الدين أوسع.",
+                "en": "Reducing Islam to the word “peace” alone is linguistically and religiously incomplete; peace is important, but the faith's definition is broader.",
+                "citationIds": [
+                  "internal-islam_means_peace_faq"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يفيد الرجوع إلى معنى الاسم وأركان الدين بدل بناء تعريف كامل على تشابه كلمات من جذر لغوي واحد.",
+                "en": "It is better to use the established meaning of the name and the pillars of the religion rather than build a complete definition from related root words.",
+                "citationIds": [
+                  "internal-islam_means_peace_faq"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "who_is_allah_faq",
+        "titleAr": "من هو «الله»؟ وهل هو إله خاص بالمسلمين؟",
+        "titleEn": "Who is “Allah”? Is this a different Muslim god?",
+        "summaryAr": "«الله» هو الاسم العربي لله الواحد الخالق، ويستعمله أيضًا عرب من أديان أخرى عند الحديث عن God.",
+        "summaryEn": "“Allah” is the Arabic name for the one Creator and is also used by Arabic-speaking people of other faiths when referring to God.",
+        "keywordsAr": [
+          "من هو «الله» وهل هو إله خاص بالمسلمين"
+        ],
+        "keywordsEn": [
+          "Who is “Allah” Is this a different Muslim god"
+        ],
+        "relatedTopicIds": [
+          "islam/god",
+          "aqeedah/tawhid"
+        ],
+        "citations": [
+          {
+            "id": "internal-who_is_allah_faq",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/god"
+          },
+          {
+            "id": "quran-allah-one",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "112:1-4"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في العقيدة الإسلامية الله واحد لا شريك له، ليس إنسانًا ولا جزءًا من الكون ولا محتاجًا إلى خلقه.",
+                "en": "In Islamic belief, God is one without partner, not human, not part of creation, and not dependent on creation.",
+                "citationIds": [
+                  "internal-who_is_allah_faq",
+                  "quran-allah-one"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الاختلاف الحقيقي بين الأديان يكون في التصور العقدي عن الله وصفاته والنبوة، لا في كون اللفظ العربي «الله» اسمًا لإله آخر.",
+                "en": "The substantive differences between religions concern theology about God, attributes, and prophecy, not the Arabic word “Allah” naming a separate deity.",
+                "citationIds": [
+                  "internal-who_is_allah_faq"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "muslims_worship_muhammad",
+        "titleAr": "هل يعبد المسلمون محمدًا ﷺ؟",
+        "titleEn": "Do Muslims worship Muhammad ﷺ?",
+        "summaryAr": "لا. العبادة لله وحده، ومحمد ﷺ رسول يُحب ويُتبع ولا يُعبد.",
+        "summaryEn": "No. Worship belongs to God alone; Muhammad ﷺ is a messenger to be loved and followed, not worshipped.",
+        "keywordsAr": [
+          "هل يعبد المسلمون محمدًا ﷺ"
+        ],
+        "keywordsEn": [
+          "Do Muslims worship Muhammad ﷺ"
+        ],
+        "relatedTopicIds": [
+          "islam/prophet",
+          "aqeedah/worship_for_god"
+        ],
+        "citations": [
+          {
+            "id": "internal-muslims_worship_muhammad",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/prophet"
+          },
+          {
+            "id": "quran-servant-messenger",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "18:110"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الشهادتان تجمعان بين توحيد الله والإقرار برسالة محمد ﷺ، ولا تجعل الرسول شريكًا في الألوهية.",
+                "en": "The two testimonies combine worship of God alone with affirmation of Muhammad's ﷺ prophethood; they do not make the messenger divine.",
+                "citationIds": [
+                  "internal-muslims_worship_muhammad",
+                  "quran-servant-messenger"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "محبة النبي واتباع سنته جزء من الدين، لكن الدعاء والعبادة والتأله لا تصرف له.",
+                "en": "Loving the Prophet and following his Sunnah are part of Islam, but worship and divinity are not directed to him.",
+                "citationIds": [
+                  "internal-muslims_worship_muhammad"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "purpose_of_life_faq",
+        "titleAr": "ما غاية الحياة في الإسلام؟",
+        "titleEn": "What is the purpose of life in Islam?",
+        "summaryAr": "الغاية الكبرى هي عبادة الله وعمارة الحياة بالخير ضمن اختبار أخلاقي ينتهي بالرجوع إليه.",
+        "summaryEn": "The central purpose is worshipping God and living responsibly in a moral test that ends in return to Him.",
+        "keywordsAr": [
+          "ما غاية الحياة في الإسلام"
+        ],
+        "keywordsEn": [
+          "What is the purpose of life in Islam"
+        ],
+        "relatedTopicIds": [
+          "islam/purpose_of_life"
+        ],
+        "citations": [
+          {
+            "id": "internal-purpose_of_life_faq",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/purpose_of_life"
+          },
+          {
+            "id": "quran-purpose",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "51:56"
+          },
+          {
+            "id": "quran-test-life",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "67:2"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "العبادة أوسع من الطقوس؛ تشمل النية الصالحة والعمل النافع والعدل والرحمة ضمن ما أذن الله به.",
+                "en": "Worship is broader than rituals; it includes sincere intention, beneficial action, justice, and mercy within what God permits.",
+                "citationIds": [
+                  "internal-purpose_of_life_faq",
+                  "quran-purpose",
+                  "quran-test-life"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يعني ذلك ترك الدنيا، بل استعمالها مسؤولًا مع تذكر أن القيمة النهائية ليست في المال أو الشهرة وحدهما.",
+                "en": "This does not mean abandoning worldly life, but using it responsibly while remembering that money or status are not ultimate ends.",
+                "citationIds": [
+                  "internal-purpose_of_life_faq"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "why_worship_faq",
+        "titleAr": "لماذا يطلب الله العبادة إذا كان غنيًا عنا؟",
+        "titleEn": "Why does God ask for worship if He needs nothing from us?",
+        "summaryAr": "في التصور الإسلامي الله غني عن الخلق، والعبادة حاجة للإنسان وهداية له وليست إمدادًا لله بشيء.",
+        "summaryEn": "In Islam, God is independent of creation; worship benefits and guides the human being rather than supplying God with anything.",
+        "keywordsAr": [
+          "لماذا يطلب الله العبادة إذا كان غنيًا عنا"
+        ],
+        "keywordsEn": [
+          "Why does God ask for worship if He needs nothing from us"
+        ],
+        "relatedTopicIds": [
+          "aqeedah/worship_for_god",
+          "islam/worship"
+        ],
+        "citations": [
+          {
+            "id": "internal-why_worship_faq",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "aqeedah/worship_for_god"
+          },
+          {
+            "id": "quran-free-of-need",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "35:15"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تربط العبادة الإنسان بمصدر المعنى وتربي الشكر والانضباط والتواضع والمسؤولية.",
+                "en": "Worship connects a person to ultimate meaning and cultivates gratitude, discipline, humility, and responsibility.",
+                "citationIds": [
+                  "internal-why_worship_faq",
+                  "quran-free-of-need"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "القول إن الله يأمر بالعبادة لا يستلزم أنه محتاج إليها؛ الأمر يتعلق بحق الخالق ومصلحة المخلوق.",
+                "en": "God commanding worship does not imply divine need; it concerns the Creator's right and the creature's good.",
+                "citationIds": [
+                  "internal-why_worship_faq"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "salvation_deeds_faq",
+        "titleAr": "هل النجاة في الإسلام بالأعمال وحدها؟",
+        "titleEn": "Is salvation in Islam based on deeds alone?",
+        "summaryAr": "الإيمان والعمل الصالح مطلوبان، لكن النجاة ليست معادلة ميكانيكية منفصلة عن رحمة الله وتوبته وعدله.",
+        "summaryEn": "Faith and righteous action matter, but salvation is not a mechanical transaction independent of God's mercy, repentance, and justice.",
+        "keywordsAr": [
+          "هل النجاة في الإسلام بالأعمال وحدها"
+        ],
+        "keywordsEn": [
+          "Is salvation in Islam based on deeds alone"
+        ],
+        "relatedTopicIds": [
+          "aqeedah/hope_fear",
+          "aqeedah/repentance",
+          "islam/afterlife"
+        ],
+        "citations": [
+          {
+            "id": "internal-salvation_deeds_faq",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "aqeedah/hope_fear"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الإسلام يجمع بين الرجاء والخوف: لا يعتمد الإنسان على أعماله غرورًا، ولا ييأس من رحمة الله.",
+                "en": "Islam combines hope and fear: a person does not become self-righteous through deeds and does not despair of God's mercy.",
+                "citationIds": [
+                  "internal-salvation_deeds_faq"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "توبة العبد ومغفرة الله ورد الحقوق إلى أهلها كلها تدخل في الصورة الأخلاقية للنجاة والحساب.",
+                "en": "Repentance, divine forgiveness, and restoring people's rights all belong to the moral picture of salvation and judgment.",
+                "citationIds": [
+                  "internal-salvation_deeds_faq"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "qadar_free_will",
+        "titleAr": "إذا كان الله قدّر كل شيء فهل الإنسان مخيّر؟",
+        "titleEn": "If God decrees everything, do humans really choose?",
+        "summaryAr": "الإسلام يثبت قدر الله وعلمه، وفي الوقت نفسه يثبت للإنسان إرادة وقدرة يحاسب على أفعاله الاختيارية بها.",
+        "summaryEn": "Islam affirms God's decree and knowledge while also affirming real human willing and ability for which people are morally accountable.",
+        "keywordsAr": [
+          "إذا كان الله قدّر كل شيء فهل الإنسان مخيّر"
+        ],
+        "keywordsEn": [
+          "If God decrees everything, do humans really choose"
+        ],
+        "relatedTopicIds": [
+          "aqeedah/qadar",
+          "aqeedah/human_action"
+        ],
+        "citations": [
+          {
+            "id": "internal-qadar_free_will",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "aqeedah/qadar"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا تقدم النصوص الإنسان كروبوت بلا اختيار، ولا ككائن مستقل عن سلطان الله. الجمع بين المعنيين من أصول باب القدر.",
+                "en": "Revelation does not portray humans as choice-less machines or as beings independent of God. Holding both truths together is central to the doctrine of qadar.",
+                "citationIds": [
+                  "internal-qadar_free_will"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تفاصيل العلاقة بين العلم الإلهي والإرادة البشرية نوقشت بطرائق متعددة، لذلك لا ينبغي اختزالها في شعار جبري أو استقلالي.",
+                "en": "Scholars have discussed the relation between divine knowledge and human will in nuanced ways, so it should not be reduced to determinism or total independence.",
+                "citationIds": [
+                  "internal-qadar_free_will"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "why_suffering",
+        "titleAr": "لماذا توجد المصائب والألم؟",
+        "titleEn": "Why do suffering and trials exist?",
+        "summaryAr": "الإسلام لا يقدم كل ألم كعقوبة؛ الابتلاء قد يكون اختبارًا أو تربية أو نتيجة لأفعال بشرية أو جزءًا من نظام الحياة.",
+        "summaryEn": "Islam does not treat every suffering as punishment; trials may be tests, growth, consequences of human actions, or part of mortal life.",
+        "keywordsAr": [
+          "لماذا توجد المصائب والألم"
+        ],
+        "keywordsEn": [
+          "Why do suffering and trials exist"
+        ],
+        "relatedTopicIds": [
+          "islam/patience",
+          "ethics_life/hardship_grief",
+          "aqeedah/qadar"
+        ],
+        "citations": [
+          {
+            "id": "internal-why_suffering",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/patience"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا نملك عادة معرفة السبب الغيبي المحدد وراء مصيبة شخص بعينه، ولذلك ينبغي تجنب اتهام المتألم بأن ما أصابه دليل غضب الله.",
+                "en": "We usually do not know the specific unseen reason behind an individual's hardship, so suffering should not be used to accuse a person of divine rejection.",
+                "citationIds": [
+                  "internal-why_suffering"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المطلوب عمليًا هو الصبر وطلب العون ورفع الظلم والعلاج والإصلاح، لا تحويل فكرة القدر إلى تبرير للخمول.",
+                "en": "The practical response is patience, seeking help, removing injustice, treatment, and reform—not using qadar to justify passivity.",
+                "citationIds": [
+                  "internal-why_suffering"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dua_unanswered",
+        "titleAr": "لماذا لا أرى استجابة دعائي دائمًا؟",
+        "titleEn": "Why don't I always see my supplication answered?",
+        "summaryAr": "الدعاء عبادة وطلب من الله، وليس عقدًا يضمن أن تأتي النتيجة بالصيغة والوقت اللذين يختارهما الإنسان.",
+        "summaryEn": "Supplication is worship and a request to God, not a contract guaranteeing the exact outcome and timing a person chooses.",
+        "keywordsAr": [
+          "لماذا لا أرى استجابة دعائي دائمًا"
+        ],
+        "keywordsEn": [
+          "Why don't I always see my supplication answered"
+        ],
+        "relatedTopicIds": [
+          "islam/dua",
+          "islam/trust_in_god"
+        ],
+        "citations": [
+          {
+            "id": "internal-dua_unanswered",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/dua"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تتداخل في الدعاء الحكمة والقدر والأسباب العملية؛ لذلك يجمع المسلم بين الدعاء والعمل والصبر.",
+                "en": "Dua operates within divine wisdom and decree alongside practical causes, so a Muslim combines supplication, action, and patience.",
+                "citationIds": [
+                  "internal-dua_unanswered"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عدم ظهور النتيجة المطلوبة فورًا لا يعني أن الدعاء بلا قيمة، كما لا يصح استعمال الدعاء بدل علاج أو مسؤولية واجبة.",
+                "en": "Not seeing the requested result immediately does not make dua meaningless, and dua should not be used as a substitute for treatment or necessary responsibility.",
+                "citationIds": [
+                  "internal-dua_unanswered"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "forgiveness_major_sins",
+        "titleAr": "هل يمكن أن يغفر الله الذنوب الكبيرة؟",
+        "titleEn": "Can God forgive major sins?",
+        "summaryAr": "باب التوبة مفتوح لمن تاب توبة صادقة قبل الموت، ولا يبرر ذلك الاستمرار في الذنب أو ظلم الناس.",
+        "summaryEn": "The door of repentance is open to sincere repentance before death, but this does not justify persisting in sin or violating others' rights.",
+        "keywordsAr": [
+          "هل يمكن أن يغفر الله الذنوب الكبيرة"
+        ],
+        "keywordsEn": [
+          "Can God forgive major sins"
+        ],
+        "relatedTopicIds": [
+          "aqeedah/repentance",
+          "islam/repentance"
+        ],
+        "citations": [
+          {
+            "id": "internal-forgiveness_major_sins",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "aqeedah/repentance"
+          },
+          {
+            "id": "quran-mercy",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "39:53"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "توبة الذنب المتعلق بحقوق الناس تتضمن معالجة الحق قدر الاستطاعة، وليست مجرد شعور داخلي بالندم.",
+                "en": "Repentance for wrongs involving other people's rights includes repairing those rights where possible, not merely inward regret.",
+                "citationIds": [
+                  "internal-forgiveness_major_sins",
+                  "quran-mercy"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اليأس من الرحمة مذموم، كما أن الأمن من الحساب مع الإصرار على الأذى مذموم.",
+                "en": "Despairing of mercy is wrong, and so is feeling immune from accountability while persisting in harm.",
+                "citationIds": [
+                  "internal-forgiveness_major_sins"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "belief_unseen",
+        "titleAr": "لماذا يؤمن المسلم بالغيب؟",
+        "titleEn": "Why does Islam ask believers to accept the unseen?",
+        "summaryAr": "الإيمان بالغيب يعني قبول ما أخبر به الوحي الصحيح مما لا تدركه الحواس مباشرة، لا تصديق كل دعوى غامضة.",
+        "summaryEn": "Belief in the unseen means accepting what reliable revelation establishes beyond direct sensory access, not believing every mysterious claim.",
+        "keywordsAr": [
+          "لماذا يؤمن المسلم بالغيب"
+        ],
+        "keywordsEn": [
+          "Why does Islam ask believers to accept the unseen"
+        ],
+        "relatedTopicIds": [
+          "aqeedah/unseen",
+          "aqeedah/angels"
+        ],
+        "citations": [
+          {
+            "id": "internal-belief_unseen",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "aqeedah/unseen"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الإسلام يفرق بين الغيب الذي مصدره الوحي والخرافة أو التنبؤ أو الإشاعة التي لا دليل عليها.",
+                "en": "Islam distinguishes revealed unseen realities from superstition, fortune-telling, or unsupported claims.",
+                "citationIds": [
+                  "internal-belief_unseen"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لهذا لا يجعل الإيمان بالملائكة والآخرة مبررًا لقبول أخبار خارقة بلا سند.",
+                "en": "Belief in angels and the Hereafter therefore does not license acceptance of extraordinary stories without evidence.",
+                "citationIds": [
+                  "internal-belief_unseen"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "angels_divine",
+        "titleAr": "هل الملائكة آلهة أو أبناء لله؟",
+        "titleEn": "Are angels divine beings or children of God?",
+        "summaryAr": "لا. الملائكة خلق من خلق الله، يعبدونه ويطيعونه ولا يشاركونه في الألوهية.",
+        "summaryEn": "No. Angels are created beings who worship and obey God and do not share in divinity.",
+        "keywordsAr": [
+          "هل الملائكة آلهة أو أبناء لله"
+        ],
+        "keywordsEn": [
+          "Are angels divine beings or children of God"
+        ],
+        "relatedTopicIds": [
+          "aqeedah/angels"
+        ],
+        "citations": [
+          {
+            "id": "internal-angels_divine",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "aqeedah/angels"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعظيم الملائكة في الإسلام لا يعني عبادتهم أو دعاءهم استقلالًا عن الله.",
+                "en": "Honoring angels in Islam does not mean worshipping them or treating them as independent divine powers.",
+                "citationIds": [
+                  "internal-angels_divine"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "مكانتهم جزء من الإيمان بالغيب والرسالات، لا من تعدد الآلهة.",
+                "en": "Their role belongs to belief in revelation and the unseen, not to polytheism.",
+                "citationIds": [
+                  "internal-angels_divine"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "afterlife_why",
+        "titleAr": "لماذا الحساب والآخرة مهمان في الإسلام؟",
+        "titleEn": "Why are judgment and the Hereafter central to Islam?",
+        "summaryAr": "الآخرة تجعل المسؤولية الأخلاقية ممتدة وراء حدود العمر القصير، ويقرر الإسلام أن العدل الكامل عند الله.",
+        "summaryEn": "The Hereafter extends moral responsibility beyond a short earthly life and affirms ultimate justice with God.",
+        "keywordsAr": [
+          "لماذا الحساب والآخرة مهمان في الإسلام"
+        ],
+        "keywordsEn": [
+          "Why are judgment and the Hereafter central to Islam"
+        ],
+        "relatedTopicIds": [
+          "aqeedah/judgment",
+          "aqeedah/resurrection",
+          "aqeedah/paradise_hell"
+        ],
+        "citations": [
+          {
+            "id": "internal-afterlife_why",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "aqeedah/judgment"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ليست كل مظلمة تُصلح في الدنيا، ولا كل خير يُكافأ فيها؛ لذلك يرتبط البعث والحساب بالعدل والرحمة والمسؤولية.",
+                "en": "Not every injustice is repaired in this life and not every good act is rewarded here; resurrection and judgment therefore connect with justice, mercy, and accountability.",
+                "citationIds": [
+                  "internal-afterlife_why"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يلغي الإيمان بالآخرة واجب إصلاح الدنيا، بل يفترض أن العمل فيها محل حساب.",
+                "en": "Belief in the Hereafter does not cancel responsibility to improve this world; it makes worldly action accountable.",
+                "citationIds": [
+                  "internal-afterlife_why"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hope_fear_balance",
+        "titleAr": "هل يجب أن يعيش المسلم خائفًا دائمًا من الله؟",
+        "titleEn": "Should a Muslim live in constant fear of God?",
+        "summaryAr": "العبادة في الإسلام تقوم على المحبة والرجاء والخوف معًا، لا على الرعب أو اليأس وحدهما.",
+        "summaryEn": "Islamic worship combines love, hope, and reverent fear rather than terror or despair alone.",
+        "keywordsAr": [
+          "هل يجب أن يعيش المسلم خائفًا دائمًا من الله"
+        ],
+        "keywordsEn": [
+          "Should a Muslim live in constant fear of God"
+        ],
+        "relatedTopicIds": [
+          "aqeedah/hope_fear"
+        ],
+        "citations": [
+          {
+            "id": "internal-hope_fear_balance",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "aqeedah/hope_fear"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الخوف المحمود يمنع الظلم والمعصية، والرجاء يمنع اليأس، والمحبة تدفع إلى القرب والطاعة.",
+                "en": "Healthy fear restrains wrongdoing, hope prevents despair, and love motivates closeness and obedience.",
+                "citationIds": [
+                  "internal-hope_fear_balance"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اختلال التوازن إلى يأس دائم أو أمن كامل من الحساب لا يعبر عن الصورة الكاملة للإيمان.",
+                "en": "Permanent despair or total complacency about accountability both distort the balanced picture of faith.",
+                "citationIds": [
+                  "internal-hope_fear_balance"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "quran_preserved_faq",
+        "titleAr": "كيف يقول المسلمون إن القرآن محفوظ؟",
+        "titleEn": "What does Quranic preservation mean?",
+        "summaryAr": "يقصد بالحفظ انتقال النص القرآني عبر التلاوة والحفظ والكتابة والجمع المبكر ضمن تقليد جماعي واسع.",
+        "summaryEn": "Quranic preservation refers to transmission through recitation, memorization, writing, and early collection within a broad communal tradition.",
+        "keywordsAr": [
+          "كيف يقول المسلمون إن القرآن محفوظ"
+        ],
+        "keywordsEn": [
+          "What does Quranic preservation mean"
+        ],
+        "relatedTopicIds": [
+          "quran_sciences/preservation",
+          "quran_sciences/collection_prophet",
+          "quran_sciences/collection_abu_bakr",
+          "quran_sciences/uthman_codex"
+        ],
+        "citations": [
+          {
+            "id": "internal-quran_preserved_faq",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "quran_sciences/preservation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا تختزل قصة الحفظ في مخطوط واحد أو شخص واحد؛ تتكامل الشواهد الشفوية والمكتوبة وتاريخ المصاحف.",
+                "en": "The preservation story is not reduced to one manuscript or one individual; oral transmission, written evidence, and codex history work together.",
+                "citationIds": [
+                  "internal-quran_preserved_faq"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تبحث علوم القرآن مراحل الكتابة في حياة النبي ﷺ ثم الجمع بعده وتوحيد المصاحف في عهد عثمان.",
+                "en": "Quranic studies examine writing during the Prophet's ﷺ life, collection after him, and codex standardization under Uthman.",
+                "citationIds": [
+                  "internal-quran_preserved_faq"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "uthman_burned_quran",
+        "titleAr": "هل أحرق عثمان رضي الله عنه «نسخًا مختلفة من القرآن»؟",
+        "titleEn": "Did Uthman burn “different Qurans”?",
+        "summaryAr": "التقليد الإسلامي يصف مشروعًا لتوحيد المصاحف المرجعية وتقليل النزاع في أوجه الكتابة والقراءة، لا اختيار قرآن جديد من عدة أديان متنافسة.",
+        "summaryEn": "Islamic tradition describes a project to standardize reference codices and reduce disputes in writing and recitation, not choosing a new Quran from rival religions.",
+        "keywordsAr": [
+          "هل أحرق عثمان رضي الله عنه «نسخًا مختلفة من القرآن»"
+        ],
+        "keywordsEn": [
+          "Did Uthman burn “different Qurans”"
+        ],
+        "relatedTopicIds": [
+          "quran_sciences/uthman_codex",
+          "quran_sciences/collection_abu_bakr",
+          "quran_sciences/rasm"
+        ],
+        "citations": [
+          {
+            "id": "internal-uthman_burned_quran",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "quran_sciences/uthman_codex"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أرسلت مصاحف معيارية إلى الأمصار وأزيلت مواد شخصية أو غير معيارية حتى لا تختلط بالتلقي العام.",
+                "en": "Standard codices were sent to major centers and nonstandard personal materials were removed to avoid confusion in communal transmission.",
+                "citationIds": [
+                  "internal-uthman_burned_quran"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لفهم الحدث يلزم ربطه بجمع أبي بكر والرسم والقراءات، بدل قراءة كلمة «أحرق» خارج سياقها النصي والتعليمي.",
+                "en": "Understanding the event requires connecting it with Abu Bakr's collection, rasm, and qira'at rather than isolating the word “burned” from its textual and educational context.",
+                "citationIds": [
+                  "internal-uthman_burned_quran"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "qiraat_contradictions",
+        "titleAr": "هل القراءات القرآنية تناقض بعضها؟",
+        "titleEn": "Do the Quranic readings contradict one another?",
+        "summaryAr": "القراءات المقبولة طرق نقل منضبطة ضمن النص القرآني، وقد تختلف في لفظ أو حركة بما يوسع المعنى أو يبين وجهًا لغويًا.",
+        "summaryEn": "Accepted qira'at are disciplined transmitted readings within the Quranic text and may differ in wording or vocalization in ways that enrich or clarify meaning.",
+        "keywordsAr": [
+          "هل القراءات القرآنية تناقض بعضها"
+        ],
+        "keywordsEn": [
+          "Do the Quranic readings contradict one another"
+        ],
+        "relatedTopicIds": [
+          "quran_sciences/qiraat",
+          "quran_sciences/canonical_qiraat"
+        ],
+        "citations": [
+          {
+            "id": "internal-qiraat_contradictions",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "quran_sciences/qiraat"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ليس كل اختلاف في القراءة تناقضًا منطقيًا، كما أن القراءات ليست أخطاء مطبعية حديثة.",
+                "en": "Not every variation is a logical contradiction, and qira'at are not modern printing errors.",
+                "citationIds": [
+                  "internal-qiraat_contradictions"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقييم قراءة بعينها يحتاج معرفة السند والرسم والعربية وقواعد القراءات، لا مقارنة ترجمتين فقط.",
+                "en": "Evaluating a particular reading requires knowledge of transmission, rasm, Arabic, and qira'at principles rather than comparing two translations alone.",
+                "citationIds": [
+                  "internal-qiraat_contradictions"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "seven_ahruf_qiraat",
+        "titleAr": "هل الأحرف السبعة هي القراءات السبع؟",
+        "titleEn": "Are the seven ahruf the same as the seven readings?",
+        "summaryAr": "لا. الأحرف السبعة مفهوم وارد في الحديث، والقراءات مدارس نقل لاحقة التنظيم، وبين المصطلحين علاقة معقدة وليسا مترادفين.",
+        "summaryEn": "No. The seven ahruf are a hadith-based concept, while qira'at are later-organized transmission traditions; they are related but not synonymous.",
+        "keywordsAr": [
+          "هل الأحرف السبعة هي القراءات السبع"
+        ],
+        "keywordsEn": [
+          "Are the seven ahruf the same as the seven readings"
+        ],
+        "relatedTopicIds": [
+          "quran_sciences/seven_ahruf",
+          "quran_sciences/qiraat"
+        ],
+        "citations": [
+          {
+            "id": "internal-seven_ahruf_qiraat",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "quran_sciences/seven_ahruf"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اختلف العلماء في تفسير حقيقة الأحرف السبعة، ولذلك ينبغي تجنب التعريفات الجازمة المبسطة التي تجعلها سبع لهجات أو سبع قراءات بلا تفصيل.",
+                "en": "Scholars differed over the exact meaning of the seven ahruf, so oversimplified claims equating them with seven dialects or seven readings should be avoided.",
+                "citationIds": [
+                  "internal-seven_ahruf_qiraat"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قسم علوم القرآن يشرح الفرق بين الأحرف والرسم والقراءات بطريقة أوسع.",
+                "en": "The Quranic Sciences section explains the distinction among ahruf, rasm, and qira'at in greater detail.",
+                "citationIds": [
+                  "internal-seven_ahruf_qiraat"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "translation_is_quran",
+        "titleAr": "هل الترجمة الإنجليزية أو الألمانية هي القرآن نفسه؟",
+        "titleEn": "Is an English or German translation itself the Quran?",
+        "summaryAr": "الترجمة نقل بشري لمعاني القرآن، أما النص المنزل في الإسلام فهو القرآن العربي.",
+        "summaryEn": "A translation is a human rendering of Quranic meanings; in Islam the revealed text is the Arabic Quran.",
+        "keywordsAr": [
+          "هل الترجمة الإنجليزية أو الألمانية هي القرآن نفسه"
+        ],
+        "keywordsEn": [
+          "Is an English or German translation itself the Quran"
+        ],
+        "relatedTopicIds": [
+          "quran_sciences/translation"
+        ],
+        "citations": [
+          {
+            "id": "internal-translation_is_quran",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "quran_sciences/translation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمكن للترجمة أن تكون نافعة جدًا للفهم، لكنها تتضمن اختيارات تفسيرية لأن بعض الألفاظ والبنى لا تنتقل حرفيًا بين اللغات.",
+                "en": "Translation is extremely useful for understanding but necessarily contains interpretive choices because words and structures do not map perfectly across languages.",
+                "citationIds": [
+                  "internal-translation_is_quran"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لهذا قد تفيد مقارنة ترجمات موثوقة والرجوع إلى التفسير عند الآيات المحتملة بدل بناء حكم كبير على صياغة مترجم واحد.",
+                "en": "For difficult passages it can help to compare reliable translations and consult tafsir rather than build major conclusions on one translator's wording.",
+                "citationIds": [
+                  "internal-translation_is_quran"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "abrogation_contradiction",
+        "titleAr": "هل النسخ يعني أن القرآن يناقض نفسه؟",
+        "titleEn": "Does abrogation mean the Quran contradicts itself?",
+        "summaryAr": "النسخ في أصول التفسير والفقه يعني رفع حكم سابق بدليل متأخر في حالات محددة، وليس مجرد وجود آيتين تبدوان مختلفتين.",
+        "summaryEn": "In tafsir and legal theory, abrogation means a later proof replacing an earlier ruling in defined cases, not simply two verses appearing different.",
+        "keywordsAr": [
+          "هل النسخ يعني أن القرآن يناقض نفسه"
+        ],
+        "keywordsEn": [
+          "Does abrogation mean the Quran contradicts itself"
+        ],
+        "relatedTopicIds": [
+          "quran_sciences/nasikh_mansukh"
+        ],
+        "citations": [
+          {
+            "id": "internal-abrogation_contradiction",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "quran_sciences/nasikh_mansukh"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دعوى النسخ تحتاج إثبات الترتيب الزمني وتعذر الجمع الصحيح بين النصوص؛ لذلك حذر العلماء من التوسع فيه.",
+                "en": "A claim of abrogation requires chronology and inability to reconcile the texts properly, so scholars warned against overusing it.",
+                "citationIds": [
+                  "internal-abrogation_contradiction"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كثير من المواضع التي يسميها الناس «تناقضًا» تحل بالسياق أو التخصيص أو اختلاف الحالة بدل النسخ.",
+                "en": "Many passages people call “contradictions” are better explained by context, specification, or differing circumstances rather than abrogation.",
+                "citationIds": [
+                  "internal-abrogation_contradiction"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ambiguous_verses",
+        "titleAr": "ماذا يفعل المسلم مع الآيات المتشابهة أو الصعبة؟",
+        "titleEn": "How should difficult or ambiguous Quranic verses be approached?",
+        "summaryAr": "تقرأ الآية في سياقها وبالعربية وبقية القرآن والسنة وأصول التفسير، ولا تعزل عبارة محتملة لبناء عقيدة أو حكم وحدها.",
+        "summaryEn": "A difficult verse is read in context, Arabic, the rest of the Quran, Sunnah, and interpretive principles rather than isolated to build doctrine or law by itself.",
+        "keywordsAr": [
+          "ماذا يفعل المسلم مع الآيات المتشابهة أو الصعبة"
+        ],
+        "keywordsEn": [
+          "How should difficult or ambiguous Quranic verses be approached"
+        ],
+        "relatedTopicIds": [
+          "quran_sciences/muhkam_mutashabih",
+          "quran_sciences/tafsir_principles"
+        ],
+        "citations": [
+          {
+            "id": "internal-ambiguous_verses",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "quran_sciences/muhkam_mutashabih"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يفرق علم التفسير بين المحكم والمتشابه ويستفيد من أسباب النزول واللغة وأقوال السلف ومدارس التفسير.",
+                "en": "Tafsir distinguishes clearer and less explicit passages and uses occasions of revelation, language, early interpretation, and scholarly tradition.",
+                "citationIds": [
+                  "internal-ambiguous_verses"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الاعتراف بأن معنى تفصيليًا قد يكون محل خلاف علمي أدق من ادعاء اليقين فيما لا يحتمله النص.",
+                "en": "Admitting legitimate scholarly uncertainty is more accurate than claiming certainty where the evidence does not support it.",
+                "citationIds": [
+                  "internal-ambiguous_verses"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "quran_science_textbook",
+        "titleAr": "هل القرآن كتاب علوم طبيعية؟",
+        "titleEn": "Is the Quran a natural-science textbook?",
+        "summaryAr": "القرآن كتاب هداية، ويشير إلى الخلق والكون للتفكر، لكنه لا يقدم نفسه كتابًا مدرسيًا في الفيزياء أو الأحياء.",
+        "summaryEn": "The Quran is a book of guidance that points to creation for reflection; it does not present itself as a physics or biology textbook.",
+        "keywordsAr": [
+          "هل القرآن كتاب علوم طبيعية"
+        ],
+        "keywordsEn": [
+          "Is the Quran a natural-science textbook"
+        ],
+        "relatedTopicIds": [
+          "islam/science",
+          "quran_sciences/tafsir_principles"
+        ],
+        "citations": [
+          {
+            "id": "internal-quran_science_textbook",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/science"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ربط كل اكتشاف حديث بآية على أنه إعجاز قطعي قد يحمل النص ما لا يحتمل ثم يتغير الادعاء بتغير النظريات العلمية.",
+                "en": "Treating every modern discovery as a definitive scientific miracle can overstate the text and make interpretation shift with changing scientific theories.",
+                "citationIds": [
+                  "internal-quran_science_textbook"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمكن للمسلم الجمع بين احترام الوحي ودراسة العلوم التجريبية بمناهجها وأدلتها الخاصة.",
+                "en": "A Muslim can respect revelation while studying empirical sciences through their own methods and evidence.",
+                "citationIds": [
+                  "internal-quran_science_textbook"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "why_sunnah",
+        "titleAr": "لماذا يحتاج المسلم إلى السنة إذا كان عنده القرآن؟",
+        "titleEn": "Why is the Sunnah needed if Muslims have the Quran?",
+        "summaryAr": "القرآن نفسه يحيل إلى طاعة الرسول وبيانه، والسنة تشرح تطبيق الصلاة والزكاة والحج وغيرها.",
+        "summaryEn": "The Quran itself directs believers to obey the Messenger, and the Sunnah explains practical details of prayer, zakat, Hajj, and more.",
+        "keywordsAr": [
+          "لماذا يحتاج المسلم إلى السنة إذا كان عنده القرآن"
+        ],
+        "keywordsEn": [
+          "Why is the Sunnah needed if Muslims have the Quran"
+        ],
+        "relatedTopicIds": [
+          "hadith_sciences/sunnah_authority",
+          "islam/sunnah"
+        ],
+        "citations": [
+          {
+            "id": "internal-why_sunnah",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "hadith_sciences/sunnah_authority"
+          },
+          {
+            "id": "quran-obey-messenger",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:59"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "حجية السنة لا تعني قبول كل خبر منسوب للنبي؛ هنا تأتي علوم الإسناد والمتن والتصحيح والتضعيف.",
+                "en": "The authority of Sunnah does not mean accepting every report attributed to the Prophet; hadith criticism evaluates chains and texts.",
+                "citationIds": [
+                  "internal-why_sunnah",
+                  "quran-obey-messenger"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لذلك يجمع المنهج بين إثبات أصل السنة ونقد الروايات المفردة بدرجاتها.",
+                "en": "The method therefore combines affirming Sunnah as a source with critical evaluation of individual reports.",
+                "citationIds": [
+                  "internal-why_sunnah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hadith_compiled_late",
+        "titleAr": "هل كُتبت الأحاديث بعد قرون فقط؟",
+        "titleEn": "Were hadith only written centuries later?",
+        "summaryAr": "التدوين الكبير للمصنفات جاء على مراحل، لكن نقل الحديث وحفظه وكتابته الجزئية بدأ في أجيال مبكرة قبل كتب القرن الثالث الهجري الشهيرة.",
+        "summaryEn": "Large canonical compilations developed over time, but hadith transmission, memorization, and partial writing began in earlier generations before the famous third-century AH collections.",
+        "keywordsAr": [
+          "هل كُتبت الأحاديث بعد قرون فقط"
+        ],
+        "keywordsEn": [
+          "Were hadith only written centuries later"
+        ],
+        "relatedTopicIds": [
+          "hadith_sciences/isnad_matn",
+          "hadith_sciences/bukhari_muslim"
+        ],
+        "citations": [
+          {
+            "id": "internal-hadith_compiled_late",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "hadith_sciences/isnad_matn"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينبغي التفريق بين وجود الحديث كرواية وتعليم، وبين تاريخ تصنيف كتاب مثل صحيح البخاري.",
+                "en": "One should distinguish the existence of reports in teaching and transmission from the later compilation date of a particular book such as Sahih al-Bukhari.",
+                "citationIds": [
+                  "internal-hadith_compiled_late"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "علم الإسناد والرحلة وجمع الطرق نشأ لخدمة فحص هذا النقل لا لمجرد تكديس القصص.",
+                "en": "Isnad analysis, scholarly travel, and collecting transmission routes developed to scrutinize that material rather than merely accumulate stories.",
+                "citationIds": [
+                  "internal-hadith_compiled_late"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bukhari_infallible",
+        "titleAr": "هل صحيح البخاري معصوم من الخطأ؟",
+        "titleEn": "Is Sahih al-Bukhari infallible?",
+        "summaryAr": "لا. العصمة ليست لكتاب حديث بعد القرآن، لكن صحيح البخاري يحظى بمكانة عالية جدًا بسبب منهجه وقبول العلماء له.",
+        "summaryEn": "No. No hadith book after the Quran is infallible, though Sahih al-Bukhari holds exceptionally high status because of its methodology and scholarly reception.",
+        "keywordsAr": [
+          "هل صحيح البخاري معصوم من الخطأ"
+        ],
+        "keywordsEn": [
+          "Is Sahih al-Bukhari infallible"
+        ],
+        "relatedTopicIds": [
+          "hadith_sciences/bukhari_muslim"
+        ],
+        "citations": [
+          {
+            "id": "internal-bukhari_infallible",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "hadith_sciences/bukhari_muslim"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ناقش العلماء أفرادًا من الأسانيد أو الألفاظ مع بقاء التقييم العام للكتاب، وهذا يختلف عن إسقاطه كله أو مساواته بأي مجموعة روايات.",
+                "en": "Scholars discussed particular chains or wordings while maintaining the book's overall standing; this differs from rejecting the whole collection or treating it like any random anthology.",
+                "citationIds": [
+                  "internal-bukhari_infallible"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "التعامل العلمي مع حديث معين ينظر إلى طرقه وشروحه ومحل النقد بدل شعارات «كل شيء صحيح بلا بحث» أو «كل شيء مشكوك».",
+                "en": "Scholarly treatment of a specific report examines its routes, commentary, and criticism rather than using slogans that everything is beyond analysis or everything is doubtful.",
+                "citationIds": [
+                  "internal-bukhari_infallible"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hadith_grading_diff",
+        "titleAr": "لماذا يختلف العلماء في تصحيح الحديث؟",
+        "titleEn": "Why do scholars sometimes disagree over hadith grading?",
+        "summaryAr": "لأن تقييم اتصال السند وحال الرواة والعلل والمخالفة قد يتضمن اجتهادًا نقديًا مع قواعد مشتركة.",
+        "summaryEn": "Because evaluating chain continuity, narrators, hidden defects, and contradictions can involve expert judgment within shared critical principles.",
+        "keywordsAr": [
+          "لماذا يختلف العلماء في تصحيح الحديث"
+        ],
+        "keywordsEn": [
+          "Why do scholars sometimes disagree over hadith grading"
+        ],
+        "relatedTopicIds": [
+          "hadith_sciences/grading_disagreement",
+          "hadith_sciences/hidden_defects"
+        ],
+        "citations": [
+          {
+            "id": "internal-hadith_grading_diff",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "hadith_sciences/grading_disagreement"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قد تتوفر لطالب طرق لم تبلغ آخر، أو يختلف النقاد في وزن قرينة أو راوٍ، فينتج اختلاف منضبط لا يعني أن التصحيح عشوائي.",
+                "en": "One critic may have transmission routes unavailable to another, or weigh a narrator or indicator differently; disciplined disagreement does not make grading arbitrary.",
+                "citationIds": [
+                  "internal-hadith_grading_diff"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المهم عند غير المتخصص ألا يختار الدرجة التي توافق رغبته فقط، بل يرجع إلى التحقيق المعتبر.",
+                "en": "Non-specialists should not simply choose the grade that suits their preference but rely on qualified critical work.",
+                "citationIds": [
+                  "internal-hadith_grading_diff"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "weak_hadith",
+        "titleAr": "هل الحديث الضعيف كذب؟",
+        "titleEn": "Is a weak hadith fabricated?",
+        "summaryAr": "ليس بالضرورة. «ضعيف» يعني أنه لم يستوف شروط القبول، أما «موضوع» فيعني خبرًا مصنوعًا أو مكذوبًا.",
+        "summaryEn": "Not necessarily. “Weak” means the report did not meet acceptance criteria; “fabricated” means invented and falsely attributed.",
+        "keywordsAr": [
+          "هل الحديث الضعيف كذب"
+        ],
+        "keywordsEn": [
+          "Is a weak hadith fabricated"
+        ],
+        "relatedTopicIds": [
+          "hadith_sciences/daif",
+          "hadith_sciences/fabricated",
+          "hadith_sciences/weak_hadith_practice"
+        ],
+        "citations": [
+          {
+            "id": "internal-weak_hadith",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "hadith_sciences/daif"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "للضعف أسباب ودرجات، ولهذا لا يصح مساواة كل ضعيف بالموضوع ولا استعمال الضعيف بلا معرفة ضوابط الباب.",
+                "en": "Weakness has causes and degrees, so not every weak report is fabricated and weak reports should not be used without understanding the relevant rules.",
+                "citationIds": [
+                  "internal-weak_hadith"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يفرق قسم علوم الحديث بين الصحيح والحسن والضعيف والموضوع واستعمال كل نوع.",
+                "en": "The Hadith Sciences section distinguishes sahih, hasan, weak, fabricated, and their uses.",
+                "citationIds": [
+                  "internal-weak_hadith"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prophet_human",
+        "titleAr": "هل كان النبي ﷺ بشرًا أم ذا طبيعة إلهية؟",
+        "titleEn": "Was the Prophet ﷺ human or divine?",
+        "summaryAr": "في الإسلام محمد ﷺ بشر ورسول اصطفاه الله بالوحي، وليس له جزء من الألوهية.",
+        "summaryEn": "In Islam, Muhammad ﷺ is a human messenger chosen for revelation and has no share in divinity.",
+        "keywordsAr": [
+          "هل كان النبي ﷺ بشرًا أم ذا طبيعة إلهية"
+        ],
+        "keywordsEn": [
+          "Was the Prophet ﷺ human or divine"
+        ],
+        "relatedTopicIds": [
+          "aqeedah/final_prophet",
+          "islam/prophet"
+        ],
+        "citations": [
+          {
+            "id": "internal-prophet_human",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "aqeedah/final_prophet"
+          },
+          {
+            "id": "quran-human-messenger",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "18:110"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كونه بشرًا هو ما يجعل سنته نموذجًا عمليًا للبشر، مع خصائص نبوة ووحي لا يشاركه فيها الناس.",
+                "en": "His humanity makes his Sunnah a practical human model, while prophethood and revelation are special gifts not shared by ordinary people.",
+                "citationIds": [
+                  "internal-prophet_human",
+                  "quran-human-messenger"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "التعظيم المشروع لا يتحول إلى عبادة أو صفات لا تثبتها النصوص.",
+                "en": "Legitimate reverence does not become worship or attribution of qualities not established by revelation.",
+                "citationIds": [
+                  "internal-prophet_human"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "follow_not_worship",
+        "titleAr": "ما الفرق بين اتباع النبي ﷺ وعبادته؟",
+        "titleEn": "What is the difference between following and worshipping the Prophet ﷺ?",
+        "summaryAr": "الاتباع يعني قبول هديه المعتبر وطاعته رسولًا، أما العبادة فهي حق لله وحده.",
+        "summaryEn": "Following means accepting his authenticated guidance and obeying him as Messenger; worship belongs to God alone.",
+        "keywordsAr": [
+          "ما الفرق بين اتباع النبي ﷺ وعبادته"
+        ],
+        "keywordsEn": [
+          "What is the difference between following and worshipping the Prophet ﷺ"
+        ],
+        "relatedTopicIds": [
+          "islam/following_prophet",
+          "aqeedah/worship_for_god"
+        ],
+        "citations": [
+          {
+            "id": "internal-follow_not_worship",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/following_prophet"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الصلاة على النبي ومحبتُه وتوقيرُه عبادات لله من جهة امتثال الأمر، وليست تأليهًا للنبي.",
+                "en": "Sending blessings on the Prophet, loving him, and honoring him are acts of obedience to God, not deification of the Prophet.",
+                "citationIds": [
+                  "internal-follow_not_worship"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كل صيغة غلو تمنحه حقًا من خصائص الله تحتاج إلى رفض أو تصحيح.",
+                "en": "Any exaggeration assigning him a right exclusive to God requires correction.",
+                "citationIds": [
+                  "internal-follow_not_worship"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hadith_numbering",
+        "titleAr": "لماذا يختلف رقم الحديث من موقع أو طبعة لأخرى؟",
+        "titleEn": "Why can the same hadith have different numbers?",
+        "summaryAr": "ترقيم الأحاديث عمل تحريري متأخر يختلف باختلاف الطبعات وطريقة عد المكرر والمعلقات والأبواب.",
+        "summaryEn": "Hadith numbering is a later editorial system that varies by edition and by how repeated reports, headings, and suspended narrations are counted.",
+        "keywordsAr": [
+          "لماذا يختلف رقم الحديث من موقع أو طبعة لأخرى"
+        ],
+        "keywordsEn": [
+          "Why can the same hadith have different numbers"
+        ],
+        "relatedTopicIds": [
+          "hadith_sciences/hadith_numbering"
+        ],
+        "citations": [
+          {
+            "id": "internal-hadith_numbering",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "hadith_sciences/hadith_numbering"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لذلك الرقم وحده قد لا يكفي للتحقق؛ الأفضل ذكر الكتاب والباب وطرف الحديث أو بيانات الطبعة عند الحاجة.",
+                "en": "A number alone may not be enough to verify a report; collection, chapter, opening words, or edition details can be more reliable.",
+                "citationIds": [
+                  "internal-hadith_numbering"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "التطبيق يعامل المحدد الحديثي كبيانات مرجعية لا كرقم عالمي ثابت لكل النسخ.",
+                "en": "The app treats a hadith locator as reference metadata rather than assuming one universal numbering system across all editions.",
+                "citationIds": [
+                  "internal-hadith_numbering"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "why_five_prayers",
+        "titleAr": "لماذا يصلي المسلم خمس مرات في اليوم؟",
+        "titleEn": "Why do Muslims pray five times a day?",
+        "summaryAr": "الصلوات الخمس عبادة مفروضة موزعة على اليوم لتجدد الصلة بالله والانضباط الروحي.",
+        "summaryEn": "The five daily prayers are obligatory acts distributed through the day to renew connection with God and spiritual discipline.",
+        "keywordsAr": [
+          "لماذا يصلي المسلم خمس مرات في اليوم"
+        ],
+        "keywordsEn": [
+          "Why do Muslims pray five times a day"
+        ],
+        "relatedTopicIds": [
+          "islam/prayer",
+          "fiqh_worship/prayer_times",
+          "fiqh_worship/prayer_pillars"
+        ],
+        "citations": [
+          {
+            "id": "internal-why_five_prayers",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/prayer"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحدد السنة تفاصيل عدد الصلوات وأوقاتها وهيئتها، بينما يذكر القرآن الصلاة وأوقاتها على وجوه متعددة.",
+                "en": "The Sunnah gives practical detail for the number, timings, and form of the prayers, while the Quran repeatedly commands prayer and refers to its times.",
+                "citationIds": [
+                  "internal-why_five_prayers"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الصلاة ليست تأملًا اختياريًا فقط؛ لها شروط وأركان ورخص للمريض والمسافر.",
+                "en": "Salah is not merely optional meditation; it has conditions, pillars, and concessions for illness and travel.",
+                "citationIds": [
+                  "internal-why_five_prayers"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prayer_arabic",
+        "titleAr": "هل يجب أن يفهم المسلم العربية حتى يصلي؟",
+        "titleEn": "Must a Muslim know Arabic to pray?",
+        "summaryAr": "الأذكار والقراءة الأساسية في الصلاة لها صيغة عربية موروثة، لكن فهم معانيها مطلوب تربويًا ولا يشترط إتقان العربية كلها للدخول في الإسلام.",
+        "summaryEn": "Core recitations in formal prayer are transmitted in Arabic, but understanding their meanings is strongly beneficial and full Arabic fluency is not required to become Muslim.",
+        "keywordsAr": [
+          "هل يجب أن يفهم المسلم العربية حتى يصلي"
+        ],
+        "keywordsEn": [
+          "Must a Muslim know Arabic to pray"
+        ],
+        "relatedTopicIds": [
+          "islam/arabic_language",
+          "fiqh_worship/prayer_pillars"
+        ],
+        "citations": [
+          {
+            "id": "internal-prayer_arabic",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/arabic_language"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يتعلم الداخل في الإسلام ما يحتاجه تدريجيًا، ويمكنه دراسة المعاني بلغته خارج الصلاة والاستعانة بالتدرج والفتوى فيما يعجز عنه.",
+                "en": "A new Muslim learns what is needed gradually and can study meanings in their own language outside prayer, seeking qualified guidance where unable.",
+                "citationIds": [
+                  "internal-prayer_arabic"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا ينبغي أن تتحول العربية إلى حاجز عرقي؛ هي لغة القرآن والعبادة وليست معيار تفاضل قومي.",
+                "en": "Arabic should not become an ethnic barrier; it is the language of Quran and formal worship, not a measure of racial superiority.",
+                "citationIds": [
+                  "internal-prayer_arabic"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "why_wudu",
+        "titleAr": "لماذا الوضوء قبل الصلاة؟",
+        "titleEn": "Why is wudu required before prayer?",
+        "summaryAr": "الوضوء طهارة تعبدية شرعها الله لبعض العبادات، تجمع النظافة الظاهرة بالاستعداد الروحي دون أن تكون مجرد إجراء صحي.",
+        "summaryEn": "Wudu is a ritual purification prescribed for certain acts of worship, combining physical cleanliness with spiritual preparation without being merely hygiene.",
+        "keywordsAr": [
+          "لماذا الوضوء قبل الصلاة"
+        ],
+        "keywordsEn": [
+          "Why is wudu required before prayer"
+        ],
+        "relatedTopicIds": [
+          "fiqh_worship/wudu",
+          "fiqh_worship/tayammum",
+          "fiqh_worship/wiping_footwear"
+        ],
+        "citations": [
+          {
+            "id": "internal-why_wudu",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/wudu"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تفاصيل ما يجب غسله ومسحه ونواقض الوضوء باب فقهي مستقل، ولا يصح اختراع متطلبات إضافية بدافع الوسواس.",
+                "en": "The required washing and wiping and what nullifies wudu are defined in fiqh; extra burdens should not be invented through scrupulosity.",
+                "citationIds": [
+                  "internal-why_wudu"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الرخص مثل التيمم والمسح تبين أن مقصد العبادة لا ينفصل عن التيسير عند العذر.",
+                "en": "Concessions such as tayammum and wiping show that ritual devotion also includes facilitation in genuine difficulty.",
+                "citationIds": [
+                  "internal-why_wudu"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "missed_prayer",
+        "titleAr": "ماذا يفعل من فاتته صلاة؟",
+        "titleEn": "What should someone do after missing a prayer?",
+        "summaryAr": "الحكم يتأثر بسبب الفوات: نوم أو نسيان أو تعمد أو مرض، ولذلك يعرض الفقه تفصيلًا لا جوابًا واحدًا لكل الحالات.",
+        "summaryEn": "The ruling depends on why it was missed—sleep, forgetfulness, deliberate omission, illness, and so on—so fiqh gives contextual detail rather than one answer for every case.",
+        "keywordsAr": [
+          "ماذا يفعل من فاتته صلاة"
+        ],
+        "keywordsEn": [
+          "What should someone do after missing a prayer"
+        ],
+        "relatedTopicIds": [
+          "fiqh_worship/missed_prayers"
+        ],
+        "citations": [
+          {
+            "id": "internal-missed_prayer",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/missed_prayers"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "من نام أو نسي يصلي عند التذكر وفق السنة، أما التعمد وتكرار الفوات فيحتاج توبة ومعالجة السبب وسؤال أهل العلم عند الحاجة.",
+                "en": "Someone who slept through or forgot a prayer performs it upon remembering according to the Sunnah; deliberate or repeated neglect calls for repentance, correcting the cause, and qualified guidance when needed.",
+                "citationIds": [
+                  "internal-missed_prayer"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "هذا مثال على مسألة لا يكفي فيها منشور قصير إذا كانت الحالة الشخصية معقدة.",
+                "en": "This is an example where a short online answer may be inadequate for a complex personal case.",
+                "citationIds": [
+                  "internal-missed_prayer"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fasting_only_hunger",
+        "titleAr": "هل هدف صيام رمضان مجرد الجوع؟",
+        "titleEn": "Is Ramadan fasting just about hunger?",
+        "summaryAr": "لا. القرآن يربط الصيام بالتقوى، ويجمع رمضان بين الامتناع والعبادة والقرآن وضبط السلوك والصدقة.",
+        "summaryEn": "No. The Quran connects fasting with taqwa, and Ramadan combines abstention with worship, Quran, ethical discipline, and charity.",
+        "keywordsAr": [
+          "هل هدف صيام رمضان مجرد الجوع"
+        ],
+        "keywordsEn": [
+          "Is Ramadan fasting just about hunger"
+        ],
+        "relatedTopicIds": [
+          "fiqh_worship/fasting_obligation",
+          "islam/fasting"
+        ],
+        "citations": [
+          {
+            "id": "internal-fasting_only_hunger",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/fasting_obligation"
+          },
+          {
+            "id": "quran-fasting-taqwa",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:183"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الامتناع عن الطعام والشراب جزء محدد من العبادة، لكن الكذب والأذى وإضاعة الحقوق تناقض مقاصد الصيام الأخلاقية.",
+                "en": "Abstaining from food and drink is a defined part of the worship, while lying, harm, and neglecting rights contradict its ethical purposes.",
+                "citationIds": [
+                  "internal-fasting_only_hunger",
+                  "quran-fasting-taqwa"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الصوم ليس عقوبة للجسد، وتوجد رخص للمرض والسفر وحالات أخرى.",
+                "en": "Fasting is not bodily punishment, and concessions exist for illness, travel, and other circumstances.",
+                "citationIds": [
+                  "internal-fasting_only_hunger"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fasting_sick_traveler",
+        "titleAr": "هل يجب على المريض أو المسافر أن يصوم مهما كان؟",
+        "titleEn": "Must a sick or traveling person fast no matter what?",
+        "summaryAr": "لا. الشريعة تقرر رخصًا للمريض والمسافر، ويختلف القضاء أو الفدية بحسب الحالة ونوع العذر.",
+        "summaryEn": "No. Islamic law provides concessions for illness and travel, with make-up fasting or fidya depending on the situation and type of excuse.",
+        "keywordsAr": [
+          "هل يجب على المريض أو المسافر أن يصوم مهما كان"
+        ],
+        "keywordsEn": [
+          "Must a sick or traveling person fast no matter what"
+        ],
+        "relatedTopicIds": [
+          "fiqh_worship/fasting_excuses",
+          "fiqh_worship/qada_fidya_kaffara"
+        ],
+        "citations": [
+          {
+            "id": "internal-fasting_sick_traveler",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/fasting_excuses"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقدير الضرر الطبي ليس مسألة روحية فقط؛ قد يحتاج المسلم إلى طبيب موثوق ثم يسأل فقيهًا عن تنزيل الحكم على حاله.",
+                "en": "Assessing medical harm is not purely a spiritual question; a person may need reliable medical advice and then juristic guidance for the ruling.",
+                "citationIds": [
+                  "internal-fasting_sick_traveler"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا ينبغي استعمال التدين للضغط على شخص مريض ليتجاهل خطرًا صحيًا معتبرًا.",
+                "en": "Religious commitment should not be used to pressure a sick person into ignoring a credible health risk.",
+                "citationIds": [
+                  "internal-fasting_sick_traveler"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "zakat_tax",
+        "titleAr": "هل الزكاة مجرد ضريبة دينية؟",
+        "titleEn": "Is zakat just a religious tax?",
+        "summaryAr": "الزكاة عبادة مالية لها شروط وأنصبة ومستحقون محددون، وليست مساوية لأي ضريبة حكومية من حيث المقصد أو الأحكام.",
+        "summaryEn": "Zakat is a financial act of worship with defined thresholds, conditions, and recipients; it is not simply equivalent to a government tax.",
+        "keywordsAr": [
+          "هل الزكاة مجرد ضريبة دينية"
+        ],
+        "keywordsEn": [
+          "Is zakat just a religious tax"
+        ],
+        "relatedTopicIds": [
+          "fiqh_worship/zakat_principles",
+          "fiqh_worship/zakat_recipients"
+        ],
+        "citations": [
+          {
+            "id": "internal-zakat_tax",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/zakat_principles"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قد يدفع المسلم ضرائب مدنية وتبقى عليه زكاة إذا تحققت شروطها، لأن البابين مختلفان وإن اشتركا في خروج المال.",
+                "en": "A Muslim may pay civil taxes and still owe zakat when its conditions are met because the two systems differ even though both involve money.",
+                "citationIds": [
+                  "internal-zakat_tax"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "حساب الزكاة يتغير بنوع المال ولذلك يعالج الفقه النقد والتجارة والزروع وغيرها بصورة منفصلة.",
+                "en": "Zakat calculation varies by type of wealth, so fiqh treats cash, trade goods, crops, and other categories separately.",
+                "citationIds": [
+                  "internal-zakat_tax"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hajj_kaaba_worship",
+        "titleAr": "هل الطواف حول الكعبة يعني عبادتها؟",
+        "titleEn": "Does tawaf around the Kaaba mean Muslims worship it?",
+        "summaryAr": "لا. المسلم يعبد الله، والطواف عبادة لله تؤدى في مكان وهيئة أمر بها الشرع.",
+        "summaryEn": "No. Muslims worship God; tawaf is worship of God performed at a place and in a form prescribed by revelation.",
+        "keywordsAr": [
+          "هل الطواف حول الكعبة يعني عبادتها"
+        ],
+        "keywordsEn": [
+          "Does tawaf around the Kaaba mean Muslims worship it"
+        ],
+        "relatedTopicIds": [
+          "places_landmarks/kaaba",
+          "fiqh_worship/tawaf",
+          "aqeedah/tawhid"
+        ],
+        "citations": [
+          {
+            "id": "internal-hajj_kaaba_worship",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "places_landmarks/kaaba"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الكعبة قبلة ورمز وحدة في العبادة وليست إلهًا، ولا يعتقد المسلم أنها تخلق أو ترزق أو تجيب الدعاء بذاتها.",
+                "en": "The Kaaba is the qibla and a unifying focus of worship, not a deity; Muslims do not believe it independently creates, provides, or answers prayer.",
+                "citationIds": [
+                  "internal-hajj_kaaba_worship"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "هذا يفسر أيضًا الفرق بين احترام الأماكن المقدسة وعبادة الأبنية أو الأحجار.",
+                "en": "This also explains the difference between honoring sacred places and worshipping buildings or stones.",
+                "citationIds": [
+                  "internal-hajj_kaaba_worship"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "women_spiritual_equal",
+        "titleAr": "هل المرأة أقل قيمة دينيًا من الرجل في الإسلام؟",
+        "titleEn": "Are women spiritually worth less than men in Islam?",
+        "summaryAr": "لا. القرآن يربط الكرامة والثواب والتكليف بالإيمان والعمل، ويذكر الرجال والنساء معًا في المسؤولية الدينية.",
+        "summaryEn": "No. The Quran connects dignity, reward, and responsibility to faith and action and repeatedly addresses men and women together as morally accountable.",
+        "keywordsAr": [
+          "هل المرأة أقل قيمة دينيًا من الرجل في الإسلام"
+        ],
+        "keywordsEn": [
+          "Are women spiritually worth less than men in Islam"
+        ],
+        "relatedTopicIds": [
+          "islam/women",
+          "ethics_life/rights_dignity"
+        ],
+        "citations": [
+          {
+            "id": "internal-women_spiritual_equal",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/women"
+          },
+          {
+            "id": "quran-men-women-reward",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:35"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وجود أحكام مختلفة في بعض أبواب الأسرة أو المال لا يعني قاعدة عامة أن جنسًا أقل إنسانية أو قربًا من الله.",
+                "en": "Differing rulings in some family or financial matters do not establish a general principle that one sex has lesser humanity or spiritual worth.",
+                "citationIds": [
+                  "internal-women_spiritual_equal",
+                  "quran-men-women-reward"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دراسة أي مسألة معينة تحتاج نصها وسياقها بدل تحويل حكم جزئي إلى تقييم شامل للمرأة.",
+                "en": "Any specific ruling should be studied in its own evidence and context rather than turned into a blanket judgment about women.",
+                "citationIds": [
+                  "internal-women_spiritual_equal"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hijab_oppression",
+        "titleAr": "هل الحجاب يعني أن المرأة مسؤولة عن سلوك الرجال؟",
+        "titleEn": "Does hijab mean women are responsible for men's behavior?",
+        "summaryAr": "لا. أحكام العفة والحياء تخاطب الرجال والنساء، وكل شخص مسؤول عن نظره وسلوكه ولا يحمل ذنب غيره.",
+        "summaryEn": "No. Modesty and chastity address both men and women, and each person is responsible for their own gaze and behavior.",
+        "keywordsAr": [
+          "هل الحجاب يعني أن المرأة مسؤولة عن سلوك الرجال"
+        ],
+        "keywordsEn": [
+          "Does hijab mean women are responsible for men's behavior"
+        ],
+        "relatedTopicIds": [
+          "ethics_life/dress_modesty",
+          "ethics_life/modesty_chastity"
+        ],
+        "citations": [
+          {
+            "id": "internal-hijab_oppression",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "ethics_life/dress_modesty"
+          },
+          {
+            "id": "quran-gaze-modesty",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "24:30-31"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "توجد تفاصيل فقهية في حدود اللباس تختلف بعض صورها، لكن لا يجوز تحويل الحجاب إلى تبرير للتحرش أو لوم الضحية.",
+                "en": "Legal details of dress have some juristic variation, but hijab cannot be turned into a justification for harassment or victim-blaming.",
+                "citationIds": [
+                  "internal-hijab_oppression",
+                  "quran-gaze-modesty"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المقصد الأخلاقي يجمع الستر والحياء والكرامة وضبط السلوك من جميع الأطراف.",
+                "en": "The ethical framework combines modest dress, dignity, and self-control for all parties.",
+                "citationIds": [
+                  "internal-hijab_oppression"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "polygyny",
+        "titleAr": "لماذا يسمح الإسلام بتعدد الزوجات؟",
+        "titleEn": "Why does Islam permit polygyny?",
+        "summaryAr": "القرآن أباح للرجل حتى أربع زوجات مع اشتراط العدل، وليس التعدد فرضًا ولا مناسبًا لكل شخص أو مجتمع.",
+        "summaryEn": "The Quran permits a man up to four wives with a requirement of justice; polygyny is not obligatory and is not appropriate for every person or context.",
+        "keywordsAr": [
+          "لماذا يسمح الإسلام بتعدد الزوجات"
+        ],
+        "keywordsEn": [
+          "Why does Islam permit polygyny"
+        ],
+        "relatedTopicIds": [
+          "islam/family_in_islam",
+          "ethics_life/spouses"
+        ],
+        "citations": [
+          {
+            "id": "internal-polygyny",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/family_in_islam"
+          },
+          {
+            "id": "quran-polygyny",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:3"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الأحكام العملية تتأثر بالقدرة والنفقة والعدل وبالقانون المدني والعقد والضرر، لذلك لا يكفي عرض الإباحة مجردة عن المسؤوليات.",
+                "en": "Practical application involves ability, maintenance, justice, civil law, contract terms, and harm, so permission should not be presented without responsibilities.",
+                "citationIds": [
+                  "internal-polygyny",
+                  "quran-polygyny"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحتاج الحالات الفردية إلى فقه أسري وقانوني متخصص، خصوصًا في البلدان التي تنظمه أو تمنعه مدنيًا.",
+                "en": "Individual cases require qualified family-law and civil-law guidance, especially where local law regulates or prohibits the practice.",
+                "citationIds": [
+                  "internal-polygyny"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "inheritance_half",
+        "titleAr": "هل ترث المرأة دائمًا نصف الرجل؟",
+        "titleEn": "Does a woman always inherit half as much as a man?",
+        "summaryAr": "لا. أنصبة الميراث متعددة؛ في بعض الحالات يكون للذكر مثل حظ الأنثيين، وفي حالات أخرى تتساوى الأنصبة أو ترث المرأة أكثر أو ترث دون نظير ذكر مباشر.",
+        "summaryEn": "No. Inheritance shares vary; some cases give a male twice a female's share, while other cases give equal shares, larger female shares, or female inheritance without a directly comparable male heir.",
+        "keywordsAr": [
+          "هل ترث المرأة دائمًا نصف الرجل"
+        ],
+        "keywordsEn": [
+          "Does a woman always inherit half as much as a man"
+        ],
+        "relatedTopicIds": [
+          "islam/women"
+        ],
+        "citations": [
+          {
+            "id": "internal-inheritance_half",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/women"
+          },
+          {
+            "id": "quran-inheritance",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:11-12"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قاعدة «النصف دائمًا» تبسيط خاطئ لأن الميراث يعتمد على درجة القرابة وبقية الورثة والالتزامات المالية.",
+                "en": "The slogan “always half” is inaccurate because inheritance depends on kinship level, other heirs, and legal financial responsibilities.",
+                "citationIds": [
+                  "internal-inheritance_half",
+                  "quran-inheritance"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقسيم تركة فعلية مسألة حسابية وقانونية لا ينبغي إنجازها من تعريف مختصر؛ تحتاج أهل اختصاص وبيانات الأسرة والديون والوصايا.",
+                "en": "An actual estate is a legal and mathematical case that should not be settled from a short definition; it requires qualified calculation with family, debt, and bequest details.",
+                "citationIds": [
+                  "internal-inheritance_half"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "testimony_half",
+        "titleAr": "هل شهادة المرأة دائمًا نصف شهادة الرجل؟",
+        "titleEn": "Is a woman's testimony always worth half a man's?",
+        "summaryAr": "لا يصح تحويل آية توثيق الديون إلى قاعدة تقول إن قيمة كلام المرأة نصف الرجل في كل باب.",
+        "summaryEn": "The verse on documenting debt should not be turned into a blanket rule that a woman's word is always worth half a man's.",
+        "keywordsAr": [
+          "هل شهادة المرأة دائمًا نصف شهادة الرجل"
+        ],
+        "keywordsEn": [
+          "Is a woman's testimony always worth half a man's"
+        ],
+        "relatedTopicIds": [
+          "islam/women"
+        ],
+        "citations": [
+          {
+            "id": "internal-testimony_half",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/women"
+          },
+          {
+            "id": "quran-debt-witness",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:282"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الفقه يناقش الشهادة والإثبات بحسب نوع القضية والخبرة والقرائن، وتختلف الأحكام بين الأبواب والمذاهب.",
+                "en": "Fiqh discusses testimony and proof according to the type of case, expertise, and evidence, with rulings varying across legal areas and schools.",
+                "citationIds": [
+                  "internal-testimony_half",
+                  "quran-debt-witness"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "آية 2:282 تتحدث عن توثيق معاملة دين محددة، وفهم أحكام القضاء الأوسع يحتاج كتب الفقه لا شعارًا عامًا.",
+                "en": "Quran 2:282 addresses documentation of a specific debt transaction; broader evidentiary law requires juristic study rather than a slogan.",
+                "citationIds": [
+                  "internal-testimony_half"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "marriage_consent",
+        "titleAr": "هل يمكن تزويج المرأة بغير رضاها؟",
+        "titleEn": "Can a woman be married without her consent?",
+        "summaryAr": "الرضا معتبر في الزواج في السنة والفقه، ولا يجعل الولي إكراه المرأة على من ترفضه حقًا مطلقًا.",
+        "summaryEn": "Consent is recognized in Prophetic teaching and fiqh; guardianship does not create an unlimited right to force a woman to marry someone she rejects.",
+        "keywordsAr": [
+          "هل يمكن تزويج المرأة بغير رضاها"
+        ],
+        "keywordsEn": [
+          "Can a woman be married without her consent"
+        ],
+        "relatedTopicIds": [
+          "ethics_life/spouses",
+          "ethics_life/rights_dignity"
+        ],
+        "citations": [
+          {
+            "id": "internal-marriage_consent",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "ethics_life/spouses"
+          },
+          {
+            "id": "hadith-marriage-consent",
+            "kind": "Hadith",
+            "titleAr": "الحديث النبوي الصحيح",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Marriage: a woman is not married until consulted/permission sought"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "توجد تفاصيل مذهبية في دور الولي وصيغة العقد والأهلية، لكن الإكراه والرضا مسألتان لا ينبغي خلطهما.",
+                "en": "Legal schools differ on guardianship, contract form, and capacity, but those details should not be confused with the importance of consent.",
+                "citationIds": [
+                  "internal-marriage_consent",
+                  "hadith-marriage-consent"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عند نزاع أسري حقيقي ينبغي الجمع بين عالم موثوق والقانون المحلي وخدمات الحماية إذا كان هناك تهديد أو عنف.",
+                "en": "In a real family dispute, qualified religious guidance should be combined with local law and protection services when threats or violence are present.",
+                "citationIds": [
+                  "internal-marriage_consent"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "divorce_islam",
+        "titleAr": "هل الطلاق ممنوع أو مستحيل في الإسلام؟",
+        "titleEn": "Is divorce forbidden or impossible in Islam?",
+        "summaryAr": "لا. الزواج ميثاق مهم لكن الشريعة تعرف الطلاق والخلع والفسخ وغيرها من طرق إنهاء الزواج بحسب الظروف.",
+        "summaryEn": "No. Marriage is a serious covenant, but Islamic law recognizes talaq, khul', annulment, and other routes of ending a marriage depending on circumstances.",
+        "keywordsAr": [
+          "هل الطلاق ممنوع أو مستحيل في الإسلام"
+        ],
+        "keywordsEn": [
+          "Is divorce forbidden or impossible in Islam"
+        ],
+        "relatedTopicIds": [
+          "ethics_life/spouses",
+          "ethics_life/boundaries_harm",
+          "ethics_life/conflict_reconciliation"
+        ],
+        "citations": [
+          {
+            "id": "internal-divorce_islam",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "ethics_life/spouses"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "التفاصيل شديدة الحساسية وتتأثر بالمذهب والقانون المدني والحقوق المالية والأطفال، لذلك لا يناسبها جواب واحد للجميع.",
+                "en": "The details are highly context-sensitive and affected by legal school, civil law, financial rights, and children, so one answer cannot fit every case.",
+                "citationIds": [
+                  "internal-divorce_islam"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا ينبغي استعمال دعوة الإصلاح لإجبار شخص على البقاء في عنف أو خطر، كما لا ينبغي تسهيل الهدم بلا نظر في الحقوق.",
+                "en": "Calls for reconciliation should not force someone to remain in abuse or danger, while separation should also be handled responsibly with rights protected.",
+                "citationIds": [
+                  "internal-divorce_islam"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "women_work_study",
+        "titleAr": "هل يمنع الإسلام المرأة من التعلم أو العمل؟",
+        "titleEn": "Does Islam forbid women from studying or working?",
+        "summaryAr": "لا توجد قاعدة عامة تمنع المرأة من التعلم أو العمل المباح؛ التاريخ الإسلامي يعرف عالمات وراويات ومالكات وممارسات لمهن متنوعة.",
+        "summaryEn": "There is no blanket rule forbidding women from learning or lawful work; Islamic history includes women scholars, transmitters, property owners, and workers in varied roles.",
+        "keywordsAr": [
+          "هل يمنع الإسلام المرأة من التعلم أو العمل"
+        ],
+        "keywordsEn": [
+          "Does Islam forbid women from studying or working"
+        ],
+        "relatedTopicIds": [
+          "islam/seeking_knowledge",
+          "history_civilization/women_patronage",
+          "ethics_life/workplace_conduct"
+        ],
+        "citations": [
+          {
+            "id": "internal-women_work_study",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/seeking_knowledge"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تطبق على العمل والتعليم مبادئ عامة كالحقوق والواجبات والخصوصية والحلال والحرام، كما تطبق على الرجال مع فروق الأحكام الخاصة عند وجودها.",
+                "en": "Work and education are governed by general principles of rights, duties, privacy, and lawful conduct, as they are for men, alongside any genuinely specific legal rulings.",
+                "citationIds": [
+                  "internal-women_work_study"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يجب التفريق بين عادة محلية أو سياسة مؤسسة وبين حكم ديني ثابت.",
+                "en": "Local custom or institutional policy should be distinguished from a binding religious rule.",
+                "citationIds": [
+                  "internal-women_work_study"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sharia_punishments",
+        "titleAr": "هل الشريعة تعني العقوبات فقط؟",
+        "titleEn": "Does Sharia mean punishments only?",
+        "summaryAr": "لا. في الاستعمال الإسلامي الشريعة أوسع من العقوبات وتشمل العبادة والأسرة والمعاملات والأخلاق والحقوق.",
+        "summaryEn": "No. In Islamic usage Sharia is far broader than punishments and includes worship, family life, transactions, ethics, and rights.",
+        "keywordsAr": [
+          "هل الشريعة تعني العقوبات فقط"
+        ],
+        "keywordsEn": [
+          "Does Sharia mean punishments only"
+        ],
+        "relatedTopicIds": [
+          "fiqh_worship/fiqh_intro",
+          "fiqh_worship/fiqh_sources"
+        ],
+        "citations": [
+          {
+            "id": "internal-sharia_punishments",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/fiqh_intro"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الفقه هو فهم بشري منضبط للأحكام، ولذلك توجد مدارس واجتهادات وتفاصيل تاريخية متعددة في تطبيقها.",
+                "en": "Fiqh is disciplined human understanding of legal rulings, which is why legal schools, interpretations, and historical applications differ.",
+                "citationIds": [
+                  "internal-sharia_punishments"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اختزال الشريعة في القانون الجنائي يعطي صورة غير ممثلة لمعظم أبواب الفقه وحياة المسلم اليومية.",
+                "en": "Reducing Sharia to criminal law misrepresents most areas of fiqh and ordinary Muslim religious life.",
+                "citationIds": [
+                  "internal-sharia_punishments"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fatwa_binding",
+        "titleAr": "هل كل فتوى ملزمة لكل مسلم؟",
+        "titleEn": "Is every fatwa binding on every Muslim?",
+        "summaryAr": "الفتوى جواب شرعي من عالم مؤهل لحالة أو سؤال، وليست حكم محكمة ولا رأيًا ملزمًا عالميًا بمجرد نشره.",
+        "summaryEn": "A fatwa is a qualified legal response to a question or case; it is not a court judgment or a universally binding decree merely because it is published.",
+        "keywordsAr": [
+          "هل كل فتوى ملزمة لكل مسلم"
+        ],
+        "keywordsEn": [
+          "Is every fatwa binding on every Muslim"
+        ],
+        "relatedTopicIds": [
+          "fiqh_worship/fatwa_guidance"
+        ],
+        "citations": [
+          {
+            "id": "internal-fatwa_binding",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/fatwa_guidance"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قد تختلف الفتوى باختلاف المذهب والبلد والعرف والقدرة وتفاصيل الواقعة، وقد تكون بعض المسائل محل خلاف معتبر.",
+                "en": "A fatwa can vary with school, place, custom, ability, and case details, and some questions permit legitimate scholarly disagreement.",
+                "citationIds": [
+                  "internal-fatwa_binding"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المحتوى العام في التطبيق للتعلم وليس لإصدار فتوى شخصية في الزواج والمال والصحة والقضاء وغيرها.",
+                "en": "General app content is for learning, not for issuing personalized rulings on marriage, finance, health, courts, and other case-specific matters.",
+                "citationIds": [
+                  "internal-fatwa_binding"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "madhhabs_contradict",
+        "titleAr": "هل وجود المذاهب الأربعة يعني وجود أربعة إسلامات؟",
+        "titleEn": "Do the four madhhabs mean there are four different Islams?",
+        "summaryAr": "لا. المذاهب الفقهية مدارس اجتهاد تشترك في أصول الدين ومصادر كبرى وتختلف في طرق الاستدلال وبعض الفروع.",
+        "summaryEn": "No. The madhhabs are legal traditions sharing the religion's foundations and major sources while differing in methods and subsidiary rulings.",
+        "keywordsAr": [
+          "هل وجود المذاهب الأربعة يعني وجود أربعة إسلامات"
+        ],
+        "keywordsEn": [
+          "Do the four madhhabs mean there are four different Islams"
+        ],
+        "relatedTopicIds": [
+          "fiqh_worship/madhhabs",
+          "fiqh_worship/fiqh_disagreement"
+        ],
+        "citations": [
+          {
+            "id": "internal-madhhabs_contradict",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/madhhabs"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نشأت عبر أجيال من العلماء لا باعتبار كل إمام قد أسس دينًا جديدًا.",
+                "en": "They developed through generations of jurists, not because each imam founded a new religion.",
+                "citationIds": [
+                  "internal-madhhabs_contradict"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الخلاف الفقهي المنضبط لا يساوي التناقض في أصل العقيدة ولا يبرر التعصب أو إسقاط بقية المدارس.",
+                "en": "Disciplined legal disagreement is not the same as contradiction in core faith and does not justify sectarian hostility toward other schools.",
+                "citationIds": [
+                  "internal-madhhabs_contradict"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "everything_haram",
+        "titleAr": "هل الأصل في كل شيء التحريم حتى يثبت الحلال؟",
+        "titleEn": "Is everything forbidden until proven halal?",
+        "summaryAr": "هذه ليست قاعدة عامة صحيحة لكل الأبواب. في العادات والمعاملات يقرر فقهاء كثيرون أصل الإباحة ما لم يرد منع، بينما العبادات تحتاج دليلًا يشرعها.",
+        "summaryEn": "This is not a correct blanket rule. Many jurists treat ordinary matters and transactions as permissible unless prohibited, while acts of worship require evidence establishing them.",
+        "keywordsAr": [
+          "هل الأصل في كل شيء التحريم حتى يثبت الحلال"
+        ],
+        "keywordsEn": [
+          "Is everything forbidden until proven halal"
+        ],
+        "relatedTopicIds": [
+          "fiqh_worship/fiqh_intro",
+          "fiqh_worship/fiqh_sources"
+        ],
+        "citations": [
+          {
+            "id": "internal-everything_haram",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/fiqh_intro"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نوع المسألة مهم: طعام أو عقد أو عبادة أو عادة أو دواء لا يعالج بالطريقة نفسها.",
+                "en": "The category matters: food, contracts, worship, customs, and medicine are not all analyzed identically.",
+                "citationIds": [
+                  "internal-everything_haram"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لذلك لا ينبغي صناعة قائمة تحريم واسعة من الظن أو الذوق الشخصي.",
+                "en": "Broad prohibition lists should not be built from suspicion or personal taste.",
+                "citationIds": [
+                  "internal-everything_haram"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "forced_conversion",
+        "titleAr": "هل يسمح الإسلام بإجبار الناس على اعتناق الإسلام؟",
+        "titleEn": "Does Islam permit forcing people to convert?",
+        "summaryAr": "القرآن يقرر «لا إكراه في الدين»، ولا تكون الشهادة إيمانًا حقيقيًا إذا قيلت تحت إكراه بلا اعتقاد.",
+        "summaryEn": "The Quran states “no compulsion in religion,” and a verbal profession under coercion without belief is not genuine faith.",
+        "keywordsAr": [
+          "هل يسمح الإسلام بإجبار الناس على اعتناق الإسلام"
+        ],
+        "keywordsEn": [
+          "Does Islam permit forcing people to convert"
+        ],
+        "relatedTopicIds": [
+          "islam/freedom_of_belief",
+          "ethics_life/nonmuslims"
+        ],
+        "citations": [
+          {
+            "id": "internal-forced_conversion",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/freedom_of_belief"
+          },
+          {
+            "id": "quran-no-compulsion",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:256"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "التاريخ السياسي للمجتمعات المسلمة معقد وفيه سلطة وحروب وضرائب وتفاوتات، لكن ذلك لا يحول الإيمان القلبي إلى شيء يمكن فرضه بالقوة.",
+                "en": "The political history of Muslim societies is complex and includes power, wars, taxation, and inequality, but none of that makes inward faith something force can manufacture.",
+                "citationIds": [
+                  "internal-forced_conversion",
+                  "quran-no-compulsion"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينبغي التفريق بين دراسة نظم تاريخية وبين الحكم العقدي على معنى الإيمان والدخول في الإسلام.",
+                "en": "Historical political systems should be distinguished from the theological meaning of faith and conversion.",
+                "citationIds": [
+                  "internal-forced_conversion"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "nonmuslim_relations",
+        "titleAr": "هل يجب على المسلم أن يسيء إلى غير المسلمين أو يقطعهم؟",
+        "titleEn": "Must Muslims mistreat or cut off non-Muslims?",
+        "summaryAr": "لا. الإسلام يأمر بالعدل وحسن المعاملة مع من لا يحارب أو يظلم، مع بقاء اختلاف العقيدة.",
+        "summaryEn": "No. Islam commands justice and good conduct toward those who are not engaged in hostility or oppression while theological differences remain.",
+        "keywordsAr": [
+          "هل يجب على المسلم أن يسيء إلى غير المسلمين أو يقطعهم"
+        ],
+        "keywordsEn": [
+          "Must Muslims mistreat or cut off non-Muslims"
+        ],
+        "relatedTopicIds": [
+          "ethics_life/nonmuslims",
+          "islam/relations_with_non_muslims"
+        ],
+        "citations": [
+          {
+            "id": "internal-nonmuslim_relations",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "ethics_life/nonmuslims"
+          },
+          {
+            "id": "quran-kind-justice",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "60:8"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمكن أن توجد قرابة وجوار وعمل وتجارة وصداقة مدنية وتعاون في الخير ضمن حدود الدين والأخلاق.",
+                "en": "Kinship, neighborhood, work, trade, civic friendship, and cooperation in good can exist within religious and ethical boundaries.",
+                "citationIds": [
+                  "internal-nonmuslim_relations",
+                  "quran-kind-justice"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الاختلاف العقدي لا يمنح رخصة للغش أو السب أو انتهاك الحقوق.",
+                "en": "Theological disagreement does not license fraud, insult, or violation of rights.",
+                "citationIds": [
+                  "internal-nonmuslim_relations"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lying_nonmuslims",
+        "titleAr": "هل يسمح الإسلام بالكذب على غير المسلمين؟",
+        "titleEn": "Does Islam permit lying to non-Muslims?",
+        "summaryAr": "لا توجد قاعدة تبيح الكذب لمجرد أن الطرف غير مسلم؛ الصدق والأمانة مبادئ عامة.",
+        "summaryEn": "There is no rule permitting lies merely because the other person is non-Muslim; truthfulness and trustworthiness are general ethical duties.",
+        "keywordsAr": [
+          "هل يسمح الإسلام بالكذب على غير المسلمين"
+        ],
+        "keywordsEn": [
+          "Does Islam permit lying to non-Muslims"
+        ],
+        "relatedTopicIds": [
+          "ethics_life/truthfulness",
+          "ethics_life/trustworthiness",
+          "ethics_life/nonmuslims"
+        ],
+        "citations": [
+          {
+            "id": "internal-lying_nonmuslims",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "ethics_life/truthfulness"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "توجد في الفقه استثناءات ضيقة للكلام في ظروف مخصوصة مثل الإصلاح أو الحرب وفق تفصيلها، لكنها لا تتحول إلى إذن دائم بالخداع.",
+                "en": "Fiqh discusses narrow exceptions in specific settings such as reconciliation or warfare, but these do not become a general license for deception.",
+                "citationIds": [
+                  "internal-lying_nonmuslims"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المعاملات والعهود والحقوق مع غير المسلمين تدخل في الأمانة والعدل.",
+                "en": "Transactions, promises, and rights involving non-Muslims remain subject to trustworthiness and justice.",
+                "citationIds": [
+                  "internal-lying_nonmuslims"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "takfir_people",
+        "titleAr": "هل يجوز تكفير أي مسلم ارتكب خطأ أو ذنبًا؟",
+        "titleEn": "Can any Muslim be declared an unbeliever for a mistake or sin?",
+        "summaryAr": "لا. باب التكفير خطير وله شروط وموانع، ولا تجعل كل معصية أو خطأ أو خلاف فقهي خروجًا من الإسلام.",
+        "summaryEn": "No. Takfir is a grave matter with conditions and impediments; not every sin, mistake, or legal disagreement removes a person from Islam.",
+        "keywordsAr": [
+          "هل يجوز تكفير أي مسلم ارتكب خطأ أو ذنبًا"
+        ],
+        "keywordsEn": [
+          "Can any Muslim be declared an unbeliever for a mistake or sin"
+        ],
+        "relatedTopicIds": [
+          "aqeedah/takfir_caution",
+          "aqeedah/disagreement_adab"
+        ],
+        "citations": [
+          {
+            "id": "internal-takfir_people",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "aqeedah/takfir_caution"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "هناك فرق بين القول إن فكرة ما كفر في الحكم العام وبين تنزيل الحكم على شخص معين مع تحقق العلم والقصد والحجة وغيرها.",
+                "en": "There is a difference between a general ruling about a proposition and applying takfir to a specific person after considering knowledge, intent, evidence, and other conditions.",
+                "citationIds": [
+                  "internal-takfir_people"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المستخدم غير المتخصص لا ينبغي أن يحول نقاشات الإنترنت إلى محاكم عقيدة على الأفراد.",
+                "en": "Non-specialists should not turn online disagreements into personal courts of faith.",
+                "citationIds": [
+                  "internal-takfir_people"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "jihad_holy_war",
+        "titleAr": "هل «الجهاد» يعني ببساطة «الحرب المقدسة»؟",
+        "titleEn": "Does jihad simply mean “holy war”?",
+        "summaryAr": "لا. الجهاد لفظ أوسع يدل على بذل الجهد في طاعة الله، ويستعمل في سياقات متعددة؛ القتال المسلح باب خاص له أحكامه.",
+        "summaryEn": "No. Jihad is a broader term for striving in God's cause and appears in multiple contexts; armed fighting is a specific category with its own rules.",
+        "keywordsAr": [
+          "هل «الجهاد» يعني ببساطة «الحرب المقدسة»"
+        ],
+        "keywordsEn": [
+          "Does jihad simply mean “holy war”"
+        ],
+        "relatedTopicIds": [
+          "islam/sanctity_of_life",
+          "ethics_life/justice"
+        ],
+        "citations": [
+          {
+            "id": "internal-jihad_holy_war",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/sanctity_of_life"
+          },
+          {
+            "id": "quran-fight-no-transgress",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:190"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ترجمة الكلمة دائمًا إلى «holy war» تمحو الفروق بين جهاد النفس والقول والعمل وبين القتال المشروع بشروطه.",
+                "en": "Always translating jihad as “holy war” erases distinctions among moral striving, speech and action, and armed combat governed by rules.",
+                "citationIds": [
+                  "internal-jihad_holy_war",
+                  "quran-fight-no-transgress"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يملك الفرد تحويل غضبه أو مشروعه السياسي الخاص إلى قتال ديني بمجرد استعمال كلمة الجهاد.",
+                "en": "An individual cannot turn personal anger or a private political project into religiously sanctioned fighting merely by using the word jihad.",
+                "citationIds": [
+                  "internal-jihad_holy_war"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "islam_aggression",
+        "titleAr": "هل يبيح الإسلام العدوان على المدنيين؟",
+        "titleEn": "Does Islam permit aggression against civilians?",
+        "summaryAr": "لا يبيح الانتماء الديني قتل الأبرياء أو الغدر أو الاعتداء، ونصوص القتال تقرأ مع النهي عن العدوان والوفاء بالعهود.",
+        "summaryEn": "Religious identity does not license killing innocents, treachery, or aggression; texts on fighting are read alongside prohibitions of transgression and obligations of covenants.",
+        "keywordsAr": [
+          "هل يبيح الإسلام العدوان على المدنيين"
+        ],
+        "keywordsEn": [
+          "Does Islam permit aggression against civilians"
+        ],
+        "relatedTopicIds": [
+          "ethics_life/rights_dignity",
+          "islam/sanctity_of_life"
+        ],
+        "citations": [
+          {
+            "id": "internal-islam_aggression",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "ethics_life/rights_dignity"
+          },
+          {
+            "id": "quran-no-transgression",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:190"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أحكام الحرب باب فقهي وقضائي معقد وليست تفويضًا للأفراد لممارسة العنف خارج سلطة ونظام مسؤول.",
+                "en": "The law of armed conflict is a complex legal-political field, not a personal license for individuals to commit violence outside responsible authority and law.",
+                "citationIds": [
+                  "internal-islam_aggression",
+                  "quran-no-transgression"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عند قراءة آية حرب يجب معرفة سياقها وأطرافها وعلاقتها بالنصوص الأخرى بدل اقتطاع جملة واحدة.",
+                "en": "A war verse should be read with its context, parties, and related texts rather than isolated as a slogan.",
+                "citationIds": [
+                  "internal-islam_aggression"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "terrorism_islam",
+        "titleAr": "هل يبرر الدين استهداف الأبرياء باسم قضية إسلامية؟",
+        "titleEn": "Can religion justify targeting innocents in the name of an Islamic cause?",
+        "summaryAr": "لا. الشعار الديني لا يحول قتل غير المستحق أو الغدر أو التفجير العشوائي إلى عمل مشروع.",
+        "summaryEn": "No. Religious slogans do not transform wrongful killing, treachery, or indiscriminate attacks into lawful acts.",
+        "keywordsAr": [
+          "هل يبرر الدين استهداف الأبرياء باسم قضية إسلامية"
+        ],
+        "keywordsEn": [
+          "Can religion justify targeting innocents in the name of an Islamic cause"
+        ],
+        "relatedTopicIds": [
+          "islam/sanctity_of_life",
+          "ethics_life/justice",
+          "fiqh_worship/fatwa_guidance"
+        ],
+        "citations": [
+          {
+            "id": "internal-terrorism_islam",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/sanctity_of_life"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحتاج قضايا الحرب والأمن إلى قانون وسلطة واختصاص، ولا يجوز صناعة أحكام دماء من مقطع مرئي أو فتوى مجهولة.",
+                "en": "Questions of war and security require law, authority, and expertise; rulings over life and death should not be improvised from clips or anonymous fatwas.",
+                "citationIds": [
+                  "internal-terrorism_islam"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "التطبيق يعرض مبادئ عامة ولا يقدم تعليمات قتالية أو تبريرًا لجماعة أو نزاع معاصر.",
+                "en": "The app presents general ethical principles and does not provide combat instructions or justification for any contemporary faction or conflict.",
+                "citationIds": [
+                  "internal-terrorism_islam"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "spread_by_sword",
+        "titleAr": "هل انتشر الإسلام كله بالسيف؟",
+        "titleEn": "Did Islam spread entirely by the sword?",
+        "summaryAr": "لا. التاريخ يجمع بين فتوحات ودول عسكرية وبين تجارة وهجرة وعلم ودعوة وروابط أسرية، وتختلف قصة كل إقليم.",
+        "summaryEn": "No. Islamic history includes military conquests and states alongside trade, migration, scholarship, preaching, and family networks, with each region having a different story.",
+        "keywordsAr": [
+          "هل انتشر الإسلام كله بالسيف"
+        ],
+        "keywordsEn": [
+          "Did Islam spread entirely by the sword"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/regional_overlap",
+          "history_civilization/southeast_asia_islam",
+          "history_civilization/west_africa_islam",
+          "history_civilization/indian_ocean_trade"
+        ],
+        "citations": [
+          {
+            "id": "internal-spread_by_sword",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/regional_overlap"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دخول إقليم تحت حكم مسلم لا يعني أن سكانه تحولوا فورًا إلى الإسلام؛ في مناطق كثيرة كان التحول الديني تدريجيًا عبر قرون.",
+                "en": "Political incorporation under Muslim rule did not mean immediate mass conversion; in many regions religious change unfolded gradually over centuries.",
+                "citationIds": [
+                  "internal-spread_by_sword"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "جنوب شرق آسيا وأجزاء من أفريقيا والمحيط الهندي توضح أهمية الشبكات التجارية والاجتماعية، بينما مناطق أخرى ارتبطت بفتوحات سياسية.",
+                "en": "Southeast Asia, parts of Africa, and Indian Ocean regions highlight commercial and social networks, while other regions were linked to military expansion.",
+                "citationIds": [
+                  "internal-spread_by_sword"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "one_caliphate_history",
+        "titleAr": "هل عاش المسلمون دائمًا تحت دولة أو خليفة واحد؟",
+        "titleEn": "Did Muslims always live under one state or one caliph?",
+        "summaryAr": "لا. بعد القرون الأولى عاشت مجتمعات مسلمة كثيرة تحت دول وسلالات متزامنة، وأحيانًا وُجد أكثر من مركز يدعي الخلافة.",
+        "summaryEn": "No. After the early centuries many Muslim communities lived under simultaneous states and dynasties, and at times more than one center claimed caliphal authority.",
+        "keywordsAr": [
+          "هل عاش المسلمون دائمًا تحت دولة أو خليفة واحد"
+        ],
+        "keywordsEn": [
+          "Did Muslims always live under one state or one caliph"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/regional_overlap",
+          "history_civilization/historical_maps_caution"
+        ],
+        "citations": [
+          {
+            "id": "internal-one_caliphate_history",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/regional_overlap"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "استمرت مع ذلك شبكات مشتركة للحج والفقه والحديث والتجارة واللغة، ولذلك لا تتطابق وحدة الدين مع وحدة الدولة السياسية.",
+                "en": "Shared networks of Hajj, law, hadith, trade, and language continued, so religious connectedness did not require one continuous political state.",
+                "citationIds": [
+                  "internal-one_caliphate_history"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الخرائط التاريخية ينبغي أن تظهر التداخل وتغير الحدود بدل مساحة واحدة ثابتة عبر 1400 سنة.",
+                "en": "Historical maps should show overlap and changing boundaries rather than one fixed political block across fourteen centuries.",
+                "citationIds": [
+                  "internal-one_caliphate_history"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "all_muslims_arabs",
+        "titleAr": "هل كل المسلمين عرب؟",
+        "titleEn": "Are all Muslims Arabs?",
+        "summaryAr": "لا. المسلمون ينتمون إلى شعوب ولغات كثيرة، وغالبية المسلمين عالميًا ليست عربية.",
+        "summaryEn": "No. Muslims belong to many peoples and languages, and the global Muslim population is not synonymous with Arabs.",
+        "keywordsAr": [
+          "هل كل المسلمين عرب"
+        ],
+        "keywordsEn": [
+          "Are all Muslims Arabs"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/language_diversity",
+          "islam/diversity_muslims"
+        ],
+        "citations": [
+          {
+            "id": "internal-all_muslims_arabs",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/language_diversity"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "العربية مهمة لأنها لغة القرآن والصلاة، لكنها لا تحول الإسلام إلى قومية عربية ولا تمنح العربي فضلًا دينيًا بمجرد النسب.",
+                "en": "Arabic matters as the language of Quran and formal worship, but Islam is not Arab nationalism and ethnicity alone does not grant spiritual superiority.",
+                "citationIds": [
+                  "internal-all_muslims_arabs"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ظهرت حضارات إسلامية فارسية وتركية وأفريقية وجنوب آسيوية وماليزية وغيرها مع احتفاظها بلغاتها وثقافاتها.",
+                "en": "Persianate, Turkic, African, South Asian, Malay, and other Muslim civilizations developed while retaining their languages and cultures.",
+                "citationIds": [
+                  "internal-all_muslims_arabs"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "civilization_only_copied",
+        "titleAr": "هل الحضارة الإسلامية مجرد نسخ للعلوم اليونانية؟",
+        "titleEn": "Was Islamic civilization merely copying Greek science?",
+        "summaryAr": "لا. الترجمة كانت مرحلة مهمة من شبكة أوسع ضمت تراثًا يونانيًا وسريانيًا وفارسيًا وهنديًا، ثم جاء شرح ونقد وتطوير وتأليف جديد.",
+        "summaryEn": "No. Translation was an important stage within a wider network including Greek, Syriac, Persian, and Indian traditions, followed by commentary, criticism, development, and original writing.",
+        "keywordsAr": [
+          "هل الحضارة الإسلامية مجرد نسخ للعلوم اليونانية"
+        ],
+        "keywordsEn": [
+          "Was Islamic civilization merely copying Greek science"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/translation_movement",
+          "history_civilization/scientific_method"
+        ],
+        "citations": [
+          {
+            "id": "internal-civilization_only_copied",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/translation_movement"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يصح من جهة أخرى الادعاء أن العلماء المسلمين بدأوا من الصفر؛ تاريخ العلم تراكمي ومتبادل.",
+                "en": "It is equally inaccurate to claim Muslim scholars started from nothing; science is cumulative and interconnected.",
+                "citationIds": [
+                  "internal-civilization_only_copied"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "القيمة التاريخية تظهر في الجمع بين النقل والمؤسسات والأدوات والملاحظة وتكوين تقاليد علمية جديدة.",
+                "en": "Historical significance lies in combining transmission with institutions, instruments, observation, and new scholarly traditions.",
+                "citationIds": [
+                  "internal-civilization_only_copied"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "science_religion_conflict",
+        "titleAr": "هل الإسلام والعلم في صراع حتمي؟",
+        "titleEn": "Are Islam and science inevitably in conflict?",
+        "summaryAr": "لا يقدم التاريخ علاقة واحدة بسيطة؛ مجتمعات مسلمة رعت علومًا متعددة، كما شهدت مثل غيرها خلافات فكرية ومؤسسية.",
+        "summaryEn": "History does not show one simple relationship; Muslim societies supported many sciences while also experiencing intellectual and institutional disputes like other civilizations.",
+        "keywordsAr": [
+          "هل الإسلام والعلم في صراع حتمي"
+        ],
+        "keywordsEn": [
+          "Are Islam and science inevitably in conflict"
+        ],
+        "relatedTopicIds": [
+          "history_civilization/scientific_method",
+          "islam/science"
+        ],
+        "citations": [
+          {
+            "id": "internal-science_religion_conflict",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "history_civilization/scientific_method"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "العلم التجريبي يجيب عن أسئلة ضمن منهجه، والوحي يقدم هداية عقدية وأخلاقية؛ وقد تظهر مسائل تحتاج تفسيرًا دقيقًا بدل شعار الصراع أو الإعجاز السريع.",
+                "en": "Empirical science answers questions within its method while revelation gives theological and ethical guidance; difficult intersections require careful interpretation rather than slogans of conflict or instant miracle.",
+                "citationIds": [
+                  "internal-science_religion_conflict"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الأدق دراسة كل قضية علمية أو تفسيرية على حدة بدل ادعاء أن «العلم أثبت الدين كله» أو «العلم أبطل الدين كله».",
+                "en": "It is more accurate to study each scientific or interpretive question individually than claim science has proven or disproven an entire religion.",
+                "citationIds": [
+                  "internal-science_religion_conflict"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "why_muslims_disagree",
+        "titleAr": "لماذا يختلف المسلمون في مسائل دينية؟",
+        "titleEn": "Why do Muslims disagree on religious questions?",
+        "summaryAr": "لأن بعض النصوص تحتمل أكثر من فهم معتبر، ولأن صحة الدليل أو دلالته أو طريقة الجمع والترجيح قد تختلف بين العلماء.",
+        "summaryEn": "Some texts admit more than one defensible interpretation, and scholars may differ over evidence authenticity, meaning, reconciliation, or weighting.",
+        "keywordsAr": [
+          "لماذا يختلف المسلمون في مسائل دينية"
+        ],
+        "keywordsEn": [
+          "Why do Muslims disagree on religious questions"
+        ],
+        "relatedTopicIds": [
+          "fiqh_worship/fiqh_disagreement",
+          "aqeedah/disagreement_adab"
+        ],
+        "citations": [
+          {
+            "id": "internal-why_muslims_disagree",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/fiqh_disagreement"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وجود خلاف لا يعني أن كل الآراء صحيحة بالتساوي، كما لا يعني أن المخالف خارج الإسلام.",
+                "en": "Disagreement does not mean all views are equally strong, nor does it automatically place the other person outside Islam.",
+                "citationIds": [
+                  "internal-why_muslims_disagree"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "التعامل الصحيح يحتاج معرفة نوع المسألة: قطعية أم اجتهادية، عقدية أم فقهية، عامة أم شخصية.",
+                "en": "A sound approach asks what kind of issue is involved: definitive or interpretive, theological or legal, general or personal.",
+                "citationIds": [
+                  "internal-why_muslims_disagree"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "follow_strongest_online",
+        "titleAr": "هل أستطيع اختيار كل رأي يعجبني من الإنترنت؟",
+        "titleEn": "Can I simply pick whichever online opinion I like?",
+        "summaryAr": "التعلم من الإنترنت ممكن، لكن جمع الأسهل أو الموافق للرغبة بلا منهج قد يحول الفقه إلى انتقاء شخصي.",
+        "summaryEn": "Learning online is possible, but selecting only the easiest or most convenient opinions without method can turn fiqh into personal preference.",
+        "keywordsAr": [
+          "هل أستطيع اختيار كل رأي يعجبني من الإنترنت"
+        ],
+        "keywordsEn": [
+          "Can I simply pick whichever online opinion I like"
+        ],
+        "relatedTopicIds": [
+          "fiqh_worship/fatwa_guidance",
+          "fiqh_worship/madhhabs"
+        ],
+        "citations": [
+          {
+            "id": "internal-follow_strongest_online",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "fiqh_worship/fatwa_guidance"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "غير المتخصص يحتاج مصدرًا موثوقًا وفهمًا للمذهب أو الدليل وسياق السؤال، خصوصًا في المسائل ذات الحقوق والعواقب.",
+                "en": "Non-specialists need trustworthy sources and awareness of school, evidence, and case context, especially where rights and consequences are involved.",
+                "citationIds": [
+                  "internal-follow_strongest_online"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "إذا كانت المسألة تمس زواجًا أو طلاقًا أو مالًا كبيرًا أو صحة أو قضاءً فالسؤال المباشر لأهل الاختصاص أكثر أمانًا.",
+                "en": "For marriage, divorce, major financial matters, health, or litigation, direct qualified advice is safer.",
+                "citationIds": [
+                  "internal-follow_strongest_online"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "difference_deviation",
+        "titleAr": "هل كل خلاف بدعة أو ضلالة؟",
+        "titleEn": "Is every disagreement an innovation or deviation?",
+        "summaryAr": "لا. توجد مسائل اجتهادية معتبرة اختلف فيها العلماء منذ قرون، ولا تعامل كلها كخروج عن السنة أو الدين.",
+        "summaryEn": "No. Many legitimate interpretive questions have been disputed by scholars for centuries and are not all departures from Sunnah or Islam.",
+        "keywordsAr": [
+          "هل كل خلاف بدعة أو ضلالة"
+        ],
+        "keywordsEn": [
+          "Is every disagreement an innovation or deviation"
+        ],
+        "relatedTopicIds": [
+          "aqeedah/disagreement_adab",
+          "ethics_life/public_disagreement"
+        ],
+        "citations": [
+          {
+            "id": "internal-difference_deviation",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "aqeedah/disagreement_adab"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وفي المقابل ليس كل خلاف معتبرًا؛ بعض الأقوال قد تكون ضعيفة أو مخالفة لدليل واضح.",
+                "en": "At the same time, not every disagreement is equally valid; some views may be weak or conflict with clear evidence.",
+                "citationIds": [
+                  "internal-difference_deviation"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المطلوب معرفة رتبة المسألة وأدلتها وأدب الخلاف بدل استعمال ألفاظ التبديع والتفسيق آليًا.",
+                "en": "The goal is to understand the issue's evidentiary status and practice respectful disagreement rather than mechanically label others innovators or sinners.",
+                "citationIds": [
+                  "internal-difference_deviation"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "grave_visiting",
+        "titleAr": "هل زيارة القبور شرك؟",
+        "titleEn": "Is visiting graves itself shirk?",
+        "summaryAr": "زيارة القبور للدعاء للميت وتذكر الآخرة ثابتة في السنة، وليست شركًا بذاتها.",
+        "summaryEn": "Visiting graves to pray for the deceased and remember the Hereafter is established in the Sunnah and is not itself shirk.",
+        "keywordsAr": [
+          "هل زيارة القبور شرك"
+        ],
+        "keywordsEn": [
+          "Is visiting graves itself shirk"
+        ],
+        "relatedTopicIds": [
+          "places_landmarks/baqi",
+          "aqeedah/shirk"
+        ],
+        "citations": [
+          {
+            "id": "internal-grave_visiting",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "places_landmarks/baqi"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الفرق المهم هو بين زيارة القبر وبين صرف عبادة للميت أو اعتقاد استقلاله بقضاء الحاجات.",
+                "en": "The important distinction is between visiting a grave and directing worship to the deceased or believing the dead independently fulfill needs.",
+                "citationIds": [
+                  "internal-grave_visiting"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كما يجب احترام أن بعض التفاصيل العملية عند المقابر محل نقاش فقهي، فلا تحول الزيارة إلى خصومة أو غلو.",
+                "en": "Some practical details around cemetery visitation are juristically debated, so visits should avoid both hostility and exaggeration.",
+                "citationIds": [
+                  "internal-grave_visiting"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "arabic_superiority",
+        "titleAr": "هل معرفة العربية تجعل الإنسان أفضل دينيًا من غير العربي؟",
+        "titleEn": "Does knowing Arabic make someone spiritually superior to a non-Arab?",
+        "summaryAr": "العربية أداة عظيمة لفهم القرآن والعلوم، لكنها ليست نسبًا يمنح صاحبه تقوى أو كرامة أعلى تلقائيًا.",
+        "summaryEn": "Arabic is a powerful tool for understanding Quran and scholarship, but it is not an ethnicity-based source of automatic spiritual superiority.",
+        "keywordsAr": [
+          "هل معرفة العربية تجعل الإنسان أفضل دينيًا من غير العربي"
+        ],
+        "keywordsEn": [
+          "Does knowing Arabic make someone spiritually superior to a non-Arab"
+        ],
+        "relatedTopicIds": [
+          "islam/arabic_language",
+          "islam/diversity_muslims"
+        ],
+        "citations": [
+          {
+            "id": "internal-arabic_superiority",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/arabic_language"
+          },
+          {
+            "id": "quran-peoples-taqwa",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:13"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "التفاضل الأخلاقي في الإسلام مرتبط بالتقوى والعمل، بينما تعلم العربية يزيد القدرة على الوصول المباشر للنصوص.",
+                "en": "Moral standing in Islam is tied to taqwa and action, while Arabic learning improves direct access to source texts.",
+                "citationIds": [
+                  "internal-arabic_superiority",
+                  "quran-peoples-taqwa"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمكن أن يكون غير العربي أعلم وأتقى من عربي، كما يمكن للعربي أن يحتاج إلى دراسة لغة القرآن دراسة علمية.",
+                "en": "A non-Arab may be more knowledgeable and God-conscious than an Arab, and native Arabic speakers may still need formal study of Quranic language.",
+                "citationIds": [
+                  "internal-arabic_superiority"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "culture_vs_islam",
+        "titleAr": "كيف أفرق بين الإسلام والعادات المحلية؟",
+        "titleEn": "How can I distinguish Islam from local culture?",
+        "summaryAr": "اسأل: هل للممارسة دليل ديني معتبر، أم هي عرف مباح، أم عادة مخالفة للنص؟ ليس كل ما يفعله مجتمع مسلم حكمًا إسلاميًا.",
+        "summaryEn": "Ask whether a practice has valid religious evidence, is a permissible custom, or conflicts with revelation. Not everything done by a Muslim society is an Islamic rule.",
+        "keywordsAr": [
+          "كيف أفرق بين الإسلام والعادات المحلية"
+        ],
+        "keywordsEn": [
+          "How can I distinguish Islam from local culture"
+        ],
+        "relatedTopicIds": [
+          "islam/diversity_muslims",
+          "ethics_life/dress_modesty"
+        ],
+        "citations": [
+          {
+            "id": "internal-culture_vs_islam",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/diversity_muslims"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "العرف معتبر في بعض أبواب الفقه ما لم يخالف نصًا أو حقًا ثابتًا، ولهذا قد تتنوع الملابس والأطعمة ومراسم الزواج بين البلدان.",
+                "en": "Custom matters in some areas of fiqh when it does not contradict binding evidence or rights, so clothing, food, and wedding customs can vary widely.",
+                "citationIds": [
+                  "internal-culture_vs_islam"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "التفريق مهم خصوصًا في قضايا الأسرة والمرأة والاحتفال واللباس حيث تختلط الأعراف بالدين بسهولة.",
+                "en": "This distinction is especially important in family, gender, celebration, and dress questions where custom can easily be mistaken for religion.",
+                "citationIds": [
+                  "internal-culture_vs_islam"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "verify_religious_content",
+        "titleAr": "كيف أتحقق من منشور ديني على الإنترنت؟",
+        "titleEn": "How should I verify religious content online?",
+        "summaryAr": "تحقق من نص الآية ومصدر الحديث ودرجة صحته واسم العالم وسياق كلامه قبل إعادة النشر.",
+        "summaryEn": "Verify the Quran verse, hadith source and grading, scholar identity, and context before resharing.",
+        "keywordsAr": [
+          "كيف أتحقق من منشور ديني على الإنترنت"
+        ],
+        "keywordsEn": [
+          "How should I verify religious content online"
+        ],
+        "relatedTopicIds": [
+          "ethics_life/digital_misinformation",
+          "hadith_sciences/digital_hadith_verification",
+          "quran_sciences/digital_quran_verification"
+        ],
+        "citations": [
+          {
+            "id": "internal-verify_religious_content",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "ethics_life/digital_misinformation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "صورة جميلة أو عدد كبير من المشاركات لا يحول النص إلى حديث صحيح، والاقتباس المبتور قد يقلب المعنى.",
+                "en": "A polished graphic or large share count does not make a hadith authentic, and a cropped quotation can reverse meaning.",
+                "citationIds": [
+                  "internal-verify_religious_content"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "استخدم مصادر رقمية موثوقة وقارن المرجع، وإذا كان الحكم خطيرًا أو شخصيًا فلا تعتمد على منشور مجهول.",
+                "en": "Use reliable digital sources and cross-check references; for serious or personal rulings, do not rely on anonymous posts.",
+                "citationIds": [
+                  "internal-verify_religious_content"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "app_reference_limits",
+        "titleAr": "هل محتوى هذه المكتبة فتوى نهائية أو مراجعة شرعية معتمدة؟",
+        "titleEn": "Is this library a final fatwa or certified scholarly verdict?",
+        "summaryAr": "لا. المكتبة مرجع تعليمي منظم، وكل المقالات التي لم تعتمد مراجعتها تحمل حالة «قيد المراجعة العلمية».",
+        "summaryEn": "No. The library is a structured educational reference, and articles not independently approved remain marked as pending scholarly review.",
+        "keywordsAr": [
+          "هل محتوى هذه المكتبة فتوى نهائية أو مراجعة شرعية معتمدة"
+        ],
+        "keywordsEn": [
+          "Is this library a final fatwa or certified scholarly verdict"
+        ],
+        "relatedTopicIds": [
+          "islam/sources",
+          "fiqh_worship/fatwa_guidance"
+        ],
+        "citations": [
+          {
+            "id": "internal-app_reference_limits",
+            "kind": "Internal",
+            "titleAr": "المكتبة المرجعية الإسلامية داخل التطبيق",
+            "titleEn": "In-app Islamic Reference Library",
+            "locator": "islam/sources"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "short_answer",
+            "titleAr": "الجواب المختصر",
+            "titleEn": "Short answer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المصادر والروابط وحالة المراجعة ظاهرة حتى يستطيع المستخدم التفريق بين النص المنقول والشرح التعليمي والاجتهاد الفقهي.",
+                "en": "Sources, links, and review status are exposed so users can distinguish transmitted texts, educational explanation, and juristic interpretation.",
+                "citationIds": [
+                  "internal-app_reference_limits"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق والتفصيل",
+            "titleEn": "Context and nuance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في النوازل الشخصية أو القضائية أو الطبية أو المالية الكبيرة يجب الرجوع إلى جهة مختصة بدل الاعتماد على نص عام داخل التطبيق.",
+                "en": "For personal legal cases, medical issues, court matters, or major financial decisions, qualified professionals should be consulted rather than relying solely on general app text.",
+                "citationIds": [
+                  "internal-app_reference_limits"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

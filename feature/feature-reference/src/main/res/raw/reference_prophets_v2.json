@@ -1,0 +1,4101 @@
+{
+  "schemaVersion": 2,
+  "book": {
+    "id": "prophets",
+    "titleAr": "قصص الأنبياء",
+    "titleEn": "Stories of the Prophets",
+    "subtitleAr": "قصص أنبياء الله المذكورين في القرآن الكريم كاملة",
+    "subtitleEn": "The complete stories of God's prophets mentioned in the Quran",
+    "contentRevision": 3,
+    "chapters": [
+      {
+        "id": "method",
+        "titleAr": "مدخل إلى قصص الأنبياء",
+        "titleEn": "Introduction to Prophetic Stories",
+        "summaryAr": "منهج القراءة ومصادر القصة وحدود ما نعرفه.",
+        "summaryEn": "How the stories are sourced, read, and limited by reliable evidence.",
+        "topicIds": [
+          "prophets_in_quran",
+          "common_prophetic_message",
+          "chronology_limits",
+          "israeliyyat_method"
+        ]
+      },
+      {
+        "id": "earliest_prophets",
+        "titleAr": "الأنبياء الأوائل",
+        "titleEn": "The Earliest Prophets",
+        "summaryAr": "آدم وإدريس ونوح عليهم السلام.",
+        "summaryEn": "Adam, Idris, and Noah.",
+        "topicIds": [
+          "adam",
+          "idris",
+          "nuh",
+          "adam_creation_iblis",
+          "adam_repentance_earth",
+          "nuh_call",
+          "nuh_ark_family"
+        ]
+      },
+      {
+        "id": "arabian_prophets",
+        "titleAr": "أنبياء العرب والأمم القديمة",
+        "titleEn": "Prophets of Arabia and Ancient Peoples",
+        "summaryAr": "هود وصالح ولوط وشعيب عليهم السلام.",
+        "summaryEn": "Hud, Salih, Lot, and Shu'ayb.",
+        "topicIds": [
+          "hud",
+          "salih",
+          "lut",
+          "shuayb",
+          "ad_hud",
+          "thamud_salih",
+          "lut_people",
+          "madyan_shuayb"
+        ]
+      },
+      {
+        "id": "abrahamic_family",
+        "titleAr": "إبراهيم وذريته",
+        "titleEn": "Abraham and His Family",
+        "summaryAr": "إبراهيم وإسماعيل وإسحاق ويعقوب ويوسف عليهم السلام.",
+        "summaryEn": "Abraham, Ishmael, Isaac, Jacob, and Joseph.",
+        "topicIds": [
+          "ibrahim",
+          "ismail",
+          "ishaq_yaqub",
+          "yusuf",
+          "ibrahim_search_argument",
+          "ibrahim_idols_fire",
+          "ibrahim_migration_guests",
+          "ibrahim_kaaba",
+          "ibrahim_sacrifice",
+          "ismail_individual",
+          "ishaq",
+          "yaqub",
+          "yusuf_dream_well",
+          "yusuf_house_trial",
+          "yusuf_prison_rule",
+          "yusuf_reunion"
+        ]
+      },
+      {
+        "id": "musa_and_israel",
+        "titleAr": "موسى وبنو إسرائيل",
+        "titleEn": "Moses and the Children of Israel",
+        "summaryAr": "موسى ومن ارتبط بقصته من الأنبياء والأحداث.",
+        "summaryEn": "Moses, related prophets, and major events in the story of the Children of Israel.",
+        "topicIds": [
+          "musa",
+          "musa_birth_palace",
+          "musa_madyan",
+          "musa_call",
+          "musa_pharaoh",
+          "musa_magicians",
+          "musa_exodus",
+          "musa_sinai_calf",
+          "musa_righteous_servant",
+          "harun",
+          "dhul_kifl"
+        ]
+      },
+      {
+        "id": "kingdom_prophets",
+        "titleAr": "أنبياء الملك والحكمة",
+        "titleEn": "Prophets of Kingdom and Wisdom",
+        "summaryAr": "داود وسليمان ومن جاء في عصرهما أو بعدهما.",
+        "summaryEn": "David, Solomon, and prophets associated with later Israelite history.",
+        "topicIds": [
+          "dawud",
+          "sulayman",
+          "ilyas",
+          "alyasa",
+          "dawud_jalut",
+          "dawud_zabur_judgment",
+          "sulayman_kingdom",
+          "sulayman_sheba"
+        ]
+      },
+      {
+        "id": "trial_and_call",
+        "titleAr": "الابتلاء والدعوة",
+        "titleEn": "Trial and Calling",
+        "summaryAr": "أيوب ويونس عليهما السلام ونماذج الصبر والرجوع إلى الله.",
+        "summaryEn": "Job and Jonah as examples of patience, calling, and return to God.",
+        "topicIds": [
+          "ayyub",
+          "yunus",
+          "ayyub_patience",
+          "yunus_fish"
+        ]
+      },
+      {
+        "id": "zakariyya_to_isa",
+        "titleAr": "من زكريا إلى عيسى",
+        "titleEn": "From Zechariah to Jesus",
+        "summaryAr": "زكريا ويحيى وعيسى عليهم السلام.",
+        "summaryEn": "Zechariah, John, and Jesus.",
+        "topicIds": [
+          "zakariyya_yahya",
+          "isa",
+          "zakariyya",
+          "yahya",
+          "isa_birth_miracles",
+          "isa_disciples_end"
+        ]
+      },
+      {
+        "id": "final_prophet",
+        "titleAr": "خاتم الأنبياء ﷺ",
+        "titleEn": "The Final Prophet ﷺ",
+        "summaryAr": "محمد ﷺ وخاتمة النبوة مع الربط بكتاب السيرة النبوية.",
+        "summaryEn": "Muhammad ﷺ and the finality of prophethood, linked to the full Sira book.",
+        "topicIds": [
+          "muhammad"
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "adam",
+        "titleAr": "آدم عليه السلام",
+        "titleEn": "Adam (peace be upon him)",
+        "summaryAr": "أول البشر وأول الأنبياء، خلقه الله بيده وعلّمه الأسماء.",
+        "summaryEn": "The first human and first prophet, created by God's hand and taught the names.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "creation",
+            "titleAr": "الخلق",
+            "titleEn": "The creation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "خلق الله آدم من تراب، ونفخ فيه من روحه، وعلّمه الأسماء كلها، وأمر الملائكة بالسجود له سجود تكريم، فسجدوا إلا إبليس استكبر وكان من الكافرين.",
+                "en": "God created Adam from clay, breathed into him of His spirit, taught him all the names, and commanded the angels to prostrate to him in honour; they all prostrated except Iblis, who was arrogant and became of the disbelievers.",
+                "citationIds": []
+              },
+              {
+                "ar": "أسكن الله آدم وزوجه الجنة، وقال: «وَكُلَا مِنْهَا رَغَدًا حَيْثُ شِئْتُمَا وَلَا تَقْرَبَا هَٰذِهِ الشَّجَرَةَ». فأغواهما الشيطان، فأكلا منها، فأنزلهما الله إلى الأرض.",
+                "en": "God settled Adam and his wife in Paradise, saying: “And eat from it in relaxation wherever you wish, but do not approach this tree.” Satan seduced them, they ate from it, and God sent them down to the earth.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "repentance",
+            "titleAr": "التوبة",
+            "titleEn": "The repentance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تلقى آدم من ربه كلمات فتاب عليه: «رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ». فتاب الله عليه — وهو أول دروس التوبة والرجوع إلى الله.",
+                "en": "Adam received words from his Lord and repented: “Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy upon us, we will surely be among the losers” (Quran 7:23). God accepted his repentance — the first lesson of repentance and return to God.",
+                "citationIds": []
+              },
+              {
+                "ar": "عاش آدم على الأرض نبيًا، وعلّم بنيه التوحيد، وأنجب هابيل وقابيل وشيث وغيرهم.",
+                "en": "Adam lived on earth as a prophet, teaching his children monotheism, and had Habil, Qabil, Seth and others.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "من قصة آدم نتعلم أن الكبرياء أصل الهلاك، وأن طاعة الله واجبة وإن خالفت هوى النفس؛ فقد أهلك إبليسَ كبرياؤه ولم يضره خلقه ولا عبادته القديمة. كما نتعلم أن المعصية تليها التوبة النصوح، وأن باب الله مفتوح لمن رجع: «ثُمَّ اجْتَبَاهُ رَبُّهُ فَتَابَ عَلَيْهِ وَهَدَىٰ».",
+                "en": "From Adam's story we learn that pride is the origin of destruction and that obedience to God is obligatory even when it conflicts with the soul's desire — Iblis was ruined by his arrogance, and neither his creation nor his long worship availed him. We also learn that sin is followed by sincere repentance, and that God's door remains open for whoever returns: “Then his Lord chose him and turned to him in forgiveness and guided him” (Quran 20:122).",
+                "citationIds": []
+              },
+              {
+                "ar": "في قصة آدم بيان لعداوة الشيطان للإنسان وسبل وقايتها: أعداؤه يريدون إخراجنا من الجنة كما أخرجوا أبينا، فلا يُستهان بوسوسته ولا يُتخذ سبيله، قال تعالى: «إِنَّ الشَّيْطَانَ لَكُمْ عَدُوٌّ فَاتَّخِذُوهُ عَدُوًّا».",
+                "en": "Adam's story clarifies Satan's enmity toward mankind and how to guard against it: the enemy wants to expel us from Paradise as he expelled our father, so his whisper must not be taken lightly nor his path adopted. God said: “Indeed, Satan is to you an enemy, so take him as an enemy” (Quran 35:6).",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "idris",
+        "titleAr": "إدريس عليه السلام",
+        "titleEn": "Idris (peace be upon him)",
+        "summaryAr": "نبي صدّيق رفعه الله مكانًا عليًا، وأول من خط بالقلم.",
+        "summaryEn": "A truthful prophet whom God raised to a high station; he was the first to write with the pen.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصته",
+            "titleEn": "His story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "إدريس عليه السلام من أنبياء بني آدم، وصفه الله بالصدق: «وَاذْكُرْ فِي الْكِتَابِ إِدْرِيسَ إِنَّهُ كَانَ صِدِّيقًا نَبِيًّا». يُقال إنه أول من خط بالقلم وأول من نظر في علم النجوم والحساب.",
+                "en": "Idris (peace be upon him) is among the prophets of the descendants of Adam, described by God as truthful: “And mention in the Book, Idris. Indeed, he was a truthful man and a prophet” (Quran 19:56). He is said to have been the first to write with the pen and to study astronomy and calculation.",
+                "citationIds": []
+              },
+              {
+                "ar": "قال تعالى: «وَرَفَعْنَاهُ مَكَانًا عَلِيًّا» — رفع الله ذكره ومكانته، وقيل رفعه إلى السماء.",
+                "en": "God said: “And We raised him to a high station” (Quran 19:57) — raising his mention and rank, and it is said he was raised to heaven.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في إدريس بيان فضل الصدق والاجتهاد في العلم والعمل؛ وصفه الله بالصدق ورفعه مكانًا عليًا. فالعلم النافع الذي يُعمل به يرفع صاحبه عند الله، ويكون سببًا لعلوّ الذكر والمنزلة.",
+                "en": "In Idris we see the virtue of truthfulness and diligence in knowledge and action; God described him as truthful and raised him to a high station. Beneficial knowledge that is acted upon raises its owner with God and elevates his mention and rank.",
+                "citationIds": []
+              },
+              {
+                "ar": "الاشتغال بما ينفع الناس من العلوم الدنيوية المباحة (كالكتابة والحساب) ليس مذمومًا إذا صاحبه التوحيد والصدق؛ فإدريس كان أول من خط بالقلم مع كونه نبيًا صديقًا.",
+                "en": "Occupying oneself with permissible worldly sciences (like writing and calculation) is not blameworthy when accompanied by monotheism and truthfulness; Idris was the first to write with the pen while being a truthful prophet.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "nuh",
+        "titleAr": "نوح عليه السلام",
+        "titleEn": "Noah (peace be upon him)",
+        "summaryAr": "أول أولي العزم، دعا قومه 950 سنة، وأنجاه الله في السفينة.",
+        "summaryEn": "The first of the resolute messengers; he called his people for 950 years and God saved him in the ark.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "call",
+            "titleAr": "دعوته",
+            "titleEn": "His call",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعث الله نوحًا إلى قومه يعبدون الأصنام، فدعاهم ليلًا ونهارًا سرًا وجهارًا تسعمائة وخمسين سنة، فما آمن معه إلا قليل، وكانوا يسخرون منه ويضعون أصابعهم في آذانهم.",
+                "en": "God sent Noah to his people who worshipped idols. He called them night and day, secretly and openly, for nine hundred and fifty years, yet only a few believed, and they mocked him and put their fingers in their ears.",
+                "citationIds": []
+              },
+              {
+                "ar": "دعا نوح ربه: «أَنِّي مَغْلُوبٌ فَانْتَصِرْ» فأوحى الله إليه أن يصنع السفينة، فصنعها بأمر الله، وسخر منه قومه: «وَيَصْنَعُ الْفُلْكَ وَكُلَّمَا مَرَّ عَلَيْهِ مَلَأٌ مِنْ قَوْمِهِ سَخِرُوا مِنْهُ».",
+                "en": "Noah called to his Lord: “Indeed, I am overpowered, so help me” (Quran 54:10). God revealed to him to build the ark; he built it by God's command while his people mocked: “And he constructed the ship, and whenever an assembly of his people passed by him they ridiculed him” (Quran 11:38).",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "flood",
+            "titleAr": "الطوفان",
+            "titleEn": "The flood",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "جاء أمر الله، وفار التنور، وحمل نوح في السفينة من كل زوجين اثنين وأهله ومن آمن — وكان ابنه من الغارقين لأنه لم يؤمن. وغرق الكافرون جميعًا.",
+                "en": "God's command came and the oven overflowed. Noah carried into the ark a pair of every kind, his family and the believers — his son was among the drowned for not believing. All the disbelievers perished.",
+                "citationIds": []
+              },
+              {
+                "ar": "قال تعالى: «وَقِيلَ يَا أَرْضُ ابْلَعِي مَاءَكِ وَيَا سَمَاءُ أَقْلِعِي». واستوت السفينة على الجودي، ونادى نوح ربه وقال: «رَبِّ إِنَّ ابْنِي مِنْ أَهْلِي» فقال الله: «إِنَّهُ لَيْسَ مِنْ أَهْلِكَ».",
+                "en": "God said: “And it was said: O earth, swallow your water, and O sky, withhold.” The ship settled on Mount Judi, and Noah called to his Lord: “My Lord, indeed my son is of my family,” and God said: “Indeed, he is not of your family” (Quran 11:44–46).",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في نوح أعظم مثال على الصبر في الدعوة: تسعمائة وخمسون سنة من الجهد والدعوة سرًا وجهارًا، لا يفتر ولا يمل، مع قلة المستجيبين وكثرة الساخرين. فالعبرة في الدعوة بالثبات على الحق لا بكثرة الأتباع.",
+                "en": "In Noah is the greatest example of patience in calling to God: nine hundred and fifty years of effort and calling secretly and openly, without weakening or tiring, amid few responders and many mockers. The measure of da'wah is steadfastness upon the truth, not the number of followers.",
+                "citationIds": []
+              },
+              {
+                "ar": "في الطوفان عبرة بأن العاقبة للمؤمنين وإن تأخر النصر، وبأن القرابة لا تنفع مع الكفر: ابن نوح كان من الغارقين لأنه لم يؤمن، فالأعمال هي التي ترفع أو تخفض، لا الأنساب.",
+                "en": "In the flood is a lesson that the outcome belongs to the believers even when victory is delayed, and that kinship avails nothing alongside disbelief: Noah's son was among the drowned for not believing. It is deeds that raise or lower, not lineage.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hud",
+        "titleAr": "هود عليه السلام",
+        "titleEn": "Hud (peace be upon him)",
+        "summaryAr": "نبي عاد، القوم الأشداء الذين أهلكهم الله بريح صرصر عاتية.",
+        "summaryEn": "The prophet of 'Ad, the mighty people destroyed by God with a furious wind.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصته",
+            "titleEn": "His story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أرسل الله هودًا إلى قوم عاد، وكانوا أصحاب قوة وبأس شديد، يسكنون الأحقاف، ويعبدون الأصنام. دعاهم إلى عبادة الله وحده: «يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُمْ مِنْ إِلَٰهٍ غَيْرُهُ».",
+                "en": "God sent Hud to the people of 'Ad, who were of great strength and might, dwelling in al-Ahqaf and worshipping idols. He called them to worship God alone: “O my people, worship Allah; you have no god other than Him” (Quran 11:50).",
+                "citationIds": []
+              },
+              {
+                "ar": "كذبوه وتوعدوه: «إِنْ نَقُولُ إِلَّا اعْتَرَاكَ بَعْضُ آلِهَتِنَا بِسُوءٍ». فلم يزدهم إلا عتوًا وتكبرًا.",
+                "en": "They denied him and threatened him: “We say not except that some of our gods have afflicted you with evil” (Quran 11:54). He only increased them in arrogance and transgression.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "punishment",
+            "titleAr": "العذاب",
+            "titleEn": "The punishment",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أرسل الله عليهم ريحًا صرصرًا عاتية سبع ليالٍ وثمانية أيام حسومًا، فدمرتهم: «فَأَمَّا عَادٌ فَأُهْلِكُوا بِرِيحٍ صَرْصَرٍ عَاتِيَةٍ». ونجّى الله هودًا والذين آمنوا معه.",
+                "en": "God sent upon them a furious screaming wind for seven nights and eight days in succession, destroying them: “As for 'Ad, they were destroyed by a screaming, violent wind” (Quran 69:6). God saved Hud and those who believed with him.",
+                "citationIds": []
+              },
+              {
+                "ar": "في قصة عاد عبرة: أن القوة لا تنفع مع الكفر، وأن العاقبة للمتقين.",
+                "en": "In the story of 'Ad is a lesson: strength avails nothing against disbelief, and the outcome belongs to the God-fearing.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في قصة عاد عبرة أن القوة والبأس لا يغنيان عن صاحبهما إذا كفر بربه؛ كانوا أشد الناس قوة وأعظمهم بنيانًا، فأهلكتهم ريح صرصر عاتية سبع ليالٍ وثمانية أيام. فمن ركن إلى قوته خسر، ومن ركن إلى ربه نجا.",
+                "en": "The story of 'Ad teaches that strength and might avail nothing when one disbelieves in his Lord; they were the strongest of people and the greatest in construction, yet a screaming furious wind destroyed them over seven nights and eight days. Whoever leans on his own strength loses, and whoever leans on his Lord is saved.",
+                "citationIds": []
+              },
+              {
+                "ar": "«فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ» — الاستكبار عن الحق سنة الهالكين، والنجاة للذين آمنوا مع هود، وكانوا قلة في قومهم، قال تعالى: «وَمَا آمَنَ مَعَهُ إِلَّا قَلِيلٌ».",
+                "en": "“As for 'Ad, they were arrogant in the land without right” (Quran 41:15) — arrogance against the truth is the way of the destroyed, and deliverance was for the few who believed with Hud. God said: “And none believed with him except a few” (Quran 11:40).",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "salih",
+        "titleAr": "صالح عليه السلام",
+        "titleEn": "Salih (peace be upon him)",
+        "summaryAr": "نبي ثمود، أرسل الله لهم الناقة آية فعقروها فأهلكوا بالصيحة.",
+        "summaryEn": "The prophet of Thamud; God sent them the she-camel as a sign, they hamstrung it, and were destroyed by the blast.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصته",
+            "titleEn": "His story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أرسل الله صالحًا إلى ثمود، قوم ينحتون الجبال بيوتًا، فدعاهم إلى التوحيد، فطلبوا منه آية، فأخرج الله لهم ناقة من الصخرة آية عظيمة، وقال لهم: «ذَرُوهَا تَأْكُلْ فِي أَرْضِ اللَّهِ».",
+                "en": "God sent Salih to Thamud, a people who carved homes in the mountains. He called them to monotheism, and they asked him for a sign, so God brought forth from the rock a she-camel as a great sign, and he told them: “Let her eat in God's land” (Quran 7:73).",
+                "citationIds": []
+              },
+              {
+                "ar": "عقروا الناقة — وأعظمهم فيها أشقاهم — فتوعّدهم صالح بالعذاب: «تَمَتَّعُوا فِي دَارِكُمْ ثَلَاثَةَ أَيَّامٍ».",
+                "en": "They hamstrung the she-camel — the most wretched among them being the one who did it — and Salih threatened them with punishment: “Enjoy yourselves in your homes for three days” (Quran 11:65).",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "punishment",
+            "titleAr": "الهلاك",
+            "titleEn": "The destruction",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "جاءهم العذاب صيحة واحدة فأصبحوا في ديارهم جاثمين، ونجّى الله صالحًا والذين آمنوا معه: «فَأَخَذَتْهُمُ الصَّيْحَةُ فَأَصْبَحُوا فِي دَارِهِمْ جَاثِمِينَ».",
+                "en": "The punishment came as a single blast and they became in their homes fallen dead, while God saved Salih and those who believed with him: “So the blast seized them, and they became within their home fallen” (Quran 11:67).",
+                "citationIds": []
+              },
+              {
+                "ar": "في قصة ثمود عبرة: أن تكذيب الآيات بعد ظهورها أشد هلاكًا.",
+                "en": "In the story of Thamud is a lesson: denying the signs after their appearance is the most destructive.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في قصة ثمود عبرة أن الآيات إذا جاءت ثم كُذبت كانت الهلاك؛ أخرج الله لهم الناقة آية عظيمة فكفروا بها وعقروها، فأخذتهم الصيحة وهم في ديارهم جاثمين.",
+                "en": "The story of Thamud teaches that when the signs come and are then denied, destruction follows; God brought forth the she-camel as a great sign, yet they disbelieved and hamstrung it, and the blast seized them fallen dead in their homes.",
+                "citationIds": []
+              },
+              {
+                "ar": "في تمكين الصالحين آية أن الله يدفع عن عباده المؤمنين: «قَالَ يَا قَوْمِ هَٰذِهِ نَاقَةُ اللَّهِ لَكُمْ آيَةً فَذَرُوهَا تَأْكُلْ فِي أَرْضِ اللَّهِ». فمن تعرض لآيات الله وآذى أولياءه فقد باء بغضب الله.",
+                "en": "The story of the believers' empowerment shows that God repels harm from His believing servants: “He said: O my people, this is the she-camel of Allah — a sign for you, so let her eat upon Allah's land” (Quran 11:64). Whoever opposes God's signs and harms His allies has earned His wrath.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ibrahim",
+        "titleAr": "إبراهيم عليه السلام",
+        "titleEn": "Abraham (peace be upon him)",
+        "summaryAr": "خليل الرحمن وأبو الأنبياء، حطم الأصنام، وابتلاه الله بالذبح ففداه.",
+        "summaryEn": "The friend of the Merciful and father of the prophets; he broke the idols and was tested with the sacrifice, which God ransomed.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "call",
+            "titleAr": "دعوته",
+            "titleEn": "His call",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دعا إبراهيم أباه وقومه إلى التوحيد، وقال عن الأصنام: «أُفٍّ لَكُمْ وَلِمَا تَعْبُدُونَ مِنْ دُونِ اللَّهِ أَفَلَا تَعْقِلُونَ». ثم حطم الأصنام إلا كبيرها، ليُري قومه بطلانها.",
+                "en": "Abraham called his father and people to monotheism, saying of the idols: “Ugh to you and to what you worship instead of Allah. Then will you not use reason?” (Quran 21:67). He then broke the idols except the largest, to show his people their futility.",
+                "citationIds": []
+              },
+              {
+                "ar": "أراد قومه إحراقه، فألقوه في النار، فقال الله: «يَا نَارُ كُونِي بَرْدًا وَسَلَامًا عَلَىٰ إِبْرَاهِيمَ». فخرج منها سالمًا — من أعظم آيات الله.",
+                "en": "His people sought to burn him and cast him into the fire, and God said: “O fire, be coolness and safety upon Abraham” (Quran 21:69). He emerged unharmed — one of God's greatest signs.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "tests",
+            "titleAr": "الابتلاءات",
+            "titleEn": "The trials",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ابتلى الله إبراهيم بكلمات فأتمهن، ورفعه إمامًا للناس. وابتلاه بذبح ابنه إسماعيل، فلما أسلما وتله للجبين ناداه ربه: «يَا إِبْرَاهِيمُ * قَدْ صَدَّقْتَ الرُّؤْيَا» وفداه بذبح عظيم — وهي سنة الأضحية.",
+                "en": "God tested Abraham with words which he fulfilled, and made him a leader for the people. He tested him with the sacrifice of his son Ismail; when they both submitted and he laid him upon his forehead, his Lord called: “O Abraham, you have fulfilled the vision” (Quran 37:104–105) and ransomed him with a great sacrifice — the origin of the Eid sacrifice.",
+                "citationIds": []
+              },
+              {
+                "ar": "بنى إبراهيم وإسماعيل الكعبة، ودعا بالبركة، ورفعا القواعد: «رَبَّنَا تَقَبَّلْ مِنَّا إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ». واتخذ الله إبراهيم خليلًا.",
+                "en": "Abraham and Ismail built the Kaaba, raising its foundations and praying: “Our Lord, accept from us; indeed You are the Hearing, the Knowing” (Quran 2:127). God took Abraham as a close friend (khalil).",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في إبراهيم بيان كمال التوحيد: بدأ بالأقرب فالأقرب — أباه — ثم قومه، وحطم الأصنام ليكشف بطلانها، وسلّم نفسه لله في النار فكانت بردًا وسلامًا عليه. فالتوكل على الله يقلب المحال ممكنًا: «وَمَنْ يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ».",
+                "en": "In Abraham we see the perfection of monotheism: he began with the closest — his father — then his people, broke the idols to expose their futility, and surrendered himself to God in the fire, which became coolness and safety upon him. Reliance on God turns the impossible into the possible: “And whoever relies upon Allah — then He is sufficient for him” (Quran 65:3).",
+                "citationIds": []
+              },
+              {
+                "ar": "في قصة الذبح أعظم دروس التسليم: امتثل الابن لأمر ربه وأبيه، فجعل الله الطاعة فداءً له. ومنه استُحبت الأضحية سنة باقية في أمة محمد ﷺ، وفي بنائه الكعبة دعاء أن يجعل الله مكة بلدًا آمنًا ويرزق أهلها من الثمرات.",
+                "en": "The story of the sacrifice holds the greatest lessons of submission: the son complied with the command of his Lord and his father, and God made obedience his ransom. From it the sacrifice (udhiyah) became an enduring sunnah in the nation of Muhammad ﷺ, and in building the Kaaba he prayed that God make Mecca a secure land and provide its people with fruits.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lut",
+        "titleAr": "لوط عليه السلام",
+        "titleEn": "Lot (peace be upon him)",
+        "summaryAr": "نبي قرى سدوم، أنكر عليهم الفاحشة، وأهلكهم الله بقلب ديارهم.",
+        "summaryEn": "The prophet of the towns of Sodom; he denounced their abomination, and God destroyed them by overturning their cities.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصته",
+            "titleEn": "His story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أرسل الله لوطًا إلى قوم يأتون الفاحشة التي ما سبقهم بها أحد من العالمين، فدعاهم إلى الفطرة والطهارة: «أَتَأْتُونَ الْفَاحِشَةَ مَا سَبَقَكُمْ بِهَا مِنْ أَحَدٍ مِنَ الْعَالَمِينَ».",
+                "en": "God sent Lot to a people who committed an abomination no one in the worlds had committed before them. He called them to natural purity: “Do you commit such immorality as no one has preceded you with from among the worlds?” (Quran 7:80).",
+                "citationIds": []
+              },
+              {
+                "ar": "كذبوه وتوعدوه بالإخراج، وجاءته الملائكة ضيوفًا في صورة رجال، فخاف عليهم، وهمّ قومه بهم.",
+                "en": "They denied him and threatened to expel him. The angels came to him as guests in the form of men, and he feared for them while his people sought them.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "destruction",
+            "titleAr": "الهلاك",
+            "titleEn": "The destruction",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أمر الله الملائكة أن تخرج لوطًا وأهله ليلًا إلا امرأته، فلما خرجوا جعل الله عالي قرى قومه سافلها وأمطر عليهم حجارة من سجيل: «فَأَخَذَتْهُمُ الصَّيْحَةُ مُشْرِقِينَ».",
+                "en": "God commanded the angels to take Lot and his family out by night except his wife. When they left, God turned the towns upside down and rained upon them stones of baked clay: “So the blast seized them at sunrise” (Quran 15:73).",
+                "citationIds": []
+              },
+              {
+                "ar": "في قصة لوط تحريم الفاحشة، وأن العقوبة على من تمادى فيها بعد قيام الحجة.",
+                "en": "The story of Lot forbids the abomination and shows that punishment comes upon those who persist after the proof is established.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في قصة لوط تقرير تحريم الفاحشة والتحذير من عاقبتها في الدنيا والآخرة، وأن المجتمع الذي يفشيها يسلبه الله الأمن ويقلب عليه نعمه: «فَأَخَذَتْهُمُ الصَّيْحَةُ مُشْرِقِينَ».",
+                "en": "The story of Lot affirms the prohibition of immorality and warns of its consequences in this life and the next, and that a society in which it spreads is stripped of security and has its blessings overturned: “So the blast seized them at sunrise” (Quran 15:73).",
+                "citationIds": []
+              },
+              {
+                "ar": "وفي القصة أن نصرة النبي للضعيف ودفعه عن المضطر — لما جاءته الملائكة ضيوفًا وخاف عليهم من قومه — مقام عظيم؛ والله لا يضيع أجر من أحسن عملاً.",
+                "en": "The story also shows that a prophet's defence of the weak and his protection of the guest in need — when the angels came to him as guests and he feared his people would harm them — is a great station, and God does not waste the reward of those who do good.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ismail",
+        "titleAr": "إسماعيل عليه السلام",
+        "titleEn": "Ismail (peace be upon him)",
+        "summaryAr": "الذبيح، بُني على يديه البيت الحرام، وأب العرب المستعربة.",
+        "summaryEn": "The one of the sacrifice; the Sacred House was built by his hands, and he is the father of the Arabised Arabs.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصته",
+            "titleEn": "His story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ولد إسماعيل من هاجر، وأسكنه إبراهيم بوادي مكة غير ذي زرع، ففاض له بئر زمزم، وكان صادق الوعد: «وَاذْكُرْ فِي الْكِتَابِ إِسْمَاعِيلَ إِنَّهُ كَانَ صَادِقَ الْوَعْدِ وَكَانَ رَسُولًا نَبِيًّا».",
+                "en": "Ismail was born to Hajar, and Abraham settled him in the valley of Mecca with no cultivation; the well of Zamzam gushed forth for them. He was true to his promise: “And mention in the Book, Ismail. Indeed, he was true to his promise, and he was a messenger and a prophet” (Quran 19:54).",
+                "citationIds": []
+              },
+              {
+                "ar": "لما بلغ معه السعي، قال له أبوه: «يَا بُنَيَّ إِنِّي أَرَىٰ فِي الْمَنَامِ أَنِّي أَذْبَحُكَ فَانْظُرْ مَاذَا تَرَىٰ» فقال: «يَا أَبَتِ افْعَلْ مَا تُؤْمَرُ سَتَجِدُنِي إِنْ شَاءَ اللَّهُ مِنَ الصَّابِرِينَ». ففداه الله.",
+                "en": "When he reached the age of striving, his father said: “O my son, indeed I have seen in a dream that I sacrifice you, so see what you think.” He replied: “O my father, do as you are commanded. You will find me, if God wills, of the patient” (Quran 37:102). God ransomed him.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "legacy",
+            "titleAr": "أثره",
+            "titleEn": "His legacy",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "شارك أباه في بناء الكعبة، وامتحنه الله بالصبر على طاعته، ومن نسله جاء النبي محمد ﷺ.",
+                "en": "He helped his father build the Kaaba, was tested by God with patience in obedience, and from his lineage came Prophet Muhammad ﷺ.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في إسماعيل بيان فضل الصدق في الوعد والتسليم لأمر الله؛ وصفه الله بأنه صادق الوعد، وجعل من طاعته وطاعة أبيه فداءً عظيمًا. ومنه نتعلم أن بر الوالدين مقرون بطاعة الله.",
+                "en": "In Ismail we see the virtue of truthfulness to promises and submission to God's command; God described him as true to his promise and made his obedience and his father's a great ransom. From him we learn that honouring parents is joined with obedience to God.",
+                "citationIds": []
+              },
+              {
+                "ar": "بئر زمزم التي فاضت للرضيع في صحراء مكة عبرة بأن الله يرزق عباده من حيث لا يحتسبون: «وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا * وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ».",
+                "en": "The well of Zamzam, which gushed in the desert of Mecca for the infant, is a lesson that God provides for His servants from where they do not expect: “And whoever fears Allah — He will make for him a way out and will provide for him from where he does not expect” (Quran 65:2–3).",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ishaq_yaqub",
+        "titleAr": "إسحاق ويعقوب عليهما السلام",
+        "titleEn": "Isaac and Jacob (peace be upon them)",
+        "summaryAr": "ابنا وحفيد إبراهيم، أنبياء كرام، ويعقوب أبو الأسباط.",
+        "summaryEn": "The son and grandson of Abraham, noble prophets; Jacob is the father of the tribes.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصتهما",
+            "titleEn": "Their story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بشّرت الملائكة إبراهيم بإسحاق نبيًا من الصالحين، ومن بعده يعقوب. قال تعالى: «فَبَشَّرْنَاهُ بِإِسْحَاقَ نَبِيًّا مِنَ الصَّالِحِينَ». وكلاهما نبي مكرم.",
+                "en": "The angels gave Abraham glad tidings of Isaac, a prophet among the righteous, and after him Jacob. God said: “So We gave him good tidings of Isaac, a prophet among the righteous” (Quran 37:112). Both are honoured prophets.",
+                "citationIds": []
+              },
+              {
+                "ar": "يعقوب هو «إسرائيل»، وأبناؤه الأسباط الذين خرج منهم أنبياء بني إسرائيل، ومن نسله يوسف وموسى وعيسى عليهم السلام.",
+                "en": "Jacob is “Israel,” and his sons are the tribes from whom the prophets of the Children of Israel came, and from his lineage came Joseph, Moses and Jesus, peace be upon them.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في إسحاق ويعقوب بيان أن النبوة تنتقل في الذرية الطيبة: «فَبَشَّرْنَاهُ بِإِسْحَاقَ نَبِيًّا مِنَ الصَّالِحِينَ»، وأن صلاح الآباء سبب لحفظ الأبناء.",
+                "en": "In Isaac and Jacob we see that prophethood passes through the righteous lineage: “So We gave him good tidings of Isaac, a prophet among the righteous” (Quran 37:112), and that the righteousness of the fathers is a cause of preservation for the children.",
+                "citationIds": []
+              },
+              {
+                "ar": "يعقوب وصية لأبنائه بالثبات على الدين: «وَوَصَّىٰ بِهَا إِبْرَاهِيمُ بَنِيهِ وَيَعْقُوبُ يَا بَنِيَّ إِنَّ اللَّهَ اصْطَفَىٰ لَكُمُ الدِّينَ فَلَا تَمُوتُنَّ إِلَّا وَأَنْتُمْ مُسْلِمُونَ» — فلا خير في الحياة إلا على الإسلام.",
+                "en": "Jacob counselled his sons to remain firm upon the religion: “And Abraham instructed his sons and Jacob: O my sons, indeed Allah has chosen for you the religion, so do not die except while you are Muslims” (Quran 2:132) — there is no good in life except upon Islam.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "yusuf",
+        "titleAr": "يوسف عليه السلام",
+        "titleEn": "Joseph (peace be upon him)",
+        "summaryAr": "أحسن القصص: من الجبّ إلى العرش، صبر وعفاف وتأويل رؤيا.",
+        "summaryEn": "The best of stories: from the well to the throne — patience, chastity and the interpretation of dreams.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصته",
+            "titleEn": "His story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "رأى يوسف في منامه أحد عشر كوكبًا والشمس والقمر له ساجدين، فحسده إخوته، وألقوه في الجب، فالتقطته سيارة وباعوه في مصر، فاشتراه عزيز مصر.",
+                "en": "Joseph saw in a dream eleven stars and the sun and moon prostrating to him. His brothers envied him, cast him into the well, and a caravan drew him out and sold him in Egypt, where the governor of Egypt bought him.",
+                "citationIds": []
+              },
+              {
+                "ar": "راوغته امرأة العزيز عن نفسه فاستعصم: «مَعَاذَ اللَّهِ إِنَّهُ رَبِّي أَحْسَنَ مَثْوَايَ». فسُجن ظلمًا، وفي السجن كان يدعو إلى الله ويعلّم تأويل الرؤيا.",
+                "en": "The wife of the governor seduced him, and he sought refuge: “I seek refuge in Allah. Indeed, he is my master, who has made good my residence” (Quran 12:23). He was imprisoned unjustly, and in prison he called to God and taught the interpretation of dreams.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "rise",
+            "titleAr": "تمكينه",
+            "titleEn": "His rise",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "خرج من السجن بعد أن عبّر رؤيا الملك، وجعله الملك على خزائن الأرض، ثم اجتمع به إخوته وأبواه فخرّوا له سجّدًا، فتحققت رؤياه، وقال: «رَبِّ قَدْ آتَيْتَنِي مِنَ الْمُلْكِ وَعَلَّمْتَنِي مِنْ تَأْوِيلِ الْأَحَادِيثِ».",
+                "en": "He left prison after interpreting the king's dream, and the king placed him over the storehouses of the land. Then his brothers and parents came and fell prostrate to him, fulfilling his vision, and he said: “My Lord, You have given me authority and taught me the interpretation of dreams” (Quran 12:101).",
+                "citationIds": []
+              },
+              {
+                "ar": "في سورة يوسف — أحسن القصص — دروس في الصبر والعفة والعفو: «لَا تَثْرِيبَ عَلَيْكُمُ الْيَوْمَ يَغْفِرُ اللَّهُ لَكُمْ».",
+                "en": "In Surah Yusuf — the best of stories — are lessons in patience, chastity and forgiveness: “No blame will there be upon you today. May Allah forgive you” (Quran 12:92).",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "سورة يوسف أحسن القصص، وفيها دروس جامعة: الحسد يحمل الإخوة على الكيد لأخيهم، والصبر على البلاء يرفع صاحبه، والعفة عن الحرام تورث العزة والملك: «كَذَٰلِكَ لِنَصْرِفَ عَنْهُ السُّوءَ وَالْفَحْشَاءَ».",
+                "en": "Surah Yusuf is the best of stories, containing comprehensive lessons: envy drives brothers to plot against their brother, patience through affliction raises its bearer, and chastity from the forbidden earns honour and authority: “Thus it was, that We might avert from him evil and immorality” (Quran 12:24).",
+                "citationIds": []
+              },
+              {
+                "ar": "في نهاية القصة أعظم درس في العفو: «لَا تَثْرِيبَ عَلَيْكُمُ الْيَوْمَ يَغْفِرُ اللَّهُ لَكُمْ وَهُوَ أَرْحَمُ الرَّاحِمِينَ» — فالعفو عن المسيء مع القدرة من صفات الكرام، والله يغفر لمن عفا.",
+                "en": "At the end of the story is the greatest lesson in forgiveness: “No blame will there be upon you today. May Allah forgive you, and He is the most merciful of the merciful” (Quran 12:92) — pardoning the wrongdoer when able is a trait of the noble, and God forgives those who forgive.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ayyub",
+        "titleAr": "أيوب عليه السلام",
+        "titleEn": "Job (peace be upon him)",
+        "summaryAr": "مثل الصبر، ابتلاه الله في ماله وولده وجسده فصبر.",
+        "summaryEn": "The example of patience; God tested him in wealth, children and body, and he was patient.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصته",
+            "titleEn": "His story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان أيوب نبيًا كثير المال والولد، فابتلاه الله بذهاب ماله وولده ومرض جسده، فصبر صبرًا جميلًا ولم يشكُ إلا إلى الله: «أَنِّي مَسَّنِيَ الضُّرُّ وَأَنْتَ أَرْحَمُ الرَّاحِمِينَ».",
+                "en": "Job was a prophet of great wealth and many children. God tested him with the loss of his wealth and children and illness of his body, and he bore it with beautiful patience, complaining only to God: “Indeed, adversity has touched me, and You are the most merciful of the merciful” (Quran 21:83).",
+                "citationIds": []
+              },
+              {
+                "ar": "استجاب الله له، فأمره أن يضرب برجله، فنبعت عين، وردّ الله عليه أهله ومثلهم معهم رحمة: «وَآتَيْنَاهُ أَهْلَهُ وَمِثْلَهُمْ مَعَهُمْ رَحْمَةً مِنْ عِنْدِنَا وَذِكْرَىٰ لِلْعَابِدِينَ».",
+                "en": "God answered him, commanding him to strike with his foot, and a spring gushed forth. God restored his family to him and the like of them with them as mercy: “And We gave him back his family and the like of them with them as mercy from Us and a reminder for the worshippers” (Quran 21:84).",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في أيوب المثل الأعلى في الصبر على البلاء: جمع الله له الابتلاء في المال والولد والجسد، فصبر صبرًا جميلًا ولم يسخط ولم يتبرم، ودعا ربه بضراعة لا بجزع: «أَنِّي مَسَّنِيَ الضُّرُّ وَأَنْتَ أَرْحَمُ الرَّاحِمِينَ».",
+                "en": "In Job is the highest example of patience under trial: God gathered for him affliction in wealth, children and body, yet he bore it with beautiful patience without resentment, calling upon his Lord with humility rather than panic: “Indeed, adversity has touched me, and You are the most merciful of the merciful” (Quran 21:83).",
+                "citationIds": []
+              },
+              {
+                "ar": "وفي عاقبته عبرة أن الصبر عقباه الفرج: رد الله عليه أهله ومثلهم معهم رحمة وذكرى للعابدين، وأن البلاء إذا نزل صبرًا كان تمحيصًا ورفعة لا هوانًا.",
+                "en": "His outcome teaches that the end of patience is relief: God restored his family to him and the like of them with them, as mercy and a reminder for the worshippers, and that affliction borne with patience becomes purification and elevation, not humiliation.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "shuayb",
+        "titleAr": "شعيب عليه السلام",
+        "titleEn": "Shu'ayb (peace be upon him)",
+        "summaryAr": "نبي مدين، دعاهم إلى إيفاء الكيل والميزان، فكذبوه فأهلكوا.",
+        "summaryEn": "The prophet of Madyan; he called them to fair measure and balance, they denied him, and they were destroyed.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصته",
+            "titleEn": "His story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أرسل الله شعيبًا إلى أهل مدين، وكانوا يبخسون المكيال والميزان ويقطعون السبيل، فقال لهم: «أَوْفُوا الْكَيْلَ وَلَا تَكُونُوا مِنَ الْمُخْسِرِينَ * وَزِنُوا بِالْقِسْطَاسِ الْمُسْتَقِيمِ».",
+                "en": "God sent Shu'ayb to the people of Madyan, who cheated in measure and balance and blocked the roads. He told them: “Give full measure and do not be of those who cause loss, and weigh with an even balance” (Quran 26:181–182).",
+                "citationIds": []
+              },
+              {
+                "ar": "كذبوه وتوعدوه بالرجم والإخراج، فجاءهم العذاب: «فَأَخَذَتْهُمُ الرَّجْفَةُ فَأَصْبَحُوا فِي دَارِهِمْ جَاثِمِينَ».",
+                "en": "They denied him and threatened to stone and expel him, so the punishment came: “So the earthquake seized them, and they became within their home fallen” (Quran 7:91).",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في شعيب تقرير حرمة الكسب الحرام: كان قومه يبخسون المكيال والميزان ويقطعون السبيل، فأمرهم بإيفاء الكيل والوزن بالقسطاس المستقيم، فكذبوه فأخذتهم الرجفة.",
+                "en": "In Shu'ayb we see the prohibition of unlawful earnings: his people cheated in measure and balance and blocked the roads, so he commanded them to give full measure and weigh with an even balance; they denied him and the earthquake seized them.",
+                "citationIds": []
+              },
+              {
+                "ar": "في القصة أيضًا أن النصح في المال من الدين، وأن من يتولّ الكبير من الله هلك كما هلك من قبله: «وَمَا أُرِيدُ أَنْ أُخَالِفَكُمْ إِلَىٰ مَا أَنْهَاكُمْ عَنْهُ» — فلا يأمر ناصح إلا بما يفعل.",
+                "en": "The story also shows that honest advice in matters of wealth is part of the religion, and that whoever turns away from the great command of God perishes as those before him perished: “And I do not intend to differ from you in that which I have forbidden you” (Quran 11:88) — the sincere adviser commands only what he himself does.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "musa",
+        "titleAr": "موسى عليه السلام",
+        "titleEn": "Moses (peace be upon him)",
+        "summaryAr": "كليم الله، أرسله إلى فرعون، وأيده الله بآيات عظيمة.",
+        "summaryEn": "The one to whom God spoke; he was sent to Pharaoh, supported by great signs.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصته",
+            "titleEn": "His story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وُلد موسى في زمن يذبح فيه فرعون أبناء بني إسرائيل، فألقته أمه في اليم، فالتقطه آل فرعون، ورباه الله في بيته. ثم كبر، وقتل رجلًا خطأ، فخرج إلى مدين، وعاد بعد أن كلّمه الله في الوادي المقدس طوى.",
+                "en": "Moses was born when Pharaoh was slaughtering the sons of Israel; his mother cast him into the river, and the household of Pharaoh picked him up, and God raised him in their home. He grew, killed a man by mistake, fled to Madyan, and returned after God spoke to him in the sacred valley of Tuwa.",
+                "citationIds": []
+              },
+              {
+                "ar": "أرسله الله إلى فرعون الذي قال: «أَنَا رَبُّكُمُ الْأَعْلَىٰ»، فأيده الله بآيات: العصا واليد، ثم بالطوفان والجراد والقمل والضفادع والدم، فكذب واستكبر.",
+                "en": "God sent him to Pharaoh, who said: “I am your most high lord” (Quran 79:24). God supported him with signs: the staff and the hand, then the flood, locusts, lice, frogs and blood — yet he denied and was arrogant.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "exodus",
+            "titleAr": "الخروج والنجاة",
+            "titleEn": "The exodus and deliverance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أمر الله موسى أن يخرج ببني إسرائيل ليلًا، فتبعهم فرعون بجنوده، فلما تراءى الجمعان أوحى الله إلى موسى: «أَنِ اضْرِبْ بِعَصَاكَ الْبَحْرَ فَانْفَلَقَ» فانفلق البحر، ونجا موسى وقومه، وغرق فرعون وجنوده.",
+                "en": "God commanded Moses to take the Children of Israel out by night, and Pharaoh followed with his soldiers. When the two hosts saw each other, God revealed to Moses: “Strike the sea with your staff,” and it parted. Moses and his people were saved, and Pharaoh and his soldiers drowned.",
+                "citationIds": []
+              },
+              {
+                "ar": "أعطى الله موسى التوراة، وفيها هدى ونور، وجعل من ذريته أنبياء. وأكثر الله من ذكره في القرآن.",
+                "en": "God gave Moses the Torah, in which is guidance and light, and made prophets from his descendants. God mentioned him frequently in the Quran.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في موسى أعظم أمثلة الشجاعة في الحق: واجه فرعون الطاغية بلسان رقيق وكلمة صدق: «فَقُولَا لَهُ قَوْلًا لَيِّنًا لَعَلَّهُ يَتَذَكَّرُ أَوْ يَخْشَىٰ»، وضرب البحر بعصاه فانفلق بإذن الله، فنجا المؤمنون وغرق الطغاة.",
+                "en": "In Moses is the greatest example of courage upon the truth: he faced the tyrant Pharaoh with a gentle word and truthful speech: “And speak to him with gentle speech that perhaps he may be reminded or fear” (Quran 20:44), and struck the sea with his staff and it parted by God's permission, so the believers were saved and the tyrants drowned.",
+                "citationIds": []
+              },
+              {
+                "ar": "وفي قصة موسى دروس في التوكل: لما قال له أصحابه «إِنَّا لَمُدْرَكُونَ» قال: «كَلَّا إِنَّ مَعِيَ رَبِّي سَيَهْدِينِ» — فلا ييأس مؤمن من نصر الله وإن ضاقت السبل، فإن مع العسر يسرًا.",
+                "en": "Moses' story also teaches reliance on God: when his companions said “Indeed, we are overtaken,” he said: “No! Indeed, with me is my Lord; He will guide me” (Quran 26:62) — a believer never despairs of God's help even when paths narrow, for with hardship comes ease.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dawud",
+        "titleAr": "داود عليه السلام",
+        "titleEn": "David (peace be upon him)",
+        "summaryAr": "ملك نبي، آتاه الله الزبور، وألان له الحديد، وقضى بين الناس بالعدل.",
+        "summaryEn": "A king and prophet; God gave him the Psalms, softened iron for him, and he judged between people with justice.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصته",
+            "titleEn": "His story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قتل داود جالوت، فآتاه الله الملك والحكمة، وأنزل عليه الزبور: «وَآتَيْنَا دَاوُودَ زَبُورًا». وألان الله له الحديد، وجعل الجبال تسبح معه، وكان يصوم يومًا ويفطر يومًا.",
+                "en": "David killed Goliath, and God gave him kingship and wisdom and revealed to him the Psalms: “And to David We gave the Psalms” (Quran 17:55). God softened iron for him, made the mountains glorify with him, and he fasted alternate days.",
+                "citationIds": []
+              },
+              {
+                "ar": "قضى داود بين الناس بالعدل، ومن قصصه المشهورة قصة الخصمين اللذين تسورا المحراب، فتنبّه وطلب المغفرة: «وَظَنَّ دَاوُودُ أَنَّمَا فَتَنَّاهُ فَاسْتَغْفَرَ رَبَّهُ وَخَرَّ رَاكِعًا وَأَنَابَ».",
+                "en": "David judged between people with justice. Among his well-known stories is that of the two litigants who climbed over the sanctuary wall; he realised it was a trial and sought forgiveness: “And David became certain that We had tried him, and he asked forgiveness of his Lord and fell bowing and turned in repentance” (Quran 38:24).",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في داود بيان أن القوة مع التقوى أمانة: جمع الله له الملك والنبوة والزبور، وألان له الحديد، وقضى بالعدل بين الناس، فلما فُتن بالخصمين سارع إلى التوبة: «فَاسْتَغْفَرَ رَبَّهُ وَخَرَّ رَاكِعًا وَأَنَابَ».",
+                "en": "In David we see that strength with piety is a trust: God combined for him kingship, prophethood and the Psalms, softened iron for him, and he judged between people with justice; when he was tried by the two litigants he hastened to repentance: “He asked forgiveness of his Lord and fell bowing and turned in repentance” (Quran 38:24).",
+                "citationIds": []
+              },
+              {
+                "ar": "وصيام داود — يومًا ويومًا — أعظم الصيام عند الله، كما أن تسبيح الجبال معه آية على أن القلوب إذا صفت سبحت معها الخلائق؛ وفي ذلك حث على صيام داود وقيامه.",
+                "en": "David's fast — a day on, a day off — is the most beloved fasting to God, just as the mountains glorifying with him is a sign that when hearts are pure, all creation glorifies with them; it encourages following his fast and night prayer.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sulayman",
+        "titleAr": "سليمان عليه السلام",
+        "titleEn": "Solomon (peace be upon him)",
+        "summaryAr": "ملك لا ينبغي لأحد من بعده، سُخّرت له الريح والجن، وفهم منطق الطير.",
+        "summaryEn": "A kingdom not given to anyone after him; the wind and jinn were subjected to him, and he understood the speech of birds.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصته",
+            "titleEn": "His story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ورث سليمان داود، وسأل ربه ملكًا لا ينبغي لأحد من بعده، فسخّر الله له الريح تجري بأمره، والجن يعملون له، وعُلّم منطق الطير، وكان يفهم لغة النمل.",
+                "en": "Solomon inherited from David and asked his Lord for a kingdom not given to anyone after him. God subjected the wind to run by his command, and the jinn to work for him; he was taught the speech of birds and understood the language of ants.",
+                "citationIds": []
+              },
+              {
+                "ar": "من قصصه مع بلقيس ملكة سبأ: أرسل إليها الهدهد، ثم أحضر عرشها قبل أن يرتد إليه طرفه، فلما رأت آيات الله أسلمت: «رَبِّ إِنِّي ظَلَمْتُ نَفْسِي وَأَسْلَمْتُ مَعَ سُلَيْمَانَ لِلَّهِ رَبِّ الْعَالَمِينَ».",
+                "en": "From his stories with Bilqis, the queen of Sheba, he sent the hoopoe to her, then brought her throne before the blink of an eye. When she saw God's signs she submitted: “My Lord, indeed I have wronged myself, and I submit with Solomon to God, Lord of the worlds” (Quran 27:44).",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في سليمان بيان فضل الشكر على النعم: سأل ربه ملكًا لا ينبغي لأحد من بعده، فسخّر له الريح والجن، وفُهم منطق الطير، فكان شكورًا: «هَٰذَا مِنْ فَضْلِ رَبِّي لِيَبْلُوَنِي أَأَشْكُرُ أَمْ أَكْفُرُ».",
+                "en": "In Solomon we see the virtue of gratitude for blessings: he asked his Lord for a kingdom not given to anyone after him, and God subjected the wind and jinn to him and taught him the speech of birds, so he was grateful: “This is from the favour of my Lord to test me whether I will be grateful or ungrateful” (Quran 27:40).",
+                "citationIds": []
+              },
+              {
+                "ar": "وفي قصته مع بلقيس بيان أن الهداية تبلغ من شاء الله مهما بَعُدت الأسباب: وصلها دعوة التوحيد فأسلمت، وأن كلمة التوحيد هي أساس الملك والدولة الصالحة.",
+                "en": "His story with Bilqis shows that guidance reaches whom God wills however distant the means: the call to monotheism reached her and she submitted, and that the word of monotheism is the foundation of kingship and a righteous state.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ilyas",
+        "titleAr": "إلياس عليه السلام",
+        "titleEn": "Elijah (peace be upon him)",
+        "summaryAr": "نبي دعا قومه إلى ترك عبادة بعل.",
+        "summaryEn": "A prophet who called his people to abandon the worship of Baal.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصته",
+            "titleEn": "His story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أرسل الله إلياس إلى قومه الذين عبدوا «بعل»، فقال لهم: «أَتَدْعُونَ بَعْلًا وَتَذَرُونَ أَحْسَنَ الْخَالِقِينَ».",
+                "en": "God sent Elijah to his people who worshipped “Baal.” He told them: “Do you call upon Baal and leave the best of creators?” (Quran 37:125).",
+                "citationIds": []
+              },
+              {
+                "ar": "دعاهم إلى عبادة الله وحده، فكذبوه، قال تعالى: «وَإِنَّ إِلْيَاسَ لَمِنَ الْمُرْسَلِينَ».",
+                "en": "He called them to worship God alone, and they denied him. God said: “And indeed, Elijah was among the messengers” (Quran 37:123).",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في إلياس إنكار عبادة غير الله أيا كان المعبود: كان قومه يعبدون «بعل»، فدعاهم إلى عبادة الله وحده: «أَتَدْعُونَ بَعْلًا وَتَذَرُونَ أَحْسَنَ الْخَالِقِينَ».",
+                "en": "In Elijah is the rejection of worshipping anything other than God, whatever the object: his people worshipped “Baal,” and he called them to worship God alone: “Do you call upon Baal and leave the best of creators?” (Quran 37:125).",
+                "citationIds": []
+              },
+              {
+                "ar": "وفي عاقبة قومه عبرة أن الشرك لا يدوم له سلطان: «فَكَذَّبُوهُ فَإِنَّهُمْ لَمُحْضَرُونَ» — والله محيط بالظالمين، وناصره الأنبياء وأتباعهم.",
+                "en": "The fate of his people teaches that shirk never keeps its dominion: “But they denied him, so indeed they will be brought” (Quran 37:127) — God encompasses the wrongdoers and supports His prophets and their followers.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "alyasa",
+        "titleAr": "اليسع عليه السلام",
+        "titleEn": "Elisha (peace be upon him)",
+        "summaryAr": "نبي من أنبياء بني إسرائيل، ذُكر في القرآن بالثناء.",
+        "summaryEn": "A prophet of the Children of Israel, mentioned in the Quran with praise.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصته",
+            "titleEn": "His story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اليسع عليه السلام من أنبياء بني إسرائيل، أرسل بعد إلياس، ودعا قومه إلى التوحيد، قال تعالى: «وَاذْكُرْ إِسْمَاعِيلَ وَالْيَسَعَ وَذَا الْكِفْلِ وَكُلٌّ مِنَ الْأَخْيَارِ».",
+                "en": "Elisha (peace be upon him) is among the prophets of the Children of Israel, sent after Elijah, calling his people to monotheism. God said: “And mention Ismail and Elisha and Dhul-Kifl, and all were of the best” (Quran 38:48).",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في اليسع بيان أن الله يحفظ أولياءه ويرفع ذكرهم: ذكره الله في القرآن مع الأخيار: «وَاذْكُرْ إِسْمَاعِيلَ وَالْيَسَعَ وَذَا الْكِفْلِ وَكُلٌّ مِنَ الْأَخْيَارِ»، فكفى بالقرآن ذكرًا ورفعة.",
+                "en": "In Elisha we see that God preserves His allies and elevates their mention: God mentioned him in the Quran among the best: “And mention Ismail and Elisha and Dhul-Kifl, and all were of the best” (Quran 38:48) — mention in the Quran suffices as honour.",
+                "citationIds": []
+              },
+              {
+                "ar": "وفي ذكره مع ذي الكفل إشارة إلى أن صفوة الله من عباده يشملون أهل العلم والعبادة والصدق، وأن الذكر الجميل أجر عاجل للمؤمنين.",
+                "en": "His mention alongside Dhul-Kifl indicates that God's chosen servants include people of knowledge, worship and truthfulness, and that a good remembrance is an immediate reward for the believers.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "yunus",
+        "titleAr": "يونس عليه السلام",
+        "titleEn": "Jonah (peace be upon him)",
+        "summaryAr": "صاحب الحوت، خرج مغاضبًا فالتقمه الحوت، فدعا في الظلمات فنجاه الله.",
+        "summaryEn": "The companion of the whale; he left in anger, the whale swallowed him, he called in the darkness, and God saved him.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصته",
+            "titleEn": "His story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أرسل الله يونس إلى أهل نينوى، فدعاهم فلم يؤمنوا، فخرج مغاضبًا وركب السفينة، فسُهم فأُلقي في البحر، فالتقمه الحوت، ونادى في الظلمات: «لَا إِلَٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ».",
+                "en": "God sent Jonah to the people of Nineveh. He called them but they did not believe, so he left in anger and boarded a ship; the lot fell on him and he was cast into the sea, and the whale swallowed him. He called in the darkness: “There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers” (Quran 21:87).",
+                "citationIds": []
+              },
+              {
+                "ar": "استجاب الله له ونجاه من الغم: «فَاسْتَجَبْنَا لَهُ وَنَجَّيْنَاهُ مِنَ الْغَمِّ وَكَذَٰلِكَ نُنْجِي الْمُؤْمِنِينَ». وأنبت عليه شجرة من يقطين، ثم آمن قومه كلهم فرفع الله عنهم العذاب.",
+                "en": "God answered him and saved him from distress: “So We responded to him and saved him from the distress. And thus do We save the believers” (Quran 21:88). God caused a gourd plant to grow over him, then his people all believed and God removed the punishment from them.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في يونس أعظم درس في الدعاء عند الشدة: نادى في الظلمات — ظلمة الليل والبحر وبطن الحوت — «لَا إِلَٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ»، فاستجاب الله له ونجاه من الغم، وجعل ذلك منجاة للمؤمنين.",
+                "en": "In Jonah is the greatest lesson in supplication at times of distress: he called in the darkness — of night, sea and the belly of the whale — “There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers” (Quran 21:87), and God answered him, saved him from distress, and made that a means of deliverance for the believers.",
+                "citationIds": []
+              },
+              {
+                "ar": "وفي القصة أن توبة الأمة جملة ترفع عنها العذاب: لما آمن أهل نينوى كلهم متعهم الله إلى حين، فالدعاء والتوبة يقلبان مقادير العذاب بإذن الله.",
+                "en": "The story also shows that a nation's collective repentance removes punishment from it: when the people of Nineveh all believed, God granted them enjoyment for a time — supplication and repentance overturn the decrees of punishment by God's permission.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "zakariyya_yahya",
+        "titleAr": "زكريا ويحيى عليهما السلام",
+        "titleEn": "Zechariah and John (peace be upon them)",
+        "summaryAr": "دعا زكريا ربه فوهب له يحيى، وكان يحيى سيدًا حصورًا نبيًا.",
+        "summaryEn": "Zechariah called his Lord and was granted John, who was a master, chaste and a prophet.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "story",
+            "titleAr": "قصتهما",
+            "titleEn": "Their story",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان زكريا كافل مريم، فلما رأى عندها رزقًا من غير حول منه قال: «أَنَّىٰ لَكِ هَٰذَا» قالت: «هُوَ مِنْ عِنْدِ اللَّهِ». فهنالك دعا ربه أن يهب له غلامًا، وكان شيخًا كبيرًا وامرأته عاقرًا.",
+                "en": "Zechariah was the guardian of Mary. When he saw provision with her from no effort of his, he asked: “Where is this from?” She said: “It is from Allah.” There he called upon his Lord to grant him a child, though he was an old man and his wife barren.",
+                "citationIds": []
+              },
+              {
+                "ar": "فبشرته الملائكة بيحيى: «يَا زَكَرِيَّا إِنَّا نُبَشِّرُكَ بِغُلَامٍ اسْمُهُ يَحْيَىٰ لَمْ نَجْعَلْ لَهُ مِنْ قَبْلُ سَمِيًّا». وكان يحيى نبيًا حصورًا آتاه الله الحكم صبيًا.",
+                "en": "The angels gave him glad tidings of John: “O Zechariah, indeed We give you good tidings of a boy whose name will be John. We have not assigned to any before him this name” (Quran 19:7). John was a prophet and chaste, given judgment while still a boy.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في زكريا بيان فضل الدعاء والإلحاح فيه: دعا ربه في السر وهو شيخ كبير وامرأته عاقر، فاستجاب الله له وهبه يحيى: «هُنَالِكَ دَعَا زَكَرِيَّا رَبَّهُ قَالَ رَبِّ هَبْ لِي مِنْ لَدُنْكَ ذُرِّيَّةً طَيِّبَةً».",
+                "en": "In Zechariah we see the virtue of supplication and persistence in it: he called his Lord in secret while an old man with a barren wife, and God answered him and granted him John: “At that, Zechariah called to his Lord, saying: My Lord, grant me from Yourself a good offspring” (Quran 3:38).",
+                "citationIds": []
+              },
+              {
+                "ar": "وفي يحيى بيان أن العفة والتقوى مقدمتان على الشهوات: كان حصورًا آتاه الله الحكم صبيًا، وأن الله يجعل للتقوى من كل هم مخرجًا.",
+                "en": "In John we see that chastity and piety come before desires: he was chaste, and God gave him judgment while still a boy — and God makes for piety a way out of every concern.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "isa",
+        "titleAr": "عيسى عليه السلام",
+        "titleEn": "Jesus (peace be upon him)",
+        "summaryAr": "كلمة الله ألقاها إلى مريم، وُلد بلا أب، وأيده الله بالمعجزات.",
+        "summaryEn": "The word of God cast to Mary; born without a father, supported by God with miracles.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "birth",
+            "titleAr": "ميلاده",
+            "titleEn": "His birth",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بشرت الملائكة مريم بعيسى: «إِنَّ اللَّهَ يُبَشِّرُكِ بِكَلِمَةٍ مِنْهُ اسْمُهُ الْمَسِيحُ عِيسَى ابْنُ مَرْيَمَ وَجِيهًا فِي الدُّنْيَا وَالْآخِرَةِ». فحملت به بلا أب، ووضعته تحت النخلة، ونطق في المهد: «إِنِّي عَبْدُ اللَّهِ آتَانِيَ الْكِتَابَ وَجَعَلَنِي نَبِيًّا».",
+                "en": "The angels gave Mary glad tidings of Jesus: “Indeed, Allah gives you good tidings of a word from Him, whose name will be the Messiah, Jesus, son of Mary, distinguished in this world and the Hereafter” (Quran 3:45). She conceived him without a father, gave birth beneath the palm tree, and he spoke in the cradle: “Indeed, I am the servant of Allah. He has given me the Scripture and made me a prophet” (Quran 19:30).",
+                "citationIds": []
+              },
+              {
+                "ar": "أيد الله عيسى بمعجزات: يخلق من الطين كهيئة الطير فينفخ فيه فيكون طيرًا بإذن الله، ويبرئ الأكمه والأبرص، ويحيي الموتى بإذن الله، وينبئ بما يأكلون ويدخرون.",
+                "en": "God supported Jesus with miracles: he formed from clay the likeness of a bird and breathed into it and it became a bird by God's permission, healed the blind and the leper, brought the dead to life by God's permission, and told people what they ate and stored.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "message",
+            "titleAr": "رسالته",
+            "titleEn": "His message",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دعا عيسى إلى عبادة الله وحده: «إِنَّ اللَّهَ رَبِّي وَرَبُّكُمْ فَاعْبُدُوهُ هَٰذَا صِرَاطٌ مُسْتَقِيمٌ». وأنكر أن يكون ابنًا لله أو إلهًا من دون الله.",
+                "en": "Jesus called to the worship of God alone: “Indeed, Allah is my Lord and your Lord, so worship Him. That is the straight path” (Quran 3:51). He denied being a son of God or a god besides God.",
+                "citationIds": []
+              },
+              {
+                "ar": "لم يصلب عيسى ولم يُقتل، بل رفعه الله إليه: «وَمَا قَتَلُوهُ وَمَا صَلَبُوهُ وَلَٰكِنْ شُبِّهَ لَهُمْ». وسينزل آخر الزمان ويحكم بشريعة الإسلام.",
+                "en": "Jesus was neither crucified nor killed; God raised him to Himself: “And they did not kill him, nor did they crucify him, but another was made to resemble him to them” (Quran 4:157). He will descend at the end of time and judge by the law of Islam.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في عيسى بيان قدرة الله وعظمته: وُلد من غير أب، ونطق في المهد، وأحيا الموتى وأبرأ الأكمه والأبرص بإذن الله، فكل ذلك آيات على أن الله على كل شيء قدير.",
+                "en": "In Jesus we see the power and greatness of God: he was born without a father, spoke in the cradle, brought the dead to life and healed the blind and the leper by God's permission — all signs that God is over all things competent.",
+                "citationIds": []
+              },
+              {
+                "ar": "وفي رسالته تقرير التوحيد ورفض الغلو: «لَقَدْ كَفَرَ الَّذِينَ قَالُوا إِنَّ اللَّهَ ثَالِثُ ثَلَاثَةٍ» — فمن غلا في الأنبياء فقد خرج عن دينهم، وعيسى بريء ممن اتخذه إلهًا أو ابنًا.",
+                "en": "His message affirms monotheism and rejects extremism: “They have certainly disbelieved who say that Allah is the third of three” (Quran 5:73) — whoever exaggerates the status of prophets has left their religion, and Jesus is innocent of those who took him as a god or a son.",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "muhammad",
+        "titleAr": "محمد ﷺ — خاتم الأنبياء",
+        "titleEn": "Muhammad ﷺ — the seal of the prophets",
+        "summaryAr": "أشرف الأنبياء، خاتمهم، وأفضلهم، وسيرته كاملة في كتاب «السيرة النبوية».",
+        "summaryEn": "The noblest and seal of the prophets; his full biography is in the “Prophetic Biography” book.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [],
+        "citations": [],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "seal",
+            "titleAr": "خاتم النبيين",
+            "titleEn": "The seal of the prophets",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "محمد ﷺ خاتم الأنبياء والمرسلين، بعثه الله رحمة للعالمين، وفضّله على الأنبياء، قال تعالى: «وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِلْعَالَمِينَ». ووصفه بأنه: «خَاتَمَ النَّبِيِّينَ».",
+                "en": "Muhammad ﷺ is the seal of the prophets and messengers, sent by God as a mercy to the worlds. God said: “And We have not sent you except as a mercy to the worlds” (Quran 21:107) and described him as the “seal of the prophets” (Quran 33:40).",
+                "citationIds": []
+              },
+              {
+                "ar": "سيرته الكاملة من مولده إلى وفاته مفصلة في كتاب «السيرة النبوية» داخل هذا التطبيق.",
+                "en": "His complete biography, from birth to death, is detailed in the “Prophetic Biography” book within this app.",
+                "citationIds": []
+              }
+            ]
+          },
+          {
+            "id": "lessons",
+            "titleAr": "دروس وعبر",
+            "titleEn": "Lessons and wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "محمد ﷺ خاتم الأنبياء وأفضلهم، أرسله الله رحمة للعالمين، وختم به النبوة، ورفع له ذكره، وجعل أمته خير أمة أخرجت للناس. فمحبته من الإيمان، واتباعه سبيل النجاة: «قُلْ إِنْ كُنْتُمْ تُحِبُّونَ اللَّهَ فَاتَّبِعُونِي يُحْبِبْكُمُ اللَّهُ».",
+                "en": "Muhammad ﷺ is the seal and the best of the prophets; God sent him as a mercy to the worlds, sealed prophethood with him, exalted his mention, and made his nation the best nation brought forth for mankind. Loving him is part of faith, and following him is the path of salvation: “Say: If you should love Allah, then follow me, and Allah will love you” (Quran 3:31).",
+                "citationIds": []
+              },
+              {
+                "ar": "وفي كونه خاتم النبيين بطلان دعوى نبوة من بعده، وثبوت أن شريعته ناسخة لما قبلها وباقية إلى قيام الساعة: «مَا كَانَ مُحَمَّدٌ أَبَا أَحَدٍ مِنْ رِجَالِكُمْ وَلَٰكِنْ رَسُولَ اللَّهِ وَخَاتَمَ النَّبِيِّينَ».",
+                "en": "His being the seal of the prophets invalidates any claim of prophethood after him and affirms that his law abrogates what came before it and remains until the Hour: “Muhammad is not the father of any of your men, but he is the Messenger of Allah and the seal of the prophets” (Quran 33:40).",
+                "citationIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prophets_in_quran",
+        "titleAr": "الأنبياء المذكورون في القرآن",
+        "titleEn": "Prophets named in the Quran",
+        "summaryAr": "مدخل إلى الأنبياء الذين سماهم القرآن وإلى طريقة عرض قصصهم المتفرقة بين السور.",
+        "summaryEn": "An introduction to the prophets named in the Quran and the way their stories are distributed across different surahs.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "common_prophetic_message",
+          "chronology_limits"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-163-165",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:163-165"
+          },
+          {
+            "id": "quran-6-83-90",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "6:83-90"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "named",
+            "titleAr": "أسماء وردت في الوحي",
+            "titleEn": "Names preserved in revelation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن عددًا من الأنبياء بأسمائهم ويجمع بعضهم في مواضع مثل سورتي النساء والأنعام، بينما يفصل قصص بعضهم في سور أخرى.",
+                "en": "The Quran names a number of prophets, grouping several in passages such as those in al-Nisa and al-An'am while giving fuller narratives for some in other surahs.",
+                "citationIds": [
+                  "quran-4-163-165",
+                  "quran-6-83-90"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "purpose",
+            "titleAr": "المقصد من القصص",
+            "titleEn": "Purpose of the stories",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يعرض القرآن قصص الأنبياء بوصفها سجلًا تاريخيًا تفصيليًا فقط، بل يربطها بالتوحيد والثبات والإنذار والرحمة والاعتبار.",
+                "en": "The Quran does not present prophetic stories merely as exhaustive chronicles; it connects them with monotheism, steadfastness, warning, mercy, and moral reflection.",
+                "citationIds": [
+                  "quran-6-83-90"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "common_prophetic_message",
+        "titleAr": "الرسالة المشتركة للأنبياء",
+        "titleEn": "The shared message of the prophets",
+        "summaryAr": "يشترك الأنبياء في الدعوة إلى عبادة الله وحده وطاعته، مع اختلاف الشرائع والتفاصيل بين الأمم.",
+        "summaryEn": "The prophets share a call to worship God alone and obey Him, while particular laws and details differed among communities.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "prophets_in_quran",
+          "islam/revelation_prophethood"
+        ],
+        "citations": [
+          {
+            "id": "quran-16-36",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:36"
+          },
+          {
+            "id": "quran-21-25",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "21:25"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "tawhid",
+            "titleAr": "الدعوة إلى التوحيد",
+            "titleEn": "The call to monotheism",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يلخص القرآن أصل دعوات الرسل بعبادة الله واجتناب الطاغوت، ويقرر أنه ما أرسل رسولًا إلا بوحي أن لا إله إلا الله.",
+                "en": "The Quran summarizes the prophetic mission as worshipping God and rejecting false objects of worship, stating that every messenger received the call to worship God alone.",
+                "citationIds": [
+                  "quran-16-36",
+                  "quran-21-25"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "continuity",
+            "titleAr": "وحدة الأصل وتنوع الشرائع",
+            "titleEn": "One origin, differing laws",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشتراك الأنبياء في أصل الإيمان لا يعني تطابق كل الأحكام العملية في كل أمة؛ فالقرآن يعرض رسالة متصلة مع تشريعات تناسب مراحل مختلفة.",
+                "en": "Shared belief does not mean every practical law was identical for every community; the Quran presents a continuous message alongside laws suited to different communities and times.",
+                "citationIds": [
+                  "quran-21-25"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chronology_limits",
+        "titleAr": "الترتيب الزمني وحدود المعرفة",
+        "titleEn": "Chronology and the limits of what we know",
+        "summaryAr": "الترتيب بين الأنبياء تقريبي في مواضع كثيرة، ولا يذكر القرآن تواريخ ميلاد أو سنوات دقيقة لمعظم القصص.",
+        "summaryEn": "The chronology of many prophets is approximate because the Quran does not provide precise dates for most prophetic narratives.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "prophets_in_quran",
+          "israeliyyat_method"
+        ],
+        "citations": [
+          {
+            "id": "quran-40-78",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "40:78"
+          },
+          {
+            "id": "quran-11-120",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "11:120"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "known_unknown",
+            "titleAr": "ما قصه الوحي وما لم يقصه",
+            "titleEn": "What revelation tells and leaves untold",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصرح القرآن بأن من الرسل من قُصت أخبارهم ومنهم من لم تقصص أسماؤهم وتفاصيلهم، ولذلك لا تدعي هذه المكتبة إحاطة بكل نبي أو بكل زمن.",
+                "en": "The Quran states that some messengers were narrated while others were not, so this library does not claim exhaustive knowledge of every prophet or exact historical period.",
+                "citationIds": [
+                  "quran-40-78"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "approximate",
+            "titleAr": "الترتيب التقريبي",
+            "titleEn": "Approximate ordering",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تُرتب القصص هنا بما اشتهر عند أهل التفسير والسيرة حيث لا يوجد نص زمني صريح، ويشار إلى عدم اليقين عندما يكون مهمًا.",
+                "en": "Stories are ordered according to widely used scholarly chronology where explicit dating is absent, and uncertainty is noted when it matters.",
+                "citationIds": [
+                  "quran-11-120"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "israeliyyat_method",
+        "titleAr": "الإسرائيليات ومنهج التثبت",
+        "titleEn": "Israelite reports and source caution",
+        "summaryAr": "يفرق العرض بين ما يثبته القرآن والسنة وبين الأخبار التاريخية أو الإسرائيليات التي لا يصح الجزم بها.",
+        "summaryEn": "The presentation distinguishes what is established by the Quran and authentic Sunnah from historical or Israelite reports that should not be asserted as certain.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "chronology_limits",
+          "prophets_in_quran"
+        ],
+        "citations": [
+          {
+            "id": "quran-17-36",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:36"
+          },
+          {
+            "id": "quran-12-111",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "12:111"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "verification",
+            "titleAr": "التثبت قبل الجزم",
+            "titleEn": "Verification before assertion",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينهى القرآن عن اتباع ما ليس للإنسان به علم، ولذلك تُنسب التفاصيل غير القطعية إلى مصادرها ولا تحول إلى حقائق دينية مؤكدة.",
+                "en": "The Quran warns against following what one has no knowledge of, so uncertain details should be attributed to their sources rather than turned into certain religious facts.",
+                "citationIds": [
+                  "quran-17-36"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "quran_first",
+            "titleAr": "القرآن أصل القصة",
+            "titleEn": "The Quran as the primary narrative source",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تبقى العبرة والرسالة التي يقررها القرآن هي الأصل في هذه القصص، مع الاستفادة المنضبطة من السنة والمصادر التاريخية عند الحاجة.",
+                "en": "The lessons and message established by the Quran remain primary, with careful use of Sunnah and historical sources where appropriate.",
+                "citationIds": [
+                  "quran-12-111"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "adam_creation_iblis",
+        "titleAr": "خلق آدم وسجود الملائكة وعداوة إبليس",
+        "titleEn": "Adam's creation, the angels, and Iblis",
+        "summaryAr": "تفصيل قرآني لخلق آدم وتعليمه وامتناع إبليس عن السجود وبداية العداوة للإنسان.",
+        "summaryEn": "A Quranic account of Adam's creation, teaching, Iblis's refusal to prostrate, and the beginning of hostility toward humanity.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "adam",
+          "adam_repentance_earth"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-30-34",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:30-34"
+          },
+          {
+            "id": "quran-7-11-18",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "7:11-18"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "creation",
+            "titleAr": "الخلق والتعليم",
+            "titleEn": "Creation and teaching",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن خلق آدم وتعليمه الأسماء وعرضها على الملائكة، ثم أمر الملائكة بالسجود تكريمًا له.",
+                "en": "The Quran describes Adam's creation, the teaching of the names, and the command for the angels to prostrate to him as an act of honor.",
+                "citationIds": [
+                  "quran-2-30-34"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "iblis",
+            "titleAr": "استكبار إبليس",
+            "titleEn": "Iblis's arrogance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "امتنع إبليس عن السجود استكبارًا واحتج بأصل خلقه، فصار مثالًا على خطر الكبر وبدأ عداوته المعلنة لذرية آدم.",
+                "en": "Iblis refused to prostrate out of arrogance and appealed to his origin of creation, becoming an example of pride and beginning his declared hostility toward Adam's descendants.",
+                "citationIds": [
+                  "quran-7-11-18"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "adam_repentance_earth",
+        "titleAr": "زلة آدم والتوبة والهبوط إلى الأرض",
+        "titleEn": "Adam's error, repentance, and descent to earth",
+        "summaryAr": "وسوسة الشيطان ثم توبة آدم وزوجه وقبول الله لتوبتهما قبل بدء حياة البشر في الأرض.",
+        "summaryEn": "Satan's temptation, Adam and his wife's repentance, and God's acceptance before human life on earth begins.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "adam",
+          "adam_creation_iblis",
+          "islam/repentance"
+        ],
+        "citations": [
+          {
+            "id": "quran-7-19-25",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "7:19-25"
+          },
+          {
+            "id": "quran-20-115-123",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "20:115-123"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "temptation",
+            "titleAr": "الوسوسة والأكل من الشجرة",
+            "titleEn": "Temptation and the tree",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أسكن الله آدم وزوجه الجنة ونهاهما عن شجرة، فوسوس لهما الشيطان حتى أكلا منها وبدت لهما سوآتهما.",
+                "en": "God placed Adam and his wife in the Garden and prohibited a tree; Satan whispered to them until they ate from it and became aware of their nakedness.",
+                "citationIds": [
+                  "quran-7-19-25"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "repentance",
+            "titleAr": "التوبة والهداية",
+            "titleEn": "Repentance and guidance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اعترف آدم وزوجه بظلمهما لأنفسهما وطلبا المغفرة، ثم يذكر القرآن اجتباء آدم وقبول توبته وهدايته مع بدء الحياة في الأرض.",
+                "en": "Adam and his wife admitted their wrong and sought forgiveness; the Quran then speaks of Adam being chosen, forgiven, and guided as earthly life begins.",
+                "citationIds": [
+                  "quran-20-115-123"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "nuh_call",
+        "titleAr": "دعوة نوح الطويلة",
+        "titleEn": "Noah's long call",
+        "summaryAr": "استمرار نوح عليه السلام في دعوة قومه ليلًا ونهارًا رغم شدة الرفض.",
+        "summaryEn": "Noah's sustained call to his people by night and day despite persistent rejection.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "nuh",
+          "nuh_ark_family"
+        ],
+        "citations": [
+          {
+            "id": "quran-71-1-20",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "71:1-20"
+          },
+          {
+            "id": "quran-29-14",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "29:14"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "duration",
+            "titleAr": "زمن طويل من الدعوة",
+            "titleEn": "A long period of calling",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن أن نوحًا لبث في قومه ألف سنة إلا خمسين عامًا، وهو من أوضح النصوص في طول مدة دعوته وصبره.",
+                "en": "The Quran states that Noah remained among his people for a thousand years minus fifty, one of the clearest texts showing the extraordinary length of his mission.",
+                "citationIds": [
+                  "quran-29-14"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "methods",
+            "titleAr": "ليلًا ونهارًا سرًا وجهرًا",
+            "titleEn": "By night and day, privately and publicly",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعرض سورة نوح تنوع أساليبه في الدعوة: ليلًا ونهارًا، جهرًا وإسرارًا، مع تذكير قومه بنعم الله وآيات الخلق.",
+                "en": "Surat Nuh shows varied methods of preaching: night and day, publicly and privately, while reminding his people of God's blessings and signs in creation.",
+                "citationIds": [
+                  "quran-71-1-20"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "nuh_ark_family",
+        "titleAr": "السفينة والطوفان وابتلاء الأسرة",
+        "titleEn": "The Ark, Flood, and family test",
+        "summaryAr": "أمر الله نوحًا بصنع السفينة، ونجا المؤمنون بينما غرق المكذبون ومنهم ابن رفض الركوب.",
+        "summaryEn": "God commanded Noah to build the Ark; the believers were saved while the rejecters drowned, including a son who refused to board.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "nuh",
+          "nuh_call"
+        ],
+        "citations": [
+          {
+            "id": "quran-11-36-48",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "11:36-48"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "ark",
+            "titleAr": "صنع السفينة",
+            "titleEn": "Building the Ark",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أوحى الله إلى نوح أن يصنع الفلك، وكان قومه يسخرون منه، حتى جاء أمر الله وحُمل فيها المؤمنون وما أمر بحمله.",
+                "en": "God revealed to Noah that he should build the Ark. His people mocked him until God's command came and the believers and appointed creatures were taken aboard.",
+                "citationIds": [
+                  "quran-11-36-48"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "son",
+            "titleAr": "ابن نوح والعبرة",
+            "titleEn": "Noah's son and the lesson",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نادَى نوح ابنه ليركب معه فاختار الاعتصام بالجبل فغرق، ثم بين الله أن النجاة لا تقوم على النسب وحده بل على الإيمان والطاعة.",
+                "en": "Noah called his son to board, but he sought safety on a mountain and drowned; the passage shows that lineage alone does not secure salvation apart from faith and obedience.",
+                "citationIds": [
+                  "quran-11-36-48"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ad_hud",
+        "titleAr": "هود وقوم عاد",
+        "titleEn": "Hud and the people of 'Ad",
+        "summaryAr": "دعوة هود عليه السلام قوم عاد إلى التوحيد وترك الاستكبار ثم نزول العذاب بعد إصرارهم.",
+        "summaryEn": "Hud's call to the people of 'Ad to worship God alone and abandon arrogance, followed by punishment after persistent rejection.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hud",
+          "common_prophetic_message"
+        ],
+        "citations": [
+          {
+            "id": "quran-7-65-72",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "7:65-72"
+          },
+          {
+            "id": "quran-46-21-26",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "46:21-26"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "call",
+            "titleAr": "دعوة عاد",
+            "titleEn": "Calling 'Ad",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دعا هود قومه إلى عبادة الله وحده ورفض أن يطلب منهم أجرًا على دعوته، وذكّرهم بما أُعطوا من قوة ونعم.",
+                "en": "Hud called his people to worship God alone, asked no payment for his preaching, and reminded them of the strength and blessings they had been given.",
+                "citationIds": [
+                  "quran-7-65-72"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "end",
+            "titleAr": "الريح والعاقبة",
+            "titleEn": "The wind and the outcome",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لما استمر التكذيب جاءهم العذاب بريح شديدة، ونجى الله هودًا والذين آمنوا معه.",
+                "en": "When rejection continued, punishment came through a fierce wind, while God saved Hud and those who believed with him.",
+                "citationIds": [
+                  "quran-46-21-26"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "thamud_salih",
+        "titleAr": "صالح وثمود والناقة",
+        "titleEn": "Salih, Thamud, and the she-camel",
+        "summaryAr": "أرسل صالح عليه السلام إلى ثمود، وجعلت الناقة آية لقومه ثم عقرها المعتدون.",
+        "summaryEn": "Salih was sent to Thamud, and the she-camel was made a sign before transgressors killed her.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "salih",
+          "common_prophetic_message"
+        ],
+        "citations": [
+          {
+            "id": "quran-7-73-79",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "7:73-79"
+          },
+          {
+            "id": "quran-91-11-15",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "91:11-15"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "sign",
+            "titleAr": "الناقة آية",
+            "titleEn": "The she-camel as a sign",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دعا صالح قومه إلى التوحيد وجاءتهم الناقة آية مع أمر بتركها ترعى وعدم مسها بسوء.",
+                "en": "Salih called his people to monotheism, and the she-camel came as a sign with a command that she be left unharmed.",
+                "citationIds": [
+                  "quran-7-73-79"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "crime",
+            "titleAr": "العقر والعاقبة",
+            "titleEn": "Killing the camel and the consequence",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كذب المتجبرون وعقروا الناقة، فجاءهم العذاب بعد الإنذار، وتعرض سورة الشمس الفعل بوصفه ثمرة لطغيان الجماعة.",
+                "en": "The arrogant rejecters killed the camel, and punishment followed after warning; Surat al-Shams presents the act as an expression of collective transgression.",
+                "citationIds": [
+                  "quran-91-11-15"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lut_people",
+        "titleAr": "لوط وقومه والنجاة",
+        "titleEn": "Lot, his people, and the rescue",
+        "summaryAr": "واجه لوط عليه السلام قومًا أعلن القرآن إنكاره على فاحشتهم، ثم نُجي مع أهله إلا امرأته.",
+        "summaryEn": "Lot confronted a people whose sexual wrongdoing the Quran condemns, and he was saved with his household except his wife.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "lut",
+          "ibrahim_migration_guests"
+        ],
+        "citations": [
+          {
+            "id": "quran-7-80-84",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "7:80-84"
+          },
+          {
+            "id": "quran-11-77-83",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "11:77-83"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "warning",
+            "titleAr": "إنكار الفاحشة",
+            "titleEn": "Condemning wrongdoing",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينقل القرآن إنكار لوط على قومه لفاحشة لم يسبقهم بها أحد من العالمين، مع دعوتهم إلى الطهارة وترك الاعتداء.",
+                "en": "The Quran records Lot's condemnation of a sexual outrage described as unprecedented among peoples, calling his community toward purity and away from transgression.",
+                "citationIds": [
+                  "quran-7-80-84"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "rescue",
+            "titleAr": "الملائكة والنجاة",
+            "titleEn": "Angels and rescue",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "جاءت الملائكة في صورة ضيوف، ثم أمر لوط أن يخرج بأهله ليلًا، ونجا المؤمنون بينما أصاب العذاب المكذبين.",
+                "en": "Angels came as guests and Lot was instructed to leave by night with his household; the believers were saved while punishment reached the rejecters.",
+                "citationIds": [
+                  "quran-11-77-83"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "madyan_shuayb",
+        "titleAr": "شعيب ومدين والعدل في المعاملة",
+        "titleEn": "Shu'ayb, Madyan, and fairness in trade",
+        "summaryAr": "جمع شعيب عليه السلام بين الدعوة إلى التوحيد وإنكار الغش في الكيل والميزان والإفساد.",
+        "summaryEn": "Shu'ayb combined the call to monotheism with condemnation of fraud in weights and measures and social corruption.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "shuayb",
+          "islam/honesty_trust"
+        ],
+        "citations": [
+          {
+            "id": "quran-7-85-93",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "7:85-93"
+          },
+          {
+            "id": "quran-11-84-95",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "11:84-95"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "ethics",
+            "titleAr": "التوحيد والميزان",
+            "titleEn": "Monotheism and fair measure",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أمر شعيب قومه بعبادة الله وإيفاء الكيل والميزان وعدم بخس الناس أشياءهم أو الإفساد في الأرض.",
+                "en": "Shu'ayb commanded his people to worship God, give full measure and weight, not deprive people of their rights, and avoid corruption.",
+                "citationIds": [
+                  "quran-7-85-93"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "rejection",
+            "titleAr": "الرفض والعاقبة",
+            "titleEn": "Rejection and consequence",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "واجه تهديدًا بالإخراج هو ومن آمن معه، ثم نجاه الله وأخذ الظالمين العذاب بعد إصرارهم.",
+                "en": "He and the believers were threatened with expulsion, but God saved them while punishment overtook the persistent wrongdoers.",
+                "citationIds": [
+                  "quran-11-84-95"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ibrahim_search_argument",
+        "titleAr": "إبراهيم ومحاجة قومه في التوحيد",
+        "titleEn": "Abraham's argument for monotheism",
+        "summaryAr": "يعرض القرآن محاججة إبراهيم عليه السلام لقومه ورفضه عبادة الأجرام والأصنام.",
+        "summaryEn": "The Quran presents Abraham's argument with his people and his rejection of worshipping celestial bodies and idols.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ibrahim",
+          "ibrahim_idols_fire"
+        ],
+        "citations": [
+          {
+            "id": "quran-6-74-83",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "6:74-83"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "argument",
+            "titleAr": "النظر في الآيات",
+            "titleEn": "Reasoning through the signs",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يعرض القرآن إبراهيم وهو يحتج على قومه من خلال أفول الكوكب والقمر والشمس ليبين أن المعبود الحق ليس من هذه المخلوقات المتغيرة.",
+                "en": "The Quran portrays Abraham reasoning through the setting of a star, moon, and sun to show that the true object of worship cannot be one of these changing created things.",
+                "citationIds": [
+                  "quran-6-74-83"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "declaration",
+            "titleAr": "إعلان التوحيد",
+            "titleEn": "Declaring monotheism",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "انتهى موقفه بإعلان التوجه إلى خالق السماوات والأرض حنيفًا ورفض الشرك.",
+                "en": "His reasoning culminates in declaring devotion to the Creator of the heavens and earth and rejecting association of partners with God.",
+                "citationIds": [
+                  "quran-6-74-83"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ibrahim_idols_fire",
+        "titleAr": "إبراهيم وتحطيم الأصنام والنار",
+        "titleEn": "Abraham, the idols, and the fire",
+        "summaryAr": "مواجهة إبراهيم عليه السلام لعبادة الأصنام ثم إلقاؤه في النار ونجاته بأمر الله.",
+        "summaryEn": "Abraham confronts idol worship, is cast into a fire, and is saved by God's command.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ibrahim",
+          "ibrahim_search_argument",
+          "ibrahim_migration_guests"
+        ],
+        "citations": [
+          {
+            "id": "quran-21-51-70",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "21:51-70"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "idols",
+            "titleAr": "تحطيم الأصنام",
+            "titleEn": "Breaking the idols",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "حطم إبراهيم الأصنام إلا كبيرًا لهم ثم واجه قومه بسؤال يكشف عجز ما يعبدون عن النطق والدفاع عن نفسه.",
+                "en": "Abraham broke the idols except their largest and then confronted his people with a question exposing the inability of what they worshipped to speak or defend itself.",
+                "citationIds": [
+                  "quran-21-51-70"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "fire",
+            "titleAr": "«يا نار كوني بردًا وسلامًا»",
+            "titleEn": "O fire, be coolness and safety",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قرر القوم إحراقه، فأمر الله النار أن تكون بردًا وسلامًا على إبراهيم فانقلب مكرهم خسرانًا.",
+                "en": "His people decided to burn him, but God commanded the fire to become cool and safe for Abraham, turning their plot into failure.",
+                "citationIds": [
+                  "quran-21-51-70"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ibrahim_migration_guests",
+        "titleAr": "هجرة إبراهيم وضيوفه",
+        "titleEn": "Abraham's migration and guests",
+        "summaryAr": "انتقال إبراهيم عليه السلام في سبيل الدعوة واستقباله ضيوفًا من الملائكة وبشارته بإسحاق.",
+        "summaryEn": "Abraham's migration for the sake of faith, his angelic guests, and the glad tidings of Isaac.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ibrahim",
+          "lut_people",
+          "ishaq"
+        ],
+        "citations": [
+          {
+            "id": "quran-29-26-27",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "29:26-27"
+          },
+          {
+            "id": "quran-51-24-30",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "51:24-30"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "migration",
+            "titleAr": "الهجرة في سبيل الله",
+            "titleEn": "Migration for God",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن خروج إبراهيم مهاجرًا إلى ربه بعد رفض قومه، وارتباط ذلك باستمرار الرسالة في ذريته.",
+                "en": "The Quran speaks of Abraham migrating toward his Lord after his people's rejection and connects this with the continuation of prophethood among his descendants.",
+                "citationIds": [
+                  "quran-29-26-27"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "guests",
+            "titleAr": "ضيوف الملائكة والبشارة",
+            "titleEn": "Angelic guests and good news",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "جاءته الملائكة في صورة ضيوف، فقدم لهم طعامًا ولم يأكلوا، ثم بشروه وزوجه بغلام عليم هو إسحاق بحسب مواضع أخرى من القرآن.",
+                "en": "Angels came to Abraham as guests; he offered food and became uneasy when they did not eat, then they gave good news of a learned son, identified elsewhere in the Quran as Isaac.",
+                "citationIds": [
+                  "quran-51-24-30"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ibrahim_kaaba",
+        "titleAr": "إبراهيم وإسماعيل وبناء الكعبة",
+        "titleEn": "Abraham, Ishmael, and the Kaaba",
+        "summaryAr": "رفع إبراهيم وإسماعيل عليهما السلام قواعد البيت ودعوا الله أن يتقبل منهما.",
+        "summaryEn": "Abraham and Ishmael raised the foundations of the House and prayed that God accept their work.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ibrahim",
+          "ismail",
+          "ismail_individual",
+          "islam/hajj_umrah"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-125-129",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:125-129"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "building",
+            "titleAr": "رفع القواعد",
+            "titleEn": "Raising the foundations",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن إبراهيم وإسماعيل وهما يرفعان قواعد البيت ويدعوان: «ربنا تقبل منا إنك أنت السميع العليم».",
+                "en": "The Quran depicts Abraham and Ishmael raising the foundations of the House and praying, 'Our Lord, accept this from us; You are the Hearing, the Knowing.'",
+                "citationIds": [
+                  "quran-2-125-129"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "prayers",
+            "titleAr": "دعاء لمكة والذرية",
+            "titleEn": "Prayers for Mecca and descendants",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تتضمن الآيات دعاء بالأمن والعبادة والتعليم وبعث رسول في الذرية، فتربط قصة البيت بتاريخ الرسالة اللاحق.",
+                "en": "The passage includes prayers for safety, worship, teaching, and a messenger among their descendants, linking the sanctuary with later prophetic history.",
+                "citationIds": [
+                  "quran-2-125-129"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ibrahim_sacrifice",
+        "titleAr": "ابتلاء إبراهيم بالذبح",
+        "titleEn": "Abraham's sacrifice test",
+        "summaryAr": "رؤيا الذبح والاستسلام لأمر الله ثم الفداء؛ والقرآن لا يذكر اسم الابن صراحة في هذا الموضع.",
+        "summaryEn": "The vision of sacrifice, submission to God's command, and ransom; the Quran does not explicitly name the son in this passage.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ibrahim",
+          "ismail_individual"
+        ],
+        "citations": [
+          {
+            "id": "quran-37-99-113",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "37:99-113"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "vision",
+            "titleAr": "الرؤيا والاستسلام",
+            "titleEn": "The vision and submission",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "رأى إبراهيم في المنام أنه يذبح ابنه، فلما أخبره أجابه الابن بالصبر والطاعة، ثم أسلما لأمر الله.",
+                "en": "Abraham saw in a dream that he was sacrificing his son; when he told him, the son responded with patience and obedience, and both submitted to God's command.",
+                "citationIds": [
+                  "quran-37-99-113"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ransom",
+            "titleAr": "الفداء وحدود النص",
+            "titleEn": "The ransom and limits of the text",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "فداه الله بذبح عظيم وخلد ذكر إبراهيم، لكن الآيات نفسها لا تسمّي الابن، ولذلك يُفصل بين نص القرآن وبين تعيين المفسرين له.",
+                "en": "God ransomed the son with a great sacrifice and honored Abraham's memory, but the passage itself does not name the son, so the Quranic text is distinguished from later exegetical identification.",
+                "citationIds": [
+                  "quran-37-99-113"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ismail_individual",
+        "titleAr": "إسماعيل: الصدق والصلاة ومكة",
+        "titleEn": "Ishmael: truthfulness, prayer, and Mecca",
+        "summaryAr": "ملامح قرآنية مستقلة عن إسماعيل عليه السلام تشمل صدق الوعد والأمر بالصلاة ومشاركته في رفع قواعد الكعبة.",
+        "summaryEn": "A focused Quranic portrait of Ishmael including truthfulness, prayer, and his role in raising the foundations of the Kaaba.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ismail",
+          "ibrahim_kaaba",
+          "ibrahim_sacrifice"
+        ],
+        "citations": [
+          {
+            "id": "quran-19-54-55",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "19:54-55"
+          },
+          {
+            "id": "quran-2-127",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:127"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "character",
+            "titleAr": "صادق الوعد",
+            "titleEn": "True to his promise",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن إسماعيل بأنه صادق الوعد ورسولًا نبيًا، وكان يأمر أهله بالصلاة والزكاة.",
+                "en": "The Quran describes Ishmael as true to his promise, a messenger and prophet, who instructed his family in prayer and charity.",
+                "citationIds": [
+                  "quran-19-54-55"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "kaaba",
+            "titleAr": "مع إبراهيم عند البيت",
+            "titleEn": "With Abraham at the House",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "شارك أباه إبراهيم في رفع قواعد الكعبة، وهو من أوضح مواضع ارتباطه بمكة في القرآن.",
+                "en": "He joined his father Abraham in raising the foundations of the Kaaba, one of the clearest Quranic connections between Ishmael and Mecca.",
+                "citationIds": [
+                  "quran-2-127"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ishaq",
+        "titleAr": "إسحاق عليه السلام",
+        "titleEn": "Isaac (peace be upon him)",
+        "summaryAr": "نبي من ذرية إبراهيم بُشر به والداه في الكبر، وجعل الله في ذريته النبوة.",
+        "summaryEn": "A prophet from Abraham's family whose elderly parents received glad tidings of his birth; prophethood continued among his descendants.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ishaq_yaqub",
+          "ibrahim_migration_guests",
+          "yaqub"
+        ],
+        "citations": [
+          {
+            "id": "quran-11-69-73",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "11:69-73"
+          },
+          {
+            "id": "quran-37-112-113",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "37:112-113"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "glad_tidings",
+            "titleAr": "البشارة بإسحاق",
+            "titleEn": "Glad tidings of Isaac",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بشرت الملائكة سارة بإسحاق ومن وراء إسحاق يعقوب، وتعجبت من الولادة مع تقدم العمر.",
+                "en": "The angels gave Sarah glad tidings of Isaac and, after Isaac, Jacob; she expressed amazement at bearing a child at an advanced age.",
+                "citationIds": [
+                  "quran-11-69-73"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "prophet",
+            "titleAr": "نبي من الصالحين",
+            "titleEn": "A prophet among the righteous",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينص القرآن على البشارة بإسحاق نبيًا من الصالحين وعلى البركة عليه وعلى إبراهيم.",
+                "en": "The Quran explicitly gives glad tidings of Isaac as a prophet among the righteous and speaks of blessing upon him and Abraham.",
+                "citationIds": [
+                  "quran-37-112-113"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "yaqub",
+        "titleAr": "يعقوب عليه السلام وإسرائيل",
+        "titleEn": "Jacob (Israel), peace be upon him",
+        "summaryAr": "يعقوب ابن إسحاق ونبي من ذرية إبراهيم، وهو إسرائيل الذي تنتسب إليه بنو إسرائيل.",
+        "summaryEn": "Jacob, son of Isaac, was a prophet from Abraham's line and is identified with Israel, ancestor of the Children of Israel.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ishaq_yaqub",
+          "ishaq",
+          "yusuf"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-132-133",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:132-133"
+          },
+          {
+            "id": "quran-12-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "12:6"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "faith",
+            "titleAr": "وصيته بالتوحيد",
+            "titleEn": "His testament of monotheism",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينقل القرآن وصية يعقوب لبنيه بالثبات على الإسلام وعبادة إله آبائه إبراهيم وإسماعيل وإسحاق.",
+                "en": "The Quran records Jacob's testament to his sons to remain devoted to God and worship the God of his forefathers Abraham, Ishmael, and Isaac.",
+                "citationIds": [
+                  "quran-2-132-133"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "family",
+            "titleAr": "أبو يوسف وإخوته",
+            "titleEn": "Father of Joseph and his brothers",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ترتبط أكثر تفاصيل حياته في القرآن بقصة يوسف وأبنائه، حيث يظهر نبيًا أبًا يعاني الفراق ويتمسك بالرجاء في الله.",
+                "en": "Most Quranic details about Jacob appear within Joseph's story, where he is shown as a prophetic father enduring separation while maintaining hope in God.",
+                "citationIds": [
+                  "quran-12-6"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "yusuf_dream_well",
+        "titleAr": "رؤيا يوسف والجب",
+        "titleEn": "Joseph's dream and the well",
+        "summaryAr": "بداية قصة يوسف عليه السلام من الرؤيا إلى حسد إخوته وإلقائه في الجب.",
+        "summaryEn": "The opening of Joseph's story, from his dream to his brothers' jealousy and his being cast into a well.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "yusuf",
+          "yaqub",
+          "yusuf_house_trial"
+        ],
+        "citations": [
+          {
+            "id": "quran-12-4-18",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "12:4-18"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "dream",
+            "titleAr": "الرؤيا",
+            "titleEn": "The dream",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "رأى يوسف أحد عشر كوكبًا والشمس والقمر ساجدين له، فنصحه أبوه يعقوب ألا يقص الرؤيا على إخوته خشية الكيد.",
+                "en": "Joseph saw eleven stars, the sun, and the moon bowing to him. His father Jacob advised him not to relate the dream to his brothers lest they plot against him.",
+                "citationIds": [
+                  "quran-12-4-18"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "well",
+            "titleAr": "الحسد والجب",
+            "titleEn": "Jealousy and the well",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اتفق بعض إخوته على إبعاده وألقوه في غيابة الجب ثم عادوا إلى أبيهم بقصة مكذوبة وقميص عليه دم.",
+                "en": "Some of his brothers agreed to remove him, threw him into a well, and returned to their father with a false account and a blood-stained shirt.",
+                "citationIds": [
+                  "quran-12-4-18"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "yusuf_house_trial",
+        "titleAr": "يوسف في بيت العزيز والابتلاء",
+        "titleEn": "Joseph in the minister's house and the trial",
+        "summaryAr": "انتقال يوسف إلى مصر ثم ابتلاؤه بالمراودة وثباته حتى دخل السجن.",
+        "summaryEn": "Joseph's move to Egypt, the attempted seduction, and his steadfastness before imprisonment.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "yusuf",
+          "yusuf_dream_well",
+          "yusuf_prison_rule"
+        ],
+        "citations": [
+          {
+            "id": "quran-12-19-35",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "12:19-35"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "egypt",
+            "titleAr": "البيع والاستقرار في مصر",
+            "titleEn": "Sale and life in Egypt",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "التقطته قافلة ثم بيع في مصر، وقال الذي اشتراه لامرأته أن تكرم مثواه، فانتقل من الجب إلى بيت ذي مكانة.",
+                "en": "A caravan found Joseph and he was sold in Egypt. The man who bought him told his wife to honor his stay, moving Joseph from the well into an influential household.",
+                "citationIds": [
+                  "quran-12-19-35"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "trial",
+            "titleAr": "المراودة والبراءة",
+            "titleEn": "Temptation and innocence",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "راودته امرأة العزيز فاستعصم، وظهرت قرائن براءته، ثم آل الأمر إلى سجنه رغم وضوح ما وقع.",
+                "en": "The minister's wife attempted to seduce him, but he resisted. Evidence of his innocence emerged, yet events ultimately led to his imprisonment.",
+                "citationIds": [
+                  "quran-12-19-35"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "yusuf_prison_rule",
+        "titleAr": "يوسف في السجن ثم خزائن الأرض",
+        "titleEn": "Joseph in prison and then authority",
+        "summaryAr": "تعبير الرؤى في السجن ثم رؤيا الملك التي كانت سببًا في إظهار براءته وتمكينه.",
+        "summaryEn": "Dream interpretation in prison and the king's dream, leading to Joseph's vindication and authority.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "yusuf",
+          "yusuf_house_trial",
+          "yusuf_reunion"
+        ],
+        "citations": [
+          {
+            "id": "quran-12-36-57",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "12:36-57"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "prison",
+            "titleAr": "الدعوة وتعبير الرؤيا",
+            "titleEn": "Calling to God and interpreting dreams",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دعا يوسف صاحبيه في السجن إلى التوحيد وفسر رؤياهما، ثم بقي في السجن حتى تذكره أحدهما عند رؤيا الملك.",
+                "en": "Joseph called his two prison companions to monotheism and interpreted their dreams, remaining imprisoned until one later remembered him when the king had a troubling dream.",
+                "citationIds": [
+                  "quran-12-36-57"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "authority",
+            "titleAr": "إظهار البراءة والتمكين",
+            "titleEn": "Vindication and authority",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "رفض يوسف الخروج قبل بيان حقيقة التهمة، ثم ظهرت براءته وطلب أن يولى على خزائن الأرض لما لديه من حفظ وعلم.",
+                "en": "Joseph declined to leave until the accusation was clarified; his innocence was acknowledged, and he asked to oversee the storehouses because of his trustworthiness and knowledge.",
+                "citationIds": [
+                  "quran-12-36-57"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "yusuf_reunion",
+        "titleAr": "لقاء يوسف بأسرته والعفو",
+        "titleEn": "Joseph's reunion and forgiveness",
+        "summaryAr": "قدوم إخوته زمن القحط ثم اجتماع الأسرة وتحقيق الرؤيا وعفو يوسف عن إخوته.",
+        "summaryEn": "His brothers arrive during famine, the family is reunited, the early dream is fulfilled, and Joseph forgives them.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "yusuf",
+          "yusuf_prison_rule",
+          "yaqub"
+        ],
+        "citations": [
+          {
+            "id": "quran-12-58-101",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "12:58-101"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "brothers",
+            "titleAr": "عودة الإخوة",
+            "titleEn": "The brothers return",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "جاء إخوة يوسف يطلبون الطعام ولم يعرفوه، ثم جرت أحداث أعادت أخاه الشقيق إليه وكشفت في النهاية عن هويته.",
+                "en": "Joseph's brothers came seeking provisions and did not recognize him; a sequence of events brought his full brother to him and eventually revealed Joseph's identity.",
+                "citationIds": [
+                  "quran-12-58-101"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "forgiveness",
+            "titleAr": "العفو وتحقيق الرؤيا",
+            "titleEn": "Forgiveness and fulfillment of the dream",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قال يوسف لإخوته «لا تثريب عليكم اليوم»، ثم اجتمعت الأسرة ورفعت أبويه على العرش وتحقق تأويل رؤياه الأولى.",
+                "en": "Joseph told his brothers, 'No blame will there be upon you today.' The family was reunited, his parents were raised upon the throne, and the meaning of his first dream was fulfilled.",
+                "citationIds": [
+                  "quran-12-58-101"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ayyub_patience",
+        "titleAr": "أيوب والصبر مع البلاء",
+        "titleEn": "Job and patience through affliction",
+        "summaryAr": "نموذج قرآني للدعاء والصبر حين طال الضر مع حفظ الأدب مع الله.",
+        "summaryEn": "A Quranic model of prayer and patience during prolonged affliction while maintaining reverence toward God.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ayyub",
+          "islam/patience"
+        ],
+        "citations": [
+          {
+            "id": "quran-21-83-84",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "21:83-84"
+          },
+          {
+            "id": "quran-38-41-44",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "38:41-44"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "prayer",
+            "titleAr": "«أني مسني الضر»",
+            "titleEn": "Affliction has touched me",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دعا أيوب ربه بعبارة موجزة يصف فيها الضر ويثني على رحمة الله دون اعتراض، فاستجاب الله له.",
+                "en": "Job prayed with a concise statement acknowledging his affliction and God's mercy without complaint against God, and his prayer was answered.",
+                "citationIds": [
+                  "quran-21-83-84"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "relief",
+            "titleAr": "الشفاء ورد الأهل",
+            "titleEn": "Healing and restoration",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن كشف الضر ورد أهله ومثلهم معهم رحمة من الله، ويصفه بالصبر وحسن الرجوع إلى ربه.",
+                "en": "The Quran describes removal of the affliction and restoration of his family, calling Job patient and constantly turning back to God.",
+                "citationIds": [
+                  "quran-38-41-44"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "musa_birth_palace",
+        "titleAr": "ولادة موسى ونجاته في بيت فرعون",
+        "titleEn": "Moses's birth and rescue in Pharaoh's household",
+        "summaryAr": "خوف أمه عليه ثم إلقاؤه في اليم وردّه إليها بعد أن التقطه آل فرعون.",
+        "summaryEn": "His mother's fear, placing him in the river, and his return to her after Pharaoh's household found him.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "musa",
+          "musa_madyan"
+        ],
+        "citations": [
+          {
+            "id": "quran-28-3-13",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "28:3-13"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "danger",
+            "titleAr": "الخوف على المولود",
+            "titleEn": "Danger to the newborn",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في زمن قتل أبناء بني إسرائيل أوحى الله إلى أم موسى أن ترضعه ثم تلقيه في اليم إذا خافت عليه مع وعد برده إليها.",
+                "en": "During the killing of Israelite sons, God inspired Moses's mother to nurse him and place him in the river if she feared for him, promising to return him to her.",
+                "citationIds": [
+                  "quran-28-3-13"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "return",
+            "titleAr": "بيت فرعون ثم أمه",
+            "titleEn": "Pharaoh's house and return to his mother",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "التقطه آل فرعون وألقت المحبة عليه، ثم حُرم المراضع حتى دلت أخته على أمه فعاد إليها لتقر عينها.",
+                "en": "Pharaoh's household found him and affection was placed upon him; he refused other nursing women until his sister guided them to his mother, returning him to her care.",
+                "citationIds": [
+                  "quran-28-3-13"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "musa_madyan",
+        "titleAr": "خروج موسى إلى مدين",
+        "titleEn": "Moses's journey to Madyan",
+        "summaryAr": "خروجه من مصر بعد حادث القتل، ثم مساعدته المرأتين واستقراره سنوات في مدين.",
+        "summaryEn": "Moses leaves Egypt after the killing incident, helps two women, and spends years in Madyan.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "musa",
+          "musa_birth_palace",
+          "musa_call"
+        ],
+        "citations": [
+          {
+            "id": "quran-28-14-28",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "28:14-28"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "departure",
+            "titleAr": "الخروج من مصر",
+            "titleEn": "Leaving Egypt",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعد أن قتل رجلًا خطأً في شجار واستغفر ربه، بلغه أن الملأ يأتمرون به فخرج خائفًا يترقب متجهًا إلى مدين.",
+                "en": "After unintentionally killing a man during a conflict and seeking forgiveness, Moses learned that leaders were plotting against him and left Egypt in fear toward Madyan.",
+                "citationIds": [
+                  "quran-28-14-28"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "madyan",
+            "titleAr": "السقيا والزواج والعمل",
+            "titleEn": "Watering, marriage, and work",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "سقى لامرأتين عند ماء مدين، ثم دُعي إلى أبيهما وعُرض عليه الزواج من إحداهما مقابل سنوات من العمل.",
+                "en": "He watered animals for two women at the well of Madyan, was invited to their father, and was offered marriage to one in return for years of service.",
+                "citationIds": [
+                  "quran-28-14-28"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "musa_call",
+        "titleAr": "نداء موسى عند الطور",
+        "titleEn": "Moses is called near Mount Sinai",
+        "summaryAr": "تكليم الله لموسى وتكليفه بالرسالة وإعطاؤه آيتي العصا واليد.",
+        "summaryEn": "God speaks to Moses, commissions him, and gives the signs of the staff and the hand.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "musa",
+          "musa_madyan",
+          "harun"
+        ],
+        "citations": [
+          {
+            "id": "quran-20-9-36",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "20:9-36"
+          },
+          {
+            "id": "quran-28-29-35",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "28:29-35"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "call",
+            "titleAr": "النار والنداء",
+            "titleEn": "The fire and the call",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عند عودته بأهله آنس موسى نارًا، فلما أتاها نودي واختاره الله للرسالة وأمره بالعبادة والذكر.",
+                "en": "While returning with his family Moses saw a fire; when he approached, he was called and chosen for the mission, with commands to worship and remember God.",
+                "citationIds": [
+                  "quran-20-9-36"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "signs",
+            "titleAr": "العصا واليد وهارون",
+            "titleEn": "The staff, hand, and Aaron",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أعطي آيتي العصا واليد وطلب أن يرسل معه أخوه هارون وزيرًا يعينه في البلاغ، فاستجاب الله له.",
+                "en": "Moses was given the signs of the staff and his hand, and asked that his brother Aaron accompany him as a helper in conveying the message; God granted the request.",
+                "citationIds": [
+                  "quran-20-9-36"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "musa_pharaoh",
+        "titleAr": "موسى أمام فرعون",
+        "titleEn": "Moses before Pharaoh",
+        "summaryAr": "دعوة موسى وهارون لفرعون ومجادلتهما له وإظهار الآيات.",
+        "summaryEn": "Moses and Aaron call Pharaoh, debate him, and present divine signs.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "musa",
+          "musa_call",
+          "musa_magicians"
+        ],
+        "citations": [
+          {
+            "id": "quran-20-43-56",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "20:43-56"
+          },
+          {
+            "id": "quran-26-16-33",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "26:16-33"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "message",
+            "titleAr": "القول اللين والرسالة",
+            "titleEn": "Gentle speech and the message",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أُمر موسى وهارون بالذهاب إلى فرعون والقول له قولًا لينًا، ودعواه إلى إرسال بني إسرائيل وعبادة الله.",
+                "en": "Moses and Aaron were commanded to go to Pharaoh and speak gently, calling him to God and asking that the Children of Israel be released.",
+                "citationIds": [
+                  "quran-20-43-56"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "signs",
+            "titleAr": "الآيات والجدال",
+            "titleEn": "Signs and dispute",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عرض موسى آياته، فاتهمه فرعون بالسحر وحول المواجهة إلى تحد علني مع السحرة.",
+                "en": "Moses presented his signs, but Pharaoh accused him of magic and turned the confrontation into a public contest with the magicians.",
+                "citationIds": [
+                  "quran-26-16-33"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "musa_magicians",
+        "titleAr": "موسى والسحرة",
+        "titleEn": "Moses and the magicians",
+        "summaryAr": "المواجهة يوم الزينة ثم إيمان السحرة لما تبين لهم الفرق بين السحر والآية.",
+        "summaryEn": "The public contest on the festival day and the magicians' faith when they recognized the difference between magic and a divine sign.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "musa",
+          "musa_pharaoh",
+          "musa_exodus"
+        ],
+        "citations": [
+          {
+            "id": "quran-20-57-73",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "20:57-73"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "contest",
+            "titleAr": "يوم الزينة",
+            "titleEn": "The festival contest",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "جمع فرعون السحرة في مشهد علني، فألقوا حبالهم وعصيهم حتى خُيل للناس أنها تسعى، ثم ألقى موسى عصاه فابتلعت ما صنعوا.",
+                "en": "Pharaoh gathered the magicians publicly. Their ropes and staffs appeared to move, then Moses cast his staff and it swallowed what they had produced.",
+                "citationIds": [
+                  "quran-20-57-73"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "faith",
+            "titleAr": "سجود السحرة",
+            "titleEn": "The magicians believe",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عرف السحرة أن ما رأوه ليس من جنس صناعتهم فسجدوا مؤمنين برب هارون وموسى رغم تهديد فرعون لهم.",
+                "en": "The magicians recognized that what they witnessed was beyond their craft and fell in prostration believing in the Lord of Aaron and Moses despite Pharaoh's threats.",
+                "citationIds": [
+                  "quran-20-57-73"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "musa_exodus",
+        "titleAr": "الخروج وانفلاق البحر",
+        "titleEn": "The Exodus and the splitting of the sea",
+        "summaryAr": "خروج بني إسرائيل ليلًا ثم مطاردة فرعون وانفلاق البحر ونجاة موسى ومن معه.",
+        "summaryEn": "The Children of Israel leave by night, Pharaoh pursues them, the sea splits, and Moses and his followers are saved.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "musa",
+          "musa_magicians",
+          "musa_sinai_calf"
+        ],
+        "citations": [
+          {
+            "id": "quran-26-52-68",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "26:52-68"
+          },
+          {
+            "id": "quran-10-90-92",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "10:90-92"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "departure",
+            "titleAr": "الخروج والمطاردة",
+            "titleEn": "Departure and pursuit",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أوحى الله إلى موسى أن يخرج ببني إسرائيل ليلًا، فاتبعهم فرعون بجنوده حتى تراءى الجمعان عند البحر.",
+                "en": "God instructed Moses to lead the Children of Israel out by night. Pharaoh and his forces pursued until the two groups saw one another at the sea.",
+                "citationIds": [
+                  "quran-26-52-68"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sea",
+            "titleAr": "انفلاق البحر وغرق فرعون",
+            "titleEn": "The sea parts and Pharaoh drowns",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ضرب موسى البحر بعصاه فانفلق ومر المؤمنون، ثم انطبق على فرعون وجنده؛ ويذكر القرآن إقرار فرعون عند الغرق بعد فوات وقت التوبة.",
+                "en": "Moses struck the sea with his staff, it parted, and the believers crossed; the waters then closed over Pharaoh and his forces, with Pharaoh's last-minute declaration coming too late.",
+                "citationIds": [
+                  "quran-26-52-68",
+                  "quran-10-90-92"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "musa_sinai_calf",
+        "titleAr": "ميقات موسى والعجل",
+        "titleEn": "Moses at Sinai and the calf",
+        "summaryAr": "ميقات موسى أربعين ليلة ثم فتنة العجل أثناء غيابه وموقف هارون من بني إسرائيل.",
+        "summaryEn": "Moses's forty-night appointment, the calf episode during his absence, and Aaron's response.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "musa",
+          "musa_exodus",
+          "harun"
+        ],
+        "citations": [
+          {
+            "id": "quran-7-142-154",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "7:142-154"
+          },
+          {
+            "id": "quran-20-83-97",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "20:83-97"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "appointment",
+            "titleAr": "ميقات الأربعين",
+            "titleEn": "The forty-night appointment",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "واعد الله موسى ثلاثين ليلة وأتمها بعشر، وترك هارون في قومه قبل أن يذهب للميقات.",
+                "en": "God appointed thirty nights for Moses and completed them with ten more; Moses left Aaron in charge of the people while he went to the appointment.",
+                "citationIds": [
+                  "quran-7-142-154"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "calf",
+            "titleAr": "فتنة العجل",
+            "titleEn": "The calf episode",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في غياب موسى صنع السامري لقومه عجلًا فاتخذه بعضهم معبودًا، وحاول هارون ردهم حتى عاد موسى غاضبًا ثم تبينت له حقيقة الموقف.",
+                "en": "During Moses's absence the Samiri made a calf and some people worshipped it. Aaron tried to restrain them until Moses returned in anger and the situation was clarified.",
+                "citationIds": [
+                  "quran-20-83-97"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "musa_righteous_servant",
+        "titleAr": "موسى والعبد الصالح",
+        "titleEn": "Moses and the righteous servant",
+        "summaryAr": "رحلة موسى للتعلم من عبد آتاه الله رحمة وعلمًا، وفيها دروس في حدود المعرفة والصبر.",
+        "summaryEn": "Moses's journey to learn from a servant given mercy and knowledge by God, with lessons about the limits of knowledge and patience.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "musa",
+          "chronology_limits"
+        ],
+        "citations": [
+          {
+            "id": "quran-18-60-82",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "18:60-82"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "journey",
+            "titleAr": "طلب العلم",
+            "titleEn": "Seeking knowledge",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "سافر موسى مع فتاه حتى مجمع البحرين للقاء عبد من عباد الله آتاه الله رحمة وعلمًا، وطلب أن يتبعه ليتعلم.",
+                "en": "Moses traveled with his young companion to the meeting place of the seas to meet a servant whom God had given mercy and knowledge, asking permission to follow and learn.",
+                "citationIds": [
+                  "quran-18-60-82"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "events",
+            "titleAr": "السفينة والغلام والجدار",
+            "titleEn": "The ship, boy, and wall",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اعترض موسى على ثلاثة أفعال لم يفهم حكمتها أولًا، ثم شرح له العبد الصالح ما وراءها، فظهرت محدودية الحكم على الأحداث من ظاهرها فقط.",
+                "en": "Moses objected to three actions whose wisdom he initially did not understand; the righteous servant later explained them, illustrating the limits of judging events by outward appearance alone.",
+                "citationIds": [
+                  "quran-18-60-82"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "harun",
+        "titleAr": "هارون عليه السلام",
+        "titleEn": "Aaron (peace be upon him)",
+        "summaryAr": "أخو موسى ونبي شاركه الرسالة إلى فرعون وتولى قومه أثناء ميقات موسى.",
+        "summaryEn": "Moses's brother and a prophet who shared the mission to Pharaoh and remained with the people during Moses's appointment.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "musa",
+          "musa_call",
+          "musa_sinai_calf"
+        ],
+        "citations": [
+          {
+            "id": "quran-20-29-36",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "20:29-36"
+          },
+          {
+            "id": "quran-20-90-94",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "20:90-94"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "mission",
+            "titleAr": "وزير موسى في الرسالة",
+            "titleEn": "Moses's helper in the mission",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "طلب موسى من الله أن يجعل هارون وزيرًا له ويشركه في الأمر لقوة بيانه، فاستجاب الله للدعاء.",
+                "en": "Moses asked God to appoint Aaron as a helper and partner in the mission because of his eloquence, and God granted the request.",
+                "citationIds": [
+                  "quran-20-29-36"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "calf",
+            "titleAr": "موقفه من عبادة العجل",
+            "titleEn": "His response to the calf",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "حذر هارون قومه من فتنة العجل وأمرهم باتباعه، لكنه خشي أن يؤدي الصدام إلى انقسام أكبر حتى يعود موسى.",
+                "en": "Aaron warned his people against the calf and called them to follow him, but avoided a confrontation he feared would deepen division before Moses returned.",
+                "citationIds": [
+                  "quran-20-90-94"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dhul_kifl",
+        "titleAr": "ذو الكفل عليه السلام",
+        "titleEn": "Dhul-Kifl (peace be upon him)",
+        "summaryAr": "شخصية قرآنية ممدوحة ذكرها الله مع الصابرين والأخيار، مع قلة التفاصيل الثابتة عن حياته.",
+        "summaryEn": "A praised Quranic figure mentioned among the patient and righteous, with very few reliable details about his life.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "chronology_limits",
+          "ayyub"
+        ],
+        "citations": [
+          {
+            "id": "quran-21-85-86",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "21:85-86"
+          },
+          {
+            "id": "quran-38-48",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "38:48"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "quran",
+            "titleAr": "ما يثبته القرآن",
+            "titleEn": "What the Quran establishes",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن ذا الكفل مع إسماعيل وإدريس بوصفهم من الصابرين والمدخلين في الرحمة، ويذكره أيضًا مع الأخيار.",
+                "en": "The Quran mentions Dhul-Kifl with Ishmael and Idris among the patient and those admitted into God's mercy, and elsewhere among the righteous.",
+                "citationIds": [
+                  "quran-21-85-86",
+                  "quran-38-48"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "limits",
+            "titleAr": "قلة التفاصيل",
+            "titleEn": "Few reliable details",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يقدم القرآن قصة مطولة لذي الكفل، لذلك ينبغي تجنب بناء سيرة مفصلة له على أخبار لا يثبت بها اليقين.",
+                "en": "The Quran does not provide an extended narrative about Dhul-Kifl, so a detailed biography should not be constructed from reports that cannot establish certainty.",
+                "citationIds": [
+                  "quran-38-48"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dawud_jalut",
+        "titleAr": "داود وجالوت وبداية الملك",
+        "titleEn": "David, Goliath, and the beginning of kingship",
+        "summaryAr": "قتل داود عليه السلام جالوت ثم آتاه الله الملك والحكمة.",
+        "summaryEn": "David killed Goliath and was then granted kingship and wisdom by God.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "dawud",
+          "dawud_zabur_judgment"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-246-251",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:246-251"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "battle",
+            "titleAr": "طالوت وجالوت",
+            "titleEn": "Saul and Goliath",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في قصة جيش طالوت واجه المؤمنون جيش جالوت، ودعوا الله بالصبر والثبات قبل القتال.",
+                "en": "In the account of Saul's army, the believers faced Goliath's forces and prayed for patience and firmness before battle.",
+                "citationIds": [
+                  "quran-2-246-251"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "dawud",
+            "titleAr": "قتل جالوت والتمكين",
+            "titleEn": "David defeats Goliath",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن أن داود قتل جالوت ثم آتاه الله الملك والحكمة وعلمه مما يشاء.",
+                "en": "The Quran states that David killed Goliath, after which God gave him kingship and wisdom and taught him what He willed.",
+                "citationIds": [
+                  "quran-2-246-251"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dawud_zabur_judgment",
+        "titleAr": "داود: الزبور والعبادة والحكم",
+        "titleEn": "David: Psalms, worship, and judgment",
+        "summaryAr": "ملامح قرآنية من عبادة داود وحكمه وتسخير الجبال والطير معه.",
+        "summaryEn": "Quranic features of David's worship, judgment, and the mountains and birds joining his praise.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "dawud",
+          "dawud_jalut",
+          "sulayman"
+        ],
+        "citations": [
+          {
+            "id": "quran-17-55",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:55"
+          },
+          {
+            "id": "quran-38-17-26",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "38:17-26"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "zabur",
+            "titleAr": "الزبور والتسبيح",
+            "titleEn": "Psalms and praise",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن إيتاء داود الزبور، كما يصف تسبيح الجبال والطير معه ويثني على قوة رجوعه إلى الله.",
+                "en": "The Quran says David was given the Psalms and describes mountains and birds joining his praise, while commending his constant turning to God.",
+                "citationIds": [
+                  "quran-17-55",
+                  "quran-38-17-26"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "judgment",
+            "titleAr": "الحكم بالحق",
+            "titleEn": "Judging with truth",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعرض سورة ص قصة الخصمين ثم توجه داود إلى الحكم بالحق وعدم اتباع الهوى، فتربط النبوة بالعدل والمسؤولية.",
+                "en": "Surat Sad recounts the dispute of two litigants and then directs David to judge with truth and not follow desire, linking prophetic authority with justice and responsibility.",
+                "citationIds": [
+                  "quran-38-17-26"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sulayman_kingdom",
+        "titleAr": "ملك سليمان وتسخير الجن والريح",
+        "titleEn": "Solomon's kingdom, jinn, and wind",
+        "summaryAr": "نعم خاصة آتاها الله سليمان عليه السلام، منها تسخير الريح والجن وفهم بعض خطاب المخلوقات.",
+        "summaryEn": "Special gifts granted to Solomon, including command of the wind and jinn and understanding forms of creature communication.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sulayman",
+          "sulayman_sheba"
+        ],
+        "citations": [
+          {
+            "id": "quran-27-15-19",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "27:15-19"
+          },
+          {
+            "id": "quran-34-12-14",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "34:12-14"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "gifts",
+            "titleAr": "العلم والملك",
+            "titleEn": "Knowledge and kingdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ورث سليمان داود في الملك والنبوة، وأظهر القرآن شكره لله على العلم والنعم التي اختصه بها.",
+                "en": "Solomon succeeded David in kingship and prophethood, and the Quran portrays him thanking God for knowledge and exceptional blessings.",
+                "citationIds": [
+                  "quran-27-15-19"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "service",
+            "titleAr": "الريح والجن",
+            "titleEn": "Wind and jinn",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن تسخير الريح والجن لسليمان في أعمال متعددة بإذن الله، مع التأكيد أن ذلك منحة من الله لا قدرة مستقلة.",
+                "en": "The Quran describes the wind and jinn being subjected to Solomon for various tasks by God's permission, emphasizing these powers as divine gifts rather than independent ability.",
+                "citationIds": [
+                  "quran-34-12-14"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sulayman_sheba",
+        "titleAr": "سليمان وملكة سبأ",
+        "titleEn": "Solomon and the Queen of Sheba",
+        "summaryAr": "قصة الهدهد والكتاب إلى سبأ ثم لقاء الملكة وإسلامها لله رب العالمين.",
+        "summaryEn": "The hoopoe, Solomon's letter to Sheba, the queen's visit, and her submission to God.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sulayman",
+          "sulayman_kingdom"
+        ],
+        "citations": [
+          {
+            "id": "quran-27-20-44",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "27:20-44"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "message",
+            "titleAr": "خبر سبأ والرسالة",
+            "titleEn": "News of Sheba and the letter",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "جاء الهدهد بخبر قوم تسجد للشمس وامرأة تملكهم، فأرسل سليمان كتابًا يدعوهم إلى ألا يستكبروا وأن يأتوه مسلمين.",
+                "en": "The hoopoe reported a people ruled by a woman who worshipped the sun. Solomon sent a letter calling them not to be arrogant and to come in submission to God.",
+                "citationIds": [
+                  "quran-27-20-44"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "meeting",
+            "titleAr": "الحوار والإسلام",
+            "titleEn": "Meeting and submission",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "جاءت الملكة بعد التشاور، ورأت من دلائل الملك والنبوة ما قادها إلى إعلان إسلامها لله رب العالمين.",
+                "en": "After consultation, the queen came to Solomon and witnessed signs of his God-given kingdom and prophethood, culminating in her declaration of submission to the Lord of the worlds.",
+                "citationIds": [
+                  "quran-27-20-44"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "yunus_fish",
+        "titleAr": "يونس: الخروج والحوت والعودة",
+        "titleEn": "Jonah: departure, the fish, and return",
+        "summaryAr": "خرج يونس عليه السلام مغاضبًا قبل الإذن ثم نادى ربه في الظلمات فنجاه الله وأعاده إلى قومه.",
+        "summaryEn": "Jonah left in anger before permission, called upon God in darkness, was rescued, and returned to his people.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "yunus",
+          "islam/repentance"
+        ],
+        "citations": [
+          {
+            "id": "quran-21-87-88",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "21:87-88"
+          },
+          {
+            "id": "quran-37-139-148",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "37:139-148"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "fish",
+            "titleAr": "القرعة والحوت",
+            "titleEn": "The lot and the fish",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة الصافات ركوبه السفينة والمساهمة في القرعة ثم ابتلاع الحوت له، وتربط نجاته بتسبيحه.",
+                "en": "Surat al-Saffat describes Jonah boarding a ship, taking part in casting lots, and being swallowed by the fish, linking his rescue with his glorification of God.",
+                "citationIds": [
+                  "quran-37-139-148"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "prayer",
+            "titleAr": "دعاء ذي النون",
+            "titleEn": "The prayer of Dhul-Nun",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دعا في الظلمات: «لا إله إلا أنت سبحانك إني كنت من الظالمين»، فاستجاب الله له ونجاه من الغم.",
+                "en": "In the darkness he prayed, 'There is no deity except You; glory be to You; indeed I was among the wrongdoers,' and God answered and rescued him from distress.",
+                "citationIds": [
+                  "quran-21-87-88"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "zakariyya",
+        "titleAr": "زكريا عليه السلام",
+        "titleEn": "Zechariah (peace be upon him)",
+        "summaryAr": "نبي كفل مريم ودعا ربه سرًا أن يرزقه ولدًا صالحًا رغم كبر سنه.",
+        "summaryEn": "A prophet who cared for Mary and privately prayed for a righteous child despite old age.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "zakariyya_yahya",
+          "yahya",
+          "isa"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-37-41",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:37-41"
+          },
+          {
+            "id": "quran-19-2-11",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "19:2-11"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "maryam",
+            "titleAr": "كفالة مريم",
+            "titleEn": "Care of Mary",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن أن زكريا كان كافل مريم، وكلما دخل عليها المحراب وجد عندها رزقًا فدعا ربه بالذرية الطيبة.",
+                "en": "The Quran states that Zechariah was Mary's guardian; when he found provision with her in the sanctuary, he prayed to God for righteous offspring.",
+                "citationIds": [
+                  "quran-3-37-41"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "prayer",
+            "titleAr": "البشارة بيحيى",
+            "titleEn": "Good news of John",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دعا زكريا ربه سرًا مع كبر سنه وعقر زوجه، فبشرته الملائكة بيحيى وجعلت له آية في امتناعه عن الكلام أيامًا إلا رمزًا.",
+                "en": "Zechariah prayed privately despite old age and his wife's infertility; the angels gave glad tidings of John and he was given a sign of not speaking to people for days except by gesture.",
+                "citationIds": [
+                  "quran-19-2-11"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "yahya",
+        "titleAr": "يحيى عليه السلام",
+        "titleEn": "John (peace be upon him)",
+        "summaryAr": "نبي بُشر به زكريا ووصفه القرآن بالحكمة والطهارة والبر بوالديه.",
+        "summaryEn": "A prophet promised to Zechariah and described by the Quran with wisdom, purity, and kindness to his parents.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "zakariyya_yahya",
+          "zakariyya",
+          "isa"
+        ],
+        "citations": [
+          {
+            "id": "quran-19-7-15",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "19:7-15"
+          },
+          {
+            "id": "quran-3-39",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:39"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "birth",
+            "titleAr": "اسم وبشارة",
+            "titleEn": "Name and glad tidings",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بشر الله زكريا بغلام اسمه يحيى وذكر أن الاسم لم يجعل من قبل له سميًا بهذا الوصف القرآني.",
+                "en": "God gave Zechariah glad tidings of a boy named John and noted the distinctiveness of this naming in the Quranic account.",
+                "citationIds": [
+                  "quran-19-7-15"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "qualities",
+            "titleAr": "الحكمة والطهارة",
+            "titleEn": "Wisdom and purity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن يحيى بأنه أوتي الحكم صبيًا، وكان حنانًا وزكاة وتقيًا وبرًا بوالديه، كما تصفه آية أخرى بسيد وحصور ونبي من الصالحين.",
+                "en": "The Quran describes John as given judgment while young, compassionate, pure, God-conscious, and dutiful to his parents; another verse calls him noble, chaste, and a prophet among the righteous.",
+                "citationIds": [
+                  "quran-19-7-15",
+                  "quran-3-39"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "isa_birth_miracles",
+        "titleAr": "ميلاد عيسى ومعجزاته بإذن الله",
+        "titleEn": "Jesus's birth and miracles by God's permission",
+        "summaryAr": "ميلاد عيسى عليه السلام من مريم بلا أب، ثم آيات أجراها الله على يديه.",
+        "summaryEn": "Jesus's birth to Mary without a human father and the signs God enabled him to perform.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "isa",
+          "zakariyya",
+          "yahya",
+          "isa_disciples_end"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-45-49",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:45-49"
+          },
+          {
+            "id": "quran-19-16-36",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "19:16-36"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "birth",
+            "titleAr": "البشارة والميلاد",
+            "titleEn": "Annunciation and birth",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بشرت الملائكة مريم بعيسى كلمة من الله، ووقع الحمل والميلاد بقدرة الله دون أب بشري، ثم تكلم عيسى في المهد دفاعًا عن أمه وإعلان عبوديته لله.",
+                "en": "The angels gave Mary glad tidings of Jesus, and his conception and birth occurred by God's power without a human father; Jesus then spoke in infancy, defending his mother and declaring himself God's servant.",
+                "citationIds": [
+                  "quran-3-45-49",
+                  "quran-19-16-36"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "miracles",
+            "titleAr": "الآيات بإذن الله",
+            "titleEn": "Signs by God's permission",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن أنه كان يبرئ الأكمه والأبرص ويحيي الموتى بإذن الله ويخبر ببعض المغيبات بإذن الله، ويكرر أن هذه الآيات ليست قدرة مستقلة عنه.",
+                "en": "The Quran states that he healed the blind and leper, brought the dead to life by God's permission, and disclosed certain hidden matters by God's permission, repeatedly framing these as divinely granted signs.",
+                "citationIds": [
+                  "quran-3-45-49"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "isa_disciples_end",
+        "titleAr": "عيسى والحواريون ونهاية مهمته الأرضية",
+        "titleEn": "Jesus, the disciples, and the end of his earthly mission",
+        "summaryAr": "استجابة الحواريين لعيسى وموقف القرآن من دعوى قتله وصلبه ورفعه إلى الله.",
+        "summaryEn": "The disciples' response to Jesus and the Quran's position regarding claims of his killing and crucifixion and his being raised by God.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "isa",
+          "isa_birth_miracles",
+          "muhammad"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-52-55",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:52-55"
+          },
+          {
+            "id": "quran-4-157-158",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:157-158"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "disciples",
+            "titleAr": "الحواريون",
+            "titleEn": "The disciples",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لما أحس عيسى الكفر قال من أنصاري إلى الله، فأعلن الحواريون أنهم أنصار الله وآمنوا بما أنزل.",
+                "en": "When Jesus sensed rejection, he asked who would support him in God's cause; the disciples declared themselves God's supporters and affirmed faith.",
+                "citationIds": [
+                  "quran-3-52-55"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "raised",
+            "titleAr": "القتل والصلب والرفع",
+            "titleEn": "Killing, crucifixion, and being raised",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينفي القرآن أن خصوم عيسى قتلوه أو صلبوه على الوجه الذي ادعوه، ويقرر أن الله رفعه إليه، وهو أصل في الاعتقاد الإسلامي بشأن نهاية مهمته الأرضية.",
+                "en": "The Quran denies that Jesus's opponents killed or crucified him as they claimed and states that God raised him, a foundational point in Islamic belief about the end of his earthly mission.",
+                "citationIds": [
+                  "quran-4-157-158"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
