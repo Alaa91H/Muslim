@@ -66,6 +66,10 @@ import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.LearnContent
 import org.muslim.app.feature.learn.domain.LearnTopic
+import org.muslim.app.feature.learn.domain.LearningAcademyCatalog
+import org.muslim.app.feature.learn.domain.LearningCalloutTone
+import org.muslim.app.feature.learn.domain.LearningContentBlock
+import org.muslim.app.feature.learn.domain.LearningStepItem
 
 private val topicIcons = mapOf(
     "pillars_islam" to Icons.Filled.Mosque,
@@ -384,65 +388,239 @@ private fun CategoryHeader(title: String) {
 
 @Composable
 private fun GuideContent(topic: LearnTopic, modifier: Modifier = Modifier) {
+    val lesson = remember(topic.id) { LearningAcademyCatalog.lessonFor(topic) }
+
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        itemsIndexed(topic.steps) { index, step ->
-            IslamicCard(
-                modifier = Modifier.fillMaxWidth(),
-                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-            ) {
-                Row {
-                    Surface(
-                        shape = CircleShape,
-                        color = MaterialTheme.colorScheme.primaryContainer,
-                    ) {
-                        Text(
-                            text = (index + 1).toString(),
-                            style = MaterialTheme.typography.labelLarge,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer,
-                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
-                        )
-                    }
-                    Column(modifier = Modifier.padding(start = 12.dp).weight(1f)) {
-                        Text(
-                            text = step.title,
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold,
-                        )
-                        Spacer(Modifier.height(4.dp))
-                        Text(
-                            text = step.description,
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                        step.dua?.let { dua ->
-                            Spacer(Modifier.height(6.dp))
-                            Text(
-                                text = dua,
-                                style = MaterialTheme.typography.bodyLarge,
-                                color = MaterialTheme.colorScheme.primary,
+        lesson.sections.forEach { section ->
+            item(key = "${lesson.id}_${section.id}_header") {
+                CategoryHeader(title = section.title)
+            }
+
+            section.blocks.forEachIndexed { blockIndex, block ->
+                when (block) {
+                    is LearningContentBlock.Steps -> {
+                        itemsIndexed(
+                            items = block.items,
+                            key = { stepIndex, _ ->
+                                "${lesson.id}_${section.id}_${blockIndex}_step_${stepIndex}"
+                            },
+                        ) { stepIndex, step ->
+                            LearningStepCard(
+                                index = stepIndex,
+                                step = step,
                             )
+                        }
+                    }
+
+                    else -> {
+                        item(key = "${lesson.id}_${section.id}_block_${blockIndex}") {
+                            LearningBlockCard(block = block)
                         }
                     }
                 }
             }
         }
-        topic.notes?.let { notes ->
-            item {
-                IslamicCard(
-                    modifier = Modifier.fillMaxWidth(),
-                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                ) {
+    }
+}
+
+@Composable
+private fun LearningStepCard(
+    index: Int,
+    step: LearningStepItem,
+) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Row {
+            Surface(
+                shape = CircleShape,
+                color = MaterialTheme.colorScheme.primaryContainer,
+            ) {
+                Text(
+                    text = (index + 1).toString(),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
+                )
+            }
+            Column(modifier = Modifier.padding(start = 12.dp).weight(1f)) {
+                Text(
+                    text = step.title,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = step.body,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                step.supplementalText?.let { supplemental ->
+                    Spacer(Modifier.height(6.dp))
                     Text(
-                        text = notes,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                        text = supplemental,
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.primary,
                     )
                 }
             }
         }
     }
 }
+
+@Composable
+private fun LearningBlockCard(block: LearningContentBlock) {
+    when (block) {
+        is LearningContentBlock.Paragraph -> {
+            IslamicCard(
+                modifier = Modifier.fillMaxWidth(),
+                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+            ) {
+                Text(
+                    text = block.text,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurface,
+                )
+            }
+        }
+
+        is LearningContentBlock.Callout -> {
+            val containerColor = when (block.tone) {
+                LearningCalloutTone.INFO -> MaterialTheme.colorScheme.secondaryContainer
+                LearningCalloutTone.IMPORTANT -> MaterialTheme.colorScheme.primaryContainer
+                LearningCalloutTone.WARNING -> MaterialTheme.colorScheme.errorContainer
+                LearningCalloutTone.DIFFERENCE_OF_OPINION -> MaterialTheme.colorScheme.tertiaryContainer
+            }
+            val contentColor = when (block.tone) {
+                LearningCalloutTone.INFO -> MaterialTheme.colorScheme.onSecondaryContainer
+                LearningCalloutTone.IMPORTANT -> MaterialTheme.colorScheme.onPrimaryContainer
+                LearningCalloutTone.WARNING -> MaterialTheme.colorScheme.onErrorContainer
+                LearningCalloutTone.DIFFERENCE_OF_OPINION -> MaterialTheme.colorScheme.onTertiaryContainer
+            }
+            IslamicCard(
+                modifier = Modifier.fillMaxWidth(),
+                containerColor = containerColor,
+            ) {
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    block.title?.let { title ->
+                        Text(
+                            text = title,
+                            style = MaterialTheme.typography.titleSmall,
+                            fontWeight = FontWeight.Bold,
+                            color = contentColor,
+                        )
+                    }
+                    Text(
+                        text = block.body,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = contentColor,
+                    )
+                }
+            }
+        }
+
+        is LearningContentBlock.Evidence -> {
+            IslamicCard(
+                modifier = Modifier.fillMaxWidth(),
+                containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+            ) {
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    block.heading?.let { heading ->
+                        Text(
+                            text = heading,
+                            style = MaterialTheme.typography.titleSmall,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onTertiaryContainer,
+                        )
+                    }
+                    Text(
+                        text = block.text,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onTertiaryContainer,
+                    )
+                }
+            }
+        }
+
+        is LearningContentBlock.Comparison -> {
+            IslamicCard(
+                modifier = Modifier.fillMaxWidth(),
+                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+            ) {
+                Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    block.intro?.let { intro ->
+                        Text(
+                            text = intro,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                    block.items.forEach { item ->
+                        Column(verticalArrangement = Arrangement.spacedBy(3.dp)) {
+                            Text(
+                                text = item.label,
+                                style = MaterialTheme.typography.titleSmall,
+                                fontWeight = FontWeight.Bold,
+                            )
+                            Text(
+                                text = item.body,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    }
+                }
+            }
+        }
+
+        is LearningContentBlock.QuestionAnswer -> {
+            IslamicCard(
+                modifier = Modifier.fillMaxWidth(),
+                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+            ) {
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Text(
+                        text = block.question,
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.Bold,
+                    )
+                    Text(
+                        text = block.answer,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+        }
+
+        is LearningContentBlock.Quiz -> {
+            IslamicCard(
+                modifier = Modifier.fillMaxWidth(),
+                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+            ) {
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Text(
+                        text = block.question,
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.Bold,
+                    )
+                    block.options.forEach { option ->
+                        Text(
+                            text = "• ${option.text}",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                }
+            }
+        }
+
+        is LearningContentBlock.Steps -> Unit
+    }
+}
+
