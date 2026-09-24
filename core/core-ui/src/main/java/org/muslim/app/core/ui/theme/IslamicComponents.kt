@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -74,6 +75,50 @@ fun IslamicCard(
                 .then(
                     if (onClick != null) Modifier.defaultMinSize(minHeight = 24.dp) else Modifier
                 ),
+            content = { content() },
+        )
+    }
+}
+
+/**
+ * Shared selectable card for palette, style, and other single-choice previews.
+ * Selection semantics and emphasis live in the design system while feature
+ * content remains free to render its own preview geometry.
+ */
+@Composable
+fun IslamicSelectableCard(
+    selected: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    shape: Shape = MaterialTheme.shapes.medium,
+    contentPadding: PaddingValues = PaddingValues(IslamicSpacing.Medium),
+    containerColor: Color = MaterialTheme.colorScheme.surfaceContainerLow,
+    content: @Composable () -> Unit,
+) {
+    Card(
+        modifier = modifier.selectable(
+            selected = selected,
+            role = androidx.compose.ui.semantics.Role.RadioButton,
+            onClick = onClick,
+        ),
+        shape = shape,
+        colors = CardDefaults.cardColors(containerColor = containerColor),
+        border = BorderStroke(
+            width = if (selected) 2.dp else 1.dp,
+            color = if (selected) {
+                MaterialTheme.colorScheme.primary
+            } else {
+                MaterialTheme.colorScheme.outlineVariant
+            },
+        ),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = IslamicElevation.Resting,
+            pressedElevation = IslamicElevation.Raised,
+            focusedElevation = IslamicElevation.Raised,
+        ),
+    ) {
+        Column(
+            modifier = Modifier.padding(contentPadding),
             content = { content() },
         )
     }
