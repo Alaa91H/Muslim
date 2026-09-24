@@ -53,13 +53,27 @@ class HomeViewModel @Inject constructor(
             .map { it.showPrayerTrackerOnHome }
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
-    /** One day's condensed times for the monthly grid. */
+    /** One complete five-prayer row for the monthly timetable. */
     data class DayTimes(
         val date: LocalDate,
         val hijriDay: Int,
         val fajr: LocalTime?,
         val maghrib: LocalTime?,
-    )
+        // Appended with defaults to keep compatibility with older call sites/tests
+        // that may still construct the previous four-field shape.
+        val dhuhr: LocalTime? = null,
+        val asr: LocalTime? = null,
+        val isha: LocalTime? = null,
+    ) {
+        fun timeFor(prayer: Prayer): LocalTime? = when (prayer) {
+            Prayer.Fajr -> fajr
+            Prayer.Sunrise -> null
+            Prayer.Dhuhr -> dhuhr
+            Prayer.Asr -> asr
+            Prayer.Maghrib -> maghrib
+            Prayer.Isha -> isha
+        }
+    }
 
     /** Read-only alert presentation for a row; detailed editing remains in Prayer Settings. */
     data class PrayerAlert(
@@ -220,6 +234,9 @@ class HomeViewModel @Inject constructor(
                 hijriDay = hijri?.day ?: day,
                 fajr = result.timeFor(Prayer.Fajr),
                 maghrib = result.timeFor(Prayer.Maghrib),
+                dhuhr = result.timeFor(Prayer.Dhuhr),
+                asr = result.timeFor(Prayer.Asr),
+                isha = result.timeFor(Prayer.Isha),
             )
         }
     }

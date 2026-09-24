@@ -2,12 +2,14 @@ package org.muslim.app.feature.prayertimes.ui.home
 
 import android.content.Context
 import android.content.Intent
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,25 +17,17 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
-import androidx.compose.material.icons.filled.Brightness4
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.DarkMode
-import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.NotificationsOff
 import androidx.compose.material.icons.filled.Vibration
-import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.Place
-import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -48,8 +42,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -83,6 +80,7 @@ import org.muslim.app.core.designsystem.IslamicIconSize
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 import org.muslim.app.core.datastore.prayer.trackablePrayers
+import java.time.DayOfWeek
 
 /**
  * Main screen: Hijri/Gregorian date, live next-prayer countdown and today's
@@ -130,7 +128,8 @@ fun HomeScreen(
         }
         val cardPadding = if (compactLayout) IslamicSpacing.Compact else IslamicSpacing.Comfortable
         val sectionGap = if (compactLayout) IslamicSpacing.Medium else IslamicSpacing.SectionVertical
-        val heroIconSize = if (narrowLayout) IslamicIconSize.Prominent else IslamicIconSize.Hero
+        val heroIconSize = if (narrowLayout) IslamicIconSize.Standard else IslamicIconSize.Prominent
+        val heroVerticalPadding = if (compactLayout) IslamicSpacing.XSmall else IslamicSpacing.Small
         val prayerRowOuterVerticalPadding = if (compactLayout) 0.dp else IslamicSpacing.XXSmall
         val prayerRowHorizontalPadding = if (narrowLayout) IslamicSpacing.Small else IslamicSpacing.Compact
         val prayerRowInnerVerticalPadding = if (compactLayout) IslamicSpacing.XXSmall else IslamicSpacing.XSmall
@@ -140,14 +139,18 @@ fun HomeScreen(
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(
-                    horizontal = pageHorizontalPadding,
-                    vertical = IslamicSpacing.Small,
+                    start = pageHorizontalPadding,
+                    end = pageHorizontalPadding,
+                    top = 0.dp,
+                    bottom = IslamicSpacing.Small,
                 ),
         ) {
+        // Keep the shared identity primitive in this surface without reserving
+        // the former 56–84dp header band; the screen now uses that space for content.
         IslamicDecorationBand(
-            compact = compactLayout,
+            modifier = Modifier.height(0.dp),
+            compact = true,
         )
-        Spacer(Modifier.height(IslamicSpacing.XSmall))
 
         // ---- Date header ----
         state.hijri?.let { hijri ->
@@ -225,67 +228,70 @@ fun HomeScreen(
                 .fillMaxWidth()
                 .semantics { contentDescription = nextPrayerDescription },
             containerColor = MaterialTheme.colorScheme.primaryContainer,
-            contentPadding = androidx.compose.foundation.layout.PaddingValues(cardPadding),
+            contentPadding = androidx.compose.foundation.layout.PaddingValues(
+                horizontal = cardPadding,
+                vertical = heroVerticalPadding,
+            ),
         ) {
             Box {
                 IslamicDecorationCorners(
                     tint = MaterialTheme.colorScheme.tertiary,
-                    compact = compactLayout,
+                    compact = true,
                 )
-                Column {
-                    Text(
-                        text = stringResource(R.string.home_next_prayer),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
-                    )
-                    Spacer(Modifier.height(IslamicSpacing.Small))
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Column(modifier = Modifier.weight(1f)) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    state.nextPrayer?.let { prayer ->
+                        PrayerTimeIcon(
+                            prayer = prayer,
+                            tint = MaterialTheme.colorScheme.tertiary,
+                            modifier = Modifier.size(heroIconSize),
+                        )
+                        Spacer(Modifier.width(IslamicSpacing.Small))
+                    }
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = stringResource(R.string.home_next_prayer),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onPrimaryContainer,
+                        )
+                        Row(verticalAlignment = Alignment.CenterVertically) {
                             state.nextPrayer?.let { prayer ->
                                 Text(
                                     text = stringResource(prayerLabelRes(prayer)),
                                     style = if (narrowLayout) {
-                                        MaterialTheme.typography.headlineSmall
+                                        MaterialTheme.typography.titleLarge
                                     } else {
-                                        MaterialTheme.typography.headlineMedium
+                                        MaterialTheme.typography.headlineSmall
                                     },
+                                    fontWeight = FontWeight.SemiBold,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                )
+                            }
+                            state.nextPrayerAt?.let { at ->
+                                Spacer(Modifier.width(IslamicSpacing.Small))
+                                Text(
+                                    text = at.format(TimeFormats.timeFormatter(use24h)),
+                                    style = MaterialTheme.typography.titleMedium,
+                                    fontWeight = FontWeight.Bold,
                                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                                 )
                             }
                         }
-                        state.nextPrayer?.let { prayer ->
-                            Icon(
-                                imageVector = prayerIcon(prayer),
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.tertiary,
-                                modifier = Modifier.size(heroIconSize),
-                            )
-                        }
                     }
-                    Row(verticalAlignment = Alignment.Bottom) {
-                        state.nextPrayerAt?.let { at ->
-                            Text(
-                                text = at.format(TimeFormats.timeFormatter(use24h)),
-                                style = if (narrowLayout) {
-                                    MaterialTheme.typography.headlineSmall
-                                } else {
-                                    MaterialTheme.typography.headlineMedium
-                                },
-                                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                            )
-                        }
-                        Spacer(Modifier.weight(1f))
-                        Text(
-                            text = formatCountdown(state.countdownSeconds),
-                            style = if (narrowLayout) {
-                                MaterialTheme.typography.titleLarge
-                            } else {
-                                MaterialTheme.typography.headlineSmall
-                            },
-                            fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer,
-                        )
-                    }
+                    Spacer(Modifier.width(IslamicSpacing.Small))
+                    Text(
+                        text = formatCountdown(state.countdownSeconds),
+                        style = if (narrowLayout) {
+                            MaterialTheme.typography.titleMedium
+                        } else {
+                            MaterialTheme.typography.titleLarge
+                        },
+                        fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace,
+                        fontWeight = FontWeight.SemiBold,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    )
                 }
             }
         }
@@ -358,9 +364,8 @@ fun HomeScreen(
                             ),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        Icon(
-                            imageVector = prayerIcon(prayer),
-                            contentDescription = null,
+                        PrayerTimeIcon(
+                            prayer = prayer,
                             tint = if (isNextPrayer) MaterialTheme.colorScheme.onTertiaryContainer
                             else MaterialTheme.colorScheme.primary,
                             modifier = Modifier.size(prayerIconSize),
@@ -444,7 +449,7 @@ fun HomeScreen(
         }
 
         if (state.monthly) {
-            MonthlyGrid(state, use24h)
+            MonthlyPrayerTable(state, use24h)
         }
 
         if (showPrayerTrackerOnHome) {
@@ -467,13 +472,113 @@ fun HomeScreen(
     }
 }
 
-private fun prayerIcon(prayer: Prayer): ImageVector = when (prayer) {
-    Prayer.Fajr -> Icons.Filled.Nightlight
-    Prayer.Sunrise -> Icons.Filled.WbSunny
-    Prayer.Dhuhr -> Icons.Filled.LightMode
-    Prayer.Asr -> Icons.Filled.Brightness4
-    Prayer.Maghrib -> Icons.Filled.Nightlight
-    Prayer.Isha -> Icons.Filled.DarkMode
+@Composable
+private fun PrayerTimeIcon(
+    prayer: Prayer,
+    tint: Color,
+    modifier: Modifier = Modifier,
+) {
+    Canvas(modifier = modifier) {
+        val width = size.width
+        val height = size.height
+        val unit = minOf(width, height)
+        val stroke = (unit * 0.07f).coerceAtLeast(1f)
+
+        fun line(x1: Float, y1: Float, x2: Float, y2: Float, widthScale: Float = 1f) {
+            drawLine(
+                color = tint,
+                start = Offset(width * x1, height * y1),
+                end = Offset(width * x2, height * y2),
+                strokeWidth = stroke * widthScale,
+                cap = StrokeCap.Round,
+            )
+        }
+
+        fun sun(cx: Float, cy: Float, radius: Float, withRays: Boolean) {
+            drawCircle(
+                color = tint,
+                radius = unit * radius,
+                center = Offset(width * cx, height * cy),
+            )
+            if (withRays) {
+                line(cx, cy - 0.36f, cx, cy - 0.27f)
+                line(cx, cy + 0.27f, cx, cy + 0.36f)
+                line(cx - 0.36f, cy, cx - 0.27f, cy)
+                line(cx + 0.27f, cy, cx + 0.36f, cy)
+                line(cx - 0.25f, cy - 0.25f, cx - 0.19f, cy - 0.19f)
+                line(cx + 0.19f, cy - 0.19f, cx + 0.25f, cy - 0.25f)
+                line(cx - 0.25f, cy + 0.25f, cx - 0.19f, cy + 0.19f)
+                line(cx + 0.19f, cy + 0.19f, cx + 0.25f, cy + 0.25f)
+            }
+        }
+
+        when (prayer) {
+            Prayer.Fajr -> {
+                val horizon = 0.72f
+                line(0.12f, horizon, 0.88f, horizon, 1.05f)
+                drawArc(
+                    color = tint,
+                    startAngle = 180f,
+                    sweepAngle = 180f,
+                    useCenter = false,
+                    topLeft = Offset(width * 0.36f, height * 0.55f),
+                    size = Size(width * 0.28f, height * 0.28f),
+                    style = Stroke(width = stroke, cap = StrokeCap.Round),
+                )
+                line(0.50f, 0.43f, 0.50f, 0.35f)
+                line(0.36f, 0.49f, 0.30f, 0.43f)
+                line(0.64f, 0.49f, 0.70f, 0.43f)
+            }
+            Prayer.Sunrise -> {
+                val horizon = 0.72f
+                line(0.10f, horizon, 0.90f, horizon, 1.05f)
+                sun(0.50f, 0.58f, 0.13f, withRays = true)
+            }
+            Prayer.Dhuhr -> sun(0.50f, 0.50f, 0.15f, withRays = true)
+            Prayer.Asr -> {
+                line(0.10f, 0.78f, 0.90f, 0.78f, 1.05f)
+                sun(0.64f, 0.48f, 0.13f, withRays = true)
+            }
+            Prayer.Maghrib -> {
+                val horizon = 0.63f
+                line(0.10f, horizon, 0.90f, horizon, 1.1f)
+                drawArc(
+                    color = tint,
+                    startAngle = 180f,
+                    sweepAngle = 180f,
+                    useCenter = false,
+                    topLeft = Offset(width * 0.33f, height * 0.46f),
+                    size = Size(width * 0.34f, height * 0.34f),
+                    style = Stroke(width = stroke * 1.15f, cap = StrokeCap.Round),
+                )
+                line(0.24f, 0.76f, 0.76f, 0.76f, 0.85f)
+            }
+            Prayer.Isha -> {
+                drawArc(
+                    color = tint,
+                    startAngle = 52f,
+                    sweepAngle = 250f,
+                    useCenter = false,
+                    topLeft = Offset(width * 0.16f, height * 0.14f),
+                    size = Size(width * 0.60f, height * 0.70f),
+                    style = Stroke(width = stroke * 1.65f, cap = StrokeCap.Round),
+                )
+                line(0.77f, 0.22f, 0.77f, 0.36f, 0.85f)
+                line(0.70f, 0.29f, 0.84f, 0.29f, 0.85f)
+            }
+        }
+    }
+}
+
+@Composable
+private fun monthWeekdayLabel(day: DayOfWeek): String = when (day) {
+    DayOfWeek.SATURDAY -> stringResource(R.string.times_week_sat)
+    DayOfWeek.SUNDAY -> stringResource(R.string.times_week_sun)
+    DayOfWeek.MONDAY -> stringResource(R.string.times_week_mon)
+    DayOfWeek.TUESDAY -> stringResource(R.string.times_week_tue)
+    DayOfWeek.WEDNESDAY -> stringResource(R.string.times_week_wed)
+    DayOfWeek.THURSDAY -> stringResource(R.string.times_week_thu)
+    DayOfWeek.FRIDAY -> stringResource(R.string.times_week_fri)
 }
 
 /** Direct per-prayer entry point for the same persisted Adhan choices exposed in Settings. */
@@ -616,80 +721,177 @@ private fun shareDailyTimes(context: Context, state: HomeViewModel.UiState, use2
     runCatching { context.startActivity(chooser) }
 }
 
-/** Monthly grid of fajr/maghrib times, like a printed yearly timetable. */
+/** Full monthly timetable: one day per row, with all five obligatory prayers. */
 @Composable
-private fun MonthlyGrid(state: HomeViewModel.UiState, use24h: Boolean) {
-    val daysOfWeek = listOf(
-        stringResource(R.string.times_week_sat),
-        stringResource(R.string.times_week_sun),
-        stringResource(R.string.times_week_mon),
-        stringResource(R.string.times_week_tue),
-        stringResource(R.string.times_week_wed),
-        stringResource(R.string.times_week_thu),
-        stringResource(R.string.times_week_fri),
-    )
-    Column(modifier = Modifier.fillMaxWidth()) {
-        Row(modifier = Modifier.fillMaxWidth()) {
-            daysOfWeek.forEach { day ->
-                Text(
-                    text = day,
-                    modifier = Modifier.weight(1f),
-                    textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+private fun MonthlyPrayerTable(state: HomeViewModel.UiState, use24h: Boolean) {
+    val prayers = trackablePrayers
+    val formatter = TimeFormats.timeFormatter(use24h)
+
+    Spacer(Modifier.height(IslamicSpacing.Small))
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(0.dp),
+    ) {
+        Column(modifier = Modifier.fillMaxWidth()) {
+            MonthlyTableHeader(
+                monthLabel = "${state.month.monthValue}/${state.month.year}",
+                prayers = prayers,
+            )
+            state.monthDays.forEachIndexed { index, day ->
+                if (index > 0) HorizontalDivider()
+                MonthlyTableDayRow(
+                    index = index,
+                    day = day,
+                    prayers = prayers,
+                    formatter = formatter,
+                    selected = day.date == state.selectedDate,
                 )
-            }
-        }
-        Spacer(Modifier.height(IslamicSpacing.XSmall))
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(7),
-            modifier = Modifier.height(380.dp),
-        ) {
-            val firstDayOfWeekIndex = state.month.atDay(1).dayOfWeek.value % 7
-            items(state.monthDays.size + firstDayOfWeekIndex) { index ->
-                val dayIndex = index - firstDayOfWeekIndex
-                if (dayIndex < 0) {
-                    Box(Modifier.padding(2.dp))
-                } else {
-                    MonthCell(state.monthDays[dayIndex], use24h)
-                }
             }
         }
     }
 }
 
 @Composable
-private fun MonthCell(day: HomeViewModel.DayTimes, use24h: Boolean) {
-    Column(
+private fun MonthlyTableHeader(
+    monthLabel: String,
+    prayers: List<Prayer>,
+) {
+    Row(
         modifier = Modifier
-            .padding(2.dp)
-            .fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally,
+            .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.72f))
+            .padding(vertical = IslamicSpacing.XSmall),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
-        Text(
-            text = day.hijriDay.toString(),
-            style = MaterialTheme.typography.labelLarge,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary,
-        )
-        Text(
-            text = day.date.dayOfMonth.toString(),
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        day.fajr?.let {
+        Column(
+            modifier = Modifier.weight(0.92f),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
             Text(
-                text = it.format(TimeFormats.timeFormatter(use24h)),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurface,
+                text = monthLabel,
+                style = MaterialTheme.typography.labelMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                maxLines = 1,
             )
         }
-        day.maghrib?.let {
-            Text(
-                text = it.format(TimeFormats.timeFormatter(use24h)),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurface,
+        prayers.forEach { prayer ->
+            Column(
+                modifier = Modifier.weight(1f),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                PrayerTimeIcon(
+                    prayer = prayer,
+                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                    modifier = Modifier.size(IslamicIconSize.Supporting),
+                )
+                Text(
+                    text = stringResource(prayerLabelRes(prayer)),
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    maxLines = 1,
+                    overflow = TextOverflow.Clip,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun MonthlyTableDayRow(
+    index: Int,
+    day: HomeViewModel.DayTimes,
+    prayers: List<Prayer>,
+    formatter: java.time.format.DateTimeFormatter,
+    selected: Boolean,
+) {
+    val contentColor = if (selected) {
+        MaterialTheme.colorScheme.onTertiaryContainer
+    } else {
+        MaterialTheme.colorScheme.onSurface
+    }
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(
+                when {
+                    selected -> MaterialTheme.colorScheme.tertiaryContainer
+                    index % 2 == 1 -> MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.34f)
+                    else -> Color.Transparent
+                },
+            )
+            .padding(vertical = 6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        MonthlyDateCell(day = day, selected = selected)
+        prayers.forEach { prayer ->
+            MonthlyPrayerTimeCell(
+                value = day.timeFor(prayer)?.format(formatter) ?: "—",
+                selected = selected,
+                contentColor = contentColor,
             )
         }
     }
 }
+
+@Composable
+private fun RowScope.MonthlyDateCell(
+    day: HomeViewModel.DayTimes,
+    selected: Boolean,
+) {
+    Column(
+        modifier = Modifier.weight(0.92f),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(
+            text = day.date.dayOfMonth.toString(),
+            style = MaterialTheme.typography.labelLarge,
+            fontWeight = FontWeight.Bold,
+            color = if (selected) {
+                MaterialTheme.colorScheme.onTertiaryContainer
+            } else {
+                MaterialTheme.colorScheme.onSurface
+            },
+        )
+        Text(
+            text = monthWeekdayLabel(day.date.dayOfWeek),
+            style = MaterialTheme.typography.labelSmall,
+            color = if (selected) {
+                MaterialTheme.colorScheme.onTertiaryContainer
+            } else {
+                MaterialTheme.colorScheme.onSurfaceVariant
+            },
+            maxLines = 1,
+        )
+        Text(
+            text = day.hijriDay.toString(),
+            style = MaterialTheme.typography.labelSmall,
+            color = if (selected) {
+                MaterialTheme.colorScheme.onTertiaryContainer
+            } else {
+                MaterialTheme.colorScheme.primary
+            },
+        )
+    }
+}
+
+@Composable
+private fun RowScope.MonthlyPrayerTimeCell(
+    value: String,
+    selected: Boolean,
+    contentColor: Color,
+) {
+    Text(
+        text = value,
+        modifier = Modifier.weight(1f),
+        textAlign = TextAlign.Center,
+        style = MaterialTheme.typography.labelSmall,
+        fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
+        color = contentColor,
+        maxLines = 1,
+        overflow = TextOverflow.Clip,
+    )
+}
+
