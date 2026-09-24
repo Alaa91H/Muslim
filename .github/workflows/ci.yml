@@ -54,6 +54,9 @@ jobs:
       - name: Set up Gradle cache
         uses: gradle/actions/setup-gradle@v6
 
+      - name: Verify feature module boundaries
+        run: python3 scripts/verify_module_boundaries.py
+
       - name: Verify Wear / IoT integration
         run: python3 scripts/verify_iot_integration.py
 
