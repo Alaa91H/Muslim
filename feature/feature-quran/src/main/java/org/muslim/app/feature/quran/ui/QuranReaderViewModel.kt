@@ -765,6 +765,7 @@ class QuranReaderViewModel @Inject constructor(
         items: List<RecitationQueueItem>,
         intent: RecitationSessionIntent,
         startPositionMs: Long = 0L,
+        remainingRepeatsForCurrent: Int? = null,
     ) {
         val continuousMode = intent.continuous || intent.repeatCount <= 0
         val effectiveRepeat =
@@ -783,6 +784,7 @@ class QuranReaderViewModel @Inject constructor(
             repeatCount = effectiveRepeat,
             continuous = intent.advanceToNext,
             startPositionMs = startPositionMs,
+            remainingRepeatsForCurrent = remainingRepeatsForCurrent,
         )
     }
 
@@ -840,6 +842,7 @@ class QuranReaderViewModel @Inject constructor(
                 items = items,
                 intent = resumeIntent,
                 startPositionMs = session.positionMs,
+                remainingRepeatsForCurrent = session.remainingRepeats,
             )
         }
     }
