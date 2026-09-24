@@ -19,9 +19,6 @@ import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.ErrorOutline
 import androidx.compose.material.icons.filled.Link
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -29,7 +26,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
+import org.muslim.app.core.designsystem.IslamicIconSize
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicPrimaryButton
+import org.muslim.app.core.ui.theme.IslamicSecondaryButton
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimErrorState
 import org.muslim.app.core.ui.theme.MuslimLoadingState
@@ -83,8 +84,8 @@ fun UpdateScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
-                .padding(horizontal = 16.dp, vertical = 12.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
+                .padding(horizontal = IslamicSpacing.PageHorizontal, vertical = IslamicSpacing.Compact),
+            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
         ) {
             when (val state = uiState) {
                 UpdateUiState.Loading -> {
@@ -94,25 +95,22 @@ fun UpdateScreen(
                 }
 
                 UpdateUiState.UpToDate -> {
-                    Card(modifier = Modifier.fillMaxWidth()) {
-                        Row(
-                            modifier = Modifier.padding(20.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
+                    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(
                                 Icons.Filled.CheckCircle,
                                 contentDescription = null,
                                 tint = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.size(32.dp),
+                                modifier = Modifier.size(IslamicIconSize.Prominent),
                             )
-                            Spacer(Modifier.width(14.dp))
+                            Spacer(Modifier.width(IslamicSpacing.Compact))
                             Column(modifier = Modifier.weight(1f)) {
                                 Text(
                                     text = stringResource(R.string.update_up_to_date),
                                     style = MaterialTheme.typography.titleMedium,
                                     fontWeight = FontWeight.SemiBold,
                                 )
-                                Spacer(Modifier.height(4.dp))
+                                Spacer(Modifier.height(IslamicSpacing.XSmall))
                                 Text(
                                     text = stringResource(
                                         R.string.update_current_version,
@@ -134,42 +132,37 @@ fun UpdateScreen(
                         onAction = viewModel::refresh,
                     )
                     if (downloadState is UpdateDownloadState.ReadyToInstall) {
-                        Card(
+                        IslamicCard(
                             modifier = Modifier.fillMaxWidth(),
-                            colors = CardDefaults.cardColors(
-                                containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                            ),
+                            containerColor = MaterialTheme.colorScheme.secondaryContainer,
                         ) {
                             Text(
                                 text = stringResource(R.string.update_ready_offline),
                                 style = MaterialTheme.typography.bodyMedium,
-                                modifier = Modifier.padding(16.dp),
                                 color = MaterialTheme.colorScheme.onSecondaryContainer,
                             )
                         }
-                        Button(
+                        IslamicPrimaryButton(
                             onClick = viewModel::installDownloadedUpdate,
                             modifier = Modifier.fillMaxWidth(),
                         ) {
                             Icon(
                                 Icons.Filled.SystemUpdate,
                                 contentDescription = null,
-                                modifier = Modifier.size(20.dp),
+                                modifier = Modifier.size(IslamicIconSize.Supporting),
                             )
-                            Spacer(Modifier.width(8.dp))
+                            Spacer(Modifier.width(IslamicSpacing.Small))
                             Text(stringResource(R.string.update_install))
                         }
                     }
                 }
 
                 is UpdateUiState.Available -> {
-                    Card(
+                    IslamicCard(
                         modifier = Modifier.fillMaxWidth(),
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.primaryContainer,
-                        ),
+                        containerColor = MaterialTheme.colorScheme.primaryContainer,
                     ) {
-                        Column(modifier = Modifier.padding(20.dp)) {
+                        Column {
                             Row(verticalAlignment = Alignment.CenterVertically) {
                                 Icon(
                                     Icons.Filled.SystemUpdate,
@@ -177,7 +170,7 @@ fun UpdateScreen(
                                     tint = MaterialTheme.colorScheme.onPrimaryContainer,
                                     modifier = Modifier.size(32.dp),
                                 )
-                                Spacer(Modifier.width(12.dp))
+                                Spacer(Modifier.width(IslamicSpacing.Compact))
                                 Text(
                                     text = stringResource(R.string.update_new_version, state.release.version),
                                     style = MaterialTheme.typography.titleMedium,
@@ -185,14 +178,14 @@ fun UpdateScreen(
                                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                                 )
                             }
-                            Spacer(Modifier.height(8.dp))
+                            Spacer(Modifier.height(IslamicSpacing.Small))
                             Text(
                                 text = stringResource(R.string.update_current_version, state.installedVersion),
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                             )
                             if (state.release.isPrerelease) {
-                                Spacer(Modifier.height(6.dp))
+                                Spacer(Modifier.height(IslamicSpacing.Small))
                                 Text(
                                     text = stringResource(R.string.update_beta_release),
                                     style = MaterialTheme.typography.labelLarge,
@@ -215,17 +208,16 @@ fun UpdateScreen(
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.SemiBold,
                     )
-                    Card(modifier = Modifier.fillMaxWidth()) {
+                    IslamicCard(modifier = Modifier.fillMaxWidth()) {
                         Text(
                             text = state.release.body.ifBlank { stringResource(R.string.update_no_changelog) },
                             style = MaterialTheme.typography.bodyMedium,
-                            modifier = Modifier.padding(16.dp),
                         )
                     }
 
                     when (val transfer = downloadState) {
                         UpdateDownloadState.Idle -> {
-                            Button(
+                            IslamicPrimaryButton(
                                 onClick = viewModel::startDownload,
                                 modifier = Modifier.fillMaxWidth(),
                             ) {
@@ -245,13 +237,13 @@ fun UpdateScreen(
                         }
 
                         UpdateDownloadState.Enqueuing -> {
-                            Button(
+                            IslamicPrimaryButton(
                                 onClick = {},
                                 enabled = false,
                                 modifier = Modifier.fillMaxWidth(),
                             ) {
                                 CircularProgressIndicator(
-                                    modifier = Modifier.size(18.dp),
+                                    modifier = Modifier.size(IslamicIconSize.Supporting),
                                     strokeWidth = 2.dp,
                                 )
                                 Spacer(Modifier.width(8.dp))
@@ -260,10 +252,9 @@ fun UpdateScreen(
                         }
 
                         is UpdateDownloadState.Downloading -> {
-                            Card(modifier = Modifier.fillMaxWidth()) {
+                            IslamicCard(modifier = Modifier.fillMaxWidth()) {
                                 Column(
-                                    modifier = Modifier.padding(16.dp),
-                                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                                    verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
                                 ) {
                                     Text(
                                         text = downloadProgressText(transfer),
@@ -277,7 +268,7 @@ fun UpdateScreen(
                                     } ?: LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
                                 }
                             }
-                            OutlinedButton(
+                            IslamicSecondaryButton(
                                 onClick = viewModel::cancelDownload,
                                 modifier = Modifier.fillMaxWidth(),
                             ) {
@@ -286,7 +277,7 @@ fun UpdateScreen(
                         }
 
                         is UpdateDownloadState.Paused -> {
-                            Card(modifier = Modifier.fillMaxWidth()) {
+                            IslamicCard(modifier = Modifier.fillMaxWidth()) {
                                 Column(
                                     modifier = Modifier.padding(16.dp),
                                     verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -308,7 +299,7 @@ fun UpdateScreen(
                                     }
                                 }
                             }
-                            OutlinedButton(
+                            IslamicSecondaryButton(
                                 onClick = viewModel::cancelDownload,
                                 modifier = Modifier.fillMaxWidth(),
                             ) {
@@ -317,7 +308,7 @@ fun UpdateScreen(
                         }
 
                         UpdateDownloadState.Verifying -> {
-                            Button(
+                            IslamicPrimaryButton(
                                 onClick = {},
                                 enabled = false,
                                 modifier = Modifier.fillMaxWidth(),
@@ -332,20 +323,17 @@ fun UpdateScreen(
                         }
 
                         is UpdateDownloadState.ReadyToInstall -> {
-                            Card(
+                            IslamicCard(
                                 modifier = Modifier.fillMaxWidth(),
-                                colors = CardDefaults.cardColors(
-                                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                                ),
+                                containerColor = MaterialTheme.colorScheme.secondaryContainer,
                             ) {
                                 Text(
                                     text = stringResource(R.string.update_ready_to_install),
                                     style = MaterialTheme.typography.bodyMedium,
-                                    modifier = Modifier.padding(16.dp),
                                     color = MaterialTheme.colorScheme.onSecondaryContainer,
                                 )
                             }
-                            Button(
+                            IslamicPrimaryButton(
                                 onClick = viewModel::installDownloadedUpdate,
                                 modifier = Modifier.fillMaxWidth(),
                             ) {
@@ -382,7 +370,7 @@ fun UpdateScreen(
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
-            OutlinedButton(
+            IslamicSecondaryButton(
                 onClick = viewModel::openReleasesPage,
                 modifier = Modifier.fillMaxWidth(),
             ) {
