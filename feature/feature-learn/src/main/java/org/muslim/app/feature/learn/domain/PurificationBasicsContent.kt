@@ -4,11 +4,11 @@ import org.muslim.app.feature.learn.R
 
 internal object PurificationBasicsContent {
 
-    val lessons: List<LearningLesson> = listOf(
+    val lessons: List<LearningLesson> by lazy { listOf(
         taharaOverview,
         waterAndImpurity,
         restroomEtiquette,
-    )
+    ) }
 
     private val taharaOverview = LearningLesson(
         id = "tahara_intro",
