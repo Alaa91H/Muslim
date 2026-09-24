@@ -161,6 +161,20 @@ private val topicIcons = mapOf(
     "new_muslim_quran" to Icons.AutoMirrored.Filled.MenuBook,
     "new_muslim_daily_life" to Icons.Filled.LocalFlorist,
     "new_muslim_roadmap" to Icons.Filled.Schedule,
+    "family_intro" to Icons.Filled.ChildCare,
+    "family_spouse_selection" to Icons.Filled.VerifiedUser,
+    "family_marriage_contract" to Icons.Filled.Checklist,
+    "family_marital_life" to Icons.Filled.LocalFlorist,
+    "family_parenting" to Icons.Filled.ChildCare,
+    "family_kinship" to Icons.Filled.Mosque,
+    "family_conflict_separation" to Icons.Filled.Warning,
+    "finance_intro" to Icons.Filled.AccountBalance,
+    "finance_sale_contracts" to Icons.Filled.Checklist,
+    "finance_riba" to Icons.Filled.Warning,
+    "finance_debt_loans" to Icons.Filled.AccountBalance,
+    "finance_ecommerce" to Icons.Filled.Restaurant,
+    "finance_business_investing" to Icons.Filled.FormatListNumbered,
+    "finance_tools_guide" to Icons.Filled.Book,
     "funeral" to Icons.Filled.LocalFlorist,
     "madhhab" to Icons.Filled.ChildCare,
 )
@@ -181,6 +195,8 @@ private fun categoryTitleRes(category: String): Int = when (category) {
     LearnContent.CATEGORY_SEERAH -> R.string.learn_category_seerah
     LearnContent.CATEGORY_ETHICS -> R.string.learn_category_ethics
     LearnContent.CATEGORY_NEW_MUSLIM -> R.string.learn_category_new_muslim
+    LearnContent.CATEGORY_FAMILY -> R.string.learn_category_family
+    LearnContent.CATEGORY_FINANCE -> R.string.learn_category_finance
     LearnContent.CATEGORY_REFERENCE -> R.string.learn_category_reference
     else -> R.string.learn_category_reference
 }
