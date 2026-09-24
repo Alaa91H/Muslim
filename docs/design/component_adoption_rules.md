@@ -126,3 +126,18 @@ With this step, ordinary Settings surfaces are expected to consume the shared De
 System by default; new raw Material `Card`, `Button`, or `OutlinedButton`
 patterns should require a documented specialized interaction rather than becoming a
 new local convention.
+
+
+## Prayer home and location
+
+The Design System rollout now covers the primary prayer entry surfaces:
+
+- Prayer Home uses `IslamicSecondaryButton` for share and daily/monthly actions.
+  Existing 2 dp values inside tracker/grid cells remain local because they are
+  compact grid geometry rather than reusable page spacing.
+- Location uses `IslamicPrimaryButton` for saving manual coordinates,
+  `IslamicSecondaryButton` for GPS acquisition, `IslamicSpacing` for all
+  page/form layout spacing, and `IslamicListItem` for city search results.
+
+Search fields and coordinate fields remain Material `OutlinedTextField` controls
+because they are specialized data-entry widgets rather than generic app surfaces.

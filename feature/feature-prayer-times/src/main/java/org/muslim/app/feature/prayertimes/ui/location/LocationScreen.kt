@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.pm.PackageManager
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -16,11 +15,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MyLocation
-import androidx.compose.material3.Button
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -31,16 +27,18 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.IslamicListItem
+import org.muslim.app.core.ui.theme.IslamicPrimaryButton
+import org.muslim.app.core.ui.theme.IslamicSecondaryButton
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimContentFrame
 import org.muslim.app.feature.prayertimes.R
@@ -96,7 +94,7 @@ fun LocationScreen(
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { padding ->
         MuslimContentFrame(modifier = Modifier.padding(padding)) {
-            Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
+            Column(modifier = Modifier.fillMaxSize().padding(IslamicSpacing.Medium)) {
             OutlinedTextField(
                 value = viewModel.searchQuery.collectAsStateWithLifecycle().value,
                 onValueChange = { viewModel.searchQuery.value = it },
@@ -104,7 +102,7 @@ fun LocationScreen(
                 modifier = Modifier.fillMaxWidth(),
             )
 
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
 
             LazyColumn(modifier = Modifier.weight(1f)) {
                 items(results, key = { it.name }) { city ->
@@ -112,7 +110,7 @@ fun LocationScreen(
                 }
             }
 
-            OutlinedButton(
+            IslamicSecondaryButton(
                 onClick = {
                     val fineGranted = ContextCompat.checkSelfPermission(
                         context, Manifest.permission.ACCESS_FINE_LOCATION,
@@ -134,11 +132,11 @@ fun LocationScreen(
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 Icon(Icons.Default.MyLocation, contentDescription = null)
-                Spacer(Modifier.padding(start = 8.dp))
+                Spacer(Modifier.padding(start = IslamicSpacing.Small))
                 Text(stringResource(R.string.location_use_gps))
             }
 
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             Text(
                 text = stringResource(R.string.location_manual),
                 style = MaterialTheme.typography.titleMedium,
@@ -156,7 +154,7 @@ fun LocationScreen(
                     singleLine = true,
                     modifier = Modifier.weight(1f),
                 )
-                Spacer(Modifier.padding(start = 8.dp))
+                Spacer(Modifier.padding(start = IslamicSpacing.Small))
                 OutlinedTextField(
                     value = longitudeText,
                     // Normalize digits so Arabic-Indic/Persian keyboard digits
@@ -168,8 +166,8 @@ fun LocationScreen(
                     modifier = Modifier.weight(1f),
                 )
             }
-            Spacer(Modifier.height(8.dp))
-                Button(
+            Spacer(Modifier.height(IslamicSpacing.Small))
+                IslamicPrimaryButton(
                     onClick = { viewModel.saveManual(latitudeText, longitudeText) },
                     modifier = Modifier.fillMaxWidth(),
                 ) {
@@ -182,24 +180,10 @@ fun LocationScreen(
 
 @Composable
 private fun CityRow(city: City, onClick: () -> Unit) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick)
-            .padding(vertical = 12.dp),
-    ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(
-                text = city.displayName,
-                style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier.weight(1f),
-            )
-            Text(
-                text = city.country,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
-    }
+    IslamicListItem(
+        title = city.displayName,
+        subtitle = city.country,
+        onClick = onClick,
+        modifier = Modifier.padding(vertical = IslamicSpacing.XSmall),
+    )
 }

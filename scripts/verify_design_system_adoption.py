@@ -72,6 +72,8 @@ def main() -> None:
         source = path.read_text(encoding="utf-8")
         require("MuslimContentFrame" in source, f"{label} must use the adaptive content frame")
     require("IslamicListItem" in MORE.read_text(encoding="utf-8"), "More hub must use the shared list item")
+    home = HOME.read_text(encoding="utf-8")
+    location = LOCATION.read_text(encoding="utf-8")
 
     bookmarks = BOOKMARKS.read_text(encoding="utf-8")
     nearby_mosques = NEARBY_MOSQUES.read_text(encoding="utf-8")
@@ -196,6 +198,28 @@ def main() -> None:
     require(
         "IslamicPrimaryButton" in smart_devices_settings,
         "Smart devices settings must use the shared primary action",
+    )
+    require(
+        raw_material_component.search(home) is None,
+        "Prayer home must use shared Islamic actions instead of raw Card/Button patterns",
+    )
+    require(
+        "IslamicSecondaryButton" in home,
+        "Prayer home share/month-view actions must use the shared secondary action",
+    )
+    require(
+        raw_material_component.search(location) is None,
+        "Location screen must use shared Islamic cards/actions",
+    )
+    require(
+        raw_spacing_literal.search(location) is None,
+        "Location screen must use IslamicSpacing tokens for layout spacing",
+    )
+    require(
+        "IslamicListItem" in location
+        and "IslamicPrimaryButton" in location
+        and "IslamicSecondaryButton" in location,
+        "Location screen must use shared list and primary/secondary actions",
     )
     require(
         raw_material_component.search(SETTINGS.read_text(encoding="utf-8")) is None,
