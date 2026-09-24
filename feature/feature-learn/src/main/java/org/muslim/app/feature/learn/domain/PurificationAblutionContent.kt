@@ -4,11 +4,11 @@ import org.muslim.app.feature.learn.R
 
 internal object PurificationAblutionContent {
 
-    val lessons: List<LearningLesson> = listOf(
+    val lessons: List<LearningLesson> by lazy { listOf(
         wudu,
         wuduNullifiers,
         wipingOverFootwear,
-    )
+    ) }
 
     private val wudu = LearningLesson(
         id = "wudu",
