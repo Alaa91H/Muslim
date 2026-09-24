@@ -614,7 +614,8 @@ object LearnContent {
             ),
             notes = "هذه الفروق عرض محايد لا ترجيح فيه؛ يختار المسلم ما يطمئن إليه مع مراجعة أهل العلم. المشروع لا يرجّح مذهبًا على آخر (§6 المرحلة 5 و§10).",
         ),
-    ) + QuranLearnTopics.topics +
+    ) + FaithLearnTopics.topics +
+        QuranLearnTopics.topics +
         HadithLearnTopics.topics +
         SeerahLearnTopics.topics +
         EthicsLearnTopics.topics +
