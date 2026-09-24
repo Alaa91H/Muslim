@@ -688,7 +688,7 @@ private fun HadithBookIndexOrPages(
                 Surface(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = IslamicSpacing.PageHorizontal, vertical = 10.dp),
+                        .padding(horizontal = IslamicSpacing.PageHorizontal, vertical = IslamicSpacing.Compact),
                     shape = RoundedCornerShape(18.dp),
                     color = HadithLibrarySurfaceRaised,
                     border = BorderStroke(1.dp, HadithGold.copy(alpha = 0.32f)),
