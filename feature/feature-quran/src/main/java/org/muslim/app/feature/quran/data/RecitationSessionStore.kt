@@ -11,6 +11,8 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
@@ -107,23 +109,32 @@ class RecitationSessionRuntime @Inject constructor(
     private val store: RecitationSessionStore,
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    private val persistMutex = Mutex()
 
     @Volatile
     private var activeIntent: RecitationSessionIntent? = null
 
+    @Volatile
+    private var generation = 0L
+
     fun begin(intent: RecitationSessionIntent) {
         activeIntent = intent
+        generation += 1L
+        val writeGeneration = generation
         val firstGlobal = intent.globalNumbers.firstOrNull() ?: return
+        val snapshot = PersistedRecitationSession(
+            intent = intent,
+            currentGlobalNumber = firstGlobal,
+            positionMs = 0L,
+            wasPlaying = true,
+            savedAtEpochMs = System.currentTimeMillis(),
+        )
         scope.launch {
-            store.save(
-                PersistedRecitationSession(
-                    intent = intent,
-                    currentGlobalNumber = firstGlobal,
-                    positionMs = 0L,
-                    wasPlaying = true,
-                    savedAtEpochMs = System.currentTimeMillis(),
-                ),
-            )
+            persistMutex.withLock {
+                if (writeGeneration == generation && activeIntent == intent) {
+                    store.save(snapshot)
+                }
+            }
         }
     }
 
@@ -136,21 +147,33 @@ class RecitationSessionRuntime @Inject constructor(
         val global = currentGlobalNumber ?: return
         if (global !in intent.globalNumbers || state == PlaybackState.Idle) return
 
+        val writeGeneration = generation
+        val snapshot = PersistedRecitationSession(
+            intent = intent,
+            currentGlobalNumber = global,
+            positionMs = positionMs.coerceAtLeast(0L),
+            wasPlaying = state == PlaybackState.Playing,
+            savedAtEpochMs = System.currentTimeMillis(),
+        )
         scope.launch {
-            store.save(
-                PersistedRecitationSession(
-                    intent = intent,
-                    currentGlobalNumber = global,
-                    positionMs = positionMs.coerceAtLeast(0L),
-                    wasPlaying = state == PlaybackState.Playing,
-                    savedAtEpochMs = System.currentTimeMillis(),
-                ),
-            )
+            persistMutex.withLock {
+                if (writeGeneration == generation && activeIntent == intent) {
+                    store.save(snapshot)
+                }
+            }
         }
     }
 
     fun clear() {
         activeIntent = null
-        scope.launch { store.clear() }
+        generation += 1L
+        val clearGeneration = generation
+        scope.launch {
+            persistMutex.withLock {
+                if (clearGeneration == generation && activeIntent == null) {
+                    store.clear()
+                }
+            }
+        }
     }
 }
