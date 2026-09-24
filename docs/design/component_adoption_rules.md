@@ -105,3 +105,24 @@ Specialized Material controls remain intentionally local: switches, chips, text
 fields, text-only utility buttons, top-app-bar navigation, and system-facing
 controls do not need a shared wrapper unless multiple features develop the same
 semantic pattern.
+
+
+## Main settings and appearance
+
+The Settings consolidation now covers the two largest remaining surfaces:
+
+- Main Settings uses `IslamicSpacing` for ordinary layout gaps and shared
+  `IslamicPrimaryButton` / `IslamicSecondaryButton` actions for update workflows.
+- Appearance uses `IslamicSpacing` for editor layout and the shared
+  `IslamicSelectableCard` for palette and corner-style choices.
+
+`IslamicSelectableCard` owns selection semantics, selected/unselected border
+emphasis, elevation, shape integration, and content padding. Feature previews still
+own their internal illustrative geometry, so raw dp values remain acceptable for
+swatch sizes, skeleton heights, preview offsets, and other non-layout drawing
+measurements.
+
+With this step, ordinary Settings surfaces are expected to consume the shared Design
+System by default; new raw Material `Card`, `Button`, or `OutlinedButton`
+patterns should require a documented specialized interaction rather than becoming a
+new local convention.
