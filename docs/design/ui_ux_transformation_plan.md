@@ -34,6 +34,12 @@ The application already has a sound architectural foundation: a Compose `AppThem
 | Use semantic state surfaces. | Loading, empty, retry, unavailable, permission and offline states need clear next actions. | Never expose raw exceptions or imply a network feature is required when it is optional. |
 | Make accessibility and RTL implementation constraints, not a final polish layer. | Arabic, TalkBack, touch ergonomics, large text and layout direction are core product quality. | Use logical start/end, semantics, minimum touch targets, Material state layers and reduced motion. |
 
+## Phase 2 closure status
+
+As of 2026-09-24, the shared Design System foundation is closed for the primary high-use surfaces. Semantic state components, shared cards/actions/list rows, selectable cards, adaptive content framing, and centralized spacing are enforced by `scripts/verify_design_system_adoption.py` across Settings, Prayer Home/Location, Quran entry/reader surfaces, Hadith, Qibla, Adhkar, Tasbih, Ramadan, More, and selected supporting data/update screens. Feature-specific geometry remains local where it directly serves Mushaf reading, audio controls, compass rendering, devotional counters, or preview drawing.
+
+The next implementation stage is Phase 3: Quran Reader/Audio/Offline reliability and UX, reusing the now-stable shared presentation layer instead of expanding the visual system further.
+
 ## Implementation sequence
 
 The work is deliberately incremental so each commit remains reviewable and each visual change can be isolated from application logic.
