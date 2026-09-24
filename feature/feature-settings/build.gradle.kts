@@ -48,8 +48,6 @@ dependencies {
     implementation(project(":core:core-notifications"))
     implementation(project(":core:core-permissions"))
     implementation(project(":core:core-network"))
-    implementation(project(":feature:feature-hadith"))
-    implementation(project(":feature:feature-learn"))
 
     // Periodic update checks (WorkManager) + the GitHub releases API (OkHttp).
     implementation(libs.androidx.work.runtime.ktx)
