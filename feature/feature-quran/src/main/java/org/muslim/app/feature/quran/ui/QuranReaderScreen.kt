@@ -270,6 +270,7 @@ fun QuranReaderScreen(
     val hasNextAyah by viewModel.hasNextAyah.collectAsStateWithLifecycle()
     val hasPreviousAyah by viewModel.hasPreviousAyah.collectAsStateWithLifecycle()
     val recitationFailure by viewModel.recitationFailure.collectAsStateWithLifecycle()
+    val restorableSession by viewModel.restorableSession.collectAsStateWithLifecycle()
     val positionMs by viewModel.positionMs.collectAsStateWithLifecycle()
     val durationMs by viewModel.durationMs.collectAsStateWithLifecycle()
     val selectedReciter by viewModel.selectedReciter.collectAsStateWithLifecycle()
@@ -955,6 +956,43 @@ fun QuranReaderScreen(
                     },
                 ) {
                     Text(playbackFailureText)
+                }
+            } else if (
+                restorableSession != null &&
+                playbackState == PlaybackState.Idle
+            ) {
+                val resumeText = stringResource(R.string.quran_recitation_notif_paused)
+                val playText = stringResource(R.string.quran_recitation_notif_play)
+                val dismissText = stringResource(R.string.quran_stop_playback)
+                Snackbar(
+                    modifier = Modifier
+                        .align(Alignment.BottomCenter)
+                        .padding(IslamicSpacing.Medium),
+                    action = {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            IconButton(
+                                onClick = {
+                                    restorableSession?.let { session ->
+                                        repeatCount = session.intent.repeatCount
+                                    }
+                                    viewModel.resumeRestorableSession()
+                                },
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Filled.PlayArrow,
+                                    contentDescription = playText,
+                                )
+                            }
+                            IconButton(onClick = viewModel::discardRestorableSession) {
+                                Icon(
+                                    imageVector = Icons.Filled.Close,
+                                    contentDescription = dismissText,
+                                )
+                            }
+                        }
+                    },
+                ) {
+                    Text(resumeText)
                 }
             }
 
