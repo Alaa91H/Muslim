@@ -24,6 +24,23 @@ class QuranReaderRangeTest {
     }
 
     @Test
+    fun `retry resumes from the failed ayah within the original queue`() {
+        assertThat(retryGlobalNumbers(listOf(10, 11, 12, 13), 12))
+            .containsExactly(12, 13)
+            .inOrder()
+    }
+
+    @Test
+    fun `retry keeps the original queue when failure position is unavailable`() {
+        assertThat(retryGlobalNumbers(listOf(10, 11, 12), null))
+            .containsExactly(10, 11, 12)
+            .inOrder()
+        assertThat(retryGlobalNumbers(listOf(10, 11, 12), 99))
+            .containsExactly(10, 11, 12)
+            .inOrder()
+    }
+
+    @Test
     fun `to end of Quran stops at surah 114`() {
         assertThat(nextSurahForAdvance(114, toEndOfQuran = true, stopAtEnd = false)).isNull()
     }
