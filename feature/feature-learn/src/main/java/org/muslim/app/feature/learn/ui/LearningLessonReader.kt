@@ -34,7 +34,7 @@ import kotlinx.coroutines.launch
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.feature.learn.R
-import org.muslim.app.feature.learn.data.LearnPrefsRepository
+import org.muslim.app.feature.learn.domain.LearningQuizKey
 import org.muslim.app.feature.learn.domain.LearnTopic
 import org.muslim.app.feature.learn.domain.LearningAcademyCatalog
 import org.muslim.app.feature.learn.domain.LearningAssessmentCatalog
@@ -63,7 +63,7 @@ internal fun LearningLessonReader(
     val scope = rememberCoroutineScope()
     val sectionIndices = remember(lesson.id) { sectionHeaderIndices(lesson) }
     val answeredCount = assessments.count { entry ->
-        LearnPrefsRepository.quizKey(lesson.id, entry.quiz.id) in quizAnswers
+        LearningQuizKey.of(lesson.id, entry.quiz.id) in quizAnswers
     }
 
     LazyColumn(
@@ -126,7 +126,7 @@ internal fun LearningLessonReader(
                             InteractiveQuizCard(
                                 quiz = block,
                                 selectedOptionId = quizAnswers[
-                                    LearnPrefsRepository.quizKey(lesson.id, block.id)
+                                    LearningQuizKey.of(lesson.id, block.id)
                                 ],
                                 onAnswer = { optionId -> onAnswerQuiz(block.id, optionId) },
                             )
@@ -153,7 +153,7 @@ internal fun LearningLessonReader(
                 AssessmentCard(
                     entry = entry,
                     selectedOptionId = quizAnswers[
-                        LearnPrefsRepository.quizKey(lesson.id, entry.quiz.id)
+                        LearningQuizKey.of(lesson.id, entry.quiz.id)
                     ],
                     onAnswer = { optionId -> onAnswerQuiz(entry.quiz.id, optionId) },
                 )
