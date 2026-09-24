@@ -348,11 +348,30 @@ fun LearnScreen(
 @Composable
 private fun TopicList(
     favoriteIds: Set<String>,
+    completedLessonIds: Set<String>,
+    searchQuery: String,
+    continueTopic: LearnTopic?,
+    mistakeCount: Int,
+    onSearchQueryChange: (String) -> Unit,
     onToggleFavorite: (String) -> Unit,
+    onReviewMistakes: () -> Unit,
     modifier: Modifier = Modifier,
     onOpen: (LearnTopic) -> Unit,
     onOpenSpecial: (LearnSpecialDestination) -> Unit,
 ) {
+    val context = LocalContext.current
+    val locale = Locale.getDefault()
+    val normalizedQuery = searchQuery.trim().lowercase(locale)
+    val visibleTopics = if (normalizedQuery.isBlank()) {
+        LearnContent.topics
+    } else {
+        LearnContent.topics.filter { topic ->
+            context.getString(topic.titleRes).lowercase(locale).contains(normalizedQuery) ||
+                context.getString(topic.subtitleRes).lowercase(locale).contains(normalizedQuery)
+        }
+    }
+    val overallProgress = LearningProgressPlanner.overallSummary(completedLessonIds)
+
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
@@ -364,9 +383,44 @@ private fun TopicList(
                 compact = true,
             )
         }
-        specialDestinationItems(onOpenSpecial)
-        favouriteTopicItems(favoriteIds, onToggleFavorite, onOpen)
-        categoryTopicItems(favoriteIds, onToggleFavorite, onOpen)
+        item(key = "learning-hub-controls") {
+            LearningHubControls(
+                query = searchQuery,
+                onQueryChange = onSearchQueryChange,
+                progress = overallProgress,
+                continueTopic = continueTopic,
+                mistakeCount = mistakeCount,
+                onContinue = onOpen,
+                onReviewMistakes = onReviewMistakes,
+            )
+        }
+        if (normalizedQuery.isBlank()) {
+            specialDestinationItems(onOpenSpecial)
+        }
+        favouriteTopicItems(
+            topics = visibleTopics,
+            favoriteIds = favoriteIds,
+            completedLessonIds = completedLessonIds,
+            onToggleFavorite = onToggleFavorite,
+            onOpen = onOpen,
+        )
+        categoryTopicItems(
+            topics = visibleTopics,
+            favoriteIds = favoriteIds,
+            completedLessonIds = completedLessonIds,
+            onToggleFavorite = onToggleFavorite,
+            onOpen = onOpen,
+        )
+        if (normalizedQuery.isNotBlank() && visibleTopics.isEmpty()) {
+            item(key = "search-empty") {
+                Text(
+                    text = stringResource(R.string.learn_search_no_results),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(vertical = 20.dp),
+                )
+            }
+        }
     }
 }
 
@@ -437,39 +491,75 @@ private fun SpecialDestinationIcon(icon: ImageVector) {
 }
 
 private fun LazyListScope.favouriteTopicItems(
+    topics: List<LearnTopic>,
     favoriteIds: Set<String>,
+    completedLessonIds: Set<String>,
     onToggleFavorite: (String) -> Unit,
     onOpen: (LearnTopic) -> Unit,
 ) {
-    val favorites = LearnContent.topics.filter { it.id in favoriteIds }
+    val favorites = topics.filter { it.id in favoriteIds }
     if (favorites.isEmpty()) return
-    item(key = "favorites_header") { CategoryHeader(title = stringResource(R.string.learn_favorites_header)) }
-    topicRows(favorites, { true }, onToggleFavorite, onOpen, keyPrefix = "favorite_")
+    item(key = "favorites_header") {
+        CategoryHeader(title = stringResource(R.string.learn_favorites_header))
+    }
+    topicRows(
+        topics = favorites,
+        isFavorite = { true },
+        completedLessonIds = completedLessonIds,
+        onToggleFavorite = onToggleFavorite,
+        onOpen = onOpen,
+        keyPrefix = "favorite_",
+    )
 }
 
 private fun LazyListScope.categoryTopicItems(
+    topics: List<LearnTopic>,
     favoriteIds: Set<String>,
+    completedLessonIds: Set<String>,
     onToggleFavorite: (String) -> Unit,
     onOpen: (LearnTopic) -> Unit,
 ) {
-    val byCategory = LearnContent.topics.groupBy { it.category }
+    val byCategory = topics.groupBy { it.category }
     LearnContent.categoryOrder.forEach { category ->
-        val topics = byCategory[category].orEmpty()
-        if (topics.isEmpty()) return@forEach
-        item(key = "category_$category") { CategoryHeader(title = stringResource(categoryTitleRes(category))) }
-        topicRows(topics, { topic -> topic.id in favoriteIds }, onToggleFavorite, onOpen)
+        val categoryTopics = byCategory[category].orEmpty()
+        if (categoryTopics.isEmpty()) return@forEach
+        item(key = "category_$category") {
+            Column {
+                CategoryHeader(title = stringResource(categoryTitleRes(category)))
+                LearningCategoryProgress(
+                    summary = LearningProgressPlanner.categorySummary(
+                        category = category,
+                        completedLessonIds = completedLessonIds,
+                    ),
+                )
+            }
+        }
+        topicRows(
+            topics = categoryTopics,
+            isFavorite = { topic -> topic.id in favoriteIds },
+            completedLessonIds = completedLessonIds,
+            onToggleFavorite = onToggleFavorite,
+            onOpen = onOpen,
+        )
     }
 }
 
 private fun LazyListScope.topicRows(
     topics: List<LearnTopic>,
     isFavorite: (LearnTopic) -> Boolean,
+    completedLessonIds: Set<String>,
     onToggleFavorite: (String) -> Unit,
     onOpen: (LearnTopic) -> Unit,
     keyPrefix: String = "",
 ) {
     items(topics, key = { "$keyPrefix${it.id}" }) { topic ->
-        TopicListItem(topic, isFavorite(topic), onToggleFavorite, onOpen)
+        TopicListItem(
+            topic = topic,
+            isFavorite = isFavorite(topic),
+            completed = topic.id in completedLessonIds,
+            onToggleFavorite = onToggleFavorite,
+            onOpen = onOpen,
+        )
     }
 }
 
@@ -477,6 +567,7 @@ private fun LazyListScope.topicRows(
 private fun TopicListItem(
     topic: LearnTopic,
     isFavorite: Boolean,
+    completed: Boolean,
     onToggleFavorite: (String) -> Unit,
     onOpen: (LearnTopic) -> Unit,
 ) {
@@ -509,6 +600,14 @@ private fun TopicListItem(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
+            if (completed) {
+                Icon(
+                    imageVector = Icons.Filled.CheckCircle,
+                    contentDescription = stringResource(R.string.learn_lesson_completed),
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(horizontal = 4.dp),
+                )
+            }
             IconButton(onClick = { onToggleFavorite(topic.id) }) {
                 Icon(
                     imageVector = if (isFavorite) Icons.Filled.Star else Icons.Outlined.StarBorder,
@@ -533,376 +632,3 @@ private fun CategoryHeader(title: String) {
         modifier = Modifier.padding(top = 12.dp, bottom = 2.dp),
     )
 }
-
-@Composable
-private fun GuideContent(
-    topic: LearnTopic,
-    onOpenFeature: (LearningFeatureDestination) -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    val lesson = remember(topic.id) { LearningAcademyCatalog.lessonFor(topic) }
-
-    LazyColumn(
-        modifier = modifier.fillMaxSize(),
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        lesson.estimatedMinutes?.let { minutes ->
-            item(key = "${lesson.id}_metadata") {
-                LearningLessonMetadataCard(
-                    estimatedMinutes = minutes,
-                    contentVersion = lesson.contentVersion,
-                )
-            }
-        }
-
-        lesson.sections.forEach { section ->
-            item(key = "${lesson.id}_${section.id}_header") {
-                CategoryHeader(title = section.title)
-            }
-
-            section.blocks.forEachIndexed { blockIndex, block ->
-                when (block) {
-                    is LearningContentBlock.Steps -> {
-                        itemsIndexed(
-                            items = block.items,
-                            key = { stepIndex, _ ->
-                                "${lesson.id}_${section.id}_${blockIndex}_step_${stepIndex}"
-                            },
-                        ) { stepIndex, step ->
-                            LearningStepCard(
-                                index = stepIndex,
-                                step = step,
-                            )
-                        }
-                    }
-
-                    else -> {
-                        item(key = "${lesson.id}_${section.id}_block_${blockIndex}") {
-                            LearningBlockCard(block = block)
-                        }
-                    }
-                }
-            }
-        }
-
-        lesson.featureLink?.let { link ->
-            item(key = "${lesson.id}_feature_link") {
-                LearningFeatureLinkCard(
-                    link = link,
-                    onOpenFeature = onOpenFeature,
-                )
-            }
-        }
-
-        if (lesson.references.isNotEmpty()) {
-            item(key = "${lesson.id}_references_header") {
-                CategoryHeader(title = stringResource(R.string.learn_references))
-            }
-            items(
-                items = lesson.references,
-                key = { reference -> "${lesson.id}_reference_${reference.id}" },
-            ) { reference ->
-                LearningReferenceCard(reference)
-            }
-        }
-    }
-}
-
-@Composable
-private fun LearningLessonMetadataCard(
-    estimatedMinutes: Int,
-    contentVersion: Int,
-) {
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-    ) {
-        Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            Text(
-                text = stringResource(R.string.learn_estimated_minutes, estimatedMinutes),
-                style = MaterialTheme.typography.bodyMedium,
-                fontWeight = FontWeight.SemiBold,
-            )
-            Text(
-                text = stringResource(R.string.learn_content_version, contentVersion),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Text(
-                text = stringResource(R.string.learn_scholar_review_notice),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-    }
-}
-
-@Composable
-private fun LearningFeatureLinkCard(
-    link: LearningFeatureLink,
-    onOpenFeature: (LearningFeatureDestination) -> Unit,
-) {
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.secondaryContainer,
-    ) {
-        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text(
-                text = stringResource(link.titleRes),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSecondaryContainer,
-            )
-            Text(
-                text = stringResource(link.bodyRes),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSecondaryContainer,
-            )
-            Button(onClick = { onOpenFeature(link.destination) }) {
-                Text(stringResource(link.actionRes))
-            }
-        }
-    }
-}
-
-@Composable
-private fun LearningReferenceCard(reference: LearningReference) {
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-    ) {
-        Column(verticalArrangement = Arrangement.spacedBy(3.dp)) {
-            Text(
-                text = reference.citation,
-                style = MaterialTheme.typography.bodyMedium,
-                fontWeight = FontWeight.SemiBold,
-            )
-            reference.locator?.let { locator ->
-                Text(
-                    text = locator,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-            reference.note?.let { note ->
-                Text(
-                    text = note,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun LearningStepCard(
-    index: Int,
-    step: LearningStepItem,
-) {
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-    ) {
-        Row {
-            Surface(
-                shape = CircleShape,
-                color = MaterialTheme.colorScheme.primaryContainer,
-            ) {
-                Text(
-                    text = (index + 1).toString(),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer,
-                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
-                )
-            }
-            Column(modifier = Modifier.padding(start = 12.dp).weight(1f)) {
-                Text(
-                    text = step.title,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                )
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    text = step.body,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                step.supplementalText?.let { supplemental ->
-                    Spacer(Modifier.height(6.dp))
-                    Text(
-                        text = supplemental,
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.primary,
-                    )
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun LearningBlockCard(block: LearningContentBlock) {
-    when (block) {
-        is LearningContentBlock.Paragraph -> LearningParagraphCard(block)
-        is LearningContentBlock.Callout -> LearningCalloutCard(block)
-        is LearningContentBlock.Evidence -> LearningEvidenceCard(block)
-        is LearningContentBlock.Comparison -> LearningComparisonCard(block)
-        is LearningContentBlock.QuestionAnswer -> LearningQuestionAnswerCard(block)
-        is LearningContentBlock.Quiz -> LearningQuizCard(block)
-        is LearningContentBlock.Steps -> Unit
-    }
-}
-
-@Composable
-private fun LearningParagraphCard(block: LearningContentBlock.Paragraph) {
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-    ) {
-        Text(
-            text = block.text,
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurface,
-        )
-    }
-}
-
-@Composable
-private fun LearningCalloutCard(block: LearningContentBlock.Callout) {
-    val containerColor = when (block.tone) {
-        LearningCalloutTone.INFO -> MaterialTheme.colorScheme.secondaryContainer
-        LearningCalloutTone.IMPORTANT -> MaterialTheme.colorScheme.primaryContainer
-        LearningCalloutTone.WARNING -> MaterialTheme.colorScheme.errorContainer
-        LearningCalloutTone.DIFFERENCE_OF_OPINION -> MaterialTheme.colorScheme.tertiaryContainer
-    }
-    val contentColor = when (block.tone) {
-        LearningCalloutTone.INFO -> MaterialTheme.colorScheme.onSecondaryContainer
-        LearningCalloutTone.IMPORTANT -> MaterialTheme.colorScheme.onPrimaryContainer
-        LearningCalloutTone.WARNING -> MaterialTheme.colorScheme.onErrorContainer
-        LearningCalloutTone.DIFFERENCE_OF_OPINION -> MaterialTheme.colorScheme.onTertiaryContainer
-    }
-
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = containerColor,
-    ) {
-        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            block.title?.let { title ->
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.Bold,
-                    color = contentColor,
-                )
-            }
-            Text(
-                text = block.body,
-                style = MaterialTheme.typography.bodyMedium,
-                color = contentColor,
-            )
-        }
-    }
-}
-
-@Composable
-private fun LearningEvidenceCard(block: LearningContentBlock.Evidence) {
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.tertiaryContainer,
-    ) {
-        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            block.heading?.let { heading ->
-                Text(
-                    text = heading,
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onTertiaryContainer,
-                )
-            }
-            Text(
-                text = block.text,
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onTertiaryContainer,
-            )
-        }
-    }
-}
-
-@Composable
-private fun LearningComparisonCard(block: LearningContentBlock.Comparison) {
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-    ) {
-        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            block.intro?.let { intro ->
-                Text(
-                    text = intro,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-            block.items.forEach { item ->
-                Column(verticalArrangement = Arrangement.spacedBy(3.dp)) {
-                    Text(
-                        text = item.label,
-                        style = MaterialTheme.typography.titleSmall,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    Text(
-                        text = item.body,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun LearningQuestionAnswerCard(block: LearningContentBlock.QuestionAnswer) {
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-    ) {
-        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            Text(
-                text = block.question,
-                style = MaterialTheme.typography.titleSmall,
-                fontWeight = FontWeight.Bold,
-            )
-            Text(
-                text = block.answer,
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-    }
-}
-
-@Composable
-private fun LearningQuizCard(block: LearningContentBlock.Quiz) {
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-    ) {
-        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            Text(
-                text = block.question,
-                style = MaterialTheme.typography.titleSmall,
-                fontWeight = FontWeight.Bold,
-            )
-            block.options.forEach { option ->
-                Text(
-                    text = "• ${option.text}",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
-    }
-}
-
