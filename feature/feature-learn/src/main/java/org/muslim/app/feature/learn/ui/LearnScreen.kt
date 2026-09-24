@@ -69,6 +69,7 @@ import org.muslim.app.feature.learn.domain.LearnTopic
 import org.muslim.app.feature.learn.domain.LearningAcademyCatalog
 import org.muslim.app.feature.learn.domain.LearningCalloutTone
 import org.muslim.app.feature.learn.domain.LearningContentBlock
+import org.muslim.app.feature.learn.domain.LearningReference
 import org.muslim.app.feature.learn.domain.LearningStepItem
 
 private val topicIcons = mapOf(
@@ -409,6 +410,15 @@ private fun GuideContent(topic: LearnTopic, modifier: Modifier = Modifier) {
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
+        lesson.estimatedMinutes?.let { minutes ->
+            item(key = "${lesson.id}_metadata") {
+                LearningLessonMetadataCard(
+                    estimatedMinutes = minutes,
+                    contentVersion = lesson.contentVersion,
+                )
+            }
+        }
+
         lesson.sections.forEach { section ->
             item(key = "${lesson.id}_${section.id}_header") {
                 CategoryHeader(title = section.title)
@@ -436,6 +446,77 @@ private fun GuideContent(topic: LearnTopic, modifier: Modifier = Modifier) {
                         }
                     }
                 }
+            }
+        }
+
+        if (lesson.references.isNotEmpty()) {
+            item(key = "${lesson.id}_references_header") {
+                CategoryHeader(title = stringResource(R.string.learn_references))
+            }
+            items(
+                items = lesson.references,
+                key = { reference -> "${lesson.id}_reference_${reference.id}" },
+            ) { reference ->
+                LearningReferenceCard(reference)
+            }
+        }
+    }
+}
+
+@Composable
+private fun LearningLessonMetadataCard(
+    estimatedMinutes: Int,
+    contentVersion: Int,
+) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Text(
+                text = stringResource(R.string.learn_estimated_minutes, estimatedMinutes),
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.SemiBold,
+            )
+            Text(
+                text = stringResource(R.string.learn_content_version, contentVersion),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
+                text = stringResource(R.string.learn_scholar_review_notice),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+
+@Composable
+private fun LearningReferenceCard(reference: LearningReference) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Column(verticalArrangement = Arrangement.spacedBy(3.dp)) {
+            Text(
+                text = reference.citation,
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.SemiBold,
+            )
+            reference.locator?.let { locator ->
+                Text(
+                    text = locator,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            reference.note?.let { note ->
+                Text(
+                    text = note,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
             }
         }
     }
