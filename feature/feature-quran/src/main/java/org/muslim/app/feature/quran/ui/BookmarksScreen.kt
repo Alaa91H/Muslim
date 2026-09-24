@@ -62,7 +62,7 @@ fun BookmarksScreen(
         } else {
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
-                contentPadding = androidx.compose.foundation.layout.PaddingValues(vertical = 4.dp),
+                contentPadding = androidx.compose.foundation.layout.PaddingValues(vertical = IslamicSpacing.XSmall),
             ) {
                 items(bookmarks, key = { it.ayah.globalNumber }) { bookmark ->
                     BookmarkRow(bookmark, onClick = {
