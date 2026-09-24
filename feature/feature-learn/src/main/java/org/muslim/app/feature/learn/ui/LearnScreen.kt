@@ -230,6 +230,7 @@ private data class LearnScreenActions(
     val onToggleFavorite: (String) -> Unit,
     val onReviewMistakes: () -> Unit,
     val onOpenTopic: (LearnTopic) -> Unit,
+    val onCloseTopic: () -> Unit,
     val onOpenSpecial: (LearnSpecialDestination) -> Unit,
 )
 
@@ -311,6 +312,7 @@ fun LearnScreen(
             onToggleFavorite = viewModel::toggleFavorite,
             onReviewMistakes = { showMistakes = true },
             onOpenTopic = { selected = it },
+            onCloseTopic = { selected = null },
             onOpenSpecial = { specialDestination = it },
         ),
         lessonActions = LearnLessonActions(
@@ -345,7 +347,7 @@ private fun LearnScreenScaffold(
                 navigationIcon = {
                     IconButton(
                         onClick = {
-                            if (topic == null) actions.onBack() else actions.onOpenTopic(topic)
+                            if (topic == null) actions.onBack() else actions.onCloseTopic()
                         },
                     ) {
                         Icon(
