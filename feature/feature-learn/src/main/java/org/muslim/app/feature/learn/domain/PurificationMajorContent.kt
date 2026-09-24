@@ -5,13 +5,13 @@ import org.muslim.app.feature.learn.R
 internal object PurificationMajorContent {
 
     val lessons: List<LearningLesson> = listOf(
-        ghusl(),
-        tayammum(),
-        menstruationAndPostpartum(),
-        excusedPerson(),
+        ghusl,
+        tayammum,
+        menstruationAndPostpartum,
+        excusedPerson,
     )
 
-    private fun ghusl() = LearningLesson(
+    private val ghusl = LearningLesson(
         id = "ghusl",
         titleRes = R.string.learn_topic_ghusl,
         subtitleRes = R.string.learn_topic_ghusl_sub,
@@ -97,7 +97,7 @@ internal object PurificationMajorContent {
         ),
     )
 
-    private fun tayammum() = LearningLesson(
+    private val tayammum = LearningLesson(
         id = "tayammum",
         titleRes = R.string.learn_topic_tayammum,
         subtitleRes = R.string.learn_topic_tayammum_sub,
@@ -177,7 +177,7 @@ internal object PurificationMajorContent {
         ),
     )
 
-    private fun menstruationAndPostpartum() = LearningLesson(
+    private val menstruationAndPostpartum = LearningLesson(
         id = "menstruation_postpartum",
         titleRes = R.string.learn_topic_menstruation_postpartum,
         subtitleRes = R.string.learn_topic_menstruation_postpartum_sub,
@@ -263,7 +263,7 @@ internal object PurificationMajorContent {
         ),
     )
 
-    private fun excusedPerson() = LearningLesson(
+    private val excusedPerson = LearningLesson(
         id = "excused_person",
         titleRes = R.string.learn_topic_excused_person,
         subtitleRes = R.string.learn_topic_excused_person_sub,
