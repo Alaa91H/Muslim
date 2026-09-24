@@ -21,6 +21,8 @@ NEARBY_MOSQUES = ROOT / "feature/feature-qibla/src/main/java/org/muslim/app/feat
 SCHOLAR_DATA = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/ui/ScholarLibraryDataManagerScreen.kt"
 QURAN_DOWNLOADS = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/QuranDownloadsScreen.kt"
 UPDATE_SCREEN = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/update/UpdateScreen.kt"
+NOTIFICATION_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/NotificationSettingsScreen.kt"
+PRAYER_SETTINGS = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/settings/PrayerSettingsScreen.kt"
 
 
 def require(condition: bool, message: str) -> None:
@@ -70,6 +72,8 @@ def main() -> None:
     hadith = HADITH.read_text(encoding="utf-8")
     quran_downloads = QURAN_DOWNLOADS.read_text(encoding="utf-8")
     update_screen = UPDATE_SCREEN.read_text(encoding="utf-8")
+    notification_settings = NOTIFICATION_SETTINGS.read_text(encoding="utf-8")
+    prayer_settings = PRAYER_SETTINGS.read_text(encoding="utf-8")
     require("MuslimEmptyState" in bookmarks, "Quran bookmarks must use the shared empty state")
     require("MuslimEmptyState" in scholar_data, "Scholar data manager must use the shared empty state")
     for state_component in (
@@ -125,6 +129,32 @@ def main() -> None:
         raw_spacing_literal.search(bookmarks) is None,
         "Quran bookmarks must use IslamicSpacing tokens for layout spacing",
     )
+    for source, label in (
+        (notification_settings, "Notification settings"),
+        (prayer_settings, "Prayer settings"),
+        (hadith, "Hadith library"),
+    ):
+        require(
+            raw_material_component.search(source) is None,
+            f"{label} must use shared Islamic card/button components",
+        )
+    require(
+        raw_spacing_literal.search(quran_downloads) is None,
+        "Quran Downloads must use IslamicSpacing tokens for layout spacing",
+    )
+    require(
+        "IslamicCard" in notification_settings
+        and "IslamicPrimaryButton" in notification_settings
+        and "IslamicSecondaryButton" in notification_settings,
+        "Notification settings must use shared cards and actions",
+    )
+    require(
+        "IslamicCard" in prayer_settings
+        and "IslamicPrimaryButton" in prayer_settings
+        and "IslamicSecondaryButton" in prayer_settings,
+        "Prayer settings must use shared cards and actions",
+    )
+    require("IslamicCard" in hadith, "Hadith library must use the shared card surface")
 
     print("Adaptive design-system, shared states, and token adoption verified.")
 
