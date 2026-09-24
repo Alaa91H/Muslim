@@ -1,0 +1,1259 @@
+{
+  "schemaVersion": 2,
+  "book": {
+    "id": "ahl_al_bayt",
+    "titleAr": "أهل البيت",
+    "titleEn": "Ahl al-Bayt",
+    "subtitleAr": "تراجم ومصادر حول أهل بيت النبي ﷺ وقرابته بلا غلو ولا جفاء",
+    "subtitleEn": "Sourced biographies of the Prophet's ﷺ household and kin without exaggeration or denigration",
+    "contentRevision": 1,
+    "chapters": [
+      {
+        "id": "definition_method",
+        "titleAr": "التعريف والمنهج",
+        "titleEn": "Definition and Method",
+        "summaryAr": "معنى أهل البيت ومصادر الترجمة وحدود المصطلح.",
+        "summaryEn": "Meaning, source method, and the scope of the term Ahl al-Bayt.",
+        "topicIds": [
+          "household_definition",
+          "source_method",
+          "ahl_al_kisa",
+          "wives_household",
+          "love_respect"
+        ]
+      },
+      {
+        "id": "core_household",
+        "titleAr": "علي وفاطمة وذريتهما",
+        "titleEn": "Ali, Fatimah, and Their Family",
+        "summaryAr": "علي وفاطمة والحسن والحسين وزينب رضي الله عنهم.",
+        "summaryEn": "Ali, Fatimah, Hasan, Husayn, and Zaynab.",
+        "topicIds": [
+          "ali_household",
+          "fatimah",
+          "hasan",
+          "husayn",
+          "karbala_context",
+          "zaynab_bint_ali"
+        ]
+      },
+      {
+        "id": "hashimite_relatives",
+        "titleAr": "قرابة بني هاشم",
+        "titleEn": "Hashimite Relatives",
+        "summaryAr": "العباس وحمزة وجعفر وعقيل وسياق بني هاشم.",
+        "summaryEn": "Al-Abbas, Hamza, Ja'far, Aqil, and the wider Hashimite context.",
+        "topicIds": [
+          "abbas",
+          "hamza",
+          "jafar",
+          "aqil",
+          "banu_hashim"
+        ]
+      },
+      {
+        "id": "descendants_genealogy",
+        "titleAr": "الذرية والأنساب",
+        "titleEn": "Descendants and Genealogy",
+        "summaryAr": "استمرار الذرية وضوابط التحقق من الانتساب.",
+        "summaryEn": "Continuation of lineage and responsible verification of genealogical claims.",
+        "topicIds": [
+          "descendants",
+          "genealogy_caution"
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "household_definition",
+        "titleAr": "من هم أهل البيت؟",
+        "titleEn": "Who are Ahl al-Bayt?",
+        "summaryAr": "مصطلح «أهل البيت» يرد في النصوص والسياقات العلمية بدلالات متقاربة لكنها ليست متطابقة تمامًا.",
+        "summaryEn": "The term Ahl al-Bayt appears in revelation and scholarship with overlapping but not always identical scopes.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "source_method",
+          "ahl_al_kisa",
+          "mothers/status_definition"
+        ],
+        "citations": [
+          {
+            "id": "quran-33-32-34",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:32-34"
+          },
+          {
+            "id": "muslim-ahl-bayt",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Virtues: reports concerning the Prophet's household"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "contexts",
+            "titleAr": "السياقات المختلفة",
+            "titleEn": "Different contexts",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأتي آية التطهير ضمن خطاب زوجات النبي ﷺ، كما ترد أحاديث صحيحة تضم عليًا وفاطمة والحسن والحسين في أهل البيت؛ لذلك يميز العلماء بين سياقات الاستعمال.",
+                "en": "The purification verse appears within an address to the Prophet's wives, while authentic hadith also include Ali, Fatimah, Hasan, and Husayn in the household; scholars therefore distinguish contexts of usage.",
+                "citationIds": [
+                  "quran-33-32-34",
+                  "muslim-ahl-bayt"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "method",
+            "titleAr": "عدم اختزال المصطلح",
+            "titleEn": "Avoiding an oversimplified definition",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تختلف بعض الأحكام والاصطلاحات الفقهية في سعة من يدخل تحت أهل البيت أو آل محمد، فيعرض الكتاب النصوص دون توظيفها لتأجيج خلاف مذهبي.",
+                "en": "Some legal and technical usages differ over how broadly Ahl al-Bayt or the family of Muhammad is defined, so this book presents evidence without turning the question into sectarian polemic.",
+                "citationIds": [
+                  "muslim-ahl-bayt"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "source_method",
+        "titleAr": "منهج التثبت في أخبار أهل البيت",
+        "titleEn": "Source method for Ahl al-Bayt",
+        "summaryAr": "تعرض الفضائل والأحداث من مصادرها مع التمييز بين الصحيح والمختلف فيه وبين التاريخ والعقيدة.",
+        "summaryEn": "Virtues and historical events are sourced carefully, distinguishing established reports, disputed narratives, history, and theology.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "household_definition",
+          "companions/source_method"
+        ],
+        "citations": [
+          {
+            "id": "quran-49-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:6"
+          },
+          {
+            "id": "ih-ahl-bayt-method",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isabah fi Tamyiz al-Sahabah",
+            "locator": "Biographies of the Prophet's relatives"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "verification",
+            "titleAr": "التثبت في المناقب والتاريخ",
+            "titleEn": "Verification in virtues and history",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كثرت الروايات في فضائل أهل البيت وفي أحداث الفتن، وبعضها صحيح وبعضها ضعيف أو موضوع؛ لذلك يحتاج كل خبر إلى تحقيق مستقل.",
+                "en": "Reports about Ahl al-Bayt and later civil conflicts vary greatly in reliability, so each claim requires independent verification rather than acceptance because it is popular.",
+                "citationIds": [
+                  "quran-49-6",
+                  "ih-ahl-bayt-method"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "respect",
+            "titleAr": "احترام الجميع مع دقة البحث",
+            "titleEn": "Respect with critical accuracy",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يجمع المنهج بين المحبة والاحترام وبين الأمانة العلمية، فلا يُقبل الغلو ولا التنقص ولا الروايات غير الثابتة.",
+                "en": "The method combines love and respect with scholarly accuracy, avoiding exaggeration, denigration, and unsupported stories.",
+                "citationIds": [
+                  "ih-ahl-bayt-method"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ahl_al_kisa",
+        "titleAr": "أهل الكساء",
+        "titleEn": "The People of the Cloak",
+        "summaryAr": "تروي أحاديث صحيحة جمع النبي ﷺ عليًا وفاطمة والحسن والحسين ودعاءه لهم.",
+        "summaryEn": "Authentic hadith report the Prophet ﷺ gathering Ali, Fatimah, Hasan, and Husayn and praying for them.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "household_definition",
+          "ali_household",
+          "fatimah",
+          "hasan",
+          "husayn"
+        ],
+        "citations": [
+          {
+            "id": "muslim-kisa",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Virtues: hadith of the cloak"
+          },
+          {
+            "id": "quran-33-33",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:33"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "hadith",
+            "titleAr": "حديث الكساء",
+            "titleEn": "The cloak report",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ورد في صحيح مسلم وغيره أن النبي ﷺ جمع عليًا وفاطمة والحسن والحسين تحت كساء ودعا لهم، وهو من أهم نصوص فضائلهم.",
+                "en": "Sahih Muslim and other sources report that the Prophet ﷺ gathered Ali, Fatimah, Hasan, and Husayn under a cloak and prayed for them, an important text concerning their virtues.",
+                "citationIds": [
+                  "muslim-kisa"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "scope",
+            "titleAr": "الحديث وسياق الآية",
+            "titleEn": "The hadith and the verse's context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يثبت الحديث دخول هؤلاء في أهل البيت في هذا السياق، بينما يأتي سياق سورة الأحزاب ضمن خطاب زوجات النبي ﷺ؛ ويعرض العلماء طرق الجمع بين النصوص بصيغ متعددة.",
+                "en": "The hadith establishes their inclusion in Ahl al-Bayt in this context, while Surat al-Ahzab addresses the Prophet's wives around the verse; scholars articulate the relationship between these texts in more than one way.",
+                "citationIds": [
+                  "muslim-kisa",
+                  "quran-33-33"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wives_household",
+        "titleAr": "زوجات النبي ﷺ وأهل البيت",
+        "titleEn": "The Prophet's wives and the household",
+        "summaryAr": "يأتي خطاب التطهير في سياق آيات موجهة إلى زوجات النبي ﷺ، ولهن كتاب مستقل في المكتبة.",
+        "summaryEn": "The purification passage appears within verses addressed to the Prophet's wives, who have their own dedicated reference book.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "mothers/status_definition",
+          "household_definition"
+        ],
+        "citations": [
+          {
+            "id": "quran-33-28-34",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:28-34"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "context",
+            "titleAr": "سياق سورة الأحزاب",
+            "titleEn": "Context of Surat al-Ahzab",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تبدأ الآيات بنداء نساء النبي ﷺ وتستمر في خطابهن قبل جملة التطهير وبعدها، وهو سياق أساسي عند تفسير المقطع.",
+                "en": "The passage begins by addressing the Prophet's wives and continues speaking to them around the purification phrase, an essential contextual feature in exegesis.",
+                "citationIds": [
+                  "quran-33-28-34"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "library",
+            "titleAr": "الإحالة إلى كتاب أمهات المؤمنين",
+            "titleEn": "Dedicated Mothers reference",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لتجنب تكرار المادة توجد تراجم زوجات النبي ﷺ وتفاصيل أدوارهن العلمية والأسرية في كتاب «أمهات المؤمنين».",
+                "en": "To avoid duplication, biographies of the Prophet's wives and their scholarly and household roles are covered in the dedicated Mothers of the Believers book.",
+                "citationIds": [
+                  "quran-33-28-34"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ali_household",
+        "titleAr": "علي بن أبي طالب رضي الله عنه في أهل البيت",
+        "titleEn": "Ali ibn Abi Talib within the household",
+        "summaryAr": "ابن عم النبي ﷺ وزوج فاطمة ووالد الحسن والحسين، وتثبت له فضائل متعددة في الحديث.",
+        "summaryEn": "The Prophet's cousin, husband of Fatimah, and father of Hasan and Husayn, with numerous established virtues in hadith.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "companions/ali",
+          "rashidun/ali_caliph",
+          "fatimah",
+          "hasan",
+          "husayn"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-ali",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues of the Companions: Ali"
+          },
+          {
+            "id": "muslim-ali",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Virtues of the Companions: Ali"
+          },
+          {
+            "id": "ih-ali-household",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isabah fi Tamyiz al-Sahabah",
+            "locator": "Biography of Ali ibn Abi Talib"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "kinship",
+            "titleAr": "القرابة والمصاهرة",
+            "titleEn": "Kinship and marriage",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نشأ علي قريبًا من النبي ﷺ ثم تزوج فاطمة رضي الله عنها، فاجتمع له نسب بني هاشم والمصاهرة المباشرة.",
+                "en": "Ali grew up close to the Prophet ﷺ and later married Fatimah, joining close Hashimite kinship with direct marriage into the Prophet's household.",
+                "citationIds": [
+                  "ih-ali-household"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "virtues",
+            "titleAr": "مناقب صحيحة",
+            "titleEn": "Established virtues",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تورد كتب الحديث الصحيحة أخبارًا متعددة في فضله ومكانته، ويجب التفريق بينها وبين ما أضيف في الأدبيات الجدلية المتأخرة.",
+                "en": "Authentic hadith collections preserve multiple reports concerning Ali's virtues and standing, which should be distinguished from later polemical accretions.",
+                "citationIds": [
+                  "bukhari-ali",
+                  "muslim-ali"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fatimah",
+        "titleAr": "فاطمة الزهراء رضي الله عنها",
+        "titleEn": "Fatimah al-Zahra",
+        "summaryAr": "ابنة النبي ﷺ وزوج علي وأم الحسن والحسين، ومن أقرب أهل بيته إليه.",
+        "summaryEn": "The Prophet's ﷺ daughter, wife of Ali, and mother of Hasan and Husayn, among his closest family members.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "mothers/khadijah",
+          "ali_household",
+          "hasan",
+          "husayn"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-fatimah",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues of the Companions: Fatimah"
+          },
+          {
+            "id": "muslim-fatimah",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Virtues: Fatimah"
+          },
+          {
+            "id": "ih-fatimah",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isabah fi Tamyiz al-Sahabah",
+            "locator": "Biography of Fatimah"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "family",
+            "titleAr": "ابنة النبي وخديجة",
+            "titleEn": "Daughter of the Prophet and Khadijah",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "فاطمة من بنات النبي ﷺ من خديجة رضي الله عنها، وعاشت معه مراحل الدعوة المكية ثم هاجرت إلى المدينة.",
+                "en": "Fatimah was a daughter of the Prophet ﷺ and Khadijah, living through the Meccan mission and later migrating to Medina.",
+                "citationIds": [
+                  "ih-fatimah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "virtues",
+            "titleAr": "قربها وفضلها",
+            "titleEn": "Closeness and virtues",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنقل الأحاديث شدة محبة النبي ﷺ لها وقربها منه، ومن أشهر المعاني الصحيحة قوله إن فاطمة بضعة منه.",
+                "en": "Hadith reports show the Prophet's ﷺ deep affection and closeness to Fatimah, including the well-known authentic statement that Fatimah is a part of him.",
+                "citationIds": [
+                  "bukhari-fatimah",
+                  "muslim-fatimah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hasan",
+        "titleAr": "الحسن بن علي رضي الله عنهما",
+        "titleEn": "Hasan ibn Ali",
+        "summaryAr": "سبط النبي ﷺ وابن فاطمة وعلي، وتولى أمرًا عامًا بعد مقتل أبيه ثم صالح معاوية.",
+        "summaryEn": "The Prophet's ﷺ grandson, son of Fatimah and Ali, who held public leadership after his father's death and later made peace with Mu'awiyah.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "husayn",
+          "rashidun/hasan_reconciliation",
+          "sira/mercy_children"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-hasan",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues: Hasan and reconciliation report"
+          },
+          {
+            "id": "muslim-hasan",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Virtues: Hasan ibn Ali"
+          },
+          {
+            "id": "ih-hasan",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isabah fi Tamyiz al-Sahabah",
+            "locator": "Biography of Hasan ibn Ali"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "childhood",
+            "titleAr": "محبة النبي له",
+            "titleEn": "The Prophet's love for him",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنقل الروايات الصحيحة حمل النبي ﷺ للحسن وملاطفته والدعاء له، وهو من أشهر أحفاده في السنة.",
+                "en": "Authentic reports describe the Prophet ﷺ carrying Hasan, showing affection toward him, and praying for him; he is among the best-attested grandchildren in the Sunnah.",
+                "citationIds": [
+                  "bukhari-hasan",
+                  "muslim-hasan"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "reconciliation",
+            "titleAr": "الإصلاح بين جماعتين",
+            "titleEn": "Reconciliation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يروي البخاري قول النبي ﷺ عن الحسن إن الله قد يصلح به بين فئتين عظيمتين من المسلمين، ويرتبط ذلك تاريخيًا بالصلح الذي أنهى مرحلة من الحرب الأهلية.",
+                "en": "Bukhari reports the Prophet's ﷺ statement that God might reconcile two large Muslim groups through Hasan, historically linked to the settlement that ended a phase of civil war.",
+                "citationIds": [
+                  "bukhari-hasan"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "husayn",
+        "titleAr": "الحسين بن علي رضي الله عنهما",
+        "titleEn": "Husayn ibn Ali",
+        "summaryAr": "سبط النبي ﷺ وابن فاطمة وعلي، قُتل في كربلاء سنة 61هـ وأصبحت مأساته من أبرز أحداث التاريخ الإسلامي.",
+        "summaryEn": "The Prophet's ﷺ grandson, son of Fatimah and Ali, killed at Karbala in 61 AH in one of the most consequential tragedies of Islamic history.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hasan",
+          "karbala_context",
+          "sira/mercy_children"
+        ],
+        "citations": [
+          {
+            "id": "muslim-husayn",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Virtues: Hasan and Husayn"
+          },
+          {
+            "id": "ih-husayn",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isabah fi Tamyiz al-Sahabah",
+            "locator": "Biography of Husayn ibn Ali"
+          },
+          {
+            "id": "is-husayn",
+            "kind": "ClassicalBook",
+            "titleAr": "الطبقات الكبرى لابن سعد",
+            "titleEn": "Ibn Sa'd, al-Tabaqat al-Kubra",
+            "locator": "Biography and death of Husayn"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "prophetic_love",
+            "titleAr": "محبة النبي ﷺ",
+            "titleEn": "The Prophet's affection",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنقل كتب الحديث مواقف من محبة النبي ﷺ للحسن والحسين ورعايته لهما في طفولتهما.",
+                "en": "Hadith collections preserve reports of the Prophet's ﷺ love and care for Hasan and Husayn during their childhood.",
+                "citationIds": [
+                  "muslim-husayn"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "karbala",
+            "titleAr": "مقتله في كربلاء",
+            "titleEn": "Death at Karbala",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قُتل الحسين ومع عدد من أهل بيته وأصحابه قرب كربلاء، ويحتاج عرض تفاصيل الواقعة إلى نقد الروايات التاريخية وتجنب الخطاب الطائفي.",
+                "en": "Husayn was killed near Karbala with members of his family and supporters; detailed reconstruction of the event requires critical treatment of historical reports and avoidance of sectarian rhetoric.",
+                "citationIds": [
+                  "ih-husayn",
+                  "is-husayn"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "karbala_context",
+        "titleAr": "كربلاء: منهج عرض الواقعة",
+        "titleEn": "Karbala: a source-critical overview",
+        "summaryAr": "إطار تاريخي لقراءة واقعة كربلاء دون اختزالها في سرد مذهبي أو قبول كل رواية متأخرة.",
+        "summaryEn": "A source-critical framework for reading Karbala without reducing it to sectarian narrative or accepting every later report.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "husayn",
+          "zaynab_bint_ali",
+          "source_method"
+        ],
+        "citations": [
+          {
+            "id": "ih-karbala",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isabah fi Tamyiz al-Sahabah",
+            "locator": "Biography of Husayn and reports of Karbala"
+          },
+          {
+            "id": "is-karbala",
+            "kind": "ClassicalBook",
+            "titleAr": "الطبقات الكبرى لابن سعد",
+            "titleEn": "Ibn Sa'd, al-Tabaqat al-Kubra",
+            "locator": "Reports concerning Husayn's death"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "facts",
+            "titleAr": "المتيقن العام",
+            "titleEn": "Broadly established outline",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المتيقن إجمالًا أن الحسين خرج من الحجاز متجهًا إلى العراق بعد مراسلات من الكوفة، وأن القوة التابعة لوالي العراق واجهته وانتهى الأمر بقتله ومن معه.",
+                "en": "Broadly established is that Husayn left the Hijaz toward Iraq after communications from Kufa, encountered forces under the Iraqi governor's authority, and was killed with members of his party.",
+                "citationIds": [
+                  "ih-karbala",
+                  "is-karbala"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "reports",
+            "titleAr": "تفاصيل متفاوتة الثبوت",
+            "titleEn": "Reports of varying reliability",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تختلف مصادر التاريخ في كثير من الخطب والأسماء والجزئيات، لذلك تُعرض التفاصيل بدرجاتها ولا تُعامل المرويات المتأخرة كلها كحقائق ثابتة.",
+                "en": "Historical sources differ over many speeches, names, and details, so individual reports should be graded rather than treating all later narratives as established fact.",
+                "citationIds": [
+                  "ih-karbala"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "zaynab_bint_ali",
+        "titleAr": "زينب بنت علي رضي الله عنها",
+        "titleEn": "Zaynab bint Ali",
+        "summaryAr": "ابنة علي وفاطمة وأخت الحسن والحسين، ارتبط اسمها بأحداث كربلاء وما بعدها.",
+        "summaryEn": "Daughter of Ali and Fatimah and sister of Hasan and Husayn, closely associated with the events of Karbala and their aftermath.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "fatimah",
+          "husayn",
+          "karbala_context"
+        ],
+        "citations": [
+          {
+            "id": "is-zaynab-ali",
+            "kind": "ClassicalBook",
+            "titleAr": "الطبقات الكبرى لابن سعد",
+            "titleEn": "Ibn Sa'd, al-Tabaqat al-Kubra",
+            "locator": "Descendants of Ali and Fatimah: Zaynab"
+          },
+          {
+            "id": "ih-zaynab-ali",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isabah fi Tamyiz al-Sahabah",
+            "locator": "Biographical reports concerning Zaynab bint Ali"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "family",
+            "titleAr": "من بيت فاطمة وعلي",
+            "titleEn": "From the household of Fatimah and Ali",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نشأت زينب في بيت علي وفاطمة وبين الحسن والحسين، ونقلت عنها كتب الأنساب والتراجم أخبارًا متفاوتة التفصيل.",
+                "en": "Zaynab grew up in the household of Ali and Fatimah alongside Hasan and Husayn; genealogical and biographical works preserve reports of varying detail about her life.",
+                "citationIds": [
+                  "is-zaynab-ali"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "karbala",
+            "titleAr": "بعد كربلاء",
+            "titleEn": "After Karbala",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كانت ضمن نساء أهل البيت اللاتي نجون من كربلاء، واشتهرت في الذاكرة التاريخية بمواقفها بعد الواقعة، مع ضرورة التثبت في نصوص الخطب المنسوبة إليها.",
+                "en": "She was among the women of the household who survived Karbala and is remembered for her role afterward, while texts of speeches attributed to her require source-critical evaluation.",
+                "citationIds": [
+                  "ih-zaynab-ali"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "abbas",
+        "titleAr": "العباس بن عبد المطلب رضي الله عنه",
+        "titleEn": "Al-Abbas ibn Abd al-Muttalib",
+        "summaryAr": "عم النبي ﷺ ومن بني هاشم، أسلم وارتبطت ذريته لاحقًا بدور علمي وسياسي واسع.",
+        "summaryEn": "The Prophet's ﷺ uncle from Banu Hashim, a Muslim whose descendants later had major scholarly and political roles.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "companions/ibn_abbas",
+          "banu_hashim"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-abbas",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues: al-Abbas"
+          },
+          {
+            "id": "muslim-abbas",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Zakat and Virtues: al-Abbas"
+          },
+          {
+            "id": "ih-abbas",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isabah fi Tamyiz al-Sahabah",
+            "locator": "Biography of al-Abbas ibn Abd al-Muttalib"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "kinship",
+            "titleAr": "عم النبي ﷺ",
+            "titleEn": "The Prophet's uncle",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان العباس أخا عبد الله والد النبي ﷺ، فكان من أقرب أعمامه نسبًا، ودخل في الإسلام وصحب النبي في أواخر السيرة.",
+                "en": "Al-Abbas was a brother of the Prophet's father Abdullah and therefore one of his closest paternal uncles; he embraced Islam and accompanied him in the later Prophetic period.",
+                "citationIds": [
+                  "ih-abbas"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "family",
+            "titleAr": "ذريته والعلم",
+            "titleEn": "His descendants and scholarship",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "من أبنائه عبد الله بن عباس الذي صار من كبار علماء الصحابة، واستمرت ذرية العباس في التاريخ الإسلامي بأدوار متعددة.",
+                "en": "His son Abdullah ibn Abbas became one of the leading scholars among the Companions, and al-Abbas's descendants later played many roles in Islamic history.",
+                "citationIds": [
+                  "bukhari-abbas"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hamza",
+        "titleAr": "حمزة بن عبد المطلب رضي الله عنه",
+        "titleEn": "Hamza ibn Abd al-Muttalib",
+        "summaryAr": "عم النبي ﷺ وأخوه من الرضاعة، أسلم في مكة وقُتل يوم أحد.",
+        "summaryEn": "The Prophet's ﷺ uncle and foster-brother, who embraced Islam in Mecca and was killed at Uhud.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/hamza_conversion",
+          "sira/hamza_conversion",
+          "sira/uhud"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-hamza",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Military Expeditions and Virtues: Hamza"
+          },
+          {
+            "id": "ih-hamza-household",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isabah fi Tamyiz al-Sahabah",
+            "locator": "Biography of Hamza ibn Abd al-Muttalib"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "conversion",
+            "titleAr": "إسلامه ونصرته",
+            "titleEn": "Conversion and support",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أسلم حمزة في المرحلة المكية وصار إسلامه قوة معنوية للمسلمين لما له من مكانة وشجاعة في قريش.",
+                "en": "Hamza embraced Islam during the Meccan period, and his status and courage gave the Muslim community important moral support.",
+                "citationIds": [
+                  "ih-hamza-household"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "uhud",
+            "titleAr": "استشهاده",
+            "titleEn": "Death at Uhud",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قُتل حمزة يوم أحد، وكان وقع موته شديدًا على النبي ﷺ، وبقي من أشهر شهداء السيرة.",
+                "en": "Hamza was killed at Uhud; his death deeply affected the Prophet ﷺ and he remains one of the best-known martyrs of the Sira.",
+                "citationIds": [
+                  "bukhari-hamza"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "jafar",
+        "titleAr": "جعفر بن أبي طالب رضي الله عنه",
+        "titleEn": "Ja'far ibn Abi Talib",
+        "summaryAr": "ابن عم النبي ﷺ وأخو علي، قاد جانبًا من المهاجرين في الحبشة ثم استشهد في مؤتة.",
+        "summaryEn": "The Prophet's ﷺ cousin and Ali's brother, a leader among the Abyssinian migrants who was later killed at Mu'tah.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "companions/ali",
+          "sira/second_abyssinia_najashi",
+          "sira/mutah"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-jafar",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues and Mu'tah: Ja'far"
+          },
+          {
+            "id": "ih-jafar",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isabah fi Tamyiz al-Sahabah",
+            "locator": "Biography of Ja'far ibn Abi Talib"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "abyssinia",
+            "titleAr": "متحدث المهاجرين",
+            "titleEn": "Spokesman of the migrants",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشتهر جعفر بعرض قضية المسلمين أمام النجاشي في الحبشة وبيان ما جاء به الإسلام في روايات السيرة.",
+                "en": "Ja'far is remembered in Sira reports as speaking for the Muslim migrants before the Negus and explaining the message of Islam.",
+                "citationIds": [
+                  "ih-jafar"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mutah",
+            "titleAr": "استشهاده في مؤتة",
+            "titleEn": "Death at Mu'tah",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان جعفر ثاني القادة المعينين في مؤتة بعد زيد بن حارثة، وقُتل في المعركة.",
+                "en": "Ja'far was the second appointed commander at Mu'tah after Zayd ibn Harithah and was killed in the battle.",
+                "citationIds": [
+                  "bukhari-jafar"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aqil",
+        "titleAr": "عقيل بن أبي طالب رضي الله عنه",
+        "titleEn": "Aqil ibn Abi Talib",
+        "summaryAr": "ابن عم النبي ﷺ وأخو علي وجعفر، عُرف بمعرفة أنساب قريش.",
+        "summaryEn": "The Prophet's ﷺ cousin and brother of Ali and Ja'far, known for knowledge of Quraysh genealogy.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ali_household",
+          "jafar",
+          "banu_hashim"
+        ],
+        "citations": [
+          {
+            "id": "ih-aqil",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isabah fi Tamyiz al-Sahabah",
+            "locator": "Biography of Aqil ibn Abi Talib"
+          },
+          {
+            "id": "is-aqil",
+            "kind": "ClassicalBook",
+            "titleAr": "الطبقات الكبرى لابن سعد",
+            "titleEn": "Ibn Sa'd, al-Tabaqat al-Kubra",
+            "locator": "Banu Hashim: Aqil ibn Abi Talib"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "family",
+            "titleAr": "من أبناء أبي طالب",
+            "titleEn": "A son of Abu Talib",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عقيل أحد أبناء أبي طالب، فهو أخو علي وجعفر ومن أقارب النبي ﷺ المباشرين من بني هاشم.",
+                "en": "Aqil was one of Abu Talib's sons, making him a brother of Ali and Ja'far and a close Hashimite relative of the Prophet ﷺ.",
+                "citationIds": [
+                  "ih-aqil"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "genealogy",
+            "titleAr": "معرفة الأنساب",
+            "titleEn": "Knowledge of genealogy",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشتهر في كتب التراجم بمعرفة أنساب قريش وأخبارها، وهي معرفة ذات أهمية اجتماعية كبيرة في البيئة العربية آنذاك.",
+                "en": "Biographical works remember him for knowledge of Quraysh genealogy and history, socially significant expertise in the Arabian context.",
+                "citationIds": [
+                  "is-aqil"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "banu_hashim",
+        "titleAr": "بنو هاشم وآل محمد في الأحكام",
+        "titleEn": "Banu Hashim and the Prophet's family in legal discourse",
+        "summaryAr": "تظهر قرابة بني هاشم وآل محمد في بعض أبواب الأحكام مثل الصدقة، مع اختلاف تفصيل المذاهب في نطاق بعض المسائل.",
+        "summaryEn": "Hashimite kinship and the family of Muhammad appear in legal discussions such as charity, with juristic differences over some boundaries.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "household_definition",
+          "abbas",
+          "ali_household"
+        ],
+        "citations": [
+          {
+            "id": "muslim-zakat-family",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Zakat: charity and the family of Muhammad"
+          },
+          {
+            "id": "ih-banu-hashim",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isabah fi Tamyiz al-Sahabah",
+            "locator": "Biographies of Banu Hashim"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "charity",
+            "titleAr": "الصدقة وآل محمد",
+            "titleEn": "Charity and the family of Muhammad",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تثبت أحاديث صحيحة أن الصدقة الواجبة لها أحكام خاصة بالنسبة لآل محمد، ويفصل الفقهاء في من يدخل في ذلك وما البدائل المالية.",
+                "en": "Authentic hadith establish special rules concerning obligatory charity and the family of Muhammad, while jurists discuss the exact scope and related financial provisions.",
+                "citationIds": [
+                  "muslim-zakat-family"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "genealogy",
+            "titleAr": "القرابة لا تعني العصمة",
+            "titleEn": "Kinship does not imply infallibility",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "القرابة من النبي ﷺ منزلة معتبرة، لكنها لا تلغي المسؤولية الفردية أو تجعل كل منتسب معصومًا أو أعلى من غيره بمجرد النسب.",
+                "en": "Kinship with the Prophet ﷺ is honored, but it does not remove individual accountability or make every descendant infallible or automatically superior solely by lineage.",
+                "citationIds": [
+                  "ih-banu-hashim"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "descendants",
+        "titleAr": "ذرية فاطمة والحسن والحسين",
+        "titleEn": "Descendants of Fatimah, Hasan, and Husayn",
+        "summaryAr": "استمرت ذرية النبي ﷺ من جهة فاطمة، وانتشرت بيوتات حسنية وحسينية في مناطق متعددة.",
+        "summaryEn": "The Prophet's ﷺ lineage continued through Fatimah, with Hasanid and Husaynid families spreading across many regions.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "fatimah",
+          "hasan",
+          "husayn",
+          "genealogy_caution"
+        ],
+        "citations": [
+          {
+            "id": "ih-descendants",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isabah fi Tamyiz al-Sahabah",
+            "locator": "Descendants of Fatimah, Hasan, and Husayn"
+          },
+          {
+            "id": "is-descendants",
+            "kind": "ClassicalBook",
+            "titleAr": "الطبقات الكبرى لابن سعد",
+            "titleEn": "Ibn Sa'd, al-Tabaqat al-Kubra",
+            "locator": "Genealogical material on the Prophet's descendants"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "lineage",
+            "titleAr": "استمرار الذرية",
+            "titleEn": "Continuation of lineage",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "توفي أبناء النبي ﷺ الذكور في حياته، واستمرت ذريته المشهورة من جهة فاطمة عبر الحسن والحسين.",
+                "en": "The Prophet's ﷺ sons died during his lifetime, and his best-known continuing lineage came through Fatimah via Hasan and Husayn.",
+                "citationIds": [
+                  "ih-descendants"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "spread",
+            "titleAr": "انتشار البيوتات",
+            "titleEn": "Spread of descendant families",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "انتقلت فروع كثيرة من ذريتهم إلى الحجاز والعراق والشام والمغرب ومصر وغيرها، وتشكلت حول الأنساب سجلات تحتاج إلى توثيق تاريخي.",
+                "en": "Many descendant branches spread through the Hijaz, Iraq, Syria, North Africa, Egypt, and elsewhere; genealogical claims developed records that require historical verification.",
+                "citationIds": [
+                  "is-descendants"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "genealogy_caution",
+        "titleAr": "الأنساب والانتساب إلى أهل البيت",
+        "titleEn": "Genealogical claims and verification",
+        "summaryAr": "الانتساب إلى آل البيت له مكانة اجتماعية وتاريخية، لكنه يحتاج إلى توثيق نسبي ولا يثبت بمجرد الدعوى.",
+        "summaryEn": "Claimed descent from the Prophetic family has historical and social significance but requires genealogical evidence rather than assertion alone.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "descendants",
+          "source_method"
+        ],
+        "citations": [
+          {
+            "id": "quran-49-13",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:13"
+          },
+          {
+            "id": "ih-genealogy",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isabah fi Tamyiz al-Sahabah",
+            "locator": "Genealogical notices in biographical literature"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "documentation",
+            "titleAr": "التوثيق النسبي",
+            "titleEn": "Genealogical documentation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تتفاوت قوة سلاسل النسب والسجلات عبر البلدان والعصور، ولا يكفي تشابه الاسم أو الشهرة المحلية لإثبات النسب التاريخي.",
+                "en": "The strength of genealogical chains and records varies by place and period; a shared surname or local tradition alone does not establish historical descent.",
+                "citationIds": [
+                  "ih-genealogy"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "worth",
+            "titleAr": "النسب والتقوى",
+            "titleEn": "Lineage and moral worth",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "مع احترام النسب النبوي، يقرر القرآن أن معيار الكرامة الأخلاقية التقوى، فلا يصبح الانتساب بديلًا عن الإيمان والعمل.",
+                "en": "While Prophetic lineage is respected, the Quran makes piety the moral criterion of honor, so descent is not a substitute for faith and conduct.",
+                "citationIds": [
+                  "quran-49-13"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "love_respect",
+        "titleAr": "محبة أهل البيت بلا غلو ولا جفاء",
+        "titleEn": "Love and respect without excess or neglect",
+        "summaryAr": "يجمع المسلم بين محبة قرابة النبي ﷺ وحفظ حقوقهم وبين تجنب الغلو والتنقص والتوظيف الطائفي.",
+        "summaryEn": "Muslims can honor the Prophet's ﷺ family while avoiding exaggeration, denigration, and sectarian weaponization.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "household_definition",
+          "source_method",
+          "companions/honesty_model"
+        ],
+        "citations": [
+          {
+            "id": "quran-42-23",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "42:23"
+          },
+          {
+            "id": "muslim-ahl-bayt-reminder",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Virtues: reminder concerning the Prophet's household"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "respect",
+            "titleAr": "التذكير بأهل البيت",
+            "titleEn": "Remembering the household",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تتضمن السنة وصايا وتذكيرًا بحق أهل بيت النبي ﷺ، ويظهر في التراث الإسلامي اهتمام واسع بفضائلهم وأنسابهم.",
+                "en": "The Sunnah includes reminders concerning the Prophet's ﷺ household, and Islamic tradition has long preserved interest in their virtues and genealogy.",
+                "citationIds": [
+                  "muslim-ahl-bayt-reminder"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "balance",
+            "titleAr": "المحبة المنضبطة",
+            "titleEn": "Balanced love",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المحبة لا تستلزم نسبة العصمة أو علم الغيب لغير من ثبتت له، كما أن الخلاف التاريخي لا يبرر السب أو الانتقاص من أهل البيت أو غيرهم.",
+                "en": "Love does not require attributing infallibility or unseen knowledge without evidence, and historical disagreements do not justify abuse or denigration of Ahl al-Bayt or others.",
+                "citationIds": [
+                  "quran-42-23"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

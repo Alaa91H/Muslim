@@ -154,12 +154,9 @@ interface ReferenceRepository {
     fun searchAll(query: String, lang: RefLang, limit: Int = 50): List<ReferenceSearchResult>
 }
 
-private object BundledReferenceRepository : ReferenceRepository {
-    override val books: List<ReferenceBook> = listOf(
-        IslamIntroContent.book,
-        SiraContent.book,
-        ProphetsContent.book,
-    )
+class InMemoryReferenceRepository(
+    override val books: List<ReferenceBook>,
+) : ReferenceRepository {
 
     override fun byId(id: String): ReferenceBook? = books.firstOrNull { it.id == id }
 
@@ -205,8 +202,16 @@ private object BundledReferenceRepository : ReferenceRepository {
     }
 }
 
-/** Public compatibility facade used by the existing feature UI and tests. */
-object ReferenceLibrary : ReferenceRepository by BundledReferenceRepository
+private val bundledReferenceRepository = InMemoryReferenceRepository(
+    books = listOf(
+        IslamIntroContent.book,
+        SiraContent.book,
+        ProphetsContent.book,
+    ),
+)
+
+/** Public compatibility facade used by existing callers that do not need Android resources. */
+object ReferenceLibrary : ReferenceRepository by bundledReferenceRepository
 
 private fun RefTopic.searchScore(needle: String, lang: RefLang): Int {
     val title = title(lang).referenceSearchKey()

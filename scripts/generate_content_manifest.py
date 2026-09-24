@@ -40,6 +40,8 @@ def content_kind(path: Path) -> str:
         return "quran_content"
     if "/feature-prayer-times/" in normalized:
         return "adhan_audio"
+    if "/feature-reference/" in normalized:
+        return "reference_corpus"
     raise ValueError(f"Unsupported content path: {path}")
 
 
@@ -111,6 +113,7 @@ def main() -> None:
             *ROOT.glob("feature/feature-hadith/src/main/assets/**/*"),
             *ROOT.glob("feature/feature-quran/src/main/assets/*"),
             *ROOT.glob("feature/feature-prayer-times/src/main/res/raw/*"),
+            *ROOT.glob("feature/feature-reference/src/main/res/raw/reference_*.json"),
         ]
     )
     known_ids = {content_id(path) for path in paths if path.is_file()}
