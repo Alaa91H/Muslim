@@ -28,6 +28,7 @@ def main() -> None:
     require("data class PersistedRecitationSession" in store, "durable recitation session model is required")
     require("val positionMs: Long" in store, "session must persist media position")
     require("val currentGlobalNumber: Int" in store, "session must persist the current ayah")
+    require("val remainingRepeats: Int" in store, "session must persist remaining ayah repeats")
     require("val wasPlaying: Boolean" in store, "session must persist playing/paused state")
     require("private var generation = 0L" in store, "session writes must be generation guarded")
     require("Mutex()" in store and "withLock" in store, "session writes must be serialized")
@@ -35,6 +36,7 @@ def main() -> None:
     require("startPositionMs: Long = 0L" in player, "audio queue must accept a restored start position")
     require("engine.seekTo(seekPosition)" in player, "restored playback must seek before start")
     require("pendingStartPositionMs = 0L" in player, "restored seek must be one-shot")
+    require("remainingRepeatsForCurrent: Int? = null" in player, "restored repeat remainder must be one-ayah scoped")
 
     require("enum class PlaybackDeactivationReason" in bridge, "terminal playback reasons are required")
     require("PlaybackDeactivationReason.Failed" in bridge, "failed playback must preserve the durable session")
@@ -43,6 +45,7 @@ def main() -> None:
     require("@Inject lateinit var sessionRuntime: RecitationSessionRuntime" in service, "service must own background session persistence")
     require("SESSION_PERSIST_INTERVAL_MS" in service, "service must persist background position periodically")
     require("sessionRuntime.persist(" in service, "service must write playback snapshots")
+    require("remainingRepeats = player.remainingRepeats.value" in service, "service must persist remaining repeats")
     require(
         "return START_NOT_STICKY" in service,
         "a recreated service with an idle player must stop without auto-starting playback",
@@ -52,6 +55,7 @@ def main() -> None:
     require("fun resumeRestorableSession()" in view_model, "session restore must be an explicit user action")
     require("fun discardRestorableSession()" in view_model, "restore candidate must be dismissible")
     require("startPositionMs = session.positionMs" in view_model, "restore must pass the persisted media position")
+    require("remainingRepeatsForCurrent = session.remainingRepeats" in view_model, "restore must preserve repeat remainder")
     require("sessionRuntime.begin(intent)" in view_model, "new playback must establish durable session ownership")
 
     require("viewModel.resumeRestorableSession()" in reader, "reader must expose explicit resume")
