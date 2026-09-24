@@ -214,18 +214,18 @@
     <string name="traveler_high_latitude_band_second" tools:ignore="MissingTranslation">النطاق الثاني: من 48° إلى أقل من 66°؛ قد تتعذر بعض علامات الفجر أو العشاء في أيام من السنة.</string>
     <string name="traveler_high_latitude_band_third" tools:ignore="MissingTranslation">النطاق الثالث: 66° فأعلى؛ قد تغيب العلامات لفترات طويلة، ويلزم اعتماد تقدير جهة علمية موثوقة.</string>
     <string name="traveler_high_latitude_selected" tools:ignore="MissingTranslation">هذه القاعدة مفعلة في إعدادات الصلاة الحالية.</string>
-    <string name="learn_topic_tahara_intro">مدخل إلى الطهارة</string>
-    <string name="learn_topic_tahara_intro_sub">خريطة شاملة للطهارة والحدث والنجاسة والأعذار</string>
-    <string name="learn_topic_water_impurity">المياه والنجاسات</string>
-    <string name="learn_topic_water_impurity_sub">استعمال الماء وإزالة النجاسة دون وسوسة أو إسراف</string>
-    <string name="learn_topic_restroom_etiquette">آداب قضاء الحاجة</string>
-    <string name="learn_topic_restroom_etiquette_sub">الاستنجاء والاستجمار والنظافة والخصوصية</string>
-    <string name="learn_topic_wudu_nullifiers">نواقض الوضوء</string>
-    <string name="learn_topic_wudu_nullifiers_sub">ما ينقض الوضوء وما وقع فيه اختلاف فقهي</string>
-    <string name="learn_topic_wiping_footwear">المسح على الخفين والجوارب</string>
-    <string name="learn_topic_wiping_footwear_sub">الشروط والمدة وطريقة المسح وأهم مسائل الخلاف</string>
-    <string name="learn_topic_menstruation_postpartum">الحيض والنفاس والاستحاضة</string>
-    <string name="learn_topic_menstruation_postpartum_sub">دليل تعليمي منظم للطهارة والصلاة والصيام في هذه الحالات</string>
-    <string name="learn_topic_excused_person">أحكام صاحب العذر</string>
-    <string name="learn_topic_excused_person_sub">السلس والنزف المستمر ونحوها مع مراعاة الجانب الطبي</string>
+    <string name="learn_topic_tahara_intro" tools:ignore="MissingTranslation">مدخل إلى الطهارة</string>
+    <string name="learn_topic_tahara_intro_sub" tools:ignore="MissingTranslation">خريطة شاملة للطهارة والحدث والنجاسة والأعذار</string>
+    <string name="learn_topic_water_impurity" tools:ignore="MissingTranslation">المياه والنجاسات</string>
+    <string name="learn_topic_water_impurity_sub" tools:ignore="MissingTranslation">استعمال الماء وإزالة النجاسة دون وسوسة أو إسراف</string>
+    <string name="learn_topic_restroom_etiquette" tools:ignore="MissingTranslation">آداب قضاء الحاجة</string>
+    <string name="learn_topic_restroom_etiquette_sub" tools:ignore="MissingTranslation">الاستنجاء والاستجمار والنظافة والخصوصية</string>
+    <string name="learn_topic_wudu_nullifiers" tools:ignore="MissingTranslation">نواقض الوضوء</string>
+    <string name="learn_topic_wudu_nullifiers_sub" tools:ignore="MissingTranslation">ما ينقض الوضوء وما وقع فيه اختلاف فقهي</string>
+    <string name="learn_topic_wiping_footwear" tools:ignore="MissingTranslation">المسح على الخفين والجوارب</string>
+    <string name="learn_topic_wiping_footwear_sub" tools:ignore="MissingTranslation">الشروط والمدة وطريقة المسح وأهم مسائل الخلاف</string>
+    <string name="learn_topic_menstruation_postpartum" tools:ignore="MissingTranslation">الحيض والنفاس والاستحاضة</string>
+    <string name="learn_topic_menstruation_postpartum_sub" tools:ignore="MissingTranslation">دليل تعليمي منظم للطهارة والصلاة والصيام في هذه الحالات</string>
+    <string name="learn_topic_excused_person" tools:ignore="MissingTranslation">أحكام صاحب العذر</string>
+    <string name="learn_topic_excused_person_sub" tools:ignore="MissingTranslation">السلس والنزف المستمر ونحوها مع مراعاة الجانب الطبي</string>
 </resources>
