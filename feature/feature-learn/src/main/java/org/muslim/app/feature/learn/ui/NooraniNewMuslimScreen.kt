@@ -34,6 +34,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Tab
@@ -46,6 +47,8 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -80,8 +83,10 @@ import org.muslim.app.feature.learn.domain.ReadingStage
 fun NooraniNewMuslimScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
+    viewModel: LearnViewModel = hiltViewModel(),
 ) {
     var selectedTab by remember { mutableIntStateOf(0) }
+    val completedLessonIds by viewModel.completedLessonIds.collectAsStateWithLifecycle()
     val context = LocalContext.current
     val speaker = remember(context) { ArabicSpeechController(context) }
 
@@ -115,7 +120,7 @@ fun NooraniNewMuslimScreen(
             when (selectedTab) {
                 0 -> LetterLesson(speaker = speaker)
                 1 -> ReadingBasics(speaker = speaker)
-                else -> NewMuslimCorner()
+                else -> NewMuslimCorner(completedLessonIds = completedLessonIds)
             }
         }
     }
@@ -349,7 +354,7 @@ private fun ReadingStageCard(
 }
 
 @Composable
-private fun NewMuslimCorner() {
+private fun NewMuslimCorner(completedLessonIds: Set<String>) {
     var language by remember { mutableStateOf(BeginnerLanguage.ARABIC) }
     val guide = NooraniContent.guide(language)
     LazyColumn(
@@ -368,6 +373,7 @@ private fun NewMuslimCorner() {
             NewMuslimRoadmapCard(
                 stage = stage,
                 language = language,
+                completedLessonIds = completedLessonIds,
             )
         }
         item { ReviewNotice(text = guide.reviewNote) }
@@ -457,6 +463,7 @@ private fun GuideStepCard(index: Int, step: NewMuslimStep) {
 private fun NewMuslimRoadmapCard(
     stage: NewMuslimRoadmapStage,
     language: BeginnerLanguage,
+    completedLessonIds: Set<String>,
 ) {
     Card(
         colors = CardDefaults.cardColors(
@@ -474,6 +481,26 @@ private fun NewMuslimRoadmapCard(
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(top = 6.dp, bottom = 10.dp),
+            )
+            val completedLessons = stage.lessonIds.count { it in completedLessonIds }
+            val progress = if (stage.lessonIds.isEmpty()) {
+                0f
+            } else {
+                completedLessons.toFloat() / stage.lessonIds.size.toFloat()
+            }
+            LinearProgressIndicator(
+                progress = { progress },
+                modifier = Modifier.fillMaxWidth(),
+            )
+            Text(
+                text = stringResource(
+                    R.string.learn_roadmap_academy_progress,
+                    completedLessons,
+                    stage.lessonIds.size,
+                ),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 6.dp, bottom = 8.dp),
             )
             stage.checklist.forEach { item ->
                 Row(
