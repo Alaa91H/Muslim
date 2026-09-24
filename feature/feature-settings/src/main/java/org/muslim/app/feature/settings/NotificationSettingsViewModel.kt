@@ -15,7 +15,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.muslim.app.core.common.prayer.Coordinates
@@ -26,15 +25,13 @@ import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.toPrayerCalculationProfile
+import org.muslim.app.core.notifications.FeatureNotificationCoordinator
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.NotificationCategoryPrefs
 import org.muslim.app.core.notifications.NotificationImportance
 import org.muslim.app.core.notifications.MissedAdhanColors
 import org.muslim.app.core.notifications.NotificationPrefsRepository
 import org.muslim.app.core.notifications.QuietHours
-import org.muslim.app.feature.hadith.data.HadithOfTheDayScheduler
-import org.muslim.app.feature.hadith.data.HadithPrefsRepository
-import org.muslim.app.feature.learn.data.HajjCompanionScheduler
 import org.muslim.app.feature.settings.R
 import java.time.Instant
 import java.time.LocalDate
@@ -71,11 +68,14 @@ data class CountdownPreview(
 class NotificationSettingsViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val prefsRepository: NotificationPrefsRepository,
-    private val hadithPrefsRepository: HadithPrefsRepository,
+    private val featureNotificationCoordinator: FeatureNotificationCoordinator,
     private val prayerSettingsRepository: PrayerSettingsRepository,
     private val calculator: PrayerTimesCalculator,
     private val appPreferencesRepository: AppPreferencesRepository,
 ) : ViewModel() {
+
+    private val dailyHadithSettings =
+        featureNotificationCoordinator.requireTimedSettings(NotificationCategory.HadithDaily)
 
     val preferences: StateFlow<Map<NotificationCategory, NotificationCategoryPrefs>> =
         prefsRepository.prefs
@@ -164,11 +164,11 @@ class NotificationSettingsViewModel @Inject constructor(
      * Mirrors the picker in the hadith screen so both stay in sync.
      */
     val dailyHadithTimeMinutes: StateFlow<Int> =
-        hadithPrefsRepository.dailyNotificationTimeMinutes
+        dailyHadithSettings.timeMinutes
             .stateIn(
                 viewModelScope,
                 SharingStarted.WhileSubscribed(5_000),
-                HadithPrefsRepository.DEFAULT_NOTIFICATION_TIME_MINUTES,
+                dailyHadithSettings.defaultTimeMinutes,
             )
 
     /** True when the app may post notifications (always true below Android 13). */
@@ -179,15 +179,7 @@ class NotificationSettingsViewModel @Inject constructor(
 
     fun setEnabled(category: NotificationCategory, enabled: Boolean) = launch {
         prefsRepository.setEnabled(category, enabled)
-        // The Pilgrim Companion is a mode, not just a channel: enabling it
-        // schedules its daily reminder; disabling it cancels the job.
-        if (category == NotificationCategory.Hajj) {
-            if (enabled) {
-                HajjCompanionScheduler.schedule(context)
-            } else {
-                HajjCompanionScheduler.cancel(context)
-            }
-        }
+        featureNotificationCoordinator.onEnabledChanged(category, enabled)
     }
 
     fun setSoundEnabled(category: NotificationCategory, enabled: Boolean) = launch {
@@ -212,10 +204,7 @@ class NotificationSettingsViewModel @Inject constructor(
 
     /** Persists the new daily-hadith time and re-schedules when it is enabled. */
     fun setDailyHadithTimeMinutes(minutes: Int) = launch {
-        hadithPrefsRepository.setDailyNotificationTimeMinutes(minutes)
-        if (hadithPrefsRepository.dailyNotificationEnabled.first()) {
-            HadithOfTheDayScheduler.schedule(context, minutes)
-        }
+        dailyHadithSettings.setTimeMinutes(minutes)
     }
 
     fun setMissedAdhanColor(color: Int) = launch {

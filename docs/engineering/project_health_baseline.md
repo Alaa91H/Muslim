@@ -94,3 +94,20 @@ behaviour:
   from the temporary architecture allowlist.
 
 Two legacy feature edges remain, both owned by Settings notification coordination.
+
+
+### 2026-09-24 — Settings feature boundaries removed
+
+The remaining direct feature-to-feature dependencies were replaced by core-owned
+notification coordination contracts:
+
+- `feature-settings` no longer imports Hadith repositories/schedulers.
+- `feature-settings` no longer imports the Hajj scheduler from Learning.
+- Hadith contributes its timed-notification settings through Hilt.
+- Learning contributes its Hajj enable/disable side effect through Hilt.
+- `FeatureNotificationCoordinator` in `core-notifications` dispatches those
+  integrations without owning feature data or workers.
+- the architecture allowlist is now empty.
+
+At this point, feature modules depend on core modules rather than directly on other
+feature modules, matching the repository's intended module boundary.
