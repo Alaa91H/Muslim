@@ -8,6 +8,7 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,8 +23,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Palette
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
@@ -46,8 +45,10 @@ import org.muslim.app.core.common.appearance.CardCornerStyle
 import org.muslim.app.core.common.appearance.OrnamentIntensity
 import org.muslim.app.core.datastore.AppPreferences
 import org.muslim.app.core.datastore.AppThemeMode
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.AppTheme
 import org.muslim.app.core.ui.theme.IslamicDecorationPreview
+import org.muslim.app.core.ui.theme.IslamicSelectableCard
 import org.muslim.app.core.ui.theme.previewColorsForPalette
 
 internal data class AppearanceThemeActions(
@@ -103,13 +104,13 @@ internal fun AppearanceSettingsContent(
         cornerStyle = preferences.cardCornerStyle,
         ornamentStyle = preferences.ornamentStyle,
         ornamentIntensity = preferences.ornamentIntensity,
-        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
     )
 
     Text(
         text = stringResource(R.string.settings_theme_mode),
         style = MaterialTheme.typography.labelLarge,
-        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
     )
     AppearanceThemeModeSelector(
         selected = preferences.themeMode,
@@ -155,13 +156,13 @@ internal fun AppearanceSettingsContent(
         Text(
             text = stringResource(R.string.settings_color_palette),
             style = MaterialTheme.typography.labelLarge,
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+            modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
         )
         Text(
             text = stringResource(R.string.settings_color_palette_desc),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(horizontal = 16.dp).padding(bottom = 8.dp),
+            modifier = Modifier.padding(horizontal = IslamicSpacing.Medium).padding(bottom = IslamicSpacing.Small),
         )
         AppearancePaletteSelector(
             selected = preferences.colorPalette,
@@ -174,7 +175,7 @@ internal fun AppearanceSettingsContent(
     Text(
         text = stringResource(R.string.settings_card_corners),
         style = MaterialTheme.typography.labelLarge,
-        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
     )
     AppearanceCornerSelector(
         selected = preferences.cardCornerStyle,
@@ -184,7 +185,7 @@ internal fun AppearanceSettingsContent(
     Text(
         text = stringResource(R.string.settings_ornament),
         style = MaterialTheme.typography.labelLarge,
-        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
     )
     AppearanceOrnamentSelector(
         selected = preferences.ornamentStyle,
@@ -195,7 +196,7 @@ internal fun AppearanceSettingsContent(
     Text(
         text = stringResource(R.string.settings_ornament_intensity),
         style = MaterialTheme.typography.labelLarge,
-        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
     )
     AppearanceOrnamentIntensitySelector(
         selected = preferences.ornamentIntensity,
@@ -256,8 +257,8 @@ private fun AppearanceLivePreview(
                         .height(116.dp),
                 )
                 Column(
-                    modifier = Modifier.padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(10.dp),
+                    modifier = Modifier.padding(IslamicSpacing.Medium),
+                    verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
                 ) {
                     Text(
                         text = stringResource(R.string.settings_appearance_preview),
@@ -271,9 +272,9 @@ private fun AppearanceLivePreview(
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(12.dp),
+                                .padding(IslamicSpacing.Compact),
                             verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(10.dp),
+                            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
                         ) {
                             Box(
                                 Modifier
@@ -289,7 +290,7 @@ private fun AppearanceLivePreview(
                                         .clip(CircleShape)
                                         .background(MaterialTheme.colorScheme.onPrimaryContainer),
                                 )
-                                Spacer(Modifier.height(7.dp))
+                                Spacer(Modifier.height(IslamicSpacing.Small))
                                 Box(
                                     Modifier
                                         .fillMaxWidth(0.82f)
@@ -333,9 +334,9 @@ private fun AppearanceThemeModeSelector(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp)
+            .padding(horizontal = IslamicSpacing.Medium)
             .selectableGroup(),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         appearanceThemeModes.forEach { option ->
             val icon = when (option.mode) {
@@ -362,13 +363,13 @@ private fun AppearancePaletteSelector(
     onSelect: (AppColorPalette) -> Unit,
 ) {
     Column(
-        modifier = Modifier.padding(horizontal = 16.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp),
+        modifier = Modifier.padding(horizontal = IslamicSpacing.Medium),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
     ) {
         AppColorPalette.entries.chunked(2).forEach { rowPalettes ->
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
             ) {
                 rowPalettes.forEach { palette ->
                     AppearancePaletteCard(
@@ -396,27 +397,18 @@ private fun AppearancePaletteCard(
     modifier: Modifier = Modifier,
 ) {
     val colors = previewColorsForPalette(palette, darkTheme, amoledBlack)
-    Card(
+    IslamicSelectableCard(
+        selected = selected,
         onClick = onClick,
         modifier = modifier,
         shape = MaterialTheme.shapes.medium,
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-        ),
-        border = BorderStroke(
-            width = if (selected) 2.dp else 1.dp,
-            color = if (selected) {
-                MaterialTheme.colorScheme.primary
-            } else {
-                MaterialTheme.colorScheme.outlineVariant
-            },
-        ),
+        contentPadding = PaddingValues(IslamicSpacing.Compact),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
     ) {
         Column(
-            modifier = Modifier.padding(10.dp),
-            verticalArrangement = Arrangement.spacedBy(9.dp),
+            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
         ) {
-            Row(horizontalArrangement = Arrangement.spacedBy(5.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.XSmall)) {
                 PaletteSwatch(colors.primary)
                 PaletteSwatch(colors.secondary)
                 PaletteSwatch(colors.tertiary)
@@ -449,7 +441,7 @@ private fun AppearancePaletteCard(
             }
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.XSmall),
             ) {
                 RadioButton(selected = selected, onClick = null)
                 Text(
@@ -485,8 +477,8 @@ private fun AppearanceCornerSelector(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+            .padding(horizontal = IslamicSpacing.Medium),
+        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         CardCornerStyle.entries.forEach { style ->
             val shape = RoundedCornerShape(
@@ -496,28 +488,18 @@ private fun AppearanceCornerSelector(
                     CardCornerStyle.Rounded -> 28.dp
                 },
             )
-            Card(
+            IslamicSelectableCard(
+                selected = selected == style,
                 onClick = { onSelect(style) },
                 modifier = Modifier.weight(1f),
                 shape = MaterialTheme.shapes.small,
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-                ),
-                border = BorderStroke(
-                    if (selected == style) 2.dp else 1.dp,
-                    if (selected == style) {
-                        MaterialTheme.colorScheme.primary
-                    } else {
-                        MaterialTheme.colorScheme.outlineVariant
-                    },
-                ),
+                contentPadding = PaddingValues(IslamicSpacing.Small),
+                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
             ) {
                 Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(9.dp),
+                    modifier = Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(7.dp),
+                    verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
                 ) {
                     Box(
                         Modifier
@@ -554,13 +536,13 @@ private fun AppearanceOrnamentSelector(
     }
 
     Column(
-        modifier = Modifier.padding(horizontal = 16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = Modifier.padding(horizontal = IslamicSpacing.Medium),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         AppOrnamentStyle.entries.chunked(2).forEach { styles ->
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
             ) {
                 styles.forEach { style ->
                     Column(
@@ -603,13 +585,13 @@ private fun AppearanceOrnamentIntensitySelector(
     onSelect: (OrnamentIntensity) -> Unit,
 ) {
     Column(
-        modifier = Modifier.padding(horizontal = 16.dp),
-        verticalArrangement = Arrangement.spacedBy(6.dp),
+        modifier = Modifier.padding(horizontal = IslamicSpacing.Medium),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         OrnamentIntensity.entries.chunked(2).forEach { row ->
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
             ) {
                 row.forEach { intensity ->
                     FilterChip(
