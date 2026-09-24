@@ -77,6 +77,69 @@ object LearnContent {
             notes = "«أن تُؤمن بالله وملائكته وكتبه ورسله واليوم الآخر، وتؤمن بالقدر خيره وشره» (رواه مسلم). هذه الأركان الستة أصل العقيدة، ومن أنكر واحدًا منها خرج عن ملة الإسلام.",
         ),
         LearnTopic(
+            id = "tahara_intro",
+            category = CATEGORY_TAHARA,
+            titleRes = R.string.learn_topic_tahara_intro,
+            subtitleRes = R.string.learn_topic_tahara_intro_sub,
+            steps = listOf(
+                LearnStep("مدخل إلى الطهارة", "فهم الفرق بين رفع الحدث وإزالة النجاسة، وخريطة الوضوء والغسل والتيمم والأعذار."),
+            ),
+        ),
+        LearnTopic(
+            id = "water_impurity",
+            category = CATEGORY_TAHARA,
+            titleRes = R.string.learn_topic_water_impurity,
+            subtitleRes = R.string.learn_topic_water_impurity_sub,
+            steps = listOf(
+                LearnStep("الماء والنجاسة", "الأصول العملية لاستعمال الماء وإزالة النجاسة من البدن والثوب والمكان."),
+            ),
+        ),
+        LearnTopic(
+            id = "restroom_etiquette",
+            category = CATEGORY_TAHARA,
+            titleRes = R.string.learn_topic_restroom_etiquette,
+            subtitleRes = R.string.learn_topic_restroom_etiquette_sub,
+            steps = listOf(
+                LearnStep("آداب قضاء الحاجة", "الخصوصية والنظافة والاستنجاء والاستجمار والتطبيق في المرافق العامة."),
+            ),
+        ),
+        LearnTopic(
+            id = "wudu_nullifiers",
+            category = CATEGORY_TAHARA,
+            titleRes = R.string.learn_topic_wudu_nullifiers,
+            subtitleRes = R.string.learn_topic_wudu_nullifiers_sub,
+            steps = listOf(
+                LearnStep("ما ينقض الوضوء", "النواقض المتفق على أصلها والمسائل التي وقع فيها اختلاف فقهي."),
+            ),
+        ),
+        LearnTopic(
+            id = "wiping_footwear",
+            category = CATEGORY_TAHARA,
+            titleRes = R.string.learn_topic_wiping_footwear,
+            subtitleRes = R.string.learn_topic_wiping_footwear_sub,
+            steps = listOf(
+                LearnStep("المسح على الخفين والجوارب", "أصل الرخصة وشروطها ومدتها وأهم الفروق الفقهية."),
+            ),
+        ),
+        LearnTopic(
+            id = "menstruation_postpartum",
+            category = CATEGORY_TAHARA,
+            titleRes = R.string.learn_topic_menstruation_postpartum,
+            subtitleRes = R.string.learn_topic_menstruation_postpartum_sub,
+            steps = listOf(
+                LearnStep("الحيض والنفاس والاستحاضة", "المصطلحات الأساسية وأثرها في الصلاة والصيام والطهارة مع التنبيه إلى المسائل التفصيلية."),
+            ),
+        ),
+        LearnTopic(
+            id = "excused_person",
+            category = CATEGORY_TAHARA,
+            titleRes = R.string.learn_topic_excused_person,
+            subtitleRes = R.string.learn_topic_excused_person_sub,
+            steps = listOf(
+                LearnStep("صاحب العذر", "مدخل عملي لأحكام السلس والنزف المستمر ونحوها مع مراعاة الجانب الطبي."),
+            ),
+        ),
+        LearnTopic(
             id = "wudu",
             category = CATEGORY_TAHARA,
             titleRes = R.string.learn_topic_wudu,
