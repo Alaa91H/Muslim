@@ -476,151 +476,164 @@ private fun LearningStepCard(
 @Composable
 private fun LearningBlockCard(block: LearningContentBlock) {
     when (block) {
-        is LearningContentBlock.Paragraph -> {
-            IslamicCard(
-                modifier = Modifier.fillMaxWidth(),
-                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-            ) {
+        is LearningContentBlock.Paragraph -> LearningParagraphCard(block)
+        is LearningContentBlock.Callout -> LearningCalloutCard(block)
+        is LearningContentBlock.Evidence -> LearningEvidenceCard(block)
+        is LearningContentBlock.Comparison -> LearningComparisonCard(block)
+        is LearningContentBlock.QuestionAnswer -> LearningQuestionAnswerCard(block)
+        is LearningContentBlock.Quiz -> LearningQuizCard(block)
+        is LearningContentBlock.Steps -> Unit
+    }
+}
+
+@Composable
+private fun LearningParagraphCard(block: LearningContentBlock.Paragraph) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Text(
+            text = block.text,
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurface,
+        )
+    }
+}
+
+@Composable
+private fun LearningCalloutCard(block: LearningContentBlock.Callout) {
+    val containerColor = when (block.tone) {
+        LearningCalloutTone.INFO -> MaterialTheme.colorScheme.secondaryContainer
+        LearningCalloutTone.IMPORTANT -> MaterialTheme.colorScheme.primaryContainer
+        LearningCalloutTone.WARNING -> MaterialTheme.colorScheme.errorContainer
+        LearningCalloutTone.DIFFERENCE_OF_OPINION -> MaterialTheme.colorScheme.tertiaryContainer
+    }
+    val contentColor = when (block.tone) {
+        LearningCalloutTone.INFO -> MaterialTheme.colorScheme.onSecondaryContainer
+        LearningCalloutTone.IMPORTANT -> MaterialTheme.colorScheme.onPrimaryContainer
+        LearningCalloutTone.WARNING -> MaterialTheme.colorScheme.onErrorContainer
+        LearningCalloutTone.DIFFERENCE_OF_OPINION -> MaterialTheme.colorScheme.onTertiaryContainer
+    }
+
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = containerColor,
+    ) {
+        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            block.title?.let { title ->
                 Text(
-                    text = block.text,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface,
+                    text = title,
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = contentColor,
                 )
             }
+            Text(
+                text = block.body,
+                style = MaterialTheme.typography.bodyMedium,
+                color = contentColor,
+            )
         }
+    }
+}
 
-        is LearningContentBlock.Callout -> {
-            val containerColor = when (block.tone) {
-                LearningCalloutTone.INFO -> MaterialTheme.colorScheme.secondaryContainer
-                LearningCalloutTone.IMPORTANT -> MaterialTheme.colorScheme.primaryContainer
-                LearningCalloutTone.WARNING -> MaterialTheme.colorScheme.errorContainer
-                LearningCalloutTone.DIFFERENCE_OF_OPINION -> MaterialTheme.colorScheme.tertiaryContainer
+@Composable
+private fun LearningEvidenceCard(block: LearningContentBlock.Evidence) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+    ) {
+        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            block.heading?.let { heading ->
+                Text(
+                    text = heading,
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onTertiaryContainer,
+                )
             }
-            val contentColor = when (block.tone) {
-                LearningCalloutTone.INFO -> MaterialTheme.colorScheme.onSecondaryContainer
-                LearningCalloutTone.IMPORTANT -> MaterialTheme.colorScheme.onPrimaryContainer
-                LearningCalloutTone.WARNING -> MaterialTheme.colorScheme.onErrorContainer
-                LearningCalloutTone.DIFFERENCE_OF_OPINION -> MaterialTheme.colorScheme.onTertiaryContainer
+            Text(
+                text = block.text,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onTertiaryContainer,
+            )
+        }
+    }
+}
+
+@Composable
+private fun LearningComparisonCard(block: LearningContentBlock.Comparison) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            block.intro?.let { intro ->
+                Text(
+                    text = intro,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
             }
-            IslamicCard(
-                modifier = Modifier.fillMaxWidth(),
-                containerColor = containerColor,
-            ) {
-                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    block.title?.let { title ->
-                        Text(
-                            text = title,
-                            style = MaterialTheme.typography.titleSmall,
-                            fontWeight = FontWeight.Bold,
-                            color = contentColor,
-                        )
-                    }
+            block.items.forEach { item ->
+                Column(verticalArrangement = Arrangement.spacedBy(3.dp)) {
                     Text(
-                        text = block.body,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = contentColor,
-                    )
-                }
-            }
-        }
-
-        is LearningContentBlock.Evidence -> {
-            IslamicCard(
-                modifier = Modifier.fillMaxWidth(),
-                containerColor = MaterialTheme.colorScheme.tertiaryContainer,
-            ) {
-                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    block.heading?.let { heading ->
-                        Text(
-                            text = heading,
-                            style = MaterialTheme.typography.titleSmall,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onTertiaryContainer,
-                        )
-                    }
-                    Text(
-                        text = block.text,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onTertiaryContainer,
-                    )
-                }
-            }
-        }
-
-        is LearningContentBlock.Comparison -> {
-            IslamicCard(
-                modifier = Modifier.fillMaxWidth(),
-                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-            ) {
-                Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                    block.intro?.let { intro ->
-                        Text(
-                            text = intro,
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                    block.items.forEach { item ->
-                        Column(verticalArrangement = Arrangement.spacedBy(3.dp)) {
-                            Text(
-                                text = item.label,
-                                style = MaterialTheme.typography.titleSmall,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Text(
-                                text = item.body,
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                        }
-                    }
-                }
-            }
-        }
-
-        is LearningContentBlock.QuestionAnswer -> {
-            IslamicCard(
-                modifier = Modifier.fillMaxWidth(),
-                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-            ) {
-                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Text(
-                        text = block.question,
+                        text = item.label,
                         style = MaterialTheme.typography.titleSmall,
                         fontWeight = FontWeight.Bold,
                     )
                     Text(
-                        text = block.answer,
+                        text = item.body,
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
             }
         }
+    }
+}
 
-        is LearningContentBlock.Quiz -> {
-            IslamicCard(
-                modifier = Modifier.fillMaxWidth(),
-                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-            ) {
-                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Text(
-                        text = block.question,
-                        style = MaterialTheme.typography.titleSmall,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    block.options.forEach { option ->
-                        Text(
-                            text = "• ${option.text}",
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                }
+@Composable
+private fun LearningQuestionAnswerCard(block: LearningContentBlock.QuestionAnswer) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            Text(
+                text = block.question,
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                text = block.answer,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+
+@Composable
+private fun LearningQuizCard(block: LearningContentBlock.Quiz) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            Text(
+                text = block.question,
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.Bold,
+            )
+            block.options.forEach { option ->
+                Text(
+                    text = "• ${option.text}",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
             }
         }
-
-        is LearningContentBlock.Steps -> Unit
     }
 }
 
