@@ -46,4 +46,63 @@ class BasmalaTest {
         assertThat(ArabicText.normalize(BASMALA)).isEqualTo("بسم الله الرحمن الرحيم")
     }
 
+
+    @Test
+    fun `al fatiha keeps basmala inline as numbered ayah one`() {
+        val text = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
+
+        val presentation = surahOpeningPresentation(
+            surahNumber = 1,
+            ayahNumber = 1,
+            text = text,
+        )
+
+        assertThat(presentation.ayahText).isEqualTo(text)
+        assertThat(presentation.standaloneBasmala).isNull()
+    }
+
+    @Test
+    fun `other surahs separate encoded basmala from first ayah`() {
+        val text = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ الٓمٓ"
+
+        val presentation = surahOpeningPresentation(
+            surahNumber = 2,
+            ayahNumber = 1,
+            text = text,
+        )
+
+        assertThat(ArabicText.normalize(presentation.ayahText)).isEqualTo("الم")
+        assertThat(ArabicText.normalize(presentation.standaloneBasmala.orEmpty()))
+            .isEqualTo("بسم الله الرحمن الرحيم")
+    }
+
+    @Test
+    fun `at tawbah never synthesizes an opening basmala`() {
+        val text = "بَرَآءَةٌ مِّنَ ٱللَّهِ وَرَسُولِهِۦٓ"
+
+        val presentation = surahOpeningPresentation(
+            surahNumber = 9,
+            ayahNumber = 1,
+            text = text,
+        )
+
+        assertThat(presentation.ayahText).isEqualTo(text)
+        assertThat(presentation.standaloneBasmala).isNull()
+    }
+
+    @Test
+    fun `standalone basmala preserves source shadda variant`() {
+        val text = "بِّسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ وَٱلتِّينِ وَٱلزَّيْتُونِ"
+
+        val presentation = surahOpeningPresentation(
+            surahNumber = 95,
+            ayahNumber = 1,
+            text = text,
+        )
+
+        assertThat(presentation.standaloneBasmala).startsWith("بِّسْمِ")
+        assertThat(ArabicText.normalize(presentation.ayahText))
+            .isEqualTo("والتين والزيتون")
+    }
+
 }
