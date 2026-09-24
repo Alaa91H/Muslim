@@ -45,8 +45,8 @@ def main() -> None:
     require("RecitationFailureReason.DownloadFailed" in view_model, "download failures must be explicit")
     require("playbackErrorCount" not in view_model, "legacy error-count presentation must not return")
 
-    require("SnackbarHostState" in reader, "reader must surface playback recovery through a snackbar")
-    require("viewModel.retryPlaybackAfterFailure()" in reader, "reader snackbar must expose retry")
+    require("Snackbar(" in reader, "reader must surface playback recovery through a snackbar")
+    require("viewModel::retryPlaybackAfterFailure" in reader, "reader snackbar must expose retry")
     require("playbackErrorCount" not in reader, "reader must not regress to error-count toasts")
 
     print("Quran playback/offline reliability contract verified.")
