@@ -22,7 +22,8 @@ class ScholarContentPackManagerTest {
     }
 
     @Test
-    fun managedPackUpdatePreservesIdentityAndRejectsUnsafeChanges() = runBlocking {
+    fun managedPackUpdatePreservesIdentityAndRejectsUnsafeChanges() {
+        runBlocking {
         val database = Room.inMemoryDatabaseBuilder(context, ScholarLibraryDatabase::class.java)
             .allowMainThreadQueries()
             .build()
@@ -64,6 +65,7 @@ class ScholarContentPackManagerTest {
             assertThat(passagesAfterRejectedUpdate).containsExactly(PASSAGE_ONE, PASSAGE_TWO)
         } finally {
             database.close()
+        }
         }
     }
 
