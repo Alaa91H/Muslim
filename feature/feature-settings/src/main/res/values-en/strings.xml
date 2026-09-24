@@ -228,6 +228,8 @@
     <string name="settings_updates_weekly">Weekly</string>
     <string name="settings_updates_monthly">Monthly</string>
     <string name="settings_updates_check_now">Check now</string>
+    <string name="settings_updates_checking">Checking…</string>
+    <string name="settings_updates_last_successful">Last successful check: %1$s</string>
     <string name="settings_updates_open">View updates</string>
     <string name="settings_updates_found">A newer version is available: %1$s</string>
     <string name="settings_updates_latest">You are on the latest version.</string>
@@ -250,6 +252,7 @@
     <string name="update_downloading_progress">%1$d%% • %2$s / %3$s</string>
     <string name="update_downloading_bytes">%1$s downloaded</string>
     <string name="update_download_paused">Download paused</string>
+    <string name="update_cancel_download">Cancel download</string>
     <string name="update_verifying">Verifying the update package and signature…</string>
     <string name="update_ready_to_install">Download complete. The package identity and signing certificate were verified and the update is ready to install.</string>
     <string name="update_integrity_metadata_available">This release includes SHA-256 integrity metadata and an authoritative version code for verification before installation.</string>

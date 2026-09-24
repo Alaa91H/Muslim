@@ -22,6 +22,8 @@
     <string name="settings_updates_weekly">أسبوعيا</string>
     <string name="settings_updates_monthly">شهريا</string>
     <string name="settings_updates_check_now">تحقق الآن</string>
+    <string name="settings_updates_checking">جارٍ الفحص…</string>
+    <string name="settings_updates_last_successful">آخر فحص ناجح: %1$s</string>
     <string name="settings_updates_open">عرض التحديثات</string>
     <string name="settings_updates_found">يتوفر إصدار أحدث: %1$s</string>
     <string name="settings_updates_latest">أنت على الإصدار الأحدث.</string>
@@ -42,6 +44,7 @@
     <string name="update_downloading_progress">%1$d%% • %2$s / %3$s</string>
     <string name="update_downloading_bytes">تم تنزيل %1$s</string>
     <string name="update_download_paused">التنزيل متوقف مؤقتًا</string>
+    <string name="update_cancel_download">إلغاء التنزيل</string>
     <string name="update_verifying">جارٍ التحقق من ملف التحديث وتوقيعه…</string>
     <string name="update_ready_to_install">اكتمل التنزيل وتم التحقق من هوية الحزمة والتوقيع. أصبح التحديث جاهزًا للتثبيت.</string>
     <string name="update_integrity_metadata_available">يتضمن هذا الإصدار بيانات تحقق SHA-256 ورقم إصدار موثوقًا قبل التثبيت.</string>

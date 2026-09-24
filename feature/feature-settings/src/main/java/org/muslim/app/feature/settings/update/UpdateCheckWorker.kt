@@ -23,17 +23,17 @@ open class UpdateCheckWorker(
 
     override suspend fun doWork(): Result {
         // The toggle is the master switch even if a stale job is still queued.
-        val prefsRepository = prefs()
+        val dependencies = dependencies()
+        val prefsRepository = dependencies.prefs()
         val prefs = prefsRepository.preferences.first()
         if (!prefs.updateCheckEnabled) return Result.success()
 
-        val checker = UpdateChecker(applicationContext)
-        return when (val result = checker.checkAndNotify()) {
+        return when (val result = dependencies.checker().checkAndNotify()) {
             is UpdateChecker.Result.UpdateAvailable -> {
                 prefsRepository.setLastUpdateCheck(System.currentTimeMillis())
                 val currentPreferences = prefsRepository.preferences.first()
                 if (currentPreferences.updateCheckEnabled && currentPreferences.autoUpdateEnabled) {
-                    UpdateDownloadManager(applicationContext, prefsRepository).enqueue(
+                    dependencies.downloads().enqueue(
                         release = result.release,
                         wifiOnly = currentPreferences.autoUpdateWifiOnly,
                     )
@@ -50,13 +50,14 @@ open class UpdateCheckWorker(
         }
     }
 
-    protected open fun prefs(): AppPreferencesRepository =
+    private fun dependencies(): UpdateEntryPoint =
         EntryPointAccessors.fromApplication(applicationContext, UpdateEntryPoint::class.java)
-            .prefs()
 
     @EntryPoint
     @InstallIn(SingletonComponent::class)
     interface UpdateEntryPoint {
         fun prefs(): AppPreferencesRepository
+        fun checker(): UpdateChecker
+        fun downloads(): UpdateDownloadManager
     }
 }

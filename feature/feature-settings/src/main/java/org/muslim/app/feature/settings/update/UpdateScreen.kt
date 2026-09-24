@@ -300,6 +300,12 @@ fun UpdateScreen(
                                     } ?: LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
                                 }
                             }
+                            OutlinedButton(
+                                onClick = viewModel::cancelDownload,
+                                modifier = Modifier.fillMaxWidth(),
+                            ) {
+                                Text(stringResource(R.string.update_cancel_download))
+                            }
                         }
 
                         is UpdateDownloadState.Paused -> {
@@ -324,6 +330,12 @@ fun UpdateScreen(
                                         )
                                     }
                                 }
+                            }
+                            OutlinedButton(
+                                onClick = viewModel::cancelDownload,
+                                modifier = Modifier.fillMaxWidth(),
+                            ) {
+                                Text(stringResource(R.string.update_cancel_download))
                             }
                         }
 
