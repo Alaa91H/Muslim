@@ -13,6 +13,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -30,8 +31,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -40,7 +39,6 @@ import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
@@ -70,6 +68,10 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.common.lang.AppLanguage
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicPrimaryButton
+import org.muslim.app.core.ui.theme.IslamicSecondaryButton
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.adhkar.R
 import org.muslim.app.feature.adhkar.data.AdhkarSpeechVoiceOption
@@ -117,7 +119,7 @@ fun AdhkarSettingsScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = IslamicSpacing.Medium),
         ) {
             SectionHeader(stringResource(R.string.adhkar_speech_section))
 
@@ -129,8 +131,8 @@ fun AdhkarSettingsScreen(
                 localSpeechVoices
             }
 
-            Card(modifier = Modifier.fillMaxWidth()) {
-                Column(modifier = Modifier.padding(16.dp)) {
+            IslamicCard(modifier = Modifier.fillMaxWidth()) {
+                Column {
                     SwitchRow(
                         label = stringResource(R.string.adhkar_speech_toggle),
                         checked = prefs.speechEnabled,
@@ -143,7 +145,7 @@ fun AdhkarSettingsScreen(
                     )
 
                     if (prefs.speechEnabled) {
-                        Spacer(Modifier.height(12.dp))
+                        Spacer(Modifier.height(IslamicSpacing.Compact))
 
                         Text(
                             text = stringResource(
@@ -156,7 +158,7 @@ fun AdhkarSettingsScreen(
                         )
 
                         if (networkSpeechVoices.isNotEmpty()) {
-                            Spacer(Modifier.height(4.dp))
+                            Spacer(Modifier.height(IslamicSpacing.XSmall))
                             SwitchRow(
                                 label = stringResource(R.string.adhkar_speech_allow_network),
                                 checked = prefs.speechAllowNetworkVoices,
@@ -169,32 +171,32 @@ fun AdhkarSettingsScreen(
                             )
                         }
 
-                        Spacer(Modifier.height(12.dp))
+                        Spacer(Modifier.height(IslamicSpacing.Compact))
                         SpeechVoiceDropdown(
                             voices = visibleSpeechVoices,
                             currentVoiceName = prefs.speechVoiceName,
                             onSelected = viewModel::setSpeechVoiceName,
                         )
 
-                        Spacer(Modifier.height(12.dp))
+                        Spacer(Modifier.height(IslamicSpacing.Compact))
                         SpeechRateControl(
                             rate = prefs.speechRate,
                             onRateChanged = viewModel::setSpeechRate,
                         )
 
-                        Spacer(Modifier.height(12.dp))
+                        Spacer(Modifier.height(IslamicSpacing.Compact))
                         Row(
                             modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
                         ) {
-                            OutlinedButton(
+                            IslamicSecondaryButton(
                                 onClick = viewModel::previewSpeech,
                                 enabled = speechReady && previewDhikr != null && visibleSpeechVoices.isNotEmpty(),
                                 modifier = Modifier.weight(1f),
                             ) {
                                 Text(stringResource(R.string.adhkar_speech_preview))
                             }
-                            OutlinedButton(
+                            IslamicSecondaryButton(
                                 onClick = viewModel::refreshSpeechVoices,
                                 modifier = Modifier.weight(1f),
                             ) {
@@ -202,8 +204,8 @@ fun AdhkarSettingsScreen(
                             }
                         }
 
-                        Spacer(Modifier.height(8.dp))
-                        OutlinedButton(
+                        Spacer(Modifier.height(IslamicSpacing.Small))
+                        IslamicSecondaryButton(
                             onClick = {
                                 runCatching {
                                     context.startActivity(Intent(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA))
@@ -215,7 +217,7 @@ fun AdhkarSettingsScreen(
                         }
 
                         if (speechInitializationFailed || visibleSpeechVoices.isEmpty()) {
-                            Spacer(Modifier.height(8.dp))
+                            Spacer(Modifier.height(IslamicSpacing.Small))
                             Text(
                                 text = stringResource(R.string.adhkar_speech_unavailable),
                                 style = MaterialTheme.typography.bodySmall,
@@ -249,7 +251,7 @@ fun AdhkarSettingsScreen(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
 
             FloatingMessagePreview(
                 dhikr = previewDhikr,
@@ -272,13 +274,13 @@ fun AdhkarSettingsScreen(
                 onReset = viewModel::resetOverlayAppearance,
             )
 
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
 
             if (!viewModel.overlayPermissionGranted) {
                 OutlinedButtonFill {
                     Text(stringResource(R.string.adhkar_overlay_grant_permission))
                 }
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(IslamicSpacing.XSmall))
                 Text(
                     text = stringResource(R.string.adhkar_overlay_permission_hint),
                     style = MaterialTheme.typography.bodySmall,
@@ -293,10 +295,10 @@ fun AdhkarSettingsScreen(
                     text = stringResource(R.string.adhkar_overlay_tap_hint),
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(top = 4.dp),
+                    modifier = Modifier.padding(top = IslamicSpacing.XSmall),
                 )
-                Spacer(Modifier.height(8.dp))
-                Button(
+                Spacer(Modifier.height(IslamicSpacing.Small))
+                IslamicPrimaryButton(
                     onClick = viewModel::testOverlay,
                     enabled = prefs.overlayEnabled,
                     modifier = Modifier.fillMaxWidth(),
@@ -305,12 +307,12 @@ fun AdhkarSettingsScreen(
                 }
             }
 
-            Spacer(Modifier.height(8.dp))
-            Card(modifier = Modifier.fillMaxWidth().clickable(onClick = onOpenCustomize)) {
-                Row(
-                    modifier = Modifier.padding(16.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
+            Spacer(Modifier.height(IslamicSpacing.Small))
+            IslamicCard(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = onOpenCustomize,
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
                         text = stringResource(R.string.adhkar_customize_title),
                         style = MaterialTheme.typography.bodyLarge,
@@ -376,25 +378,25 @@ fun AdhkarSettingsScreen(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
 
             if (prefs.periodicReminderEnabled) {
                 IntervalDropdown(
                     current = prefs.periodicReminderIntervalMinutes,
                     onSelected = viewModel::setPeriodicReminderInterval,
                 )
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(IslamicSpacing.Small))
                 CategoryDropdown(
                     current = prefs.periodicReminderCategoryId,
                     onSelected = viewModel::setPeriodicReminderCategory,
                 )
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(IslamicSpacing.Small))
                 DhikrDropdown(
                     allAdhkar = viewModel.allAdhkar,
                     current = prefs.periodicReminderDhikrId,
                     onSelected = viewModel::setPeriodicReminderDhikr,
                 )
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(IslamicSpacing.Small))
                 WindowSlot(
                     enabled = prefs.periodicReminderWindowEnabled,
                     startHour = prefs.periodicReminderWindowStartHour,
@@ -449,7 +451,7 @@ fun AdhkarSettingsScreen(
                 )
             }
 
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(IslamicSpacing.Large))
         }
     }
 }
@@ -470,7 +472,7 @@ private fun FloatingMessagePreview(
     fontSizeSp: Int,
 ) {
     Column(
-        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+        modifier = Modifier.fillMaxWidth().padding(vertical = IslamicSpacing.XSmall),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
@@ -478,7 +480,7 @@ private fun FloatingMessagePreview(
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-        Spacer(Modifier.height(6.dp))
+        Spacer(Modifier.height(IslamicSpacing.Small))
         // English fallback hidden for Arabic UI (each language shows its own).
         val showEnglishFallback = AppLanguage.showEnglishFallback()
         Surface(
@@ -509,7 +511,7 @@ private fun FloatingMessagePreview(
                         textAlign = TextAlign.Center,
                     )
                     if (showEnglishFallback && sample.translation.isNotBlank()) {
-                        Spacer(Modifier.height(6.dp))
+                        Spacer(Modifier.height(IslamicSpacing.Small))
                         // English fallback hidden for Arabic readers: the bubble
                         // preview must mirror what the real overlay will show.
                         Text(
@@ -520,7 +522,7 @@ private fun FloatingMessagePreview(
                         )
                     }
                     if (sample.source.isNotBlank()) {
-                        Spacer(Modifier.height(8.dp))
+                        Spacer(Modifier.height(IslamicSpacing.Small))
                         Text(
                             text = sample.source,
                             fontSize = (fontSizeSp - 10).coerceAtLeast(10).sp,
@@ -531,7 +533,7 @@ private fun FloatingMessagePreview(
                 }
             }
         }
-        Spacer(Modifier.height(4.dp))
+        Spacer(Modifier.height(IslamicSpacing.XSmall))
         Text(
             text = stringResource(R.string.adhkar_overlay_preview_dismiss, durationSeconds.toString()),
             style = MaterialTheme.typography.labelSmall,
@@ -565,7 +567,7 @@ private fun BubbleAppearanceControls(
             text = stringResource(R.string.adhkar_overlay_appearance),
             style = MaterialTheme.typography.titleSmall,
             color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.padding(top = 8.dp, bottom = 4.dp),
+            modifier = Modifier.padding(top = IslamicSpacing.Small, bottom = IslamicSpacing.XSmall),
         )
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
@@ -582,13 +584,13 @@ private fun BubbleAppearanceControls(
                     .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape),
             )
         }
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(IslamicSpacing.Small))
         HsvColorPicker(
             rgb = backgroundColor and 0xFFFFFF,
             onRgbChanged = onBackgroundColor,
         )
 
-        Spacer(Modifier.height(12.dp))
+        Spacer(Modifier.height(IslamicSpacing.Compact))
         Text(
             text = stringResource(R.string.adhkar_overlay_alpha, alphaPercent(backgroundAlpha)),
             style = MaterialTheme.typography.labelLarge,
@@ -601,34 +603,34 @@ private fun BubbleAppearanceControls(
             modifier = Modifier.fillMaxWidth(),
         )
 
-        Spacer(Modifier.height(4.dp))
+        Spacer(Modifier.height(IslamicSpacing.XSmall))
         Text(
             text = stringResource(R.string.adhkar_overlay_corner_radius),
             style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-        Spacer(Modifier.height(6.dp))
+        Spacer(Modifier.height(IslamicSpacing.Small))
         ChoiceChips(
             options = CORNER_RADIUS_OPTIONS,
             selected = cornerRadiusDp,
             label = { stringResource(R.string.adhkar_overlay_corner_radius_value, it) },
             onSelected = onCornerRadius,
         )
-        Spacer(Modifier.height(12.dp))
+        Spacer(Modifier.height(IslamicSpacing.Compact))
         Text(
             text = stringResource(R.string.adhkar_overlay_font_size),
             style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-        Spacer(Modifier.height(6.dp))
+        Spacer(Modifier.height(IslamicSpacing.Small))
         ChoiceChips(
             options = FONT_SIZE_OPTIONS,
             selected = fontSizeSp,
             label = { stringResource(R.string.adhkar_overlay_font_size_value, it) },
             onSelected = onFontSize,
         )
-        Spacer(Modifier.height(8.dp))
-        OutlinedButton(
+        Spacer(Modifier.height(IslamicSpacing.Small))
+        IslamicSecondaryButton(
             onClick = onReset,
             modifier = Modifier.fillMaxWidth(),
         ) {
@@ -645,7 +647,7 @@ private fun ChoiceChips(
     label: @Composable (Int) -> String,
     onSelected: (Int) -> Unit,
 ) {
-    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+    Row(horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small)) {
         options.forEach { option ->
             val isSelected = option == selected
             Surface(
@@ -793,14 +795,14 @@ private fun SectionHeader(text: String) {
         text = text,
         style = MaterialTheme.typography.titleMedium,
         color = MaterialTheme.colorScheme.primary,
-        modifier = Modifier.padding(top = 20.dp, bottom = 8.dp),
+        modifier = Modifier.padding(top = IslamicSpacing.Comfortable, bottom = IslamicSpacing.Small),
     )
 }
 
 @Composable
 private fun SwitchRow(label: String, checked: Boolean, onCheckedChange: (Boolean) -> Unit) {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+        modifier = Modifier.fillMaxWidth().padding(vertical = IslamicSpacing.XSmall),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(label, style = MaterialTheme.typography.bodyLarge, modifier = Modifier.weight(1f))
@@ -811,7 +813,7 @@ private fun SwitchRow(label: String, checked: Boolean, onCheckedChange: (Boolean
 @Composable
 private fun OutlinedButtonFill(content: @Composable () -> Unit) {
     val context = LocalContext.current
-    androidx.compose.material3.OutlinedButton(
+    IslamicSecondaryButton(
         onClick = {
             runCatching {
                 context.startActivity(
@@ -869,7 +871,7 @@ private fun ReminderNotificationPreview(
     use24h: Boolean,
 ) {
     Column(
-        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+        modifier = Modifier.fillMaxWidth().padding(vertical = IslamicSpacing.XSmall),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
@@ -877,7 +879,7 @@ private fun ReminderNotificationPreview(
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-        Spacer(Modifier.height(6.dp))
+        Spacer(Modifier.height(IslamicSpacing.Small))
         Surface(
             shape = RoundedCornerShape(16.dp),
             color = MaterialTheme.colorScheme.surfaceContainerHighest,
@@ -902,7 +904,7 @@ private fun ReminderNotificationPreview(
                         style = MaterialTheme.typography.labelLarge,
                         fontWeight = FontWeight.SemiBold,
                     )
-                    Spacer(Modifier.height(2.dp))
+                    Spacer(Modifier.height(IslamicSpacing.XXSmall))
                     Text(
                         text = dhikr?.arabic?.take(140) ?: stringResource(R.string.adhkar_overlay_preview_loading),
                         style = MaterialTheme.typography.bodyMedium,
@@ -919,7 +921,7 @@ private fun ReminderNotificationPreview(
                 )
             }
         }
-        Spacer(Modifier.height(4.dp))
+        Spacer(Modifier.height(IslamicSpacing.XSmall))
         Text(
             text = stringResource(R.string.adhkar_reminder_preview_hint),
             style = MaterialTheme.typography.labelSmall,
@@ -938,8 +940,14 @@ private fun ReminderSlot(
     onHourChanged: (Int) -> Unit,
     onMinuteChanged: (Int) -> Unit,
 ) {
-    Card(modifier = Modifier.fillMaxWidth().padding(vertical = 6.dp)) {
-        Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth().padding(vertical = IslamicSpacing.Small),
+        contentPadding = PaddingValues(
+            horizontal = IslamicSpacing.Medium,
+            vertical = IslamicSpacing.Small,
+        ),
+    ) {
+        Column {
             SwitchRow(label = title, checked = enabled, onCheckedChange = onEnabledChanged)
             if (enabled) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -953,7 +961,7 @@ private fun ReminderSlot(
                         value = String.format(Locale.ROOT, "%02d", hour),
                         onSelected = { onHourChanged(it.toInt()) },
                     )
-                    Spacer(Modifier.padding(horizontal = 4.dp))
+                    Spacer(Modifier.padding(horizontal = IslamicSpacing.XSmall))
                     TimeDropdown(
                         options = MINUTE_OPTIONS,
                         value = String.format(Locale.ROOT, "%02d", minute),
@@ -1099,8 +1107,14 @@ private fun WindowSlot(
     onEndHourChanged: (Int) -> Unit,
     onEndMinuteChanged: (Int) -> Unit,
 ) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        contentPadding = PaddingValues(
+            horizontal = IslamicSpacing.Medium,
+            vertical = IslamicSpacing.Small,
+        ),
+    ) {
+        Column {
             SwitchRow(
                 label = stringResource(R.string.adhkar_periodic_window_toggle),
                 checked = enabled,
@@ -1113,7 +1127,7 @@ private fun WindowSlot(
                 )
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     TimeDropdown(HOUR_OPTIONS, String.format(Locale.ROOT, "%02d", startHour)) { onStartHourChanged(it.toInt()) }
-                    Spacer(Modifier.padding(horizontal = 4.dp))
+                    Spacer(Modifier.padding(horizontal = IslamicSpacing.XSmall))
                     TimeDropdown(MINUTE_OPTIONS, String.format(Locale.ROOT, "%02d", startMinute)) { onStartMinuteChanged(it.toInt()) }
                 }
                 Text(
@@ -1122,7 +1136,7 @@ private fun WindowSlot(
                 )
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     TimeDropdown(HOUR_OPTIONS, String.format(Locale.ROOT, "%02d", endHour)) { onEndHourChanged(it.toInt()) }
-                    Spacer(Modifier.padding(horizontal = 4.dp))
+                    Spacer(Modifier.padding(horizontal = IslamicSpacing.XSmall))
                     TimeDropdown(MINUTE_OPTIONS, String.format(Locale.ROOT, "%02d", endMinute)) { onEndMinuteChanged(it.toInt()) }
                 }
             }
