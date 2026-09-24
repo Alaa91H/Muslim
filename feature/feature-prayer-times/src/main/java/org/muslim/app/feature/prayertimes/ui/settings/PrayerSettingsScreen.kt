@@ -11,6 +11,7 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
@@ -36,8 +37,6 @@ import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -49,7 +48,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Slider
@@ -79,6 +77,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.designsystem.IslamicIconSize
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicPrimaryButton
+import org.muslim.app.core.ui.theme.IslamicSecondaryButton
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.core.common.prayer.AdhanSoundOption
 import org.muslim.app.core.common.prayer.BundledAdhanSound
@@ -163,8 +166,14 @@ fun PrayerSettingsScreen(
         HighLatitudeDropdown(settings.highLatitudeRule) { viewModel.setHighLatitudeRule(it) }
 
         SectionHeader(stringResource(R.string.settings_adjustments))
-        Card(modifier = Modifier.fillMaxWidth()) {
-            Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)) {
+        IslamicCard(
+            modifier = Modifier.fillMaxWidth(),
+            contentPadding = PaddingValues(
+                horizontal = IslamicSpacing.Medium,
+                vertical = IslamicSpacing.XSmall,
+            ),
+        ) {
+            Column {
                 Prayer.entries.forEachIndexed { index, prayer ->
                     if (index > 0) HorizontalDivider()
                     StepperRow(
@@ -238,9 +247,9 @@ fun PrayerSettingsScreen(
                 notificationManager.isNotificationPolicyAccessGranted
             }
             if (!policyGranted) {
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(IslamicSpacing.XSmall))
                 val settingsContext = LocalContext.current
-                OutlinedButton(
+                IslamicSecondaryButton(
                     onClick = {
                         runCatching {
                             settingsContext.startActivity(
@@ -252,7 +261,7 @@ fun PrayerSettingsScreen(
                 ) {
                     Text(stringResource(R.string.settings_dnd_grant))
                 }
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(IslamicSpacing.XSmall))
                 Text(
                     text = stringResource(R.string.settings_dnd_hint),
                     style = MaterialTheme.typography.bodySmall,
@@ -358,7 +367,7 @@ fun PrayerSettingsScreen(
         // is configured for the next prayer (the one that would actually ring
         // at adhan time); tapping again while it is ringing stops it.
         val previewTarget = nextPrayer?.first ?: Prayer.Fajr
-        OutlinedButton(
+        IslamicSecondaryButton(
             onClick = {
                 if (previewingPrayer != null) {
                     viewModel.stopPreview()
@@ -367,14 +376,14 @@ fun PrayerSettingsScreen(
                     viewModel.previewAdhan(previewTarget)
                 }
             },
-            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+            modifier = Modifier.fillMaxWidth().padding(top = IslamicSpacing.Small),
         ) {
             Icon(
                 imageVector = if (previewingPrayer != null) Icons.Filled.Stop else Icons.Filled.PlayArrow,
                 contentDescription = null,
-                modifier = Modifier.size(18.dp),
+                modifier = Modifier.size(IslamicIconSize.Supporting),
             )
-            Spacer(Modifier.width(6.dp))
+            Spacer(Modifier.width(IslamicSpacing.Small))
             Text(
                 if (previewingPrayer != null) {
                     stringResource(R.string.settings_preview_stop)
@@ -389,29 +398,25 @@ fun PrayerSettingsScreen(
 
         // Transparent guidance, never forced (PROJECT_PROMPT.md §3.5).
         SectionHeader(stringResource(R.string.settings_battery_title))
-        Card(modifier = Modifier.fillMaxWidth()) {
-            Column(modifier = Modifier.padding(16.dp)) {
+        IslamicCard(modifier = Modifier.fillMaxWidth()) {
+            Column {
                 Text(
                     text = stringResource(R.string.settings_battery_desc),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(IslamicSpacing.Small))
                 BatterySettingsButton()
                 ExactAlarmButton()
             }
         }
 
         SectionHeader(stringResource(R.string.settings_location))
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable(onClick = onOpenLocation),
+        IslamicCard(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = onOpenLocation,
         ) {
-            Row(
-                modifier = Modifier.padding(16.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = settings.location?.name ?: stringResource(R.string.home_select_location),
                     style = MaterialTheme.typography.bodyLarge,
@@ -428,7 +433,7 @@ fun PrayerSettingsScreen(
             onChanged = viewModel::setHijriAdjustment,
         )
 
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(IslamicSpacing.Large))
     }
 }
 
@@ -481,26 +486,26 @@ private fun AdhanReadinessCard(
     onVerify: () -> Unit,
 ) {
     val recoveryActions = rememberAdhanRecoveryActions()
-    Card(
+    IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 8.dp),
+            .padding(top = IslamicSpacing.Small),
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
+        Column {
             Text(
                 text = stringResource(R.string.settings_adhan_verify_title),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.SemiBold,
             )
-            Spacer(Modifier.height(4.dp))
+            Spacer(Modifier.height(IslamicSpacing.XSmall))
             Text(
                 text = stringResource(R.string.settings_adhan_verify_desc),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
             AdhanReadinessStatusBanner(readiness)
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             AdhanReadinessItem(readiness.adhanEnabled, R.string.settings_adhan_check_enabled)
             AdhanReadinessItem(readiness.hasLocation, R.string.settings_adhan_check_location)
             AdhanReadinessItem(
@@ -520,25 +525,25 @@ private fun AdhanReadinessCard(
             AdhanReadinessItem(readiness.scheduledAudioVerified, R.string.settings_adhan_check_sound)
             AdhanReadinessItem(readiness.alarmVolumeAudible, R.string.settings_adhan_check_alarm_volume)
             readiness.lastProbeDetail?.let { detail ->
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(IslamicSpacing.Small))
                 Text(
                     text = detail,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.error,
                 )
             }
-            Spacer(Modifier.height(12.dp))
-            Button(
+            Spacer(Modifier.height(IslamicSpacing.Compact))
+            IslamicPrimaryButton(
                 onClick = onVerify,
                 enabled = !readiness.isVerifying,
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 if (readiness.isVerifying) {
                     CircularProgressIndicator(
-                        modifier = Modifier.size(18.dp),
+                        modifier = Modifier.size(IslamicIconSize.Supporting),
                         strokeWidth = 2.dp,
                     )
-                    Spacer(Modifier.width(8.dp))
+                    Spacer(Modifier.width(IslamicSpacing.Small))
                 }
                 Text(stringResource(R.string.settings_adhan_verify_action))
             }
@@ -565,9 +570,9 @@ private fun AdhanReadinessStatusBanner(readiness: AdhanReadiness) {
             Icon(
                 imageVector = if (readiness.isReady) Icons.Filled.CheckCircle else Icons.Filled.ErrorOutline,
                 contentDescription = null,
-                modifier = Modifier.size(18.dp),
+                modifier = Modifier.size(IslamicIconSize.Supporting),
             )
-            Spacer(Modifier.width(8.dp))
+            Spacer(Modifier.width(IslamicSpacing.Small))
             Text(
                 text = stringResource(
                     if (readiness.isReady) {
@@ -666,7 +671,7 @@ private fun AdhanNotificationPreview(
                         style = MaterialTheme.typography.labelLarge,
                         fontWeight = FontWeight.SemiBold,
                     )
-                    Spacer(Modifier.height(2.dp))
+                    Spacer(Modifier.height(IslamicSpacing.XXSmall))
                     Text(
                         text = if (prayer == null) {
                             stringResource(R.string.settings_adhan_preview_no_location)
@@ -688,7 +693,7 @@ private fun AdhanNotificationPreview(
                 }
             }
         }
-        Spacer(Modifier.height(4.dp))
+        Spacer(Modifier.height(IslamicSpacing.XSmall))
         Text(
             text = stringResource(R.string.settings_adhan_preview_hint),
             style = MaterialTheme.typography.labelSmall,
@@ -737,7 +742,7 @@ private fun ReminderNotificationPreview(
                         style = MaterialTheme.typography.labelLarge,
                         fontWeight = FontWeight.SemiBold,
                     )
-                    Spacer(Modifier.height(2.dp))
+                    Spacer(Modifier.height(IslamicSpacing.XXSmall))
                     Text(
                         text = if (prayer == null) {
                             stringResource(R.string.settings_adhan_preview_no_location)
@@ -756,7 +761,7 @@ private fun ReminderNotificationPreview(
                 }
             }
         }
-        Spacer(Modifier.height(4.dp))
+        Spacer(Modifier.height(IslamicSpacing.XSmall))
         Text(
             text = stringResource(R.string.settings_reminder_preview_hint),
             style = MaterialTheme.typography.labelSmall,
@@ -839,13 +844,17 @@ private fun AdhanSoundRow(
     onVibrateChange: (Boolean) -> Unit,
     onCustomize: () -> Unit,
 ) {
-    Card(
+    IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 4.dp)
-            .clickable(onClick = onCustomize),
+            .padding(vertical = IslamicSpacing.XSmall),
+        contentPadding = PaddingValues(
+            horizontal = IslamicSpacing.Medium,
+            vertical = IslamicSpacing.Small,
+        ),
+        onClick = onCustomize,
     ) {
-        Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
+        Column {
             // Volume + vibration controls live at the top of the card so the
             // full per-prayer configuration is adjustable right here, without
             // opening the customize dialog.
@@ -898,7 +907,7 @@ private fun AdhanSoundRow(
                         text = stringResource(prayerLabelRes(prayer)),
                         style = MaterialTheme.typography.titleSmall,
                     )
-                    Spacer(Modifier.height(2.dp))
+                    Spacer(Modifier.height(IslamicSpacing.XXSmall))
                     Text(
                         text = stringResource(
                             R.string.settings_adhan_sound_summary,
@@ -1047,7 +1056,7 @@ private fun AdhanInformationDensitySelector(
 ) {
     DialogSectionTitle(R.string.settings_information_density, compact)
     Row(modifier = Modifier.fillMaxWidth()) {
-        OutlinedButton(
+        IslamicSecondaryButton(
             onClick = { onDensityChange(AppInformationDensity.Comfortable) },
             enabled = density != AppInformationDensity.Comfortable,
             modifier = Modifier.weight(1f),
@@ -1055,7 +1064,7 @@ private fun AdhanInformationDensitySelector(
             Text(stringResource(R.string.settings_information_density_comfortable))
         }
         Spacer(Modifier.width(if (compact) 4.dp else 8.dp))
-        OutlinedButton(
+        IslamicSecondaryButton(
             onClick = { onDensityChange(AppInformationDensity.Compact) },
             enabled = density != AppInformationDensity.Compact,
             modifier = Modifier.weight(1f),
@@ -1246,7 +1255,7 @@ private fun VolumeRow(
 @Composable
 private fun BatterySettingsButton() {
     val context = LocalContext.current
-    Button(onClick = {
+    IslamicPrimaryButton(onClick = {
         // Opens the system battery-optimization list for this app. No special
         // permission needed (unlike ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).
         val intent = Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS)
@@ -1270,14 +1279,14 @@ private fun ExactAlarmButton() {
     if (alarmManager.canScheduleExactAlarms()) return
 
     Column {
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(IslamicSpacing.Small))
         Text(
             text = stringResource(R.string.settings_exact_alarm_hint),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-        Spacer(Modifier.height(8.dp))
-        OutlinedButton(
+        Spacer(Modifier.height(IslamicSpacing.Small))
+        IslamicSecondaryButton(
             onClick = {
                 runCatching {
                     context.startActivity(
@@ -1522,11 +1531,11 @@ private fun CustomSoundRow(
             }
         } else {
             Row(modifier = Modifier.fillMaxWidth()) {
-                OutlinedButton(onClick = onPickFile, modifier = Modifier.weight(1f)) {
+                IslamicSecondaryButton(onClick = onPickFile, modifier = Modifier.weight(1f)) {
                     Text(stringResource(R.string.settings_sound_pick))
                 }
-                Spacer(Modifier.width(8.dp))
-                OutlinedButton(onClick = onDownload, modifier = Modifier.weight(1f)) {
+                Spacer(Modifier.width(IslamicSpacing.Small))
+                IslamicSecondaryButton(onClick = onDownload, modifier = Modifier.weight(1f)) {
                     Text(stringResource(R.string.settings_sound_download))
                 }
             }
@@ -1550,7 +1559,7 @@ private fun DownloadSoundDialog(
                     text = stringResource(R.string.settings_sound_dialog_hint),
                     style = MaterialTheme.typography.bodySmall,
                 )
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(IslamicSpacing.Small))
                 OutlinedTextField(
                     value = url,
                     onValueChange = { url = it },

@@ -66,3 +66,22 @@ When modifying another feature screen:
    layer does not own.
 5. If several features need the same new pattern, add it to the shared layer before
    duplicating it across screens.
+
+
+## Expanded strict surfaces
+
+The next adoption wave promotes additional high-use screens to strict shared-component
+ownership:
+
+- Notification Settings: ordinary cards and primary/secondary actions use the shared
+  Islamic components while system dialogs, switches, chips, and text actions remain
+  specialized Material controls.
+- Prayer Settings: adjustment, readiness, battery, location, and per-prayer Adhan
+  surfaces/actions use the shared component layer.
+- Hadith: the remaining ordinary daily-Hadith card uses `IslamicCard`.
+- Quran Downloads: all ordinary layout padding/gaps now use `IslamicSpacing`;
+  progress-bar dimensions remain explicit geometry.
+
+The CI verifier now protects these surfaces from reintroducing ordinary raw
+`Card`, `Button`, or `OutlinedButton` patterns. It also requires Quran Downloads
+to remain free of raw dp layout-spacing literals.
