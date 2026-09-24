@@ -59,76 +59,100 @@ internal fun LearningHubControls(
                 Text(stringResource(R.string.learn_search_hint))
             },
         )
-
-        IslamicCard(
-            modifier = Modifier.fillMaxWidth(),
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-        ) {
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                Text(
-                    text = stringResource(
-                        R.string.learn_overall_progress,
-                        progress.completed,
-                        progress.total,
-                    ),
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.Bold,
-                )
-                LinearProgressIndicator(
-                    progress = { progress.fraction },
-                    modifier = Modifier.fillMaxWidth(),
-                )
-            }
-        }
-
+        OverallProgressCard(progress)
         continueTopic?.let { topic ->
-            IslamicCard(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { onContinue(topic) },
-                containerColor = MaterialTheme.colorScheme.secondaryContainer,
-            ) {
-                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Text(
-                        text = stringResource(R.string.learn_continue_learning),
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    Text(
-                        text = stringResource(topic.titleRes),
-                        style = MaterialTheme.typography.bodyLarge,
-                        fontWeight = FontWeight.SemiBold,
-                    )
-                    Text(
-                        text = stringResource(R.string.learn_continue_subtitle),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    )
-                }
-            }
+            ContinueLearningCard(
+                topic = topic,
+                onContinue = { onContinue(topic) },
+            )
         }
-
         if (mistakeCount > 0) {
-            IslamicCard(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable(onClick = onReviewMistakes),
-                containerColor = MaterialTheme.colorScheme.errorContainer,
-            ) {
-                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Text(
-                        text = stringResource(R.string.learn_review_mistakes),
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onErrorContainer,
-                    )
-                    Text(
-                        text = stringResource(R.string.learn_review_mistakes_count, mistakeCount),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onErrorContainer,
-                    )
-                }
-            }
+            MistakeShortcutCard(
+                mistakeCount = mistakeCount,
+                onReviewMistakes = onReviewMistakes,
+            )
+        }
+    }
+}
+
+@Composable
+private fun OverallProgressCard(progress: LearningProgressSummary) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.primaryContainer,
+    ) {
+        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text(
+                text = stringResource(
+                    R.string.learn_overall_progress,
+                    progress.completed,
+                    progress.total,
+                ),
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.Bold,
+            )
+            LinearProgressIndicator(
+                progress = { progress.fraction },
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
+    }
+}
+
+@Composable
+private fun ContinueLearningCard(
+    topic: LearnTopic,
+    onContinue: () -> Unit,
+) {
+    IslamicCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onContinue),
+        containerColor = MaterialTheme.colorScheme.secondaryContainer,
+    ) {
+        Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Text(
+                text = stringResource(R.string.learn_continue_learning),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                text = stringResource(topic.titleRes),
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = FontWeight.SemiBold,
+            )
+            Text(
+                text = stringResource(R.string.learn_continue_subtitle),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
+        }
+    }
+}
+
+@Composable
+private fun MistakeShortcutCard(
+    mistakeCount: Int,
+    onReviewMistakes: () -> Unit,
+) {
+    IslamicCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onReviewMistakes),
+        containerColor = MaterialTheme.colorScheme.errorContainer,
+    ) {
+        Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Text(
+                text = stringResource(R.string.learn_review_mistakes),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onErrorContainer,
+            )
+            Text(
+                text = stringResource(R.string.learn_review_mistakes_count, mistakeCount),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onErrorContainer,
+            )
         }
     }
 }
