@@ -24,48 +24,48 @@ class ScholarContentPackManagerTest {
     @Test
     fun managedPackUpdatePreservesIdentityAndRejectsUnsafeChanges() {
         runBlocking {
-        val database = Room.inMemoryDatabaseBuilder(context, ScholarLibraryDatabase::class.java)
-            .allowMainThreadQueries()
-            .build()
-        try {
-            val manager = ScholarContentPackManager(
-                context = context,
-                libraryDao = database.libraryDao(),
-                ftsDao = database.ftsDao(),
-                json = json,
-            )
+            val database = Room.inMemoryDatabaseBuilder(context, ScholarLibraryDatabase::class.java)
+                .allowMainThreadQueries()
+                .build()
+            try {
+                val manager = ScholarContentPackManager(
+                    context = context,
+                    libraryDao = database.libraryDao(),
+                    ftsDao = database.ftsDao(),
+                    json = json,
+                )
 
-            val installed = manager.importPack(PACK_VERSION_ONE, "pack-v1.json")
-            assertThat(installed).isInstanceOf(ScholarLibraryImportResult.Success::class.java)
-            val first = installed as ScholarLibraryImportResult.Success
-            assertThat(first.replacedExisting).isFalse()
-            assertThat(first.packVersion).isEqualTo(1)
+                val installed = manager.importPack(PACK_VERSION_ONE, "pack-v1.json")
+                assertThat(installed).isInstanceOf(ScholarLibraryImportResult.Success::class.java)
+                val first = installed as ScholarLibraryImportResult.Success
+                assertThat(first.replacedExisting).isFalse()
+                assertThat(first.packVersion).isEqualTo(1)
 
-            val updated = manager.importPack(PACK_VERSION_TWO, "pack-v2.json")
-            assertThat(updated).isInstanceOf(ScholarLibraryImportResult.Success::class.java)
-            val second = updated as ScholarLibraryImportResult.Success
-            assertThat(second.replacedExisting).isTrue()
-            assertThat(second.packVersion).isEqualTo(2)
+                val updated = manager.importPack(PACK_VERSION_TWO, "pack-v2.json")
+                assertThat(updated).isInstanceOf(ScholarLibraryImportResult.Success::class.java)
+                val second = updated as ScholarLibraryImportResult.Success
+                assertThat(second.replacedExisting).isTrue()
+                assertThat(second.packVersion).isEqualTo(2)
 
-            val registered = manager.contentPacks.first().first { it.id == PACK_ID }
-            assertThat(registered.version).isEqualTo(2)
-            assertThat(registered.installation.managed).isTrue()
-            assertThat(registered.installation.bookIds).containsExactly(BOOK_ID)
-            assertThat(database.libraryDao().observePassagesForBook(BOOK_ID).first().map { it.id })
-                .containsExactly(PASSAGE_ONE, PASSAGE_TWO)
+                val registered = manager.contentPacks.first().first { it.id == PACK_ID }
+                assertThat(registered.version).isEqualTo(2)
+                assertThat(registered.installation.managed).isTrue()
+                assertThat(registered.installation.bookIds).containsExactly(BOOK_ID)
+                assertThat(database.libraryDao().observePassagesForBook(BOOK_ID).first().map { it.id })
+                    .containsExactly(PASSAGE_ONE, PASSAGE_TWO)
 
-            val downgrade = manager.importPack(PACK_VERSION_ONE, "pack-v1.json")
-            assertThat(downgrade).isInstanceOf(ScholarLibraryImportResult.Failure::class.java)
+                val downgrade = manager.importPack(PACK_VERSION_ONE, "pack-v1.json")
+                assertThat(downgrade).isInstanceOf(ScholarLibraryImportResult.Failure::class.java)
 
-            val destructive = manager.importPack(PACK_VERSION_THREE_WITH_REMOVAL, "pack-v3.json")
-            assertThat(destructive).isInstanceOf(ScholarLibraryImportResult.Failure::class.java)
+                val destructive = manager.importPack(PACK_VERSION_THREE_WITH_REMOVAL, "pack-v3.json")
+                assertThat(destructive).isInstanceOf(ScholarLibraryImportResult.Failure::class.java)
 
-            val passagesAfterRejectedUpdate =
-                database.libraryDao().observePassagesForBook(BOOK_ID).first().map { it.id }
-            assertThat(passagesAfterRejectedUpdate).containsExactly(PASSAGE_ONE, PASSAGE_TWO)
-        } finally {
-            database.close()
-        }
+                val passagesAfterRejectedUpdate =
+                    database.libraryDao().observePassagesForBook(BOOK_ID).first().map { it.id }
+                assertThat(passagesAfterRejectedUpdate).containsExactly(PASSAGE_ONE, PASSAGE_TWO)
+            } finally {
+                database.close()
+            }
         }
     }
 
