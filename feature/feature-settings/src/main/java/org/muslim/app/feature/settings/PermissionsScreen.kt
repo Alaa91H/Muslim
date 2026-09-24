@@ -30,14 +30,16 @@ import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.filled.Power
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Vibration
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
+import org.muslim.app.core.designsystem.IslamicIconSize
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicPrimaryButton
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -54,7 +56,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -142,15 +143,13 @@ fun PermissionsScreen(
 @Composable
 private fun PermissionSummaryCard(granted: Int, applicable: Int) {
     val allGranted = applicable > 0 && granted == applicable
-    Card(
+    IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
     ) {
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
+            modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
@@ -161,15 +160,15 @@ private fun PermissionSummaryCard(granted: Int, applicable: Int) {
                 } else {
                     MaterialTheme.colorScheme.error
                 },
-                modifier = Modifier.size(32.dp),
+                modifier = Modifier.size(IslamicIconSize.Prominent),
             )
-            Spacer(Modifier.width(12.dp))
+            Spacer(Modifier.width(IslamicSpacing.Compact))
             Column {
                 Text(
                     text = pluralStringResource(R.plurals.permissions_summary, granted, granted, applicable),
                     style = MaterialTheme.typography.titleMedium,
                 )
-                Spacer(Modifier.height(2.dp))
+                Spacer(Modifier.height(IslamicSpacing.XXSmall))
                 Text(
                     text = stringResource(
                         if (allGranted) R.string.permissions_all_granted
@@ -202,7 +201,7 @@ private fun PermissionRow(
         supportingContent = {
             Column {
                 Text(stringResource(permission.descriptionRes))
-                Spacer(Modifier.height(2.dp))
+                Spacer(Modifier.height(IslamicSpacing.XXSmall))
                 Text(
                     text = statusLabel(status),
                     style = MaterialTheme.typography.labelMedium,
@@ -225,7 +224,7 @@ private fun PermissionRow(
                             Icons.Filled.CheckCircle,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.size(20.dp),
+                            modifier = Modifier.size(IslamicIconSize.Supporting),
                         )
                     }
                     PermissionStatus.Denied -> {
@@ -235,13 +234,13 @@ private fun PermissionRow(
                                 Icon(
                                     Icons.Filled.Settings,
                                     contentDescription = null,
-                                    modifier = Modifier.size(18.dp),
+                                    modifier = Modifier.size(IslamicIconSize.Supporting),
                                 )
-                                Spacer(Modifier.width(4.dp))
+                                Spacer(Modifier.width(IslamicSpacing.XSmall))
                                 Text(stringResource(R.string.permissions_open_settings))
                             }
                         } else {
-                            Button(onClick = onRequest) {
+                            IslamicPrimaryButton(onClick = onRequest) {
                                 Text(stringResource(R.string.permissions_grant))
                             }
                         }
@@ -251,9 +250,9 @@ private fun PermissionRow(
                             Icon(
                                 Icons.AutoMirrored.Filled.OpenInNew,
                                 contentDescription = null,
-                                modifier = Modifier.size(18.dp),
+                                modifier = Modifier.size(IslamicIconSize.Supporting),
                             )
-                            Spacer(Modifier.width(4.dp))
+                            Spacer(Modifier.width(IslamicSpacing.XSmall))
                             Text(stringResource(R.string.permissions_enable))
                         }
                     }
@@ -261,7 +260,7 @@ private fun PermissionRow(
             }
         },
     )
-    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
+    HorizontalDivider(modifier = Modifier.padding(horizontal = IslamicSpacing.Medium))
 }
 
 @Composable

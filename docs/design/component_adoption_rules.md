@@ -85,3 +85,23 @@ ownership:
 The CI verifier now protects these surfaces from reintroducing ordinary raw
 `Card`, `Button`, or `OutlinedButton` patterns. It also requires Quran Downloads
 to remain free of raw dp layout-spacing literals.
+
+
+## Secondary settings surfaces
+
+The settings consolidation now also treats these screens as strict Design System
+consumers:
+
+- Accessibility: information/toggle cards use `IslamicCard`; layout spacing and
+  ordinary icon sizing use shared tokens.
+- Permissions: the summary surface uses `IslamicCard`, the runtime grant action
+  uses `IslamicPrimaryButton`, and status-row spacing is tokenized.
+- About: informational sections use `IslamicCard` and shared spacing/icon tokens.
+- Privacy: page content padding uses `IslamicSpacing`.
+- Smart Devices: page spacing uses `IslamicSpacing` and the save action uses
+  `IslamicPrimaryButton`.
+
+Specialized Material controls remain intentionally local: switches, chips, text
+fields, text-only utility buttons, top-app-bar navigation, and system-facing
+controls do not need a shared wrapper unless multiple features develop the same
+semantic pattern.
