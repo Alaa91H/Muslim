@@ -119,6 +119,18 @@ private val topicIcons = mapOf(
     "zakat_crops_livestock" to Icons.Filled.LocalFlorist,
     "zakat_fitr" to Icons.Filled.Restaurant,
     "zakat_calculator_guide" to Icons.Filled.Checklist,
+    "quran_intro" to Icons.AutoMirrored.Filled.MenuBook,
+    "quran_etiquette" to Icons.Filled.AutoStories,
+    "quran_structure" to Icons.Filled.FormatListNumbered,
+    "quran_understanding" to Icons.Filled.Book,
+    "quran_learning_plan" to Icons.Filled.Checklist,
+    "tajweed_intro" to Icons.AutoMirrored.Filled.VolumeUp,
+    "tajweed_makharij" to Icons.Filled.VerifiedUser,
+    "tajweed_noon_meem" to Icons.Filled.AutoStories,
+    "tajweed_madd" to Icons.Filled.Schedule,
+    "tajweed_qalqalah" to Icons.Filled.Warning,
+    "tajweed_waqf" to Icons.Filled.Place,
+    "tajweed_practice" to Icons.Filled.Loop,
     "funeral" to Icons.Filled.LocalFlorist,
     "madhhab" to Icons.Filled.ChildCare,
 )
@@ -134,6 +146,7 @@ private fun categoryTitleRes(category: String): Int = when (category) {
     LearnContent.CATEGORY_TAHARA -> R.string.learn_category_tahara
     LearnContent.CATEGORY_SALAH -> R.string.learn_category_salah
     LearnContent.CATEGORY_IBADAH -> R.string.learn_category_ibadah
+    LearnContent.CATEGORY_QURAN -> R.string.learn_category_quran
     LearnContent.CATEGORY_REFERENCE -> R.string.learn_category_reference
     else -> R.string.learn_category_reference
 }
