@@ -63,6 +63,7 @@ import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
 import org.muslim.app.core.ui.theme.IslamicReadingHeaderDecoration
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimEmptyState
 import org.muslim.app.feature.quran.data.DownloadScope
 import org.muslim.app.feature.quran.data.DownloadStatus
 import org.muslim.app.feature.quran.data.DownloadTaskUi
@@ -372,10 +373,8 @@ fun QuranDownloadsScreen(
 
                     val pageTasks = tasks.filter { it.reciterId == pageReciter.id }
                     if (pageTasks.isEmpty()) {
-                        Text(
-                            text = stringResource(R.string.quran_downloads_none),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        MuslimEmptyState(
+                            title = stringResource(R.string.quran_downloads_none),
                         )
                     } else {
                         pageTasks.forEach { task ->
@@ -534,6 +533,17 @@ private fun SurahCoverageSection(
     activeReciterCount: Int,
     totalMushafAyahs: Int,
 ) {
+    if (coverages.isEmpty() || activeReciterCount == 0) {
+        MuslimEmptyState(
+            title = stringResource(R.string.quran_downloads_coverage_title),
+            supportingText = stringResource(R.string.quran_downloads_coverage_empty),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 4.dp),
+        )
+        return
+    }
+
     IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
@@ -547,70 +557,83 @@ private fun SurahCoverageSection(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Spacer(Modifier.height(6.dp))
-            if (coverages.isEmpty() || activeReciterCount == 0) {
-                Text(
-                    text = stringResource(R.string.quran_downloads_coverage_empty),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            } else {
-                // Overall mushaf-wide fullness across the reciters in use.
-                val libraryAyahs = coverages.sumOf { it.downloadedAyahs.toLong() }
-                val totalSlots = totalMushafAyahs.toLong() * activeReciterCount
-                val overall = if (totalSlots > 0) libraryAyahs.toFloat() / totalSlots else 0f
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = stringResource(R.string.quran_downloads_coverage_overall),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.weight(1f),
-                    )
-                    LinearProgressIndicator(
-                        progress = { overall.coerceIn(0f, 1f) },
-                        modifier = Modifier
-                            .width(96.dp)
-                            .height(6.dp),
-                    )
-                    Spacer(Modifier.width(8.dp))
-                    Text(
-                        text = percentText(overall),
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.primary,
-                    )
-                }
-                Spacer(Modifier.height(6.dp))
-                // Per-surah bars (already sorted incomplete-first by the VM).
-                LazyColumn(modifier = Modifier.heightIn(max = 180.dp)) {
-                    items(coverages.size) { index ->
-                        val coverage = coverages[index]
-                        Row(
-                            modifier = Modifier.fillMaxWidth().padding(vertical = 3.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Text(
-                                text = stringResource(R.string.quran_surah_number_short, coverage.surahNumber),
-                                style = MaterialTheme.typography.labelSmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier.width(52.dp),
-                            )
-                            LinearProgressIndicator(
-                                progress = { coverage.fraction },
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .height(4.dp),
-                            )
-                            Spacer(Modifier.width(8.dp))
-                            Text(
-                                text = percentText(coverage.fraction),
-                                style = MaterialTheme.typography.labelSmall,
-                                color = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.width(42.dp),
-                            )
-                        }
-                    }
-                }
-            }
+            OverallCoverageRow(
+                coverages = coverages,
+                activeReciterCount = activeReciterCount,
+                totalMushafAyahs = totalMushafAyahs,
+            )
+            Spacer(Modifier.height(6.dp))
+            SurahCoverageList(coverages)
         }
+    }
+}
+
+@Composable
+private fun OverallCoverageRow(
+    coverages: List<SurahCoverage>,
+    activeReciterCount: Int,
+    totalMushafAyahs: Int,
+) {
+    val libraryAyahs = coverages.sumOf { it.downloadedAyahs.toLong() }
+    val totalSlots = totalMushafAyahs.toLong() * activeReciterCount
+    val overall = if (totalSlots > 0) libraryAyahs.toFloat() / totalSlots else 0f
+
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Text(
+            text = stringResource(R.string.quran_downloads_coverage_overall),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.weight(1f),
+        )
+        LinearProgressIndicator(
+            progress = { overall.coerceIn(0f, 1f) },
+            modifier = Modifier
+                .width(96.dp)
+                .height(6.dp),
+        )
+        Spacer(Modifier.width(8.dp))
+        Text(
+            text = percentText(overall),
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.primary,
+        )
+    }
+}
+
+@Composable
+private fun SurahCoverageList(coverages: List<SurahCoverage>) {
+    LazyColumn(modifier = Modifier.heightIn(max = 180.dp)) {
+        items(coverages.size) { index ->
+            SurahCoverageRow(coverages[index])
+        }
+    }
+}
+
+@Composable
+private fun SurahCoverageRow(coverage: SurahCoverage) {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(vertical = 3.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = stringResource(R.string.quran_surah_number_short, coverage.surahNumber),
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.width(52.dp),
+        )
+        LinearProgressIndicator(
+            progress = { coverage.fraction },
+            modifier = Modifier
+                .weight(1f)
+                .height(4.dp),
+        )
+        Spacer(Modifier.width(8.dp))
+        Text(
+            text = percentText(coverage.fraction),
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.width(42.dp),
+        )
     }
 }
 

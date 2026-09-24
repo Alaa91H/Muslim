@@ -18,6 +18,8 @@ SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature
 BOOKMARKS = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/BookmarksScreen.kt"
 NEARBY_MOSQUES = ROOT / "feature/feature-qibla/src/main/java/org/muslim/app/feature/qibla/mosques/NearbyMosquesTab.kt"
 SCHOLAR_DATA = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/ui/ScholarLibraryDataManagerScreen.kt"
+QURAN_DOWNLOADS = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/QuranDownloadsScreen.kt"
+UPDATE_SCREEN = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/update/UpdateScreen.kt"
 
 
 def require(condition: bool, message: str) -> None:
@@ -64,6 +66,9 @@ def main() -> None:
     bookmarks = BOOKMARKS.read_text(encoding="utf-8")
     nearby_mosques = NEARBY_MOSQUES.read_text(encoding="utf-8")
     scholar_data = SCHOLAR_DATA.read_text(encoding="utf-8")
+    hadith = HADITH.read_text(encoding="utf-8")
+    quran_downloads = QURAN_DOWNLOADS.read_text(encoding="utf-8")
+    update_screen = UPDATE_SCREEN.read_text(encoding="utf-8")
     require("MuslimEmptyState" in bookmarks, "Quran bookmarks must use the shared empty state")
     require("MuslimEmptyState" in scholar_data, "Scholar data manager must use the shared empty state")
     for state_component in (
@@ -80,6 +85,23 @@ def main() -> None:
     require(
         "CircularProgressIndicator" not in nearby_mosques,
         "Nearby Mosques must not reintroduce a screen-local loading indicator",
+    )
+    for state_component in ("MuslimLoadingState", "MuslimErrorState", "MuslimEmptyState"):
+        require(
+            state_component in hadith,
+            f"Hadith must use the shared state component: {state_component}",
+        )
+    require(
+        "CircularProgressIndicator" not in hadith,
+        "Hadith import and paging loading states must use MuslimLoadingState",
+    )
+    require(
+        "MuslimEmptyState" in quran_downloads,
+        "Quran Downloads must use the shared empty state",
+    )
+    require(
+        "MuslimLoadingState" in update_screen and "MuslimErrorState" in update_screen,
+        "Update screen must use shared loading and error states",
     )
 
     print("Adaptive design-system and shared UI-state adoption verified.")

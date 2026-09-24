@@ -64,3 +64,16 @@ When touching a screen that contains a local loading/empty/error/offline/permiss
 card, migrate that state to the shared component unless the screen requires a
 documented interaction that the shared API cannot express. In that case, extend the
 shared API in a backward-compatible way before adding another screen-local pattern.
+
+
+## Expanded adoption
+
+The second migration wave extends the shared states to additional high-traffic flows:
+
+- Hadith: corpus import progress, book-load failure, paging loading, paging failure,
+  and no-results states.
+- Quran Downloads: no active tasks and no coverage data.
+- Updates: update-check loading, update-service unavailable, and download failure.
+
+Transfer progress such as active APK/Quran download percentages remains feature-specific
+because it represents measurable work rather than a generic screen loading state.
