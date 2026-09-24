@@ -34,7 +34,12 @@ import org.muslim.app.feature.quran.data.QuranDownloadManager
 import org.muslim.app.feature.quran.data.RecitationDownloadNotifier
 import org.muslim.app.feature.quran.data.RecitationFailureEvent
 import org.muslim.app.feature.quran.data.RecitationFailureReason
+import org.muslim.app.feature.quran.data.PersistedRecitationSession
 import org.muslim.app.feature.quran.data.RecitationQueueItem
+import org.muslim.app.feature.quran.data.RecitationSessionIntent
+import org.muslim.app.feature.quran.data.RecitationSessionRuntime
+import org.muslim.app.feature.quran.data.RecitationSessionStore
+import org.muslim.app.feature.quran.data.remainingGlobalNumbers
 import org.muslim.app.feature.quran.data.RecitationRepository
 import org.muslim.app.feature.quran.data.ReciterDownloadState
 import org.muslim.app.feature.quran.domain.Ayah
@@ -64,6 +69,8 @@ class QuranReaderDependencies @Inject constructor(
     val recitationRepository: RecitationRepository,
     val downloadManager: QuranDownloadManager,
     val audioPlayer: QuranAudioPlayer,
+    val sessionStore: RecitationSessionStore,
+    val sessionRuntime: RecitationSessionRuntime,
 )
 
 @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
@@ -81,6 +88,8 @@ class QuranReaderViewModel @Inject constructor(
     private val recitationRepository = dependencies.recitationRepository
     private val downloadManager = dependencies.downloadManager
     private val audioPlayer = dependencies.audioPlayer
+    private val sessionStore = dependencies.sessionStore
+    private val sessionRuntime = dependencies.sessionRuntime
     private val downloadNotifier = RecitationDownloadNotifier(context)
 
     // Last recitation range/repeat the user played with, so switching the
@@ -436,16 +445,11 @@ class QuranReaderViewModel @Inject constructor(
     private val _recitationFailure = MutableStateFlow<RecitationFailureEvent?>(null)
     val recitationFailure: StateFlow<RecitationFailureEvent?> = _recitationFailure.asStateFlow()
 
-    private data class RetryPlaybackRequest(
-        val surahNumber: Int,
-        val globalNumbers: List<Int>,
-        val repeatCount: Int,
-        val continuous: Boolean,
-        val advanceToNext: Boolean,
-        val toEndOfQuran: Boolean,
-    )
+    private val _restorableSession = MutableStateFlow<PersistedRecitationSession?>(null)
+    val restorableSession: StateFlow<PersistedRecitationSession?> =
+        _restorableSession.asStateFlow()
 
-    private var lastPlaybackRequest: RetryPlaybackRequest? = null
+    private var lastPlaybackRequest: RecitationSessionIntent? = null
 
     init {
         // Hydrate the stop-at-end mirror and remove the legacy placeholder
@@ -457,6 +461,10 @@ class QuranReaderViewModel @Inject constructor(
 
 }
 
+
+        viewModelScope.launch {
+            _restorableSession.value = sessionStore.session.first()
+        }
 
         viewModelScope.launch {
             audioPlayer.lastFailure.collect { failure ->
@@ -639,7 +647,9 @@ class QuranReaderViewModel @Inject constructor(
 
         val queueSurahNumber = ayahs.first().surahNumber
         val globalNumbers = ayahs.map { it.globalNumber }
-        lastPlaybackRequest = RetryPlaybackRequest(
+        val reciter = selectedReciter.value
+        val intent = RecitationSessionIntent(
+            reciterId = reciter.id,
             surahNumber = queueSurahNumber,
             globalNumbers = globalNumbers,
             repeatCount = repeatCount,
@@ -647,6 +657,8 @@ class QuranReaderViewModel @Inject constructor(
             advanceToNext = advanceToNext,
             toEndOfQuran = toEndOfQuran,
         )
+        lastPlaybackRequest = intent
+        _restorableSession.value = null
         _recitationFailure.value = null
 
         viewModelScope.launch {
@@ -654,14 +666,12 @@ class QuranReaderViewModel @Inject constructor(
                 ayahs = ayahs,
                 queueSurahNumber = queueSurahNumber,
                 globalNumbers = globalNumbers,
+                reciter = reciter,
             ) ?: return@launch
 
             startPreparedQueue(
                 items = items,
-                repeatCount = repeatCount,
-                continuous = continuous,
-                advanceToNext = advanceToNext,
-                toEndOfQuran = toEndOfQuran,
+                intent = intent,
             )
         }
     }
@@ -670,8 +680,8 @@ class QuranReaderViewModel @Inject constructor(
         ayahs: List<Ayah>,
         queueSurahNumber: Int,
         globalNumbers: List<Int>,
+        reciter: Reciter,
     ): List<RecitationQueueItem>? {
-        val reciter = selectedReciter.value
         recitationRepository.localQueue(
             reciterId = reciter.id,
             surahNumber = queueSurahNumber,
@@ -753,24 +763,26 @@ class QuranReaderViewModel @Inject constructor(
 
     private fun startPreparedQueue(
         items: List<RecitationQueueItem>,
-        repeatCount: Int,
-        continuous: Boolean,
-        advanceToNext: Boolean,
-        toEndOfQuran: Boolean,
+        intent: RecitationSessionIntent,
+        startPositionMs: Long = 0L,
     ) {
-        val continuousMode = continuous || repeatCount <= 0
-        val effectiveRepeat = if (continuousMode) 1 else repeatCount.coerceAtLeast(1)
+        val continuousMode = intent.continuous || intent.repeatCount <= 0
+        val effectiveRepeat =
+            if (continuousMode) 1 else intent.repeatCount.coerceAtLeast(1)
+
+        sessionRuntime.begin(intent)
         audioPlayer.onQueueCompleted =
-            if (advanceToNext) {
-                { advanceToNextSurah(effectiveRepeat, toEndOfQuran) }
+            if (intent.advanceToNext) {
+                { advanceToNextSurah(effectiveRepeat, intent.toEndOfQuran) }
             } else {
                 null
             }
         audioPlayer.playQueue(
-            items,
+            items = items,
             startIndex = 0,
             repeatCount = effectiveRepeat,
-            continuous = advanceToNext,
+            continuous = intent.advanceToNext,
+            startPositionMs = startPositionMs,
         )
     }
 
@@ -784,6 +796,57 @@ class QuranReaderViewModel @Inject constructor(
             reason = reason,
             globalNumber = globalNumber,
         )
+    }
+
+    fun resumeRestorableSession() {
+        val session = _restorableSession.value ?: return
+        val reciter = Reciter.Bundled.firstOrNull {
+            it.id == session.intent.reciterId
+        } ?: run {
+            discardRestorableSession()
+            return
+        }
+
+        _restorableSession.value = null
+        _recitationFailure.value = null
+
+        viewModelScope.launch {
+            prefsRepository.setSelectedReciterId(reciter.id)
+            _surahNumber.value = session.intent.surahNumber
+
+            val surahAyahs = repository.observeSurah(session.intent.surahNumber).first()
+            val byGlobal = surahAyahs.associateBy { it.globalNumber }
+            val remainingGlobals = session.remainingGlobalNumbers()
+            val restoreAyahs = remainingGlobals.mapNotNull(byGlobal::get)
+            if (restoreAyahs.size != remainingGlobals.size) {
+                sessionRuntime.clear()
+                reportRecitationFailure(
+                    RecitationFailureReason.AudioFileUnavailable,
+                    remainingGlobals.firstOrNull(),
+                )
+                return@launch
+            }
+
+            val resumeIntent = session.intent.copy(globalNumbers = remainingGlobals)
+            lastPlaybackRequest = resumeIntent
+            val items = prepareQueueForPlayback(
+                ayahs = restoreAyahs,
+                queueSurahNumber = resumeIntent.surahNumber,
+                globalNumbers = remainingGlobals,
+                reciter = reciter,
+            ) ?: return@launch
+
+            startPreparedQueue(
+                items = items,
+                intent = resumeIntent,
+                startPositionMs = session.positionMs,
+            )
+        }
+    }
+
+    fun discardRestorableSession() {
+        _restorableSession.value = null
+        sessionRuntime.clear()
     }
 
     fun retryPlaybackAfterFailure() {
@@ -909,7 +972,10 @@ class QuranReaderViewModel @Inject constructor(
 
     fun pausePlayback() = audioPlayer.pause()
     fun resumePlayback() = audioPlayer.resume()
-    fun stopPlayback() = audioPlayer.stop()
+    fun stopPlayback() {
+        _restorableSession.value = null
+        audioPlayer.stop()
+    }
     fun nextAyah() = audioPlayer.next()
     fun previousAyah() = audioPlayer.previous()
 
