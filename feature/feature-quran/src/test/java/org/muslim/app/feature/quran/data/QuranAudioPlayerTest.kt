@@ -19,6 +19,8 @@ class QuranAudioPlayerTest {
         var prepareAsyncCalls = 0
         var seekToCalls = 0
         var position = 0
+        var throwOnPrepare = false
+        var throwOnStart = false
 
         private var preparedListener: (() -> Unit)? = null
         private var completionListener: (() -> Unit)? = null
@@ -29,9 +31,11 @@ class QuranAudioPlayerTest {
 
         override fun prepareAsync() {
             prepareAsyncCalls++
+            if (throwOnPrepare) error("prepare failed")
         }
 
         override fun start() {
+            if (throwOnStart) error("start failed")
             started = true
             paused = false
         }
@@ -69,10 +73,18 @@ class QuranAudioPlayerTest {
         fun fireError() = errorListener?.invoke()
     }
 
-    private class FakeFactory : RecitationEngineFactory {
+    private class FakeFactory(
+        private val returnNull: Boolean = false,
+        private val configure: (FakeEngine) -> Unit = {},
+    ) : RecitationEngineFactory {
         val engines = mutableListOf<FakeEngine>()
-        override fun create(file: File): RecitationAudioEngine =
-            FakeEngine().also { engines.add(it) }
+        override fun create(file: File): RecitationAudioEngine? {
+            if (returnNull) return null
+            return FakeEngine().also {
+                configure(it)
+                engines.add(it)
+            }
+        }
     }
 
     /** Records the foreground-service bridge transitions (active/inactive). */
@@ -324,7 +336,7 @@ class QuranAudioPlayerTest {
     }
 
     @Test
-    fun `engine error fails playback and bumps the error counter`() {
+    fun `engine error fails playback with typed reason`() {
         val factory = FakeFactory()
         val player = player(factory)
         player.playQueue(listOf(item(1)), startIndex = 0, repeatCount = 1)
@@ -335,8 +347,46 @@ class QuranAudioPlayerTest {
 
         assertThat(player.playbackState.value).isEqualTo(PlaybackState.Idle)
         assertThat(player.currentAyah.value).isNull()
-        assertThat(player.errorCount.value).isEqualTo(1)
+        assertThat(player.lastFailure.value?.reason).isEqualTo(RecitationFailureReason.EngineError)
+        assertThat(player.lastFailure.value?.globalNumber).isEqualTo(1)
         assertThat(engine.released).isTrue()
+    }
+
+    @Test
+    fun `missing engine reports unavailable without entering playing state`() {
+        val player = player(FakeFactory(returnNull = true))
+
+        player.playQueue(listOf(item(7)), startIndex = 0, repeatCount = 1)
+
+        assertThat(player.playbackState.value).isEqualTo(PlaybackState.Idle)
+        assertThat(player.lastFailure.value?.reason).isEqualTo(RecitationFailureReason.EngineUnavailable)
+        assertThat(player.lastFailure.value?.globalNumber).isEqualTo(7)
+    }
+
+    @Test
+    fun `prepare failure reports typed reason`() {
+        val factory = FakeFactory(configure = { it.throwOnPrepare = true })
+        val player = player(factory)
+
+        player.playQueue(listOf(item(8)), startIndex = 0, repeatCount = 1)
+
+        assertThat(player.playbackState.value).isEqualTo(PlaybackState.Idle)
+        assertThat(player.lastFailure.value?.reason).isEqualTo(RecitationFailureReason.PreparationFailed)
+        assertThat(player.lastFailure.value?.globalNumber).isEqualTo(8)
+    }
+
+    @Test
+    fun `start failure never publishes playing or activates foreground bridge`() {
+        val factory = FakeFactory(configure = { it.throwOnStart = true })
+        val bridge = RecordingBridge()
+        val player = player(factory, bridge)
+        player.playQueue(listOf(item(9)), startIndex = 0, repeatCount = 1)
+
+        factory.engines.single().firePrepared()
+
+        assertThat(player.playbackState.value).isEqualTo(PlaybackState.Idle)
+        assertThat(player.lastFailure.value?.reason).isEqualTo(RecitationFailureReason.StartFailed)
+        assertThat(bridge.transitions).doesNotContain(true)
     }
 
     @Test

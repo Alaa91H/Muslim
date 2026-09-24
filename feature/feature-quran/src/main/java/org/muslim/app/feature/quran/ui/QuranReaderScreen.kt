@@ -44,6 +44,7 @@ import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Repeat
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.RadioButtonChecked
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Tune
@@ -62,6 +63,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Snackbar
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -112,7 +114,6 @@ import androidx.compose.ui.text.withLink
 import androidx.compose.ui.text.withStyle
 import android.app.Activity
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDirection
@@ -269,7 +270,7 @@ fun QuranReaderScreen(
     val currentAudioAyah by viewModel.currentAudioAyah.collectAsStateWithLifecycle()
     val hasNextAyah by viewModel.hasNextAyah.collectAsStateWithLifecycle()
     val hasPreviousAyah by viewModel.hasPreviousAyah.collectAsStateWithLifecycle()
-    val playbackErrorCount by viewModel.playbackErrorCount.collectAsStateWithLifecycle()
+    val recitationFailure by viewModel.recitationFailure.collectAsStateWithLifecycle()
     val positionMs by viewModel.positionMs.collectAsStateWithLifecycle()
     val durationMs by viewModel.durationMs.collectAsStateWithLifecycle()
     val selectedReciter by viewModel.selectedReciter.collectAsStateWithLifecycle()
@@ -291,17 +292,11 @@ fun QuranReaderScreen(
         }
     }
 
-    // Surface playback failures (e.g. a bad download or no connectivity) so a
-    // silent "nothing happened" never confuses the user.
-    val context = LocalContext.current
-    val playbackErrorText = stringResource(R.string.quran_playback_error)
-    var lastShownError by remember { mutableIntStateOf(0) }
-    LaunchedEffect(playbackErrorCount) {
-        if (playbackErrorCount > lastShownError) {
-            lastShownError = playbackErrorCount
-            Toast.makeText(context, playbackErrorText, Toast.LENGTH_SHORT).show()
-        }
-    }
+    // Playback/download failures are actionable and retain the last queue
+    // request, so retry resumes the same recitation intent instead of silently
+    // restarting from ayah one. Reuse the already-localized playback message;
+    // the typed failure reason remains available to the state layer.
+    val playbackFailureText = stringResource(R.string.quran_playback_error)
 
     var fontSize by rememberSaveable { mutableFloatStateOf(DEFAULT_FONT_SP) }
     var repeatCount by rememberSaveable { mutableIntStateOf(1) }
@@ -609,7 +604,8 @@ fun QuranReaderScreen(
     }
 
     MaterialTheme(colorScheme = scheme) {
-        Column(modifier = modifier.fillMaxSize()) {
+        Box(modifier = modifier.fillMaxSize()) {
+            Column(modifier = Modifier.fillMaxSize()) {
             TopAppBar(
                 title = {
                     Column {
@@ -943,31 +939,50 @@ fun QuranReaderScreen(
                 },
             )
 
-        }
+            }
 
-        if (showDetails) {
+            if (recitationFailure != null) {
+                Snackbar(
+                    modifier = Modifier
+                        .align(Alignment.BottomCenter)
+                        .padding(IslamicSpacing.Medium),
+                    action = {
+                        IconButton(onClick = viewModel::retryPlaybackAfterFailure) {
+                            Icon(
+                                imageVector = Icons.Filled.Refresh,
+                                contentDescription = playbackFailureText,
+                            )
+                        }
+                    },
+                ) {
+                    Text(playbackFailureText)
+                }
+            }
+
+            if (showDetails) {
             state.surah?.let { surah ->
                 SurahDetailsDialog(surah = surah, onDismiss = { showDetails = false })
             }
         }
-        if (showSupplementControls) {
-            SupplementControlsDialog(
-                state = SupplementControlsState(
-                    enabled = supplementEnabled,
-                    installedTafsirSources = installedTafsirSources,
-                    selectedTafsirSource = selectedTafsirSource,
-                    tafsirDownloadState = tafsirDownloadState,
-                    language = supplementLanguage,
-                    availableLanguages = availableSupplementLanguages,
-                ),
-                actions = SupplementControlsActions(
-                    onEnabledChanged = viewModel::setSupplementEnabled,
-                    onTafsirSourceSelected = viewModel::setSelectedTafsirSource,
-                    onDownloadOfficialTafsir = viewModel::downloadOfficialTafsir,
-                    onLanguageChanged = viewModel::setSupplementLanguage,
-                    onDismiss = { showSupplementControls = false },
-                ),
-            )
+            if (showSupplementControls) {
+                SupplementControlsDialog(
+                    state = SupplementControlsState(
+                        enabled = supplementEnabled,
+                        installedTafsirSources = installedTafsirSources,
+                        selectedTafsirSource = selectedTafsirSource,
+                        tafsirDownloadState = tafsirDownloadState,
+                        language = supplementLanguage,
+                        availableLanguages = availableSupplementLanguages,
+                    ),
+                    actions = SupplementControlsActions(
+                        onEnabledChanged = viewModel::setSupplementEnabled,
+                        onTafsirSourceSelected = viewModel::setSelectedTafsirSource,
+                        onDownloadOfficialTafsir = viewModel::downloadOfficialTafsir,
+                        onLanguageChanged = viewModel::setSupplementLanguage,
+                        onDismiss = { showSupplementControls = false },
+                    ),
+                )
+            }
         }
     }
 }
