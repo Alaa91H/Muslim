@@ -278,4 +278,29 @@
     <string name="learn_topic_zakat_fitr_sub" tools:ignore="MissingTranslation">من تلزمه ووقتها والطعام والقيمة النقدية</string>
     <string name="learn_topic_zakat_calculator_guide" tools:ignore="MissingTranslation">دليل حاسبة الزكاة</string>
     <string name="learn_topic_zakat_calculator_guide_sub" tools:ignore="MissingTranslation">افهم ما تحسبه الأداة وافتراضاتها وما لا تغطيه</string>
+    <string name="learn_category_quran" tools:ignore="MissingTranslation">القرآن والتجويد</string>
+    <string name="learn_topic_quran_intro" tools:ignore="MissingTranslation">مدخل إلى القرآن</string>
+    <string name="learn_topic_quran_intro_sub" tools:ignore="MissingTranslation">التلاوة والفهم والعمل وكيف تستخدم ميزات القرآن للتعلم</string>
+    <string name="learn_topic_quran_etiquette" tools:ignore="MissingTranslation">آداب التلاوة</string>
+    <string name="learn_topic_quran_etiquette_sub" tools:ignore="MissingTranslation">النية والاستعاذة والاستماع والتعامل مع المصحف الرقمي</string>
+    <string name="learn_topic_quran_structure" tools:ignore="MissingTranslation">بنية القرآن</string>
+    <string name="learn_topic_quran_structure_sub" tools:ignore="MissingTranslation">السور والآيات والأجزاء والمكي والمدني والقراءات</string>
+    <string name="learn_topic_quran_understanding" tools:ignore="MissingTranslation">فهم القرآن وتدبره</string>
+    <string name="learn_topic_quran_understanding_sub" tools:ignore="MissingTranslation">الترجمة والتفسير والسياق وحدود الاستنباط الشخصي</string>
+    <string name="learn_topic_quran_learning_plan" tools:ignore="MissingTranslation">خطة تعلم القرآن</string>
+    <string name="learn_topic_quran_learning_plan_sub" tools:ignore="MissingTranslation">تحديد المستوى وروتين يومي والتغذية الراجعة</string>
+    <string name="learn_topic_tajweed_intro" tools:ignore="MissingTranslation">مدخل إلى التجويد</string>
+    <string name="learn_topic_tajweed_intro_sub" tools:ignore="MissingTranslation">هدف التجويد والتلقي وألوان المصحف كوسيلة مساعدة</string>
+    <string name="learn_topic_tajweed_makharij" tools:ignore="MissingTranslation">المخارج والصفات</string>
+    <string name="learn_topic_tajweed_makharij_sub" tools:ignore="MissingTranslation">مخارج الحروف وصفاتها وتمارين عملية للحروف المتقاربة</string>
+    <string name="learn_topic_tajweed_noon_meem" tools:ignore="MissingTranslation">أحكام النون والميم</string>
+    <string name="learn_topic_tajweed_noon_meem_sub" tools:ignore="MissingTranslation">الإظهار والإدغام والإقلاب والإخفاء والغنة</string>
+    <string name="learn_topic_tajweed_madd" tools:ignore="MissingTranslation">أحكام المد</string>
+    <string name="learn_topic_tajweed_madd_sub" tools:ignore="MissingTranslation">المد الطبيعي والهمز والسكون والتدريب على المقادير</string>
+    <string name="learn_topic_tajweed_qalqalah" tools:ignore="MissingTranslation">القلقلة والتفخيم والترقيق</string>
+    <string name="learn_topic_tajweed_qalqalah_sub" tools:ignore="MissingTranslation">القلقلة والراء ولام لفظ الجلالة وأخطاء الأداء</string>
+    <string name="learn_topic_tajweed_waqf" tools:ignore="MissingTranslation">الوقف والابتداء</string>
+    <string name="learn_topic_tajweed_waqf_sub" tools:ignore="MissingTranslation">علامات الوقف وحفظ المعنى والتعامل مع ضيق النفس</string>
+    <string name="learn_topic_tajweed_practice" tools:ignore="MissingTranslation">تطبيق التجويد</string>
+    <string name="learn_topic_tajweed_practice_sub" tools:ignore="MissingTranslation">الاستماع والتسجيل والتصحيح والمراجعة مع قارئ متقن</string>
 </resources>
