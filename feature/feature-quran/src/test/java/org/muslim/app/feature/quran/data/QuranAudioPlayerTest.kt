@@ -421,6 +421,27 @@ class QuranAudioPlayerTest {
     }
 
     @Test
+    fun `restored remaining repeats apply only to the current ayah`() {
+        val factory = FakeFactory()
+        val player = player(factory)
+        player.playQueue(
+            items = listOf(item(1), item(2)),
+            startIndex = 0,
+            repeatCount = 3,
+            remainingRepeatsForCurrent = 2,
+        )
+
+        assertThat(player.remainingRepeats.value).isEqualTo(2)
+        factory.engines[0].fireCompletion()
+        assertThat(player.currentAyah.value).isEqualTo(1)
+        assertThat(player.remainingRepeats.value).isEqualTo(1)
+
+        factory.engines[0].fireCompletion()
+        assertThat(player.currentAyah.value).isEqualTo(2)
+        assertThat(player.remainingRepeats.value).isEqualTo(3)
+    }
+
+    @Test
     fun `restored position is clamped below duration`() {
         val factory = FakeFactory()
         val player = player(factory)
