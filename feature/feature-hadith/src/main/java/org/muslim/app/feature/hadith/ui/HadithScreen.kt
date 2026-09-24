@@ -283,13 +283,13 @@ private fun HadithCatalogue(
                 columns = GridCells.Fixed(3),
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(
-                    start = 12.dp,
-                    end = 12.dp,
-                    top = 6.dp,
+                    start = IslamicSpacing.Compact,
+                    end = IslamicSpacing.Compact,
+                    top = IslamicSpacing.Small,
                     bottom = IslamicSpacing.Large,
                 ),
-                horizontalArrangement = Arrangement.spacedBy(10.dp),
-                verticalArrangement = Arrangement.spacedBy(18.dp),
+                horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
+                verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Comfortable),
             ) {
                 item(
                     key = "catalogue-header",
@@ -301,7 +301,7 @@ private fun HadithCatalogue(
                             .padding(
                                 start = IslamicSpacing.PageHorizontal,
                                 end = IslamicSpacing.PageHorizontal,
-                                bottom = 8.dp,
+                                bottom = IslamicSpacing.Small,
                             ),
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
@@ -310,14 +310,14 @@ private fun HadithCatalogue(
                             tint = HadithGold,
                             compact = true,
                         )
-                        Spacer(Modifier.height(6.dp))
+                        Spacer(Modifier.height(IslamicSpacing.Small))
                         Text(
                             text = stringResource(R.string.hadith_catalog_subtitle),
                             style = MaterialTheme.typography.bodyMedium,
                             color = HadithIvory.copy(alpha = 0.86f),
                             textAlign = TextAlign.Center,
                         )
-                        Spacer(Modifier.height(8.dp))
+                        Spacer(Modifier.height(IslamicSpacing.Small))
                         Surface(
                             shape = RoundedCornerShape(50),
                             color = HadithGold.copy(alpha = 0.10f),
@@ -325,13 +325,13 @@ private fun HadithCatalogue(
                         ) {
                             Text(
                                 text = stringResource(R.string.hadith_catalog_loading_contract),
-                                modifier = Modifier.padding(horizontal = 14.dp, vertical = 7.dp),
+                                modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
                                 style = MaterialTheme.typography.labelMedium,
                                 color = HadithGold,
                                 textAlign = TextAlign.Center,
                             )
                         }
-                        Spacer(Modifier.height(8.dp))
+                        Spacer(Modifier.height(IslamicSpacing.Small))
                         IslamicDecorationDivider(
                             modifier = Modifier.fillMaxWidth(),
                             tint = HadithGold,
@@ -554,7 +554,7 @@ private fun HadithCollectionCard(
                 width = coverWidth,
                 height = coverHeight,
             )
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             Text(
                 text = stringResource(collection.titleRes),
                 color = HadithIvory,
@@ -565,7 +565,7 @@ private fun HadithCollectionCard(
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.fillMaxWidth(),
             )
-            Spacer(Modifier.height(2.dp))
+            Spacer(Modifier.height(IslamicSpacing.XXSmall))
             Text(
                 text = stringResource(R.string.hadith_grid_count, collection.hadithCount),
                 color = HadithGold.copy(alpha = 0.92f),
@@ -815,8 +815,8 @@ private fun HadithBookHeader(collection: HadithCollection) {
             .padding(
                 start = IslamicSpacing.PageHorizontal,
                 end = IslamicSpacing.PageHorizontal,
-                top = 10.dp,
-                bottom = 16.dp,
+                top = IslamicSpacing.Compact,
+                bottom = IslamicSpacing.Medium,
             ),
     ) {
         Row(
@@ -828,7 +828,7 @@ private fun HadithBookHeader(collection: HadithCollection) {
                 width = 116.dp,
                 height = 174.dp,
             )
-            Spacer(Modifier.width(18.dp))
+            Spacer(Modifier.width(IslamicSpacing.Comfortable))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = stringResource(collection.titleRes),
@@ -837,7 +837,7 @@ private fun HadithBookHeader(collection: HadithCollection) {
                     lineHeight = 31.sp,
                     fontWeight = FontWeight.Bold,
                 )
-                Spacer(Modifier.height(10.dp))
+                Spacer(Modifier.height(IslamicSpacing.Compact))
                 Text(
                     text = stringResource(collection.descriptionRes),
                     style = MaterialTheme.typography.bodyMedium,
@@ -848,10 +848,10 @@ private fun HadithBookHeader(collection: HadithCollection) {
             }
         }
 
-        Spacer(Modifier.height(18.dp))
+        Spacer(Modifier.height(IslamicSpacing.Comfortable))
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
         ) {
             HadithStatCard(
                 value = collection.hadithCount.toString(),
@@ -885,7 +885,7 @@ private fun HadithStatCard(
         border = BorderStroke(1.dp, HadithGold.copy(alpha = 0.26f)),
     ) {
         Column(
-            modifier = Modifier.padding(horizontal = 8.dp, vertical = 10.dp),
+            modifier = Modifier.padding(horizontal = IslamicSpacing.Small, vertical = IslamicSpacing.Compact),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
@@ -895,7 +895,7 @@ private fun HadithStatCard(
                 fontWeight = FontWeight.Bold,
                 maxLines = 1,
             )
-            Spacer(Modifier.height(2.dp))
+            Spacer(Modifier.height(IslamicSpacing.XXSmall))
             Text(
                 text = label,
                 color = HadithIvory.copy(alpha = 0.76f),
@@ -928,14 +928,14 @@ private fun HadithChapterRow(
     Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = IslamicSpacing.PageHorizontal, vertical = 4.dp)
+            .padding(horizontal = IslamicSpacing.PageHorizontal, vertical = IslamicSpacing.XSmall)
             .clickable(onClick = onClick),
         shape = RoundedCornerShape(16.dp),
         color = HadithLibrarySurface.copy(alpha = 0.92f),
         border = BorderStroke(1.dp, HadithGold.copy(alpha = 0.22f)),
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = 12.dp, vertical = 11.dp),
+            modifier = Modifier.padding(horizontal = IslamicSpacing.Compact, vertical = IslamicSpacing.Compact),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Surface(
@@ -953,7 +953,7 @@ private fun HadithChapterRow(
                     )
                 }
             }
-            Spacer(Modifier.width(12.dp))
+            Spacer(Modifier.width(IslamicSpacing.Compact))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = displayTitle,
@@ -963,7 +963,7 @@ private fun HadithChapterRow(
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                 )
-                Spacer(Modifier.height(3.dp))
+                Spacer(Modifier.height(IslamicSpacing.XSmall))
                 Text(
                     text = stringResource(R.string.hadith_chapter_summary, chapter.hadithCount, range),
                     style = MaterialTheme.typography.bodySmall,
@@ -1151,14 +1151,14 @@ private fun HadithBody(
                 hadith.grade,
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
-                modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp),
+                modifier = Modifier.padding(horizontal = IslamicSpacing.Small, vertical = IslamicSpacing.XXSmall),
             )
         }
         Text(
             hadith.source,
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(start = 8.dp).weight(1f),
+            modifier = Modifier.padding(start = IslamicSpacing.Small).weight(1f),
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
         )
