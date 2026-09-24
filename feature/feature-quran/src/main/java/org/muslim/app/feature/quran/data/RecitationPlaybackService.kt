@@ -198,6 +198,7 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
                                 sessionRuntime.persist(
                                     currentGlobalNumber = ayah,
                                     positionMs = player.positionMs.value,
+                                    remainingRepeats = player.remainingRepeats.value,
                                     state = state,
                                 )
                                 runCatching { publish(state, ayah) }
@@ -222,6 +223,7 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
                     sessionRuntime.persist(
                         currentGlobalNumber = player.currentAyah.value,
                         positionMs = player.positionMs.value,
+                        remainingRepeats = player.remainingRepeats.value,
                         state = state,
                     )
                 }
