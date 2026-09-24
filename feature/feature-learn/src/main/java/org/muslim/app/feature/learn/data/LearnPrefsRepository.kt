@@ -8,6 +8,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import org.muslim.app.feature.learn.domain.LearningQuizKey
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -69,20 +70,13 @@ class LearnPrefsRepository @Inject constructor(
         quizId: String,
         optionId: String,
     ) {
-        val quizKey = quizKey(lessonId, quizId)
+        val quizKey = LearningQuizKey.of(lessonId, quizId)
         context.learnPrefsDataStore.edit { prefs ->
             val records = prefs[Keys.QUIZ_ANSWERS]?.toMutableSet() ?: mutableSetOf()
             records.removeAll { QuizAnswerRecord.decode(it)?.quizKey == quizKey }
             records.add(QuizAnswerRecord(quizKey, optionId).encode())
             prefs[Keys.QUIZ_ANSWERS] = records
         }
-    }
-
-    companion object {
-        private const val QUIZ_KEY_SEPARATOR = "::"
-
-        fun quizKey(lessonId: String, quizId: String): String =
-            lessonId + QUIZ_KEY_SEPARATOR + quizId
     }
 
     private data class QuizAnswerRecord(
