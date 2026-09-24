@@ -31,6 +31,8 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimErrorState
+import org.muslim.app.core.ui.theme.MuslimLoadingState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -86,15 +88,9 @@ fun UpdateScreen(
         ) {
             when (val state = uiState) {
                 UpdateUiState.Loading -> {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.Center,
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        CircularProgressIndicator(modifier = Modifier.size(28.dp))
-                        Spacer(Modifier.width(12.dp))
-                        Text(stringResource(R.string.update_checking))
-                    }
+                    MuslimLoadingState(
+                        title = stringResource(R.string.update_checking),
+                    )
                 }
 
                 UpdateUiState.UpToDate -> {
@@ -131,31 +127,12 @@ fun UpdateScreen(
                 }
 
                 UpdateUiState.Unavailable -> {
-                    Card(modifier = Modifier.fillMaxWidth()) {
-                        Row(
-                            modifier = Modifier.padding(20.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Icon(
-                                Icons.Filled.ErrorOutline,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.error,
-                                modifier = Modifier.size(32.dp),
-                            )
-                            Spacer(Modifier.width(14.dp))
-                            Text(
-                                text = stringResource(R.string.update_unavailable),
-                                style = MaterialTheme.typography.bodyLarge,
-                                modifier = Modifier.weight(1f),
-                            )
-                        }
-                    }
-                    OutlinedButton(
-                        onClick = viewModel::refresh,
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        Text(stringResource(R.string.update_retry))
-                    }
+                    MuslimErrorState(
+                        title = stringResource(R.string.update_unavailable),
+                        icon = Icons.Filled.ErrorOutline,
+                        actionLabel = stringResource(R.string.update_retry),
+                        onAction = viewModel::refresh,
+                    )
                     if (downloadState is UpdateDownloadState.ReadyToInstall) {
                         Card(
                             modifier = Modifier.fillMaxWidth(),
@@ -383,30 +360,12 @@ fun UpdateScreen(
                         }
 
                         is UpdateDownloadState.Failed -> {
-                            Card(modifier = Modifier.fillMaxWidth()) {
-                                Row(
-                                    modifier = Modifier.padding(16.dp),
-                                    verticalAlignment = Alignment.CenterVertically,
-                                ) {
-                                    Icon(
-                                        Icons.Filled.ErrorOutline,
-                                        contentDescription = null,
-                                        tint = MaterialTheme.colorScheme.error,
-                                    )
-                                    Spacer(Modifier.width(10.dp))
-                                    Text(
-                                        text = stringResource(downloadFailureMessage(transfer.reason)),
-                                        style = MaterialTheme.typography.bodyMedium,
-                                        modifier = Modifier.weight(1f),
-                                    )
-                                }
-                            }
-                            OutlinedButton(
-                                onClick = viewModel::startDownload,
-                                modifier = Modifier.fillMaxWidth(),
-                            ) {
-                                Text(stringResource(R.string.update_retry_download))
-                            }
+                            MuslimErrorState(
+                                title = stringResource(downloadFailureMessage(transfer.reason)),
+                                icon = Icons.Filled.ErrorOutline,
+                                actionLabel = stringResource(R.string.update_retry_download),
+                                onAction = viewModel::startDownload,
+                            )
                         }
                     }
                 }
