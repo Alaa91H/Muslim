@@ -143,7 +143,8 @@ object LearningAcademyCatalog {
                 PrayerLearningContent.lessons +
                 FastingLearningContent.lessons +
                 ZakatLearningContent.lessons +
-                QuranTajweedLearningContent.lessons
+                QuranTajweedLearningContent.lessons +
+                HadithSeerahLearningContent.lessons
         ).associateBy { it.id }
 
     val lessons: List<LearningLesson> = LearnContent.topics.map { topic ->
@@ -182,6 +183,14 @@ object LearningAcademyCatalog {
         LearningPath(
             id = "quran",
             courseIds = listOf(LearnContent.CATEGORY_QURAN),
+        ),
+        LearningPath(
+            id = "sunnah",
+            courseIds = listOf(LearnContent.CATEGORY_SUNNAH),
+        ),
+        LearningPath(
+            id = "seerah",
+            courseIds = listOf(LearnContent.CATEGORY_SEERAH),
         ),
         LearningPath(
             id = "reference",
