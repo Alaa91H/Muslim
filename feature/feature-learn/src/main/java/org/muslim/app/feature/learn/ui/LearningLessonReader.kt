@@ -45,6 +45,7 @@ import org.muslim.app.feature.learn.domain.LearningFeatureDestination
 import org.muslim.app.feature.learn.domain.LearningFeatureLink
 import org.muslim.app.feature.learn.domain.LearningLesson
 import org.muslim.app.feature.learn.domain.LearningReference
+import org.muslim.app.feature.learn.domain.LearningReviewStatus
 import org.muslim.app.feature.learn.domain.LearningStepItem
 
 @Composable
@@ -125,6 +126,7 @@ private fun LazyListScope.lessonIntroItems(
             LessonMetadataCard(
                 estimatedMinutes = minutes,
                 contentVersion = lesson.contentVersion,
+                reviewStatus = lesson.reviewStatus,
             )
         }
     }
@@ -308,6 +310,7 @@ private fun LessonProgressCard(
 private fun LessonMetadataCard(
     estimatedMinutes: Int,
     contentVersion: Int,
+    reviewStatus: LearningReviewStatus,
 ) {
     IslamicCard(
         modifier = Modifier.fillMaxWidth(),
@@ -324,8 +327,13 @@ private fun LessonMetadataCard(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            val reviewStatusText = when (reviewStatus) {
+                LearningReviewStatus.DRAFT -> R.string.learn_review_status_draft
+                LearningReviewStatus.NEEDS_SCHOLAR_REVIEW -> R.string.learn_scholar_review_notice
+                LearningReviewStatus.REVIEWED -> R.string.learn_review_status_reviewed
+            }
             Text(
-                text = stringResource(R.string.learn_scholar_review_notice),
+                text = stringResource(reviewStatusText),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
