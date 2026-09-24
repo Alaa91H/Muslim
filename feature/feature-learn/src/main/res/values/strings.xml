@@ -214,4 +214,121 @@
     <string name="traveler_high_latitude_band_second" tools:ignore="MissingTranslation">النطاق الثاني: من 48° إلى أقل من 66°؛ قد تتعذر بعض علامات الفجر أو العشاء في أيام من السنة.</string>
     <string name="traveler_high_latitude_band_third" tools:ignore="MissingTranslation">النطاق الثالث: 66° فأعلى؛ قد تغيب العلامات لفترات طويلة، ويلزم اعتماد تقدير جهة علمية موثوقة.</string>
     <string name="traveler_high_latitude_selected" tools:ignore="MissingTranslation">هذه القاعدة مفعلة في إعدادات الصلاة الحالية.</string>
+    <string name="learn_topic_tahara_intro" tools:ignore="MissingTranslation">مدخل إلى الطهارة</string>
+    <string name="learn_topic_tahara_intro_sub" tools:ignore="MissingTranslation">خريطة شاملة للطهارة والحدث والنجاسة والأعذار</string>
+    <string name="learn_topic_water_impurity" tools:ignore="MissingTranslation">المياه والنجاسات</string>
+    <string name="learn_topic_water_impurity_sub" tools:ignore="MissingTranslation">استعمال الماء وإزالة النجاسة دون وسوسة أو إسراف</string>
+    <string name="learn_topic_restroom_etiquette" tools:ignore="MissingTranslation">آداب قضاء الحاجة</string>
+    <string name="learn_topic_restroom_etiquette_sub" tools:ignore="MissingTranslation">الاستنجاء والاستجمار والنظافة والخصوصية</string>
+    <string name="learn_topic_wudu_nullifiers" tools:ignore="MissingTranslation">نواقض الوضوء</string>
+    <string name="learn_topic_wudu_nullifiers_sub" tools:ignore="MissingTranslation">ما ينقض الوضوء وما وقع فيه اختلاف فقهي</string>
+    <string name="learn_topic_wiping_footwear" tools:ignore="MissingTranslation">المسح على الخفين والجوارب</string>
+    <string name="learn_topic_wiping_footwear_sub" tools:ignore="MissingTranslation">الشروط والمدة وطريقة المسح وأهم مسائل الخلاف</string>
+    <string name="learn_topic_menstruation_postpartum" tools:ignore="MissingTranslation">الحيض والنفاس والاستحاضة</string>
+    <string name="learn_topic_menstruation_postpartum_sub" tools:ignore="MissingTranslation">دليل تعليمي منظم للطهارة والصلاة والصيام في هذه الحالات</string>
+    <string name="learn_topic_excused_person" tools:ignore="MissingTranslation">أحكام صاحب العذر</string>
+    <string name="learn_topic_excused_person_sub" tools:ignore="MissingTranslation">السلس والنزف المستمر ونحوها مع مراعاة الجانب الطبي</string>
+    <string name="learn_topic_prayer_intro" tools:ignore="MissingTranslation">مدخل إلى الصلاة</string>
+    <string name="learn_topic_prayer_intro_sub" tools:ignore="MissingTranslation">خريطة شاملة للشروط والصفة والسهو والجماعة والأعذار</string>
+    <string name="learn_topic_qibla_niyyah" tools:ignore="MissingTranslation">القبلة والنية</string>
+    <string name="learn_topic_qibla_niyyah_sub" tools:ignore="MissingTranslation">استقبال القبلة وفهم النية دون تكلف أو وسوسة</string>
+    <string name="learn_topic_sujud_sahw" tools:ignore="MissingTranslation">سجود السهو</string>
+    <string name="learn_topic_sujud_sahw_sub" tools:ignore="MissingTranslation">أحكام الزيادة والنقص والشك قبل السلام وبعده</string>
+    <string name="learn_topic_congregation_imamah" tools:ignore="MissingTranslation">الجماعة والإمامة</string>
+    <string name="learn_topic_congregation_imamah_sub" tools:ignore="MissingTranslation">متابعة الإمام والصفوف والمسبوق وأساسيات الإمامة</string>
+    <string name="learn_topic_traveler_prayer" tools:ignore="MissingTranslation">صلاة المسافر</string>
+    <string name="learn_topic_traveler_prayer_sub" tools:ignore="MissingTranslation">القصر والجمع والصلاة أثناء الطريق والإقامة المؤقتة</string>
+    <string name="learn_topic_sick_prayer" tools:ignore="MissingTranslation">صلاة المريض</string>
+    <string name="learn_topic_sick_prayer_sub" tools:ignore="MissingTranslation">الصلاة بحسب الاستطاعة مع مراعاة السلامة والطهارة</string>
+    <string name="learn_topic_jumuah" tools:ignore="MissingTranslation">صلاة الجمعة</string>
+    <string name="learn_topic_jumuah_sub" tools:ignore="MissingTranslation">الخطبة والصلاة والأعذار وأحكام الحضور</string>
+    <string name="learn_references" tools:ignore="MissingTranslation">المراجع</string>
+    <string name="learn_estimated_minutes" tools:ignore="MissingTranslation">وقت القراءة التقريبي: %1$d دقيقة</string>
+    <string name="learn_content_version" tools:ignore="MissingTranslation">إصدار المحتوى: %1$d</string>
+    <string name="learn_scholar_review_notice" tools:ignore="MissingTranslation">المحتوى التعليمي الديني يخضع للمراجعة العلمية قبل اعتماده نهائيًا.</string>
+    <string name="learn_topic_fasting_day" tools:ignore="MissingTranslation">يوم الصيام</string>
+    <string name="learn_topic_fasting_day_sub" tools:ignore="MissingTranslation">من السحور والفجر إلى الإفطار بخطوات عملية واضحة</string>
+    <string name="learn_topic_fasting_nullifiers" tools:ignore="MissingTranslation">مفسدات الصيام</string>
+    <string name="learn_topic_fasting_nullifiers_sub" tools:ignore="MissingTranslation">العمد والنسيان والأدوية والإجراءات الطبية والكفارة</string>
+    <string name="learn_topic_fasting_exemptions" tools:ignore="MissingTranslation">أعذار الصيام والقضاء</string>
+    <string name="learn_topic_fasting_exemptions_sub" tools:ignore="MissingTranslation">المرض والسفر والعجز والحمل والرضاعة والفدية</string>
+    <string name="learn_topic_fasting_women" tools:ignore="MissingTranslation">الصيام للمرأة</string>
+    <string name="learn_topic_fasting_women_sub" tools:ignore="MissingTranslation">الحيض والنفاس والحمل والرضاعة مع مراعاة الصحة</string>
+    <string name="learn_topic_fasting_travel_illness" tools:ignore="MissingTranslation">الصيام في السفر والمرض</string>
+    <string name="learn_topic_fasting_travel_illness_sub" tools:ignore="MissingTranslation">الرخصة والقدرة والأدوية وتنظيم القضاء</string>
+    <string name="learn_topic_ramadan_sunnahs" tools:ignore="MissingTranslation">سنن رمضان</string>
+    <string name="learn_topic_ramadan_sunnahs_sub" tools:ignore="MissingTranslation">السحور والفطر والقيام والقرآن والصدقة بتوازن</string>
+    <string name="learn_topic_laylat_qadr_itikaf" tools:ignore="MissingTranslation">ليلة القدر والاعتكاف</string>
+    <string name="learn_topic_laylat_qadr_itikaf_sub" tools:ignore="MissingTranslation">العشر الأواخر والتحري والاعتكاف دون ادعاءات غير موثوقة</string>
+    <string name="learn_topic_voluntary_fasting" tools:ignore="MissingTranslation">صيام التطوع</string>
+    <string name="learn_topic_voluntary_fasting_sub" tools:ignore="MissingTranslation">شوال وعرفة وعاشوراء والأيام البيض وأيام النهي</string>
+    <string name="learn_topic_zakat_nisab_haul" tools:ignore="MissingTranslation">النصاب والحول</string>
+    <string name="learn_topic_zakat_nisab_haul_sub" tools:ignore="MissingTranslation">متى تبدأ الزكاة وكيف تختلف شروط الأموال</string>
+    <string name="learn_topic_zakat_cash_metals" tools:ignore="MissingTranslation">النقد والذهب والفضة</string>
+    <string name="learn_topic_zakat_cash_metals_sub" tools:ignore="MissingTranslation">الحسابات والعملات المتعددة وتقييم المعادن</string>
+    <string name="learn_topic_zakat_business_investments" tools:ignore="MissingTranslation">التجارة والاستثمارات</string>
+    <string name="learn_topic_zakat_business_investments_sub" tools:ignore="MissingTranslation">المخزون والذمم والأسهم والاستثمارات المعاصرة</string>
+    <string name="learn_topic_zakat_debts_jewelry" tools:ignore="MissingTranslation">الديون والحلي</string>
+    <string name="learn_topic_zakat_debts_jewelry_sub" tools:ignore="MissingTranslation">خصم الديون والذمم وحلي الاستعمال والخلاف الفقهي</string>
+    <string name="learn_topic_zakat_recipients" tools:ignore="MissingTranslation">مصارف الزكاة</string>
+    <string name="learn_topic_zakat_recipients_sub" tools:ignore="MissingTranslation">الأصناف الثمانية والتحقق من الاستحقاق والتوزيع</string>
+    <string name="learn_topic_zakat_crops_livestock" tools:ignore="MissingTranslation">زكاة الزروع والأنعام</string>
+    <string name="learn_topic_zakat_crops_livestock_sub" tools:ignore="MissingTranslation">الحصاد والري وأنصبة الأنعام والفرق عن زكاة المال</string>
+    <string name="learn_topic_zakat_fitr" tools:ignore="MissingTranslation">زكاة الفطر</string>
+    <string name="learn_topic_zakat_fitr_sub" tools:ignore="MissingTranslation">من تلزمه ووقتها والطعام والقيمة النقدية</string>
+    <string name="learn_topic_zakat_calculator_guide" tools:ignore="MissingTranslation">دليل حاسبة الزكاة</string>
+    <string name="learn_topic_zakat_calculator_guide_sub" tools:ignore="MissingTranslation">افهم ما تحسبه الأداة وافتراضاتها وما لا تغطيه</string>
+    <string name="learn_category_quran" tools:ignore="MissingTranslation">القرآن والتجويد</string>
+    <string name="learn_topic_quran_intro" tools:ignore="MissingTranslation">مدخل إلى القرآن</string>
+    <string name="learn_topic_quran_intro_sub" tools:ignore="MissingTranslation">التلاوة والفهم والعمل وكيف تستخدم ميزات القرآن للتعلم</string>
+    <string name="learn_topic_quran_etiquette" tools:ignore="MissingTranslation">آداب التلاوة</string>
+    <string name="learn_topic_quran_etiquette_sub" tools:ignore="MissingTranslation">النية والاستعاذة والاستماع والتعامل مع المصحف الرقمي</string>
+    <string name="learn_topic_quran_structure" tools:ignore="MissingTranslation">بنية القرآن</string>
+    <string name="learn_topic_quran_structure_sub" tools:ignore="MissingTranslation">السور والآيات والأجزاء والمكي والمدني والقراءات</string>
+    <string name="learn_topic_quran_understanding" tools:ignore="MissingTranslation">فهم القرآن وتدبره</string>
+    <string name="learn_topic_quran_understanding_sub" tools:ignore="MissingTranslation">الترجمة والتفسير والسياق وحدود الاستنباط الشخصي</string>
+    <string name="learn_topic_quran_learning_plan" tools:ignore="MissingTranslation">خطة تعلم القرآن</string>
+    <string name="learn_topic_quran_learning_plan_sub" tools:ignore="MissingTranslation">تحديد المستوى وروتين يومي والتغذية الراجعة</string>
+    <string name="learn_topic_tajweed_intro" tools:ignore="MissingTranslation">مدخل إلى التجويد</string>
+    <string name="learn_topic_tajweed_intro_sub" tools:ignore="MissingTranslation">هدف التجويد والتلقي وألوان المصحف كوسيلة مساعدة</string>
+    <string name="learn_topic_tajweed_makharij" tools:ignore="MissingTranslation">المخارج والصفات</string>
+    <string name="learn_topic_tajweed_makharij_sub" tools:ignore="MissingTranslation">مخارج الحروف وصفاتها وتمارين عملية للحروف المتقاربة</string>
+    <string name="learn_topic_tajweed_noon_meem" tools:ignore="MissingTranslation">أحكام النون والميم</string>
+    <string name="learn_topic_tajweed_noon_meem_sub" tools:ignore="MissingTranslation">الإظهار والإدغام والإقلاب والإخفاء والغنة</string>
+    <string name="learn_topic_tajweed_madd" tools:ignore="MissingTranslation">أحكام المد</string>
+    <string name="learn_topic_tajweed_madd_sub" tools:ignore="MissingTranslation">المد الطبيعي والهمز والسكون والتدريب على المقادير</string>
+    <string name="learn_topic_tajweed_qalqalah" tools:ignore="MissingTranslation">القلقلة والتفخيم والترقيق</string>
+    <string name="learn_topic_tajweed_qalqalah_sub" tools:ignore="MissingTranslation">القلقلة والراء ولام لفظ الجلالة وأخطاء الأداء</string>
+    <string name="learn_topic_tajweed_waqf" tools:ignore="MissingTranslation">الوقف والابتداء</string>
+    <string name="learn_topic_tajweed_waqf_sub" tools:ignore="MissingTranslation">علامات الوقف وحفظ المعنى والتعامل مع ضيق النفس</string>
+    <string name="learn_topic_tajweed_practice" tools:ignore="MissingTranslation">تطبيق التجويد</string>
+    <string name="learn_topic_tajweed_practice_sub" tools:ignore="MissingTranslation">الاستماع والتسجيل والتصحيح والمراجعة مع قارئ متقن</string>
+    <string name="learn_category_sunnah" tools:ignore="MissingTranslation">السنة والحديث</string>
+    <string name="learn_category_seerah" tools:ignore="MissingTranslation">السيرة النبوية</string>
+    <string name="learn_topic_sunnah_intro" tools:ignore="MissingTranslation">مدخل إلى السنة والحديث</string>
+    <string name="learn_topic_sunnah_intro_sub" tools:ignore="MissingTranslation">المعنى والمكانة ومنهج التعلم والنقل المسؤول</string>
+    <string name="learn_topic_hadith_anatomy" tools:ignore="MissingTranslation">الإسناد والمتن</string>
+    <string name="learn_topic_hadith_anatomy_sub" tools:ignore="MissingTranslation">الرواة والطرق وبنية المرجع الحديثي</string>
+    <string name="learn_topic_hadith_grades" tools:ignore="MissingTranslation">درجات الحديث</string>
+    <string name="learn_topic_hadith_grades_sub" tools:ignore="MissingTranslation">الصحيح والحسن والضعيف والموضوع وحدود التبسيط</string>
+    <string name="learn_topic_hadith_verification" tools:ignore="MissingTranslation">التحقق من الحديث</string>
+    <string name="learn_topic_hadith_verification_sub" tools:ignore="MissingTranslation">المصدر واللفظ والدرجة قبل النشر أو الاستدلال</string>
+    <string name="learn_topic_hadith_understanding" tools:ignore="MissingTranslation">فهم الحديث</string>
+    <string name="learn_topic_hadith_understanding_sub" tools:ignore="MissingTranslation">السياق والجمع بين النصوص والفرق بين الرواية والاستنباط</string>
+    <string name="learn_topic_hadith_library_guide" tools:ignore="MissingTranslation">دليل مكتبة الحديث</string>
+    <string name="learn_topic_hadith_library_guide_sub" tools:ignore="MissingTranslation">استخدام المجموعات والبحث والدرجة والمصدر داخل التطبيق</string>
+    <string name="learn_topic_seerah_method" tools:ignore="MissingTranslation">منهج دراسة السيرة</string>
+    <string name="learn_topic_seerah_method_sub" tools:ignore="MissingTranslation">المصادر ودرجات اليقين وكيف تقرأ الخط الزمني</string>
+    <string name="learn_topic_seerah_early_life" tools:ignore="MissingTranslation">قبل البعثة</string>
+    <string name="learn_topic_seerah_early_life_sub" tools:ignore="MissingTranslation">مكة والنشأة وخديجة رضي الله عنها والخلوة قبل الوحي</string>
+    <string name="learn_topic_seerah_revelation_makkah" tools:ignore="MissingTranslation">الوحي والمرحلة المكية</string>
+    <string name="learn_topic_seerah_revelation_makkah_sub" tools:ignore="MissingTranslation">بدء الوحي والدعوة والثبات وموضوعات القرآن المكي</string>
+    <string name="learn_topic_seerah_hijrah" tools:ignore="MissingTranslation">الهجرة</string>
+    <string name="learn_topic_seerah_hijrah_sub" tools:ignore="MissingTranslation">التحول إلى المدينة والتخطيط والتوكل وبداية المجتمع الجديد</string>
+    <string name="learn_topic_seerah_madinah" tools:ignore="MissingTranslation">بناء مجتمع المدينة</string>
+    <string name="learn_topic_seerah_madinah_sub" tools:ignore="MissingTranslation">المسجد والتكافل وإدارة المجتمع وتدرج التشريع</string>
+    <string name="learn_topic_seerah_major_events" tools:ignore="MissingTranslation">الأحداث الكبرى في السيرة</string>
+    <string name="learn_topic_seerah_major_events_sub" tools:ignore="MissingTranslation">بدر وأحد والأحزاب والحديبية وفتح مكة ضمن سياقها</string>
+    <string name="learn_topic_seerah_character_legacy" tools:ignore="MissingTranslation">الخلق والقدوة</string>
+    <string name="learn_topic_seerah_character_legacy_sub" tools:ignore="MissingTranslation">الرحمة والعدل والصبر والوفاء وكيف تنقل الدروس إلى حياتك</string>
 </resources>
