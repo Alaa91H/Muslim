@@ -246,6 +246,8 @@
     <string name="learn_estimated_minutes" tools:ignore="MissingTranslation">وقت القراءة التقريبي: %1$d دقيقة</string>
     <string name="learn_content_version" tools:ignore="MissingTranslation">إصدار المحتوى: %1$d</string>
     <string name="learn_scholar_review_notice" tools:ignore="MissingTranslation">المحتوى التعليمي الديني يخضع للمراجعة العلمية قبل اعتماده نهائيًا.</string>
+    <string name="learn_review_status_draft" tools:ignore="MissingTranslation">حالة المحتوى: مسودة لم تُعتمد بعد.</string>
+    <string name="learn_review_status_reviewed" tools:ignore="MissingTranslation">اكتملت المراجعة العلمية لهذا الدرس وفق عملية المراجعة المعتمدة في المشروع.</string>
     <string name="learn_topic_fasting_day" tools:ignore="MissingTranslation">يوم الصيام</string>
     <string name="learn_topic_fasting_day_sub" tools:ignore="MissingTranslation">من السحور والفجر إلى الإفطار بخطوات عملية واضحة</string>
     <string name="learn_topic_fasting_nullifiers" tools:ignore="MissingTranslation">مفسدات الصيام</string>
