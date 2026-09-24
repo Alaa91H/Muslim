@@ -161,3 +161,29 @@ Quran page composition, active-ayah highlighting, Arabic text metrics, audio-con
 geometry, and other reader-specific measurements remain explicit. They are not
 forced into the generic spacing scale because changing them can affect Mushaf
 readability and playback ergonomics.
+
+
+## Phase 2 closure
+
+The Design System consolidation now treats the remaining high-use worship surfaces
+as strict consumers:
+
+- Qibla uses the shared spacing scale for all ordinary layout gaps.
+- Adhkar library/reader uses shared primary/secondary actions and centralized
+  spacing.
+- Adhkar Settings uses `IslamicCard`, `IslamicPrimaryButton`,
+  `IslamicSecondaryButton`, and `IslamicSpacing` for ordinary surfaces/actions
+  while sliders, dropdowns, TTS controls, color picking, and preview drawing remain
+  specialized.
+- Tasbih uses `IslamicSpacing` throughout ordinary screen layout.
+- Ramadan and the reusable Habit Tracker use `IslamicSpacing` throughout ordinary
+  screen layout.
+
+Together with the previously protected Settings, Prayer, Location, Quran, Hadith,
+More, Qibla-mosque, and Scholar Library surfaces, this closes the Phase 2 shared
+Design System foundation. Future UI work should add a new local primitive only when
+its behavior is genuinely feature-specific; otherwise it should consume the shared
+semantic component layer.
+
+Phase 3 may now focus on Quran Reader, audio, downloads/offline behavior, and reading
+reliability without continuing broad visual-system migration in parallel.
