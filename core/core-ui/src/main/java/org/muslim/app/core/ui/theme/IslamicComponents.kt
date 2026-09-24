@@ -110,20 +110,8 @@ fun MuslimStateSurface(
     showProgress: Boolean = false,
 ) {
     val colors = MaterialTheme.colorScheme
-    val container = when (tone) {
-        MuslimStateTone.Neutral -> colors.surfaceContainerLow
-        MuslimStateTone.Information -> colors.secondaryContainer
-        MuslimStateTone.Positive -> colors.primaryContainer
-        MuslimStateTone.Warning -> colors.tertiaryContainer
-        MuslimStateTone.Critical -> colors.errorContainer
-    }
-    val content = when (tone) {
-        MuslimStateTone.Neutral -> colors.onSurface
-        MuslimStateTone.Information -> colors.onSecondaryContainer
-        MuslimStateTone.Positive -> colors.onPrimaryContainer
-        MuslimStateTone.Warning -> colors.onTertiaryContainer
-        MuslimStateTone.Critical -> colors.onErrorContainer
-    }
+    val container = stateContainerColor(tone)
+    val content = stateContentColor(tone)
 
     Surface(
         modifier = modifier.fillMaxWidth(),
@@ -137,74 +125,127 @@ fun MuslimStateSurface(
             modifier = Modifier.padding(IslamicSpacing.Comfortable),
             verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                if (showProgress) {
-                    CircularProgressIndicator(
-                        modifier = Modifier.size(IslamicIconSize.Standard),
-                        strokeWidth = 2.dp,
-                        color = content,
-                    )
-                } else {
-                    icon?.let {
-                        Icon(
-                            imageVector = it,
-                            contentDescription = iconContentDescription,
-                            modifier = Modifier.size(IslamicIconSize.Standard),
-                            tint = content,
-                        )
-                    }
-                }
-                if (showProgress || icon != null) {
-                    androidx.compose.foundation.layout.Spacer(Modifier.size(IslamicSpacing.Small))
-                }
+            MuslimStateHeader(
+                title = title,
+                icon = icon,
+                iconContentDescription = iconContentDescription,
+                showProgress = showProgress,
+                contentColor = content,
+            )
+            supportingText?.takeIf(String::isNotBlank)?.let { text ->
                 Text(
-                    text = title,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    color = content,
-                )
-            }
-            supportingText?.takeIf { it.isNotBlank() }?.let {
-                Text(
-                    text = it,
+                    text = text,
                     style = MaterialTheme.typography.bodyMedium,
                     color = content.copy(alpha = 0.84f),
                 )
             }
-            if ((actionLabel != null && onAction != null) ||
-                (secondaryActionLabel != null && onSecondaryAction != null)
-            ) {
-                val hasSecondaryAction = secondaryActionLabel != null && onSecondaryAction != null
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
-                    verticalAlignment = Alignment.CenterVertically,
+            MuslimStateActions(
+                actionLabel = actionLabel,
+                onAction = onAction,
+                secondaryActionLabel = secondaryActionLabel,
+                onSecondaryAction = onSecondaryAction,
+            )
+        }
+    }
+}
+
+@Composable
+private fun stateContainerColor(tone: MuslimStateTone): Color {
+    val colors = MaterialTheme.colorScheme
+    return when (tone) {
+        MuslimStateTone.Neutral -> colors.surfaceContainerLow
+        MuslimStateTone.Information -> colors.secondaryContainer
+        MuslimStateTone.Positive -> colors.primaryContainer
+        MuslimStateTone.Warning -> colors.tertiaryContainer
+        MuslimStateTone.Critical -> colors.errorContainer
+    }
+}
+
+@Composable
+private fun stateContentColor(tone: MuslimStateTone): Color {
+    val colors = MaterialTheme.colorScheme
+    return when (tone) {
+        MuslimStateTone.Neutral -> colors.onSurface
+        MuslimStateTone.Information -> colors.onSecondaryContainer
+        MuslimStateTone.Positive -> colors.onPrimaryContainer
+        MuslimStateTone.Warning -> colors.onTertiaryContainer
+        MuslimStateTone.Critical -> colors.onErrorContainer
+    }
+}
+
+@Composable
+private fun MuslimStateHeader(
+    title: String,
+    icon: ImageVector?,
+    iconContentDescription: String?,
+    showProgress: Boolean,
+    contentColor: Color,
+) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        if (showProgress) {
+            CircularProgressIndicator(
+                modifier = Modifier.size(IslamicIconSize.Standard),
+                strokeWidth = 2.dp,
+                color = contentColor,
+            )
+        } else if (icon != null) {
+            Icon(
+                imageVector = icon,
+                contentDescription = iconContentDescription,
+                modifier = Modifier.size(IslamicIconSize.Standard),
+                tint = contentColor,
+            )
+        }
+        if (showProgress || icon != null) {
+            androidx.compose.foundation.layout.Spacer(Modifier.size(IslamicSpacing.Small))
+        }
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.SemiBold,
+            color = contentColor,
+        )
+    }
+}
+
+@Composable
+private fun MuslimStateActions(
+    actionLabel: String?,
+    onAction: (() -> Unit)?,
+    secondaryActionLabel: String?,
+    onSecondaryAction: (() -> Unit)?,
+) {
+    val hasPrimary = actionLabel != null && onAction != null
+    val hasSecondary = secondaryActionLabel != null && onSecondaryAction != null
+    if (!hasPrimary && !hasSecondary) return
+
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        if (hasPrimary && actionLabel != null && onAction != null) {
+            if (hasSecondary) {
+                Button(
+                    onClick = onAction,
+                    modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
                 ) {
-                    if (actionLabel != null && onAction != null) {
-                        if (hasSecondaryAction) {
-                            Button(
-                                onClick = onAction,
-                                modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
-                            ) {
-                                Text(actionLabel)
-                            }
-                        } else {
-                            TextButton(
-                                onClick = onAction,
-                                modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
-                            ) {
-                                Text(actionLabel)
-                            }
-                        }
-                    }
-                    if (secondaryActionLabel != null && onSecondaryAction != null) {
-                        TextButton(
-                            onClick = onSecondaryAction,
-                            modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
-                        ) {
-                            Text(secondaryActionLabel)
-                        }
-                    }
+                    Text(actionLabel)
                 }
+            } else {
+                TextButton(
+                    onClick = onAction,
+                    modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
+                ) {
+                    Text(actionLabel)
+                }
+            }
+        }
+        if (hasSecondary && secondaryActionLabel != null && onSecondaryAction != null) {
+            TextButton(
+                onClick = onSecondaryAction,
+                modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
+            ) {
+                Text(secondaryActionLabel)
             }
         }
     }
