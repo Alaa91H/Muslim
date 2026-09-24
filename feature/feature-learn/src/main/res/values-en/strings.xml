@@ -413,4 +413,27 @@
     <string name="learn_topic_faith_qadar_sub">Divine knowledge and decree, human responsibility and taking practical means</string>
     <string name="learn_topic_faith_questions">Questions and doubts</string>
     <string name="learn_topic_faith_questions_sub">A method for checking text, context and sources and handling difficult questions responsibly</string>
+    <string name="learn_search_hint">Search the academy</string>
+    <string name="learn_continue_learning">Continue learning</string>
+    <string name="learn_continue_subtitle">Return to the last unfinished lesson or move to the next one</string>
+    <string name="learn_overall_progress">Academy progress: %1$d of %2$d</string>
+    <string name="learn_completed_count">%1$d / %2$d completed</string>
+    <string name="learn_review_mistakes">Review mistakes</string>
+    <string name="learn_review_mistakes_count">%1$d answer(s) need review</string>
+    <string name="learn_no_mistakes">No saved mistakes to review</string>
+    <string name="learn_open_lesson">Open lesson</string>
+    <string name="learn_lesson_completed">Lesson completed</string>
+    <string name="learn_lesson_in_progress">Lesson in progress</string>
+    <string name="learn_quiz_progress">Answered %1$d of %2$d questions</string>
+    <string name="learn_contents">Lesson contents</string>
+    <string name="learn_knowledge_check">Check your understanding</string>
+    <string name="learn_quiz_correct">Correct answer</string>
+    <string name="learn_quiz_incorrect">Review the answer and try again</string>
+    <string name="learn_completion_body">When you finish reading and reviewing, mark the lesson complete to include it in your progress.</string>
+    <string name="learn_completion_done_body">You completed this lesson. You can mark it incomplete if you want it back in your learning queue.</string>
+    <string name="learn_mark_completed">Mark completed</string>
+    <string name="learn_mark_incomplete">Mark incomplete</string>
+    <string name="learn_category_progress">Section progress: %1$d of %2$d</string>
+    <string name="learn_roadmap_academy_progress">Stage lesson progress: %1$d of %2$d</string>
+    <string name="learn_search_no_results">No lessons match your search</string>
 </resources>
