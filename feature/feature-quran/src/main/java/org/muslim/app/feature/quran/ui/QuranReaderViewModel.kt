@@ -788,15 +788,17 @@ class QuranReaderViewModel @Inject constructor(
 
     fun retryPlaybackAfterFailure() {
         val request = lastPlaybackRequest ?: return
+        val failedGlobal = _recitationFailure.value?.globalNumber
+        val retryGlobals = retryGlobalNumbers(request.globalNumbers, failedGlobal)
         _recitationFailure.value = null
         viewModelScope.launch {
             val surahAyahs = repository.observeSurah(request.surahNumber).first()
             val byGlobal = surahAyahs.associateBy { it.globalNumber }
-            val retryAyahs = request.globalNumbers.mapNotNull(byGlobal::get)
-            if (retryAyahs.size != request.globalNumbers.size) {
+            val retryAyahs = retryGlobals.mapNotNull(byGlobal::get)
+            if (retryAyahs.size != retryGlobals.size) {
                 reportRecitationFailure(
                     RecitationFailureReason.AudioFileUnavailable,
-                    request.globalNumbers.firstOrNull(),
+                    retryGlobals.firstOrNull(),
                 )
                 return@launch
             }
@@ -960,6 +962,12 @@ class QuranReaderViewModel @Inject constructor(
  */
 internal fun shouldResumeAfterReciterChange(state: PlaybackState, currentAyah: Int?): Boolean =
     currentAyah != null && state != PlaybackState.Idle
+
+internal fun retryGlobalNumbers(requested: List<Int>, failedGlobal: Int?): List<Int> {
+    if (failedGlobal == null) return requested
+    val failedIndex = requested.indexOf(failedGlobal)
+    return if (failedIndex >= 0) requested.drop(failedIndex) else requested
+}
 
 internal fun nextSurahForAdvance(currentSurah: Int, toEndOfQuran: Boolean, stopAtEnd: Boolean): Int? {
     if (currentSurah >= 114) return if (toEndOfQuran || stopAtEnd) null else 1
