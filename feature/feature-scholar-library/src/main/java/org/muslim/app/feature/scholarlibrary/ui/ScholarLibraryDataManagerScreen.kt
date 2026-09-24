@@ -44,6 +44,7 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.launch
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimEmptyState
 import org.muslim.app.feature.scholarlibrary.R
 import org.muslim.app.feature.scholarlibrary.domain.ScholarContentPack
 
@@ -147,10 +148,9 @@ private fun DataManagerContent(
         }
         if (packs.isEmpty()) {
             item {
-                Text(
-                    stringResource(R.string.scholar_library_no_registered_packs),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                MuslimEmptyState(
+                    title = stringResource(R.string.scholar_library_no_registered_packs),
+                    icon = Icons.Filled.Download,
                 )
             }
         } else {
