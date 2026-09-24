@@ -21,13 +21,13 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.ui.theme.MuslimEmptyState
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.Bookmark
 
@@ -53,22 +53,11 @@ fun BookmarksScreen(
         )
 
         if (bookmarks.isEmpty()) {
-            Column(
-                modifier = Modifier.fillMaxSize().padding(24.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Icon(
-                    Icons.Filled.Bookmark,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Spacer(Modifier.padding(top = 8.dp))
-                Text(
-                    text = stringResource(R.string.quran_bookmarks_empty),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
+            MuslimEmptyState(
+                title = stringResource(R.string.quran_bookmarks_empty),
+                icon = Icons.Filled.Bookmark,
+                modifier = Modifier.padding(24.dp),
+            )
         } else {
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),

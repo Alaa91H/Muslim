@@ -14,6 +14,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -104,22 +105,13 @@ fun MuslimStateSurface(
     iconContentDescription: String? = null,
     actionLabel: String? = null,
     onAction: (() -> Unit)? = null,
+    secondaryActionLabel: String? = null,
+    onSecondaryAction: (() -> Unit)? = null,
+    showProgress: Boolean = false,
 ) {
     val colors = MaterialTheme.colorScheme
-    val container = when (tone) {
-        MuslimStateTone.Neutral -> colors.surfaceContainerLow
-        MuslimStateTone.Information -> colors.secondaryContainer
-        MuslimStateTone.Positive -> colors.primaryContainer
-        MuslimStateTone.Warning -> colors.tertiaryContainer
-        MuslimStateTone.Critical -> colors.errorContainer
-    }
-    val content = when (tone) {
-        MuslimStateTone.Neutral -> colors.onSurface
-        MuslimStateTone.Information -> colors.onSecondaryContainer
-        MuslimStateTone.Positive -> colors.onPrimaryContainer
-        MuslimStateTone.Warning -> colors.onTertiaryContainer
-        MuslimStateTone.Critical -> colors.onErrorContainer
-    }
+    val container = stateContainerColor(tone)
+    val content = stateContentColor(tone)
 
     Surface(
         modifier = modifier.fillMaxWidth(),
@@ -133,33 +125,113 @@ fun MuslimStateSurface(
             modifier = Modifier.padding(IslamicSpacing.Comfortable),
             verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                icon?.let {
-                    Icon(
-                        imageVector = it,
-                        contentDescription = iconContentDescription,
-                        modifier = Modifier.size(IslamicIconSize.Standard),
-                        tint = content,
-                    )
-                }
-                if (icon != null) {
-                    androidx.compose.foundation.layout.Spacer(Modifier.size(IslamicSpacing.Small))
-                }
+            MuslimStateHeader(
+                title = title,
+                icon = icon,
+                iconContentDescription = iconContentDescription,
+                showProgress = showProgress,
+                contentColor = content,
+            )
+            supportingText?.takeIf(String::isNotBlank)?.let { text ->
                 Text(
-                    text = title,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    color = content,
-                )
-            }
-            supportingText?.takeIf { it.isNotBlank() }?.let {
-                Text(
-                    text = it,
+                    text = text,
                     style = MaterialTheme.typography.bodyMedium,
                     color = content.copy(alpha = 0.84f),
                 )
             }
-            if (actionLabel != null && onAction != null) {
+            MuslimStateActions(
+                actionLabel = actionLabel,
+                onAction = onAction,
+                secondaryActionLabel = secondaryActionLabel,
+                onSecondaryAction = onSecondaryAction,
+            )
+        }
+    }
+}
+
+@Composable
+private fun stateContainerColor(tone: MuslimStateTone): Color {
+    val colors = MaterialTheme.colorScheme
+    return when (tone) {
+        MuslimStateTone.Neutral -> colors.surfaceContainerLow
+        MuslimStateTone.Information -> colors.secondaryContainer
+        MuslimStateTone.Positive -> colors.primaryContainer
+        MuslimStateTone.Warning -> colors.tertiaryContainer
+        MuslimStateTone.Critical -> colors.errorContainer
+    }
+}
+
+@Composable
+private fun stateContentColor(tone: MuslimStateTone): Color {
+    val colors = MaterialTheme.colorScheme
+    return when (tone) {
+        MuslimStateTone.Neutral -> colors.onSurface
+        MuslimStateTone.Information -> colors.onSecondaryContainer
+        MuslimStateTone.Positive -> colors.onPrimaryContainer
+        MuslimStateTone.Warning -> colors.onTertiaryContainer
+        MuslimStateTone.Critical -> colors.onErrorContainer
+    }
+}
+
+@Composable
+private fun MuslimStateHeader(
+    title: String,
+    icon: ImageVector?,
+    iconContentDescription: String?,
+    showProgress: Boolean,
+    contentColor: Color,
+) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        if (showProgress) {
+            CircularProgressIndicator(
+                modifier = Modifier.size(IslamicIconSize.Standard),
+                strokeWidth = 2.dp,
+                color = contentColor,
+            )
+        } else if (icon != null) {
+            Icon(
+                imageVector = icon,
+                contentDescription = iconContentDescription,
+                modifier = Modifier.size(IslamicIconSize.Standard),
+                tint = contentColor,
+            )
+        }
+        if (showProgress || icon != null) {
+            androidx.compose.foundation.layout.Spacer(Modifier.size(IslamicSpacing.Small))
+        }
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.SemiBold,
+            color = contentColor,
+        )
+    }
+}
+
+@Composable
+private fun MuslimStateActions(
+    actionLabel: String?,
+    onAction: (() -> Unit)?,
+    secondaryActionLabel: String?,
+    onSecondaryAction: (() -> Unit)?,
+) {
+    val hasPrimary = actionLabel != null && onAction != null
+    val hasSecondary = secondaryActionLabel != null && onSecondaryAction != null
+    if (!hasPrimary && !hasSecondary) return
+
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        if (hasPrimary && actionLabel != null && onAction != null) {
+            if (hasSecondary) {
+                Button(
+                    onClick = onAction,
+                    modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
+                ) {
+                    Text(actionLabel)
+                }
+            } else {
                 TextButton(
                     onClick = onAction,
                     modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
@@ -168,8 +240,115 @@ fun MuslimStateSurface(
                 }
             }
         }
+        if (hasSecondary && secondaryActionLabel != null && onSecondaryAction != null) {
+            TextButton(
+                onClick = onSecondaryAction,
+                modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
+            ) {
+                Text(secondaryActionLabel)
+            }
+        }
     }
 }
+
+/**
+ * Standard loading state. Content screens keep ownership of data/state logic;
+ * the design system owns the visual and accessibility presentation.
+ */
+@Composable
+fun MuslimLoadingState(
+    title: String,
+    modifier: Modifier = Modifier,
+    supportingText: String? = null,
+) = MuslimStateSurface(
+    title = title,
+    supportingText = supportingText,
+    modifier = modifier,
+    tone = MuslimStateTone.Information,
+    showProgress = true,
+)
+
+/** Standard empty-content state with optional primary and secondary recovery actions. */
+@Composable
+fun MuslimEmptyState(
+    title: String,
+    modifier: Modifier = Modifier,
+    supportingText: String? = null,
+    icon: ImageVector? = null,
+    iconContentDescription: String? = null,
+    actionLabel: String? = null,
+    onAction: (() -> Unit)? = null,
+    secondaryActionLabel: String? = null,
+    onSecondaryAction: (() -> Unit)? = null,
+) = MuslimStateSurface(
+    title = title,
+    supportingText = supportingText,
+    modifier = modifier,
+    tone = MuslimStateTone.Neutral,
+    icon = icon,
+    iconContentDescription = iconContentDescription,
+    actionLabel = actionLabel,
+    onAction = onAction,
+    secondaryActionLabel = secondaryActionLabel,
+    onSecondaryAction = onSecondaryAction,
+)
+
+/** Standard recoverable error state. */
+@Composable
+fun MuslimErrorState(
+    title: String,
+    modifier: Modifier = Modifier,
+    supportingText: String? = null,
+    icon: ImageVector? = null,
+    actionLabel: String? = null,
+    onAction: (() -> Unit)? = null,
+) = MuslimStateSurface(
+    title = title,
+    supportingText = supportingText,
+    modifier = modifier,
+    tone = MuslimStateTone.Critical,
+    icon = icon,
+    actionLabel = actionLabel,
+    onAction = onAction,
+)
+
+/** Standard offline/degraded-network state. */
+@Composable
+fun MuslimOfflineState(
+    title: String,
+    modifier: Modifier = Modifier,
+    supportingText: String? = null,
+    icon: ImageVector? = null,
+    actionLabel: String? = null,
+    onAction: (() -> Unit)? = null,
+) = MuslimStateSurface(
+    title = title,
+    supportingText = supportingText,
+    modifier = modifier,
+    tone = MuslimStateTone.Warning,
+    icon = icon,
+    actionLabel = actionLabel,
+    onAction = onAction,
+)
+
+/** Standard permission-required state with a single explicit recovery action. */
+@Composable
+fun MuslimPermissionRequiredState(
+    title: String,
+    modifier: Modifier = Modifier,
+    supportingText: String? = null,
+    icon: ImageVector? = null,
+    actionLabel: String? = null,
+    onAction: (() -> Unit)? = null,
+) = MuslimStateSurface(
+    title = title,
+    supportingText = supportingText,
+    modifier = modifier,
+    tone = MuslimStateTone.Information,
+    icon = icon,
+    actionLabel = actionLabel,
+    onAction = onAction,
+)
 
 /** A section title with optional supporting context and a single trailing action.
  *  Uses a clear hierarchy (titleLarge + bodySmall) and keeps the trailing slot

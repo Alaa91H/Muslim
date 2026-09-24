@@ -32,7 +32,6 @@ import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Sort
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
@@ -58,6 +57,12 @@ import androidx.compose.ui.unit.dp
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
+import org.muslim.app.core.ui.theme.MuslimEmptyState
+import org.muslim.app.core.ui.theme.MuslimErrorState
+import org.muslim.app.core.ui.theme.MuslimLoadingState
+import org.muslim.app.core.ui.theme.MuslimOfflineState
+import org.muslim.app.core.ui.theme.MuslimPermissionRequiredState
+import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.feature.qibla.R
 import org.muslim.app.feature.qibla.data.MosquePlace
 import org.muslim.app.feature.qibla.data.NearbyMosque
@@ -100,7 +105,11 @@ internal fun NearbyMosquesTab(
             NearbyMosquesUiState.Idle -> item { MosqueMessage(R.string.nearby_mosques_ready) }
 
             is NearbyMosquesUiState.LoadingLocation -> {
-                item { MosqueLoadingMessage(R.string.nearby_mosques_loading_location) }
+                item {
+                    MuslimLoadingState(
+                        title = stringResource(R.string.nearby_mosques_loading_location),
+                    )
+                }
                 if (state.cachedPlaces.isNotEmpty()) {
                     item { MosqueMessage(R.string.nearby_mosques_cached_locations_loading) }
                     cachedMosqueRows(state.cachedPlaces)
@@ -119,7 +128,11 @@ internal fun NearbyMosquesTab(
                         onSortModeChange = { sortMode = it },
                     )
                 } else {
-                    item { MosqueLoadingMessage(R.string.nearby_mosques_loading_mosques) }
+                    item {
+                        MuslimLoadingState(
+                            title = stringResource(R.string.nearby_mosques_loading_mosques),
+                        )
+                    }
                 }
             }
 
@@ -143,11 +156,19 @@ internal fun NearbyMosquesTab(
             }
 
             NearbyMosquesUiState.Error -> item {
-                MosqueActionMessage(R.string.nearby_mosques_error, onRefresh)
+                MuslimErrorState(
+                    title = stringResource(R.string.nearby_mosques_error),
+                    actionLabel = stringResource(R.string.nearby_mosques_retry),
+                    onAction = onRefresh,
+                )
             }
 
             is NearbyMosquesUiState.OfflineCache -> {
-                item { MosqueMessage(R.string.nearby_mosques_offline_cache) }
+                item {
+                    MuslimOfflineState(
+                        title = stringResource(R.string.nearby_mosques_offline_cache),
+                    )
+                }
                 mosqueResultSection(
                     source = state.mosques,
                     searchQuery = searchQuery,
@@ -159,11 +180,19 @@ internal fun NearbyMosquesTab(
             }
 
             NearbyMosquesUiState.PermissionDenied -> item {
-                MosqueActionMessage(R.string.nearby_mosques_permission_denied, onRefresh)
+                MuslimPermissionRequiredState(
+                    title = stringResource(R.string.nearby_mosques_permission_denied),
+                    actionLabel = stringResource(R.string.nearby_mosques_retry),
+                    onAction = onRefresh,
+                )
             }
 
             NearbyMosquesUiState.LocationUnavailable -> item {
-                MosqueActionMessage(R.string.nearby_mosques_location_unavailable, onRefresh)
+                MuslimErrorState(
+                    title = stringResource(R.string.nearby_mosques_location_unavailable),
+                    actionLabel = stringResource(R.string.nearby_mosques_retry),
+                    onAction = onRefresh,
+                )
             }
         }
     }
@@ -605,65 +634,36 @@ private fun MosqueEmptyState(
 ) {
     val nextRadius = nextMosqueRadius(radiusKm)
 
-    IslamicCard(modifier = Modifier.fillMaxWidth()) {
-        Text(
-            text = stringResource(R.string.nearby_mosques_empty),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.SemiBold,
+    if (nextRadius != null) {
+        MuslimEmptyState(
+            title = stringResource(R.string.nearby_mosques_empty),
+            supportingText = stringResource(R.string.nearby_mosques_empty_detail, radiusKm),
+            icon = Icons.Default.Mosque,
+            actionLabel = stringResource(R.string.nearby_mosques_expand_radius, nextRadius),
+            onAction = { onRadiusSelected(nextRadius) },
+            secondaryActionLabel = stringResource(R.string.nearby_mosques_retry),
+            onSecondaryAction = onRefresh,
         )
-        Spacer(Modifier.size(4.dp))
-        Text(
-            text = stringResource(R.string.nearby_mosques_empty_detail, radiusKm),
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+    } else {
+        MuslimEmptyState(
+            title = stringResource(R.string.nearby_mosques_empty),
+            supportingText = stringResource(R.string.nearby_mosques_empty_detail, radiusKm),
+            icon = Icons.Default.Mosque,
+            actionLabel = stringResource(R.string.nearby_mosques_retry),
+            onAction = onRefresh,
         )
-        Spacer(Modifier.size(14.dp))
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            if (nextRadius != null) {
-                IslamicPrimaryButton(
-                    onClick = { onRadiusSelected(nextRadius) },
-                    modifier = Modifier.weight(1f),
-                ) {
-                    Text(stringResource(R.string.nearby_mosques_expand_radius, nextRadius))
-                }
-            }
-            IslamicSecondaryButton(
-                onClick = onRefresh,
-                modifier = Modifier.weight(1f),
-            ) {
-                Icon(Icons.Default.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
-                Spacer(Modifier.size(6.dp))
-                Text(stringResource(R.string.nearby_mosques_retry))
-            }
-        }
     }
 }
 
 @Composable
 private fun MosqueSearchEmpty(onClearSearch: () -> Unit) {
-    IslamicCard(modifier = Modifier.fillMaxWidth()) {
-        Text(
-            text = stringResource(R.string.nearby_mosques_search_empty),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.SemiBold,
-        )
-        Spacer(Modifier.size(4.dp))
-        Text(
-            text = stringResource(R.string.nearby_mosques_search_empty_detail),
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        Spacer(Modifier.size(12.dp))
-        IslamicSecondaryButton(onClick = onClearSearch) {
-            Icon(Icons.Default.Close, contentDescription = null, modifier = Modifier.size(18.dp))
-            Spacer(Modifier.size(6.dp))
-            Text(stringResource(R.string.nearby_mosques_search_clear))
-        }
-    }
+    MuslimEmptyState(
+        title = stringResource(R.string.nearby_mosques_search_empty),
+        supportingText = stringResource(R.string.nearby_mosques_search_empty_detail),
+        icon = Icons.Default.Search,
+        actionLabel = stringResource(R.string.nearby_mosques_search_clear),
+        onAction = onClearSearch,
+    )
 }
 
 @Composable
@@ -673,42 +673,10 @@ private fun formatDistance(distanceMeters: Double): String = when {
 }
 
 @Composable
-private fun MosqueLoadingMessage(message: Int) {
-    IslamicCard(modifier = Modifier.fillMaxWidth()) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            CircularProgressIndicator(modifier = Modifier.size(22.dp), strokeWidth = 2.dp)
-            Spacer(Modifier.size(12.dp))
-            Text(stringResource(message), style = MaterialTheme.typography.bodyLarge)
-        }
-    }
-}
-
-@Composable
 private fun MosqueMessage(message: Int) {
-    IslamicCard(modifier = Modifier.fillMaxWidth()) {
-        Text(
-            stringResource(message),
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-    }
-}
-
-@Composable
-private fun MosqueActionMessage(message: Int, onRefresh: () -> Unit) {
-    IslamicCard(modifier = Modifier.fillMaxWidth()) {
-        Text(
-            stringResource(message),
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        Spacer(Modifier.size(12.dp))
-        IslamicSecondaryButton(onClick = onRefresh) {
-            Icon(Icons.Default.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
-            Spacer(Modifier.size(6.dp))
-            Text(stringResource(R.string.nearby_mosques_retry))
-        }
-    }
+    MuslimStateSurface(
+        title = stringResource(message),
+    )
 }
 
 internal fun filterAndSortMosques(
