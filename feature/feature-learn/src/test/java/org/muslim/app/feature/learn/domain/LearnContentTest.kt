@@ -148,6 +148,8 @@ class LearnContentTest {
             "seerah_method", "seerah_hijrah", "seerah_major_events", "seerah_character_legacy",
             "ethics_foundation", "ethics_speech", "ethics_conflict", "ethics_work_digital",
             "new_muslim_welcome", "new_muslim_prayer", "new_muslim_quran", "new_muslim_roadmap",
+            "family_intro", "family_marriage_contract", "family_parenting", "family_conflict_separation",
+            "finance_intro", "finance_riba", "finance_debt_loans", "finance_tools_guide",
             "madhhab",
         )
         LearnContent.topics.forEach { topic ->
