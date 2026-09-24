@@ -413,4 +413,27 @@
     <string name="learn_topic_faith_qadar_sub" tools:ignore="MissingTranslation">علم الله وقدره ومسؤولية الإنسان والأخذ بالأسباب دون تبسيط مخل</string>
     <string name="learn_topic_faith_questions" tools:ignore="MissingTranslation">الأسئلة والشبهات</string>
     <string name="learn_topic_faith_questions_sub" tools:ignore="MissingTranslation">منهج التحقق من النص والسياق والمصدر والتعامل المتوازن مع الإشكالات</string>
+    <string name="learn_search_hint" tools:ignore="MissingTranslation">ابحث في الأكاديمية</string>
+    <string name="learn_continue_learning" tools:ignore="MissingTranslation">متابعة التعلم</string>
+    <string name="learn_continue_subtitle" tools:ignore="MissingTranslation">ارجع إلى آخر درس غير مكتمل أو انتقل إلى الدرس التالي</string>
+    <string name="learn_overall_progress" tools:ignore="MissingTranslation">تقدمك في الأكاديمية: %1$d من %2$d</string>
+    <string name="learn_completed_count" tools:ignore="MissingTranslation">%1$d / %2$d مكتمل</string>
+    <string name="learn_review_mistakes" tools:ignore="MissingTranslation">مراجعة الأخطاء</string>
+    <string name="learn_review_mistakes_count" tools:ignore="MissingTranslation">لديك %1$d إجابة تحتاج إلى مراجعة</string>
+    <string name="learn_no_mistakes" tools:ignore="MissingTranslation">لا توجد أخطاء محفوظة للمراجعة</string>
+    <string name="learn_open_lesson" tools:ignore="MissingTranslation">فتح الدرس</string>
+    <string name="learn_lesson_completed" tools:ignore="MissingTranslation">الدرس مكتمل</string>
+    <string name="learn_lesson_in_progress" tools:ignore="MissingTranslation">الدرس قيد التعلم</string>
+    <string name="learn_quiz_progress" tools:ignore="MissingTranslation">أجبت عن %1$d من %2$d أسئلة</string>
+    <string name="learn_contents" tools:ignore="MissingTranslation">محتويات الدرس</string>
+    <string name="learn_knowledge_check" tools:ignore="MissingTranslation">اختبر فهمك</string>
+    <string name="learn_quiz_correct" tools:ignore="MissingTranslation">إجابة صحيحة</string>
+    <string name="learn_quiz_incorrect" tools:ignore="MissingTranslation">راجع الإجابة وحاول مرة أخرى</string>
+    <string name="learn_completion_body" tools:ignore="MissingTranslation">عند إنهاء القراءة والمراجعة، علّم الدرس كمكتمل ليظهر في تقدمك.</string>
+    <string name="learn_completion_done_body" tools:ignore="MissingTranslation">أكملت هذا الدرس. يمكنك إلغاء الإكمال إذا أردت مراجعته ضمن تقدمك.</string>
+    <string name="learn_mark_completed" tools:ignore="MissingTranslation">تحديد كمكتمل</string>
+    <string name="learn_mark_incomplete" tools:ignore="MissingTranslation">إلغاء الإكمال</string>
+    <string name="learn_category_progress" tools:ignore="MissingTranslation">تقدم القسم: %1$d من %2$d</string>
+    <string name="learn_roadmap_academy_progress" tools:ignore="MissingTranslation">تقدم دروس هذه المرحلة: %1$d من %2$d</string>
+    <string name="learn_search_no_results" tools:ignore="MissingTranslation">لا توجد دروس مطابقة لبحثك</string>
 </resources>
