@@ -57,8 +57,6 @@
     <string name="quran_range_whole_surah_short">السورة</string>
     <string name="quran_repeat_continuous">بدون توقف</string>
     <string name="quran_playback_error">تعذّر تشغيل الصوت — تحقق من الاتصال ثم أعد المحاولة</string>
-    <string name="quran_playback_engine_error">تعذّر بدء التلاوة. أعد المحاولة.</string>
-    <string name="quran_retry">إعادة المحاولة</string>
 
     <!-- Downloads -->
     <string name="quran_downloads_title">التنزيلات</string>
