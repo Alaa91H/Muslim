@@ -492,7 +492,7 @@ private fun FloatingMessagePreview(
                 .alpha(if (enabled) 1f else 0.45f),
         ) {
             Column(
-                modifier = Modifier.padding(horizontal = 20.dp, vertical = 16.dp),
+                modifier = Modifier.padding(horizontal = IslamicSpacing.Comfortable, vertical = IslamicSpacing.Medium),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 val sample = dhikr
@@ -675,7 +675,7 @@ private fun ChoiceChips(
                     } else {
                         MaterialTheme.colorScheme.onSurfaceVariant
                     },
-                    modifier = Modifier.padding(horizontal = 14.dp, vertical = 6.dp),
+                    modifier = Modifier.padding(horizontal = IslamicSpacing.Compact, vertical = IslamicSpacing.Small),
                 )
             }
         }
@@ -888,7 +888,7 @@ private fun ReminderNotificationPreview(
                 .alpha(if (enabled) 1f else 0.45f),
         ) {
             Row(
-                modifier = Modifier.padding(horizontal = 14.dp, vertical = 12.dp),
+                modifier = Modifier.padding(horizontal = IslamicSpacing.Compact, vertical = IslamicSpacing.Compact),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Icon(
@@ -897,7 +897,7 @@ private fun ReminderNotificationPreview(
                     tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(24.dp),
                 )
-                Spacer(Modifier.width(12.dp))
+                Spacer(Modifier.width(IslamicSpacing.Compact))
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
                         text = stringResource(R.string.adhkar_reminder_notification_title),
@@ -913,7 +913,7 @@ private fun ReminderNotificationPreview(
                         overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
                     )
                 }
-                Spacer(Modifier.width(12.dp))
+                Spacer(Modifier.width(IslamicSpacing.Compact))
                 Text(
                     text = org.muslim.app.core.common.time.TimeFormats.formatMinutes(hour * 60 + minute, use24h),
                     style = MaterialTheme.typography.labelMedium,
