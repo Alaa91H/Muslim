@@ -16,13 +16,14 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.AssistChip
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import org.muslim.app.core.designsystem.IslamicIconSize
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -71,8 +72,8 @@ fun AccessibilityScreen(
         },
     ) { innerPadding ->
         LazyColumn(
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
+            contentPadding = PaddingValues(IslamicSpacing.Medium),
+            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
             modifier = Modifier.padding(innerPadding),
         ) {
             item { IntroCard() }
@@ -107,11 +108,10 @@ fun AccessibilityScreen(
 
 @Composable
 private fun IntroCard() {
-    Card {
+    IslamicCard {
         Text(
             text = stringResource(R.string.accessibility_intro),
             style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.padding(16.dp),
         )
     }
 }
@@ -126,21 +126,21 @@ private fun TalkBackCard() {
 
 @Composable
 private fun VoiceNavigationCard(enabled: Boolean, onEnabledChange: (Boolean) -> Unit) {
-    Card {
-        Column(modifier = Modifier.padding(16.dp)) {
+    IslamicCard {
+        Column {
             ToggleHeader(
                 title = stringResource(R.string.accessibility_voice_title),
                 checked = enabled,
                 onCheckedChange = onEnabledChange,
             )
             Text(stringResource(R.string.accessibility_voice_desc), style = MaterialTheme.typography.bodyMedium)
-            Spacer(Modifier.size(8.dp))
+            Spacer(Modifier.size(IslamicSpacing.Small))
             Text(
                 text = stringResource(R.string.accessibility_voice_privacy),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Spacer(Modifier.size(12.dp))
+            Spacer(Modifier.size(IslamicSpacing.Compact))
             HeadingText(stringResource(R.string.accessibility_voice_examples_title))
             Text(stringResource(R.string.accessibility_voice_examples), style = MaterialTheme.typography.bodySmall)
         }
@@ -149,33 +149,33 @@ private fun VoiceNavigationCard(enabled: Boolean, onEnabledChange: (Boolean) -> 
 
 @Composable
 private fun SignLanguageCard(onOpenUrl: (String) -> Unit) {
-    Card {
-        Column(modifier = Modifier.padding(16.dp)) {
+    IslamicCard {
+        Column {
             HeadingText(stringResource(R.string.accessibility_sign_title))
             Text(stringResource(R.string.accessibility_sign_intro), style = MaterialTheme.typography.bodyMedium)
-            Spacer(Modifier.size(12.dp))
+            Spacer(Modifier.size(IslamicSpacing.Compact))
             AssistChip(
                 onClick = { onOpenUrl(BSL_WUDU_URL) },
                 label = { Text(stringResource(R.string.accessibility_sign_wudu)) },
                 leadingIcon = {
-                    Icon(Icons.Filled.PlayArrow, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Icon(Icons.Filled.PlayArrow, contentDescription = null, modifier = Modifier.size(IslamicIconSize.Supporting))
                 },
             )
-            Spacer(Modifier.size(8.dp))
+            Spacer(Modifier.size(IslamicSpacing.Small))
             AssistChip(
                 onClick = { onOpenUrl(BSL_SALAH_URL) },
                 label = { Text(stringResource(R.string.accessibility_sign_salah)) },
                 leadingIcon = {
-                    Icon(Icons.Filled.PlayArrow, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Icon(Icons.Filled.PlayArrow, contentDescription = null, modifier = Modifier.size(IslamicIconSize.Supporting))
                 },
             )
-            Spacer(Modifier.size(8.dp))
+            Spacer(Modifier.size(IslamicSpacing.Small))
             Text(
                 text = stringResource(R.string.accessibility_sign_external),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
+            HorizontalDivider(modifier = Modifier.padding(vertical = IslamicSpacing.Compact))
             Text(
                 text = stringResource(R.string.accessibility_sign_review),
                 style = MaterialTheme.typography.bodySmall,
@@ -195,10 +195,10 @@ private fun SupportCard() {
 
 @Composable
 private fun InfoCard(title: String, body: String) {
-    Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)) {
-        Column(modifier = Modifier.padding(16.dp)) {
+    IslamicCard(containerColor = MaterialTheme.colorScheme.secondaryContainer) {
+        Column {
             Icon(Icons.Filled.Info, contentDescription = null)
-            Spacer(Modifier.size(8.dp))
+            Spacer(Modifier.size(IslamicSpacing.Small))
             HeadingText(title)
             Text(body, style = MaterialTheme.typography.bodyMedium)
         }
@@ -212,8 +212,8 @@ private fun AccessibilityToggleCard(
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
 ) {
-    Card {
-        Column(modifier = Modifier.padding(16.dp)) {
+    IslamicCard {
+        Column {
             ToggleHeader(title, checked, onCheckedChange)
             Text(description, style = MaterialTheme.typography.bodyMedium)
         }
@@ -228,7 +228,7 @@ private fun ToggleHeader(title: String, checked: Boolean, onCheckedChange: (Bool
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.weight(1f).semantics { heading() },
         )
-        Spacer(Modifier.width(8.dp))
+        Spacer(Modifier.width(IslamicSpacing.Small))
         Switch(checked = checked, onCheckedChange = onCheckedChange)
     }
 }
