@@ -397,4 +397,20 @@
     <string name="learn_topic_finance_business_investing_sub">Sources of profit, stock screening, risk and warning signs</string>
     <string name="learn_topic_finance_tools_guide">Finance tools guide</string>
     <string name="learn_topic_finance_tools_guide_sub">Transaction guides, debt ledger, reminders and screening links</string>
+    <string name="learn_topic_faith_tawhid_worship">Tawhid and worship</string>
+    <string name="learn_topic_faith_tawhid_worship_sub">The messengers call to worship Allah alone, the meaning of worship and limits on judging people</string>
+    <string name="learn_topic_faith_knowing_allah">Knowing Allah, His names and attributes</string>
+    <string name="learn_topic_faith_knowing_allah_sub">Divine oneness, the beautiful names and affirming revelation without resemblance</string>
+    <string name="learn_topic_faith_angels">Belief in the angels</string>
+    <string name="learn_topic_faith_angels_sub">What revelation establishes and the limits of certainty about the unseen</string>
+    <string name="learn_topic_faith_books">Belief in revelation and the Books</string>
+    <string name="learn_topic_faith_books_sub">Revealed books, the place of the Quran and responsible interfaith comparison</string>
+    <string name="learn_topic_faith_messengers">Messengers and prophethood</string>
+    <string name="learn_topic_faith_messengers_sub">Their shared mission, belief in all messengers and distinguishing revelation from later reports</string>
+    <string name="learn_topic_faith_last_day">Belief in the Last Day</string>
+    <string name="learn_topic_faith_last_day_sub">Death, resurrection, judgment, reward and how the afterlife shapes conduct</string>
+    <string name="learn_topic_faith_qadar">Belief in divine decree</string>
+    <string name="learn_topic_faith_qadar_sub">Divine knowledge and decree, human responsibility and taking practical means</string>
+    <string name="learn_topic_faith_questions">Questions and doubts</string>
+    <string name="learn_topic_faith_questions_sub">A method for checking text, context and sources and handling difficult questions responsibly</string>
 </resources>
