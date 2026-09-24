@@ -35,6 +35,41 @@ class LearnViewModel @Inject constructor(
         }
     }
 
+    val completedLessonIds: StateFlow<Set<String>> = prefsRepository.completedLessonIds
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptySet())
+
+    val lastOpenedLessonId: StateFlow<String?> = prefsRepository.lastOpenedLessonId
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
+
+    val quizAnswers: StateFlow<Map<String, String>> = prefsRepository.quizAnswers
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyMap())
+
+    fun openLesson(id: String) {
+        viewModelScope.launch {
+            prefsRepository.setLastOpenedLesson(id)
+        }
+    }
+
+    fun setLessonCompleted(id: String, completed: Boolean) {
+        viewModelScope.launch {
+            prefsRepository.setLessonCompleted(id, completed)
+        }
+    }
+
+    fun answerQuiz(
+        lessonId: String,
+        quizId: String,
+        optionId: String,
+    ) {
+        viewModelScope.launch {
+            prefsRepository.setQuizAnswer(
+                lessonId = lessonId,
+                quizId = quizId,
+                optionId = optionId,
+            )
+        }
+    }
+
     /**
      * Keys ("topicId:stepIndex") of the Hajj/Umrah steps the pilgrim marked as
      * done — the interactive checklist progress (persisted in DataStore).
