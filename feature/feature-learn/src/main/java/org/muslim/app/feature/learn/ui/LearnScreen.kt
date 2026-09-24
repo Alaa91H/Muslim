@@ -241,6 +241,23 @@ private data class LearnLessonActions(
 )
 
 @Composable
+private fun LearnSpecialDestinationContent(
+    destination: LearnSpecialDestination?,
+    onBack: () -> Unit,
+    modifier: Modifier,
+): Boolean = when (destination) {
+    LearnSpecialDestination.Names -> {
+        NamesOfAllahScreen(onBack = onBack, modifier = modifier)
+        true
+    }
+    LearnSpecialDestination.Hajj -> {
+        HajjUmrahScreen(onBack = onBack, modifier = modifier)
+        true
+    }
+    null -> false
+}
+
+@Composable
 fun LearnScreen(
     onBack: () -> Unit,
     onOpenFeature: (LearningFeatureDestination) -> Unit = {},
@@ -271,17 +288,13 @@ fun LearnScreen(
     BackHandler(enabled = specialDestination != null) { specialDestination = null }
     BackHandler(enabled = topic != null) { selected = null }
 
-    when (specialDestination) {
-        LearnSpecialDestination.Names -> {
-            NamesOfAllahScreen(onBack = { specialDestination = null }, modifier = modifier)
-            return
-        }
-        LearnSpecialDestination.Hajj -> {
-            HajjUmrahScreen(onBack = { specialDestination = null }, modifier = modifier)
-            return
-        }
-        null -> Unit
-    }
+    if (
+        LearnSpecialDestinationContent(
+            destination = specialDestination,
+            onBack = { specialDestination = null },
+            modifier = modifier,
+        )
+    ) return
 
     if (showMistakes) {
         LearningMistakesScreen(
