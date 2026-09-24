@@ -137,7 +137,12 @@ object LearningAcademyCatalog {
 
     private const val MODULE_SUFFIX = "_core"
 
-    val lessons: List<LearningLesson> = LearnContent.topics.map(::fromLegacyTopic)
+    private val migratedLessonsById: Map<String, LearningLesson> =
+        PurificationLearningContent.lessons.associateBy { it.id }
+
+    val lessons: List<LearningLesson> = LearnContent.topics.map { topic ->
+        migratedLessonsById[topic.id] ?: fromLegacyTopic(topic)
+    }
 
     val modules: List<LearningModule> = LearnContent.categoryOrder.map { category ->
         LearningModule(
