@@ -1,4 +1,4 @@
-package org.muslim.app.feature.qibla.domain
+package org.muslim.app.core.common.compass
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test

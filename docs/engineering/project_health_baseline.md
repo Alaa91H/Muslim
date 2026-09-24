@@ -77,3 +77,20 @@ The phase is complete when:
 - shared contracts live in core modules with explicit ownership;
 - user-visible behavior for Quran, prayer calculations, notifications, and stored
   preferences remains unchanged unless a dedicated feature change explicitly says so.
+
+
+## Progress
+
+### 2026-09-24 — Learning/Qibla boundary removed
+
+The first legacy feature edge was removed without changing user-visible compass
+behaviour:
+
+- Qibla bearing/distance/route math now lives in `core-common`.
+- Compass posture validation and heading smoothing now live in `core-common`.
+- The Compose sensor adapter now lives in `core-ui`.
+- Qibla and Learning consume the same shared implementation.
+- `:feature:feature-learn -> :feature:feature-qibla` was removed from Gradle and
+  from the temporary architecture allowlist.
+
+Two legacy feature edges remain, both owned by Settings notification coordination.

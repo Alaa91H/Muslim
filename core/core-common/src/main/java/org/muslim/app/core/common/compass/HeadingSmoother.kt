@@ -1,4 +1,4 @@
-package org.muslim.app.feature.qibla.domain
+package org.muslim.app.core.common.compass
 
 /**
  * Exponential smoother for a circular (angular) signal.

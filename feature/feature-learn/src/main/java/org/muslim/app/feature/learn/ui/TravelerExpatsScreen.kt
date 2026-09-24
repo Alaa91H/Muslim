@@ -71,8 +71,8 @@ import org.muslim.app.feature.learn.domain.TravelDistanceStatus
 import org.muslim.app.feature.learn.domain.TravelDistanceThreshold
 import org.muslim.app.feature.learn.domain.TravelGuideSection
 import org.muslim.app.feature.learn.domain.TravelPoint
-import org.muslim.app.feature.qibla.domain.QiblaCalculator
-import org.muslim.app.feature.qibla.ui.rememberCompassHeading
+import org.muslim.app.core.common.qibla.QiblaCalculator
+import org.muslim.app.core.ui.compass.rememberCompassHeading
 import kotlin.math.PI
 import kotlin.math.abs
 import kotlin.math.cos

@@ -1,4 +1,4 @@
-package org.muslim.app.feature.qibla.domain
+package org.muslim.app.core.common.qibla
 
 import kotlin.math.PI
 import kotlin.math.acos

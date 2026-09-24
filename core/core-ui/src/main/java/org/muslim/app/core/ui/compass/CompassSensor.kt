@@ -1,4 +1,4 @@
-package org.muslim.app.feature.qibla.ui
+package org.muslim.app.core.ui.compass
 
 import android.content.Context
 import android.hardware.Sensor
@@ -12,8 +12,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import kotlin.math.PI
-import org.muslim.app.feature.qibla.domain.CompassPosture
-import org.muslim.app.feature.qibla.domain.HeadingSmoother
+import org.muslim.app.core.common.compass.CompassPosture
+import org.muslim.app.core.common.compass.HeadingSmoother
 
 /** Device heading and whether the phone is held in a valid flat measuring posture. */
 data class CompassHeading(

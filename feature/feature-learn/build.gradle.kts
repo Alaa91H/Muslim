@@ -41,7 +41,6 @@ dependencies {
     implementation(project(":core:core-notifications"))
     implementation(project(":core:core-location"))
     implementation(project(":core:core-permissions"))
-    implementation(project(":feature:feature-qibla"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
