@@ -715,6 +715,13 @@ private fun TopicDetail(
 }
 
 
+        item(key = "learning_metadata") {
+            HajjLearningMetadataCard(
+                topic = topic,
+                showEnglishFallback = showEnglishFallback,
+            )
+        }
+
         item(key = "progress") {
             ProgressHeader(total = topic.steps.size, done = doneCount)
 
@@ -789,6 +796,52 @@ private fun TopicDetail(
 
 }
 
+}
+
+@Composable
+private fun HajjLearningMetadataCard(
+    topic: HajjTopic,
+    showEnglishFallback: Boolean,
+) {
+    val estimatedMinutes = maxOf(6, topic.steps.size * 4)
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 4.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+        ),
+        shape = RoundedCornerShape(16.dp),
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = topic.summary,
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.SemiBold,
+            )
+            if (showEnglishFallback) {
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = topic.summaryEn,
+                    style = MaterialTheme.typography.bodySmall,
+                    fontStyle = FontStyle.Italic,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            Spacer(Modifier.height(8.dp))
+            Text(
+                text = stringResource(R.string.learn_estimated_minutes, estimatedMinutes),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
+                text = stringResource(R.string.learn_scholar_review_notice),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
 }
 
 @Composable
