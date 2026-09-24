@@ -132,7 +132,7 @@ class RecitationSessionRuntime @Inject constructor(
             intent = intent,
             currentGlobalNumber = firstGlobal,
             positionMs = 0L,
-            wasPlaying = true,
+            wasPlaying = false,
             savedAtEpochMs = System.currentTimeMillis(),
         )
         scope.launch {
