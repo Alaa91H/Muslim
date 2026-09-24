@@ -395,6 +395,78 @@ object LearnContent {
             ),
         ),
         LearnTopic(
+            id = "fasting_day",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_fasting_day,
+            subtitleRes = R.string.learn_topic_fasting_day_sub,
+            steps = listOf(
+                LearnStep("يوم الصيام", "من السحور والفجر إلى الإفطار مع أخطاء عملية شائعة."),
+            ),
+        ),
+        LearnTopic(
+            id = "fasting_nullifiers",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_fasting_nullifiers,
+            subtitleRes = R.string.learn_topic_fasting_nullifiers_sub,
+            steps = listOf(
+                LearnStep("مفسدات الصيام", "الفرق بين العمد والنسيان والمسائل الطبية الحديثة."),
+            ),
+        ),
+        LearnTopic(
+            id = "fasting_exemptions",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_fasting_exemptions,
+            subtitleRes = R.string.learn_topic_fasting_exemptions_sub,
+            steps = listOf(
+                LearnStep("الأعذار", "المرض والسفر والعجز والحمل والرضاعة والقضاء والفدية."),
+            ),
+        ),
+        LearnTopic(
+            id = "fasting_women",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_fasting_women,
+            subtitleRes = R.string.learn_topic_fasting_women_sub,
+            steps = listOf(
+                LearnStep("أحكام خاصة بالمرأة", "الحيض والنفاس والحمل والرضاعة مع مراعاة الجانب الطبي."),
+            ),
+        ),
+        LearnTopic(
+            id = "fasting_travel_illness",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_fasting_travel_illness,
+            subtitleRes = R.string.learn_topic_fasting_travel_illness_sub,
+            steps = listOf(
+                LearnStep("السفر والمرض", "متى تؤخذ الرخصة وكيف ينظم القضاء والعلاج."),
+            ),
+        ),
+        LearnTopic(
+            id = "ramadan_sunnahs",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_ramadan_sunnahs,
+            subtitleRes = R.string.learn_topic_ramadan_sunnahs_sub,
+            steps = listOf(
+                LearnStep("سنن رمضان", "السحور وتعجيل الفطر والقيام والقرآن والصدقة."),
+            ),
+        ),
+        LearnTopic(
+            id = "laylat_qadr_itikaf",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_laylat_qadr_itikaf,
+            subtitleRes = R.string.learn_topic_laylat_qadr_itikaf_sub,
+            steps = listOf(
+                LearnStep("العشر الأواخر", "ليلة القدر والاعتكاف وتجنب الادعاءات غير الموثوقة."),
+            ),
+        ),
+        LearnTopic(
+            id = "voluntary_fasting",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_voluntary_fasting,
+            subtitleRes = R.string.learn_topic_voluntary_fasting_sub,
+            steps = listOf(
+                LearnStep("صيام التطوع", "شوال وعرفة وعاشوراء والأيام البيض والأيام المنهي عنها."),
+            ),
+        ),
+        LearnTopic(
             id = "fasting",
             category = CATEGORY_IBADAH,
             titleRes = R.string.learn_topic_fasting,
@@ -409,6 +481,78 @@ object LearnContent {
                 LearnStep("زكاة الفطر وصلاة العيد", "تخرج زكاة الفطر قبل صلاة العيد صاعًا من قوت البلد عن الصغير والكبير؛ ويصلى العيد ركعتين بلا أذان ولا إقامة."),
             ),
             notes = "يستحب صيام ست من شوال، ويوم عرفة لغير الحاج، ويومي عاشوراء وتاسوعاء، وأكثر صيام التطوع في شعبان؛ ويكره إفراد يوم الجمعة بالصوم.",
+        ),
+        LearnTopic(
+            id = "zakat_nisab_haul",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_nisab_haul,
+            subtitleRes = R.string.learn_topic_zakat_nisab_haul_sub,
+            steps = listOf(
+                LearnStep("النصاب والحول", "كيف يبدأ الوجوب وما الذي تختلف فيه الأموال."),
+            ),
+        ),
+        LearnTopic(
+            id = "zakat_cash_metals",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_cash_metals,
+            subtitleRes = R.string.learn_topic_zakat_cash_metals_sub,
+            steps = listOf(
+                LearnStep("النقد والذهب والفضة", "الحسابات والعملات وتقييم المعادن."),
+            ),
+        ),
+        LearnTopic(
+            id = "zakat_business_investments",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_business_investments,
+            subtitleRes = R.string.learn_topic_zakat_business_investments_sub,
+            steps = listOf(
+                LearnStep("التجارة والاستثمارات", "المخزون والذمم والأسهم والاستثمارات المعاصرة."),
+            ),
+        ),
+        LearnTopic(
+            id = "zakat_debts_jewelry",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_debts_jewelry,
+            subtitleRes = R.string.learn_topic_zakat_debts_jewelry_sub,
+            steps = listOf(
+                LearnStep("الديون والحلي", "مسائل الخصم والديون المستحقة وحلي الاستعمال."),
+            ),
+        ),
+        LearnTopic(
+            id = "zakat_recipients",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_recipients,
+            subtitleRes = R.string.learn_topic_zakat_recipients_sub,
+            steps = listOf(
+                LearnStep("مصارف الزكاة", "الأصناف الثمانية والتحقق من الاستحقاق والتوزيع."),
+            ),
+        ),
+        LearnTopic(
+            id = "zakat_crops_livestock",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_crops_livestock,
+            subtitleRes = R.string.learn_topic_zakat_crops_livestock_sub,
+            steps = listOf(
+                LearnStep("الزروع والأنعام", "أبواب لها أنصبة ومقادير مختلفة عن زكاة المال."),
+            ),
+        ),
+        LearnTopic(
+            id = "zakat_fitr",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_fitr,
+            subtitleRes = R.string.learn_topic_zakat_fitr_sub,
+            steps = listOf(
+                LearnStep("زكاة الفطر", "من تلزمه ووقتها والطعام والقيمة النقدية."),
+            ),
+        ),
+        LearnTopic(
+            id = "zakat_calculator_guide",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_calculator_guide,
+            subtitleRes = R.string.learn_topic_zakat_calculator_guide_sub,
+            steps = listOf(
+                LearnStep("فهم الحاسبة", "ما الذي تحسبه الأداة وافتراضاتها وما لا تغطيه."),
+            ),
         ),
         LearnTopic(
             id = "zakat",
