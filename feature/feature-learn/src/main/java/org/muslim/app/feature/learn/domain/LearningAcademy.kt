@@ -180,6 +180,10 @@ object LearningAcademyCatalog {
             courseIds = listOf(LearnContent.CATEGORY_IBADAH),
         ),
         LearningPath(
+            id = "quran",
+            courseIds = listOf(LearnContent.CATEGORY_QURAN),
+        ),
+        LearningPath(
             id = "reference",
             courseIds = listOf(LearnContent.CATEGORY_REFERENCE),
         ),
