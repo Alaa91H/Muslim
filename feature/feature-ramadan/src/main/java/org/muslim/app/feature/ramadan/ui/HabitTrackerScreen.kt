@@ -45,6 +45,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.feature.ramadan.R
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicDecorationCorners
@@ -102,7 +103,7 @@ fun HabitTrackerPanel(
     val summary = state.habitSummary
     val today = state.today
     Column(
-        modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier = modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
     ) {
         IslamicCard(
             modifier = Modifier.fillMaxWidth(),
@@ -121,7 +122,7 @@ fun HabitTrackerPanel(
                             tint = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.size(28.dp),
                         )
-                        Spacer(Modifier.width(10.dp))
+                        Spacer(Modifier.width(IslamicSpacing.Compact))
                         Column(Modifier.weight(1f)) {
                             Text(
                                 text = stringResource(R.string.habit_tracker_title),
@@ -136,7 +137,7 @@ fun HabitTrackerPanel(
                         }
                         Icon(Icons.Filled.EmojiEvents, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
                     }
-                    Spacer(Modifier.height(12.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Compact))
                     Text(
                         text = stringResource(
                             R.string.habit_tracker_progress,
@@ -145,7 +146,7 @@ fun HabitTrackerPanel(
                         ),
                         style = MaterialTheme.typography.bodyMedium,
                     )
-                    Spacer(Modifier.height(6.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Small))
                     LinearProgressIndicator(
                         progress = { summary.today.completedCount.toFloat() / HabitId.entries.size },
                         modifier = Modifier.fillMaxWidth(),
@@ -156,7 +157,7 @@ fun HabitTrackerPanel(
 
         IslamicDecorationDivider(
             tint = MaterialTheme.colorScheme.tertiary,
-            modifier = Modifier.padding(horizontal = 24.dp, vertical = 6.dp),
+            modifier = Modifier.padding(horizontal = IslamicSpacing.Large, vertical = IslamicSpacing.Small),
         )
         PrayerTrackerCard(
             completedPrayers = state.completedPrayers,
@@ -165,15 +166,15 @@ fun HabitTrackerPanel(
             onShowOnHomeChanged = viewModel::setShowPrayerTrackerOnHome,
         )
 
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.height(IslamicSpacing.Medium))
         HabitChecklist(today, summary.today, viewModel)
 
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.height(IslamicSpacing.Medium))
         HabitReports(summary)
 
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.height(IslamicSpacing.Medium))
         RamadanPlanCard(state, viewModel)
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(IslamicSpacing.Large))
     }
 }
 
@@ -193,7 +194,7 @@ private fun PrayerTrackerCard(
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary,
                 )
-                Spacer(Modifier.width(10.dp))
+                Spacer(Modifier.width(IslamicSpacing.Compact))
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
                         text = stringResource(R.string.habit_prayer_tracker_title),
@@ -211,7 +212,7 @@ private fun PrayerTrackerCard(
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-                Spacer(Modifier.width(4.dp))
+                Spacer(Modifier.width(IslamicSpacing.XSmall))
                 Switch(
                     checked = showOnHome,
                     onCheckedChange = onShowOnHomeChanged,
@@ -220,7 +221,7 @@ private fun PrayerTrackerCard(
                     },
                 )
             }
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
             Text(
                 text = stringResource(
                     R.string.habit_prayer_tracker_progress,
@@ -230,7 +231,7 @@ private fun PrayerTrackerCard(
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.primary,
             )
-            Spacer(Modifier.height(6.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             trackablePrayers.forEach { prayer ->
                 val completed = prayer in completedPrayers
                 val label = stringResource(prayerLabelRes(prayer))
@@ -246,7 +247,7 @@ private fun PrayerTrackerCard(
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable { onTogglePrayer(prayer) }
-                        .padding(vertical = 2.dp)
+                        .padding(vertical = IslamicSpacing.XXSmall)
                         .semantics { stateDescription = toggleDescription },
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
@@ -268,13 +269,13 @@ private fun HabitChecklist(
     viewModel: RamadanViewModel,
 ) {
     MuslimSectionHeader(title = stringResource(R.string.habit_tracker_daily_title))
-    Spacer(Modifier.height(4.dp))
+    Spacer(Modifier.height(IslamicSpacing.XSmall))
     HabitId.entries.forEach { habit ->
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable { viewModel.toggleHabit(today, habit) }
-                .padding(vertical = 2.dp),
+                .padding(vertical = IslamicSpacing.XXSmall),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Checkbox(
@@ -292,12 +293,12 @@ private fun HabitChecklist(
 @Composable
 private fun HabitReports(summary: org.muslim.app.feature.ramadan.domain.HabitSummary) {
     MuslimSectionHeader(title = stringResource(R.string.habit_tracker_reports))
-    Spacer(Modifier.height(8.dp))
+    Spacer(Modifier.height(IslamicSpacing.Small))
     HabitWeekChart(summary.week)
-    Spacer(Modifier.height(8.dp))
+    Spacer(Modifier.height(IslamicSpacing.Small))
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         ReportCard(
             title = stringResource(R.string.habit_tracker_weekly),
@@ -310,10 +311,10 @@ private fun HabitReports(summary: org.muslim.app.feature.ramadan.domain.HabitSum
             modifier = Modifier.weight(1f),
         )
     }
-    Spacer(Modifier.height(8.dp))
+    Spacer(Modifier.height(IslamicSpacing.Small))
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         ReportCard(
             title = stringResource(R.string.habit_tracker_streak),
@@ -331,7 +332,7 @@ private fun HabitReports(summary: org.muslim.app.feature.ramadan.domain.HabitSum
             modifier = Modifier.weight(1f),
         )
     }
-    Spacer(Modifier.height(6.dp))
+    Spacer(Modifier.height(IslamicSpacing.Small))
     Text(
         text = stringResource(habitBadgeRes(summary.badge)),
         style = MaterialTheme.typography.labelLarge,
@@ -344,7 +345,7 @@ private fun ReportCard(title: String, value: String, modifier: Modifier = Modifi
     IslamicCard(modifier = modifier) {
         Column {
             Text(title, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            Spacer(Modifier.height(3.dp))
+            Spacer(Modifier.height(IslamicSpacing.XSmall))
             Text(value, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
         }
     }
@@ -356,7 +357,7 @@ private fun HabitWeekChart(days: List<HabitDaySummary>) {
         modifier = Modifier
             .fillMaxWidth()
             .height(118.dp),
-        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
         verticalAlignment = Alignment.Bottom,
     ) {
         days.forEach { day ->
@@ -376,7 +377,7 @@ private fun HabitWeekChart(days: List<HabitDaySummary>) {
                             else MaterialTheme.colorScheme.secondaryContainer,
                         ),
                 )
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(IslamicSpacing.XSmall))
                 Text(day.date.dayOfMonth.toString(), style = MaterialTheme.typography.labelSmall)
             }
         }
@@ -395,7 +396,7 @@ private fun RamadanPlanCard(state: RamadanUiState, viewModel: RamadanViewModel) 
         Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Filled.NightsStay, contentDescription = null)
-                Spacer(Modifier.width(8.dp))
+                Spacer(Modifier.width(IslamicSpacing.Small))
                 Column(Modifier.weight(1f)) {
                     Text(
                         text = stringResource(R.string.ramadan_plan_title),
@@ -410,7 +411,7 @@ private fun RamadanPlanCard(state: RamadanUiState, viewModel: RamadanViewModel) 
                 }
                 Icon(Icons.Filled.SelfImprovement, contentDescription = null)
             }
-            Spacer(Modifier.height(10.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
             Text(
                 text = stringResource(R.string.ramadan_khatma_progress, plan.khatmaJuz),
                 style = MaterialTheme.typography.bodyMedium,
@@ -449,7 +450,7 @@ private fun RamadanPlanCard(state: RamadanUiState, viewModel: RamadanViewModel) 
                     onCheckedChange = viewModel::setItikafEnabled,
                 )
             }
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             Text(
                 text = stringResource(R.string.ramadan_plan_dua),
                 style = MaterialTheme.typography.bodySmall,

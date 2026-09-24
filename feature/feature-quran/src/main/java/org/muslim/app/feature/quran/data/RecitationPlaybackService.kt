@@ -27,6 +27,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -59,10 +60,12 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
     @Inject lateinit var player: QuranAudioPlayer
     @Inject lateinit var quranRepository: QuranRepository
     @Inject lateinit var recitationRepository: RecitationRepository
+    @Inject lateinit var sessionRuntime: RecitationSessionRuntime
 
     private var session: MediaSessionCompat? = null
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private var collecting = false
+    private var sessionPersistenceStarted = false
 
     // --- Notification-driven pause (see [RecitationPauseOnNotifications]) ---
     // Notifications do not request audio focus, so a soundful notification
@@ -190,15 +193,42 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
                     .collect { (state, ayah) ->
                         when (state) {
                             PlaybackState.Idle -> stopSelf()
-                            PlaybackState.Playing, PlaybackState.Paused ->
-                                runCatching {
-                                    publish(state, ayah)
-                                }
+                            PlaybackState.Playing, PlaybackState.Paused -> {
+                                player.refreshPosition()
+                                sessionRuntime.persist(
+                                    currentGlobalNumber = ayah,
+                                    positionMs = player.positionMs.value,
+                                    remainingRepeats = player.remainingRepeats.value,
+                                    state = state,
+                                )
+                                runCatching { publish(state, ayah) }
+                            }
                         }
                     }
             }
         }
+        ensureSessionPersistence()
         return START_STICKY
+    }
+
+    private fun ensureSessionPersistence() {
+        if (sessionPersistenceStarted) return
+        sessionPersistenceStarted = true
+        scope.launch {
+            while (true) {
+                delay(SESSION_PERSIST_INTERVAL_MS)
+                val state = player.playbackState.value
+                if (state != PlaybackState.Idle) {
+                    player.refreshPosition()
+                    sessionRuntime.persist(
+                        currentGlobalNumber = player.currentAyah.value,
+                        positionMs = player.positionMs.value,
+                        remainingRepeats = player.remainingRepeats.value,
+                        state = state,
+                    )
+                }
+            }
+        }
     }
 
     private fun publish(state: PlaybackState, globalNumber: Int?) {
@@ -517,6 +547,7 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         const val RETIRED_RECITATION_NOTIFICATION_ID = 7007
         private const val OLDER_RETIRED_RECITATION_NOTIFICATION_ID = 7006
         private const val OPEN_APP_REQUEST_CODE = 70061
+        private const val SESSION_PERSIST_INTERVAL_MS = 2_000L
         /** Same extra key [org.muslim.app.MainActivity] reads for deep links. */
         private const val EXTRA_ROUTE = "org.muslim.app.extra.ROUTE"
 

@@ -10,6 +10,23 @@ import javax.inject.Singleton
 /** Simple playback state shared with the reader UI. */
 enum class PlaybackState { Idle, Playing, Paused }
 
+/** Stable failure reasons surfaced to the reader for recovery. */
+enum class RecitationFailureReason {
+    DownloadFailed,
+    AudioFileUnavailable,
+    EngineUnavailable,
+    PreparationFailed,
+    StartFailed,
+    EngineError,
+}
+
+/** One playback/preparation failure. Sequence makes repeated identical failures observable. */
+data class RecitationFailureEvent(
+    val sequence: Long,
+    val reason: RecitationFailureReason,
+    val globalNumber: Int?,
+)
+
 /** One ayah entry in the playback queue. */
 data class RecitationQueueItem(
     val file: File,
@@ -36,7 +53,10 @@ class QuranAudioPlayer @Inject constructor(
     private var queue: List<RecitationQueueItem> = emptyList()
     private var queueIndex = -1
     private var repeatPerAyah = 1
-    private var remainingRepeats = 0
+    private val _remainingRepeats = MutableStateFlow(0)
+    val remainingRepeats: StateFlow<Int> = _remainingRepeats.asStateFlow()
+    private var pendingStartPositionMs = 0L
+    private var pendingRemainingRepeats: Int? = null
 
     private val _playbackState = MutableStateFlow(PlaybackState.Idle)
     val playbackState: StateFlow<PlaybackState> = _playbackState.asStateFlow()
@@ -45,9 +65,9 @@ class QuranAudioPlayer @Inject constructor(
     private val _currentAyah = MutableStateFlow<Int?>(null)
     val currentAyah: StateFlow<Int?> = _currentAyah.asStateFlow()
 
-    /** Increments on every playback failure so the UI can surface a hint. */
-    private val _errorCount = MutableStateFlow(0)
-    val errorCount: StateFlow<Int> = _errorCount.asStateFlow()
+    private var failureSequence = 0L
+    private val _lastFailure = MutableStateFlow<RecitationFailureEvent?>(null)
+    val lastFailure: StateFlow<RecitationFailureEvent?> = _lastFailure.asStateFlow()
 
     /** Elapsed position of the current ayah's audio, in milliseconds. */
     private val _positionMs = MutableStateFlow(0L)
@@ -84,11 +104,17 @@ class QuranAudioPlayer @Inject constructor(
         startIndex: Int,
         repeatCount: Int,
         continuous: Boolean = false,
+        startPositionMs: Long = 0L,
+        remainingRepeatsForCurrent: Int? = null,
     ) {
         if (items.isEmpty()) return
+        _lastFailure.value = null
         queue = items
         repeatPerAyah = repeatCount.coerceAtLeast(1)
         this.continuous = continuous
+        pendingStartPositionMs = startPositionMs.coerceAtLeast(0L)
+        pendingRemainingRepeats = remainingRepeatsForCurrent
+            ?.coerceIn(1, repeatPerAyah)
         queueIndex = startIndex.coerceIn(0, items.lastIndex)
         loadCurrent()
     }
@@ -106,16 +132,24 @@ class QuranAudioPlayer @Inject constructor(
     }
 
     fun pause() {
-        if (_playbackState.value == PlaybackState.Playing) {
-            runCatching { currentEngine?.pause() }
+        if (_playbackState.value != PlaybackState.Playing) return
+        runCatching {
+            currentEngine?.pause() ?: error("No active recitation engine")
+        }.onSuccess {
             _playbackState.value = PlaybackState.Paused
+        }.onFailure {
+            fail(RecitationFailureReason.EngineError)
         }
     }
 
     fun resume() {
-        if (_playbackState.value == PlaybackState.Paused) {
-            runCatching { currentEngine?.start() }
+        if (_playbackState.value != PlaybackState.Paused) return
+        runCatching {
+            currentEngine?.start() ?: error("No active recitation engine")
+        }.onSuccess {
             _playbackState.value = PlaybackState.Playing
+        }.onFailure {
+            fail(RecitationFailureReason.StartFailed)
         }
     }
 
@@ -125,11 +159,14 @@ class QuranAudioPlayer @Inject constructor(
         queueIndex = -1
         continuous = false
         onQueueCompleted = null
+        pendingStartPositionMs = 0L
+        pendingRemainingRepeats = null
+        _remainingRepeats.value = 0
         _playbackState.value = PlaybackState.Idle
         _currentAyah.value = null
         resetProgress()
         updateNavState()
-        playbackBridge.onPlaybackActiveChanged(false)
+        playbackBridge.onPlaybackActiveChanged(false, PlaybackDeactivationReason.Stopped)
     }
 
     /** Reads the current media position; called by the UI's progress poller. */
@@ -145,30 +182,52 @@ class QuranAudioPlayer @Inject constructor(
         }
         releaseEngine()
         _currentAyah.value = item.globalNumber
-        remainingRepeats = repeatPerAyah
+        _remainingRepeats.value = pendingRemainingRepeats ?: repeatPerAyah
+        pendingRemainingRepeats = null
         resetProgress()
         updateNavState()
 
         val engine = engineFactory.create(item.file)
         if (engine == null) {
-            fail()
+            fail(RecitationFailureReason.EngineUnavailable)
             return
         }
         currentEngine = engine
         engine.setOnPreparedListener {
             _durationMs.value = engine.durationMs.toLong()
             _positionMs.value = 0L
-            _playbackState.value = PlaybackState.Playing
-            // Keep the process alive in the background: run under the
-            // foreground media service for the whole playback session.
-            playbackBridge.onPlaybackActiveChanged(true)
-            engine.start()
+            val requestedStart = pendingStartPositionMs
+            pendingStartPositionMs = 0L
+            runCatching {
+                if (requestedStart > 0L && engine.durationMs > 0) {
+                    val maxPosition = (engine.durationMs - 1).coerceAtLeast(0)
+                    val seekPosition = requestedStart.coerceAtMost(maxPosition.toLong()).toInt()
+                    if (seekPosition > 0) {
+                        engine.seekTo(seekPosition)
+                        _positionMs.value = seekPosition.toLong()
+                    }
+                }
+                engine.start()
+            }
+                .onSuccess {
+                    _playbackState.value = PlaybackState.Playing
+                    // Keep the process alive in the background only after the
+                    // engine really started; never publish a false Playing state.
+                    playbackBridge.onPlaybackActiveChanged(true, null)
+                }
+                .onFailure {
+                    fail(RecitationFailureReason.StartFailed)
+                }
         }
         engine.setOnCompletionListener {
-            remainingRepeats--
-            if (remainingRepeats > 0) {
-                engine.seekTo(0)
-                engine.start()
+            _remainingRepeats.value -= 1
+            if (_remainingRepeats.value > 0) {
+                runCatching {
+                    engine.seekTo(0)
+                    engine.start()
+                }.onFailure {
+                    fail(RecitationFailureReason.StartFailed)
+                }
             } else if (queueIndex < queue.lastIndex) {
                 queueIndex++
                 loadCurrent()
@@ -177,10 +236,10 @@ class QuranAudioPlayer @Inject constructor(
             }
         }
         engine.setOnErrorListener {
-            fail()
+            fail(RecitationFailureReason.EngineError)
         }
         runCatching { engine.prepareAsync() }.onFailure {
-            fail()
+            fail(RecitationFailureReason.PreparationFailed)
         }
     }
 
@@ -197,7 +256,7 @@ class QuranAudioPlayer @Inject constructor(
             _currentAyah.value = null
             resetProgress()
             updateNavState()
-            playbackBridge.onPlaybackActiveChanged(false)
+            playbackBridge.onPlaybackActiveChanged(false, PlaybackDeactivationReason.Completed)
             callback?.invoke()
             return
         }
@@ -205,17 +264,24 @@ class QuranAudioPlayer @Inject constructor(
         _currentAyah.value = null
         resetProgress()
         updateNavState()
-        playbackBridge.onPlaybackActiveChanged(false)
+        playbackBridge.onPlaybackActiveChanged(false, PlaybackDeactivationReason.Completed)
     }
 
-    private fun fail() {
+    private fun fail(reason: RecitationFailureReason) {
+        val globalNumber = _currentAyah.value
         releaseEngine()
-        _errorCount.value += 1
+        failureSequence += 1
+        _lastFailure.value = RecitationFailureEvent(
+            sequence = failureSequence,
+            reason = reason,
+            globalNumber = globalNumber,
+        )
         _playbackState.value = PlaybackState.Idle
         _currentAyah.value = null
+        _remainingRepeats.value = 0
         resetProgress()
         updateNavState()
-        playbackBridge.onPlaybackActiveChanged(false)
+        playbackBridge.onPlaybackActiveChanged(false, PlaybackDeactivationReason.Failed)
     }
 
     private fun releaseEngine() {

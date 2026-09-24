@@ -11,6 +11,19 @@ import java.io.File
 import javax.inject.Inject
 import javax.inject.Singleton
 
+private fun File.isUsableRecitationAudio(): Boolean = isFile && length() > 0L
+
+internal fun buildLocalRecitationQueue(
+    globalNumbers: List<Int>,
+    fileForGlobal: (Int) -> File,
+): List<RecitationQueueItem>? {
+    if (globalNumbers.isEmpty()) return emptyList()
+    val items = globalNumbers.map { global ->
+        RecitationQueueItem(file = fileForGlobal(global), globalNumber = global)
+    }
+    return items.takeIf { queue -> queue.all { it.file.isUsableRecitationAudio() } }
+}
+
 /**
  * On-demand Quran recitation audio (PROJECT_PROMPT.md §6 Phase 2: قرّاء
  * متعددون + تنزيل). Files live in app-private storage under
@@ -39,7 +52,25 @@ class RecitationRepository @Inject constructor(
             ?: Reciter.Bundled.first()
 
     suspend fun isDownloaded(reciterId: String, surahNumber: Int, globalNumber: Int): Boolean =
-        withContext(Dispatchers.IO) { fileFor(reciterId, surahNumber, globalNumber).exists() }
+        withContext(Dispatchers.IO) {
+            fileFor(reciterId, surahNumber, globalNumber).isUsableRecitationAudio()
+        }
+
+    /**
+     * Resolves a playback queue entirely from app-private storage.
+     * Returns null as soon as one requested ayah is missing or corrupt/empty,
+     * allowing the caller to enter the download path only when network work is
+     * actually necessary.
+     */
+    suspend fun localQueue(
+        reciterId: String,
+        surahNumber: Int,
+        globalNumbers: List<Int>,
+    ): List<RecitationQueueItem>? = withContext(Dispatchers.IO) {
+        buildLocalRecitationQueue(globalNumbers) { global ->
+            fileFor(reciterId, surahNumber, global)
+        }
+    }
 
     /**
      * Resolves the actual on-server size (bytes) of one ayah's audio via a
@@ -76,10 +107,11 @@ class RecitationRepository @Inject constructor(
         val total = ayahs.size
         for ((inSurah, global) in ayahs) {
             val target = File(dir, "$global.mp3")
-            if (target.exists()) {
+            if (target.isUsableRecitationAudio()) {
                 completed++
                 continue
             }
+            if (target.exists()) target.delete()
             val url = reciter.urlFor(surahNumber, inSurah)
             when (val result = fileDownloader.download(url, target)) {
                 is FileDownloader.Result.Success -> completed++
@@ -130,7 +162,9 @@ class RecitationRepository @Inject constructor(
                 .filter { it.isDirectory }
                 .mapNotNull { surahDir ->
                     val number = surahDir.name.toIntOrNull() ?: return@mapNotNull null
-                    val ayahs = surahDir.listFiles().orEmpty().count { it.isFile && it.name.endsWith(".mp3") }
+                    val ayahs = surahDir.listFiles().orEmpty().count {
+                        it.name.endsWith(".mp3") && it.isUsableRecitationAudio()
+                    }
                     number to ayahs
                 }
                 .filter { it.second > 0 }
@@ -144,7 +178,9 @@ class RecitationRepository @Inject constructor(
         withContext(Dispatchers.IO) {
             val dir = File(reciterDir(reciterId), surahNumber.toString())
             if (!dir.exists()) return@withContext false
-            val count = dir.listFiles().orEmpty().count { it.isFile && it.name.endsWith(".mp3") }
+            val count = dir.listFiles().orEmpty().count {
+                it.name.endsWith(".mp3") && it.isUsableRecitationAudio()
+            }
             count >= expectedAyahs
         }
 }

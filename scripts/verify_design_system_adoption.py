@@ -31,6 +31,12 @@ ABOUT_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/f
 PRIVACY_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/PrivacyScreen.kt"
 SMART_DEVICES_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/SmartDevicesScreen.kt"
 APPEARANCE_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/AppearanceSettingsContent.kt"
+QIBLA = ROOT / "feature/feature-qibla/src/main/java/org/muslim/app/feature/qibla/ui/QiblaScreen.kt"
+ADHKAR = ROOT / "feature/feature-adhkar/src/main/java/org/muslim/app/feature/adhkar/ui/AdhkarScreen.kt"
+ADHKAR_SETTINGS = ROOT / "feature/feature-adhkar/src/main/java/org/muslim/app/feature/adhkar/ui/AdhkarSettingsScreen.kt"
+TASBIH = ROOT / "feature/feature-tasbih/src/main/java/org/muslim/app/feature/tasbih/ui/TasbihScreen.kt"
+RAMADAN = ROOT / "feature/feature-ramadan/src/main/java/org/muslim/app/feature/ramadan/ui/RamadanScreen.kt"
+HABIT_TRACKER = ROOT / "feature/feature-ramadan/src/main/java/org/muslim/app/feature/ramadan/ui/HabitTrackerScreen.kt"
 
 
 def require(condition: bool, message: str) -> None:
@@ -93,6 +99,12 @@ def main() -> None:
     privacy_settings = PRIVACY_SETTINGS.read_text(encoding="utf-8")
     smart_devices_settings = SMART_DEVICES_SETTINGS.read_text(encoding="utf-8")
     appearance_settings = APPEARANCE_SETTINGS.read_text(encoding="utf-8")
+    qibla = QIBLA.read_text(encoding="utf-8")
+    adhkar = ADHKAR.read_text(encoding="utf-8")
+    adhkar_settings = ADHKAR_SETTINGS.read_text(encoding="utf-8")
+    tasbih = TASBIH.read_text(encoding="utf-8")
+    ramadan = RAMADAN.read_text(encoding="utf-8")
+    habit_tracker = HABIT_TRACKER.read_text(encoding="utf-8")
     require("MuslimEmptyState" in bookmarks, "Quran bookmarks must use the shared empty state")
     require("MuslimEmptyState" in scholar_data, "Scholar data manager must use the shared empty state")
     for state_component in (
@@ -269,6 +281,35 @@ def main() -> None:
     require(
         "IslamicSpacing" in appearance_settings,
         "Appearance settings must use the shared spacing scale",
+    )
+
+    for source, label in (
+        (qibla, "Qibla"),
+        (adhkar, "Adhkar"),
+        (adhkar_settings, "Adhkar settings"),
+        (tasbih, "Tasbih"),
+        (ramadan, "Ramadan"),
+        (habit_tracker, "Ramadan habit tracker"),
+    ):
+        require(
+            raw_material_component.search(source) is None,
+            f"{label} must remain free of ordinary raw Material card/button patterns",
+        )
+        require(
+            raw_spacing_literal.search(source) is None,
+            f"{label} must use IslamicSpacing tokens for ordinary layout spacing",
+        )
+    require(
+        "IslamicPrimaryButton" in adhkar
+        and "IslamicSecondaryButton" in adhkar
+        and "IslamicCard" in adhkar,
+        "Adhkar must use shared cards and primary/secondary reader actions",
+    )
+    require(
+        "IslamicPrimaryButton" in adhkar_settings
+        and "IslamicSecondaryButton" in adhkar_settings
+        and "IslamicCard" in adhkar_settings,
+        "Adhkar settings must use shared cards and actions",
     )
 
     print("Adaptive design-system, shared states, and token adoption verified.")
