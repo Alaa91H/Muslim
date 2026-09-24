@@ -56,7 +56,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -359,15 +359,15 @@ private fun TopicList(
     onOpen: (LearnTopic) -> Unit,
     onOpenSpecial: (LearnSpecialDestination) -> Unit,
 ) {
-    val context = LocalContext.current
+    val resources = LocalResources.current
     val locale = LocalConfiguration.current.locales[0]
     val normalizedQuery = searchQuery.trim().lowercase(locale)
     val visibleTopics = if (normalizedQuery.isBlank()) {
         LearnContent.topics
     } else {
         LearnContent.topics.filter { topic ->
-            context.getString(topic.titleRes).lowercase(locale).contains(normalizedQuery) ||
-                context.getString(topic.subtitleRes).lowercase(locale).contains(normalizedQuery)
+            resources.getString(topic.titleRes).lowercase(locale).contains(normalizedQuery) ||
+                resources.getString(topic.subtitleRes).lowercase(locale).contains(normalizedQuery)
         }
     }
     val overallProgress = LearningProgressPlanner.overallSummary(completedLessonIds)
