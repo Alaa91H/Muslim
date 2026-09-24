@@ -163,7 +163,7 @@ internal val BASMALA = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱ�
  * also covers the `بِّسْمِ` shadda variant used in a couple of surahs; returns
  * the text unchanged when there is no Basmala prefix.
  */
-internal fun stripLeadingBasmala(text: String): String {
+private fun leadingBasmalaEndIndex(text: String): Int? {
     val normalizedBasmala = ArabicText.normalize(BASMALA)
     val consumed = StringBuilder()
     var index = 0
@@ -176,16 +176,54 @@ internal fun stripLeadingBasmala(text: String): String {
         consumed.append(kept)
         index++
         if (consumed.length >= normalizedBasmala.length) {
-            if (consumed.toString() != normalizedBasmala) return text
-            // The Basmala's trailing diacritics (e.g. the kasra on its final
-            // letter) are dropped by normalization but still occupy characters
-            // in the source — skip them along with any following whitespace.
+            if (consumed.toString() != normalizedBasmala) return null
+            // Include the Basmala's trailing diacritics and consume only the
+            // separator whitespace before the first ayah text.
             var cut = index
             while (cut < text.length && isSkippableAfterBasmala(text[cut])) cut++
-            return text.substring(cut)
+            return cut
         }
     }
-    return text
+    return null
+}
+
+/**
+ * Returns the exact Uthmani Basmala prefix from the bundled Quran text.
+ * Keeping the source spelling is important for Medina-Mushaf variants such as
+ * the shadda on the opening baa in surahs 95 and 97.
+ */
+internal fun extractLeadingBasmala(text: String): String? =
+    leadingBasmalaEndIndex(text)?.let { end -> text.substring(0, end).trimEnd() }
+
+internal fun stripLeadingBasmala(text: String): String =
+    leadingBasmalaEndIndex(text)?.let(text::substring) ?: text
+
+internal data class SurahOpeningPresentation(
+    val ayahText: String,
+    val standaloneBasmala: String?,
+)
+
+/**
+ * Medina-Mushaf opening rule:
+ * - Al-Fatiha keeps the Basmala inline as numbered ayah 1.
+ * - Surahs 2..114 display their encoded opening Basmala separately, when one
+ *   exists in the source text.
+ * - At-Tawbah (9) has no opening Basmala, so nothing is synthesized.
+ */
+internal fun surahOpeningPresentation(
+    surahNumber: Int,
+    ayahNumber: Int,
+    text: String,
+): SurahOpeningPresentation {
+    if (ayahNumber != 1 || surahNumber == 1) {
+        return SurahOpeningPresentation(ayahText = text, standaloneBasmala = null)
+    }
+    val basmala = extractLeadingBasmala(text)
+        ?: return SurahOpeningPresentation(ayahText = text, standaloneBasmala = null)
+    return SurahOpeningPresentation(
+        ayahText = stripLeadingBasmala(text),
+        standaloneBasmala = basmala,
+    )
 }
 
 private fun isSkippableAfterBasmala(c: Char): Boolean =
@@ -1572,12 +1610,17 @@ private fun MushafPageCard(
             )
         }
     }
-    // The Basmala embedded at the start of ayah 1 (every surah except 9) is
-    // pulled out into its own line above the surah, like printed mushafs.
+    // Follow the Medina-Mushaf numbering/display convention exactly: Al-Fatiha
+    // keeps the Basmala as numbered ayah 1; other surahs separate the encoded
+    // Basmala from ayah 1; At-Tawbah has no opening Basmala.
     val firstAyah = ayahs.first()
-    val isSurahOpeningPage = firstAyah.numberInSurah == 1
-    val firstAyahText = if (isSurahOpeningPage) stripLeadingBasmala(firstAyah.text) else firstAyah.text
-    val showBasmala = isSurahOpeningPage && firstAyah.surahNumber != 1 && firstAyahText != firstAyah.text
+    val openingPresentation = surahOpeningPresentation(
+        surahNumber = firstAyah.surahNumber,
+        ayahNumber = firstAyah.numberInSurah,
+        text = firstAyah.text,
+    )
+    val firstAyahText = openingPresentation.ayahText
+    val standaloneBasmala = openingPresentation.standaloneBasmala
     val ayahCharOffsets = ArrayList<AyahViewportPosition>(ayahs.size)
     val annotated = buildAnnotatedString {
         // Reset before scanning so a page whose target moved away (or a
@@ -1713,7 +1756,7 @@ private fun MushafPageCard(
             Spacer(Modifier.height(10.dp))
             HorizontalDivider(color = scheme.outlineVariant)
             Spacer(Modifier.height(14.dp))
-            if (showBasmala) {
+            if (standaloneBasmala != null) {
                 // Mushaf-style Basmala header: a decorative ornament above, the
                 // Basmala centered, and an ornamented divider below.
                 IslamicReadingBasmalaAccent(
@@ -1721,7 +1764,7 @@ private fun MushafPageCard(
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
-                    text = BASMALA,
+                    text = standaloneBasmala,
                     fontSize = (presentation.fontSizeSp * 1.1f).sp,
                     lineHeight = (presentation.fontSizeSp * accessibilityVisuals.arabicLineHeightMultiplier).sp,
                     textAlign = TextAlign.Center,
