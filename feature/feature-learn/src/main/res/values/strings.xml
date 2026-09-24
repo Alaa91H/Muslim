@@ -242,4 +242,8 @@
     <string name="learn_topic_sick_prayer_sub" tools:ignore="MissingTranslation">الصلاة بحسب الاستطاعة مع مراعاة السلامة والطهارة</string>
     <string name="learn_topic_jumuah" tools:ignore="MissingTranslation">صلاة الجمعة</string>
     <string name="learn_topic_jumuah_sub" tools:ignore="MissingTranslation">الخطبة والصلاة والأعذار وأحكام الحضور</string>
+    <string name="learn_references" tools:ignore="MissingTranslation">المراجع</string>
+    <string name="learn_estimated_minutes" tools:ignore="MissingTranslation">وقت القراءة التقريبي: %1$d دقيقة</string>
+    <string name="learn_content_version" tools:ignore="MissingTranslation">إصدار المحتوى: %1$d</string>
+    <string name="learn_scholar_review_notice" tools:ignore="MissingTranslation">المحتوى التعليمي الديني يخضع للمراجعة العلمية قبل اعتماده نهائيًا.</string>
 </resources>
