@@ -144,6 +144,8 @@ class LearnContentTest {
             "salah", "salah_arkan", "salah_times", "adhan", "shurut", "nullifiers", "rawatib", "rakats", "special",
             "fasting", "zakat", "funeral",
             "quran_intro", "quran_understanding", "tajweed_intro", "tajweed_practice",
+            "sunnah_intro", "hadith_understanding", "hadith_library_guide",
+            "seerah_method", "seerah_hijrah", "seerah_major_events", "seerah_character_legacy",
             "madhhab",
         )
         LearnContent.topics.forEach { topic ->
