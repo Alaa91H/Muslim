@@ -361,4 +361,40 @@
     <string name="learn_topic_new_muslim_daily_life_sub" tools:ignore="MissingTranslation">الأسرة والطعام والمال والعادات والأذكار بالتدرج</string>
     <string name="learn_topic_new_muslim_roadmap" tools:ignore="MissingTranslation">خطة 7 / 30 / 90 يومًا</string>
     <string name="learn_topic_new_muslim_roadmap_sub" tools:ignore="MissingTranslation">خارطة مرنة تحول التعلم إلى مراحل واضحة وقابلة للاستمرار</string>
+    <string name="learn_category_family" tools:ignore="MissingTranslation">الأسرة والزواج والتربية</string>
+    <string name="learn_category_finance" tools:ignore="MissingTranslation">المعاملات المالية</string>
+    <string name="learn_feature_family_title" tools:ignore="MissingTranslation">أدوات Family Life</string>
+    <string name="learn_feature_family_body" tools:ignore="MissingTranslation">افتح قسم الأسرة للأدلة التفصيلية والأدوات والبحث والوساطة والتربية والسلامة.</string>
+    <string name="learn_feature_family_action" tools:ignore="MissingTranslation">فتح قسم الأسرة</string>
+    <string name="learn_feature_finance_title" tools:ignore="MissingTranslation">أدوات Islamic Finance</string>
+    <string name="learn_feature_finance_body" tools:ignore="MissingTranslation">افتح قسم المالية لأدلة المعاملات ودفتر الديون والتنبيهات وروابط فحص الأسهم.</string>
+    <string name="learn_feature_finance_action" tools:ignore="MissingTranslation">فتح قسم المالية</string>
+    <string name="learn_topic_family_intro" tools:ignore="MissingTranslation">مدخل إلى الأسرة</string>
+    <string name="learn_topic_family_intro_sub" tools:ignore="MissingTranslation">المودة والحقوق والمهارات والحدود بين الفقه والقانون والحياة اليومية</string>
+    <string name="learn_topic_family_spouse_selection" tools:ignore="MissingTranslation">اختيار الزوج والاستعداد</string>
+    <string name="learn_topic_family_spouse_selection_sub" tools:ignore="MissingTranslation">الدين والخلق والتوافق والأسئلة المهمة قبل الزواج</string>
+    <string name="learn_topic_family_marriage_contract" tools:ignore="MissingTranslation">العقد والمهر والتوثيق</string>
+    <string name="learn_topic_family_marriage_contract_sub" tools:ignore="MissingTranslation">الشروط والمهر والتسجيل وحفظ الحقوق</string>
+    <string name="learn_topic_family_marital_life" tools:ignore="MissingTranslation">الحياة الزوجية</string>
+    <string name="learn_topic_family_marital_life_sub" tools:ignore="MissingTranslation">التواصل والمال والخصوصية والمعاشرة بالمعروف</string>
+    <string name="learn_topic_family_parenting" tools:ignore="MissingTranslation">التربية والقدوة</string>
+    <string name="learn_topic_family_parenting_sub" tools:ignore="MissingTranslation">العمر والانضباط الآمن وبناء الإيمان والمهارات داخل البيت</string>
+    <string name="learn_topic_family_kinship" tools:ignore="MissingTranslation">القرابة والرعاية</string>
+    <string name="learn_topic_family_kinship_sub" tools:ignore="MissingTranslation">صلة الرحم والحدود والوالدان والرعاية عند المرض والكبر</string>
+    <string name="learn_topic_family_conflict_separation" tools:ignore="MissingTranslation">الخلاف والانفصال والسلامة</string>
+    <string name="learn_topic_family_conflict_separation_sub" tools:ignore="MissingTranslation">الوساطة والعنف والطلاق والخلع وحفظ الوقائع والحقوق</string>
+    <string name="learn_topic_finance_intro" tools:ignore="MissingTranslation">مدخل إلى المعاملات المالية</string>
+    <string name="learn_topic_finance_intro_sub" tools:ignore="MissingTranslation">العقود والشفافية والمخاطر والفرق بين الحكم الشرعي والوضع القانوني</string>
+    <string name="learn_topic_finance_sale_contracts" tools:ignore="MissingTranslation">البيع والعقود</string>
+    <string name="learn_topic_finance_sale_contracts_sub" tools:ignore="MissingTranslation">المبيع والثمن والتسليم والعيوب والتراضي والتوثيق</string>
+    <string name="learn_topic_finance_riba" tools:ignore="MissingTranslation">الربا والتمويل المعاصر</string>
+    <string name="learn_topic_finance_riba_sub" tools:ignore="MissingTranslation">فهم الربا وقراءة المنتجات المصرفية دون الاكتفاء بالأسماء</string>
+    <string name="learn_topic_finance_debt_loans" tools:ignore="MissingTranslation">الديون والقروض</string>
+    <string name="learn_topic_finance_debt_loans_sub" tools:ignore="MissingTranslation">التوثيق والاستحقاق والسداد والتعامل مع العسر</string>
+    <string name="learn_topic_finance_ecommerce" tools:ignore="MissingTranslation">التجارة الإلكترونية والتقسيط</string>
+    <string name="learn_topic_finance_ecommerce_sub" tools:ignore="MissingTranslation">المبيعات الرقمية والاشتراكات والتقسيط والرسوم والاحتيال</string>
+    <string name="learn_topic_finance_business_investing" tools:ignore="MissingTranslation">الأعمال والاستثمار</string>
+    <string name="learn_topic_finance_business_investing_sub" tools:ignore="MissingTranslation">مصدر الربح وفحص الأسهم والمخاطر وإشارات التحذير</string>
+    <string name="learn_topic_finance_tools_guide" tools:ignore="MissingTranslation">دليل أدوات المالية</string>
+    <string name="learn_topic_finance_tools_guide_sub" tools:ignore="MissingTranslation">أدلة المعاملات ودفتر الديون والتنبيهات وروابط الفحص</string>
 </resources>
