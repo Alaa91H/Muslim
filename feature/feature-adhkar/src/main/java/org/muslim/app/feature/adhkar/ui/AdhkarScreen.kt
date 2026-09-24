@@ -30,7 +30,6 @@ import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.StopCircle
 import androidx.compose.material.icons.outlined.StarBorder
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilledIconButton
@@ -39,7 +38,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarHost
@@ -68,8 +66,11 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.launch
 import org.muslim.app.core.common.lang.AppLanguage
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.accessibility.LocalAccessibilityVisuals
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicPrimaryButton
+import org.muslim.app.core.ui.theme.IslamicSecondaryButton
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
@@ -203,7 +204,7 @@ private fun AdhkarLibraryBody(
             categories = categories,
             onSelected = viewModel::selectCategory,
         )
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(IslamicSpacing.Small))
         AdhkarLibraryFilters(
             searchQuery = snapshot.searchQuery,
             favoritesOnly = snapshot.favoritesOnly,
@@ -213,16 +214,16 @@ private fun AdhkarLibraryBody(
             onFavoritesOnlyChanged = viewModel::setFavoritesOnly,
             onOpenReader = onOpenReader,
         )
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(IslamicSpacing.Small))
         ReminderMasterSwitch(
             enabled = snapshot.morningEveningReminderEnabled,
             onEnabledChanged = viewModel::setMorningEveningReminderEnabled,
         )
         IslamicDecorationDivider(
             tint = MaterialTheme.colorScheme.tertiary,
-            modifier = Modifier.padding(horizontal = 24.dp),
+            modifier = Modifier.padding(horizontal = IslamicSpacing.Large),
         )
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(IslamicSpacing.Small))
         AdhkarList(
             snapshot = snapshot,
             viewModel = viewModel,
@@ -247,7 +248,7 @@ private fun AdhkarList(
                     text = stringResource(R.string.adhkar_no_results),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(24.dp),
+                    modifier = Modifier.padding(IslamicSpacing.Large),
                 )
             }
         }
@@ -256,7 +257,7 @@ private fun AdhkarList(
             item(key = "favorites-header") {
                 MuslimSectionHeader(
                     title = stringResource(R.string.adhkar_favorites),
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                    modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
                 )
             }
             items(snapshot.favorites, key = { "fav-${it.id}" }) { dhikr ->
@@ -302,21 +303,21 @@ private fun AdhkarCategoryFilters(
         modifier = Modifier
             .fillMaxWidth()
             .horizontalScroll(rememberScrollState())
-            .padding(horizontal = 16.dp),
+            .padding(horizontal = IslamicSpacing.Medium),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         FilterChip(
             selected = selectedCategory == null,
             onClick = { onSelected(null) },
             label = { Text(stringResource(R.string.adhkar_all)) },
-            modifier = Modifier.padding(end = 8.dp),
+            modifier = Modifier.padding(end = IslamicSpacing.Small),
         )
         categories.forEach { category ->
             FilterChip(
                 selected = selectedCategory == category,
                 onClick = { onSelected(category) },
                 label = { Text(stringResource(category.titleRes)) },
-                modifier = Modifier.padding(end = 8.dp),
+                modifier = Modifier.padding(end = IslamicSpacing.Small),
             )
         }
     }
@@ -332,7 +333,7 @@ private fun AdhkarLibraryFilters(
     onFavoritesOnlyChanged: (Boolean) -> Unit,
     onOpenReader: () -> Unit,
 ) {
-    Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+    Column(modifier = Modifier.padding(horizontal = IslamicSpacing.Medium)) {
         OutlinedTextField(
             value = searchQuery,
             onValueChange = onSearchQueryChanged,
@@ -354,12 +355,12 @@ private fun AdhkarLibraryFilters(
             modifier = Modifier.fillMaxWidth(),
         )
 
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(IslamicSpacing.Small))
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .horizontalScroll(rememberScrollState()),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             FilterChip(
@@ -372,7 +373,7 @@ private fun AdhkarLibraryFilters(
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            OutlinedButton(
+            IslamicSecondaryButton(
                 onClick = onOpenReader,
                 enabled = readerEnabled,
             ) {
@@ -390,7 +391,7 @@ private fun ReminderMasterSwitch(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 4.dp),
+            .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(modifier = Modifier.weight(1f)) {
@@ -489,14 +490,14 @@ private fun AdhkarReaderBody(
         modifier = Modifier
             .fillMaxSize()
             .padding(innerPadding)
-            .padding(vertical = 8.dp),
+            .padding(vertical = IslamicSpacing.Small),
     ) {
         if (snapshot.queue.isEmpty()) {
             Text(
                 text = stringResource(R.string.adhkar_no_results),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(24.dp),
+                modifier = Modifier.padding(IslamicSpacing.Large),
             )
             return@Column
         }
@@ -538,13 +539,13 @@ private fun ReaderProgress(
         progress = { progress },
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp),
+            .padding(horizontal = IslamicSpacing.Medium),
     )
     Text(
         text = stringResource(R.string.adhkar_reader_progress, safeIndex + 1, total),
         style = MaterialTheme.typography.labelMedium,
         color = MaterialTheme.colorScheme.onSurfaceVariant,
-        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
     )
 }
 
@@ -558,17 +559,17 @@ private fun ReaderNavigation(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+            .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
+        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
-        OutlinedButton(
+        IslamicSecondaryButton(
             onClick = { onIndexChanged(currentIndex - 1) },
             enabled = currentIndex > 0,
             modifier = Modifier.weight(1f),
         ) {
             Text(stringResource(R.string.adhkar_reader_previous))
         }
-        Button(
+        IslamicPrimaryButton(
             onClick = {
                 if (currentIndex < lastIndex) {
                     onIndexChanged(currentIndex + 1)
@@ -637,7 +638,7 @@ private fun DhikrCard(
     IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
         containerColor = if (complete) {
             MaterialTheme.colorScheme.secondaryContainer
         } else {
@@ -648,7 +649,7 @@ private fun DhikrCard(
             DhikrHeader(dhikr)
 
             dhikr.virtue?.let { virtue ->
-                Spacer(Modifier.height(10.dp))
+                Spacer(Modifier.height(IslamicSpacing.Compact))
                 Text(
                     text = virtue,
                     style = MaterialTheme.typography.labelMedium,
@@ -657,13 +658,13 @@ private fun DhikrCard(
             }
 
             if (showEnglishFallback) {
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(IslamicSpacing.Small))
                 TranslationToggle(dhikr.translation)
             }
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
             DhikrMetadata(dhikr)
-            Spacer(Modifier.height(14.dp))
+            Spacer(Modifier.height(IslamicSpacing.Medium))
 
             DhikrBottomBar(
                 dhikr = dhikr,
@@ -764,7 +765,7 @@ private fun DhikrBottomBar(
     }
 
     if (complete) {
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(IslamicSpacing.Small))
         Text(
             text = stringResource(R.string.adhkar_complete),
             style = MaterialTheme.typography.labelMedium,
@@ -813,7 +814,7 @@ private fun DhikrPrimaryControls(
                 ),
             )
         }
-        Spacer(Modifier.size(8.dp))
+        Spacer(Modifier.size(IslamicSpacing.Small))
     }
 
     FilledIconButton(
