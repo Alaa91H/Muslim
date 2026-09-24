@@ -68,6 +68,7 @@ import org.muslim.app.feature.prayertimes.ui.localDateFormatter
 import org.muslim.app.core.common.time.TimeFormats
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
+import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.IslamicDecorationCorners
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimContentFrame
@@ -143,6 +144,13 @@ fun HomeScreen(
                     bottom = IslamicSpacing.Small,
                 ),
         ) {
+        // Keep the shared identity primitive in this surface without reserving
+        // the former 56–84dp header band; the screen now uses that space for content.
+        IslamicDecorationBand(
+            modifier = Modifier.height(0.dp),
+            compact = true,
+        )
+
         // ---- Date header ----
         state.hijri?.let { hijri ->
             Text(
