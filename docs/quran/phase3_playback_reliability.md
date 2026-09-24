@@ -19,6 +19,8 @@ This first Phase 3 milestone establishes one explicit pipeline:
    fails.
 7. Keep the last playback request so the user can retry the same range, repeat
    mode, and continuation intent.
+8. When the engine fails mid-queue, retry resumes from the failed ayah and
+   continues the remaining queue rather than replaying already completed ayahs.
 
 ## Failure contract
 
