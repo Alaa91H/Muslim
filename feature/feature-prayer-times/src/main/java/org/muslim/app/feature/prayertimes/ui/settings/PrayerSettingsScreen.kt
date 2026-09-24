@@ -10,6 +10,7 @@ import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Column
@@ -35,7 +36,11 @@ import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.NotificationsOff
 import androidx.compose.material.icons.filled.Remove
+import androidx.compose.material.icons.filled.Vibration
+import androidx.compose.material.icons.filled.VolumeUp
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenuItem
@@ -82,6 +87,7 @@ import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
+import org.muslim.app.core.ui.theme.IslamicSelectableCard
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.core.common.prayer.AdhanSoundOption
 import org.muslim.app.core.common.prayer.BundledAdhanSound
@@ -318,7 +324,6 @@ fun PrayerSettingsScreen(
             AdhanCustomizeDialog(
                 prayer = prayer,
                 density = informationDensity,
-                onDensityChange = viewModel::setInformationDensity,
                 initial = AdhanCustomization(
                     option = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
                     sound = BundledAdhanSound.fromId(
@@ -961,7 +966,6 @@ internal data class AdhanCustomizationActions(
 internal fun AdhanCustomizeDialog(
     prayer: Prayer,
     density: AppInformationDensity,
-    onDensityChange: (AppInformationDensity) -> Unit,
     initial: AdhanCustomization,
     actions: AdhanCustomizationActions,
 ) {
@@ -980,7 +984,6 @@ internal fun AdhanCustomizeDialog(
                 AdhanCustomizationFields(
                     prayer = prayer,
                     density = density,
-                    onDensityChange = onDensityChange,
                     selection = selection,
                     onSelectionChanged = { selection = it },
                     onPreview = actions.onPreview,
@@ -1005,7 +1008,6 @@ internal fun AdhanCustomizeDialog(
 private fun AdhanCustomizationFields(
     prayer: Prayer,
     density: AppInformationDensity,
-    onDensityChange: (AppInformationDensity) -> Unit,
     selection: AdhanCustomization,
     onSelectionChanged: (AdhanCustomization) -> Unit,
     onPreview: (BundledAdhanSound, Int) -> Unit,
@@ -1013,11 +1015,6 @@ private fun AdhanCustomizationFields(
 ) {
     val compact = density == AppInformationDensity.Compact
     Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-        AdhanInformationDensitySelector(
-            density = density,
-            onDensityChange = onDensityChange,
-            compact = compact,
-        )
         AdhanAlertTypeSection(
             selected = selection.option,
             compact = compact,
@@ -1049,44 +1046,58 @@ private fun AdhanCustomizationFields(
 }
 
 @Composable
-private fun AdhanInformationDensitySelector(
-    density: AppInformationDensity,
-    onDensityChange: (AppInformationDensity) -> Unit,
-    compact: Boolean,
-) {
-    DialogSectionTitle(R.string.settings_information_density, compact)
-    Row(modifier = Modifier.fillMaxWidth()) {
-        IslamicSecondaryButton(
-            onClick = { onDensityChange(AppInformationDensity.Comfortable) },
-            enabled = density != AppInformationDensity.Comfortable,
-            modifier = Modifier.weight(1f),
-        ) {
-            Text(stringResource(R.string.settings_information_density_comfortable))
-        }
-        Spacer(Modifier.width(if (compact) 4.dp else 8.dp))
-        IslamicSecondaryButton(
-            onClick = { onDensityChange(AppInformationDensity.Compact) },
-            enabled = density != AppInformationDensity.Compact,
-            modifier = Modifier.weight(1f),
-        ) {
-            Text(stringResource(R.string.settings_information_density_compact))
-        }
-    }
-}
-
-@Composable
 private fun AdhanAlertTypeSection(
     selected: AdhanSoundOption,
     compact: Boolean,
     onSelected: (AdhanSoundOption) -> Unit,
 ) {
     DialogSectionTitle(R.string.settings_adhan_alert_type, compact)
-    AdhanSoundOption.entries.forEach { option ->
-        RadioRow(
-            label = stringResource(adhanOptionLabelRes(option)),
-            selected = selected == option,
-            onClick = { onSelected(option) },
-        )
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(
+            if (compact) IslamicSpacing.XXSmall else IslamicSpacing.XSmall,
+        ),
+    ) {
+        AdhanSoundOption.entries.forEach { option ->
+            val label = stringResource(adhanOptionLabelRes(option))
+            val icon = when (option) {
+                AdhanSoundOption.Default -> Icons.Filled.VolumeUp
+                AdhanSoundOption.VibrateOnly -> Icons.Filled.Vibration
+                AdhanSoundOption.Silent -> Icons.Filled.NotificationsOff
+            }
+            IslamicSelectableCard(
+                selected = selected == option,
+                onClick = { onSelected(option) },
+                modifier = Modifier.weight(1f),
+                contentPadding = PaddingValues(
+                    horizontal = if (compact) IslamicSpacing.XXSmall else IslamicSpacing.XSmall,
+                    vertical = if (compact) IslamicSpacing.XSmall else IslamicSpacing.Small,
+                ),
+            ) {
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = label,
+                        tint = if (selected == option) {
+                            MaterialTheme.colorScheme.primary
+                        } else {
+                            MaterialTheme.colorScheme.onSurfaceVariant
+                        },
+                        modifier = Modifier.size(IslamicIconSize.Supporting),
+                    )
+                    Spacer(Modifier.height(IslamicSpacing.XXSmall))
+                    Text(
+                        text = label,
+                        style = MaterialTheme.typography.labelMedium,
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                        maxLines = 2,
+                    )
+                }
+            }
+        }
     }
 }
 
@@ -1112,29 +1123,128 @@ private fun BundledAdhanSoundSection(
     onSelected: (BundledAdhanSound) -> Unit,
     onPreview: (BundledAdhanSound) -> Unit,
 ) {
+    var pickerOpen by remember { mutableStateOf(false) }
+
     DialogSectionTitle(R.string.settings_adhan_sound_choice, compact)
-    BundledAdhanSound.entries.forEach { sound ->
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        onClick = { pickerOpen = true },
+        contentPadding = PaddingValues(
+            horizontal = IslamicSpacing.Medium,
+            vertical = if (compact) IslamicSpacing.XSmall else IslamicSpacing.Small,
+        ),
+    ) {
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable { onSelected(sound) }
-                .padding(vertical = if (compact) 0.dp else 2.dp),
+            modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            RadioButton(selected = selected == sound, onClick = { onSelected(sound) })
             Text(
-                text = stringResource(bundledSoundLabelRes(sound)),
-                style = MaterialTheme.typography.bodyMedium,
+                text = stringResource(bundledSoundLabelRes(selected)),
+                style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.weight(1f),
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
             )
-            IconButton(onClick = { onPreview(sound) }) {
+            IconButton(onClick = { onPreview(selected) }) {
                 Icon(
                     imageVector = Icons.Filled.PlayArrow,
                     contentDescription = stringResource(R.string.settings_listen),
+                    tint = MaterialTheme.colorScheme.primary,
                 )
             }
+            Icon(
+                imageVector = Icons.Filled.KeyboardArrowDown,
+                contentDescription = stringResource(R.string.settings_adhan_sound_choice),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
     }
+
+    if (pickerOpen) {
+        AdhanSoundPickerDialog(
+            selected = selected,
+            compact = compact,
+            onSelected = onSelected,
+            onPreview = onPreview,
+            onDismiss = { pickerOpen = false },
+        )
+    }
+}
+
+@Composable
+private fun AdhanSoundPickerDialog(
+    selected: BundledAdhanSound,
+    compact: Boolean,
+    onSelected: (BundledAdhanSound) -> Unit,
+    onPreview: (BundledAdhanSound) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    var pending by remember(selected) { mutableStateOf(selected) }
+    val configuration = LocalConfiguration.current
+    val maximumListHeight = (configuration.screenHeightDp * 0.56f).dp
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.settings_adhan_sound_choice)) },
+        text = {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(max = maximumListHeight)
+                    .verticalScroll(rememberScrollState()),
+            ) {
+                BundledAdhanSound.entries.forEachIndexed { index, sound ->
+                    val label = stringResource(bundledSoundLabelRes(sound))
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { pending = sound }
+                            .padding(
+                                horizontal = if (compact) IslamicSpacing.XXSmall else IslamicSpacing.XSmall,
+                                vertical = if (compact) IslamicSpacing.XXSmall else IslamicSpacing.XSmall,
+                            ),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        RadioButton(
+                            selected = pending == sound,
+                            onClick = { pending = sound },
+                        )
+                        Text(
+                            text = label,
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.weight(1f),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                        IconButton(onClick = { onPreview(sound) }) {
+                            Icon(
+                                imageVector = Icons.Filled.PlayArrow,
+                                contentDescription = stringResource(R.string.settings_listen),
+                            )
+                        }
+                    }
+                    if (index < BundledAdhanSound.entries.lastIndex) {
+                        HorizontalDivider()
+                    }
+                }
+            }
+        },
+        confirmButton = {
+            TextButton(
+                onClick = {
+                    onSelected(pending)
+                    onDismiss()
+                },
+            ) {
+                Text(stringResource(R.string.settings_adhan_confirm))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(R.string.settings_adhan_cancel))
+            }
+        },
+    )
 }
 
 @Composable
