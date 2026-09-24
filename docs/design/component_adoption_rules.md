@@ -1,0 +1,68 @@
+# Shared component and spacing adoption
+
+Date: 2026-09-24
+
+## Purpose
+
+The application already owns a design-system layer. Feature screens should consume
+that layer instead of reconstructing Material surfaces, actions, and layout spacing
+locally.
+
+This rule is about consistency and maintainability, not hiding Material Compose.
+Feature-specific controls such as text fields, progress bars, menus, tabs, and
+specialized interactive widgets may continue to use Material components directly
+when the shared layer does not add meaningful semantics.
+
+## Preferred shared components
+
+Use the following for ordinary content surfaces and actions:
+
+- `IslamicCard` for standard feature cards and status/content containers.
+- `IslamicPrimaryButton` for the principal action in a section.
+- `IslamicSecondaryButton` for secondary/cancel/navigation actions.
+- the shared `Muslim*State` family for loading, empty, error, offline, and
+  permission-required presentation.
+
+These components centralize touch targets, shapes, borders, elevations, and semantic
+colors.
+
+## Spacing
+
+Use `IslamicSpacing` for layout padding and gaps.
+
+The scale is intentionally small and semantic:
+
+- `XSmall`: small inline separation.
+- `Small`: compact icon/text and control gaps.
+- `Compact`: closely related controls or compact sections.
+- `Medium`: standard card/content padding.
+- `Comfortable`: generous content spacing.
+- `Large`: major local separation.
+- `PageHorizontal`: screen horizontal gutter.
+- `SectionVertical`: separation between independent content sections.
+
+Raw dp values remain valid for measurements that are not layout spacing, such as a
+progress indicator stroke width or a specialized geometry calculation.
+
+## Initial strict surfaces
+
+The CI design-system verifier now treats the following as reference surfaces:
+
+- Settings Update screen: shared cards, buttons, and spacing.
+- Scholar Library data manager: shared cards, buttons, and spacing.
+- Quran Bookmarks: centralized spacing tokens.
+
+These screens should remain free of screen-local ordinary `Card`, `Button`, and
+`OutlinedButton` patterns.
+
+## Migration rule
+
+When modifying another feature screen:
+
+1. Reuse an existing shared component when its semantics match.
+2. Replace repeated spacing literals with `IslamicSpacing`.
+3. Do not wrap measurable transfer progress in a generic loading state.
+4. Keep specialized Material controls local when they express behavior the shared
+   layer does not own.
+5. If several features need the same new pattern, add it to the shared layer before
+   duplicating it across screens.
