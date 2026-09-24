@@ -131,6 +131,19 @@ private val topicIcons = mapOf(
     "tajweed_qalqalah" to Icons.Filled.Warning,
     "tajweed_waqf" to Icons.Filled.Place,
     "tajweed_practice" to Icons.Filled.Loop,
+    "sunnah_intro" to Icons.AutoMirrored.Filled.MenuBook,
+    "hadith_anatomy" to Icons.Filled.FormatListNumbered,
+    "hadith_grades" to Icons.Filled.VerifiedUser,
+    "hadith_verification" to Icons.Filled.Checklist,
+    "hadith_understanding" to Icons.Filled.AutoStories,
+    "hadith_library_guide" to Icons.Filled.Book,
+    "seerah_method" to Icons.Filled.Checklist,
+    "seerah_early_life" to Icons.Filled.LocalFlorist,
+    "seerah_revelation_makkah" to Icons.AutoMirrored.Filled.MenuBook,
+    "seerah_hijrah" to Icons.Filled.Place,
+    "seerah_madinah" to Icons.Filled.Mosque,
+    "seerah_major_events" to Icons.Filled.Star,
+    "seerah_character_legacy" to Icons.Filled.VerifiedUser,
     "funeral" to Icons.Filled.LocalFlorist,
     "madhhab" to Icons.Filled.ChildCare,
 )
@@ -147,6 +160,8 @@ private fun categoryTitleRes(category: String): Int = when (category) {
     LearnContent.CATEGORY_SALAH -> R.string.learn_category_salah
     LearnContent.CATEGORY_IBADAH -> R.string.learn_category_ibadah
     LearnContent.CATEGORY_QURAN -> R.string.learn_category_quran
+    LearnContent.CATEGORY_SUNNAH -> R.string.learn_category_sunnah
+    LearnContent.CATEGORY_SEERAH -> R.string.learn_category_seerah
     LearnContent.CATEGORY_REFERENCE -> R.string.learn_category_reference
     else -> R.string.learn_category_reference
 }
