@@ -228,4 +228,18 @@
     <string name="learn_topic_menstruation_postpartum_sub" tools:ignore="MissingTranslation">دليل تعليمي منظم للطهارة والصلاة والصيام في هذه الحالات</string>
     <string name="learn_topic_excused_person" tools:ignore="MissingTranslation">أحكام صاحب العذر</string>
     <string name="learn_topic_excused_person_sub" tools:ignore="MissingTranslation">السلس والنزف المستمر ونحوها مع مراعاة الجانب الطبي</string>
+    <string name="learn_topic_prayer_intro" tools:ignore="MissingTranslation">مدخل إلى الصلاة</string>
+    <string name="learn_topic_prayer_intro_sub" tools:ignore="MissingTranslation">خريطة شاملة للشروط والصفة والسهو والجماعة والأعذار</string>
+    <string name="learn_topic_qibla_niyyah" tools:ignore="MissingTranslation">القبلة والنية</string>
+    <string name="learn_topic_qibla_niyyah_sub" tools:ignore="MissingTranslation">استقبال القبلة وفهم النية دون تكلف أو وسوسة</string>
+    <string name="learn_topic_sujud_sahw" tools:ignore="MissingTranslation">سجود السهو</string>
+    <string name="learn_topic_sujud_sahw_sub" tools:ignore="MissingTranslation">أحكام الزيادة والنقص والشك قبل السلام وبعده</string>
+    <string name="learn_topic_congregation_imamah" tools:ignore="MissingTranslation">الجماعة والإمامة</string>
+    <string name="learn_topic_congregation_imamah_sub" tools:ignore="MissingTranslation">متابعة الإمام والصفوف والمسبوق وأساسيات الإمامة</string>
+    <string name="learn_topic_traveler_prayer" tools:ignore="MissingTranslation">صلاة المسافر</string>
+    <string name="learn_topic_traveler_prayer_sub" tools:ignore="MissingTranslation">القصر والجمع والصلاة أثناء الطريق والإقامة المؤقتة</string>
+    <string name="learn_topic_sick_prayer" tools:ignore="MissingTranslation">صلاة المريض</string>
+    <string name="learn_topic_sick_prayer_sub" tools:ignore="MissingTranslation">الصلاة بحسب الاستطاعة مع مراعاة السلامة والطهارة</string>
+    <string name="learn_topic_jumuah" tools:ignore="MissingTranslation">صلاة الجمعة</string>
+    <string name="learn_topic_jumuah_sub" tools:ignore="MissingTranslation">الخطبة والصلاة والأعذار وأحكام الحضور</string>
 </resources>
