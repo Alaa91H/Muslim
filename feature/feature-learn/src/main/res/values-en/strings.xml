@@ -246,6 +246,8 @@
     <string name="learn_estimated_minutes">Estimated reading time: %1$d min</string>
     <string name="learn_content_version">Content version: %1$d</string>
     <string name="learn_scholar_review_notice">Religious learning content remains subject to scholarly review before final approval.</string>
+    <string name="learn_review_status_draft">Content status: draft; not yet approved.</string>
+    <string name="learn_review_status_reviewed">This lesson has completed the project’s scholarly review process.</string>
     <string name="learn_topic_fasting_day">The fasting day</string>
     <string name="learn_topic_fasting_day_sub">A practical flow from suhur and dawn to iftar</string>
     <string name="learn_topic_fasting_nullifiers">What breaks a fast</string>
