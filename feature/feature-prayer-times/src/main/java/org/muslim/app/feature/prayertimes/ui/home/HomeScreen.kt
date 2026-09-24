@@ -752,7 +752,7 @@ private fun MonthlyPrayerTable(state: HomeViewModel.UiState, use24h: Boolean) {
                         PrayerTimeIcon(
                             prayer = prayer,
                             tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                            modifier = Modifier.size(IslamicIconSize.Compact),
+                            modifier = Modifier.size(IslamicIconSize.Supporting),
                         )
                         Text(
                             text = stringResource(prayerLabelRes(prayer)),
