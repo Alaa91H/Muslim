@@ -39,6 +39,18 @@ enum class LearningCalloutTone {
     DIFFERENCE_OF_OPINION,
 }
 
+enum class LearningFeatureDestination {
+    FAMILY_LIFE,
+    FINANCE,
+}
+
+data class LearningFeatureLink(
+    val destination: LearningFeatureDestination,
+    val titleRes: Int,
+    val bodyRes: Int,
+    val actionRes: Int,
+)
+
 data class LearningStepItem(
     val title: String,
     val body: String,
@@ -112,6 +124,7 @@ data class LearningLesson(
     val estimatedMinutes: Int? = null,
     val contentVersion: Int = 1,
     val reviewStatus: LearningReviewStatus = LearningReviewStatus.NEEDS_SCHOLAR_REVIEW,
+    val featureLink: LearningFeatureLink? = null,
 )
 
 data class LearningModule(
