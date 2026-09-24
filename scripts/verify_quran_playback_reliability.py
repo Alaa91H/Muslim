@@ -36,6 +36,11 @@ def main() -> None:
 
     require("val recitationFailure: StateFlow<RecitationFailureEvent?>" in view_model, "reader VM must expose retryable failures")
     require("fun retryPlaybackAfterFailure()" in view_model, "reader VM must retain a retry path")
+    require("fun retryGlobalNumbers(" in view_model, "retry must be able to resume from the failed ayah")
+    require(
+        "retryGlobalNumbers(request.globalNumbers, failedGlobal)" in view_model,
+        "retry must trim the queue to the failed ayah when that position is known",
+    )
     require("recitationRepository.localQueue(" in view_model, "reader VM must check local audio before downloading")
     require("RecitationFailureReason.DownloadFailed" in view_model, "download failures must be explicit")
     require("playbackErrorCount" not in view_model, "legacy error-count presentation must not return")
