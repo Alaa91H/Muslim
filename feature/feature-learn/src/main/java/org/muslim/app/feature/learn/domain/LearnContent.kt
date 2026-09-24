@@ -35,6 +35,7 @@ object LearnContent {
     const val CATEGORY_TAHARA = "tahara"
     const val CATEGORY_SALAH = "salah"
     const val CATEGORY_IBADAH = "ibadah"
+    const val CATEGORY_QURAN = "quran"
     const val CATEGORY_REFERENCE = "reference"
 
     /** Display order of the categories in the learning hub. */
@@ -43,6 +44,7 @@ object LearnContent {
         CATEGORY_TAHARA,
         CATEGORY_SALAH,
         CATEGORY_IBADAH,
+        CATEGORY_QURAN,
         CATEGORY_REFERENCE,
     )
 
@@ -75,6 +77,69 @@ object LearnContent {
                 LearnStep("الإيمان بالقدر خيره وشره", "الإيمان بأن كل شيء بقضاء الله وقدره، مع وجوب الأخذ بالأسباب المشروعة؛ ولا يُحتج بالقدر على ترك واجب أو فعل محرم."),
             ),
             notes = "«أن تُؤمن بالله وملائكته وكتبه ورسله واليوم الآخر، وتؤمن بالقدر خيره وشره» (رواه مسلم). هذه الأركان الستة أصل العقيدة، ومن أنكر واحدًا منها خرج عن ملة الإسلام.",
+        ),
+        LearnTopic(
+            id = "tahara_intro",
+            category = CATEGORY_TAHARA,
+            titleRes = R.string.learn_topic_tahara_intro,
+            subtitleRes = R.string.learn_topic_tahara_intro_sub,
+            steps = listOf(
+                LearnStep("مدخل إلى الطهارة", "فهم الفرق بين رفع الحدث وإزالة النجاسة، وخريطة الوضوء والغسل والتيمم والأعذار."),
+            ),
+        ),
+        LearnTopic(
+            id = "water_impurity",
+            category = CATEGORY_TAHARA,
+            titleRes = R.string.learn_topic_water_impurity,
+            subtitleRes = R.string.learn_topic_water_impurity_sub,
+            steps = listOf(
+                LearnStep("الماء والنجاسة", "الأصول العملية لاستعمال الماء وإزالة النجاسة من البدن والثوب والمكان."),
+            ),
+        ),
+        LearnTopic(
+            id = "restroom_etiquette",
+            category = CATEGORY_TAHARA,
+            titleRes = R.string.learn_topic_restroom_etiquette,
+            subtitleRes = R.string.learn_topic_restroom_etiquette_sub,
+            steps = listOf(
+                LearnStep("آداب قضاء الحاجة", "الخصوصية والنظافة والاستنجاء والاستجمار والتطبيق في المرافق العامة."),
+            ),
+        ),
+        LearnTopic(
+            id = "wudu_nullifiers",
+            category = CATEGORY_TAHARA,
+            titleRes = R.string.learn_topic_wudu_nullifiers,
+            subtitleRes = R.string.learn_topic_wudu_nullifiers_sub,
+            steps = listOf(
+                LearnStep("ما ينقض الوضوء", "النواقض المتفق على أصلها والمسائل التي وقع فيها اختلاف فقهي."),
+            ),
+        ),
+        LearnTopic(
+            id = "wiping_footwear",
+            category = CATEGORY_TAHARA,
+            titleRes = R.string.learn_topic_wiping_footwear,
+            subtitleRes = R.string.learn_topic_wiping_footwear_sub,
+            steps = listOf(
+                LearnStep("المسح على الخفين والجوارب", "أصل الرخصة وشروطها ومدتها وأهم الفروق الفقهية."),
+            ),
+        ),
+        LearnTopic(
+            id = "menstruation_postpartum",
+            category = CATEGORY_TAHARA,
+            titleRes = R.string.learn_topic_menstruation_postpartum,
+            subtitleRes = R.string.learn_topic_menstruation_postpartum_sub,
+            steps = listOf(
+                LearnStep("الحيض والنفاس والاستحاضة", "المصطلحات الأساسية وأثرها في الصلاة والصيام والطهارة مع التنبيه إلى المسائل التفصيلية."),
+            ),
+        ),
+        LearnTopic(
+            id = "excused_person",
+            category = CATEGORY_TAHARA,
+            titleRes = R.string.learn_topic_excused_person,
+            subtitleRes = R.string.learn_topic_excused_person_sub,
+            steps = listOf(
+                LearnStep("صاحب العذر", "مدخل عملي لأحكام السلس والنزف المستمر ونحوها مع مراعاة الجانب الطبي."),
+            ),
         ),
         LearnTopic(
             id = "wudu",
@@ -127,6 +192,69 @@ object LearnContent {
                 LearnStep("الضربة الثانية ومسح اليدين", "يضرب ضربة ثانية ويمسح يديه إلى المرفقين."),
             ),
             notes = "يجوز التيمم عند فقد الماء أو المرض الذي يمنع استعماله. يبطل التيمم بوجود الماء (مع القدرة) وبما يبطل الوضوء. الضربة الواحدة تكفي عند الشافعية لمسح الوجه واليدين، والضربتان مذهب الجمهور.",
+        ),
+        LearnTopic(
+            id = "prayer_intro",
+            category = CATEGORY_SALAH,
+            titleRes = R.string.learn_topic_prayer_intro,
+            subtitleRes = R.string.learn_topic_prayer_intro_sub,
+            steps = listOf(
+                LearnStep("مدخل إلى الصلاة", "خريطة كاملة لما قبل الصلاة وصفة أدائها وأحكام السهو والجماعة والأعذار."),
+            ),
+        ),
+        LearnTopic(
+            id = "qibla_niyyah",
+            category = CATEGORY_SALAH,
+            titleRes = R.string.learn_topic_qibla_niyyah,
+            subtitleRes = R.string.learn_topic_qibla_niyyah_sub,
+            steps = listOf(
+                LearnStep("القبلة والنية", "كيفية التحري للقبلة وفهم النية دون تكلف أو وسوسة."),
+            ),
+        ),
+        LearnTopic(
+            id = "sujud_sahw",
+            category = CATEGORY_SALAH,
+            titleRes = R.string.learn_topic_sujud_sahw,
+            subtitleRes = R.string.learn_topic_sujud_sahw_sub,
+            steps = listOf(
+                LearnStep("سجود السهو", "الزيادة والنقص والشك وموضع السجود قبل السلام أو بعده."),
+            ),
+        ),
+        LearnTopic(
+            id = "congregation_imamah",
+            category = CATEGORY_SALAH,
+            titleRes = R.string.learn_topic_congregation_imamah,
+            subtitleRes = R.string.learn_topic_congregation_imamah_sub,
+            steps = listOf(
+                LearnStep("الجماعة والإمامة", "متابعة الإمام والصفوف والمسبوق وأساسيات الإمامة."),
+            ),
+        ),
+        LearnTopic(
+            id = "traveler_prayer",
+            category = CATEGORY_SALAH,
+            titleRes = R.string.learn_topic_traveler_prayer,
+            subtitleRes = R.string.learn_topic_traveler_prayer_sub,
+            steps = listOf(
+                LearnStep("صلاة المسافر", "القصر والجمع والصلاة أثناء الطريق والإقامة المؤقتة."),
+            ),
+        ),
+        LearnTopic(
+            id = "sick_prayer",
+            category = CATEGORY_SALAH,
+            titleRes = R.string.learn_topic_sick_prayer,
+            subtitleRes = R.string.learn_topic_sick_prayer_sub,
+            steps = listOf(
+                LearnStep("صلاة المريض", "القيام والجلوس والإيماء والطهارة في حدود الاستطاعة."),
+            ),
+        ),
+        LearnTopic(
+            id = "jumuah",
+            category = CATEGORY_SALAH,
+            titleRes = R.string.learn_topic_jumuah,
+            subtitleRes = R.string.learn_topic_jumuah_sub,
+            steps = listOf(
+                LearnStep("صلاة الجمعة", "الحضور والخطبة والصلاة والأعذار وأحكام العمل والدراسة."),
+            ),
         ),
         LearnTopic(
             id = "salah",
@@ -285,6 +413,78 @@ object LearnContent {
             notes = "يستحب صيام ست من شوال، ويوم عرفة لغير الحاج، ويومي عاشوراء وتاسوعاء، وأكثر صيام التطوع في شعبان؛ ويكره إفراد يوم الجمعة بالصوم.",
         ),
         LearnTopic(
+            id = "fasting_day",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_fasting_day,
+            subtitleRes = R.string.learn_topic_fasting_day_sub,
+            steps = listOf(
+                LearnStep("يوم الصيام", "من السحور والفجر إلى الإفطار مع أخطاء عملية شائعة."),
+            ),
+        ),
+        LearnTopic(
+            id = "fasting_nullifiers",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_fasting_nullifiers,
+            subtitleRes = R.string.learn_topic_fasting_nullifiers_sub,
+            steps = listOf(
+                LearnStep("مفسدات الصيام", "الفرق بين العمد والنسيان والمسائل الطبية الحديثة."),
+            ),
+        ),
+        LearnTopic(
+            id = "fasting_exemptions",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_fasting_exemptions,
+            subtitleRes = R.string.learn_topic_fasting_exemptions_sub,
+            steps = listOf(
+                LearnStep("الأعذار", "المرض والسفر والعجز والحمل والرضاعة والقضاء والفدية."),
+            ),
+        ),
+        LearnTopic(
+            id = "fasting_women",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_fasting_women,
+            subtitleRes = R.string.learn_topic_fasting_women_sub,
+            steps = listOf(
+                LearnStep("أحكام خاصة بالمرأة", "الحيض والنفاس والحمل والرضاعة مع مراعاة الجانب الطبي."),
+            ),
+        ),
+        LearnTopic(
+            id = "fasting_travel_illness",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_fasting_travel_illness,
+            subtitleRes = R.string.learn_topic_fasting_travel_illness_sub,
+            steps = listOf(
+                LearnStep("السفر والمرض", "متى تؤخذ الرخصة وكيف ينظم القضاء والعلاج."),
+            ),
+        ),
+        LearnTopic(
+            id = "ramadan_sunnahs",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_ramadan_sunnahs,
+            subtitleRes = R.string.learn_topic_ramadan_sunnahs_sub,
+            steps = listOf(
+                LearnStep("سنن رمضان", "السحور وتعجيل الفطر والقيام والقرآن والصدقة."),
+            ),
+        ),
+        LearnTopic(
+            id = "laylat_qadr_itikaf",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_laylat_qadr_itikaf,
+            subtitleRes = R.string.learn_topic_laylat_qadr_itikaf_sub,
+            steps = listOf(
+                LearnStep("العشر الأواخر", "ليلة القدر والاعتكاف وتجنب الادعاءات غير الموثوقة."),
+            ),
+        ),
+        LearnTopic(
+            id = "voluntary_fasting",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_voluntary_fasting,
+            subtitleRes = R.string.learn_topic_voluntary_fasting_sub,
+            steps = listOf(
+                LearnStep("صيام التطوع", "شوال وعرفة وعاشوراء والأيام البيض والأيام المنهي عنها."),
+            ),
+        ),
+        LearnTopic(
             id = "zakat",
             category = CATEGORY_IBADAH,
             titleRes = R.string.learn_topic_zakat,
@@ -299,6 +499,186 @@ object LearnContent {
                 LearnStep("وقت الإخراج", "تجب الزكاة عند استكمال شروطها؛ ويستحب التعجيل، ولا يجوز تأخيرها بعد الوجوب بلا عذر."),
             ),
             notes = "الزكاة طهرة للمال والبدن، وتنمي المال وتدفع البلاء. لا تجب في مال لم يبلغ النصاب. مسألة زكاة الحلي المباح محل خلاف بين المذاهب؛ فالأحوط إخراجها، ويرجع فيها إلى أهل العلم.",
+        ),
+        LearnTopic(
+            id = "zakat_nisab_haul",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_nisab_haul,
+            subtitleRes = R.string.learn_topic_zakat_nisab_haul_sub,
+            steps = listOf(
+                LearnStep("النصاب والحول", "كيف يبدأ الوجوب وما الذي تختلف فيه الأموال."),
+            ),
+        ),
+        LearnTopic(
+            id = "zakat_cash_metals",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_cash_metals,
+            subtitleRes = R.string.learn_topic_zakat_cash_metals_sub,
+            steps = listOf(
+                LearnStep("النقد والذهب والفضة", "الحسابات والعملات وتقييم المعادن."),
+            ),
+        ),
+        LearnTopic(
+            id = "zakat_business_investments",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_business_investments,
+            subtitleRes = R.string.learn_topic_zakat_business_investments_sub,
+            steps = listOf(
+                LearnStep("التجارة والاستثمارات", "المخزون والذمم والأسهم والاستثمارات المعاصرة."),
+            ),
+        ),
+        LearnTopic(
+            id = "zakat_debts_jewelry",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_debts_jewelry,
+            subtitleRes = R.string.learn_topic_zakat_debts_jewelry_sub,
+            steps = listOf(
+                LearnStep("الديون والحلي", "مسائل الخصم والديون المستحقة وحلي الاستعمال."),
+            ),
+        ),
+        LearnTopic(
+            id = "zakat_recipients",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_recipients,
+            subtitleRes = R.string.learn_topic_zakat_recipients_sub,
+            steps = listOf(
+                LearnStep("مصارف الزكاة", "الأصناف الثمانية والتحقق من الاستحقاق والتوزيع."),
+            ),
+        ),
+        LearnTopic(
+            id = "zakat_crops_livestock",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_crops_livestock,
+            subtitleRes = R.string.learn_topic_zakat_crops_livestock_sub,
+            steps = listOf(
+                LearnStep("الزروع والأنعام", "أبواب لها أنصبة ومقادير مختلفة عن زكاة المال."),
+            ),
+        ),
+        LearnTopic(
+            id = "zakat_fitr",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_fitr,
+            subtitleRes = R.string.learn_topic_zakat_fitr_sub,
+            steps = listOf(
+                LearnStep("زكاة الفطر", "من تلزمه ووقتها والطعام والقيمة النقدية."),
+            ),
+        ),
+        LearnTopic(
+            id = "zakat_calculator_guide",
+            category = CATEGORY_IBADAH,
+            titleRes = R.string.learn_topic_zakat_calculator_guide,
+            subtitleRes = R.string.learn_topic_zakat_calculator_guide_sub,
+            steps = listOf(
+                LearnStep("فهم الحاسبة", "ما الذي تحسبه الأداة وافتراضاتها وما لا تغطيه."),
+            ),
+        ),
+        LearnTopic(
+            id = "quran_intro",
+            category = CATEGORY_QURAN,
+            titleRes = R.string.learn_topic_quran_intro,
+            subtitleRes = R.string.learn_topic_quran_intro_sub,
+            steps = listOf(
+                LearnStep("مدخل إلى القرآن", "ما القرآن وكيف تتوازن التلاوة والفهم والعمل."),
+            ),
+        ),
+        LearnTopic(
+            id = "quran_etiquette",
+            category = CATEGORY_QURAN,
+            titleRes = R.string.learn_topic_quran_etiquette,
+            subtitleRes = R.string.learn_topic_quran_etiquette_sub,
+            steps = listOf(
+                LearnStep("آداب التلاوة", "النية والاستعاذة والاستماع والتعامل مع المصحف الرقمي."),
+            ),
+        ),
+        LearnTopic(
+            id = "quran_structure",
+            category = CATEGORY_QURAN,
+            titleRes = R.string.learn_topic_quran_structure,
+            subtitleRes = R.string.learn_topic_quran_structure_sub,
+            steps = listOf(
+                LearnStep("بنية المصحف", "السور والآيات والأجزاء والمكي والمدني والقراءات."),
+            ),
+        ),
+        LearnTopic(
+            id = "quran_understanding",
+            category = CATEGORY_QURAN,
+            titleRes = R.string.learn_topic_quran_understanding,
+            subtitleRes = R.string.learn_topic_quran_understanding_sub,
+            steps = listOf(
+                LearnStep("فهم القرآن", "التدبر والترجمة والتفسير والسياق دون استنباط بغير علم."),
+            ),
+        ),
+        LearnTopic(
+            id = "quran_learning_plan",
+            category = CATEGORY_QURAN,
+            titleRes = R.string.learn_topic_quran_learning_plan,
+            subtitleRes = R.string.learn_topic_quran_learning_plan_sub,
+            steps = listOf(
+                LearnStep("خطة تعلم القرآن", "من تحديد المستوى إلى روتين يومي واستفادة من قارئ القرآن."),
+            ),
+        ),
+        LearnTopic(
+            id = "tajweed_intro",
+            category = CATEGORY_QURAN,
+            titleRes = R.string.learn_topic_tajweed_intro,
+            subtitleRes = R.string.learn_topic_tajweed_intro_sub,
+            steps = listOf(
+                LearnStep("مدخل إلى التجويد", "هدف التجويد والتلقي وألوان المصحف كوسيلة مساعدة."),
+            ),
+        ),
+        LearnTopic(
+            id = "tajweed_makharij",
+            category = CATEGORY_QURAN,
+            titleRes = R.string.learn_topic_tajweed_makharij,
+            subtitleRes = R.string.learn_topic_tajweed_makharij_sub,
+            steps = listOf(
+                LearnStep("المخارج والصفات", "تثبيت الحروف المتقاربة والتدريب العملي على النطق."),
+            ),
+        ),
+        LearnTopic(
+            id = "tajweed_noon_meem",
+            category = CATEGORY_QURAN,
+            titleRes = R.string.learn_topic_tajweed_noon_meem,
+            subtitleRes = R.string.learn_topic_tajweed_noon_meem_sub,
+            steps = listOf(
+                LearnStep("النون والميم والغنة", "الإظهار والإدغام والإقلاب والإخفاء وأحكام الميم."),
+            ),
+        ),
+        LearnTopic(
+            id = "tajweed_madd",
+            category = CATEGORY_QURAN,
+            titleRes = R.string.learn_topic_tajweed_madd,
+            subtitleRes = R.string.learn_topic_tajweed_madd_sub,
+            steps = listOf(
+                LearnStep("أحكام المد", "المد الطبيعي وأسباب الهمز والسكون والتدريب على المقادير."),
+            ),
+        ),
+        LearnTopic(
+            id = "tajweed_qalqalah",
+            category = CATEGORY_QURAN,
+            titleRes = R.string.learn_topic_tajweed_qalqalah,
+            subtitleRes = R.string.learn_topic_tajweed_qalqalah_sub,
+            steps = listOf(
+                LearnStep("القلقلة والتفخيم", "القلقلة والتفخيم والترقيق والراء ولام لفظ الجلالة."),
+            ),
+        ),
+        LearnTopic(
+            id = "tajweed_waqf",
+            category = CATEGORY_QURAN,
+            titleRes = R.string.learn_topic_tajweed_waqf,
+            subtitleRes = R.string.learn_topic_tajweed_waqf_sub,
+            steps = listOf(
+                LearnStep("الوقف والابتداء", "علامات الوقف وحفظ المعنى والتعامل مع ضيق النفس."),
+            ),
+        ),
+        LearnTopic(
+            id = "tajweed_practice",
+            category = CATEGORY_QURAN,
+            titleRes = R.string.learn_topic_tajweed_practice,
+            subtitleRes = R.string.learn_topic_tajweed_practice_sub,
+            steps = listOf(
+                LearnStep("تطبيق التجويد", "دورة تدريب تجمع الاستماع والتسجيل والتصحيح والمراجعة."),
+            ),
         ),
         LearnTopic(
             id = "funeral",

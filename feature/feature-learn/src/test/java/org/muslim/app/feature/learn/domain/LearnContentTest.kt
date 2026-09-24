@@ -143,6 +143,7 @@ class LearnContentTest {
             "wudu", "ghusl", "tayammum",
             "salah", "salah_arkan", "salah_times", "adhan", "shurut", "nullifiers", "rawatib", "rakats", "special",
             "fasting", "zakat", "funeral",
+            "quran_intro", "quran_understanding", "tajweed_intro", "tajweed_practice",
             "madhhab",
         )
         LearnContent.topics.forEach { topic ->
