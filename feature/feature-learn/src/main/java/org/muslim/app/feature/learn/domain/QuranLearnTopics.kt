@@ -13,7 +13,7 @@ internal object QuranLearnTopics {
     val topics: List<LearnTopic> = listOf(
         LearnTopic(
             id = "quran_intro",
-            category = CATEGORY_QURAN,
+            category = LearnContent.CATEGORY_QURAN,
             titleRes = R.string.learn_topic_quran_intro,
             subtitleRes = R.string.learn_topic_quran_intro_sub,
             steps = listOf(
@@ -22,7 +22,7 @@ internal object QuranLearnTopics {
         ),
         LearnTopic(
             id = "quran_etiquette",
-            category = CATEGORY_QURAN,
+            category = LearnContent.CATEGORY_QURAN,
             titleRes = R.string.learn_topic_quran_etiquette,
             subtitleRes = R.string.learn_topic_quran_etiquette_sub,
             steps = listOf(
@@ -31,7 +31,7 @@ internal object QuranLearnTopics {
         ),
         LearnTopic(
             id = "quran_structure",
-            category = CATEGORY_QURAN,
+            category = LearnContent.CATEGORY_QURAN,
             titleRes = R.string.learn_topic_quran_structure,
             subtitleRes = R.string.learn_topic_quran_structure_sub,
             steps = listOf(
@@ -40,7 +40,7 @@ internal object QuranLearnTopics {
         ),
         LearnTopic(
             id = "quran_understanding",
-            category = CATEGORY_QURAN,
+            category = LearnContent.CATEGORY_QURAN,
             titleRes = R.string.learn_topic_quran_understanding,
             subtitleRes = R.string.learn_topic_quran_understanding_sub,
             steps = listOf(
@@ -49,7 +49,7 @@ internal object QuranLearnTopics {
         ),
         LearnTopic(
             id = "quran_learning_plan",
-            category = CATEGORY_QURAN,
+            category = LearnContent.CATEGORY_QURAN,
             titleRes = R.string.learn_topic_quran_learning_plan,
             subtitleRes = R.string.learn_topic_quran_learning_plan_sub,
             steps = listOf(
@@ -58,7 +58,7 @@ internal object QuranLearnTopics {
         ),
         LearnTopic(
             id = "tajweed_intro",
-            category = CATEGORY_QURAN,
+            category = LearnContent.CATEGORY_QURAN,
             titleRes = R.string.learn_topic_tajweed_intro,
             subtitleRes = R.string.learn_topic_tajweed_intro_sub,
             steps = listOf(
@@ -67,7 +67,7 @@ internal object QuranLearnTopics {
         ),
         LearnTopic(
             id = "tajweed_makharij",
-            category = CATEGORY_QURAN,
+            category = LearnContent.CATEGORY_QURAN,
             titleRes = R.string.learn_topic_tajweed_makharij,
             subtitleRes = R.string.learn_topic_tajweed_makharij_sub,
             steps = listOf(
@@ -76,7 +76,7 @@ internal object QuranLearnTopics {
         ),
         LearnTopic(
             id = "tajweed_noon_meem",
-            category = CATEGORY_QURAN,
+            category = LearnContent.CATEGORY_QURAN,
             titleRes = R.string.learn_topic_tajweed_noon_meem,
             subtitleRes = R.string.learn_topic_tajweed_noon_meem_sub,
             steps = listOf(
@@ -85,7 +85,7 @@ internal object QuranLearnTopics {
         ),
         LearnTopic(
             id = "tajweed_madd",
-            category = CATEGORY_QURAN,
+            category = LearnContent.CATEGORY_QURAN,
             titleRes = R.string.learn_topic_tajweed_madd,
             subtitleRes = R.string.learn_topic_tajweed_madd_sub,
             steps = listOf(
@@ -94,7 +94,7 @@ internal object QuranLearnTopics {
         ),
         LearnTopic(
             id = "tajweed_qalqalah",
-            category = CATEGORY_QURAN,
+            category = LearnContent.CATEGORY_QURAN,
             titleRes = R.string.learn_topic_tajweed_qalqalah,
             subtitleRes = R.string.learn_topic_tajweed_qalqalah_sub,
             steps = listOf(
@@ -103,7 +103,7 @@ internal object QuranLearnTopics {
         ),
         LearnTopic(
             id = "tajweed_waqf",
-            category = CATEGORY_QURAN,
+            category = LearnContent.CATEGORY_QURAN,
             titleRes = R.string.learn_topic_tajweed_waqf,
             subtitleRes = R.string.learn_topic_tajweed_waqf_sub,
             steps = listOf(
@@ -112,7 +112,7 @@ internal object QuranLearnTopics {
         ),
         LearnTopic(
             id = "tajweed_practice",
-            category = CATEGORY_QURAN,
+            category = LearnContent.CATEGORY_QURAN,
             titleRes = R.string.learn_topic_tajweed_practice,
             subtitleRes = R.string.learn_topic_tajweed_practice_sub,
             steps = listOf(
