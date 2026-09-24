@@ -228,4 +228,18 @@
     <string name="learn_topic_menstruation_postpartum_sub">A structured guide to purification, prayer and fasting in these cases</string>
     <string name="learn_topic_excused_person">Ongoing excuses</string>
     <string name="learn_topic_excused_person_sub">Incontinence, continuous bleeding and similar cases with medical awareness</string>
+    <string name="learn_topic_prayer_intro">Introduction to prayer</string>
+    <string name="learn_topic_prayer_intro_sub">A complete map of conditions, method, forgetfulness, congregation and excuses</string>
+    <string name="learn_topic_qibla_niyyah">Qibla and intention</string>
+    <string name="learn_topic_qibla_niyyah_sub">Facing the qibla and understanding intention without obsessive repetition</string>
+    <string name="learn_topic_sujud_sahw">Prostration of forgetfulness</string>
+    <string name="learn_topic_sujud_sahw_sub">Increase, omission and doubt before or after the salam</string>
+    <string name="learn_topic_congregation_imamah">Congregation and imamah</string>
+    <string name="learn_topic_congregation_imamah_sub">Following the imam, rows, latecomers and leading prayer</string>
+    <string name="learn_topic_traveler_prayer">Prayer while travelling</string>
+    <string name="learn_topic_traveler_prayer_sub">Shortening, combining, transport and temporary stays</string>
+    <string name="learn_topic_sick_prayer">Prayer during illness</string>
+    <string name="learn_topic_sick_prayer_sub">Praying according to ability while preserving safety and purification</string>
+    <string name="learn_topic_jumuah">Friday prayer</string>
+    <string name="learn_topic_jumuah_sub">Khutbah, prayer, attendance and recognised excuses</string>
 </resources>
