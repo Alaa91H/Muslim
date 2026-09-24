@@ -174,16 +174,26 @@ fun MuslimStateSurface(
             if ((actionLabel != null && onAction != null) ||
                 (secondaryActionLabel != null && onSecondaryAction != null)
             ) {
+                val hasSecondaryAction = secondaryActionLabel != null && onSecondaryAction != null
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     if (actionLabel != null && onAction != null) {
-                        Button(
-                            onClick = onAction,
-                            modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
-                        ) {
-                            Text(actionLabel)
+                        if (hasSecondaryAction) {
+                            Button(
+                                onClick = onAction,
+                                modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
+                            ) {
+                                Text(actionLabel)
+                            }
+                        } else {
+                            TextButton(
+                                onClick = onAction,
+                                modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
+                            ) {
+                                Text(actionLabel)
+                            }
                         }
                     }
                     if (secondaryActionLabel != null && onSecondaryAction != null) {
