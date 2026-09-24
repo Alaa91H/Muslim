@@ -74,6 +74,13 @@ import org.muslim.app.feature.learn.domain.LearningStepItem
 private val topicIcons = mapOf(
     "pillars_islam" to Icons.Filled.Mosque,
     "pillars_iman" to Icons.Filled.Book,
+    "tahara_intro" to Icons.Filled.AutoStories,
+    "water_impurity" to Icons.Filled.WaterDrop,
+    "restroom_etiquette" to Icons.Filled.Checklist,
+    "wudu_nullifiers" to Icons.Filled.Warning,
+    "wiping_footwear" to Icons.Filled.BeachAccess,
+    "menstruation_postpartum" to Icons.Filled.LocalFlorist,
+    "excused_person" to Icons.Filled.VerifiedUser,
     "wudu" to Icons.Filled.WaterDrop,
     "ghusl" to Icons.Filled.Bathtub,
     "tayammum" to Icons.Filled.BeachAccess,
