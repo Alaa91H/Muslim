@@ -5,12 +5,12 @@ import org.muslim.app.feature.learn.R
 internal object PurificationBasicsContent {
 
     val lessons: List<LearningLesson> = listOf(
-        taharaOverview(),
-        waterAndImpurity(),
-        restroomEtiquette(),
+        taharaOverview,
+        waterAndImpurity,
+        restroomEtiquette,
     )
 
-    private fun taharaOverview() = LearningLesson(
+    private val taharaOverview = LearningLesson(
         id = "tahara_intro",
         titleRes = R.string.learn_topic_tahara_intro,
         subtitleRes = R.string.learn_topic_tahara_intro_sub,
@@ -81,7 +81,7 @@ internal object PurificationBasicsContent {
         ),
     )
 
-    private fun waterAndImpurity() = LearningLesson(
+    private val waterAndImpurity = LearningLesson(
         id = "water_impurity",
         titleRes = R.string.learn_topic_water_impurity,
         subtitleRes = R.string.learn_topic_water_impurity_sub,
@@ -142,7 +142,7 @@ internal object PurificationBasicsContent {
         ),
     )
 
-    private fun restroomEtiquette() = LearningLesson(
+    private val restroomEtiquette = LearningLesson(
         id = "restroom_etiquette",
         titleRes = R.string.learn_topic_restroom_etiquette,
         subtitleRes = R.string.learn_topic_restroom_etiquette_sub,
