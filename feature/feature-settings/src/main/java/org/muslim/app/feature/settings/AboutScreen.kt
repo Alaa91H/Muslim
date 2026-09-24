@@ -40,7 +40,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import org.muslim.app.feature.settings.R
 
 // Developer contact details (shown in-app and in the README).
@@ -182,8 +181,8 @@ private fun FeatureRow(icon: ImageVector, label: String) {
 
 @Composable
 private fun AboutCard(title: String, content: @Composable () -> Unit) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(Modifier.padding(16.dp)) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Column {
             Text(
                 text = title,
                 style = MaterialTheme.typography.titleMedium,
