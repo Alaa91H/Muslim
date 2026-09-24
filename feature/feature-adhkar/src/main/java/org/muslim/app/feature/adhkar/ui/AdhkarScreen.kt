@@ -706,7 +706,7 @@ private fun DhikrMetadata(dhikr: Dhikr) {
                 text = dhikr.source,
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
-                modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
+                modifier = Modifier.padding(horizontal = IslamicSpacing.Small, vertical = IslamicSpacing.XSmall),
             )
         }
         Spacer(Modifier.weight(1f))
