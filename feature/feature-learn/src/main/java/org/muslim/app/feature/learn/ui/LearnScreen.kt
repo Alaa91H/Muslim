@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -24,6 +23,7 @@ import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.Bathtub
 import androidx.compose.material.icons.filled.BeachAccess
 import androidx.compose.material.icons.filled.Book
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Checklist
 import androidx.compose.material.icons.filled.ChildCare
 import androidx.compose.material.icons.filled.FormatListNumbered
@@ -39,7 +39,6 @@ import androidx.compose.material.icons.filled.VerifiedUser
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.filled.WaterDrop
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -49,17 +48,20 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import java.util.Locale
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
@@ -67,13 +69,9 @@ import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.LearnContent
 import org.muslim.app.feature.learn.domain.LearnTopic
-import org.muslim.app.feature.learn.domain.LearningAcademyCatalog
-import org.muslim.app.feature.learn.domain.LearningCalloutTone
-import org.muslim.app.feature.learn.domain.LearningContentBlock
+import org.muslim.app.feature.learn.domain.LearningAssessmentCatalog
 import org.muslim.app.feature.learn.domain.LearningFeatureDestination
-import org.muslim.app.feature.learn.domain.LearningFeatureLink
-import org.muslim.app.feature.learn.domain.LearningReference
-import org.muslim.app.feature.learn.domain.LearningStepItem
+import org.muslim.app.feature.learn.domain.LearningProgressPlanner
 
 private val topicIcons = mapOf(
     "pillars_islam" to Icons.Filled.Mosque,
@@ -226,10 +224,29 @@ fun LearnScreen(
 ) {
     var selected by remember { mutableStateOf<LearnTopic?>(null) }
     var specialDestination by remember { mutableStateOf<LearnSpecialDestination?>(null) }
+    var searchQuery by remember { mutableStateOf("") }
+    var showMistakes by remember { mutableStateOf(false) }
     val favoriteIds by viewModel.favoriteIds.collectAsStateWithLifecycle()
+    val completedLessonIds by viewModel.completedLessonIds.collectAsStateWithLifecycle()
+    val lastOpenedLessonId by viewModel.lastOpenedLessonId.collectAsStateWithLifecycle()
+    val quizAnswers by viewModel.quizAnswers.collectAsStateWithLifecycle()
     val topic = selected
+    val continueTopic = remember(lastOpenedLessonId, completedLessonIds) {
+        LearningProgressPlanner.continueLessonId(
+            lastOpenedLessonId = lastOpenedLessonId,
+            completedLessonIds = completedLessonIds,
+        )?.let { id -> LearnContent.topics.firstOrNull { it.id == id } }
+    }
+    val mistakeCount = remember(quizAnswers) {
+        LearningAssessmentCatalog.incorrectEntries(quizAnswers).size
+    }
+
+    LaunchedEffect(topic?.id) {
+        topic?.id?.let(viewModel::openLesson)
+    }
 
     // Back always resolves the inner learning destination before returning to More.
+    BackHandler(enabled = showMistakes) { showMistakes = false }
     BackHandler(enabled = specialDestination != null) { specialDestination = null }
     BackHandler(enabled = topic != null) { selected = null }
 
@@ -243,6 +260,19 @@ fun LearnScreen(
             return
         }
         null -> Unit
+    }
+
+    if (showMistakes) {
+        LearningMistakesScreen(
+            quizAnswers = quizAnswers,
+            onBack = { showMistakes = false },
+            onOpenLesson = { lessonTopic ->
+                showMistakes = false
+                selected = lessonTopic
+            },
+            modifier = modifier,
+        )
+        return
     }
 
     MuslimAppScaffold(
@@ -286,14 +316,28 @@ fun LearnScreen(
         if (topic == null) {
             TopicList(
                 favoriteIds = favoriteIds,
+                completedLessonIds = completedLessonIds,
+                searchQuery = searchQuery,
+                continueTopic = continueTopic,
+                mistakeCount = mistakeCount,
+                onSearchQueryChange = { searchQuery = it },
                 onToggleFavorite = viewModel::toggleFavorite,
+                onReviewMistakes = { showMistakes = true },
                 modifier = Modifier.padding(innerPadding),
                 onOpen = { selected = it },
                 onOpenSpecial = { specialDestination = it },
             )
         } else {
-            GuideContent(
+            LearningLessonReader(
                 topic = topic,
+                completed = topic.id in completedLessonIds,
+                quizAnswers = quizAnswers,
+                onSetCompleted = { completed ->
+                    viewModel.setLessonCompleted(topic.id, completed)
+                },
+                onAnswerQuiz = { quizId, optionId ->
+                    viewModel.answerQuiz(topic.id, quizId, optionId)
+                },
                 onOpenFeature = onOpenFeature,
                 modifier = Modifier.padding(innerPadding),
             )
