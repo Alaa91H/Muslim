@@ -117,10 +117,16 @@ class RecitationSessionRuntime @Inject constructor(
     @Volatile
     private var generation = 0L
 
+    @Volatile
+    private var operationSequence = 0L
+
+    @Synchronized
     fun begin(intent: RecitationSessionIntent) {
         activeIntent = intent
         generation += 1L
+        operationSequence += 1L
         val writeGeneration = generation
+        val operation = operationSequence
         val firstGlobal = intent.globalNumbers.firstOrNull() ?: return
         val snapshot = PersistedRecitationSession(
             intent = intent,
@@ -131,13 +137,18 @@ class RecitationSessionRuntime @Inject constructor(
         )
         scope.launch {
             persistMutex.withLock {
-                if (writeGeneration == generation && activeIntent == intent) {
+                if (
+                    writeGeneration == generation &&
+                    operation == operationSequence &&
+                    activeIntent == intent
+                ) {
                     store.save(snapshot)
                 }
             }
         }
     }
 
+    @Synchronized
     fun persist(
         currentGlobalNumber: Int?,
         positionMs: Long,
@@ -147,7 +158,9 @@ class RecitationSessionRuntime @Inject constructor(
         val global = currentGlobalNumber ?: return
         if (global !in intent.globalNumbers || state == PlaybackState.Idle) return
 
+        operationSequence += 1L
         val writeGeneration = generation
+        val operation = operationSequence
         val snapshot = PersistedRecitationSession(
             intent = intent,
             currentGlobalNumber = global,
@@ -157,20 +170,31 @@ class RecitationSessionRuntime @Inject constructor(
         )
         scope.launch {
             persistMutex.withLock {
-                if (writeGeneration == generation && activeIntent == intent) {
+                if (
+                    writeGeneration == generation &&
+                    operation == operationSequence &&
+                    activeIntent == intent
+                ) {
                     store.save(snapshot)
                 }
             }
         }
     }
 
+    @Synchronized
     fun clear() {
         activeIntent = null
         generation += 1L
+        operationSequence += 1L
         val clearGeneration = generation
+        val operation = operationSequence
         scope.launch {
             persistMutex.withLock {
-                if (clearGeneration == generation && activeIntent == null) {
+                if (
+                    clearGeneration == generation &&
+                    operation == operationSequence &&
+                    activeIntent == null
+                ) {
                     store.clear()
                 }
             }
