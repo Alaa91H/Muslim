@@ -4,12 +4,12 @@ import org.muslim.app.feature.learn.R
 
 internal object PurificationMajorContent {
 
-    val lessons: List<LearningLesson> = listOf(
+    val lessons: List<LearningLesson> by lazy { listOf(
         ghusl,
         tayammum,
         menstruationAndPostpartum,
         excusedPerson,
-    )
+    ) }
 
     private val ghusl = LearningLesson(
         id = "ghusl",
