@@ -168,7 +168,7 @@ fun UpdateScreen(
                                     Icons.Filled.SystemUpdate,
                                     contentDescription = null,
                                     tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                                    modifier = Modifier.size(32.dp),
+                                    modifier = Modifier.size(IslamicIconSize.Prominent),
                                 )
                                 Spacer(Modifier.width(IslamicSpacing.Compact))
                                 Text(
@@ -193,7 +193,7 @@ fun UpdateScreen(
                                 )
                             }
                             if (state.release.hasVerifiedMetadata) {
-                                Spacer(Modifier.height(6.dp))
+                                Spacer(Modifier.height(IslamicSpacing.Small))
                                 Text(
                                     text = stringResource(R.string.update_integrity_metadata_available),
                                     style = MaterialTheme.typography.bodySmall,
@@ -224,9 +224,9 @@ fun UpdateScreen(
                                 Icon(
                                     Icons.Filled.Download,
                                     contentDescription = null,
-                                    modifier = Modifier.size(20.dp),
+                                    modifier = Modifier.size(IslamicIconSize.Supporting),
                                 )
-                                Spacer(Modifier.width(8.dp))
+                                Spacer(Modifier.width(IslamicSpacing.Small))
                                 Text(
                                     stringResource(
                                         R.string.update_download,
@@ -246,7 +246,7 @@ fun UpdateScreen(
                                     modifier = Modifier.size(IslamicIconSize.Supporting),
                                     strokeWidth = 2.dp,
                                 )
-                                Spacer(Modifier.width(8.dp))
+                                Spacer(Modifier.width(IslamicSpacing.Small))
                                 Text(stringResource(R.string.update_preparing_download))
                             }
                         }
@@ -279,8 +279,8 @@ fun UpdateScreen(
                         is UpdateDownloadState.Paused -> {
                             IslamicCard(modifier = Modifier.fillMaxWidth()) {
                                 Column(
-                                    modifier = Modifier.padding(16.dp),
-                                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                                    modifier = Modifier.padding(IslamicSpacing.Medium),
+                                    verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
                                 ) {
                                     Text(
                                         text = stringResource(R.string.update_download_paused),
@@ -314,10 +314,10 @@ fun UpdateScreen(
                                 modifier = Modifier.fillMaxWidth(),
                             ) {
                                 CircularProgressIndicator(
-                                    modifier = Modifier.size(18.dp),
+                                    modifier = Modifier.size(IslamicIconSize.Supporting),
                                     strokeWidth = 2.dp,
                                 )
-                                Spacer(Modifier.width(8.dp))
+                                Spacer(Modifier.width(IslamicSpacing.Small))
                                 Text(stringResource(R.string.update_verifying))
                             }
                         }
@@ -340,9 +340,9 @@ fun UpdateScreen(
                                 Icon(
                                     Icons.Filled.SystemUpdate,
                                     contentDescription = null,
-                                    modifier = Modifier.size(20.dp),
+                                    modifier = Modifier.size(IslamicIconSize.Supporting),
                                 )
-                                Spacer(Modifier.width(8.dp))
+                                Spacer(Modifier.width(IslamicSpacing.Small))
                                 Text(stringResource(R.string.update_install))
                             }
                         }
@@ -377,9 +377,9 @@ fun UpdateScreen(
                 Icon(
                     Icons.Filled.Link,
                     contentDescription = null,
-                    modifier = Modifier.size(18.dp),
+                    modifier = Modifier.size(IslamicIconSize.Supporting),
                 )
-                Spacer(Modifier.width(8.dp))
+                Spacer(Modifier.width(IslamicSpacing.Small))
                 Text(stringResource(R.string.update_open_releases))
             }
         }
