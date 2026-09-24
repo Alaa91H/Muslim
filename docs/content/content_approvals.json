@@ -253,7 +253,49 @@
       "licence": "Project source licence; this JSON is a structured representation of project-authored reference content.",
       "attribution": "Islamic Reference Library content bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed by this structural migration; every migrated topic remains marked NeedsReview until article-level review is completed.",
-      "notes": "Schema v2 preserves all 14 legacy topics verbatim and expands the book to 23 topics, 46 sections, and 92 bilingual paragraphs. New articles include structured Quran citations and remain NeedsReview pending independent article-level review."
+      "notes": "Schema v2 preserves all 14 legacy topics verbatim and expands Introduction to Islam to 63 topics, 126 sections, and 252 bilingual paragraphs across 7 chapters. New articles include structured Quran/Hadith citations and remain NeedsReview pending independent article-level review."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_sira_v2_json": {
+      "source": "Project-authored Prophetic Biography corpus migrated verbatim from SiraContent.kt and expanded with structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, and Ibn Hisham's al-Sirah al-Nabawiyyah.",
+      "licence": "Project source licence; this JSON is a structured representation of project-authored reference content and bibliographic metadata.",
+      "attribution": "Prophetic Biography content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed by this migration or expansion. All migrated and newly expanded Sira topics remain marked NeedsReview pending article-level scholarly review.",
+      "notes": "Schema v2 preserves all 16 legacy Sira topics verbatim and expands the biography to 80 topics, 160 sections, and 192 bilingual paragraphs across 8 chronological/thematic chapters."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_prophets_v2_json": {
+      "source": "Project-authored Stories of the Prophets corpus migrated verbatim from ProphetsContent.kt and expanded with structured Quran references. The expansion distinguishes Quran-established material from uncertain chronology and Israelite/historical reports.",
+      "licence": "Project source licence; this JSON is a structured representation of project-authored reference content and bibliographic metadata.",
+      "attribution": "Stories of the Prophets content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed by this migration or expansion. All migrated and newly expanded topics remain marked NeedsReview pending article-level scholarly review.",
+      "notes": "Schema v2 preserves all 21 legacy Prophets topics verbatim and expands the book to 65 topics, 140 sections, and 190 bilingual paragraphs across 9 thematic/chronological chapters."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_companions_v2_json": {
+      "source": "Project-authored Companion biographies using structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, Ibn Hajar's al-Isabah, and Ibn Sa'd's al-Tabaqat. Cross-book links connect biographies to Sira and related reference books.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Companions reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. All articles remain marked NeedsReview pending article-level review of hadith grading, historical transmission, names, chronology, and contested reports.",
+      "notes": "First versioned edition: selected Companion biographies covering early Mecca, Muhajirun and Ansar, knowledge transmission, women Companions, and source methodology."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_mothers_v2_json": {
+      "source": "Project-authored Mothers of the Believers biographies using structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, Ibn Hajar's al-Isabah, and Ibn Sa'd's al-Tabaqat.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Mothers of the Believers reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. All articles remain marked NeedsReview pending article-level review of hadith grading, historical transmission, names, chronology, and contested reports.",
+      "notes": "First versioned edition: dedicated biographies of the eleven wives represented in the corpus plus methodology, household learning, and charity/simplicity articles."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_ahl_al_bayt_v2_json": {
+      "source": "Project-authored Ahl al-Bayt reference corpus using structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, and classical biographical works. The definition article explicitly preserves differing textual contexts without adopting sectarian polemics.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Ahl al-Bayt reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. All articles remain marked NeedsReview pending article-level review of hadith grading, historical transmission, names, chronology, and contested reports.",
+      "notes": "First versioned edition: definitions, Ahl al-Kisa, Ali, Fatimah, Hasan, Husayn, Karbala source method, Hashimite relatives, descendants, genealogy, and balanced respect."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_rashidun_v2_json": {
+      "source": "Project-authored early-caliphate history using structured references to Sahih al-Bukhari, Sahih Muslim, al-Tabari's History, al-Baladhuri's Futuh al-Buldan, Ibn Hajar, and relevant Quran passages.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Rightly Guided Caliphs historical reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. All articles remain marked NeedsReview pending article-level review of hadith grading, historical transmission, names, chronology, and contested reports.",
+      "notes": "First versioned edition: succession, Abu Bakr, Umar, Uthman, Ali, the First Fitna, Hasan's reconciliation, and institutional development. Contested political narratives are explicitly presented as source-dependent."
     }
   }
 }
