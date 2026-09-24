@@ -22,11 +22,13 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.automirrored.filled.Send
-import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import org.muslim.app.core.designsystem.IslamicIconSize
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -38,7 +40,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import org.muslim.app.feature.settings.R
 
 // Developer contact details (shown in-app and in the README).
@@ -72,40 +73,40 @@ fun AboutScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
-                .padding(16.dp),
+                .padding(IslamicSpacing.Medium),
         ) {
             Text(
                 text = stringResource(R.string.app_name),
                 style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.Bold,
             )
-            Spacer(Modifier.height(4.dp))
+            Spacer(Modifier.height(IslamicSpacing.XSmall))
             Text(
                 text = stringResource(R.string.about_version, versionName),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             Text(
                 text = stringResource(R.string.about_tagline),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.primary,
                 fontWeight = FontWeight.Medium,
             )
-            Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(IslamicSpacing.Medium))
 
             AboutCard(title = stringResource(R.string.about_description_title)) {
                 Text(stringResource(R.string.about_description_body))
             }
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
 
             AboutCard(title = stringResource(R.string.about_features_title)) {
                 Column {
                     Text(stringResource(R.string.about_features_body))
-                    Spacer(Modifier.height(12.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Compact))
                     HorizontalDivider()
-                    Spacer(Modifier.height(12.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Compact))
                     FeatureRow(Icons.Filled.Star, stringResource(R.string.about_feature_prayer))
                     FeatureRow(Icons.AutoMirrored.Filled.MenuBook, stringResource(R.string.about_feature_quran))
                     FeatureRow(Icons.Filled.Favorite, stringResource(R.string.about_feature_adhkar))
@@ -114,25 +115,25 @@ fun AboutScreen(
                 }
             }
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
 
             AboutCard(title = stringResource(R.string.about_license_title)) {
                 Text(stringResource(R.string.about_license_body))
             }
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
 
             AboutCard(title = stringResource(R.string.about_principles_title)) {
                 Text(stringResource(R.string.about_principles_body))
             }
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
 
             AboutCard(title = stringResource(R.string.about_content_review_title)) {
                 Text(stringResource(R.string.about_content_review_body))
             }
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
 
             AboutCard(title = stringResource(R.string.about_contact_title)) {
                 ContactRow(
@@ -169,25 +170,25 @@ private fun FeatureRow(icon: ImageVector, label: String) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 6.dp),
+            .padding(vertical = IslamicSpacing.Small),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Icon(icon, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(20.dp))
-        Spacer(Modifier.width(14.dp))
+        Icon(icon, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(IslamicIconSize.Supporting))
+        Spacer(Modifier.width(IslamicSpacing.Compact))
         Text(label, style = MaterialTheme.typography.bodyMedium)
     }
 }
 
 @Composable
 private fun AboutCard(title: String, content: @Composable () -> Unit) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(Modifier.padding(16.dp)) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Column {
             Text(
                 text = title,
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.primary,
             )
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             content()
         }
     }
@@ -200,11 +201,11 @@ private fun ContactRow(icon: ImageVector, label: String, value: String, uri: Str
         modifier = Modifier
             .fillMaxWidth()
             .clickable { runCatching { uriHandler.openUri(uri) } }
-            .padding(vertical = 10.dp),
+            .padding(vertical = IslamicSpacing.Compact),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(icon, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
-        Spacer(Modifier.width(16.dp))
+        Spacer(Modifier.width(IslamicSpacing.Medium))
         Column(Modifier.weight(1f)) {
             Text(label, style = MaterialTheme.typography.bodyLarge)
             Text(
