@@ -146,6 +146,8 @@ class LearnContentTest {
             "quran_intro", "quran_understanding", "tajweed_intro", "tajweed_practice",
             "sunnah_intro", "hadith_understanding", "hadith_library_guide",
             "seerah_method", "seerah_hijrah", "seerah_major_events", "seerah_character_legacy",
+            "ethics_foundation", "ethics_speech", "ethics_conflict", "ethics_work_digital",
+            "new_muslim_welcome", "new_muslim_prayer", "new_muslim_quran", "new_muslim_roadmap",
             "madhhab",
         )
         LearnContent.topics.forEach { topic ->
