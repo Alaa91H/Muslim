@@ -303,4 +303,32 @@
     <string name="learn_topic_tajweed_waqf_sub" tools:ignore="MissingTranslation">علامات الوقف وحفظ المعنى والتعامل مع ضيق النفس</string>
     <string name="learn_topic_tajweed_practice" tools:ignore="MissingTranslation">تطبيق التجويد</string>
     <string name="learn_topic_tajweed_practice_sub" tools:ignore="MissingTranslation">الاستماع والتسجيل والتصحيح والمراجعة مع قارئ متقن</string>
+    <string name="learn_category_sunnah" tools:ignore="MissingTranslation">السنة والحديث</string>
+    <string name="learn_category_seerah" tools:ignore="MissingTranslation">السيرة النبوية</string>
+    <string name="learn_topic_sunnah_intro" tools:ignore="MissingTranslation">مدخل إلى السنة والحديث</string>
+    <string name="learn_topic_sunnah_intro_sub" tools:ignore="MissingTranslation">المعنى والمكانة ومنهج التعلم والنقل المسؤول</string>
+    <string name="learn_topic_hadith_anatomy" tools:ignore="MissingTranslation">الإسناد والمتن</string>
+    <string name="learn_topic_hadith_anatomy_sub" tools:ignore="MissingTranslation">الرواة والطرق وبنية المرجع الحديثي</string>
+    <string name="learn_topic_hadith_grades" tools:ignore="MissingTranslation">درجات الحديث</string>
+    <string name="learn_topic_hadith_grades_sub" tools:ignore="MissingTranslation">الصحيح والحسن والضعيف والموضوع وحدود التبسيط</string>
+    <string name="learn_topic_hadith_verification" tools:ignore="MissingTranslation">التحقق من الحديث</string>
+    <string name="learn_topic_hadith_verification_sub" tools:ignore="MissingTranslation">المصدر واللفظ والدرجة قبل النشر أو الاستدلال</string>
+    <string name="learn_topic_hadith_understanding" tools:ignore="MissingTranslation">فهم الحديث</string>
+    <string name="learn_topic_hadith_understanding_sub" tools:ignore="MissingTranslation">السياق والجمع بين النصوص والفرق بين الرواية والاستنباط</string>
+    <string name="learn_topic_hadith_library_guide" tools:ignore="MissingTranslation">دليل مكتبة الحديث</string>
+    <string name="learn_topic_hadith_library_guide_sub" tools:ignore="MissingTranslation">استخدام المجموعات والبحث والدرجة والمصدر داخل التطبيق</string>
+    <string name="learn_topic_seerah_method" tools:ignore="MissingTranslation">منهج دراسة السيرة</string>
+    <string name="learn_topic_seerah_method_sub" tools:ignore="MissingTranslation">المصادر ودرجات اليقين وكيف تقرأ الخط الزمني</string>
+    <string name="learn_topic_seerah_early_life" tools:ignore="MissingTranslation">قبل البعثة</string>
+    <string name="learn_topic_seerah_early_life_sub" tools:ignore="MissingTranslation">مكة والنشأة وخديجة رضي الله عنها والخلوة قبل الوحي</string>
+    <string name="learn_topic_seerah_revelation_makkah" tools:ignore="MissingTranslation">الوحي والمرحلة المكية</string>
+    <string name="learn_topic_seerah_revelation_makkah_sub" tools:ignore="MissingTranslation">بدء الوحي والدعوة والثبات وموضوعات القرآن المكي</string>
+    <string name="learn_topic_seerah_hijrah" tools:ignore="MissingTranslation">الهجرة</string>
+    <string name="learn_topic_seerah_hijrah_sub" tools:ignore="MissingTranslation">التحول إلى المدينة والتخطيط والتوكل وبداية المجتمع الجديد</string>
+    <string name="learn_topic_seerah_madinah" tools:ignore="MissingTranslation">بناء مجتمع المدينة</string>
+    <string name="learn_topic_seerah_madinah_sub" tools:ignore="MissingTranslation">المسجد والتكافل وإدارة المجتمع وتدرج التشريع</string>
+    <string name="learn_topic_seerah_major_events" tools:ignore="MissingTranslation">الأحداث الكبرى في السيرة</string>
+    <string name="learn_topic_seerah_major_events_sub" tools:ignore="MissingTranslation">بدر وأحد والأحزاب والحديبية وفتح مكة ضمن سياقها</string>
+    <string name="learn_topic_seerah_character_legacy" tools:ignore="MissingTranslation">الخلق والقدوة</string>
+    <string name="learn_topic_seerah_character_legacy_sub" tools:ignore="MissingTranslation">الرحمة والعدل والصبر والوفاء وكيف تنقل الدروس إلى حياتك</string>
 </resources>
