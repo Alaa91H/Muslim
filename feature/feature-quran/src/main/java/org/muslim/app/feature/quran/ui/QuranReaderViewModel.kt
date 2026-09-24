@@ -32,6 +32,8 @@ import org.muslim.app.feature.quran.data.DownloadRequest
 import org.muslim.app.feature.quran.data.DownloadScope
 import org.muslim.app.feature.quran.data.QuranDownloadManager
 import org.muslim.app.feature.quran.data.RecitationDownloadNotifier
+import org.muslim.app.feature.quran.data.RecitationFailureEvent
+import org.muslim.app.feature.quran.data.RecitationFailureReason
 import org.muslim.app.feature.quran.data.RecitationQueueItem
 import org.muslim.app.feature.quran.data.RecitationRepository
 import org.muslim.app.feature.quran.data.ReciterDownloadState
@@ -430,8 +432,20 @@ class QuranReaderViewModel @Inject constructor(
     val positionMs = audioPlayer.positionMs
     val durationMs = audioPlayer.durationMs
 
-    /** Increments on each failed playback attempt (shown as a hint in the UI). */
-    val playbackErrorCount: StateFlow<Int> = audioPlayer.errorCount
+    private var recitationFailureSequence = 0L
+    private val _recitationFailure = MutableStateFlow<RecitationFailureEvent?>(null)
+    val recitationFailure: StateFlow<RecitationFailureEvent?> = _recitationFailure.asStateFlow()
+
+    private data class RetryPlaybackRequest(
+        val surahNumber: Int,
+        val globalNumbers: List<Int>,
+        val repeatCount: Int,
+        val continuous: Boolean,
+        val advanceToNext: Boolean,
+        val toEndOfQuran: Boolean,
+    )
+
+    private var lastPlaybackRequest: RetryPlaybackRequest? = null
 
     init {
         // Hydrate the stop-at-end mirror and remove the legacy placeholder
@@ -443,6 +457,14 @@ class QuranReaderViewModel @Inject constructor(
 
 }
 
+
+        viewModelScope.launch {
+            audioPlayer.lastFailure.collect { failure ->
+                if (failure != null) {
+                    reportRecitationFailure(failure.reason, failure.globalNumber)
+                }
+            }
+        }
 
         // Poll the media position while the reader is open so the mini
         // player's progress bar stays live.
@@ -623,8 +645,36 @@ class QuranReaderViewModel @Inject constructor(
         toEndOfQuran: Boolean = false,
     ) {
         if (ayahs.isEmpty() || _downloading.value) return
+
+        val queueSurahNumber = ayahs.first().surahNumber
+        val globalNumbers = ayahs.map { it.globalNumber }
+        lastPlaybackRequest = RetryPlaybackRequest(
+            surahNumber = queueSurahNumber,
+            globalNumbers = globalNumbers,
+            repeatCount = repeatCount,
+            continuous = continuous,
+            advanceToNext = advanceToNext,
+            toEndOfQuran = toEndOfQuran,
+        )
+        _recitationFailure.value = null
+
         viewModelScope.launch {
             val reciter = selectedReciter.value
+            val localItems = recitationRepository.localQueue(
+                reciterId = reciter.id,
+                surahNumber = queueSurahNumber,
+                globalNumbers = globalNumbers,
+            )
+            if (localItems != null) {
+                startPreparedQueue(
+                    items = localItems,
+                    repeatCount = repeatCount,
+                    continuous = continuous,
+                    advanceToNext = advanceToNext,
+                    toEndOfQuran = toEndOfQuran,
+                )
+                return@launch
+            }
 
             _downloading.value = true
             _downloadProgress.value = 0f
@@ -632,81 +682,128 @@ class QuranReaderViewModel @Inject constructor(
             var lastNotifiedPercent = -1
             val result = recitationRepository.downloadSurah(
                 reciter,
-                surahNumber.value,
-                ayahs.associate { it.numberInSurah to it.globalNumber
-}
-,
+                queueSurahNumber,
+                ayahs.associate { it.numberInSurah to it.globalNumber },
             ) { progress ->
                 _downloadProgress.value = progress
-                // Live notification: percentage + remaining time + speed.
-                // Skipped at 100% so an already-downloaded surah never flashes
-                // a notification before playback simply starts.
                 if (progress < 1f) {
                     val percent = (progress * 100).toInt()
                     if (percent != lastNotifiedPercent) {
                         lastNotifiedPercent = percent
-                        val elapsedSec = ((SystemClock.elapsedRealtime() - startElapsed) / 1000f).coerceAtLeast(1f)
+                        val elapsedSec =
+                            ((SystemClock.elapsedRealtime() - startElapsed) / 1000f).coerceAtLeast(1f)
                         val total = ayahs.size
                         val done = (progress * total).toInt().coerceAtMost(total)
                         val ayahsPerSec = done / elapsedSec
                         val remainingSec = if (ayahsPerSec > 0f) {
                             ((total - done) / ayahsPerSec).toLong()
-
-}
- else {
+                        } else {
                             0L
-
-}
-
-                        val bytesPerSec = (ayahsPerSec * reciter.estimatedBytesPerAyah()).toLong()
+                        }
                         downloadNotifier.show(
                             surahName = uiState.value.surah?.arabicName.orEmpty(),
                             percent = percent,
                             remainingSeconds = remainingSec,
-                            bytesPerSecond = bytesPerSec,
+                            bytesPerSecond = (ayahsPerSec * reciter.estimatedBytesPerAyah()).toLong(),
                         )
-
-}
-
-
-}
-
-
-}
+                    }
+                }
+            }
 
             _downloading.value = false
             _downloadProgress.value = null
             downloadNotifier.dismiss()
-            if (result !is org.muslim.app.core.network.FileDownloader.Result.Success) return@launch
+
+            if (result !is org.muslim.app.core.network.FileDownloader.Result.Success) {
+                reportRecitationFailure(
+                    RecitationFailureReason.DownloadFailed,
+                    globalNumbers.firstOrNull(),
+                )
+                return@launch
+            }
             if (!isActive) return@launch
 
-            val items = ayahs.map {
-                RecitationQueueItem(
-                    file = recitationRepository.fileFor(reciter.id, it.surahNumber, it.globalNumber),
-                    globalNumber = it.globalNumber,
-                )
-
-}
-
-            val continuousMode = continuous || repeatCount <= 0
-            val effectiveRepeat = if (continuousMode) 1 else repeatCount.coerceAtLeast(1)
-            audioPlayer.onQueueCompleted =
-                if (advanceToNext) { { advanceToNextSurah(effectiveRepeat, toEndOfQuran)
-}
-
-}
- else null
-            audioPlayer.playQueue(
-                items,
-                startIndex = 0,
-                repeatCount = effectiveRepeat,
-                continuous = advanceToNext,
+            val downloadedItems = recitationRepository.localQueue(
+                reciterId = reciter.id,
+                surahNumber = queueSurahNumber,
+                globalNumbers = globalNumbers,
             )
+            if (downloadedItems == null) {
+                reportRecitationFailure(
+                    RecitationFailureReason.AudioFileUnavailable,
+                    globalNumbers.firstOrNull(),
+                )
+                return@launch
+            }
 
-}
+            startPreparedQueue(
+                items = downloadedItems,
+                repeatCount = repeatCount,
+                continuous = continuous,
+                advanceToNext = advanceToNext,
+                toEndOfQuran = toEndOfQuran,
+            )
+        }
+    }
 
+    private fun startPreparedQueue(
+        items: List<RecitationQueueItem>,
+        repeatCount: Int,
+        continuous: Boolean,
+        advanceToNext: Boolean,
+        toEndOfQuran: Boolean,
+    ) {
+        val continuousMode = continuous || repeatCount <= 0
+        val effectiveRepeat = if (continuousMode) 1 else repeatCount.coerceAtLeast(1)
+        audioPlayer.onQueueCompleted =
+            if (advanceToNext) {
+                { advanceToNextSurah(effectiveRepeat, toEndOfQuran) }
+            } else {
+                null
+            }
+        audioPlayer.playQueue(
+            items,
+            startIndex = 0,
+            repeatCount = effectiveRepeat,
+            continuous = advanceToNext,
+        )
+    }
 
-}
+    private fun reportRecitationFailure(
+        reason: RecitationFailureReason,
+        globalNumber: Int?,
+    ) {
+        recitationFailureSequence += 1
+        _recitationFailure.value = RecitationFailureEvent(
+            sequence = recitationFailureSequence,
+            reason = reason,
+            globalNumber = globalNumber,
+        )
+    }
+
+    fun retryPlaybackAfterFailure() {
+        val request = lastPlaybackRequest ?: return
+        _recitationFailure.value = null
+        viewModelScope.launch {
+            val surahAyahs = repository.observeSurah(request.surahNumber).first()
+            val byGlobal = surahAyahs.associateBy { it.globalNumber }
+            val retryAyahs = request.globalNumbers.mapNotNull(byGlobal::get)
+            if (retryAyahs.size != request.globalNumbers.size) {
+                reportRecitationFailure(
+                    RecitationFailureReason.AudioFileUnavailable,
+                    request.globalNumbers.firstOrNull(),
+                )
+                return@launch
+            }
+            playQueueOf(
+                ayahs = retryAyahs,
+                repeatCount = request.repeatCount,
+                continuous = request.continuous,
+                advanceToNext = request.advanceToNext,
+                toEndOfQuran = request.toEndOfQuran,
+            )
+        }
+    }
 
 
     /**
