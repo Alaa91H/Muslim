@@ -101,6 +101,7 @@ sealed interface LearningContentBlock {
     ) : LearningContentBlock
 
     data class Quiz(
+        val id: String,
         val question: String,
         val options: List<LearningQuizOption>,
         val correctOptionId: String,
