@@ -78,7 +78,8 @@ import org.muslim.app.core.ui.theme.IslamicDecorationMedallion
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.qibla.R
-import org.muslim.app.feature.qibla.domain.QiblaCalculator
+import org.muslim.app.core.common.qibla.QiblaCalculator
+import org.muslim.app.core.ui.compass.rememberCompassHeading
 import org.muslim.app.feature.qibla.mosques.NearbyMosquesTab
 import org.muslim.app.feature.qibla.mosques.NearbyMosquesViewModel
 import kotlin.math.cos
