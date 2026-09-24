@@ -70,8 +70,13 @@ class EthicsNewMuslimLearningContentTest {
             .containsExactly(7, 30, 90)
             .inOrder()
 
+        val academyLessonIds = LearningAcademyCatalog.lessons.map { it.id }.toSet()
         NewMuslimRoadmapContent.stages.forEach { stage ->
             assertThat(stage.checklist).hasSize(4)
+            assertThat(stage.lessonIds).isNotEmpty()
+            stage.lessonIds.forEach { lessonId ->
+                assertThat(academyLessonIds).contains(lessonId)
+            }
             BeginnerLanguage.entries.forEach { language ->
                 assertThat(stage.title.resolve(language)).isNotEmpty()
                 assertThat(stage.goal.resolve(language)).isNotEmpty()
