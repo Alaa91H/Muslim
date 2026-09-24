@@ -14,6 +14,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -104,6 +105,9 @@ fun MuslimStateSurface(
     iconContentDescription: String? = null,
     actionLabel: String? = null,
     onAction: (() -> Unit)? = null,
+    secondaryActionLabel: String? = null,
+    onSecondaryAction: (() -> Unit)? = null,
+    showProgress: Boolean = false,
 ) {
     val colors = MaterialTheme.colorScheme
     val container = when (tone) {
@@ -134,15 +138,23 @@ fun MuslimStateSurface(
             verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                icon?.let {
-                    Icon(
-                        imageVector = it,
-                        contentDescription = iconContentDescription,
+                if (showProgress) {
+                    CircularProgressIndicator(
                         modifier = Modifier.size(IslamicIconSize.Standard),
-                        tint = content,
+                        strokeWidth = 2.dp,
+                        color = content,
                     )
+                } else {
+                    icon?.let {
+                        Icon(
+                            imageVector = it,
+                            contentDescription = iconContentDescription,
+                            modifier = Modifier.size(IslamicIconSize.Standard),
+                            tint = content,
+                        )
+                    }
                 }
-                if (icon != null) {
+                if (showProgress || icon != null) {
                     androidx.compose.foundation.layout.Spacer(Modifier.size(IslamicSpacing.Small))
                 }
                 Text(
@@ -159,17 +171,133 @@ fun MuslimStateSurface(
                     color = content.copy(alpha = 0.84f),
                 )
             }
-            if (actionLabel != null && onAction != null) {
-                TextButton(
-                    onClick = onAction,
-                    modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
+            if ((actionLabel != null && onAction != null) ||
+                (secondaryActionLabel != null && onSecondaryAction != null)
+            ) {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text(actionLabel)
+                    if (actionLabel != null && onAction != null) {
+                        Button(
+                            onClick = onAction,
+                            modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
+                        ) {
+                            Text(actionLabel)
+                        }
+                    }
+                    if (secondaryActionLabel != null && onSecondaryAction != null) {
+                        TextButton(
+                            onClick = onSecondaryAction,
+                            modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
+                        ) {
+                            Text(secondaryActionLabel)
+                        }
+                    }
                 }
             }
         }
     }
 }
+
+/**
+ * Standard loading state. Content screens keep ownership of data/state logic;
+ * the design system owns the visual and accessibility presentation.
+ */
+@Composable
+fun MuslimLoadingState(
+    title: String,
+    modifier: Modifier = Modifier,
+    supportingText: String? = null,
+) = MuslimStateSurface(
+    title = title,
+    supportingText = supportingText,
+    modifier = modifier,
+    tone = MuslimStateTone.Information,
+    showProgress = true,
+)
+
+/** Standard empty-content state with optional primary and secondary recovery actions. */
+@Composable
+fun MuslimEmptyState(
+    title: String,
+    modifier: Modifier = Modifier,
+    supportingText: String? = null,
+    icon: ImageVector? = null,
+    iconContentDescription: String? = null,
+    actionLabel: String? = null,
+    onAction: (() -> Unit)? = null,
+    secondaryActionLabel: String? = null,
+    onSecondaryAction: (() -> Unit)? = null,
+) = MuslimStateSurface(
+    title = title,
+    supportingText = supportingText,
+    modifier = modifier,
+    tone = MuslimStateTone.Neutral,
+    icon = icon,
+    iconContentDescription = iconContentDescription,
+    actionLabel = actionLabel,
+    onAction = onAction,
+    secondaryActionLabel = secondaryActionLabel,
+    onSecondaryAction = onSecondaryAction,
+)
+
+/** Standard recoverable error state. */
+@Composable
+fun MuslimErrorState(
+    title: String,
+    modifier: Modifier = Modifier,
+    supportingText: String? = null,
+    icon: ImageVector? = null,
+    actionLabel: String? = null,
+    onAction: (() -> Unit)? = null,
+) = MuslimStateSurface(
+    title = title,
+    supportingText = supportingText,
+    modifier = modifier,
+    tone = MuslimStateTone.Critical,
+    icon = icon,
+    actionLabel = actionLabel,
+    onAction = onAction,
+)
+
+/** Standard offline/degraded-network state. */
+@Composable
+fun MuslimOfflineState(
+    title: String,
+    modifier: Modifier = Modifier,
+    supportingText: String? = null,
+    icon: ImageVector? = null,
+    actionLabel: String? = null,
+    onAction: (() -> Unit)? = null,
+) = MuslimStateSurface(
+    title = title,
+    supportingText = supportingText,
+    modifier = modifier,
+    tone = MuslimStateTone.Warning,
+    icon = icon,
+    actionLabel = actionLabel,
+    onAction = onAction,
+)
+
+/** Standard permission-required state with a single explicit recovery action. */
+@Composable
+fun MuslimPermissionRequiredState(
+    title: String,
+    modifier: Modifier = Modifier,
+    supportingText: String? = null,
+    icon: ImageVector? = null,
+    actionLabel: String? = null,
+    onAction: (() -> Unit)? = null,
+) = MuslimStateSurface(
+    title = title,
+    supportingText = supportingText,
+    modifier = modifier,
+    tone = MuslimStateTone.Information,
+    icon = icon,
+    actionLabel = actionLabel,
+    onAction = onAction,
+)
 
 /** A section title with optional supporting context and a single trailing action.
  *  Uses a clear hierarchy (titleLarge + bodySmall) and keeps the trailing slot
