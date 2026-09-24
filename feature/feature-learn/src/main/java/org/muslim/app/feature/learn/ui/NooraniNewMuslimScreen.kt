@@ -65,6 +65,8 @@ import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.ArabicLetter
 import org.muslim.app.feature.learn.domain.BeginnerLanguage
 import org.muslim.app.feature.learn.domain.MakhrajGroup
+import org.muslim.app.feature.learn.domain.NewMuslimRoadmapContent
+import org.muslim.app.feature.learn.domain.NewMuslimRoadmapStage
 import org.muslim.app.feature.learn.domain.NewMuslimStep
 import org.muslim.app.feature.learn.domain.NooraniContent
 import org.muslim.app.feature.learn.domain.ReadingStage
@@ -361,6 +363,13 @@ private fun NewMuslimCorner() {
         items(guide.steps.withIndex().toList(), key = { it.index }) { indexed ->
             GuideStepCard(index = indexed.index + 1, step = indexed.value)
         }
+        item { SectionLabel(newMuslimRoadmapHeading(language)) }
+        items(NewMuslimRoadmapContent.stages, key = { it.id }) { stage ->
+            NewMuslimRoadmapCard(
+                stage = stage,
+                language = language,
+            )
+        }
         item { ReviewNotice(text = guide.reviewNote) }
     }
 }
@@ -442,6 +451,57 @@ private fun GuideStepCard(index: Int, step: NewMuslimStep) {
             }
         }
     }
+}
+
+@Composable
+private fun NewMuslimRoadmapCard(
+    stage: NewMuslimRoadmapStage,
+    language: BeginnerLanguage,
+) {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+        ),
+    ) {
+        Column(modifier = Modifier.padding(18.dp)) {
+            Text(
+                text = stage.title.resolve(language),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                text = stage.goal.resolve(language),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 6.dp, bottom = 10.dp),
+            )
+            stage.checklist.forEach { item ->
+                Row(
+                    verticalAlignment = Alignment.Top,
+                    modifier = Modifier.padding(vertical = 4.dp),
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.CheckCircle,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(18.dp),
+                    )
+                    Text(
+                        text = item.resolve(language),
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(start = 8.dp),
+                    )
+                }
+            }
+        }
+    }
+}
+
+private fun newMuslimRoadmapHeading(language: BeginnerLanguage): String = when (language) {
+    BeginnerLanguage.ARABIC -> "خطة 7 / 30 / 90 يومًا"
+    BeginnerLanguage.ENGLISH -> "7 / 30 / 90 day roadmap"
+    BeginnerLanguage.FRENCH -> "Parcours 7 / 30 / 90 jours"
+    BeginnerLanguage.SPANISH -> "Plan de 7 / 30 / 90 días"
 }
 
 @Composable
