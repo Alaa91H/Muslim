@@ -20,6 +20,8 @@ BOOKMARKS = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/q
 NEARBY_MOSQUES = ROOT / "feature/feature-qibla/src/main/java/org/muslim/app/feature/qibla/mosques/NearbyMosquesTab.kt"
 SCHOLAR_DATA = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/ui/ScholarLibraryDataManagerScreen.kt"
 QURAN_DOWNLOADS = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/QuranDownloadsScreen.kt"
+QURAN_READER = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/QuranReaderScreen.kt"
+SURAH_LIST = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/SurahListScreen.kt"
 UPDATE_SCREEN = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/update/UpdateScreen.kt"
 NOTIFICATION_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/NotificationSettingsScreen.kt"
 PRAYER_SETTINGS = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/settings/PrayerSettingsScreen.kt"
@@ -72,12 +74,16 @@ def main() -> None:
         source = path.read_text(encoding="utf-8")
         require("MuslimContentFrame" in source, f"{label} must use the adaptive content frame")
     require("IslamicListItem" in MORE.read_text(encoding="utf-8"), "More hub must use the shared list item")
+    home = HOME.read_text(encoding="utf-8")
+    location = LOCATION.read_text(encoding="utf-8")
 
     bookmarks = BOOKMARKS.read_text(encoding="utf-8")
     nearby_mosques = NEARBY_MOSQUES.read_text(encoding="utf-8")
     scholar_data = SCHOLAR_DATA.read_text(encoding="utf-8")
     hadith = HADITH.read_text(encoding="utf-8")
     quran_downloads = QURAN_DOWNLOADS.read_text(encoding="utf-8")
+    quran_reader = QURAN_READER.read_text(encoding="utf-8")
+    surah_list = SURAH_LIST.read_text(encoding="utf-8")
     update_screen = UPDATE_SCREEN.read_text(encoding="utf-8")
     notification_settings = NOTIFICATION_SETTINGS.read_text(encoding="utf-8")
     prayer_settings = PRAYER_SETTINGS.read_text(encoding="utf-8")
@@ -156,6 +162,22 @@ def main() -> None:
         "Quran Downloads must use IslamicSpacing tokens for layout spacing",
     )
     require(
+        raw_material_component.search(quran_reader) is None,
+        "Quran Reader must use shared Islamic card surfaces",
+    )
+    require(
+        "IslamicCard" in quran_reader and "IslamicSelectableCard" in quran_reader,
+        "Quran Reader supplement and reciter selection must use shared card surfaces",
+    )
+    require(
+        raw_material_component.search(surah_list) is None,
+        "Surah list must remain free of ordinary raw Material card/button patterns",
+    )
+    require(
+        raw_spacing_literal.search(surah_list) is None,
+        "Surah list must use shared spacing tokens",
+    )
+    require(
         "IslamicCard" in notification_settings
         and "IslamicPrimaryButton" in notification_settings
         and "IslamicSecondaryButton" in notification_settings,
@@ -168,6 +190,10 @@ def main() -> None:
         "Prayer settings must use shared cards and actions",
     )
     require("IslamicCard" in hadith, "Hadith library must use the shared card surface")
+    require(
+        raw_spacing_literal.search(hadith) is None,
+        "Hadith library must use IslamicSpacing tokens for ordinary layout spacing",
+    )
 
     for source, label in (
         (accessibility_settings, "Accessibility settings"),
@@ -196,6 +222,28 @@ def main() -> None:
     require(
         "IslamicPrimaryButton" in smart_devices_settings,
         "Smart devices settings must use the shared primary action",
+    )
+    require(
+        raw_material_component.search(home) is None,
+        "Prayer home must use shared Islamic actions instead of raw Card/Button patterns",
+    )
+    require(
+        "IslamicSecondaryButton" in home,
+        "Prayer home share/month-view actions must use the shared secondary action",
+    )
+    require(
+        raw_material_component.search(location) is None,
+        "Location screen must use shared Islamic cards/actions",
+    )
+    require(
+        raw_spacing_literal.search(location) is None,
+        "Location screen must use IslamicSpacing tokens for layout spacing",
+    )
+    require(
+        "IslamicListItem" in location
+        and "IslamicPrimaryButton" in location
+        and "IslamicSecondaryButton" in location,
+        "Location screen must use shared list and primary/secondary actions",
     )
     require(
         raw_material_component.search(SETTINGS.read_text(encoding="utf-8")) is None,
