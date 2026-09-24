@@ -242,4 +242,8 @@
     <string name="learn_topic_sick_prayer_sub">Praying according to ability while preserving safety and purification</string>
     <string name="learn_topic_jumuah">Friday prayer</string>
     <string name="learn_topic_jumuah_sub">Khutbah, prayer, attendance and recognised excuses</string>
+    <string name="learn_references">References</string>
+    <string name="learn_estimated_minutes">Estimated reading time: %1$d min</string>
+    <string name="learn_content_version">Content version: %1$d</string>
+    <string name="learn_scholar_review_notice">Religious learning content remains subject to scholarly review before final approval.</string>
 </resources>
