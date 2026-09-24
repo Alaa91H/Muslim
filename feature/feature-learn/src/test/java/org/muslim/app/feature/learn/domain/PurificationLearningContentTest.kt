@@ -66,7 +66,6 @@ class PurificationLearningContentTest {
         is LearningContentBlock.Quiz -> block.referenceIds
         is LearningContentBlock.Paragraph,
         is LearningContentBlock.Steps,
-        is LearningContentBlock.Callout,
-        -> emptyList()
+        is LearningContentBlock.Callout -> emptyList()
     }
 }
