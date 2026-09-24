@@ -328,7 +328,7 @@ internal object TajweedCourseContent {
                 ),
             ),
             LearningSection(
-                id = "meaning",
+                id = "tafsir",
                 title = "اربط الوقف بالتفسير",
                 blocks = listOf(
                     LearningContentBlock.Callout(
