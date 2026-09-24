@@ -246,4 +246,36 @@
     <string name="learn_estimated_minutes" tools:ignore="MissingTranslation">وقت القراءة التقريبي: %1$d دقيقة</string>
     <string name="learn_content_version" tools:ignore="MissingTranslation">إصدار المحتوى: %1$d</string>
     <string name="learn_scholar_review_notice" tools:ignore="MissingTranslation">المحتوى التعليمي الديني يخضع للمراجعة العلمية قبل اعتماده نهائيًا.</string>
+    <string name="learn_topic_fasting_day" tools:ignore="MissingTranslation">يوم الصيام</string>
+    <string name="learn_topic_fasting_day_sub" tools:ignore="MissingTranslation">من السحور والفجر إلى الإفطار بخطوات عملية واضحة</string>
+    <string name="learn_topic_fasting_nullifiers" tools:ignore="MissingTranslation">مفسدات الصيام</string>
+    <string name="learn_topic_fasting_nullifiers_sub" tools:ignore="MissingTranslation">العمد والنسيان والأدوية والإجراءات الطبية والكفارة</string>
+    <string name="learn_topic_fasting_exemptions" tools:ignore="MissingTranslation">أعذار الصيام والقضاء</string>
+    <string name="learn_topic_fasting_exemptions_sub" tools:ignore="MissingTranslation">المرض والسفر والعجز والحمل والرضاعة والفدية</string>
+    <string name="learn_topic_fasting_women" tools:ignore="MissingTranslation">الصيام للمرأة</string>
+    <string name="learn_topic_fasting_women_sub" tools:ignore="MissingTranslation">الحيض والنفاس والحمل والرضاعة مع مراعاة الصحة</string>
+    <string name="learn_topic_fasting_travel_illness" tools:ignore="MissingTranslation">الصيام في السفر والمرض</string>
+    <string name="learn_topic_fasting_travel_illness_sub" tools:ignore="MissingTranslation">الرخصة والقدرة والأدوية وتنظيم القضاء</string>
+    <string name="learn_topic_ramadan_sunnahs" tools:ignore="MissingTranslation">سنن رمضان</string>
+    <string name="learn_topic_ramadan_sunnahs_sub" tools:ignore="MissingTranslation">السحور والفطر والقيام والقرآن والصدقة بتوازن</string>
+    <string name="learn_topic_laylat_qadr_itikaf" tools:ignore="MissingTranslation">ليلة القدر والاعتكاف</string>
+    <string name="learn_topic_laylat_qadr_itikaf_sub" tools:ignore="MissingTranslation">العشر الأواخر والتحري والاعتكاف دون ادعاءات غير موثوقة</string>
+    <string name="learn_topic_voluntary_fasting" tools:ignore="MissingTranslation">صيام التطوع</string>
+    <string name="learn_topic_voluntary_fasting_sub" tools:ignore="MissingTranslation">شوال وعرفة وعاشوراء والأيام البيض وأيام النهي</string>
+    <string name="learn_topic_zakat_nisab_haul" tools:ignore="MissingTranslation">النصاب والحول</string>
+    <string name="learn_topic_zakat_nisab_haul_sub" tools:ignore="MissingTranslation">متى تبدأ الزكاة وكيف تختلف شروط الأموال</string>
+    <string name="learn_topic_zakat_cash_metals" tools:ignore="MissingTranslation">النقد والذهب والفضة</string>
+    <string name="learn_topic_zakat_cash_metals_sub" tools:ignore="MissingTranslation">الحسابات والعملات المتعددة وتقييم المعادن</string>
+    <string name="learn_topic_zakat_business_investments" tools:ignore="MissingTranslation">التجارة والاستثمارات</string>
+    <string name="learn_topic_zakat_business_investments_sub" tools:ignore="MissingTranslation">المخزون والذمم والأسهم والاستثمارات المعاصرة</string>
+    <string name="learn_topic_zakat_debts_jewelry" tools:ignore="MissingTranslation">الديون والحلي</string>
+    <string name="learn_topic_zakat_debts_jewelry_sub" tools:ignore="MissingTranslation">خصم الديون والذمم وحلي الاستعمال والخلاف الفقهي</string>
+    <string name="learn_topic_zakat_recipients" tools:ignore="MissingTranslation">مصارف الزكاة</string>
+    <string name="learn_topic_zakat_recipients_sub" tools:ignore="MissingTranslation">الأصناف الثمانية والتحقق من الاستحقاق والتوزيع</string>
+    <string name="learn_topic_zakat_crops_livestock" tools:ignore="MissingTranslation">زكاة الزروع والأنعام</string>
+    <string name="learn_topic_zakat_crops_livestock_sub" tools:ignore="MissingTranslation">الحصاد والري وأنصبة الأنعام والفرق عن زكاة المال</string>
+    <string name="learn_topic_zakat_fitr" tools:ignore="MissingTranslation">زكاة الفطر</string>
+    <string name="learn_topic_zakat_fitr_sub" tools:ignore="MissingTranslation">من تلزمه ووقتها والطعام والقيمة النقدية</string>
+    <string name="learn_topic_zakat_calculator_guide" tools:ignore="MissingTranslation">دليل حاسبة الزكاة</string>
+    <string name="learn_topic_zakat_calculator_guide_sub" tools:ignore="MissingTranslation">افهم ما تحسبه الأداة وافتراضاتها وما لا تغطيه</string>
 </resources>
