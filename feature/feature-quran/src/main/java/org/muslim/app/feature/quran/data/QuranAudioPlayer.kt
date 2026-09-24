@@ -159,7 +159,7 @@ class QuranAudioPlayer @Inject constructor(
         _currentAyah.value = null
         resetProgress()
         updateNavState()
-        playbackBridge.onPlaybackActiveChanged(false)
+        playbackBridge.onPlaybackActiveChanged(false, PlaybackDeactivationReason.Stopped)
     }
 
     /** Reads the current media position; called by the UI's progress poller. */
@@ -205,7 +205,7 @@ class QuranAudioPlayer @Inject constructor(
                     _playbackState.value = PlaybackState.Playing
                     // Keep the process alive in the background only after the
                     // engine really started; never publish a false Playing state.
-                    playbackBridge.onPlaybackActiveChanged(true)
+                    playbackBridge.onPlaybackActiveChanged(true, null)
                 }
                 .onFailure {
                     fail(RecitationFailureReason.StartFailed)
@@ -248,7 +248,7 @@ class QuranAudioPlayer @Inject constructor(
             _currentAyah.value = null
             resetProgress()
             updateNavState()
-            playbackBridge.onPlaybackActiveChanged(false)
+            playbackBridge.onPlaybackActiveChanged(false, PlaybackDeactivationReason.Completed)
             callback?.invoke()
             return
         }
@@ -256,7 +256,7 @@ class QuranAudioPlayer @Inject constructor(
         _currentAyah.value = null
         resetProgress()
         updateNavState()
-        playbackBridge.onPlaybackActiveChanged(false)
+        playbackBridge.onPlaybackActiveChanged(false, PlaybackDeactivationReason.Completed)
     }
 
     private fun fail(reason: RecitationFailureReason) {
@@ -272,7 +272,7 @@ class QuranAudioPlayer @Inject constructor(
         _currentAyah.value = null
         resetProgress()
         updateNavState()
-        playbackBridge.onPlaybackActiveChanged(false)
+        playbackBridge.onPlaybackActiveChanged(false, PlaybackDeactivationReason.Failed)
     }
 
     private fun releaseEngine() {
