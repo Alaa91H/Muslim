@@ -771,7 +771,11 @@ class QuranReaderViewModel @Inject constructor(
         val effectiveRepeat =
             if (continuousMode) 1 else intent.repeatCount.coerceAtLeast(1)
 
-        sessionRuntime.begin(intent)
+        sessionRuntime.begin(
+            intent = intent,
+            positionMs = startPositionMs,
+            initialRemainingRepeats = remainingRepeatsForCurrent,
+        )
         audioPlayer.onQueueCompleted =
             if (intent.advanceToNext) {
                 { advanceToNextSurah(effectiveRepeat, intent.toEndOfQuran) }
