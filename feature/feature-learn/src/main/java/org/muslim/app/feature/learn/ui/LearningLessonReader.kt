@@ -124,7 +124,6 @@ internal fun LearningLessonReader(
                     is LearningContentBlock.Quiz -> {
                         item(key = "${lesson.id}_${section.id}_quiz_${block.id}") {
                             InteractiveQuizCard(
-                                lessonId = lesson.id,
                                 quiz = block,
                                 selectedOptionId = quizAnswers[
                                     LearnPrefsRepository.quizKey(lesson.id, block.id)
@@ -152,7 +151,6 @@ internal fun LearningLessonReader(
                 key = { entry -> "${lesson.id}_assessment_${entry.quiz.id}" },
             ) { entry ->
                 AssessmentCard(
-                    lessonId = lesson.id,
                     entry = entry,
                     selectedOptionId = quizAnswers[
                         LearnPrefsRepository.quizKey(lesson.id, entry.quiz.id)
@@ -503,13 +501,11 @@ private fun ReaderQuestionAnswerCard(block: LearningContentBlock.QuestionAnswer)
 
 @Composable
 private fun AssessmentCard(
-    lessonId: String,
     entry: LearningAssessmentEntry,
     selectedOptionId: String?,
     onAnswer: (String) -> Unit,
 ) {
     InteractiveQuizCard(
-        lessonId = lessonId,
         quiz = entry.quiz,
         selectedOptionId = selectedOptionId,
         onAnswer = onAnswer,
@@ -518,7 +514,6 @@ private fun AssessmentCard(
 
 @Composable
 private fun InteractiveQuizCard(
-    lessonId: String,
     quiz: LearningContentBlock.Quiz,
     selectedOptionId: String?,
     onAnswer: (String) -> Unit,
