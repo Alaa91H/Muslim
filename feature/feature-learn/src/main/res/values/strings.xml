@@ -397,4 +397,20 @@
     <string name="learn_topic_finance_business_investing_sub" tools:ignore="MissingTranslation">مصدر الربح وفحص الأسهم والمخاطر وإشارات التحذير</string>
     <string name="learn_topic_finance_tools_guide" tools:ignore="MissingTranslation">دليل أدوات المالية</string>
     <string name="learn_topic_finance_tools_guide_sub" tools:ignore="MissingTranslation">أدلة المعاملات ودفتر الديون والتنبيهات وروابط الفحص</string>
+    <string name="learn_topic_faith_tawhid_worship" tools:ignore="MissingTranslation">التوحيد والعبادة</string>
+    <string name="learn_topic_faith_tawhid_worship_sub" tools:ignore="MissingTranslation">دعوة الرسل إلى عبادة الله وحده وفهم معنى العبادة وحدود الحكم على الأفعال والأشخاص</string>
+    <string name="learn_topic_faith_knowing_allah" tools:ignore="MissingTranslation">معرفة الله وأسمائه وصفاته</string>
+    <string name="learn_topic_faith_knowing_allah_sub" tools:ignore="MissingTranslation">الوحدانية والأسماء الحسنى وإثبات ما جاء في الوحي بلا مماثلة</string>
+    <string name="learn_topic_faith_angels" tools:ignore="MissingTranslation">الإيمان بالملائكة</string>
+    <string name="learn_topic_faith_angels_sub" tools:ignore="MissingTranslation">ما ثبت في الوحي وحدود ما يمكن الجزم به في عالم الغيب</string>
+    <string name="learn_topic_faith_books" tools:ignore="MissingTranslation">الإيمان بالكتب والوحي</string>
+    <string name="learn_topic_faith_books_sub" tools:ignore="MissingTranslation">الكتب المنزلة ومكانة القرآن ومنهج الحوار حول الوحي</string>
+    <string name="learn_topic_faith_messengers" tools:ignore="MissingTranslation">الرسل والنبوة</string>
+    <string name="learn_topic_faith_messengers_sub" tools:ignore="MissingTranslation">وحدة دعوتهم والإيمان بهم والتمييز بين النص الثابت والرواية التاريخية</string>
+    <string name="learn_topic_faith_last_day" tools:ignore="MissingTranslation">الإيمان باليوم الآخر</string>
+    <string name="learn_topic_faith_last_day_sub" tools:ignore="MissingTranslation">الموت والبعث والحساب والجزاء وأثر الإيمان بالآخرة</string>
+    <string name="learn_topic_faith_qadar" tools:ignore="MissingTranslation">الإيمان بالقدر</string>
+    <string name="learn_topic_faith_qadar_sub" tools:ignore="MissingTranslation">علم الله وقدره ومسؤولية الإنسان والأخذ بالأسباب دون تبسيط مخل</string>
+    <string name="learn_topic_faith_questions" tools:ignore="MissingTranslation">الأسئلة والشبهات</string>
+    <string name="learn_topic_faith_questions_sub" tools:ignore="MissingTranslation">منهج التحقق من النص والسياق والمصدر والتعامل المتوازن مع الإشكالات</string>
 </resources>
