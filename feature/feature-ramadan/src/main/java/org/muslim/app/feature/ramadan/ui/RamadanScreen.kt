@@ -43,6 +43,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.feature.ramadan.R
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicDecorationBand
@@ -90,7 +91,7 @@ fun RamadanScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = IslamicSpacing.Medium),
         ) {
             IslamicDecorationBand(
                 tint = MaterialTheme.colorScheme.tertiary,
@@ -99,28 +100,28 @@ fun RamadanScreen(
             RamadanHeaderCard(state)
             IslamicDecorationDivider(
                 tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 24.dp, vertical = 6.dp),
+                modifier = Modifier.padding(horizontal = IslamicSpacing.Large, vertical = IslamicSpacing.Small),
             )
-            Spacer(Modifier.height(4.dp))
+            Spacer(Modifier.height(IslamicSpacing.XSmall))
             IftarCard(state, viewModel, use24h)
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
             SuhoorCard(state, viewModel, use24h)
-            Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(IslamicSpacing.Medium))
             HabitTrackerPanel(state = state, viewModel = viewModel)
-            Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(IslamicSpacing.Medium))
             FastingTracker(
                 info = state.info,
                 today = state.today,
                 fastingDays = state.fastingDays,
                 onToggle = viewModel::toggleFastingDay,
             )
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
             Text(
                 text = stringResource(R.string.ramadan_hijri_note),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(IslamicSpacing.Large))
         }
     }
 }
@@ -152,7 +153,7 @@ private fun RamadanHeaderCard(state: RamadanUiState) {
                     tint = MaterialTheme.colorScheme.onPrimaryContainer,
                     modifier = Modifier.size(32.dp),
                 )
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(IslamicSpacing.Small))
                 Text(
                     text = if (inRamadan) {
                         stringResource(R.string.ramadan_day_of_month, day.toString())
@@ -163,7 +164,7 @@ private fun RamadanHeaderCard(state: RamadanUiState) {
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                 )
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(IslamicSpacing.XSmall))
                 Text(
                     text = if (inRamadan) {
                         stringResource(R.string.ramadan_days_left, remaining.toString())
@@ -173,7 +174,7 @@ private fun RamadanHeaderCard(state: RamadanUiState) {
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                 )
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(IslamicSpacing.XSmall))
                 Text(
                     text = stringResource(R.string.ramadan_hijri_year, info.hijriYear.toString()),
                     style = MaterialTheme.typography.labelMedium,
@@ -194,7 +195,7 @@ private fun IftarCard(state: RamadanUiState, viewModel: RamadanViewModel, use24h
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary,
                 )
-                Spacer(Modifier.width(8.dp))
+                Spacer(Modifier.width(IslamicSpacing.Small))
                 Text(
                     text = stringResource(R.string.ramadan_iftar),
                     style = MaterialTheme.typography.titleLarge,
@@ -205,7 +206,7 @@ private fun IftarCard(state: RamadanUiState, viewModel: RamadanViewModel, use24h
                     onCheckedChange = viewModel::setIftarNotificationEnabled,
                 )
             }
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             state.iftarTime?.let { time ->
                 Text(
                     text = stringResource(R.string.ramadan_iftar_time, formatTime(time, use24h)),
@@ -213,7 +214,7 @@ private fun IftarCard(state: RamadanUiState, viewModel: RamadanViewModel, use24h
                 )
             }
             state.nextIftarMillis?.let { target ->
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(IslamicSpacing.XSmall))
                 Text(
                     text = stringResource(R.string.ramadan_countdown_to_iftar, formatCountdown(state.nowMillis, target)),
                     style = MaterialTheme.typography.titleMedium,
@@ -223,7 +224,7 @@ private fun IftarCard(state: RamadanUiState, viewModel: RamadanViewModel, use24h
                 title = stringResource(R.string.ramadan_location_required),
                 tone = MuslimStateTone.Critical,
             )
-            Spacer(Modifier.height(10.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
             Text(
                 text = stringResource(R.string.ramadan_iftar_dua),
                 style = MaterialTheme.typography.bodyMedium.copy(fontSize = 17.sp),
@@ -243,7 +244,7 @@ private fun SuhoorCard(state: RamadanUiState, viewModel: RamadanViewModel, use24
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary,
                 )
-                Spacer(Modifier.width(8.dp))
+                Spacer(Modifier.width(IslamicSpacing.Small))
                 Text(
                     text = stringResource(R.string.ramadan_suhoor),
                     style = MaterialTheme.typography.titleLarge,
@@ -254,7 +255,7 @@ private fun SuhoorCard(state: RamadanUiState, viewModel: RamadanViewModel, use24
                     onCheckedChange = viewModel::setSuhoorReminderEnabled,
                 )
             }
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             state.suhoorTime?.let { time ->
                 Text(
                     text = stringResource(R.string.ramadan_suhoor_time, formatTime(time, use24h)),
@@ -262,30 +263,30 @@ private fun SuhoorCard(state: RamadanUiState, viewModel: RamadanViewModel, use24
                 )
             }
             state.nextSuhoorMillis?.let { target ->
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(IslamicSpacing.XSmall))
                 Text(
                     text = stringResource(R.string.ramadan_countdown_to_suhoor, formatCountdown(state.nowMillis, target)),
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.primary,
                 )
             }
-            Spacer(Modifier.height(10.dp))
+            Spacer(Modifier.height(IslamicSpacing.Compact))
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = stringResource(R.string.ramadan_suhoor_remind_before),
                     style = MaterialTheme.typography.bodyMedium,
                 )
-                Spacer(Modifier.width(8.dp))
+                Spacer(Modifier.width(IslamicSpacing.Small))
                 listOf(15, 30, 45, 60).forEach { minutes ->
                     FilterChip(
                         selected = state.settings.suhoorMinutesBefore == minutes,
                         onClick = { viewModel.setSuhoorMinutesBefore(minutes) },
                         label = { Text(stringResource(R.string.ramadan_minutes, minutes.toString())) },
-                        modifier = Modifier.padding(end = 6.dp),
+                        modifier = Modifier.padding(end = IslamicSpacing.Small),
                     )
                 }
             }
-            Spacer(Modifier.height(6.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = stringResource(R.string.ramadan_notify_outside),
@@ -318,11 +319,11 @@ private fun FastingTracker(
                 info.days.size.toString(),
             ),
         )
-        Spacer(Modifier.height(10.dp))
+        Spacer(Modifier.height(IslamicSpacing.Compact))
         FlowRow(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(6.dp),
-            verticalArrangement = Arrangement.spacedBy(6.dp),
+            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
         ) {
             info.days.forEachIndexed { index, date ->
                 val dayNumber = index + 1
