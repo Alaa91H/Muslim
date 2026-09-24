@@ -199,7 +199,7 @@ private fun PackageActionsCard(
                     Icon(Icons.Filled.Download, contentDescription = null)
                     Text(
                         text = stringResource(R.string.scholar_library_restore_study_backup),
-                        modifier = Modifier.padding(start = 6.dp),
+                        modifier = Modifier.padding(start = IslamicSpacing.Small),
                     )
                 }
             }
