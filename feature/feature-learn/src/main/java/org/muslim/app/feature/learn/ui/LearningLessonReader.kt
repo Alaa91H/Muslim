@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -71,121 +72,178 @@ internal fun LearningLessonReader(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        item(key = "${lesson.id}_progress") {
-            LessonProgressCard(
-                completed = completed,
-                answered = answeredCount,
-                quizCount = assessments.size,
+        lessonIntroItems(
+            lesson = lesson,
+            completed = completed,
+            answeredCount = answeredCount,
+            assessmentCount = assessments.size,
+            sectionIndices = sectionIndices,
+            onSectionClick = { sectionId ->
+                sectionIndices[sectionId]?.let { target ->
+                    scope.launch { listState.animateScrollToItem(target) }
+                }
+            },
+        )
+        lessonContentItems(
+            lesson = lesson,
+            quizAnswers = quizAnswers,
+            onAnswerQuiz = onAnswerQuiz,
+        )
+        lessonAssessmentItems(
+            lesson = lesson,
+            assessments = assessments,
+            quizAnswers = quizAnswers,
+            onAnswerQuiz = onAnswerQuiz,
+        )
+        lessonTailItems(
+            lesson = lesson,
+            completed = completed,
+            onSetCompleted = onSetCompleted,
+            onOpenFeature = onOpenFeature,
+        )
+    }
+}
+
+private fun LazyListScope.lessonIntroItems(
+    lesson: LearningLesson,
+    completed: Boolean,
+    answeredCount: Int,
+    assessmentCount: Int,
+    sectionIndices: Map<String, Int>,
+    onSectionClick: (String) -> Unit,
+) {
+    item(key = "${lesson.id}_progress") {
+        LessonProgressCard(
+            completed = completed,
+            answered = answeredCount,
+            quizCount = assessmentCount,
+        )
+    }
+
+    lesson.estimatedMinutes?.let { minutes ->
+        item(key = "${lesson.id}_metadata") {
+            LessonMetadataCard(
+                estimatedMinutes = minutes,
+                contentVersion = lesson.contentVersion,
             )
         }
+    }
 
-        lesson.estimatedMinutes?.let { minutes ->
-            item(key = "${lesson.id}_metadata") {
-                LessonMetadataCard(
-                    estimatedMinutes = minutes,
-                    contentVersion = lesson.contentVersion,
-                )
-            }
+    item(key = "${lesson.id}_toc") {
+        LessonContentsCard(
+            lesson = lesson,
+            onSectionClick = { sectionId ->
+                if (sectionId in sectionIndices) onSectionClick(sectionId)
+            },
+        )
+    }
+}
+
+private fun LazyListScope.lessonContentItems(
+    lesson: LearningLesson,
+    quizAnswers: Map<String, String>,
+    onAnswerQuiz: (quizId: String, optionId: String) -> Unit,
+) {
+    lesson.sections.forEach { section ->
+        item(key = "${lesson.id}_${section.id}_header") {
+            LessonSectionHeader(title = section.title)
         }
 
-        item(key = "${lesson.id}_toc") {
-            LessonContentsCard(
-                lesson = lesson,
-                onSectionClick = { sectionId ->
-                    sectionIndices[sectionId]?.let { target ->
-                        scope.launch { listState.animateScrollToItem(target) }
+        section.blocks.forEachIndexed { blockIndex, block ->
+            when (block) {
+                is LearningContentBlock.Steps -> {
+                    itemsIndexed(
+                        items = block.items,
+                        key = { stepIndex, _ ->
+                            "${lesson.id}_${section.id}_${blockIndex}_step_$stepIndex"
+                        },
+                    ) { stepIndex, step ->
+                        InteractiveStepCard(
+                            index = stepIndex,
+                            step = step,
+                        )
                     }
-                },
-            )
-        }
+                }
 
-        lesson.sections.forEach { section ->
-            item(key = "${lesson.id}_${section.id}_header") {
-                LessonSectionHeader(title = section.title)
-            }
-
-            section.blocks.forEachIndexed { blockIndex, block ->
-                when (block) {
-                    is LearningContentBlock.Steps -> {
-                        itemsIndexed(
-                            items = block.items,
-                            key = { stepIndex, _ ->
-                                "${lesson.id}_${section.id}_${blockIndex}_step_$stepIndex"
-                            },
-                        ) { stepIndex, step ->
-                            InteractiveStepCard(
-                                index = stepIndex,
-                                step = step,
-                            )
-                        }
+                is LearningContentBlock.Quiz -> {
+                    item(key = "${lesson.id}_${section.id}_quiz_${block.id}") {
+                        InteractiveQuizCard(
+                            quiz = block,
+                            selectedOptionId = quizAnswers[
+                                LearningQuizKey.of(lesson.id, block.id)
+                            ],
+                            onAnswer = { optionId -> onAnswerQuiz(block.id, optionId) },
+                        )
                     }
+                }
 
-                    is LearningContentBlock.Quiz -> {
-                        item(key = "${lesson.id}_${section.id}_quiz_${block.id}") {
-                            InteractiveQuizCard(
-                                quiz = block,
-                                selectedOptionId = quizAnswers[
-                                    LearningQuizKey.of(lesson.id, block.id)
-                                ],
-                                onAnswer = { optionId -> onAnswerQuiz(block.id, optionId) },
-                            )
-                        }
-                    }
-
-                    else -> {
-                        item(key = "${lesson.id}_${section.id}_block_$blockIndex") {
-                            InteractiveLearningBlockCard(block)
-                        }
+                else -> {
+                    item(key = "${lesson.id}_${section.id}_block_$blockIndex") {
+                        InteractiveLearningBlockCard(block)
                     }
                 }
             }
         }
+    }
+}
 
-        if (assessments.isNotEmpty()) {
-            item(key = "${lesson.id}_assessment_header") {
-                LessonSectionHeader(title = stringResource(R.string.learn_knowledge_check))
-            }
-            items(
-                items = assessments,
-                key = { entry -> "${lesson.id}_assessment_${entry.quiz.id}" },
-            ) { entry ->
-                AssessmentCard(
-                    entry = entry,
-                    selectedOptionId = quizAnswers[
-                        LearningQuizKey.of(lesson.id, entry.quiz.id)
-                    ],
-                    onAnswer = { optionId -> onAnswerQuiz(entry.quiz.id, optionId) },
-                )
-            }
-        }
+private fun LazyListScope.lessonAssessmentItems(
+    lesson: LearningLesson,
+    assessments: List<LearningAssessmentEntry>,
+    quizAnswers: Map<String, String>,
+    onAnswerQuiz: (quizId: String, optionId: String) -> Unit,
+) {
+    if (assessments.isEmpty()) return
 
-        lesson.featureLink?.let { link ->
-            item(key = "${lesson.id}_feature_link") {
-                ReaderFeatureLinkCard(
-                    link = link,
-                    onOpenFeature = onOpenFeature,
-                )
-            }
-        }
+    item(key = "${lesson.id}_assessment_header") {
+        LessonSectionHeader(title = stringResource(R.string.learn_knowledge_check))
+    }
+    items(
+        items = assessments,
+        key = { entry -> "${lesson.id}_assessment_${entry.quiz.id}" },
+    ) { entry ->
+        AssessmentCard(
+            entry = entry,
+            selectedOptionId = quizAnswers[
+                LearningQuizKey.of(lesson.id, entry.quiz.id)
+            ],
+            onAnswer = { optionId -> onAnswerQuiz(entry.quiz.id, optionId) },
+        )
+    }
+}
 
-        if (lesson.references.isNotEmpty()) {
-            item(key = "${lesson.id}_references_header") {
-                LessonSectionHeader(title = stringResource(R.string.learn_references))
-            }
-            items(
-                items = lesson.references,
-                key = { reference -> "${lesson.id}_reference_${reference.id}" },
-            ) { reference ->
-                ReaderReferenceCard(reference)
-            }
-        }
-
-        item(key = "${lesson.id}_completion") {
-            LessonCompletionCard(
-                completed = completed,
-                onSetCompleted = onSetCompleted,
+private fun LazyListScope.lessonTailItems(
+    lesson: LearningLesson,
+    completed: Boolean,
+    onSetCompleted: (Boolean) -> Unit,
+    onOpenFeature: (LearningFeatureDestination) -> Unit,
+) {
+    lesson.featureLink?.let { link ->
+        item(key = "${lesson.id}_feature_link") {
+            ReaderFeatureLinkCard(
+                link = link,
+                onOpenFeature = onOpenFeature,
             )
         }
+    }
+
+    if (lesson.references.isNotEmpty()) {
+        item(key = "${lesson.id}_references_header") {
+            LessonSectionHeader(title = stringResource(R.string.learn_references))
+        }
+        items(
+            items = lesson.references,
+            key = { reference -> "${lesson.id}_reference_${reference.id}" },
+        ) { reference ->
+            ReaderReferenceCard(reference)
+        }
+    }
+
+    item(key = "${lesson.id}_completion") {
+        LessonCompletionCard(
+            completed = completed,
+            onSetCompleted = onSetCompleted,
+        )
     }
 }
 
