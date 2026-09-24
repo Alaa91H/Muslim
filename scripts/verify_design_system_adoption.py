@@ -23,6 +23,11 @@ QURAN_DOWNLOADS = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/fea
 UPDATE_SCREEN = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/update/UpdateScreen.kt"
 NOTIFICATION_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/NotificationSettingsScreen.kt"
 PRAYER_SETTINGS = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/settings/PrayerSettingsScreen.kt"
+ACCESSIBILITY_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/AccessibilityScreen.kt"
+PERMISSIONS_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/PermissionsScreen.kt"
+ABOUT_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/AboutScreen.kt"
+PRIVACY_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/PrivacyScreen.kt"
+SMART_DEVICES_SETTINGS = ROOT / "feature/feature-settings/src/main/java/org/muslim/app/feature/settings/SmartDevicesScreen.kt"
 
 
 def require(condition: bool, message: str) -> None:
@@ -74,6 +79,11 @@ def main() -> None:
     update_screen = UPDATE_SCREEN.read_text(encoding="utf-8")
     notification_settings = NOTIFICATION_SETTINGS.read_text(encoding="utf-8")
     prayer_settings = PRAYER_SETTINGS.read_text(encoding="utf-8")
+    accessibility_settings = ACCESSIBILITY_SETTINGS.read_text(encoding="utf-8")
+    permissions_settings = PERMISSIONS_SETTINGS.read_text(encoding="utf-8")
+    about_settings = ABOUT_SETTINGS.read_text(encoding="utf-8")
+    privacy_settings = PRIVACY_SETTINGS.read_text(encoding="utf-8")
+    smart_devices_settings = SMART_DEVICES_SETTINGS.read_text(encoding="utf-8")
     require("MuslimEmptyState" in bookmarks, "Quran bookmarks must use the shared empty state")
     require("MuslimEmptyState" in scholar_data, "Scholar data manager must use the shared empty state")
     for state_component in (
@@ -155,6 +165,35 @@ def main() -> None:
         "Prayer settings must use shared cards and actions",
     )
     require("IslamicCard" in hadith, "Hadith library must use the shared card surface")
+
+    for source, label in (
+        (accessibility_settings, "Accessibility settings"),
+        (permissions_settings, "Permissions settings"),
+        (about_settings, "About settings"),
+        (privacy_settings, "Privacy settings"),
+        (smart_devices_settings, "Smart devices settings"),
+    ):
+        require(
+            raw_spacing_literal.search(source) is None,
+            f"{label} must use IslamicSpacing tokens for layout spacing",
+        )
+    for source, label in (
+        (accessibility_settings, "Accessibility settings"),
+        (permissions_settings, "About/permissions settings"),
+        (about_settings, "About settings"),
+    ):
+        require(
+            raw_material_component.search(source) is None,
+            f"{label} must use shared Islamic card/button components",
+        )
+    require(
+        "IslamicPrimaryButton" in permissions_settings,
+        "Permissions settings must use the shared primary action",
+    )
+    require(
+        "IslamicPrimaryButton" in smart_devices_settings,
+        "Smart devices settings must use the shared primary action",
+    )
 
     print("Adaptive design-system, shared states, and token adoption verified.")
 
