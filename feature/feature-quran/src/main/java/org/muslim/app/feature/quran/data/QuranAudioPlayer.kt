@@ -278,6 +278,7 @@ class QuranAudioPlayer @Inject constructor(
         )
         _playbackState.value = PlaybackState.Idle
         _currentAyah.value = null
+        _remainingRepeats.value = 0
         resetProgress()
         updateNavState()
         playbackBridge.onPlaybackActiveChanged(false, PlaybackDeactivationReason.Failed)
