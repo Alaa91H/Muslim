@@ -24,9 +24,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.MuslimEmptyState
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.Bookmark
@@ -56,12 +56,12 @@ fun BookmarksScreen(
             MuslimEmptyState(
                 title = stringResource(R.string.quran_bookmarks_empty),
                 icon = Icons.Filled.Bookmark,
-                modifier = Modifier.padding(24.dp),
+                modifier = Modifier.padding(IslamicSpacing.Large),
             )
         } else {
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
-                contentPadding = androidx.compose.foundation.layout.PaddingValues(vertical = 4.dp),
+                contentPadding = androidx.compose.foundation.layout.PaddingValues(vertical = IslamicSpacing.XSmall),
             ) {
                 items(bookmarks, key = { it.ayah.globalNumber }) { bookmark ->
                     BookmarkRow(bookmark, onClick = {
@@ -80,7 +80,7 @@ private fun BookmarkRow(bookmark: Bookmark, onClick: () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .padding(horizontal = 16.dp, vertical = 10.dp),
+            .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Compact),
     ) {
         Text(
             text = stringResource(
@@ -92,7 +92,7 @@ private fun BookmarkRow(bookmark: Bookmark, onClick: () -> Unit) {
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.primary,
         )
-        Spacer(Modifier.padding(top = 4.dp))
+        Spacer(Modifier.padding(top = IslamicSpacing.XSmall))
         Text(
             text = bookmark.ayah.text,
             style = MaterialTheme.typography.bodyLarge,

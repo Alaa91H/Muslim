@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 LAYOUT = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/IslamicAppLayout.kt"
@@ -104,7 +105,28 @@ def main() -> None:
         "Update screen must use shared loading and error states",
     )
 
-    print("Adaptive design-system and shared UI-state adoption verified.")
+    raw_material_component = re.compile(r"(?<![A-Za-z0-9_])(Card|Button|OutlinedButton)\(")
+    raw_spacing_literal = re.compile(
+        r"(?:padding|spacedBy)\([^\n)]*\d+\.dp|Spacer\([^\n)]*\d+\.dp"
+    )
+    for source, label in (
+        (update_screen, "Update screen"),
+        (scholar_data, "Scholar data manager"),
+    ):
+        require(
+            raw_material_component.search(source) is None,
+            f"{label} must use shared Islamic card/button components",
+        )
+        require(
+            raw_spacing_literal.search(source) is None,
+            f"{label} must use IslamicSpacing tokens for layout spacing",
+        )
+    require(
+        raw_spacing_literal.search(bookmarks) is None,
+        "Quran bookmarks must use IslamicSpacing tokens for layout spacing",
+    )
+
+    print("Adaptive design-system, shared states, and token adoption verified.")
 
 
 if __name__ == "__main__":
