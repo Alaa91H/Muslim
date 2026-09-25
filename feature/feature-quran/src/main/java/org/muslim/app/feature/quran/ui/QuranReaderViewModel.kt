@@ -60,17 +60,27 @@ enum class RecitationRange { SingleAyah, FromAyahToEnd, WholeSurah }
 /** The reader always starts a new recitation through the end of the mushaf. */
 val DEFAULT_RECITATION_RANGE = RecitationRange.FromAyahToEnd
 
-/** Cohesive dependencies required by the Quran reader runtime. */
-class QuranReaderDependencies @Inject constructor(
+/** Content and reader-preference dependencies for the Quran reader. */
+class QuranReaderContentDependencies @Inject constructor(
     val repository: QuranRepository,
     val prefsRepository: QuranPrefsRepository,
     val supplementRepository: QuranSupplementRepository,
     val tajweedRepository: QuranTajweedRepository,
+)
+
+/** Audio, download and durable-session dependencies for Quran recitation. */
+class QuranReaderRecitationDependencies @Inject constructor(
     val recitationRepository: RecitationRepository,
     val downloadManager: QuranDownloadManager,
     val audioPlayer: QuranAudioPlayer,
     val sessionStore: RecitationSessionStore,
     val sessionRuntime: RecitationSessionRuntime,
+)
+
+/** Cohesive dependencies required by the Quran reader runtime. */
+class QuranReaderDependencies @Inject constructor(
+    val content: QuranReaderContentDependencies,
+    val recitation: QuranReaderRecitationDependencies,
 )
 
 @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
@@ -81,15 +91,15 @@ class QuranReaderViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
-    private val repository = dependencies.repository
-    private val prefsRepository = dependencies.prefsRepository
-    private val supplementRepository = dependencies.supplementRepository
-    private val tajweedRepository = dependencies.tajweedRepository
-    private val recitationRepository = dependencies.recitationRepository
-    private val downloadManager = dependencies.downloadManager
-    private val audioPlayer = dependencies.audioPlayer
-    private val sessionStore = dependencies.sessionStore
-    private val sessionRuntime = dependencies.sessionRuntime
+    private val repository = dependencies.content.repository
+    private val prefsRepository = dependencies.content.prefsRepository
+    private val supplementRepository = dependencies.content.supplementRepository
+    private val tajweedRepository = dependencies.content.tajweedRepository
+    private val recitationRepository = dependencies.recitation.recitationRepository
+    private val downloadManager = dependencies.recitation.downloadManager
+    private val audioPlayer = dependencies.recitation.audioPlayer
+    private val sessionStore = dependencies.recitation.sessionStore
+    private val sessionRuntime = dependencies.recitation.sessionRuntime
     private val downloadNotifier = RecitationDownloadNotifier(context)
 
     // Last recitation range/repeat the user played with, so switching the
@@ -393,26 +403,12 @@ class QuranReaderViewModel @Inject constructor(
     /** Deletes the downloaded audio of [surahNumber] for the selected reciter. */
     fun deleteDownloadedSurah(surahNumber: Int) = viewModelScope.launch {
         recitationRepository.deleteSurah(selectedReciter.value.id, surahNumber)
-        refreshDownloadedFlag()
-
-}
-
-
-    /** Re-checks whether the current surah is fully downloaded. */
-    private fun refreshDownloadedFlag() {
-        viewModelScope.launch {
-            val reciterId = selectedReciter.value.id
-            val ayahs = uiState.value.ayahs
-            _downloaded.value = ayahs.isNotEmpty() && ayahs.all { ayah ->
-                recitationRepository.isDownloaded(reciterId, _surahNumber.value, ayah.globalNumber)
-
-}
-
-
-}
-
-
-}
+        val reciterId = selectedReciter.value.id
+        val ayahs = uiState.value.ayahs
+        _downloaded.value = ayahs.isNotEmpty() && ayahs.all { ayah ->
+            recitationRepository.isDownloaded(reciterId, _surahNumber.value, ayah.globalNumber)
+        }
+    }
 
 
     private val _downloadProgress = MutableStateFlow<Float?>(null)
