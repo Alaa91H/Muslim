@@ -41,7 +41,7 @@ REQUIRED_SNIPPETS = {
     "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/IslamicOrnaments.kt": [
         "enum class IslamicOrnament",
         "IslamicOrnamentOpacity",
-        "@DrawableRes",
+        "@param:DrawableRes",
     ],
     "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/IslamicDecorationTheme.kt": [
         "fun IslamicDecorationLayer",

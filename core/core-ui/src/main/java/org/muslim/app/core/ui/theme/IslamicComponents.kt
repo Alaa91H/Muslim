@@ -260,37 +260,41 @@ private fun MuslimStateActions(
     secondaryActionLabel: String?,
     onSecondaryAction: (() -> Unit)?,
 ) {
-    val hasPrimary = actionLabel != null && onAction != null
-    val hasSecondary = secondaryActionLabel != null && onSecondaryAction != null
-    if (!hasPrimary && !hasSecondary) return
+    val primaryAction = actionLabel?.let { label ->
+        onAction?.let { action -> label to action }
+    }
+    val secondaryAction = secondaryActionLabel?.let { label ->
+        onSecondaryAction?.let { action -> label to action }
+    }
+    if (primaryAction == null && secondaryAction == null) return
 
     Row(
         horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        if (hasPrimary && actionLabel != null && onAction != null) {
-            if (hasSecondary) {
+        primaryAction?.let { (label, action) ->
+            if (secondaryAction != null) {
                 Button(
-                    onClick = onAction,
+                    onClick = action,
                     modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
                 ) {
-                    Text(actionLabel)
+                    Text(label)
                 }
             } else {
                 TextButton(
-                    onClick = onAction,
+                    onClick = action,
                     modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
                 ) {
-                    Text(actionLabel)
+                    Text(label)
                 }
             }
         }
-        if (hasSecondary && secondaryActionLabel != null && onSecondaryAction != null) {
+        secondaryAction?.let { (label, action) ->
             TextButton(
-                onClick = onSecondaryAction,
+                onClick = action,
                 modifier = Modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
             ) {
-                Text(secondaryActionLabel)
+                Text(label)
             }
         }
     }

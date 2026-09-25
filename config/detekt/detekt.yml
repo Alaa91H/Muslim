@@ -32,7 +32,7 @@ output-reports:
 # ---------------------------------------------------------------------------
 complexity:
   active: true
-  ComplexMethod:
+  CyclomaticComplexMethod:
     active: true
     threshold: 15
   LongMethod:
@@ -40,7 +40,8 @@ complexity:
     threshold: 80
   LongParameterList:
     active: true
-    threshold: 8
+    functionThreshold: 8
+    constructorThreshold: 8
     ignoreDefaultParameters: true
   LargeClass:
     active: true

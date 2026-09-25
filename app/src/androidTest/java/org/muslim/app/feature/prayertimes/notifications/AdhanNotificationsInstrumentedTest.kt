@@ -143,7 +143,12 @@ class AdhanNotificationsInstrumentedTest {
         assertNotNull("Tapping the alert must open Adhan controls", notification.contentIntent)
         assertNotNull("Alarm notification must expose lock-screen controls", notification.fullScreenIntent)
         assertEquals(NotificationCompat.VISIBILITY_PUBLIC, notification.visibility)
-        assertEquals(NotificationCompat.PRIORITY_HIGH, notification.priority)
+        val channelId = requireNotNull(notification.channelId)
+        assertEquals(NotificationChannels.ADHAN, channelId)
+        assertEquals(
+            NotificationManager.IMPORTANCE_HIGH,
+            requireNotNull(notificationManager.getNotificationChannel(channelId)).importance,
+        )
         assertEquals(1, notification.actions.size)
         val stopAction = notification.actions.single()
         assertEquals(

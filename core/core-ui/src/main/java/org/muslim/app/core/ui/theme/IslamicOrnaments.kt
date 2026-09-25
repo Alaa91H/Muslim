@@ -17,7 +17,7 @@ import org.muslim.app.core.ui.R
  * selector represents a genuinely different visual identity instead of merely
  * relabelling the same asset.
  */
-enum class IslamicOrnament(@DrawableRes val drawableRes: Int) {
+enum class IslamicOrnament(@param:DrawableRes val drawableRes: Int) {
     Geometric8(R.drawable.ic_ornament_geometric_8),
     Geometric12(R.drawable.ic_ornament_geometric_12),
     Arabesque(R.drawable.ic_ornament_arabesque),
