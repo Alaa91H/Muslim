@@ -159,10 +159,7 @@ class QuranReaderViewModel @Inject constructor(
     private var lastRepeatCount = 1
     private var lastRange = DEFAULT_RECITATION_RANGE
 
-    override fun onCleared() {
-        downloadNotifier.dismiss()
-
-}
+    override fun onCleared() = downloadNotifier.dismiss()
 
 
     private val initialSurahNumber: Int = savedStateHandle["surahNumber"] ?: 1
@@ -228,20 +225,17 @@ class QuranReaderViewModel @Inject constructor(
     val readThroughGlobal: StateFlow<Int> = prefsRepository.readThroughGlobal
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), 0)
 
-    fun setReaderTheme(theme: ReaderTheme) =
-        viewModelScope.launch { prefsRepository.setReaderTheme(theme) }
+    fun setReaderTheme(theme: ReaderTheme) = viewModelScope.launch { prefsRepository.setReaderTheme(theme) }
 
 
-    fun setReaderFontSize(sp: Float) =
-        viewModelScope.launch { prefsRepository.setReaderFontSize(sp) }
+    fun setReaderFontSize(sp: Float) = viewModelScope.launch { prefsRepository.setReaderFontSize(sp) }
 
 
     /** Keep the screen awake while the reader is open (and during recitation). */
     val keepScreenOn: StateFlow<Boolean> = prefsRepository.keepScreenOn
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
 
-    fun setKeepScreenOn(enabled: Boolean) =
-        viewModelScope.launch { prefsRepository.setKeepScreenOn(enabled) }
+    fun setKeepScreenOn(enabled: Boolean) = viewModelScope.launch { prefsRepository.setKeepScreenOn(enabled) }
 
 
     /** Called as the user scrolls; advances the khatma progress monotonically. */
@@ -358,8 +352,7 @@ class QuranReaderViewModel @Inject constructor(
         }
     }
 
-    fun setSupplementEnabled(enabled: Boolean) =
-        viewModelScope.launch { prefsRepository.setSupplementEnabled(enabled) }
+    fun setSupplementEnabled(enabled: Boolean) = viewModelScope.launch { prefsRepository.setSupplementEnabled(enabled) }
 
 
     fun setSupplementLanguage(language: String) =
@@ -379,8 +372,7 @@ class QuranReaderViewModel @Inject constructor(
         }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyMap())
 
-    fun setTajweedEnabled(enabled: Boolean) =
-        viewModelScope.launch { prefsRepository.setTajweedEnabled(enabled) }
+    fun setTajweedEnabled(enabled: Boolean) = viewModelScope.launch { prefsRepository.setTajweedEnabled(enabled) }
 
     // --- Recitation (Phase C5/C7) ---
 
