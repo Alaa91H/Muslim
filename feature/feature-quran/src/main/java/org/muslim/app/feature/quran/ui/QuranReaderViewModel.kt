@@ -89,21 +89,21 @@ data class QuranReaderUiState(
     val ayahs: List<Ayah> = emptyList(),
 )
 
-private data class QuranReaderQuranReaderSupplementRequest(
+private data class QuranReaderSupplementRequest(
     val ayah: Ayah?,
     val enabled: Boolean,
     val language: String,
     val tafsirSource: String?,
 )
 
-data class QuranReaderQuranReaderTafsirDownloadState(
+data class QuranReaderTafsirDownloadState(
     val downloading: OfficialTafsirSource? = null,
     val completedSource: OfficialTafsirSource? = null,
     val completedSurahs: Int = 0,
     val error: String? = null,
 )
 
-data class QuranReaderQuranReaderSupplementUi(
+data class QuranReaderSupplementUi(
     val translations: List<Translation> = emptyList(),
     val tafsir: List<TafsirEntry> = emptyList(),
 )
@@ -288,7 +288,7 @@ class QuranReaderViewModel @Inject constructor(
     }
         .flatMapLatest { (ayah, enabled, language, tafsirSource) ->
             if (ayah == null || !enabled) {
-                flowOf(QuranReaderQuranReaderSupplementUi())
+                flowOf(QuranReaderSupplementUi())
 
 }
  else {
@@ -337,7 +337,7 @@ class QuranReaderViewModel @Inject constructor(
     val supplementLanguage: StateFlow<String> = prefsRepository.supplementLanguage
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), QuranPrefsRepository.AUTO_LANGUAGE)
 
-    private val _tafsirDownloadState = MutableStateFlow(QuranReaderQuranReaderTafsirDownloadState())
+    private val _tafsirDownloadState = MutableStateFlow(QuranReaderTafsirDownloadState())
     val tafsirDownloadState: StateFlow<QuranReaderTafsirDownloadState> = _tafsirDownloadState.asStateFlow()
 
     fun setSelectedTafsirSource(source: String?) = viewModelScope.launch {
