@@ -183,6 +183,9 @@ jobs:
           # API 36 exercises current background-audio and notification restrictions.
           api-level: ${{ matrix.api-level }}
           arch: x86_64
+          # Preserve android-emulator-runner defaults and explicitly opt out of
+          # emulator metrics so modern emulator builds never block CI for consent.
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -no-metrics
           disable-animations: true
           script: |
             ./gradlew :feature:feature-scholar-library:connectedDebugAndroidTest
@@ -438,6 +441,9 @@ jobs:
         with:
           api-level: ${{ matrix.api-level }}
           arch: x86_64
+          # Preserve android-emulator-runner defaults and explicitly opt out of
+          # emulator metrics so modern emulator builds never block CI for consent.
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -no-metrics
           disable-animations: true
           script: ./gradlew :feature:feature-family-life:connectedDebugAndroidTest
 
