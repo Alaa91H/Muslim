@@ -14,28 +14,56 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.hilt) apply false
-    // Static analysis (Detekt): applied at the root and pointed at the whole
-    // source tree in one pass. This avoids per-module plugin wiring, which
-    // AGP 9's built-in Kotlin (no org.jetbrains.kotlin.android plugin id)
-    // makes awkward. config/detekt/detekt.yml holds the rule set and
-    // config/detekt/detekt-baseline.xml pins current findings so the gate
-    // fails only on NEW violations.
-    alias(libs.plugins.detekt)
 }
 
-detekt {
-    config.setFrom(files("$rootDir/config/detekt/detekt.yml"))
-    baseline = file("$rootDir/config/detekt/detekt-baseline.xml")
-    parallel = true
-    // Analyze every Kotlin source set (main + test) across all modules in a
-    // single pass. Build outputs and the Freebuff worktree are excluded.
-    source.setFrom(
-        files(
-            fileTree(rootDir) {
-                include("**/src/main/**/*.kt", "**/src/test/**/*.kt")
-                exclude("**/build/**", "**/.freebuff/**")
-            },
-        ),
+// Detekt 1.23.8 remains the stable analyzer, but its legacy Gradle plugin calls
+// ReportingExtension.file(String), which Gradle 9.5 deprecates for removal in
+// Gradle 10. Run the stable CLI directly instead: same rules and baseline,
+// without coupling every Gradle invocation to an obsolete reporting API.
+val detektCli by configurations.creating
+
+dependencies {
+    detektCli("io.gitlab.arturbosch.detekt:detekt-cli:${libs.versions.detekt.get()}")
+}
+
+val detektReportsDir = layout.buildDirectory.dir("reports/detekt")
+
+tasks.register<JavaExec>("detekt") {
+    group = "verification"
+    description = "Runs Detekt over production and unit-test Kotlin sources."
+
+    classpath = detektCli
+    mainClass.set("io.gitlab.arturbosch.detekt.cli.Main")
+
+    val configFile = layout.projectDirectory.file("config/detekt/detekt.yml")
+    val baselineFile = layout.projectDirectory.file("config/detekt/detekt-baseline.xml")
+    val reportsDir = detektReportsDir.get().asFile
+
+    inputs.file(configFile)
+    inputs.file(baselineFile)
+    inputs.files(
+        fileTree(rootDir) {
+            include("**/src/main/**/*.kt", "**/src/test/**/*.kt")
+            exclude("**/build/**", "**/.freebuff/**")
+        },
+    )
+    outputs.dir(detektReportsDir)
+
+    doFirst {
+        reportsDir.mkdirs()
+    }
+
+    args(
+        "--input", rootDir.absolutePath,
+        "--config", configFile.asFile.absolutePath,
+        "--baseline", baselineFile.asFile.absolutePath,
+        "--includes", "**/src/main/**/*.kt,**/src/test/**/*.kt",
+        "--excludes", "**/build/**,**/.freebuff/**",
+        "--parallel",
+        "--report", "html:${reportsDir.resolve("detekt.html").absolutePath}",
+        "--report", "xml:${reportsDir.resolve("detekt.xml").absolutePath}",
+        "--report", "sarif:${reportsDir.resolve("detekt.sarif").absolutePath}",
+        "--report", "md:${reportsDir.resolve("detekt.md").absolutePath}",
     )
 }
 
