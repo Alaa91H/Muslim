@@ -1027,7 +1027,7 @@ fun QuranReaderScreen(
 
 @Composable
 private fun SupplementPanel(
-    supplements: QuranReaderViewModel.SupplementUi,
+    supplements: QuranReaderSupplementUi,
     currentAyah: Ayah?,
 ) {
     val hasContent = supplements.translations.isNotEmpty() || supplements.tafsir.isNotEmpty()
@@ -2120,7 +2120,7 @@ private data class SupplementControlsState(
     val enabled: Boolean,
     val installedTafsirSources: List<String>,
     val selectedTafsirSource: String?,
-    val tafsirDownloadState: QuranReaderViewModel.TafsirDownloadState,
+    val tafsirDownloadState: QuranReaderTafsirDownloadState,
     val language: String,
     val availableLanguages: List<String>,
 )
