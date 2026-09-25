@@ -83,6 +83,58 @@ class QuranReaderDependencies @Inject constructor(
     val recitation: QuranReaderRecitationDependencies,
 )
 
+data class QuranReaderUiState(
+    val loading: Boolean = true,
+    val surah: Surah? = null,
+    val ayahs: List<Ayah> = emptyList(),
+)
+
+private data class QuranReaderQuranReaderSupplementRequest(
+    val ayah: Ayah?,
+    val enabled: Boolean,
+    val language: String,
+    val tafsirSource: String?,
+)
+
+data class QuranReaderQuranReaderTafsirDownloadState(
+    val downloading: OfficialTafsirSource? = null,
+    val completedSource: OfficialTafsirSource? = null,
+    val completedSurahs: Int = 0,
+    val error: String? = null,
+)
+
+data class QuranReaderQuranReaderSupplementUi(
+    val translations: List<Translation> = emptyList(),
+    val tafsir: List<TafsirEntry> = emptyList(),
+)
+
+private const val TAFSIR_SURAH_TOTAL = 114
+
+private fun publishDownloadProgress(
+    notifier: RecitationDownloadNotifier,
+    surahName: String,
+    progress: Float,
+    startElapsed: Long,
+    ayahCount: Int,
+    reciter: Reciter,
+) {
+    val elapsedSec =
+        ((SystemClock.elapsedRealtime() - startElapsed) / 1000f).coerceAtLeast(1f)
+    val done = (progress * ayahCount).toInt().coerceAtMost(ayahCount)
+    val ayahsPerSec = done / elapsedSec
+    val remainingSec = if (ayahsPerSec > 0f) {
+        ((ayahCount - done) / ayahsPerSec).toLong()
+    } else {
+        0L
+    }
+    notifier.show(
+        surahName = surahName,
+        percent = (progress * 100).toInt(),
+        remainingSeconds = remainingSec,
+        bytesPerSecond = (ayahsPerSec * reciter.estimatedBytesPerAyah()).toLong(),
+    )
+}
+
 @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
 @HiltViewModel
 class QuranReaderViewModel @Inject constructor(
@@ -130,12 +182,6 @@ class QuranReaderViewModel @Inject constructor(
         autoplayWholeSurahPending = false
     }
 
-    data class UiState(
-        val loading: Boolean = true,
-        val surah: Surah? = null,
-        val ayahs: List<Ayah> = emptyList(),
-    )
-
     /** The ayah currently in view; the UI updates this as the user scrolls. */
     val currentAyah = MutableStateFlow<Ayah?>(null)
 
@@ -146,7 +192,7 @@ class QuranReaderViewModel @Inject constructor(
         }
     }
 
-    val uiState: StateFlow<UiState> = combine(
+    val uiState: StateFlow<QuranReaderUiState> = combine(
         _surahNumber.flatMapLatest { repository.observeSurahMetadata(it)
 }
 ,
@@ -154,10 +200,10 @@ class QuranReaderViewModel @Inject constructor(
 }
 ,
     ) { surah, ayahs ->
-        UiState(loading = false, surah = surah, ayahs = ayahs)
+        QuranReaderUiState(loading = false, surah = surah, ayahs = ayahs)
 
 }
-.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), UiState())
+.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), QuranReaderUiState())
 
     val isBookmarked: StateFlow<Boolean> = combine(
         currentAyah,
@@ -232,17 +278,17 @@ class QuranReaderViewModel @Inject constructor(
      * [supplementEnabled] is off, and translations are filtered to the chosen
      * language ("auto" resolves to the current app language).
      */
-    val supplements: StateFlow<SupplementUi> = combine(
+    val supplements: StateFlow<QuranReaderSupplementUi> = combine(
         currentAyah,
         prefsRepository.supplementEnabled,
         prefsRepository.supplementLanguage,
         effectiveSelectedTafsirSource,
     ) { ayah, enabled, language, tafsirSource ->
-        SupplementRequest(ayah, enabled, language, tafsirSource)
+        QuranReaderSupplementRequest(ayah, enabled, language, tafsirSource)
     }
         .flatMapLatest { (ayah, enabled, language, tafsirSource) ->
             if (ayah == null || !enabled) {
-                flowOf(SupplementUi())
+                flowOf(QuranReaderQuranReaderSupplementUi())
 
 }
  else {
@@ -265,7 +311,7 @@ class QuranReaderViewModel @Inject constructor(
                     val forLanguage = translations.filter { it.language == resolved
 }
 
-                    SupplementUi(
+                    QuranReaderSupplementUi(
                         translations = if (forLanguage.isNotEmpty()) forLanguage else translations,
                         tafsir = tafsirSource?.let { selected -> tafsir.filter { it.source == selected } } ?: tafsir,
                     )
@@ -278,7 +324,7 @@ class QuranReaderViewModel @Inject constructor(
 
 }
 
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), SupplementUi())
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), QuranReaderSupplementUi())
 
     /** Installed translation languages, for the meanings panel language picker. */
     val availableSupplementLanguages: StateFlow<List<String>> =
@@ -291,30 +337,30 @@ class QuranReaderViewModel @Inject constructor(
     val supplementLanguage: StateFlow<String> = prefsRepository.supplementLanguage
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), QuranPrefsRepository.AUTO_LANGUAGE)
 
-    private val _tafsirDownloadState = MutableStateFlow(TafsirDownloadState())
-    val tafsirDownloadState: StateFlow<TafsirDownloadState> = _tafsirDownloadState.asStateFlow()
+    private val _tafsirDownloadState = MutableStateFlow(QuranReaderQuranReaderTafsirDownloadState())
+    val tafsirDownloadState: StateFlow<QuranReaderTafsirDownloadState> = _tafsirDownloadState.asStateFlow()
 
     fun setSelectedTafsirSource(source: String?) = viewModelScope.launch {
         prefsRepository.setSelectedTafsirSource(source)
     }
 
     fun downloadOfficialTafsir(source: OfficialTafsirSource) = viewModelScope.launch {
-        _tafsirDownloadState.value = TafsirDownloadState(downloading = source, completedSurahs = 0)
+        _tafsirDownloadState.value = QuranReaderTafsirDownloadState(downloading = source, completedSurahs = 0)
         runCatching {
             supplementRepository.downloadOfficialTafsir(source) { completedSurahs ->
-                _tafsirDownloadState.value = TafsirDownloadState(
+                _tafsirDownloadState.value = QuranReaderTafsirDownloadState(
                     downloading = source,
                     completedSurahs = completedSurahs,
                 )
             }
         }.onSuccess {
             prefsRepository.setSelectedTafsirSource(source.storageKey)
-            _tafsirDownloadState.value = TafsirDownloadState(
+            _tafsirDownloadState.value = QuranReaderTafsirDownloadState(
                 completedSource = source,
                 completedSurahs = TAFSIR_SURAH_TOTAL,
             )
         }.onFailure { error ->
-            _tafsirDownloadState.value = TafsirDownloadState(
+            _tafsirDownloadState.value = QuranReaderTafsirDownloadState(
                 error = error.message ?: "Download failed",
             )
         }
@@ -348,30 +394,6 @@ class QuranReaderViewModel @Inject constructor(
     fun setTajweedEnabled(enabled: Boolean) = viewModelScope.launch {
         prefsRepository.setTajweedEnabled(enabled)
     }
-
-    private data class SupplementRequest(
-        val ayah: Ayah?,
-        val enabled: Boolean,
-        val language: String,
-        val tafsirSource: String?,
-    )
-
-    data class TafsirDownloadState(
-        val downloading: OfficialTafsirSource? = null,
-        val completedSource: OfficialTafsirSource? = null,
-        val completedSurahs: Int = 0,
-        val error: String? = null,
-    )
-
-    private companion object {
-        const val TAFSIR_SURAH_TOTAL = 114
-    }
-
-    data class SupplementUi(
-        val translations: List<Translation> = emptyList(),
-        val tafsir: List<TafsirEntry> = emptyList(),
-    )
-
 
     // --- Recitation (Phase C5/C7) ---
 
@@ -700,6 +722,8 @@ class QuranReaderViewModel @Inject constructor(
                 if (progress < 1f && percent != lastNotifiedPercent) {
                     lastNotifiedPercent = percent
                     publishDownloadProgress(
+                        notifier = downloadNotifier,
+                        surahName = uiState.value.surah?.arabicName.orEmpty(),
                         progress = progress,
                         startElapsed = startElapsed,
                         ayahCount = ayahs.size,
@@ -732,29 +756,6 @@ class QuranReaderViewModel @Inject constructor(
             _downloadProgress.value = null
             downloadNotifier.dismiss()
         }
-    }
-
-    private fun publishDownloadProgress(
-        progress: Float,
-        startElapsed: Long,
-        ayahCount: Int,
-        reciter: Reciter,
-    ) {
-        val elapsedSec =
-            ((SystemClock.elapsedRealtime() - startElapsed) / 1000f).coerceAtLeast(1f)
-        val done = (progress * ayahCount).toInt().coerceAtMost(ayahCount)
-        val ayahsPerSec = done / elapsedSec
-        val remainingSec = if (ayahsPerSec > 0f) {
-            ((ayahCount - done) / ayahsPerSec).toLong()
-        } else {
-            0L
-        }
-        downloadNotifier.show(
-            surahName = uiState.value.surah?.arabicName.orEmpty(),
-            percent = (progress * 100).toInt(),
-            remainingSeconds = remainingSec,
-            bytesPerSecond = (ayahsPerSec * reciter.estimatedBytesPerAyah()).toLong(),
-        )
     }
 
     private fun startPreparedQueue(
