@@ -28,7 +28,7 @@ jobs:
   # ---------------------------------------------------------------------------
   quality:
     name: Quality (build · unit · lint · detekt)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -137,7 +137,7 @@ jobs:
   # ---------------------------------------------------------------------------
   emulator-tests:
     name: Emulator tests (prayer home + Qibla mosques · API ${{ matrix.api-level }})
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     strategy:
       fail-fast: false
       matrix:
@@ -208,7 +208,7 @@ jobs:
   # ---------------------------------------------------------------------------
   beta-apk:
     name: Closed beta APK
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     needs: [quality, emulator-tests, family-life-emulator-tests]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
@@ -286,7 +286,7 @@ jobs:
   release-apk:
     name: Release artifacts (APK + AAB)
     needs: [quality, emulator-tests, family-life-emulator-tests]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     if: >-
       (github.event_name == 'push' &&
         (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))) ||
@@ -399,7 +399,7 @@ jobs:
 
   family-life-emulator-tests:
     name: Family Life emulator tests · API ${{ matrix.api-level }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     strategy:
       fail-fast: false
       matrix:
