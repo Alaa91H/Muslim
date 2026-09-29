@@ -47,6 +47,17 @@ def main() -> None:
         "secondary reader settings must use the shared bottom sheet",
     )
     require(
+        "RecitationSettingsSheet(" in reader
+        and "quran_playback_settings" in reader,
+        "advanced recitation controls must move out of the permanent player row",
+    )
+    require(
+        "var repeatMenu by remember" not in reader
+        and "var rangeMenu by remember" not in reader
+        and "var reciterMenu by remember" not in reader,
+        "legacy reciter/repeat/range popup menus must not return to the permanent player",
+    )
+    require(
         "onClick = { viewModel.setReaderTheme(theme.next) }" not in reader,
         "reader theme cycling must not remain a permanently exposed top-bar action",
     )
