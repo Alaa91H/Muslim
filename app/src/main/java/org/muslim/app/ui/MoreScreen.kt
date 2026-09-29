@@ -60,6 +60,27 @@ private data class MoreSection(
     val entries: List<MoreEntry>,
 )
 
+private data class MoreActions(
+    val settings: () -> Unit,
+    val hadith: () -> Unit,
+    val adhkar: () -> Unit,
+    val tasbih: () -> Unit,
+    val ramadan: () -> Unit,
+    val habits: () -> Unit,
+    val zakat: () -> Unit,
+    val finance: () -> Unit,
+    val learn: () -> Unit,
+    val reference: () -> Unit,
+    val history: () -> Unit,
+    val scholarLibrary: () -> Unit,
+    val accessibility: () -> Unit,
+    val downloads: () -> Unit,
+    val family: () -> Unit,
+    val funeralWill: () -> Unit,
+    val noorani: () -> Unit,
+    val traveler: () -> Unit,
+)
+
 @Suppress("LongParameterList")
 @Composable
 fun MoreScreen(
@@ -87,195 +108,233 @@ fun MoreScreen(
     sectionOrder: List<String> = AppPreferences.DEFAULT_MORE_SECTION_ORDER,
     hiddenSections: Set<String> = emptySet(),
 ) {
+    val actions = MoreActions(
+        settings = onOpenSettings,
+        hadith = onOpenHadith,
+        adhkar = onOpenAdhkar,
+        tasbih = onOpenTasbih,
+        ramadan = onOpenRamadan,
+        habits = onOpenHabits,
+        zakat = onOpenZakat,
+        finance = onOpenIslamicFinance,
+        learn = onOpenLearn,
+        reference = onOpenReference,
+        history = onOpenIslamicHistory,
+        scholarLibrary = onOpenScholarLibrary,
+        accessibility = onOpenAccessibility,
+        downloads = onOpenDownloads,
+        family = onOpenFamily,
+        funeralWill = onOpenFuneralWill,
+        noorani = onOpenNoorani,
+        traveler = onOpenTraveler,
+    )
+    val sectionsById = moreSections(actions, showRamadanShortcut)
+
+    MuslimScreen(
+        modifier = modifier,
+        topBar = {
+            MoreTopBar(onOpenMoreOrder)
+        },
+    ) {
+        MoreHubContent(
+            sectionsById = sectionsById,
+            sectionOrder = sectionOrder,
+            hiddenSections = hiddenSections,
+        )
+    }
+}
+
+@Composable
+private fun MoreTopBar(onOpenMoreOrder: () -> Unit) {
+    MuslimTopBar(
+        title = stringResource(R.string.tab_more),
+        actions = {
+            IconButton(onClick = onOpenMoreOrder) {
+                Icon(
+                    imageVector = Icons.Filled.Tune,
+                    contentDescription = stringResource(R.string.more_customize),
+                )
+            }
+        },
+    )
+}
+
+@Composable
+private fun MoreHubContent(
+    sectionsById: Map<String, MoreSection>,
+    sectionOrder: List<String>,
+    hiddenSections: Set<String>,
+) {
     val context = LocalContext.current
     var searchQuery by rememberSaveable { mutableStateOf("") }
     var expandedSections by rememberSaveable {
         mutableStateOf(setOf(AppPreferences.MORE_SECTION_WORSHIP))
     }
-
-    val sections = moreSections(
-        onOpenSettings = onOpenSettings,
-        onOpenHadith = onOpenHadith,
-        onOpenAdhkar = onOpenAdhkar,
-        onOpenTasbih = onOpenTasbih,
-        onOpenRamadan = onOpenRamadan,
-        showRamadanShortcut = showRamadanShortcut,
-        onOpenHabits = onOpenHabits,
-        onOpenZakat = onOpenZakat,
-        onOpenIslamicFinance = onOpenIslamicFinance,
-        onOpenLearn = onOpenLearn,
-        onOpenReference = onOpenReference,
-        onOpenIslamicHistory = onOpenIslamicHistory,
-        onOpenScholarLibrary = onOpenScholarLibrary,
-        onOpenAccessibility = onOpenAccessibility,
-        onOpenDownloads = onOpenDownloads,
-        onOpenFamily = onOpenFamily,
-        onOpenFuneralWill = onOpenFuneralWill,
-        onOpenNoorani = onOpenNoorani,
-        onOpenTraveler = onOpenTraveler,
-    )
     val orderedSections = sectionOrder
         .filter { it !in hiddenSections }
-        .mapNotNull(sections::get)
-    val filteredSections = orderedSections.mapNotNull { section ->
-        val visibleEntries = if (searchQuery.isBlank()) {
-            section.entries
-        } else {
-            section.entries.filter { entryMatches(context, it, searchQuery) }
-        }
-        section.takeIf { visibleEntries.isNotEmpty() }?.copy(entries = visibleEntries)
-    }
+        .mapNotNull(sectionsById::get)
+    val filteredSections = filterMoreSections(
+        context = context,
+        sections = orderedSections,
+        query = searchQuery,
+    )
 
-    MuslimScreen(
-        modifier = modifier,
-        topBar = {
-            MuslimTopBar(
-                title = stringResource(R.string.tab_more),
-                actions = {
-                    IconButton(onClick = onOpenMoreOrder) {
-                        Icon(
-                            imageVector = Icons.Filled.Tune,
-                            contentDescription = stringResource(R.string.more_customize),
-                        )
-                    }
-                },
-            )
-        },
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Compact,
+        ),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(
-                horizontal = IslamicSpacing.PageHorizontal,
-                vertical = IslamicSpacing.Compact,
-            ),
-            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
-        ) {
-            item(key = "search") {
-                MuslimSearchBar(
-                    query = searchQuery,
-                    onQueryChange = { searchQuery = it },
-                    placeholder = stringResource(R.string.more_search_hint),
-                    clearContentDescription = stringResource(R.string.more_search_clear),
+        item(key = "search") {
+            MuslimSearchBar(
+                query = searchQuery,
+                onQueryChange = { searchQuery = it },
+                placeholder = stringResource(R.string.more_search_hint),
+                clearContentDescription = stringResource(R.string.more_search_clear),
+            )
+        }
+
+        if (filteredSections.isEmpty()) {
+            item(key = "empty") {
+                MuslimEmptyState(
+                    title = stringResource(R.string.more_search_empty),
+                    icon = Icons.Filled.Search,
+                    modifier = Modifier.padding(vertical = IslamicSpacing.Large),
                 )
             }
-
-            if (filteredSections.isEmpty()) {
-                item(key = "empty") {
-                    MuslimEmptyState(
-                        title = stringResource(R.string.more_search_empty),
-                        icon = Icons.Filled.Search,
-                        modifier = Modifier.padding(vertical = IslamicSpacing.Large),
-                    )
-                }
-            } else {
-                filteredSections.forEach { section ->
-                    item(key = "section_${section.id}") {
-                        val searchActive = searchQuery.isNotBlank()
-                        val expanded = searchActive || section.id in expandedSections
-                        MuslimExpandableSection(
-                            title = stringResource(section.titleRes),
-                            expanded = expanded,
-                            onExpandedChange = { next ->
-                                if (!searchActive) {
-                                    expandedSections = if (next) {
-                                        expandedSections + section.id
-                                    } else {
-                                        expandedSections - section.id
-                                    }
+        } else {
+            filteredSections.forEach { section ->
+                item(key = "section_${section.id}") {
+                    val searchActive = searchQuery.isNotBlank()
+                    val expanded = searchActive || section.id in expandedSections
+                    MoreExpandableSection(
+                        section = section,
+                        expanded = expanded,
+                        onExpandedChange = { next ->
+                            if (!searchActive) {
+                                expandedSections = if (next) {
+                                    expandedSections + section.id
+                                } else {
+                                    expandedSections - section.id
                                 }
-                            },
-                        ) {
-                            section.entries.forEach { entry ->
-                                MoreItem(entry)
                             }
-                        }
-                    }
+                        },
+                    )
                 }
             }
         }
     }
 }
 
-@Suppress("LongParameterList")
+@Composable
+private fun MoreExpandableSection(
+    section: MoreSection,
+    expanded: Boolean,
+    onExpandedChange: (Boolean) -> Unit,
+) {
+    MuslimExpandableSection(
+        title = stringResource(section.titleRes),
+        expanded = expanded,
+        onExpandedChange = onExpandedChange,
+    ) {
+        section.entries.forEach { entry ->
+            MoreItem(entry)
+        }
+    }
+}
+
+private fun filterMoreSections(
+    context: Context,
+    sections: List<MoreSection>,
+    query: String,
+): List<MoreSection> {
+    if (query.isBlank()) return sections
+    return sections.mapNotNull { section ->
+        val entries = section.entries.filter { entryMatches(context, it, query) }
+        section.takeIf { entries.isNotEmpty() }?.copy(entries = entries)
+    }
+}
+
 private fun moreSections(
-    onOpenSettings: () -> Unit,
-    onOpenHadith: () -> Unit,
-    onOpenAdhkar: () -> Unit,
-    onOpenTasbih: () -> Unit,
-    onOpenRamadan: () -> Unit,
+    actions: MoreActions,
     showRamadanShortcut: Boolean,
-    onOpenHabits: () -> Unit,
-    onOpenZakat: () -> Unit,
-    onOpenIslamicFinance: () -> Unit,
-    onOpenLearn: () -> Unit,
-    onOpenReference: () -> Unit,
-    onOpenIslamicHistory: () -> Unit,
-    onOpenScholarLibrary: () -> Unit,
-    onOpenAccessibility: () -> Unit,
-    onOpenDownloads: () -> Unit,
-    onOpenFamily: () -> Unit,
-    onOpenFuneralWill: () -> Unit,
-    onOpenNoorani: () -> Unit,
-    onOpenTraveler: () -> Unit,
 ): Map<String, MoreSection> = mapOf(
-    AppPreferences.MORE_SECTION_WORSHIP to MoreSection(
-        id = AppPreferences.MORE_SECTION_WORSHIP,
-        titleRes = R.string.more_section_worship,
-        entries = buildList {
-            add(MoreEntry(R.string.more_adhkar, R.string.more_adhkar_desc, Icons.Filled.Favorite, onOpenAdhkar))
-            add(MoreEntry(R.string.more_tasbih, R.string.more_tasbih_desc, Icons.Filled.AutoStories, onOpenTasbih))
-            if (showRamadanShortcut) {
-                add(MoreEntry(R.string.more_ramadan, R.string.more_ramadan_desc, Icons.Filled.NightsStay, onOpenRamadan))
-            }
-            add(MoreEntry(R.string.more_habits, R.string.more_habits_desc, Icons.Filled.SelfImprovement, onOpenHabits))
-        },
-    ),
-    AppPreferences.MORE_SECTION_KNOWLEDGE to MoreSection(
-        id = AppPreferences.MORE_SECTION_KNOWLEDGE,
-        titleRes = R.string.more_section_knowledge,
-        entries = listOf(
-            MoreEntry(R.string.more_hadith, R.string.more_hadith_desc, Icons.AutoMirrored.Filled.MenuBook, onOpenHadith),
-            MoreEntry(R.string.more_learn, R.string.more_learn_desc, Icons.Filled.School, onOpenLearn),
-            MoreEntry(R.string.more_noorani, R.string.more_noorani_desc, Icons.Filled.School, onOpenNoorani),
-            MoreEntry(R.string.more_traveler, R.string.more_traveler_desc, Icons.Filled.Place, onOpenTraveler),
-            MoreEntry(R.string.more_family, R.string.more_family_desc, Icons.Filled.FamilyRestroom, onOpenFamily),
-            MoreEntry(R.string.more_funeral_will, R.string.more_funeral_will_desc, Icons.Filled.HealthAndSafety, onOpenFuneralWill),
-            MoreEntry(R.string.more_reference, R.string.more_reference_desc, Icons.Filled.AutoStories, onOpenReference),
-            MoreEntry(R.string.more_islamic_history, R.string.more_islamic_history_desc, Icons.Filled.AutoStories, onOpenIslamicHistory),
-            MoreEntry(
-                R.string.more_scholar_library,
-                R.string.more_scholar_library_desc,
-                Icons.AutoMirrored.Filled.LibraryBooks,
-                onOpenScholarLibrary,
-            ),
+    AppPreferences.MORE_SECTION_WORSHIP to worshipSection(actions, showRamadanShortcut),
+    AppPreferences.MORE_SECTION_KNOWLEDGE to knowledgeSection(actions),
+    AppPreferences.MORE_SECTION_TOOLS to toolsSection(actions),
+    AppPreferences.MORE_SECTION_APP to appSection(actions),
+)
+
+private fun worshipSection(
+    actions: MoreActions,
+    showRamadanShortcut: Boolean,
+): MoreSection = MoreSection(
+    id = AppPreferences.MORE_SECTION_WORSHIP,
+    titleRes = R.string.more_section_worship,
+    entries = buildList {
+        add(MoreEntry(R.string.more_adhkar, R.string.more_adhkar_desc, Icons.Filled.Favorite, actions.adhkar))
+        add(MoreEntry(R.string.more_tasbih, R.string.more_tasbih_desc, Icons.Filled.AutoStories, actions.tasbih))
+        if (showRamadanShortcut) {
+            add(MoreEntry(R.string.more_ramadan, R.string.more_ramadan_desc, Icons.Filled.NightsStay, actions.ramadan))
+        }
+        add(MoreEntry(R.string.more_habits, R.string.more_habits_desc, Icons.Filled.SelfImprovement, actions.habits))
+    },
+)
+
+private fun knowledgeSection(actions: MoreActions): MoreSection = MoreSection(
+    id = AppPreferences.MORE_SECTION_KNOWLEDGE,
+    titleRes = R.string.more_section_knowledge,
+    entries = listOf(
+        MoreEntry(R.string.more_hadith, R.string.more_hadith_desc, Icons.AutoMirrored.Filled.MenuBook, actions.hadith),
+        MoreEntry(R.string.more_learn, R.string.more_learn_desc, Icons.Filled.School, actions.learn),
+        MoreEntry(R.string.more_noorani, R.string.more_noorani_desc, Icons.Filled.School, actions.noorani),
+        MoreEntry(R.string.more_traveler, R.string.more_traveler_desc, Icons.Filled.Place, actions.traveler),
+        MoreEntry(R.string.more_family, R.string.more_family_desc, Icons.Filled.FamilyRestroom, actions.family),
+        MoreEntry(
+            R.string.more_funeral_will,
+            R.string.more_funeral_will_desc,
+            Icons.Filled.HealthAndSafety,
+            actions.funeralWill,
+        ),
+        MoreEntry(R.string.more_reference, R.string.more_reference_desc, Icons.Filled.AutoStories, actions.reference),
+        MoreEntry(R.string.more_islamic_history, R.string.more_islamic_history_desc, Icons.Filled.AutoStories, actions.history),
+        MoreEntry(
+            R.string.more_scholar_library,
+            R.string.more_scholar_library_desc,
+            Icons.AutoMirrored.Filled.LibraryBooks,
+            actions.scholarLibrary,
         ),
     ),
-    AppPreferences.MORE_SECTION_TOOLS to MoreSection(
-        id = AppPreferences.MORE_SECTION_TOOLS,
-        titleRes = R.string.more_section_tools,
-        entries = listOf(
-            MoreEntry(R.string.more_zakat, R.string.more_zakat_desc, Icons.Filled.Calculate, onOpenZakat),
-            MoreEntry(
-                R.string.more_islamic_finance,
-                R.string.more_islamic_finance_desc,
-                Icons.Filled.AccountBalance,
-                onOpenIslamicFinance,
-            ),
-            MoreEntry(R.string.more_downloads, R.string.more_downloads_desc, Icons.Filled.Download, onOpenDownloads),
+)
+
+private fun toolsSection(actions: MoreActions): MoreSection = MoreSection(
+    id = AppPreferences.MORE_SECTION_TOOLS,
+    titleRes = R.string.more_section_tools,
+    entries = listOf(
+        MoreEntry(R.string.more_zakat, R.string.more_zakat_desc, Icons.Filled.Calculate, actions.zakat),
+        MoreEntry(
+            R.string.more_islamic_finance,
+            R.string.more_islamic_finance_desc,
+            Icons.Filled.AccountBalance,
+            actions.finance,
         ),
+        MoreEntry(R.string.more_downloads, R.string.more_downloads_desc, Icons.Filled.Download, actions.downloads),
     ),
-    AppPreferences.MORE_SECTION_APP to MoreSection(
-        id = AppPreferences.MORE_SECTION_APP,
-        titleRes = R.string.more_section_app,
-        entries = listOf(
-            MoreEntry(
-                R.string.more_accessibility,
-                R.string.more_accessibility_desc,
-                Icons.Filled.Visibility,
-                onOpenAccessibility,
-            ),
-            MoreEntry(R.string.more_settings, R.string.more_settings_desc, Icons.Filled.Settings, onOpenSettings),
+)
+
+private fun appSection(actions: MoreActions): MoreSection = MoreSection(
+    id = AppPreferences.MORE_SECTION_APP,
+    titleRes = R.string.more_section_app,
+    entries = listOf(
+        MoreEntry(
+            R.string.more_accessibility,
+            R.string.more_accessibility_desc,
+            Icons.Filled.Visibility,
+            actions.accessibility,
         ),
+        MoreEntry(R.string.more_settings, R.string.more_settings_desc, Icons.Filled.Settings, actions.settings),
     ),
 )
 
