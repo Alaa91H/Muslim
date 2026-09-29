@@ -428,61 +428,71 @@ private fun DailyPrayerSchedule(
 }
 
 private fun prayerIcon(prayer: Prayer): ImageVector = when (prayer) {
-    Prayer.Fajr -> Icons.Filled.Nightlight
+    Prayer.Fajr -> Icons.Filled.WbTwilight
     Prayer.Sunrise -> Icons.Filled.WbSunny
     Prayer.Dhuhr -> Icons.Filled.LightMode
-    Prayer.Asr -> Icons.Filled.Brightness4
-    Prayer.Maghrib -> Icons.Filled.Nightlight
-    Prayer.Isha -> Icons.Filled.DarkMode
+    Prayer.Asr -> Icons.Filled.Brightness5
+    Prayer.Maghrib -> Icons.Filled.Brightness4
+    Prayer.Isha -> Icons.Filled.NightsStay
 }
 
-/** Direct per-prayer entry point for the same persisted Adhan choices exposed in Settings. */
+/** Direct per-prayer entry point with a concise visual state instead of raw volume percentages. */
 @Composable
 private fun PrayerAlertAction(
     prayer: Prayer,
     alert: HomeViewModel.PrayerAlert,
     isNextPrayer: Boolean,
-    compact: Boolean,
     onClick: () -> Unit,
 ) {
     val configurable = prayer != Prayer.Sunrise
     val icon = when {
-        !configurable || !alert.adhanEnabled || alert.option == AdhanSoundOption.Silent -> Icons.Filled.NotificationsOff
+        !configurable || !alert.adhanEnabled || alert.option == AdhanSoundOption.Silent ->
+            Icons.Filled.NotificationsOff
         alert.option == AdhanSoundOption.VibrateOnly -> Icons.Filled.Vibration
         else -> Icons.Filled.NotificationsActive
     }
+    val status = stringResource(
+        when {
+            !configurable || !alert.adhanEnabled || alert.option == AdhanSoundOption.Silent ->
+                R.string.adhan_option_silent
+            alert.option == AdhanSoundOption.VibrateOnly -> R.string.adhan_option_vibrate
+            else -> R.string.adhan_option_default
+        },
+    )
     val contentColor = if (isNextPrayer) {
         MaterialTheme.colorScheme.onTertiaryContainer
     } else {
         MaterialTheme.colorScheme.primary
     }
-    val contentDescription = if (configurable) {
-        stringResource(R.string.settings_adhan_customize_title, stringResource(prayerLabelRes(prayer)))
+    val containerColor = if (isNextPrayer) {
+        MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.10f)
     } else {
-        stringResource(R.string.adhan_option_silent)
+        MaterialTheme.colorScheme.primaryContainer
+    }
+    val contentDescription = if (configurable) {
+        stringResource(
+            R.string.settings_adhan_customize_title,
+            stringResource(prayerLabelRes(prayer)),
+        )
+    } else {
+        status
     }
 
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.padding(
-            start = if (compact) IslamicSpacing.Small else IslamicSpacing.Compact,
-        ),
+    Surface(
+        onClick = onClick,
+        enabled = configurable,
+        modifier = Modifier
+            .size(MuslimTouchTarget.Min)
+            .semantics { stateDescription = status },
+        shape = MaterialTheme.shapes.large,
+        color = containerColor,
+        contentColor = contentColor,
     ) {
-        if (configurable) {
-            Text(
-                text = "${alert.volume}%",
-                style = MaterialTheme.typography.labelSmall,
-                color = contentColor,
-            )
-        }
-        IconButton(onClick = onClick, enabled = configurable) {
+        Box(contentAlignment = Alignment.Center) {
             Icon(
                 imageVector = icon,
                 contentDescription = contentDescription,
-                tint = contentColor,
-                modifier = Modifier.size(
-                    if (compact) IslamicIconSize.Supporting else IslamicIconSize.Standard,
-                ),
+                modifier = Modifier.size(IslamicIconSize.Standard),
             )
         }
     }
@@ -493,63 +503,54 @@ private fun PrayerCompletionCard(
     completedPrayers: Set<Prayer>,
     onToggle: (Prayer) -> Unit,
 ) {
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        contentPadding = androidx.compose.foundation.layout.PaddingValues(IslamicSpacing.Compact),
-    ) {
-        Box {
-            IslamicDecorationCorners(tint = MaterialTheme.colorScheme.primary)
-            Column {
-            Text(
-                text = stringResource(R.string.home_prayer_tracker_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.SemiBold,
+    MuslimGroup {
+        Text(
+            text = stringResource(R.string.home_prayer_tracker_title),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.SemiBold,
+        )
+        Text(
+            text = stringResource(R.string.home_prayer_tracker_description),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Text(
+            text = stringResource(
+                R.string.home_prayer_tracker_progress,
+                completedPrayers.size,
+                trackablePrayers.size,
+            ),
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        trackablePrayers.forEach { prayer ->
+            val completed = prayer in completedPrayers
+            val label = stringResource(prayerLabelRes(prayer))
+            val status = stringResource(
+                if (completed) {
+                    R.string.home_prayer_tracker_completed
+                } else {
+                    R.string.home_prayer_tracker_pending
+                },
             )
-            Spacer(Modifier.height(IslamicSpacing.XSmall))
-            Text(
-                text = stringResource(R.string.home_prayer_tracker_description),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            val toggleDescription = stringResource(
+                R.string.home_prayer_tracker_toggle_description,
+                label,
+                status,
             )
-            Spacer(Modifier.height(IslamicSpacing.Small))
-            Text(
-                text = stringResource(
-                    R.string.home_prayer_tracker_progress,
-                    completedPrayers.size,
-                    trackablePrayers.size,
-                ),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.primary,
+            FilterChip(
+                selected = completed,
+                onClick = { onToggle(prayer) },
+                label = { Text(label) },
+                leadingIcon = if (completed) {
+                    { Icon(Icons.Default.Check, contentDescription = null) }
+                } else {
+                    null
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .semantics { stateDescription = toggleDescription },
             )
-            Spacer(Modifier.height(IslamicSpacing.XSmall))
-            trackablePrayers.forEach { prayer ->
-                val completed = prayer in completedPrayers
-                val label = stringResource(prayerLabelRes(prayer))
-                val status = stringResource(
-                    if (completed) R.string.home_prayer_tracker_completed
-                    else R.string.home_prayer_tracker_pending,
-                )
-                val toggleDescription = stringResource(
-                    R.string.home_prayer_tracker_toggle_description,
-                    label,
-                    status,
-                )
-                FilterChip(
-                    selected = completed,
-                    onClick = { onToggle(prayer) },
-                    label = { Text(label) },
-                    leadingIcon = if (completed) {
-                        { Icon(Icons.Default.Check, contentDescription = null) }
-                    } else {
-                        null
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 2.dp)
-                        .semantics { stateDescription = toggleDescription },
-                )
-            }
-            }
         }
     }
 }
@@ -576,80 +577,122 @@ private fun shareDailyTimes(context: Context, state: HomeViewModel.UiState, use2
     runCatching { context.startActivity(chooser) }
 }
 
-/** Monthly grid of fajr/maghrib times, like a printed yearly timetable. */
+/** Complete monthly prayer timetable with days in the leading RTL column. */
+private val MonthlyDayColumnWidth = 80.dp
+private val MonthlyPrayerColumnWidth = 88.dp
+
 @Composable
-private fun MonthlyGrid(state: HomeViewModel.UiState, use24h: Boolean) {
-    val daysOfWeek = listOf(
-        stringResource(R.string.times_week_sat),
-        stringResource(R.string.times_week_sun),
-        stringResource(R.string.times_week_mon),
-        stringResource(R.string.times_week_tue),
-        stringResource(R.string.times_week_wed),
-        stringResource(R.string.times_week_thu),
-        stringResource(R.string.times_week_fri),
-    )
-    Column(modifier = Modifier.fillMaxWidth()) {
-        Row(modifier = Modifier.fillMaxWidth()) {
-            daysOfWeek.forEach { day ->
-                Text(
-                    text = day,
-                    modifier = Modifier.weight(1f),
-                    textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+private fun MonthlyTimetable(
+    state: HomeViewModel.UiState,
+    use24h: Boolean,
+) {
+    val horizontalState = rememberScrollState()
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .horizontalScroll(horizontalState),
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            MonthlyHeaderCell(
+                text = state.month.toString(),
+                width = MonthlyDayColumnWidth,
+            )
+            Prayer.entries.forEach { prayer ->
+                MonthlyHeaderCell(
+                    text = stringResource(prayerLabelRes(prayer)),
+                    width = MonthlyPrayerColumnWidth,
                 )
             }
         }
-        Spacer(Modifier.height(IslamicSpacing.XSmall))
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(7),
-            modifier = Modifier.height(380.dp),
-        ) {
-            val firstDayOfWeekIndex = state.month.atDay(1).dayOfWeek.value % 7
-            items(state.monthDays.size + firstDayOfWeekIndex) { index ->
-                val dayIndex = index - firstDayOfWeekIndex
-                if (dayIndex < 0) {
-                    Box(Modifier.padding(2.dp))
-                } else {
-                    MonthCell(state.monthDays[dayIndex], use24h)
+        HorizontalDivider()
+
+        state.monthDays.forEach { day ->
+            val selected = day.date == state.selectedDate
+            val friday = day.date.dayOfWeek == DayOfWeek.FRIDAY
+            Surface(
+                color = when {
+                    selected -> MaterialTheme.colorScheme.secondaryContainer
+                    friday -> MaterialTheme.colorScheme.surfaceContainerLow
+                    else -> Color.Transparent
+                },
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Column(
+                        modifier = Modifier
+                            .width(MonthlyDayColumnWidth)
+                            .padding(
+                                horizontal = IslamicSpacing.Small,
+                                vertical = IslamicSpacing.Small,
+                            ),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                    ) {
+                        Text(
+                            text = day.date.dayOfMonth.toString(),
+                            style = MaterialTheme.typography.titleSmall,
+                            fontWeight = if (selected) FontWeight.Bold else FontWeight.SemiBold,
+                            color = if (selected) {
+                                MaterialTheme.colorScheme.onSecondaryContainer
+                            } else {
+                                MaterialTheme.colorScheme.onSurface
+                            },
+                        )
+                        Text(
+                            text = day.hijriDay.toString(),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = if (selected) {
+                                MaterialTheme.colorScheme.onSecondaryContainer
+                            } else {
+                                MaterialTheme.colorScheme.primary
+                            },
+                        )
+                    }
+                    Prayer.entries.forEach { prayer ->
+                        Text(
+                            text = day.times[prayer]
+                                ?.format(TimeFormats.timeFormatter(use24h))
+                                ?: "—",
+                            modifier = Modifier
+                                .width(MonthlyPrayerColumnWidth)
+                                .padding(
+                                    horizontal = IslamicSpacing.XSmall,
+                                    vertical = IslamicSpacing.Compact,
+                                ),
+                            textAlign = TextAlign.Center,
+                            style = MaterialTheme.typography.labelLarge,
+                            color = if (selected) {
+                                MaterialTheme.colorScheme.onSecondaryContainer
+                            } else {
+                                MaterialTheme.colorScheme.onSurface
+                            },
+                            maxLines = 1,
+                        )
+                    }
                 }
             }
+            HorizontalDivider()
         }
     }
 }
 
 @Composable
-private fun MonthCell(day: HomeViewModel.DayTimes, use24h: Boolean) {
-    Column(
+private fun MonthlyHeaderCell(
+    text: String,
+    width: androidx.compose.ui.unit.Dp,
+) {
+    Text(
+        text = text,
         modifier = Modifier
-            .padding(2.dp)
-            .fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        Text(
-            text = day.hijriDay.toString(),
-            style = MaterialTheme.typography.labelLarge,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary,
-        )
-        Text(
-            text = day.date.dayOfMonth.toString(),
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        day.fajr?.let {
-            Text(
-                text = it.format(TimeFormats.timeFormatter(use24h)),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurface,
-            )
-        }
-        day.maghrib?.let {
-            Text(
-                text = it.format(TimeFormats.timeFormatter(use24h)),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurface,
-            )
-        }
-    }
+            .width(width)
+            .padding(
+                horizontal = IslamicSpacing.XSmall,
+                vertical = IslamicSpacing.Small,
+            ),
+        textAlign = TextAlign.Center,
+        style = MaterialTheme.typography.labelMedium,
+        fontWeight = FontWeight.SemiBold,
+        color = MaterialTheme.colorScheme.primary,
+        maxLines = 1,
+        overflow = TextOverflow.Ellipsis,
+    )
 }
+
