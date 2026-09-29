@@ -465,6 +465,7 @@ fun MuslimApp(
                         onOpenScholarLibrary = { navController.navigate(SCHOLAR_LIBRARY_ROUTE) },
                         onOpenAccessibility = { navController.navigate(ACCESSIBILITY_ROUTE) },
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
+                        onOpenMoreOrder = { navController.navigate(MORE_ORDER_ROUTE) },
                         sectionOrder = preferences.moreSectionOrder,
                         hiddenSections = preferences.hiddenMoreSections,
                     )
