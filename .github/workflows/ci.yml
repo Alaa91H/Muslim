@@ -82,6 +82,7 @@ jobs:
           python3 scripts/verify_design_system_adoption.py
           python3 scripts/verify_quran_playback_reliability.py
           python3 scripts/verify_quran_reader_v2.py
+          python3 scripts/verify_quran_library_v2.py
           python3 scripts/verify_quran_session_restore.py
           python3 scripts/verify_home_uiux_contract.py
           python3 scripts/verify_uiux_v2_feature_parity.py
