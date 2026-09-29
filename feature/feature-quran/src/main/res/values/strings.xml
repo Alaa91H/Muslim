@@ -74,6 +74,8 @@
     <string name="quran_download_size_verified">الحجم الفعلي (مُتحقق منه): %1$s</string>
     <string name="quran_download_size_unknown">أدخل سورة صحيحة لمعرفة الحجم التقريبي</string>
     <string name="quran_download_start">بدء التحميل</string>
+    <string name="quran_download_new_title" tools:ignore="MissingTranslation">تحميل جديد</string>
+    <string name="quran_downloaded_for_reciter" tools:ignore="MissingTranslation">المحتوى المحمّل لهذا القارئ</string>
     <string name="quran_download_cancel">إلغاء</string>
     <string name="quran_downloads_active_title">التنزيلات الحالية والسابقة</string>
     <string name="quran_downloads_summary_title">إجمالي المحمّل</string>
