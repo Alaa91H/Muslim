@@ -187,3 +187,38 @@ semantic component layer.
 
 Phase 3 may now focus on Quran Reader, audio, downloads/offline behavior, and reading
 reliability without continuing broad visual-system migration in parallel.
+
+
+## UI/UX V2 semantic component layer
+
+UX03 adds shared semantic primitives above ordinary Material controls.
+
+### Screen ownership
+- `MuslimScreen` is the default shell for ordinary task screens.
+- `MuslimTopBar` standardizes title/back/action hierarchy.
+- `MuslimReaderScaffold` is reserved for immersive reading surfaces that must own their text width.
+
+### Content hierarchy
+- `MuslimHero` owns the single dominant current value/state.
+- `MuslimSection` provides hierarchy without forcing a card.
+- `MuslimGroup` groups genuinely related controls.
+- `MuslimSettingsItem` is the standard settings/navigation row.
+- `MuslimStatusChip` and `MuslimInlineMessage` communicate state with text/icon plus semantic color.
+
+### Progressive disclosure
+- `MuslimOverflowMenu` is for small low-frequency action sets.
+- `MuslimBottomSheet` is for secondary/advanced configuration.
+- `MuslimActionSheet` is for contextual actions such as reader/ayah actions.
+- `MuslimExpandableSection` is for advanced settings that should not be permanently exposed.
+
+### Discovery and filtering
+- `MuslimSearchBar` standardizes search entry.
+- `MuslimSegmentedControl` is for short mutually-exclusive views.
+- `MuslimFilterBar` is for longer optional filter sets.
+
+### Feedback
+- `MuslimProgressHeader` presents task progress.
+- `MuslimMetric` presents a prominent numeric/value result.
+- `MuslimSkeleton` is deliberately non-animated to remain calm and reduced-motion safe.
+
+Specialized Material controls remain valid where the shared semantic layer does not add meaning. Features must not wrap every control merely to satisfy adoption.
