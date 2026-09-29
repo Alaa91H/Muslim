@@ -329,90 +329,61 @@ fun MuslimApp(
         ornamentStyle = preferences.ornamentStyle,
         ornamentIntensity = preferences.ornamentIntensity,
     ) {
-        MuslimAppScaffold(
-            modifier = modifier,
-            floatingActionButton = {
-                if (preferences.voiceNavigationEnabled) {
-                    VoiceNavigationButton(onTarget = { target ->
-                        when (target) {
-                            is VoiceNavigationTarget.Route -> navController.navigate(target.route) {
-                                launchSingleTop = true
-                            }
-                            is VoiceNavigationTarget.Reader -> navController.navigate(
-                                "$READER_ROUTE/${target.surahNumber}",
-                            ) {
-                                launchSingleTop = true
-                            }
-                        }
-                    })
+        val backStackEntry by navController.currentBackStackEntryAsState()
+        val currentDestination = backStackEntry?.destination
+        val onPrimaryTab = visibleTabs.any { currentDestination?.route == it.route }
+        val navigatePrimaryTab: (String) -> Unit = { route ->
+            navController.navigate(route) {
+                popUpTo(navController.graph.findStartDestination().id) {
+                    saveState = true
                 }
-            },
-            bottomBar = {
-                val backStackEntry by navController.currentBackStackEntryAsState()
-                val currentDestination = backStackEntry?.destination
-                val onTab = visibleTabs.any { currentDestination?.route == it.route }
-                if (onTab) {
-                    Surface(
-                        color = MaterialTheme.colorScheme.surfaceContainer,
-                        tonalElevation = 1.dp,
-                    ) {
-                        BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
-                            val slotWidth = maxWidth / visibleTabs.size.toFloat()
-                            val compactTabs = slotWidth < 92.dp
-                            val iconSize = if (compactTabs) 21.dp else 24.dp
-                            val labelStyle = if (compactTabs) {
-                                MaterialTheme.typography.labelSmall
-                            } else {
-                                MaterialTheme.typography.labelMedium
-                            }
+                launchSingleTop = true
+                restoreState = true
+            }
+        }
 
-                            NavigationBar(
-                                containerColor = Color.Transparent,
-                                tonalElevation = 0.dp,
-                            ) {
-                                visibleTabs.forEach { tab ->
-                                    NavigationBarItem(
-                                        selected = currentDestination?.hierarchy?.any { it.route == tab.route } == true,
-                                        onClick = {
-                                            navController.navigate(tab.route) {
-                                                popUpTo(navController.graph.findStartDestination().id) {
-                                                    saveState = true
-                                                }
-                                                launchSingleTop = true
-                                                restoreState = true
-                                            }
-                                        },
-                                        icon = {
-                                            Icon(
-                                                imageVector = tab.icon,
-                                                contentDescription = null,
-                                                modifier = Modifier.size(iconSize),
-                                            )
-                                        },
-                                        label = {
-                                            Text(
-                                                text = stringResource(tab.labelRes),
-                                                maxLines = 1,
-                                                overflow = TextOverflow.Ellipsis,
-                                                style = labelStyle,
-                                            )
-                                        },
-                                        colors = NavigationBarItemDefaults.colors(
-                                            selectedIconColor = MaterialTheme.colorScheme.onSecondaryContainer,
-                                            selectedTextColor = MaterialTheme.colorScheme.onSurface,
-                                            indicatorColor = MaterialTheme.colorScheme.secondaryContainer,
-                                            unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                                            unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                                        ),
-                                    )
-                                }
-                            }
-                        }
-                    }
+        BoxWithConstraints(modifier = modifier.fillMaxSize()) {
+            val adaptiveSpec = IslamicLayout.adaptiveSpec(maxWidth)
+            val showNavigationRail = adaptiveSpec.preferNavigationRail && onPrimaryTab
+
+            Row(modifier = Modifier.fillMaxSize()) {
+                if (showNavigationRail) {
+                    PrimaryNavigationRail(
+                        visibleTabs = visibleTabs,
+                        currentDestination = currentDestination,
+                        onNavigate = navigatePrimaryTab,
+                    )
                 }
-            },
-        ) { innerPadding ->
-            NavHost(
+
+                MuslimAppScaffold(
+                    modifier = Modifier.weight(1f),
+                    floatingActionButton = {
+                        if (preferences.voiceNavigationEnabled) {
+                            VoiceNavigationButton(onTarget = { target ->
+                                when (target) {
+                                    is VoiceNavigationTarget.Route -> navController.navigate(target.route) {
+                                        launchSingleTop = true
+                                    }
+                                    is VoiceNavigationTarget.Reader -> navController.navigate(
+                                        "$READER_ROUTE/${target.surahNumber}",
+                                    ) {
+                                        launchSingleTop = true
+                                    }
+                                }
+                            })
+                        }
+                    },
+                    bottomBar = {
+                        if (!showNavigationRail && onPrimaryTab) {
+                            PrimaryNavigationBar(
+                                visibleTabs = visibleTabs,
+                                currentDestination = currentDestination,
+                                onNavigate = navigatePrimaryTab,
+                            )
+                        }
+                    },
+                ) { innerPadding ->
+                    NavHost(
                 // The user-chosen start tab (default: prayer-times home), validated
                 // against the real tab routes so a stale value can never crash.
                 startDestination = startDestinationFor(initialStartTab, visibleTabs),
@@ -703,6 +674,8 @@ fun MuslimApp(
                 }
                 composable("location") {
                     LocationScreen(onSaved = { navController.popBackStack() })
+                }
+                    }
                 }
             }
         }
