@@ -79,6 +79,11 @@
     <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات…)</string>
 
     <string name="settings_section_data">البيانات والخصوصية</string>
+    <string name="settings_section_storage" tools:ignore="MissingTranslation">التخزين والتنزيلات</string>
+    <string name="settings_quran_downloads" tools:ignore="MissingTranslation">تنزيلات القرآن</string>
+    <string name="settings_quran_downloads_desc" tools:ignore="MissingTranslation">إدارة التلاوات المحمّلة والتنزيلات النشطة</string>
+    <string name="settings_scholar_data" tools:ignore="MissingTranslation">محتوى مكتبة العلماء والنسخ الاحتياطي</string>
+    <string name="settings_scholar_data_desc" tools:ignore="MissingTranslation">استيراد الحزم وتصدير أو استعادة بيانات الدراسة</string>
     <string name="settings_privacy">سياسة الخصوصية</string>
     <string name="settings_privacy_desc">كيف نتعامل مع بياناتك: لا تتبّع، البيانات تبقى على جهازك</string>
 
