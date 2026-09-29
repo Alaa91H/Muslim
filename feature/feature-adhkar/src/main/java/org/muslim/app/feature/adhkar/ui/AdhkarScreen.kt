@@ -3,7 +3,6 @@ package org.muslim.app.feature.adhkar.ui
 import android.content.ClipData
 import android.content.Intent
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -16,36 +15,26 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.StopCircle
 import androidx.compose.material.icons.outlined.StarBorder
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilledIconButton
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedIconButton
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -72,8 +61,17 @@ import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimEmptyState
+import org.muslim.app.core.ui.theme.MuslimFilterBar
+import org.muslim.app.core.ui.theme.MuslimFilterOption
+import org.muslim.app.core.ui.theme.MuslimMenuAction
+import org.muslim.app.core.ui.theme.MuslimOverflowMenu
+import org.muslim.app.core.ui.theme.MuslimProgressHeader
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimSearchBar
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
+import org.muslim.app.core.ui.theme.MuslimSettingsItem
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.adhkar.R
 import org.muslim.app.feature.adhkar.domain.Dhikr
 import org.muslim.app.feature.adhkar.domain.DhikrCategory
@@ -81,7 +79,6 @@ import org.muslim.app.feature.adhkar.domain.DhikrCategory
 /** Main routes owned by the adhkar feature. */
 private enum class AdhkarRoute { Library, Reader, Settings, Customize }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AdhkarScreen(
     onBack: () -> Unit,
@@ -126,7 +123,6 @@ private data class AdhkarLibrarySnapshot(
     val speakingDhikrId: Long?,
 )
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun AdhkarLibraryContent(
     onBack: () -> Unit,
@@ -153,20 +149,14 @@ private fun AdhkarLibraryContent(
     val copiedMessage = stringResource(R.string.adhkar_copied)
     val onCopied: () -> Unit = { scope.launch { snackbarHostState.showSnackbar(copiedMessage) } }
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.adhkar_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.adhkar_back),
-                        )
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.adhkar_title),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.adhkar_back),
                 actions = {
                     IconButton(onClick = onOpenSettings) {
                         Icon(
@@ -177,10 +167,9 @@ private fun AdhkarLibraryContent(
                 },
             )
         },
-    ) { innerPadding ->
+    ) {
         AdhkarLibraryBody(
             snapshot = snapshot,
-            innerPadding = innerPadding,
             categories = viewModel.categories,
             viewModel = viewModel,
             onOpenReader = onOpenReader,
@@ -192,13 +181,12 @@ private fun AdhkarLibraryContent(
 @Composable
 private fun AdhkarLibraryBody(
     snapshot: AdhkarLibrarySnapshot,
-    innerPadding: PaddingValues,
     categories: List<DhikrCategory>,
     viewModel: AdhkarViewModel,
     onOpenReader: () -> Unit,
     onCopied: () -> Unit,
 ) {
-    Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
+    Column(modifier = Modifier.fillMaxSize()) {
         AdhkarCategoryFilters(
             selectedCategory = snapshot.selectedCategory,
             categories = categories,
@@ -244,10 +232,8 @@ private fun AdhkarList(
     ) {
         if (snapshot.visibleCount == 0) {
             item(key = "empty") {
-                Text(
-                    text = stringResource(R.string.adhkar_no_results),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                MuslimEmptyState(
+                    title = stringResource(R.string.adhkar_no_results),
                     modifier = Modifier.padding(IslamicSpacing.Large),
                 )
             }
@@ -290,7 +276,6 @@ private fun LibraryDhikrItem(
             onCopied = onCopied,
         ),
     )
-    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
 }
 
 @Composable
@@ -299,28 +284,34 @@ private fun AdhkarCategoryFilters(
     categories: List<DhikrCategory>,
     onSelected: (DhikrCategory?) -> Unit,
 ) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .horizontalScroll(rememberScrollState())
-            .padding(horizontal = IslamicSpacing.Medium),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        FilterChip(
-            selected = selectedCategory == null,
-            onClick = { onSelected(null) },
-            label = { Text(stringResource(R.string.adhkar_all)) },
-            modifier = Modifier.padding(end = IslamicSpacing.Small),
-        )
+    val allId = "all"
+    val options = buildList {
+        add(MuslimFilterOption(allId, stringResource(R.string.adhkar_all)))
         categories.forEach { category ->
-            FilterChip(
-                selected = selectedCategory == category,
-                onClick = { onSelected(category) },
-                label = { Text(stringResource(category.titleRes)) },
-                modifier = Modifier.padding(end = IslamicSpacing.Small),
+            add(
+                MuslimFilterOption(
+                    id = category.id,
+                    label = stringResource(category.titleRes),
+                ),
             )
         }
     }
+    val selectedId = selectedCategory?.id ?: allId
+
+    MuslimFilterBar(
+        options = options,
+        selectedIds = setOf(selectedId),
+        onToggle = { id ->
+            onSelected(
+                if (id == allId) {
+                    null
+                } else {
+                    categories.firstOrNull { it.id == id }
+                },
+            )
+        },
+        modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
+    )
 }
 
 @Composable
@@ -333,52 +324,33 @@ private fun AdhkarLibraryFilters(
     onFavoritesOnlyChanged: (Boolean) -> Unit,
     onOpenReader: () -> Unit,
 ) {
-    Column(modifier = Modifier.padding(horizontal = IslamicSpacing.Medium)) {
-        OutlinedTextField(
-            value = searchQuery,
-            onValueChange = onSearchQueryChanged,
-            singleLine = true,
-            leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-            trailingIcon = if (searchQuery.isNotBlank()) {
-                {
-                    IconButton(onClick = { onSearchQueryChanged("") }) {
-                        Icon(
-                            Icons.Filled.Close,
-                            contentDescription = stringResource(R.string.adhkar_search_clear),
-                        )
-                    }
-                }
-            } else {
-                null
-            },
-            placeholder = { Text(stringResource(R.string.adhkar_search_hint)) },
-            modifier = Modifier.fillMaxWidth(),
+    Column(
+        modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+    ) {
+        MuslimSearchBar(
+            query = searchQuery,
+            onQueryChange = onSearchQueryChanged,
+            placeholder = stringResource(R.string.adhkar_search_hint),
+            clearContentDescription = stringResource(R.string.adhkar_search_clear),
         )
-
-        Spacer(Modifier.height(IslamicSpacing.Small))
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .horizontalScroll(rememberScrollState()),
-            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
-            verticalAlignment = Alignment.CenterVertically,
+        MuslimSettingsItem(
+            title = stringResource(R.string.adhkar_filter_favorites_only),
+            supportingText = stringResource(R.string.adhkar_results_count, resultCount),
+            onClick = { onFavoritesOnlyChanged(!favoritesOnly) },
+            trailing = {
+                Switch(
+                    checked = favoritesOnly,
+                    onCheckedChange = onFavoritesOnlyChanged,
+                )
+            },
+        )
+        IslamicPrimaryButton(
+            onClick = onOpenReader,
+            enabled = readerEnabled,
+            modifier = Modifier.fillMaxWidth(),
         ) {
-            FilterChip(
-                selected = favoritesOnly,
-                onClick = { onFavoritesOnlyChanged(!favoritesOnly) },
-                label = { Text(stringResource(R.string.adhkar_filter_favorites_only)) },
-            )
-            Text(
-                text = stringResource(R.string.adhkar_results_count, resultCount),
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            IslamicSecondaryButton(
-                onClick = onOpenReader,
-                enabled = readerEnabled,
-            ) {
-                Text(stringResource(R.string.adhkar_reader_start))
-            }
+            Text(stringResource(R.string.adhkar_reader_start))
         }
     }
 }
@@ -388,28 +360,18 @@ private fun ReminderMasterSwitch(
     enabled: Boolean,
     onEnabledChanged: (Boolean) -> Unit,
 ) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Column(modifier = Modifier.weight(1f)) {
-            Text(
-                text = stringResource(R.string.adhkar_morning_evening_notification),
-                style = MaterialTheme.typography.bodyMedium,
+    MuslimSettingsItem(
+        title = stringResource(R.string.adhkar_morning_evening_notification),
+        supportingText = stringResource(R.string.adhkar_morning_evening_notification_desc),
+        modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
+        onClick = { onEnabledChanged(!enabled) },
+        trailing = {
+            Switch(
+                checked = enabled,
+                onCheckedChange = onEnabledChanged,
             )
-            Text(
-                text = stringResource(R.string.adhkar_morning_evening_notification_desc),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-        Switch(
-            checked = enabled,
-            onCheckedChange = onEnabledChanged,
-        )
-    }
+        },
+    )
 }
 
 private data class AdhkarReaderSnapshot(
@@ -420,7 +382,6 @@ private data class AdhkarReaderSnapshot(
     val speakingDhikrId: Long?,
 )
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun AdhkarReaderContent(
     onBack: () -> Unit,
@@ -447,27 +408,19 @@ private fun AdhkarReaderContent(
         }
     }
 
-    MuslimAppScaffold(
-        modifier = Modifier.fillMaxSize(),
+    MuslimScreen(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.adhkar_reader_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.adhkar_back),
-                        )
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.adhkar_reader_title),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.adhkar_back),
             )
         },
-    ) { innerPadding ->
+    ) {
         AdhkarReaderBody(
             snapshot = snapshot,
             currentIndex = currentIndex,
-            innerPadding = innerPadding,
             viewModel = viewModel,
             onCopied = onCopied,
             onIndexChanged = { currentIndex = it },
@@ -480,7 +433,6 @@ private fun AdhkarReaderContent(
 private fun AdhkarReaderBody(
     snapshot: AdhkarReaderSnapshot,
     currentIndex: Int,
-    innerPadding: PaddingValues,
     viewModel: AdhkarViewModel,
     onCopied: () -> Unit,
     onIndexChanged: (Int) -> Unit,
@@ -489,7 +441,6 @@ private fun AdhkarReaderBody(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(innerPadding)
             .padding(vertical = IslamicSpacing.Small),
     ) {
         if (snapshot.queue.isEmpty()) {
@@ -535,17 +486,10 @@ private fun ReaderProgress(
     total: Int,
 ) {
     val progress = (safeIndex + 1).toFloat() / total.toFloat()
-    LinearProgressIndicator(
-        progress = { progress },
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = IslamicSpacing.Medium),
-    )
-    Text(
-        text = stringResource(R.string.adhkar_reader_progress, safeIndex + 1, total),
-        style = MaterialTheme.typography.labelMedium,
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
-        modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
+    MuslimProgressHeader(
+        title = stringResource(R.string.adhkar_reader_progress, safeIndex + 1, total),
+        progress = progress,
+        modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
     )
 }
 
@@ -757,7 +701,9 @@ private fun DhikrBottomBar(
         )
         Spacer(Modifier.weight(1f))
         DhikrSecondaryActions(
+            canReset = currentCount > 0,
             isFavorite = isFavorite,
+            onReset = actions.onReset,
             onToggleFavorite = actions.onToggleFavorite,
             onCopy = copyDhikr,
             onShare = shareDhikr,
@@ -841,27 +787,19 @@ private fun DhikrPrimaryControls(
         }
     }
 
-    if (currentCount > 0) {
-        IconButton(
-            onClick = actions.onReset,
-            modifier = Modifier.size(44.dp),
-        ) {
-            Icon(
-                Icons.Filled.Refresh,
-                contentDescription = stringResource(R.string.adhkar_reset),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-    }
 }
 
 @Composable
 private fun DhikrSecondaryActions(
+    canReset: Boolean,
     isFavorite: Boolean,
+    onReset: () -> Unit,
     onToggleFavorite: () -> Unit,
     onCopy: () -> Unit,
     onShare: () -> Unit,
 ) {
+    var menuExpanded by remember { mutableStateOf(false) }
+
     IconButton(
         onClick = onToggleFavorite,
         modifier = Modifier.size(44.dp),
@@ -878,26 +816,39 @@ private fun DhikrSecondaryActions(
             },
         )
     }
-    IconButton(
-        onClick = onCopy,
-        modifier = Modifier.size(44.dp),
-    ) {
-        Icon(
-            imageVector = Icons.Filled.ContentCopy,
-            contentDescription = stringResource(R.string.adhkar_copy),
-            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-    }
-    IconButton(
-        onClick = onShare,
-        modifier = Modifier.size(44.dp),
-    ) {
-        Icon(
-            imageVector = Icons.Filled.Share,
-            contentDescription = stringResource(R.string.adhkar_share),
-            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-    }
+    MuslimOverflowMenu(
+        expanded = menuExpanded,
+        onExpandedChange = { menuExpanded = it },
+        contentDescription = stringResource(R.string.adhkar_more_actions),
+        actions = buildList {
+            if (canReset) {
+                add(
+                    MuslimMenuAction(
+                        id = "reset",
+                        label = stringResource(R.string.adhkar_reset),
+                        icon = Icons.Filled.Refresh,
+                        onClick = onReset,
+                    ),
+                )
+            }
+            add(
+                MuslimMenuAction(
+                    id = "copy",
+                    label = stringResource(R.string.adhkar_copy),
+                    icon = Icons.Filled.ContentCopy,
+                    onClick = onCopy,
+                ),
+            )
+            add(
+                MuslimMenuAction(
+                    id = "share",
+                    label = stringResource(R.string.adhkar_share),
+                    icon = Icons.Filled.Share,
+                    onClick = onShare,
+                ),
+            )
+        },
+    )
 }
 
 @Composable
