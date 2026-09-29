@@ -352,11 +352,17 @@ def verify() -> list[str]:
                     f"retired icon resource remains packaged: {asset.relative_to(ROOT)}",
                 )
 
+    shared_screen_shells = (
+        "MuslimAppScaffold(",
+        "MuslimScreen(",
+        "MuslimAdaptiveScreen(",
+        "MuslimReaderScaffold(",
+    )
     for relative in DECORATED_TOP_LEVEL_SCREENS:
         text = (ROOT / relative).read_text(encoding="utf-8")
-        if "MuslimAppScaffold(" not in text:
+        if not any(shell in text for shell in shared_screen_shells):
             failures.append(
-                f"{relative}: top-level screen must use MuslimAppScaffold",
+                f"{relative}: top-level screen must use a shared Muslim screen shell",
             )
 
     for source_root in (ROOT / "app/src/main/java", ROOT / "feature"):
