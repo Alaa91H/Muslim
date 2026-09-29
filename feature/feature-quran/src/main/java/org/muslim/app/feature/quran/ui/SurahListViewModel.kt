@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -15,6 +16,7 @@ import kotlinx.coroutines.launch
 import org.muslim.app.feature.quran.data.AyahOfTheDayScheduler
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.data.QuranSupplementRepository
+import org.muslim.app.feature.quran.domain.Bookmark
 import org.muslim.app.feature.quran.domain.LastRead
 import org.muslim.app.feature.quran.domain.QuranRepository
 import org.muslim.app.feature.quran.domain.Surah
@@ -28,9 +30,18 @@ class SurahListViewModel @Inject constructor(
     supplementRepository: QuranSupplementRepository,
 ) : ViewModel() {
 
+    data class JuzStart(
+        val juz: Int,
+        val surahNumber: Int,
+        val ayahNumber: Int,
+        val globalNumber: Int,
+    )
+
     data class UiState(
         val loading: Boolean = true,
         val surahs: List<Surah> = emptyList(),
+        val bookmarks: List<Bookmark> = emptyList(),
+        val juzStarts: List<JuzStart> = emptyList(),
         val lastRead: LastRead? = null,
         val readThroughGlobal: Int = 0,
         val totalAyahs: Int = 6236,
@@ -39,14 +50,20 @@ class SurahListViewModel @Inject constructor(
             get() = if (totalAyahs == 0) 0f else (readThroughGlobal.toFloat() / totalAyahs).coerceIn(0f, 1f)
     }
 
+    private val juzStarts = MutableStateFlow<List<JuzStart>>(emptyList())
+
     val uiState: StateFlow<UiState> = combine(
         repository.observeSurahs().onStart { emit(emptyList()) },
+        repository.observeBookmarks().onStart { emit(emptyList()) },
         prefsRepository.lastRead,
         prefsRepository.readThroughGlobal,
-    ) { surahs, lastRead, readThrough ->
+        juzStarts,
+    ) { surahs, bookmarks, lastRead, readThrough, starts ->
         UiState(
             loading = surahs.isEmpty(),
             surahs = surahs,
+            bookmarks = bookmarks,
+            juzStarts = starts,
             lastRead = lastRead,
             readThroughGlobal = readThrough,
         )
@@ -58,6 +75,19 @@ class SurahListViewModel @Inject constructor(
         viewModelScope.launch {
             AyahOfTheDayScheduler.schedule(context)
             supplementRepository.removeLegacySampleTafsir()
+            juzStarts.value = repository.allAyahs()
+                .groupBy { it.juz }
+                .toSortedMap()
+                .mapNotNull { (juz, ayahs) ->
+                    ayahs.minByOrNull { it.globalNumber }?.let { first ->
+                        JuzStart(
+                            juz = juz,
+                            surahNumber = first.surahNumber,
+                            ayahNumber = first.numberInSurah,
+                            globalNumber = first.globalNumber,
+                        )
+                    }
+                }
         }
     }
 }
