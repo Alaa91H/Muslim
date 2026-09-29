@@ -86,6 +86,20 @@ def main() -> None:
         "renderer must shrink rather than expand line backgrounds",
     )
 
+    marker_literal = 'append("\\uFD3F${ayah.numberInSurah.toString()}\\uFD3E")'
+    marker_index = reader.find(marker_literal)
+    require(marker_index >= 0, "ayah marker ornament append contract is missing")
+    marker_context = reader[max(0, marker_index - 900): marker_index + len(marker_literal) + 200]
+    require(
+        "color = scheme.tertiary" in marker_context,
+        "ayah-number ornament must use the stable gold/bronze tertiary tone",
+    )
+    require(
+        "selectedAyahGlobal -> scheme.primary" not in marker_context
+        and "playingAyahGlobal -> scheme.primary" not in marker_context,
+        "selection/playback must not recolor an ayah-number ornament green",
+    )
+
     print("Quran Reader V2 line-aware highlight contract verified.")
 
 
