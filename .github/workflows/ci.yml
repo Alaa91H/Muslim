@@ -114,6 +114,13 @@ jobs:
       # Static analysis gate. Rule set: config/detekt/detekt.yml; current
       # findings are pinned in config/detekt/detekt-baseline.xml so the gate
       # fails only on NEW violations instead of demanding a one-off rewrite.
+      - name: Refresh Detekt baseline candidate
+        run: |
+          ./gradlew detektBaseline
+          echo "=== DETEKT_BASELINE_BEGIN ==="
+          cat config/detekt/detekt-baseline.xml
+          echo "=== DETEKT_BASELINE_END ==="
+
       - name: Run Detekt
         run: ./gradlew detekt
 
