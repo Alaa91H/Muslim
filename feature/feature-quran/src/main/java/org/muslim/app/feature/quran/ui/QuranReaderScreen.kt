@@ -1784,13 +1784,13 @@ private fun MushafPageCard(
                         if (color == null) append(segment.text) else withStyle(SpanStyle(color = color)) { append(segment.text) }
                     }
                     append(" ")
+                    // Ayah ornaments keep one stable gold/bronze tone across
+                    // page boundaries. Selection/playback state belongs to the
+                    // line-aware background highlight and must never recolor
+                    // only the first/selected ayah marker green.
                     withStyle(
                         SpanStyle(
-                            color = when {
-                                ayah.globalNumber == presentation.playingAyahGlobal -> scheme.primary
-                                ayah.globalNumber == presentation.selectedAyahGlobal -> scheme.primary
-                                else -> scheme.tertiary
-                            },
+                            color = scheme.tertiary,
                             fontSize = (presentation.fontSizeSp * 0.6f).sp,
                             fontWeight = FontWeight.Bold,
                             baselineShift = BaselineShift(0.35f),
