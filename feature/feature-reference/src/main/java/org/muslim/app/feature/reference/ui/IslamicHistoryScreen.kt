@@ -20,7 +20,7 @@ import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ScrollableTabRow
+import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
@@ -181,7 +181,7 @@ private fun HistoryTabs(selectedTab: Int, onSelect: (Int) -> Unit) {
         stringResource(R.string.history_people_tab),
         stringResource(R.string.history_search_tab),
     )
-    ScrollableTabRow(
+    PrimaryScrollableTabRow(
         selectedTabIndex = selectedTab,
         edgePadding = 8.dp,
     ) {
