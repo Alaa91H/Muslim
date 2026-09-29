@@ -86,7 +86,7 @@ def main() -> None:
         "renderer must shrink rather than expand line backgrounds",
     )
 
-    marker_literal = 'append("\\uFD3F${ayah.numberInSurah.toString()}\\uFD3E")'
+    marker_literal = r'append("\\uFD3F${ayah.numberInSurah.toString()}\\uFD3E")'
     marker_index = reader.find(marker_literal)
     require(marker_index >= 0, "ayah marker ornament append contract is missing")
     marker_context = reader[max(0, marker_index - 900): marker_index + len(marker_literal) + 200]
