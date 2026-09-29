@@ -18,7 +18,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Flight
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
@@ -27,14 +26,9 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Train
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.PrimaryTabRow
-import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -54,14 +48,17 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import dagger.hilt.android.EntryPointAccessors
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.location.MagneticDeclination
 import org.muslim.app.core.permissions.AppPermission
 import org.muslim.app.core.permissions.PermissionEntryPoint
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimSegmentedControl
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.learn.R
@@ -83,7 +80,6 @@ import kotlin.math.sin
  * Education and local technical aids for travellers and expats. It deliberately
  * distinguishes GPS/calculation output from individual fiqh rulings.
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TravelerExpatsScreen(
     onBack: () -> Unit,
@@ -112,24 +108,21 @@ fun TravelerExpatsScreen(
         }
     }
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.traveler_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(R.string.learn_back))
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.traveler_title),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.learn_back),
             )
         },
-    ) { innerPadding ->
-        Column(modifier = Modifier.padding(innerPadding)) {
+    ) {
+        Column(modifier = Modifier.fillMaxSize()) {
             TravelerTabs(selectedTab = selectedTab, onSelect = { selectedTab = it })
             IslamicDecorationDivider(
                 tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 24.dp),
+                modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
             )
             when (selectedTab) {
                 0 -> TravelDistanceTab(
@@ -140,28 +133,33 @@ fun TravelerExpatsScreen(
                     onSelectThreshold = viewModel::selectThreshold,
                 )
                 1 -> TransportPrayerTab(state = state, onRefresh = ::requestGps)
-                else -> HighLatitudeTab(state = state, onOpenPrayerSettings = onOpenPrayerSettings)
+                else -> HighLatitudeTab(
+                    state = state,
+                    onOpenPrayerSettings = onOpenPrayerSettings,
+                )
             }
         }
     }
 }
 
 @Composable
-private fun TravelerTabs(selectedTab: Int, onSelect: (Int) -> Unit) {
-    val labels = listOf(
-        stringResource(R.string.traveler_tab_distance),
-        stringResource(R.string.traveler_tab_transport),
-        stringResource(R.string.traveler_tab_high_latitude),
+private fun TravelerTabs(
+    selectedTab: Int,
+    onSelect: (Int) -> Unit,
+) {
+    MuslimSegmentedControl(
+        options = listOf(
+            stringResource(R.string.traveler_tab_distance),
+            stringResource(R.string.traveler_tab_transport),
+            stringResource(R.string.traveler_tab_high_latitude),
+        ),
+        selectedIndex = selectedTab,
+        onSelectedIndexChange = onSelect,
+        modifier = Modifier.padding(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Small,
+        ),
     )
-    PrimaryTabRow(selectedTabIndex = selectedTab) {
-        labels.forEachIndexed { index, label ->
-            Tab(
-                selected = selectedTab == index,
-                onClick = { onSelect(index) },
-                text = { Text(label, maxLines = 2, textAlign = TextAlign.Center) },
-            )
-        }
-    }
 }
 
 @Composable
@@ -173,8 +171,13 @@ private fun TravelDistanceTab(
     onSelectThreshold: (TravelDistanceThreshold) -> Unit,
 ) {
     LazyColumn(
-        contentPadding = PaddingValues(start = 16.dp, top = 12.dp, end = 16.dp, bottom = 28.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
+        contentPadding = PaddingValues(
+            start = IslamicSpacing.PageHorizontal,
+            top = IslamicSpacing.Compact,
+            end = IslamicSpacing.PageHorizontal,
+            bottom = IslamicSpacing.Large,
+        ),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
         modifier = Modifier.fillMaxSize(),
     ) {
         item { TravelNotice() }
