@@ -416,6 +416,7 @@
     <string name="learn_topic_faith_questions">Questions and doubts</string>
     <string name="learn_topic_faith_questions_sub">A method for checking text, context and sources and handling difficult questions responsibly</string>
     <string name="learn_search_hint">Search the academy</string>
+    <string name="learn_search_clear">Clear search</string>
     <string name="learn_continue_learning">Continue learning</string>
     <string name="learn_continue_subtitle">Return to the last unfinished lesson or move to the next one</string>
     <string name="learn_overall_progress">Academy progress: %1$d of %2$d</string>
