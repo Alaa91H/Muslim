@@ -18,7 +18,6 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.DateRange
@@ -34,16 +33,13 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -61,7 +57,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import org.muslim.app.core.common.lang.AppLanguage
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.HajjCategory
 import org.muslim.app.feature.learn.domain.HajjStep
@@ -86,175 +84,95 @@ private val categoryIcons = mapOf(
  * categories, each with its topics, and every topic as step-by-step rites —
  * what to do, why, and what to say — in Arabic with an English rendering.
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HajjUmrahScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: LearnViewModel = hiltViewModel(),
 ) {
-    var category by remember { mutableStateOf<HajjCategory?>(null)
-}
+    var category by remember { mutableStateOf<HajjCategory?>(null) }
+    var topic by remember { mutableStateOf<HajjTopic?>(null) }
+    var showCalculator by remember { mutableStateOf(false) }
+    var showSacredMap by remember { mutableStateOf(false) }
+    var tawafCompleted by rememberSaveable { mutableIntStateOf(0) }
+    var saiCompleted by rememberSaveable { mutableIntStateOf(0) }
 
-    var topic by remember { mutableStateOf<HajjTopic?>(null)
-}
-
-
-    // System back steps out of the topic, then the category, then the screen
-    // (mirrors the toolbar arrow) — never skips straight to the More root.
     BackHandler(enabled = topic != null || category != null) {
         when {
             topic != null -> topic = null
             category != null -> category = null
-
-}
-
-
-}
-
-    var showCalculator by remember { mutableStateOf(false)
-}
-
-    var showSacredMap by remember { mutableStateOf(false)
-}
-
-    var tawafCompleted by rememberSaveable { mutableIntStateOf(0)
-}
-
-    var saiCompleted by rememberSaveable { mutableIntStateOf(0)
-}
+        }
+    }
 
     val currentCategory = category
     val currentTopic = topic
     val hajjCheckedSteps by viewModel.hajjCheckedSteps.collectAsStateWithLifecycle()
     val hajjCompanionEnabled by viewModel.hajjCompanionEnabled.collectAsStateWithLifecycle()
-
-    // English renderings are hidden for Arabic UI: each language shows its
-    // own texts — an Arabic reader reads the Arabic content only.
     val showEnglishFallback = AppLanguage.showEnglishFallback()
-
     val title = when {
-        currentTopic != null -> currentTopic!!.title
-        currentCategory != null -> currentCategory!!.title
+        currentTopic != null -> currentTopic.title
+        currentCategory != null -> currentCategory.title
         else -> stringResource(R.string.hajj_title)
-
-}
-
+    }
 
     if (showCalculator) {
         HajjDaysCalculatorScreen(
-            onBack = { showCalculator = false
-}
-,
+            onBack = { showCalculator = false },
             modifier = modifier,
         )
         return
-
-}
-
+    }
 
     if (showSacredMap) {
-        SacredSitesMapScreen(onBack = { showSacredMap = false
-}
-, modifier = modifier)
+        SacredSitesMapScreen(
+            onBack = { showSacredMap = false },
+            modifier = modifier,
+        )
         return
+    }
 
-}
-
-
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(title, maxLines = 1)
-}
-,
-                navigationIcon = {
-                    IconButton(
-                        onClick = {
-                            when {
-                                topic != null -> topic = null
-                                category != null -> category = null
-                                else -> onBack()
-
-}
-
-
-}
-,
-                    ) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.learn_back),
-                        )
-
-}
-
-
-}
-,
+            MuslimTopBar(
+                title = title,
+                onNavigateBack = {
+                    when {
+                        topic != null -> topic = null
+                        category != null -> category = null
+                        else -> onBack()
+                    }
+                },
+                navigationContentDescription = stringResource(R.string.learn_back),
             )
-
-}
-,
-    ) { innerPadding ->
+        },
+    ) {
         when {
-            currentTopic != null -> {
-                TopicDetail(
-                    topic = currentTopic!!,
-                    checkedSteps = hajjCheckedSteps,
-                    onToggleStep = viewModel::toggleHajjStep,
-                    showEnglishFallback = showEnglishFallback,
-                    modifier = Modifier.padding(innerPadding),
-                )
-
-}
-
-            currentCategory != null -> {
-                TopicList(
-                    category = currentCategory!!,
-                    showEnglishFallback = showEnglishFallback,
-                    modifier = Modifier.padding(innerPadding),
-                    onOpen = { topic = it
-}
-,
-                )
-
-}
-
-            else -> {
-                CategoryHub(
-                    showEnglishFallback = showEnglishFallback,
-                    modifier = Modifier.padding(innerPadding),
-                    onOpen = { category = it
-}
-,
-                    onOpenCalculator = { showCalculator = true
-}
-,
-                    onOpenSacredMap = { showSacredMap = true
-}
-,
-                    tawafCompleted = tawafCompleted,
-                    saiCompleted = saiCompleted,
-                    onTawafChanged = { tawafCompleted = it
-}
-,
-                    onSaiChanged = { saiCompleted = it
-}
-,
-                    hajjCompanionEnabled = hajjCompanionEnabled,
-                    onToggleCompanion = viewModel::setHajjCompanionEnabled,
-                )
-
-}
-
-
-}
-
-
-}
-
+            currentTopic != null -> TopicDetail(
+                topic = currentTopic,
+                checkedSteps = hajjCheckedSteps,
+                onToggleStep = viewModel::toggleHajjStep,
+                showEnglishFallback = showEnglishFallback,
+            )
+            currentCategory != null -> TopicList(
+                category = currentCategory,
+                showEnglishFallback = showEnglishFallback,
+                onOpen = { topic = it },
+            )
+            else -> CategoryHub(
+                showEnglishFallback = showEnglishFallback,
+                onOpen = { category = it },
+                onOpenCalculator = { showCalculator = true },
+                onOpenSacredMap = { showSacredMap = true },
+                tawafCompleted = tawafCompleted,
+                saiCompleted = saiCompleted,
+                onTawafChanged = { tawafCompleted = it },
+                onSaiChanged = { saiCompleted = it },
+                hajjCompanionEnabled = hajjCompanionEnabled,
+                onToggleCompanion = viewModel::setHajjCompanionEnabled,
+            )
+        }
+    }
 }
 
 @Suppress("LongParameterList", "LongMethod")
@@ -274,7 +192,7 @@ private fun CategoryHub(
 ) {
     LazyColumn(
         modifier = modifier.fillMaxSize(),
-        contentPadding = PaddingValues(bottom = 24.dp),
+        contentPadding = PaddingValues(bottom = IslamicSpacing.Large),
     ) {
         item {
             RitualTrackerCard(
@@ -282,7 +200,10 @@ private fun CategoryHub(
                 sai = RitualCounter(saiCompleted),
                 onTawafChanged = onTawafChanged,
                 onSaiChanged = onSaiChanged,
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp),
+                modifier = Modifier.padding(
+                    horizontal = IslamicSpacing.PageHorizontal,
+                    vertical = IslamicSpacing.XSmall,
+                ),
             )
 
 }
