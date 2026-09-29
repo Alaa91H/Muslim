@@ -3,6 +3,10 @@
     <string name="zakat_title">Zakat</string>
     <string name="zakat_back">Back</string>
     <string name="zakat_money_section">Zakat on wealth</string>
+    <string name="zakat_step_assets">Assets</string>
+    <string name="zakat_step_debts">Debts</string>
+    <string name="zakat_step_nisab">Nisab</string>
+    <string name="zakat_step_result">Result</string>
     <string name="zakat_country_section">Country &amp; currency</string>
     <string name="zakat_country">Country</string>
     <string name="zakat_country_placeholder">Choose your country and currency</string>
