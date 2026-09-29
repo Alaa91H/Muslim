@@ -3,6 +3,8 @@
     <string name="reference_title">المكتبة المرجعية الإسلامية</string>
     <string name="reference_back">رجوع</string>
     <string name="reference_search_hint">ابحث في الكتاب…</string>
+    <string name="reference_library_search_hint" tools:ignore="MissingTranslation">ابحث في جميع كتب المكتبة…</string>
+    <string name="reference_search_clear" tools:ignore="MissingTranslation">مسح البحث</string>
     <string name="reference_no_results">لا توجد نتائج مطابقة</string>
     <string name="reference_topics_count">موضوعًا</string>
     <string name="reference_copy">نسخ</string>
