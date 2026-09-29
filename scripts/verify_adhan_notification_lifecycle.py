@@ -68,7 +68,7 @@ REQUIRED_SNIPPETS = {
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeScreen.kt": [
         "PrayerAlertAction(",
         "HomeAdhanCustomizationDialog",
-        "onClick = { customizingPrayer = prayer }",
+        "onCustomizePrayer = { customizingPrayer = it }",
         "state.prayerAlerts[prayer]",
         "Prayer.Sunrise",
     ],
