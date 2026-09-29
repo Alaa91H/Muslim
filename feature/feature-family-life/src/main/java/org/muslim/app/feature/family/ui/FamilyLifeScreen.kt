@@ -21,7 +21,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.ChildCare
 import androidx.compose.material.icons.filled.DateRange
@@ -30,10 +29,8 @@ import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Security
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -41,7 +38,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -65,10 +61,12 @@ import kotlinx.coroutines.launch
 import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.core.ui.text.DigitNormalizedOutlinedTextField
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicDecorationBand
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.family.R
@@ -119,7 +117,6 @@ private data class FamilyDestinationActions(
     val openAdhkar: () -> Unit,
 )
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FamilyLifeScreen(
     onBack: () -> Unit,
@@ -201,7 +198,6 @@ fun FamilyLifeScreen(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun FamilyLifeScaffold(
     model: FamilyScreenModel,
@@ -213,18 +209,18 @@ private fun FamilyLifeScaffold(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            FamilyLifeTopBar(
+            MuslimTopBar(
                 title = model.selectedArticle?.title?.pick(model.isArabic) ?: model.section.title(),
-                onBack = onBack,
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.learn_back),
             )
         },
-    ) { innerPadding ->
+    ) {
         FamilyLifeContentHost(
-            modifier = Modifier.padding(innerPadding),
             model = model,
             state = state,
             viewModel = viewModel,
@@ -250,7 +246,7 @@ private fun FamilyLifeContentHost(
         )
         IslamicDecorationDivider(
             tint = MaterialTheme.colorScheme.tertiary,
-            modifier = Modifier.padding(horizontal = 24.dp),
+            modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
         )
         FamilyLifeDestination(
             model = model,
@@ -383,24 +379,6 @@ private fun openFamilyHubDestination(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun FamilyLifeTopBar(
-    title: String,
-    onBack: () -> Unit,
-) {
-    TopAppBar(
-        title = { Text(title) },
-        navigationIcon = {
-            IconButton(onClick = onBack) {
-                Icon(
-                    Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = stringResource(R.string.learn_back),
-                )
-            }
-        },
-    )
-}
-
-@Composable
 private fun FamilySection.title(): String = when (this) {
     FamilySection.Home -> stringResource(R.string.family_life_title)
     FamilySection.Search -> stringResource(R.string.family_global_search_title)
@@ -421,8 +399,11 @@ private fun RuqyahContent(
     val audioUnavailableMessage = stringResource(R.string.family_audio_unavailable)
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp),
+        contentPadding = PaddingValues(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Compact,
+        ),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         item { RuqyahIntroAndGuidance(isArabic) }
         item { FamilySectionHeading(stringResource(R.string.family_ruqyah_passages_title)) }
