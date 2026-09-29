@@ -1090,7 +1090,7 @@ fun QuranReaderScreen(
     }
 }
 
-private fun ayahShareText(
+internal fun ayahShareText(
     ayah: Ayah,
     surahName: String,
 ): String = buildString {
