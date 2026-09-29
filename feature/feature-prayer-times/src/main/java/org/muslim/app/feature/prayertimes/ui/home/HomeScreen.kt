@@ -350,77 +350,85 @@ private fun DailyPrayerSchedule(
     ) {
         trackablePrayers.forEachIndexed { index, prayer ->
             if (index > 0) HorizontalDivider()
-            val isNextPrayer = prayer == state.nextPrayer
-            val stateDescription = if (isNextPrayer) {
-                stringResource(R.string.home_next_prayer)
-            } else {
-                null
-            }
+            DailyPrayerRow(
+                prayer = prayer,
+                state = state,
+                use24h = use24h,
+                compact = compact,
+                onCustomizePrayer = onCustomizePrayer,
+            )
+        }
+    }
+}
 
-            Surface(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .then(
-                        stateDescription?.let { description ->
-                            Modifier.semantics { this.stateDescription = description }
-                        } ?: Modifier,
-                    ),
-                shape = MaterialTheme.shapes.medium,
-                color = if (isNextPrayer) {
-                    MaterialTheme.colorScheme.tertiaryContainer
-                } else {
-                    Color.Transparent
-                },
-            ) {
-                Row(
-                    modifier = Modifier.padding(
-                        horizontal = IslamicSpacing.Compact,
-                        vertical = if (compact) IslamicSpacing.Small else IslamicSpacing.Compact,
-                    ),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
-                ) {
-                    Icon(
-                        imageVector = prayerIcon(prayer),
-                        contentDescription = null,
-                        tint = if (isNextPrayer) {
-                            MaterialTheme.colorScheme.onTertiaryContainer
-                        } else {
-                            MaterialTheme.colorScheme.primary
-                        },
-                        modifier = Modifier.size(IslamicIconSize.Standard),
-                    )
-                    Text(
-                        text = stringResource(prayerLabelRes(prayer)),
-                        style = MaterialTheme.typography.bodyLarge,
-                        fontWeight = if (isNextPrayer) FontWeight.Bold else FontWeight.Normal,
-                        color = if (isNextPrayer) {
-                            MaterialTheme.colorScheme.onTertiaryContainer
-                        } else {
-                            MaterialTheme.colorScheme.onSurface
-                        },
-                    )
-                    Spacer(Modifier.weight(1f))
-                    state.times[prayer]?.let { time ->
-                        Text(
-                            text = time.format(TimeFormats.timeFormatter(use24h)),
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = if (isNextPrayer) FontWeight.Bold else FontWeight.Normal,
-                            color = if (isNextPrayer) {
-                                MaterialTheme.colorScheme.onTertiaryContainer
-                            } else {
-                                MaterialTheme.colorScheme.onSurface
-                            },
-                        )
-                    }
-                    PrayerAlertAction(
-                        prayer = prayer,
-                        alert = state.prayerAlerts[prayer] ?: HomeViewModel.PrayerAlert(),
-                        isNextPrayer = isNextPrayer,
-                        onClick = { onCustomizePrayer(prayer) },
-                    )
-                }
+@Composable
+private fun DailyPrayerRow(
+    prayer: Prayer,
+    state: HomeViewModel.UiState,
+    use24h: Boolean,
+    compact: Boolean,
+    onCustomizePrayer: (Prayer) -> Unit,
+) {
+    val isNextPrayer = prayer == state.nextPrayer
+    val rowContentColor = if (isNextPrayer) {
+        MaterialTheme.colorScheme.onTertiaryContainer
+    } else {
+        MaterialTheme.colorScheme.onSurface
+    }
+    val semanticModifier = if (isNextPrayer) {
+        Modifier.semantics {
+            stateDescription = stringResource(R.string.home_next_prayer)
+        }
+    } else {
+        Modifier
+    }
+
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .then(semanticModifier),
+        shape = MaterialTheme.shapes.medium,
+        color = if (isNextPrayer) {
+            MaterialTheme.colorScheme.tertiaryContainer
+        } else {
+            Color.Transparent
+        },
+    ) {
+        Row(
+            modifier = Modifier.padding(
+                horizontal = IslamicSpacing.Compact,
+                vertical = if (compact) IslamicSpacing.Small else IslamicSpacing.Compact,
+            ),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+        ) {
+            Icon(
+                imageVector = prayerIcon(prayer),
+                contentDescription = null,
+                tint = if (isNextPrayer) rowContentColor else MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(IslamicIconSize.Standard),
+            )
+            Text(
+                text = stringResource(prayerLabelRes(prayer)),
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = if (isNextPrayer) FontWeight.Bold else FontWeight.Normal,
+                color = rowContentColor,
+            )
+            Spacer(Modifier.weight(1f))
+            state.times[prayer]?.let { time ->
+                Text(
+                    text = time.format(TimeFormats.timeFormatter(use24h)),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = if (isNextPrayer) FontWeight.Bold else FontWeight.Normal,
+                    color = rowContentColor,
+                )
             }
+            PrayerAlertAction(
+                prayer = prayer,
+                alert = state.prayerAlerts[prayer] ?: HomeViewModel.PrayerAlert(),
+                isNextPrayer = isNextPrayer,
+                onClick = { onCustomizePrayer(prayer) },
+            )
         }
     }
 }
@@ -590,85 +598,111 @@ private fun MonthlyTimetable(
             .fillMaxWidth()
             .horizontalScroll(horizontalState),
     ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
+        MonthlyTimetableHeader(state)
+        HorizontalDivider()
+        state.monthDays.forEach { day ->
+            MonthlyTimetableRow(
+                day = day,
+                selected = day.date == state.selectedDate,
+                use24h = use24h,
+            )
+            HorizontalDivider()
+        }
+    }
+}
+
+@Composable
+private fun MonthlyTimetableHeader(state: HomeViewModel.UiState) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        MonthlyHeaderCell(
+            text = state.month.toString(),
+            width = MonthlyDayColumnWidth,
+        )
+        Prayer.entries.forEach { prayer ->
             MonthlyHeaderCell(
-                text = state.month.toString(),
-                width = MonthlyDayColumnWidth,
+                text = stringResource(prayerLabelRes(prayer)),
+                width = MonthlyPrayerColumnWidth,
+            )
+        }
+    }
+}
+
+@Composable
+private fun MonthlyTimetableRow(
+    day: HomeViewModel.DayTimes,
+    selected: Boolean,
+    use24h: Boolean,
+) {
+    val friday = day.date.dayOfWeek == DayOfWeek.FRIDAY
+    val contentColor = if (selected) {
+        MaterialTheme.colorScheme.onSecondaryContainer
+    } else {
+        MaterialTheme.colorScheme.onSurface
+    }
+    Surface(
+        color = when {
+            selected -> MaterialTheme.colorScheme.secondaryContainer
+            friday -> MaterialTheme.colorScheme.surfaceContainerLow
+            else -> Color.Transparent
+        },
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            MonthlyDayCell(
+                day = day,
+                selected = selected,
+                contentColor = contentColor,
             )
             Prayer.entries.forEach { prayer ->
-                MonthlyHeaderCell(
-                    text = stringResource(prayerLabelRes(prayer)),
-                    width = MonthlyPrayerColumnWidth,
+                Text(
+                    text = day.times[prayer]
+                        ?.format(TimeFormats.timeFormatter(use24h))
+                        ?: "—",
+                    modifier = Modifier
+                        .width(MonthlyPrayerColumnWidth)
+                        .padding(
+                            horizontal = IslamicSpacing.XSmall,
+                            vertical = IslamicSpacing.Compact,
+                        ),
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.labelLarge,
+                    color = contentColor,
+                    maxLines = 1,
                 )
             }
         }
-        HorizontalDivider()
+    }
+}
 
-        state.monthDays.forEach { day ->
-            val selected = day.date == state.selectedDate
-            val friday = day.date.dayOfWeek == DayOfWeek.FRIDAY
-            Surface(
-                color = when {
-                    selected -> MaterialTheme.colorScheme.secondaryContainer
-                    friday -> MaterialTheme.colorScheme.surfaceContainerLow
-                    else -> Color.Transparent
-                },
-            ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Column(
-                        modifier = Modifier
-                            .width(MonthlyDayColumnWidth)
-                            .padding(
-                                horizontal = IslamicSpacing.Small,
-                                vertical = IslamicSpacing.Small,
-                            ),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                    ) {
-                        Text(
-                            text = day.date.dayOfMonth.toString(),
-                            style = MaterialTheme.typography.titleSmall,
-                            fontWeight = if (selected) FontWeight.Bold else FontWeight.SemiBold,
-                            color = if (selected) {
-                                MaterialTheme.colorScheme.onSecondaryContainer
-                            } else {
-                                MaterialTheme.colorScheme.onSurface
-                            },
-                        )
-                        Text(
-                            text = day.hijriDay.toString(),
-                            style = MaterialTheme.typography.labelSmall,
-                            color = if (selected) {
-                                MaterialTheme.colorScheme.onSecondaryContainer
-                            } else {
-                                MaterialTheme.colorScheme.primary
-                            },
-                        )
-                    }
-                    Prayer.entries.forEach { prayer ->
-                        Text(
-                            text = day.times[prayer]
-                                ?.format(TimeFormats.timeFormatter(use24h))
-                                ?: "—",
-                            modifier = Modifier
-                                .width(MonthlyPrayerColumnWidth)
-                                .padding(
-                                    horizontal = IslamicSpacing.XSmall,
-                                    vertical = IslamicSpacing.Compact,
-                                ),
-                            textAlign = TextAlign.Center,
-                            style = MaterialTheme.typography.labelLarge,
-                            color = if (selected) {
-                                MaterialTheme.colorScheme.onSecondaryContainer
-                            } else {
-                                MaterialTheme.colorScheme.onSurface
-                            },
-                            maxLines = 1,
-                        )
-                    }
-                }
-            }
-            HorizontalDivider()
-        }
+@Composable
+private fun MonthlyDayCell(
+    day: HomeViewModel.DayTimes,
+    selected: Boolean,
+    contentColor: Color,
+) {
+    Column(
+        modifier = Modifier
+            .width(MonthlyDayColumnWidth)
+            .padding(
+                horizontal = IslamicSpacing.Small,
+                vertical = IslamicSpacing.Small,
+            ),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(
+            text = day.date.dayOfMonth.toString(),
+            style = MaterialTheme.typography.titleSmall,
+            fontWeight = if (selected) FontWeight.Bold else FontWeight.SemiBold,
+            color = contentColor,
+        )
+        Text(
+            text = day.hijriDay.toString(),
+            style = MaterialTheme.typography.labelSmall,
+            color = if (selected) {
+                MaterialTheme.colorScheme.onSecondaryContainer
+            } else {
+                MaterialTheme.colorScheme.primary
+            },
+        )
     }
 }
 
