@@ -95,6 +95,8 @@ fun QuranDownloadsScreen(
     val reciterState by viewModel.reciterState.collectAsStateWithLifecycle()
     var confirmDeleteSurah by remember { mutableStateOf<Int?>(null) }
     var confirmDeleteReciter by remember { mutableStateOf(false) }
+    var coverageExpanded by rememberSaveable { mutableStateOf(false) }
+    var downloadedExpanded by rememberSaveable { mutableStateOf(false) }
     val totalSummary by viewModel.totalSummary.collectAsStateWithLifecycle()
     val libraryScan by viewModel.libraryScan.collectAsStateWithLifecycle()
     val surahCoverage by viewModel.surahCoverage.collectAsStateWithLifecycle()
@@ -116,24 +118,17 @@ fun QuranDownloadsScreen(
         if (pageReciter.id != selectedReciterId) viewModel.selectReciter(pageReciter.id)
     }
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimAdaptiveScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.quran_downloads_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.quran_back))
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.quran_downloads_title),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.quran_back),
             )
         },
-    ) { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding),
-        ) {
+    ) { _ ->
+        Column(modifier = Modifier.fillMaxSize()) {
             IslamicReadingHeaderDecoration(
                 tint = MaterialTheme.colorScheme.tertiary,
                 modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
@@ -141,12 +136,21 @@ fun QuranDownloadsScreen(
             // Everything downloaded across all reciters, at a glance.
             TotalSummaryCard(summary = totalSummary)
 
-            // How full every surah is when all reciters are taken together.
-            SurahCoverageSection(
-                coverages = surahCoverage,
-                activeReciterCount = libraryScan.activeReciterCount,
-                totalMushafAyahs = viewModel.totalMushafAyahs,
-            )
+            MuslimExpandableSection(
+                title = stringResource(R.string.quran_downloads_coverage_title),
+                expanded = coverageExpanded,
+                onExpandedChange = { coverageExpanded = it },
+                modifier = Modifier.padding(
+                    horizontal = IslamicSpacing.Medium,
+                    vertical = IslamicSpacing.XSmall,
+                ),
+            ) {
+                SurahCoverageSection(
+                    coverages = surahCoverage,
+                    activeReciterCount = libraryScan.activeReciterCount,
+                    totalMushafAyahs = viewModel.totalMushafAyahs,
+                )
+            }
 
             PrimaryScrollableTabRow(
                 selectedTabIndex = pagerState.currentPage.coerceIn(0, reciters.size - 1),
@@ -197,171 +201,60 @@ fun QuranDownloadsScreen(
 
                     Spacer(Modifier.height(IslamicSpacing.Compact))
 
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        FilterChip(
-                            selected = scope == DownloadScope.Ayah,
-                            onClick = { viewModel.setScope(DownloadScope.Ayah) },
-                            label = { Text(stringResource(R.string.quran_download_scope_ayah)) },
-                        )
-                        FilterChip(
-                            selected = scope == DownloadScope.Surah,
-                            onClick = { viewModel.setScope(DownloadScope.Surah) },
-                            label = { Text(stringResource(R.string.quran_download_scope_surah)) },
-                        )
-                        FilterChip(
-                            selected = scope == DownloadScope.FullQuran,
-                            onClick = { viewModel.setScope(DownloadScope.FullQuran) },
-                            label = { Text(stringResource(R.string.quran_download_scope_full)) },
-                        )
-                    }
-
-                    Spacer(Modifier.height(IslamicSpacing.Compact))
-
-                    when (scope) {
-                        DownloadScope.Ayah -> {
-                            Row {
-                                OutlinedTextField(
-                                    value = surahInput,
-                                    onValueChange = viewModel::setSurahInput,
-                                    label = { Text(stringResource(R.string.quran_download_surah_number)) },
-                                    singleLine = true,
-                                    modifier = Modifier.weight(1f),
-                                )
-                                Spacer(Modifier.width(IslamicSpacing.Compact))
-                                OutlinedTextField(
-                                    value = ayahInput,
-                                    onValueChange = viewModel::setAyahInput,
-                                    label = { Text(stringResource(R.string.quran_download_ayah_number)) },
-                                    singleLine = true,
-                                    modifier = Modifier.weight(1f),
-                                )
-                            }
-                        }
-                        DownloadScope.Surah -> {
-                            OutlinedTextField(
-                                value = surahInput,
-                                onValueChange = viewModel::setSurahInput,
-                                label = { Text(stringResource(R.string.quran_download_surah_number)) },
-                                singleLine = true,
-                                modifier = Modifier.fillMaxWidth(),
-                            )
-                        }
-                        DownloadScope.FullQuran -> {
-                            Text(
-                                text = stringResource(R.string.quran_download_full_hint),
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                        }
-                    }
-
-                    Spacer(Modifier.height(IslamicSpacing.Compact))
-
-                    when {
-                        verifiedBytes != null -> {
-                            Text(
-                                text = stringResource(R.string.quran_download_size_verified, formatBytes(verifiedBytes!!)),
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.primary,
-                            )
-                        }
-                        estimateBytes != null -> {
-                            Text(
-                                text = stringResource(R.string.quran_download_size_estimate, formatBytes(estimateBytes!!)),
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.primary,
-                            )
-                        }
-                        else -> {
-                            Text(
-                                text = stringResource(R.string.quran_download_size_unknown),
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                        }
-                    }
-
-                    Spacer(Modifier.height(IslamicSpacing.Compact))
-
-                    // Night-only downloads (التحميل الليلي): defer the transfer
-                    // to the configured window to save data and battery.
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Column(Modifier.weight(1f)) {
-                            Text(
-                                text = stringResource(R.string.quran_download_night_only),
-                                style = MaterialTheme.typography.bodyLarge,
-                            )
-                            Text(
-                                text = stringResource(
-                                    R.string.quran_download_night_hint,
-                                    formatWindow(nightWindowStart, nightWindowEnd),
-                                ),
-                                style = MaterialTheme.typography.labelSmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                        }
-                        Switch(
-                            checked = nightOnly,
-                            onCheckedChange = viewModel::setNightOnly,
-                        )
-                    }
-
-                    if (nightOnly) {
-                        Spacer(Modifier.height(IslamicSpacing.Small))
-                        Text(
-                            text = stringResource(R.string.quran_download_night_window_title),
-                            style = MaterialTheme.typography.titleSmall,
-                            color = MaterialTheme.colorScheme.primary,
-                        )
-                        Spacer(Modifier.height(IslamicSpacing.XSmall))
-                        Row {
-                            TimeDropdown(
-                                label = stringResource(R.string.quran_download_night_start),
-                                selectedMinutes = nightWindowStart,
-                                options = nightTimeOptions,
-                                onSelected = viewModel::setNightWindowStart,
-                                modifier = Modifier.weight(1f),
-                            )
-                            Spacer(Modifier.width(IslamicSpacing.Compact))
-                            TimeDropdown(
-                                label = stringResource(R.string.quran_download_night_end),
-                                selectedMinutes = nightWindowEnd,
-                                options = nightTimeOptions,
-                                onSelected = viewModel::setNightWindowEnd,
-                                modifier = Modifier.weight(1f),
-                            )
-                        }
-                    }
-
-                    Spacer(Modifier.height(IslamicSpacing.Compact))
-
-                    IslamicPrimaryButton(
-                        onClick = viewModel::startDownload,
-                        enabled = estimateBytes != null,
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        Text(stringResource(R.string.quran_download_start))
-                    }
+                    DownloadConfigurationPanel(
+                        state = DownloadConfigurationState(
+                            scope = scope,
+                            surahInput = surahInput,
+                            ayahInput = ayahInput,
+                            verifiedBytes = verifiedBytes,
+                            estimateBytes = estimateBytes,
+                            nightOnly = nightOnly,
+                            nightWindowStart = nightWindowStart,
+                            nightWindowEnd = nightWindowEnd,
+                        ),
+                        actions = DownloadConfigurationActions(
+                            onScopeChanged = viewModel::setScope,
+                            onSurahInputChanged = viewModel::setSurahInput,
+                            onAyahInputChanged = viewModel::setAyahInput,
+                            onNightOnlyChanged = viewModel::setNightOnly,
+                            onNightWindowStartChanged = viewModel::setNightWindowStart,
+                            onNightWindowEndChanged = viewModel::setNightWindowEnd,
+                            onStartDownload = viewModel::startDownload,
+                        ),
+                    )
 
                     Spacer(Modifier.height(IslamicSpacing.Large))
 
                     // What is already downloaded for this reciter's page.
-                    ReciterStateSection(
-                        state = reciterState,
-                        surahAyahTotals = surahAyahTotals,
-                        sortMode = if (surahSort == "completion") SurahSort.Completion else SurahSort.Mushaf,
-                        onSortModeChanged = { mode ->
-                            viewModel.setSurahSort(if (mode == SurahSort.Completion) "completion" else "mushaf")
+                    MuslimExpandableSection(
+                        title = stringResource(R.string.quran_downloaded_for_reciter),
+                        supportingText = reciterState?.let { current ->
+                            stringResource(
+                                R.string.quran_download_reciter_header,
+                                current.downloadedAyahs,
+                                formatBytes(current.totalBytes),
+                            )
                         },
-                        onDeleteSurah = { confirmDeleteSurah = it },
-                        onDeleteReciter = { confirmDeleteReciter = true },
-                    )
+                        expanded = downloadedExpanded,
+                        onExpandedChange = { downloadedExpanded = it },
+                    ) {
+                        ReciterStateSection(
+                            state = reciterState,
+                            surahAyahTotals = surahAyahTotals,
+                            sortMode = if (surahSort == "completion") {
+                                SurahSort.Completion
+                            } else {
+                                SurahSort.Mushaf
+                            },
+                            onSortModeChanged = { mode ->
+                                viewModel.setSurahSort(
+                                    if (mode == SurahSort.Completion) "completion" else "mushaf",
+                                )
+                            },
+                            onDeleteSurah = { confirmDeleteSurah = it },
+                            onDeleteReciter = { confirmDeleteReciter = true },
+                        )
+                    }
 
                     Spacer(Modifier.height(IslamicSpacing.Large))
 
@@ -434,45 +327,6 @@ fun QuranDownloadsScreen(
                 }
             },
         )
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun TimeDropdown(
-    label: String,
-    selectedMinutes: Int,
-    options: List<Int>,
-    onSelected: (Int) -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    var expanded by remember { mutableStateOf(false) }
-    ExposedDropdownMenuBox(
-        expanded = expanded,
-        onExpandedChange = { expanded = it },
-        modifier = modifier,
-    ) {
-        OutlinedTextField(
-            value = formatMinutes(selectedMinutes),
-            onValueChange = {},
-            readOnly = true,
-            label = { Text(label) },
-            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-            modifier = Modifier
-                .fillMaxWidth()
-                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
-        )
-        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-            options.forEach { minutes ->
-                DropdownMenuItem(
-                    text = { Text(formatMinutes(minutes)) },
-                    onClick = {
-                        expanded = false
-                        onSelected(minutes)
-                    },
-                )
-            }
-        }
     }
 }
 
@@ -858,18 +712,18 @@ private fun ReciterStateSection(
 
     // Sort the downloaded surahs by mushaf order or by completion (incomplete
     // first, so the user sees what needs finishing). Persisted in DataStore.
-    Row(horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small)) {
-        FilterChip(
-            selected = sortMode == SurahSort.Mushaf,
-            onClick = { onSortModeChanged(SurahSort.Mushaf) },
-            label = { Text(stringResource(R.string.quran_download_sort_mushaf)) },
-        )
-        FilterChip(
-            selected = sortMode == SurahSort.Completion,
-            onClick = { onSortModeChanged(SurahSort.Completion) },
-            label = { Text(stringResource(R.string.quran_download_sort_completion)) },
-        )
-    }
+    MuslimSegmentedControl(
+        options = listOf(
+            stringResource(R.string.quran_download_sort_mushaf),
+            stringResource(R.string.quran_download_sort_completion),
+        ),
+        selectedIndex = if (sortMode == SurahSort.Mushaf) 0 else 1,
+        onSelectedIndexChange = { index ->
+            onSortModeChanged(
+                if (index == 0) SurahSort.Mushaf else SurahSort.Completion,
+            )
+        },
+    )
     Spacer(Modifier.height(IslamicSpacing.XSmall))
 
     val sortedEntries = current.surahCounts.entries.sortedWith(
@@ -947,11 +801,3 @@ private fun ReciterStateSection(
         Text(stringResource(R.string.quran_download_delete_reciter))
     }
 }
-
-/** Formats minutes-from-midnight as "HH:MM". */
-private fun formatMinutes(minutes: Int): String =
-    String.format(java.util.Locale.ROOT, "%02d:%02d", minutes / 60, minutes % 60)
-
-/** Formats a window as "HH:MM – HH:MM". */
-private fun formatWindow(startMinutes: Int, endMinutes: Int): String =
-    "${formatMinutes(startMinutes)} – ${formatMinutes(endMinutes)}"
