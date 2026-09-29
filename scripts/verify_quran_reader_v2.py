@@ -41,6 +41,16 @@ def main() -> None:
         "tapping an ayah must open the shared contextual action sheet",
     )
     require(
+        "ReaderSettingsSheet(" in reader
+        and "MuslimBottomSheet(" in reader
+        and "showReaderSettings = true" in reader,
+        "secondary reader settings must use the shared bottom sheet",
+    )
+    require(
+        "onClick = { viewModel.setReaderTheme(theme.next) }" not in reader,
+        "reader theme cycling must not remain a permanently exposed top-bar action",
+    )
+    require(
         'id = "play"' in reader
         and 'id = "bookmark"' in reader
         and 'id = "supplement"' in reader
