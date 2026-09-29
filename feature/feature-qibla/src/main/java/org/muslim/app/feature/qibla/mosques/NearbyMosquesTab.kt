@@ -217,7 +217,6 @@ private fun androidx.compose.foundation.lazy.LazyListScope.mosqueResultSection(
             totalCount = source.size,
             sortMode = sortMode,
             onQueryChange = onSearchQueryChange,
-            onClearQuery = onClearSearch,
             onSortModeChange = onSortModeChange,
         )
     }
@@ -345,7 +344,6 @@ private fun MosqueResultsTools(
     totalCount: Int,
     sortMode: MosqueSortMode,
     onQueryChange: (String) -> Unit,
-    onClearQuery: () -> Unit,
     onSortModeChange: (MosqueSortMode) -> Unit,
 ) {
     MuslimGroup {
