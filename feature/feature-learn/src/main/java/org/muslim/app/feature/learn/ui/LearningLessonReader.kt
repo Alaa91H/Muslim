@@ -31,7 +31,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.MuslimProgressHeader
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.LearningQuizKey
@@ -70,8 +72,11 @@ internal fun LearningLessonReader(
     LazyColumn(
         state = listState,
         modifier = modifier.fillMaxSize(),
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Compact,
+        ),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         lessonIntroItems(
             lesson = lesson,
@@ -274,36 +279,28 @@ private fun LessonProgressCard(
     answered: Int,
     quizCount: Int,
 ) {
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = if (completed) {
-            MaterialTheme.colorScheme.primaryContainer
-        } else {
-            MaterialTheme.colorScheme.surfaceContainerLow
-        },
-    ) {
-        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text(
-                text = stringResource(
-                    if (completed) R.string.learn_lesson_completed else R.string.learn_lesson_in_progress
-                ),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-            )
-            if (quizCount > 0) {
-                val fraction = answered.toFloat() / quizCount.toFloat()
-                LinearProgressIndicator(
-                    progress = { fraction },
-                    modifier = Modifier.fillMaxWidth(),
-                )
-                Text(
-                    text = stringResource(R.string.learn_quiz_progress, answered, quizCount),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
+    val progress = if (quizCount > 0) {
+        answered.toFloat() / quizCount.toFloat()
+    } else if (completed) {
+        1f
+    } else {
+        0f
     }
+    MuslimProgressHeader(
+        title = stringResource(
+            if (completed) {
+                R.string.learn_lesson_completed
+            } else {
+                R.string.learn_lesson_in_progress
+            },
+        ),
+        progress = progress,
+        supportingText = if (quizCount > 0) {
+            stringResource(R.string.learn_quiz_progress, answered, quizCount)
+        } else {
+            null
+        },
+    )
 }
 
 @Composable
