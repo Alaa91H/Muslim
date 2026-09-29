@@ -124,12 +124,22 @@ def main() -> None:
         (HOME, "prayer home"),
         (LOCATION, "location"),
         (HADITH, "Hadith library"),
-        (MORE, "More hub"),
         (SETTINGS, "settings"),
     ):
         source = path.read_text(encoding="utf-8")
         require("MuslimContentFrame" in source, f"{label} must use the adaptive content frame")
-    require("IslamicListItem" in MORE.read_text(encoding="utf-8"), "More hub must use the shared list item")
+
+    more_source = MORE.read_text(encoding="utf-8")
+    require(
+        "MuslimScreen(" in more_source
+        or "MuslimAdaptiveScreen(" in more_source
+        or "MuslimContentFrame" in more_source,
+        "More hub must use a shared adaptive screen/content shell",
+    )
+    require(
+        "MuslimSettingsItem" in more_source,
+        "More hub must use the shared V2 settings/navigation row",
+    )
     home = HOME.read_text(encoding="utf-8")
     location = LOCATION.read_text(encoding="utf-8")
 
