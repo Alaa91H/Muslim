@@ -79,6 +79,11 @@
     <string name="settings_more_order_desc">Customize the order of the More screen sections (Worship, Knowledge, Tools…)</string>
 
     <string name="settings_section_data">Data &amp; privacy</string>
+    <string name="settings_section_storage">Storage &amp; downloads</string>
+    <string name="settings_quran_downloads">Quran downloads</string>
+    <string name="settings_quran_downloads_desc">Manage downloaded recitations and active downloads</string>
+    <string name="settings_scholar_data">Scholar Library content &amp; backup</string>
+    <string name="settings_scholar_data_desc">Import packs and export or restore study data</string>
     <string name="settings_privacy">Privacy policy</string>
     <string name="settings_privacy_desc">How we handle your data: no tracking, everything stays on your device</string>
 
