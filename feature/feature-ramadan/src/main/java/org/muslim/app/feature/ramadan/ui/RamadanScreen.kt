@@ -21,19 +21,18 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.NightsStay
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -49,8 +48,11 @@ import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.IslamicDecorationCorners
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimExpandableSection
+import org.muslim.app.core.ui.theme.MuslimHero
+import org.muslim.app.core.ui.theme.MuslimScreen
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import java.time.Duration
@@ -63,7 +65,7 @@ import java.util.Locale
  * Ramadan mode (PROJECT_PROMPT.md §6 Phase 6): countdowns to suhoor and
  * iftar, the fasting-day tracker, and the optional notifications.
  */
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun RamadanScreen(
     onBack: () -> Unit,
@@ -73,23 +75,21 @@ fun RamadanScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    var habitsExpanded by rememberSaveable { mutableStateOf(false) }
+
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.ramadan_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.ramadan_back))
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.ramadan_title),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.ramadan_back),
             )
         },
-    ) { innerPadding ->
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = IslamicSpacing.Medium),
         ) {
@@ -107,7 +107,13 @@ fun RamadanScreen(
             Spacer(Modifier.height(IslamicSpacing.Compact))
             SuhoorCard(state, viewModel, use24h)
             Spacer(Modifier.height(IslamicSpacing.Medium))
-            HabitTrackerPanel(state = state, viewModel = viewModel)
+            MuslimExpandableSection(
+                title = stringResource(R.string.habit_tracker_title),
+                expanded = habitsExpanded,
+                onExpandedChange = { habitsExpanded = it },
+            ) {
+                HabitTrackerPanel(state = state, viewModel = viewModel)
+            }
             Spacer(Modifier.height(IslamicSpacing.Medium))
             FastingTracker(
                 info = state.info,
@@ -134,55 +140,29 @@ private fun RamadanHeaderCard(state: RamadanUiState) {
     val untilStart = info.daysUntilStart(state.today)
     val remaining = info.daysRemaining(state.today)
 
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.primaryContainer,
-    ) {
-        Box {
-            IslamicDecorationCorners(
-                tint = MaterialTheme.colorScheme.tertiary,
-                compact = true,
+    MuslimHero(
+        title = if (inRamadan) {
+            stringResource(R.string.ramadan_day_of_month, day.toString())
+        } else {
+            stringResource(R.string.ramadan_title)
+        },
+        value = if (inRamadan) {
+            stringResource(R.string.ramadan_days_left, remaining.toString())
+        } else {
+            stringResource(R.string.ramadan_countdown, untilStart.toString())
+        },
+        supportingText = if (inRamadan) {
+            stringResource(R.string.ramadan_hijri_year, info.hijriYear.toString())
+        } else {
+            stringResource(
+                R.string.ramadan_starts_on,
+                formatDate(info.start),
+                formatDate(info.end),
             )
-            Column(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Icon(
-                    Icons.Filled.NightsStay,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                    modifier = Modifier.size(32.dp),
-                )
-                Spacer(Modifier.height(IslamicSpacing.Small))
-                Text(
-                    text = if (inRamadan) {
-                        stringResource(R.string.ramadan_day_of_month, day.toString())
-                    } else {
-                        stringResource(R.string.ramadan_countdown, untilStart.toString())
-                    },
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer,
-                )
-                Spacer(Modifier.height(IslamicSpacing.XSmall))
-                Text(
-                    text = if (inRamadan) {
-                        stringResource(R.string.ramadan_days_left, remaining.toString())
-                    } else {
-                        stringResource(R.string.ramadan_starts_on, formatDate(info.start), formatDate(info.end))
-                    },
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer,
-                )
-                Spacer(Modifier.height(IslamicSpacing.XSmall))
-                Text(
-                    text = stringResource(R.string.ramadan_hijri_year, info.hijriYear.toString()),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f),
-                )
-            }
-        }
-    }
+        },
+        icon = Icons.Filled.NightsStay,
+        iconContentDescription = null,
+    )
 }
 
 @Composable
