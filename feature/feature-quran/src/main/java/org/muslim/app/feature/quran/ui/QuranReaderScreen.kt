@@ -1211,10 +1211,7 @@ private fun Modifier.mirroredIfRtl(): Modifier {
     }
 }
 
-// This Compose surface intentionally keeps the coupled playback controls in one
-// place for state consistency and accessibility semantics. Do not split it into
-// independently stateful bars merely to satisfy a line-count heuristic.
-@Suppress("LongMethod", "LongParameterList")
+@Suppress("LongParameterList")
 @Composable
 private fun RecitationBar(
     playbackState: PlaybackState,
@@ -1242,21 +1239,23 @@ private fun RecitationBar(
     selectedAyahNumber: Int?,
     onPlaySelectedAyah: (() -> Unit)?,
 ) {
-    var repeatMenu by remember { mutableStateOf(false) }
-    var rangeMenu by remember { mutableStateOf(false) }
-    var reciterMenu by remember { mutableStateOf(false) }
+    var showSettings by remember { mutableStateOf(false) }
+
     Surface(
         modifier = Modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.large,
         color = MaterialTheme.colorScheme.surfaceContainerLow,
-        // Explicit content color keeps every label readable in the reader's
-        // light / sepia / night themes (dark-mode contrast fix).
         contentColor = MaterialTheme.colorScheme.onSurface,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
         tonalElevation = IslamicElevation.Resting,
         shadowElevation = IslamicElevation.Raised,
     ) {
-        Column {
+        Column(
+            modifier = Modifier.padding(
+                horizontal = IslamicSpacing.Small,
+                vertical = IslamicSpacing.XSmall,
+            ),
+        ) {
             if (selectedAyahNumber != null && onPlaySelectedAyah != null) {
                 TextButton(
                     onClick = onPlaySelectedAyah,
@@ -1268,110 +1267,36 @@ private fun RecitationBar(
                         modifier = Modifier.size(18.dp),
                     )
                     Spacer(Modifier.width(IslamicSpacing.Small))
-                    Text(stringResource(R.string.quran_play_from_selected_ayah, selectedAyahNumber))
+                    Text(
+                        text = stringResource(
+                            R.string.quran_play_from_selected_ayah,
+                            selectedAyahNumber,
+                        ),
+                    )
                 }
+                IslamicDecorationDivider(tint = MaterialTheme.colorScheme.tertiary)
             }
-            IslamicDecorationDivider(
-                tint = MaterialTheme.colorScheme.tertiary,
-            )
-            // One slim now-playing line: reciter chip + surah/ayah + time, so
-            // there is exactly ONE control bar. The reciter name is shown
-            // next to the surah/ayah and is tappable to pick another reciter.
+
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 8.dp, vertical = 2.dp),
+                modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.XSmall),
             ) {
-                // Reciter chip: the portrait keeps the active reader visually
-                // identifiable and opens the card-based picker on tap.
-                Box {
-                    TextButton(
-                        onClick = { reciterMenu = true },
-                        modifier = Modifier.widthIn(max = 190.dp),
-                    ) {
-                        ReciterPortrait(reciter = reciter, size = 26.dp)
-                        Spacer(Modifier.width(IslamicSpacing.Small))
-                        Text(
-                            text = reciter.name,
-                            style = MaterialTheme.typography.labelMedium,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                        )
-                    }
-                    DropdownMenu(
-                        expanded = reciterMenu,
-                        onDismissRequest = { reciterMenu = false },
-                        modifier = Modifier.widthIn(min = 280.dp, max = 340.dp),
-                    ) {
-                        reciters.forEach { option ->
-                            val selected = option.id == reciter.id
-                            IslamicSelectableCard(
-                                selected = selected,
-                                onClick = {
-                                    reciterMenu = false
-                                    onReciterSelected(option)
-                                },
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(
-                                        horizontal = IslamicSpacing.Small,
-                                        vertical = IslamicSpacing.XSmall,
-                                    ),
-                                shape = RoundedCornerShape(IslamicRadius.AyahMarker),
-                                contentPadding = PaddingValues(
-                                    horizontal = IslamicSpacing.Compact,
-                                    vertical = IslamicSpacing.Compact,
-                                ),
-                                containerColor = if (selected) {
-                                    MaterialTheme.colorScheme.primaryContainer
-                                } else {
-                                    MaterialTheme.colorScheme.surfaceContainerHigh
-                                },
-                            ) {
-                                Row(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    verticalAlignment = Alignment.CenterVertically,
-                                ) {
-                                    ReciterPortrait(reciter = option, size = 48.dp)
-                                    Spacer(Modifier.width(IslamicSpacing.Compact))
-                                    Column(modifier = Modifier.weight(1f)) {
-                                        Text(
-                                            text = option.name,
-                                            style = MaterialTheme.typography.bodyLarge,
-                                            fontWeight = if (selected) {
-                                                FontWeight.SemiBold
-                                            } else {
-                                                FontWeight.Medium
-                                            },
-                                            maxLines = 1,
-                                            overflow = TextOverflow.Ellipsis,
-                                        )
-                                        Spacer(Modifier.height(IslamicSpacing.XXSmall))
-                                        Text(
-                                            text = option.style,
-                                            style = MaterialTheme.typography.labelMedium,
-                                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                            maxLines = 1,
-                                            overflow = TextOverflow.Ellipsis,
-                                        )
-                                    }
-                                    if (selected) {
-                                        Spacer(Modifier.width(IslamicSpacing.Small))
-                                        Icon(
-                                            imageVector = Icons.Filled.Check,
-                                            contentDescription = null,
-                                            tint = MaterialTheme.colorScheme.primary,
-                                            modifier = Modifier.size(20.dp),
-                                        )
-                                    }
-                                }
-                            }
-                        }
-                    }
+                TextButton(
+                    onClick = { showSettings = true },
+                    modifier = Modifier.widthIn(max = 190.dp),
+                ) {
+                    ReciterPortrait(reciter = reciter, size = 26.dp)
+                    Spacer(Modifier.width(IslamicSpacing.Small))
+                    Text(
+                        text = reciter.name,
+                        style = MaterialTheme.typography.labelMedium,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
                 }
+
                 if (playingAyahNumber != null && playbackState != PlaybackState.Idle) {
-                    Spacer(Modifier.width(IslamicSpacing.XSmall))
                     Text(
                         text = stringResource(
                             R.string.quran_mini_surah_ayah,
@@ -1394,137 +1319,190 @@ private fun RecitationBar(
                     Spacer(Modifier.weight(1f))
                 }
             }
+
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 8.dp, vertical = 2.dp),
+                modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceEvenly,
             ) {
-            IconButton(onClick = onPrevious, enabled = hasPrevious) {
-                // SkipPrevious is not in the AutoMirrored set; flip it manually
-                // so the "previous" arrow points forward in RTL layouts.
-                Icon(
-                    imageVector = Icons.Filled.SkipPrevious,
-                    contentDescription = stringResource(R.string.quran_previous_ayah),
-                    modifier = Modifier.mirroredIfRtl(),
-                )
-            }
-            IconButton(onClick = onTogglePlayback, enabled = playbackState != PlaybackState.Idle || currentAyah != null) {
-                Icon(
-                    imageVector = when (playbackState) {
-                        PlaybackState.Playing -> Icons.Filled.Pause
-                        else -> Icons.Filled.PlayArrow
-                    },
-                    contentDescription = stringResource(R.string.quran_play_ayah),
-                )
-            }
-            IconButton(onClick = onNext, enabled = hasNext) {
-                Icon(
-                    imageVector = Icons.Filled.SkipNext,
-                    contentDescription = stringResource(R.string.quran_next_ayah),
-                    modifier = Modifier.mirroredIfRtl(),
-                )
-            }
-
-            // One repeat button: opens a popup with all repeat options; a
-            // single tap selects one (incl. "بدون توقف" continuous playback).
-            Box {
-                TextButton(onClick = { repeatMenu = true }) {
+                IconButton(onClick = onPrevious, enabled = hasPrevious) {
                     Icon(
-                        imageVector = Icons.Filled.Repeat,
-                        contentDescription = stringResource(R.string.quran_repeat),
-                        modifier = Modifier.size(18.dp),
+                        imageVector = Icons.Filled.SkipPrevious,
+                        contentDescription = stringResource(R.string.quran_previous_ayah),
+                        modifier = Modifier.mirroredIfRtl(),
                     )
-                    Spacer(Modifier.width(IslamicSpacing.XSmall))
-                    Text(repeatButtonLabel(repeatCount))
                 }
-                DropdownMenu(expanded = repeatMenu, onDismissRequest = { repeatMenu = false }) {
-                    REPEAT_OPTIONS.forEach { option ->
-                        DropdownMenuItem(
-                            text = { Text(repeatOptionLabel(option)) },
-                            trailingIcon = {
-                                if (repeatCount == option) {
-                                    Icon(
-                                        imageVector = Icons.Filled.Check,
-                                        contentDescription = null,
-                                        modifier = Modifier.size(18.dp),
-                                    )
-                                }
-                            },
-                            onClick = {
-                                repeatMenu = false
-                                onRepeatChanged(option)
-                            },
-                        )
-                    }
-                    // Only meaningful for continuous ("بدون توقف") playback.
-                    if (repeatCount <= 0) {
-                        HorizontalDivider()
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable { onStopAtEndChanged(!stopAtEnd) }
-                                .padding(horizontal = 16.dp, vertical = 12.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Text(
-                                text = stringResource(R.string.quran_stop_at_end_of_mushaf),
-                                style = MaterialTheme.typography.bodyMedium,
-                                modifier = Modifier.weight(1f),
-                            )
-                            Checkbox(
-                                checked = stopAtEnd,
-                                onCheckedChange = onStopAtEndChanged,
-                            )
-                        }
-                    }
+                IconButton(
+                    onClick = onTogglePlayback,
+                    enabled = playbackState != PlaybackState.Idle || currentAyah != null,
+                ) {
+                    Icon(
+                        imageVector = when (playbackState) {
+                            PlaybackState.Playing -> Icons.Filled.Pause
+                            else -> Icons.Filled.PlayArrow
+                        },
+                        contentDescription = stringResource(R.string.quran_play_ayah),
+                    )
                 }
-            }
-
-            // One range button: opens a popup with the playback-range options.
-            Box {
-                TextButton(onClick = { rangeMenu = true }) {
+                IconButton(onClick = onNext, enabled = hasNext) {
+                    Icon(
+                        imageVector = Icons.Filled.SkipNext,
+                        contentDescription = stringResource(R.string.quran_next_ayah),
+                        modifier = Modifier.mirroredIfRtl(),
+                    )
+                }
+                IconButton(onClick = { showSettings = true }) {
                     Icon(
                         imageVector = Icons.Filled.Tune,
-                        contentDescription = stringResource(R.string.quran_play_range),
-                        modifier = Modifier.size(18.dp),
+                        contentDescription = stringResource(R.string.quran_playback_settings),
                     )
-                    Spacer(Modifier.width(IslamicSpacing.XSmall))
-                    Text(rangeButtonLabel(range))
                 }
-                DropdownMenu(expanded = rangeMenu, onDismissRequest = { rangeMenu = false }) {
-                    RecitationRange.entries.forEach { option ->
-                        DropdownMenuItem(
-                            text = { Text(rangeLabel(option)) },
-                            trailingIcon = {
-                                if (range == option) {
-                                    Icon(
-                                        imageVector = Icons.Filled.Check,
-                                        contentDescription = null,
-                                        modifier = Modifier.size(18.dp),
-                                    )
-                                }
-                            },
-                            onClick = {
-                                rangeMenu = false
-                                onRangeChanged(option)
-                            },
+                if (playbackState != PlaybackState.Idle) {
+                    IconButton(onClick = onStop) {
+                        Icon(
+                            imageVector = Icons.Filled.Close,
+                            contentDescription = stringResource(R.string.quran_stop_playback),
                         )
                     }
                 }
             }
+        }
+    }
 
-            // Stop button, only meaningful while something is playing. Kept
-            // inside the single bar so users never see a second control row.
-            if (playbackState != PlaybackState.Idle) {
-                IconButton(onClick = onStop) {
-                    Icon(
-                        imageVector = Icons.Filled.Close,
-                        contentDescription = stringResource(R.string.quran_stop_playback),
-                    )
+    if (showSettings) {
+        RecitationSettingsSheet(
+            reciter = reciter,
+            reciters = reciters,
+            repeatCount = repeatCount,
+            stopAtEnd = stopAtEnd,
+            range = range,
+            onDismiss = { showSettings = false },
+            onReciterSelected = onReciterSelected,
+            onRepeatChanged = onRepeatChanged,
+            onStopAtEndChanged = onStopAtEndChanged,
+            onRangeChanged = onRangeChanged,
+        )
+    }
+}
+
+@Suppress("LongParameterList")
+@Composable
+private fun RecitationSettingsSheet(
+    reciter: Reciter,
+    reciters: List<Reciter>,
+    repeatCount: Int,
+    stopAtEnd: Boolean,
+    range: RecitationRange,
+    onDismiss: () -> Unit,
+    onReciterSelected: (Reciter) -> Unit,
+    onRepeatChanged: (Int) -> Unit,
+    onStopAtEndChanged: (Boolean) -> Unit,
+    onRangeChanged: (RecitationRange) -> Unit,
+) {
+    MuslimBottomSheet(
+        onDismiss = onDismiss,
+        title = stringResource(R.string.quran_playback_settings),
+    ) {
+        Text(
+            text = stringResource(R.string.quran_reciter),
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        reciters.forEach { option ->
+            val selected = option.id == reciter.id
+            IslamicSelectableCard(
+                selected = selected,
+                onClick = { onReciterSelected(option) },
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(IslamicRadius.AyahMarker),
+                contentPadding = PaddingValues(IslamicSpacing.Compact),
+                containerColor = if (selected) {
+                    MaterialTheme.colorScheme.primaryContainer
+                } else {
+                    MaterialTheme.colorScheme.surfaceContainerHigh
+                },
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    ReciterPortrait(reciter = option, size = 40.dp)
+                    Spacer(Modifier.width(IslamicSpacing.Compact))
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = option.name,
+                            style = MaterialTheme.typography.bodyLarge,
+                            fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Medium,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                        Text(
+                            text = option.style,
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    }
+                    if (selected) {
+                        Icon(
+                            imageVector = Icons.Filled.Check,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
+                        )
+                    }
                 }
             }
+        }
+
+        Text(
+            text = stringResource(R.string.quran_repeat),
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        REPEAT_OPTIONS.forEach { option ->
+            IslamicSelectableCard(
+                selected = repeatCount == option,
+                onClick = { onRepeatChanged(option) },
+                modifier = Modifier.fillMaxWidth(),
+                contentPadding = PaddingValues(IslamicSpacing.Compact),
+            ) {
+                Text(
+                    text = repeatOptionLabel(option),
+                    style = MaterialTheme.typography.bodyLarge,
+                )
+            }
+        }
+
+        if (repeatCount <= 0) {
+            MuslimSettingsItem(
+                title = stringResource(R.string.quran_stop_at_end_of_mushaf),
+                onClick = { onStopAtEndChanged(!stopAtEnd) },
+                trailing = {
+                    Switch(
+                        checked = stopAtEnd,
+                        onCheckedChange = onStopAtEndChanged,
+                    )
+                },
+            )
+        }
+
+        Text(
+            text = stringResource(R.string.quran_play_range),
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        RecitationRange.entries.forEach { option ->
+            IslamicSelectableCard(
+                selected = range == option,
+                onClick = { onRangeChanged(option) },
+                modifier = Modifier.fillMaxWidth(),
+                contentPadding = PaddingValues(IslamicSpacing.Compact),
+            ) {
+                Text(
+                    text = rangeLabel(option),
+                    style = MaterialTheme.typography.bodyLarge,
+                )
             }
         }
     }
