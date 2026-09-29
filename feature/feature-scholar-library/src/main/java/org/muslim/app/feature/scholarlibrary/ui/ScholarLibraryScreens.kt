@@ -23,7 +23,6 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.automirrored.filled.LibraryBooks
 import androidx.compose.material.icons.automirrored.filled.NoteAdd
@@ -43,7 +42,6 @@ import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
@@ -54,12 +52,10 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -75,7 +71,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.feature.scholarlibrary.R
+import org.muslim.app.core.ui.theme.MuslimAdaptiveScreen
+import org.muslim.app.core.ui.theme.MuslimMenuAction
+import org.muslim.app.core.ui.theme.MuslimOverflowMenu
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimSearchBar
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.scholarlibrary.domain.Citation
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
 import org.muslim.app.feature.scholarlibrary.domain.ScholarCategory
@@ -86,7 +89,6 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingStatus
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewRating
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySessionStatus
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScholarLibraryScreen(
     onBack: () -> Unit,
@@ -112,8 +114,8 @@ fun ScholarLibraryScreen(
             viewModel.consumeStatusMessage()
         }
     }
-    Scaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimAdaptiveScreen(
+        modifier = modifier,
         topBar = {
             ScholarLibraryTopBar(
                 onBack = onBack,
@@ -123,10 +125,10 @@ fun ScholarLibraryScreen(
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
-    ) { padding ->
+    ) { _ ->
         ScholarLibraryContent(
             state = state,
-            padding = padding,
+            padding = PaddingValues(),
             onImport = { importLauncher.launch(arrayOf("application/json", "text/plain")) },
             onOpenStudyDesk = onOpenStudyDesk,
             onOpenBook = onOpenBook,
@@ -136,7 +138,6 @@ fun ScholarLibraryScreen(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ScholarLibraryTopBar(
     onBack: () -> Unit,
@@ -144,26 +145,37 @@ private fun ScholarLibraryTopBar(
     onOpenAuthors: () -> Unit,
     onOpenDataManager: () -> Unit,
 ) {
-    TopAppBar(
-        title = { Text(stringResource(R.string.scholar_library_title)) },
-        navigationIcon = {
-            IconButton(onClick = onBack) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.scholar_library_back))
-            }
-        },
+    var expanded by remember { mutableStateOf(false) }
+    MuslimTopBar(
+        title = stringResource(R.string.scholar_library_title),
+        onNavigateBack = onBack,
+        navigationContentDescription = stringResource(R.string.scholar_library_back),
         actions = {
-            IconButton(onClick = onOpenAuthors) {
-                Icon(Icons.Filled.Person, contentDescription = stringResource(R.string.scholar_library_authors))
-            }
-            IconButton(onClick = onOpenDataManager) {
-                Icon(
-                    Icons.Filled.Download,
-                    contentDescription = stringResource(R.string.scholar_library_data_manager),
-                )
-            }
-            IconButton(onClick = onOpenStudyDesk) {
-                Icon(Icons.Filled.Bookmarks, contentDescription = stringResource(R.string.scholar_library_study_desk))
-            }
+            MuslimOverflowMenu(
+                expanded = expanded,
+                onExpandedChange = { expanded = it },
+                contentDescription = stringResource(R.string.scholar_library_title),
+                actions = listOf(
+                    MuslimMenuAction(
+                        id = "authors",
+                        label = stringResource(R.string.scholar_library_authors),
+                        icon = Icons.Filled.Person,
+                        onClick = onOpenAuthors,
+                    ),
+                    MuslimMenuAction(
+                        id = "manage",
+                        label = stringResource(R.string.scholar_library_data_manager),
+                        icon = Icons.Filled.Download,
+                        onClick = onOpenDataManager,
+                    ),
+                    MuslimMenuAction(
+                        id = "study",
+                        label = stringResource(R.string.scholar_library_study_desk),
+                        icon = Icons.Filled.Bookmarks,
+                        onClick = onOpenStudyDesk,
+                    ),
+                ),
+            )
         },
     )
 }
@@ -277,15 +289,15 @@ private fun ScholarLibraryCatalog(
 }
 
 @Composable
-private fun LibrarySearchInput(query: String, onQueryChange: (String) -> Unit) {
-    OutlinedTextField(
-        value = query,
-        onValueChange = onQueryChange,
-        modifier = Modifier.fillMaxWidth(),
-        singleLine = true,
-        leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-        label = { Text(stringResource(R.string.scholar_library_search_label)) },
-        placeholder = { Text(stringResource(R.string.scholar_library_search_hint)) },
+private fun LibrarySearchInput(
+    query: String,
+    onQueryChange: (String) -> Unit,
+) {
+    MuslimSearchBar(
+        query = query,
+        onQueryChange = onQueryChange,
+        placeholder = stringResource(R.string.scholar_library_search_hint),
+        clearContentDescription = stringResource(R.string.scholar_library_search_clear),
     )
 }
 
@@ -403,7 +415,6 @@ private fun LazyListScope.catalogItems(
     if (books.isEmpty()) item { EmptyState(stringResource(R.string.scholar_library_no_books)) }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScholarBookDetailScreen(
     bookId: String,
@@ -418,23 +429,20 @@ fun ScholarBookDetailScreen(
     LaunchedEffect(bookId) { viewModel.loadBook(bookId) }
     val book = state.selectedBook
 
-    Scaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            CenterAlignedTopAppBar(
-                title = { Text(book?.title ?: stringResource(R.string.scholar_library_book)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.scholar_library_back))
-                    }
-                },
+            MuslimTopBar(
+                title = book?.title ?: stringResource(R.string.scholar_library_book),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.scholar_library_back),
             )
         },
-    ) { padding ->
+    ) {
         ScholarBookDetailBody(
             book = book,
             state = state,
-            padding = padding,
+            padding = PaddingValues(),
             viewModel = viewModel,
             onAddNote = { notePassage = it },
             onAddFlashcard = { cardPassage = it },
@@ -537,7 +545,6 @@ private fun ScholarBookDialogs(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScholarStudyDeskScreen(
     onBack: () -> Unit,
@@ -549,23 +556,23 @@ fun ScholarStudyDeskScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     var showingAnswerFor by remember { mutableStateOf<Long?>(null) }
 
-    Scaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.scholar_library_study_desk)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.scholar_library_back))
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.scholar_library_study_desk),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.scholar_library_back),
             )
         },
-    ) { padding ->
+    ) {
         LazyColumn(
-            modifier = Modifier.fillMaxSize().padding(padding),
-            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp),
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = PaddingValues(
+                horizontal = IslamicSpacing.PageHorizontal,
+                vertical = IslamicSpacing.Compact,
+            ),
+            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
         ) {
             studyActivityItems(state, onOpenReviewCenter)
             studySessionItems(state, onOpenSession)
