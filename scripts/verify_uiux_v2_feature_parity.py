@@ -43,6 +43,11 @@ def main() -> None:
     require_in(
         app,
         [
+            "fun PrimaryNavigationBar",
+            "fun PrimaryNavigationRail",
+            "IslamicLayout.adaptiveSpec(maxWidth)",
+            "saveState = true",
+            "restoreState = true",
             '"home"', '"quran"', '"qibla"', '"more"',
             '"quran/reader"', '"quran/bookmarks"', '"settings"',
             '"accessibility"', '"settings/smart-devices"', '"settings/prayer"',
