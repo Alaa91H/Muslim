@@ -194,8 +194,16 @@ REQUIRED_SNIPPETS = {
         "IslamicCard",
         "IslamicDecorationDivider",
         "IslamicReadingHeaderDecoration",
+        "MuslimAdaptiveScreen",
+        "MuslimTopBar",
+        "MuslimExpandableSection",
+        "MuslimHero",
+    ],
+    "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/QuranDownloadConfigurationV2.kt": [
         "IslamicPrimaryButton",
-        "MuslimAppScaffold",
+        "MuslimSegmentedControl",
+        "MuslimExpandableSection",
+        "MuslimSettingsItem",
     ],
     "feature/feature-family-life/src/main/java/org/muslim/app/feature/family/ui/FamilyLifeScreen.kt": [
         "IslamicCard",
