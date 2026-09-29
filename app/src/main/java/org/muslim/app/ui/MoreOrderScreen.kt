@@ -24,7 +24,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
@@ -54,10 +53,6 @@ import org.muslim.app.core.ui.theme.MuslimInlineMessage
 import org.muslim.app.core.ui.theme.MuslimScreen
 import org.muslim.app.core.ui.theme.MuslimTopBar
 
-/**
- * Lets the user customize the More hub while preserving the persisted section
- * identifiers and DataStore contract used by [MoreScreen].
- */
 @Composable
 fun MoreOrderScreen(
     onBack: () -> Unit,
@@ -66,20 +61,11 @@ fun MoreOrderScreen(
 ) {
     val order by viewModel.sectionOrder.collectAsStateWithLifecycle()
     val hidden by viewModel.hiddenSections.collectAsStateWithLifecycle()
-    val sections = remember { mutableStateListOf<String>() }
+    val reorderState = remember { MoreReorderState() }
 
     LaunchedEffect(order) {
-        if (sections.toList() != order) {
-            sections.clear()
-            sections.addAll(order)
-        }
+        reorderState.sync(order)
     }
-
-    var draggingId by remember { mutableStateOf<String?>(null) }
-    var dragStartIndex by remember { mutableIntStateOf(-1) }
-    var dragOffsetY by remember { mutableFloatStateOf(0f) }
-    var dragTargetIndex by remember { mutableIntStateOf(-1) }
-    val rowHeightPx = with(LocalDensity.current) { ROW_HEIGHT.toPx() }
 
     MuslimScreen(
         modifier = modifier,
@@ -91,98 +77,105 @@ fun MoreOrderScreen(
             )
         },
     ) {
-        Column(
+        MoreOrderContent(
+            reorderState = reorderState,
+            hiddenSections = hidden,
+            onToggleSection = { id, shown ->
+                viewModel.setSectionHidden(id, !shown)
+            },
+            onPersistOrder = viewModel::setOrder,
+            onReset = viewModel::reset,
+        )
+    }
+}
+
+@Composable
+private fun MoreOrderContent(
+    reorderState: MoreReorderState,
+    hiddenSections: Set<String>,
+    onToggleSection: (String, Boolean) -> Unit,
+    onPersistOrder: (List<String>) -> Unit,
+    onReset: () -> Unit,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = IslamicSpacing.PageHorizontal),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+    ) {
+        IslamicDecorationBand(
+            tint = MaterialTheme.colorScheme.tertiary,
+            compact = true,
+        )
+        MuslimInlineMessage(
+            message = stringResource(R.string.more_order_hint),
+        )
+
+        reorderState.sections.forEach { id ->
+            ReorderableSectionRow(
+                id = id,
+                title = stringResource(sectionTitleRes(id)),
+                shown = id !in hiddenSections,
+                state = reorderState,
+                onToggle = { shown -> onToggleSection(id, shown) },
+                onPersistOrder = onPersistOrder,
+            )
+        }
+
+        IslamicSecondaryButton(
+            onClick = onReset,
             modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(horizontal = IslamicSpacing.PageHorizontal),
-            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+                .fillMaxWidth()
+                .padding(vertical = IslamicSpacing.Compact),
         ) {
-            IslamicDecorationBand(
-                tint = MaterialTheme.colorScheme.tertiary,
-                compact = true,
+            Icon(
+                imageVector = Icons.Filled.RestartAlt,
+                contentDescription = null,
+                modifier = Modifier.size(18.dp),
             )
-            MuslimInlineMessage(
-                message = stringResource(R.string.more_order_hint),
-            )
-
-            sections.forEachIndexed { _, id ->
-                key(id) {
-                    val isDragging = draggingId == id
-                    val translationY = if (isDragging && dragStartIndex >= 0) {
-                        dragOffsetY - (dragTargetIndex - dragStartIndex) * rowHeightPx
-                    } else {
-                        0f
-                    }
-                    SectionRow(
-                        title = stringResource(sectionTitleRes(id)),
-                        shown = id !in hidden,
-                        isDragging = isDragging,
-                        onToggle = { shown -> viewModel.setSectionHidden(id, !shown) },
-                        modifier = Modifier
-                            .zIndex(if (isDragging) 1f else 0f)
-                            .graphicsLayer {
-                                this.translationY = translationY
-                                shadowElevation = if (isDragging) 8.dp.toPx() else 0f
-                            }
-                            .pointerInput(id) {
-                                val rowPx = ROW_HEIGHT.toPx()
-                                detectDragGesturesAfterLongPress(
-                                    onDragStart = {
-                                        draggingId = id
-                                        dragStartIndex = sections.indexOf(id)
-                                        dragTargetIndex = dragStartIndex
-                                        dragOffsetY = 0f
-                                    },
-                                    onDrag = { change, amount ->
-                                        change.consume()
-                                        dragOffsetY += amount.y
-                                        val target = (
-                                            dragStartIndex +
-                                                (dragOffsetY / rowPx).roundToInt()
-                                            ).coerceIn(0, sections.lastIndex)
-                                        val current = sections.indexOf(id)
-                                        if (target != current && target in sections.indices) {
-                                            sections.move(current, target)
-                                        }
-                                        dragTargetIndex = target
-                                    },
-                                    onDragEnd = {
-                                        viewModel.setOrder(sections.toList())
-                                        draggingId = null
-                                        dragStartIndex = -1
-                                        dragOffsetY = 0f
-                                        dragTargetIndex = -1
-                                    },
-                                    onDragCancel = {
-                                        viewModel.setOrder(sections.toList())
-                                        draggingId = null
-                                        dragStartIndex = -1
-                                        dragOffsetY = 0f
-                                        dragTargetIndex = -1
-                                    },
-                                )
-                            },
-                    )
-                }
-            }
-
-            IslamicSecondaryButton(
-                onClick = viewModel::reset,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = IslamicSpacing.Compact),
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.RestartAlt,
-                    contentDescription = null,
-                    modifier = Modifier.size(18.dp),
-                )
-                Spacer(Modifier.width(IslamicSpacing.Small))
-                Text(stringResource(R.string.more_order_reset))
-            }
+            Spacer(Modifier.width(IslamicSpacing.Small))
+            Text(stringResource(R.string.more_order_reset))
         }
     }
+}
+
+@Composable
+private fun ReorderableSectionRow(
+    id: String,
+    title: String,
+    shown: Boolean,
+    state: MoreReorderState,
+    onToggle: (Boolean) -> Unit,
+    onPersistOrder: (List<String>) -> Unit,
+) {
+    val rowHeightPx = with(LocalDensity.current) { ROW_HEIGHT.toPx() }
+    val isDragging = state.draggingId == id
+    val translationY = state.translationY(id, rowHeightPx)
+
+    SectionRow(
+        title = title,
+        shown = shown,
+        isDragging = isDragging,
+        onToggle = onToggle,
+        modifier = Modifier
+            .zIndex(if (isDragging) 1f else 0f)
+            .graphicsLayer {
+                this.translationY = translationY
+                shadowElevation = if (isDragging) 8.dp.toPx() else 0f
+            }
+            .pointerInput(id) {
+                detectDragGesturesAfterLongPress(
+                    onDragStart = { state.start(id) },
+                    onDrag = { change, amount ->
+                        change.consume()
+                        state.drag(id, amount.y, rowHeightPx)
+                    },
+                    onDragEnd = { state.finish(onPersistOrder) },
+                    onDragCancel = { state.finish(onPersistOrder) },
+                )
+            },
+    )
 }
 
 @Composable
@@ -232,6 +225,56 @@ private fun SectionRow(
                 modifier = Modifier.padding(horizontal = IslamicSpacing.Small),
             )
         }
+    }
+}
+
+private class MoreReorderState {
+    val sections = mutableStateListOf<String>()
+    var draggingId by mutableStateOf<String?>(null)
+        private set
+    private var dragStartIndex by mutableIntStateOf(-1)
+    private var dragOffsetY by mutableFloatStateOf(0f)
+    private var dragTargetIndex by mutableIntStateOf(-1)
+
+    fun sync(order: List<String>) {
+        if (sections.toList() == order) return
+        sections.clear()
+        sections.addAll(order)
+    }
+
+    fun start(id: String) {
+        draggingId = id
+        dragStartIndex = sections.indexOf(id)
+        dragTargetIndex = dragStartIndex
+        dragOffsetY = 0f
+    }
+
+    fun drag(id: String, deltaY: Float, rowHeightPx: Float) {
+        if (dragStartIndex < 0 || sections.isEmpty()) return
+        dragOffsetY += deltaY
+        val target = (
+            dragStartIndex + (dragOffsetY / rowHeightPx).roundToInt()
+            ).coerceIn(0, sections.lastIndex)
+        val current = sections.indexOf(id)
+        if (target != current && current in sections.indices) {
+            sections.move(current, target)
+        }
+        dragTargetIndex = target
+    }
+
+    fun translationY(id: String, rowHeightPx: Float): Float =
+        if (draggingId == id && dragStartIndex >= 0) {
+            dragOffsetY - (dragTargetIndex - dragStartIndex) * rowHeightPx
+        } else {
+            0f
+        }
+
+    fun finish(onPersistOrder: (List<String>) -> Unit) {
+        onPersistOrder(sections.toList())
+        draggingId = null
+        dragStartIndex = -1
+        dragOffsetY = 0f
+        dragTargetIndex = -1
     }
 }
 
