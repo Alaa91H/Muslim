@@ -20,7 +20,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Info
@@ -30,16 +29,11 @@ import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.PrimaryTabRow
-import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
@@ -62,8 +56,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimSegmentedControl
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.ArabicLetter
 import org.muslim.app.feature.learn.domain.BeginnerLanguage
@@ -78,7 +75,6 @@ import org.muslim.app.feature.learn.domain.ReadingStage
  * A beginner-friendly starter section. The visual cues are simplified memory
  * aids; individual makharij and Quranic recitation require teacher review.
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NooraniNewMuslimScreen(
     onBack: () -> Unit,
@@ -95,27 +91,21 @@ fun NooraniNewMuslimScreen(
     }
     BackHandler(onBack = onBack)
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.noorani_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.learn_back),
-                        )
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.noorani_title),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.learn_back),
             )
         },
-    ) { innerPadding ->
-        Column(modifier = Modifier.padding(innerPadding)) {
+    ) {
+        Column(modifier = Modifier.fillMaxSize()) {
             NooraniTabs(selectedTab = selectedTab, onSelect = { selectedTab = it })
             IslamicDecorationDivider(
                 tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 24.dp),
+                modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
             )
             when (selectedTab) {
                 0 -> LetterLesson(speaker = speaker)
@@ -127,21 +117,23 @@ fun NooraniNewMuslimScreen(
 }
 
 @Composable
-private fun NooraniTabs(selectedTab: Int, onSelect: (Int) -> Unit) {
-    val titles = listOf(
-        stringResource(R.string.noorani_tab_letters),
-        stringResource(R.string.noorani_tab_reading),
-        stringResource(R.string.noorani_tab_new_muslim),
+private fun NooraniTabs(
+    selectedTab: Int,
+    onSelect: (Int) -> Unit,
+) {
+    MuslimSegmentedControl(
+        options = listOf(
+            stringResource(R.string.noorani_tab_letters),
+            stringResource(R.string.noorani_tab_reading),
+            stringResource(R.string.noorani_tab_new_muslim),
+        ),
+        selectedIndex = selectedTab,
+        onSelectedIndexChange = onSelect,
+        modifier = Modifier.padding(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Small,
+        ),
     )
-    PrimaryTabRow(selectedTabIndex = selectedTab) {
-        titles.forEachIndexed { index, title ->
-            Tab(
-                selected = index == selectedTab,
-                onClick = { onSelect(index) },
-                text = { Text(text = title, maxLines = 2, textAlign = TextAlign.Center) },
-            )
-        }
-    }
 }
 
 @Composable
@@ -149,7 +141,7 @@ private fun LetterLesson(speaker: ArabicSpeechController) {
     var selected by remember { mutableStateOf(NooraniContent.letters.first()) }
     val isArabic = isArabicLocale()
     LazyColumn(
-        contentPadding = PaddingValues(bottom = 28.dp),
+        contentPadding = PaddingValues(bottom = IslamicSpacing.Large),
         modifier = Modifier.fillMaxSize(),
     ) {
         item { LearningNotice(speakerReady = speaker.isReady) }
@@ -160,7 +152,10 @@ private fun LetterLesson(speaker: ArabicSpeechController) {
                 letters = row,
                 selected = selected,
                 onSelect = { selected = it },
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+                modifier = Modifier.padding(
+                    horizontal = IslamicSpacing.PageHorizontal,
+                    vertical = IslamicSpacing.XSmall,
+                ),
             )
         }
     }
