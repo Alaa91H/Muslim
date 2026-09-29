@@ -68,6 +68,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dagger.hilt.android.EntryPointAccessors
+import org.muslim.app.core.designsystem.IslamicLayout
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.location.MagneticDeclination
 import org.muslim.app.core.permissions.AppPermission
@@ -334,11 +335,8 @@ internal fun QiblaCompassContent(
 
     BoxWithConstraints(modifier = modifier.fillMaxSize()) {
         val compact = maxHeight < 620.dp
-        val horizontalPadding = when {
-            maxWidth < 360.dp -> 10.dp
-            maxWidth >= 600.dp -> 24.dp
-            else -> 16.dp
-        }
+        val adaptiveSpec = IslamicLayout.adaptiveSpec(maxWidth)
+        val horizontalPadding = adaptiveSpec.horizontalPadding
         val verticalPadding = if (compact) 6.dp else 10.dp
         val gap = if (compact) 6.dp else 10.dp
 
