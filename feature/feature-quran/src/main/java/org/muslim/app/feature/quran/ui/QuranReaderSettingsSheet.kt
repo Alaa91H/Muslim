@@ -5,11 +5,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.weight
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Nightlight
+import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -146,7 +148,10 @@ private fun FontSizeControls(
             onClick = { onChanged((fontSize - FONT_STEP_SP).coerceAtLeast(MIN_FONT_SP)) },
             enabled = fontSize > MIN_FONT_SP,
         ) {
-            Text("−")
+            Icon(
+                imageVector = Icons.Filled.Remove,
+                contentDescription = stringResource(R.string.quran_font_smaller),
+            )
         }
         Text(
             text = fontSize.toInt().toString(),
@@ -158,7 +163,10 @@ private fun FontSizeControls(
             onClick = { onChanged((fontSize + FONT_STEP_SP).coerceAtMost(MAX_FONT_SP)) },
             enabled = fontSize < MAX_FONT_SP,
         ) {
-            Text("+")
+            Icon(
+                imageVector = Icons.Filled.Add,
+                contentDescription = stringResource(R.string.quran_font_larger),
+            )
         }
     }
 }
