@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Alarm
 import androidx.compose.material.icons.filled.BatteryFull
 import androidx.compose.material.icons.filled.CheckCircle
@@ -30,20 +29,18 @@ import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.filled.Power
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Vibration
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import org.muslim.app.core.designsystem.IslamicIconSize
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
@@ -71,7 +68,6 @@ import org.muslim.app.feature.settings.R
  * deep links for special app access, and a summary banner. Status refreshes
  * whenever the screen resumes so grants made in system dialogs appear at once.
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PermissionsScreen(
     onBack: () -> Unit,
@@ -99,23 +95,18 @@ fun PermissionsScreen(
         ActivityResultContracts.RequestMultiplePermissions(),
     ) { viewModel.refresh() }
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.permissions_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.settings_back))
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.permissions_title),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.settings_back),
             )
         },
-    ) { innerPadding ->
+    ) {
         LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding),
+            modifier = Modifier.fillMaxSize(),
         ) {
             item {
                 PermissionSummaryCard(
