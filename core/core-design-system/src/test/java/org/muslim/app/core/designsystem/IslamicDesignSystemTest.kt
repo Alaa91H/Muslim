@@ -60,6 +60,23 @@ class IslamicDesignSystemTest {
         assertEquals(MuslimWindowWidthClass.Expanded, IslamicLayout.widthClass(840.dp))
         assertEquals(760.dp, IslamicLayout.ReadableContentMaxWidth)
         assertTrue(IslamicLayout.WideContentMaxWidth > IslamicLayout.ReadableContentMaxWidth)
+
+        val compact = IslamicLayout.adaptiveSpec(360.dp)
+        assertEquals(MuslimWindowWidthClass.Compact, compact.widthClass)
+        assertEquals(IslamicSpacing.PageHorizontal, compact.horizontalPadding)
+        assertEquals(false, compact.preferNavigationRail)
+        assertEquals(false, compact.supportsTwoPane)
+
+        val medium = IslamicLayout.adaptiveSpec(700.dp)
+        assertEquals(MuslimWindowWidthClass.Medium, medium.widthClass)
+        assertEquals(true, medium.preferNavigationRail)
+        assertEquals(false, medium.supportsTwoPane)
+
+        val expanded = IslamicLayout.adaptiveSpec(1000.dp)
+        assertEquals(MuslimWindowWidthClass.Expanded, expanded.widthClass)
+        assertEquals(IslamicLayout.WideContentMaxWidth, expanded.maxContentWidth)
+        assertEquals(true, expanded.preferNavigationRail)
+        assertEquals(true, expanded.supportsTwoPane)
     }
 
     @Test
