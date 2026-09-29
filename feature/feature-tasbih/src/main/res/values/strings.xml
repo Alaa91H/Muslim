@@ -12,6 +12,9 @@
     <string name="misbaha_widget_tap_hint">اضغط للعدّ</string>
     <string name="tasbih_undo">تراجع</string>
     <string name="tasbih_reset_all">تصفير الكل</string>
+    <string name="tasbih_more_actions" tools:ignore="MissingTranslation">المزيد من الإجراءات</string>
+    <string name="tasbih_session_settings" tools:ignore="MissingTranslation">إعدادات الجلسة والهدف</string>
+    <string name="tasbih_activity" tools:ignore="MissingTranslation">الإحصاءات وسجل الجلسات</string>
     <string name="tasbih_custom_target">هدف مخصص</string>
     <string name="tasbih_custom_target_title">تحديد هدف مخصص</string>
     <string name="tasbih_custom_target_hint">أدخل عدد التسبيحات (من 1 إلى 100000)</string>
