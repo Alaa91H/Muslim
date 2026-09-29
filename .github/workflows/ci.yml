@@ -87,6 +87,7 @@ jobs:
           python3 scripts/verify_quran_session_restore.py
           python3 scripts/verify_home_uiux_contract.py
           python3 scripts/verify_uiux_v2_feature_parity.py
+          python3 scripts/verify_development_apk_ci.py
           python3 scripts/verify_more_hub_v2.py
           python3 scripts/verify_scholar_library.py
           git diff --check
@@ -452,4 +453,78 @@ jobs:
           arch: x86_64
           disable-animations: true
           script: ./gradlew :feature:feature-family-life:connectedDebugAndroidTest
+
+
+  # ---------------------------------------------------------------------------
+  # Development APK: every PR (and manual non-tag run) publishes installable
+  # debug APKs only after all quality + emulator gates are green. This is the
+  # stable tester artifact for active UI/feature development.
+  # ---------------------------------------------------------------------------
+  development-apk:
+    name: Development APK (PR/testing)
+    runs-on: ubuntu-26.04
+    needs: [quality, emulator-tests, family-life-emulator-tests]
+    if: >-
+      github.event_name == 'pull_request' ||
+      (github.event_name == 'workflow_dispatch' && !startsWith(github.ref, 'refs/tags/v'))
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v4
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Set up Gradle cache
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Build installable development APKs
+        run: ./gradlew :app:assembleDebug :wear:assembleDebug --stacktrace
+
+      - name: Assemble stable development tester pack
+        run: |
+          set -euo pipefail
+          mkdir -p development-apk
+
+          PHONE_APK="$(find app/build/outputs/apk/debug -name '*.apk' -type f | head -1)"
+          WEAR_APK="$(find wear/build/outputs/apk/debug -name '*.apk' -type f | head -1)"
+
+          [ -n "$PHONE_APK" ] || { echo "::error::No phone debug APK found"; exit 1; }
+          [ -n "$WEAR_APK" ] || { echo "::error::No Wear debug APK found"; exit 1; }
+
+          cp "$PHONE_APK" development-apk/Muslim-development.apk
+          cp "$WEAR_APK" development-apk/Muslim-Wear-development.apk
+
+          (
+            cd development-apk
+            sha256sum Muslim-development.apk Muslim-Wear-development.apk > SHA256SUMS.txt
+          )
+
+          {
+            echo "commit=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_number=$GITHUB_RUN_NUMBER"
+            echo "ref=$GITHUB_REF"
+            echo "event=$GITHUB_EVENT_NAME"
+          } > development-apk/build-info.txt
+
+      - name: Upload development APK tester pack
+        uses: actions/upload-artifact@v7
+        with:
+          name: muslim-development-apk
+          path: development-apk/
+          retention-days: 30
+          compression-level: 0
+          if-no-files-found: error
 
