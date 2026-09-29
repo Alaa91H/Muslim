@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="tasbih_title">المسبحة</string>
+    <string name="tasbih_choose_dhikr" tools:ignore="MissingTranslation">اختيار الذكر</string>
+    <string name="tasbih_choose_dhikr_desc" tools:ignore="MissingTranslation">غيّر الفئة والذكر الذي تريد عدّه</string>
     <string name="tasbih_back">رجوع</string>
     <string name="tasbih_of_target">من %1$s</string>
     <string name="tasbih_target_reached">تم الهدف — تقبل الله</string>
