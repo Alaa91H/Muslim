@@ -74,6 +74,8 @@
     <string name="quran_download_size_verified">Verified size: %1$s</string>
     <string name="quran_download_size_unknown">Enter a valid surah to see the approximate size</string>
     <string name="quran_download_start">Start download</string>
+    <string name="quran_download_new_title">New download</string>
+    <string name="quran_downloaded_for_reciter">Downloaded for this reciter</string>
     <string name="quran_download_cancel">Cancel</string>
     <string name="quran_downloads_active_title">Current and past downloads</string>
     <string name="quran_downloads_summary_title">Total downloaded</string>
