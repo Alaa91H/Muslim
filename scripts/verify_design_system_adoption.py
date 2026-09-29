@@ -14,6 +14,7 @@ SCREEN_V2 = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/Musl
 CONTENT_V2 = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/MuslimContentV2.kt"
 FEEDBACK_V2 = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/MuslimFeedbackV2.kt"
 INTERACTION_V2 = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/MuslimInteractionV2.kt"
+ADAPTIVE_V2 = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/MuslimAdaptiveLayout.kt"
 APP = ROOT / "app/src/main/java/org/muslim/app/ui/MuslimApp.kt"
 HOME = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeScreen.kt"
 LOCATION = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/location/LocationScreen.kt"
@@ -56,6 +57,7 @@ def main() -> None:
     content_v2 = CONTENT_V2.read_text(encoding="utf-8")
     feedback_v2 = FEEDBACK_V2.read_text(encoding="utf-8")
     interaction_v2 = INTERACTION_V2.read_text(encoding="utf-8")
+    adaptive_v2 = ADAPTIVE_V2.read_text(encoding="utf-8")
     app = APP.read_text(encoding="utf-8")
 
     require("IslamicLayout" in layout, "shared layout tokens must drive the adaptive content frame")
@@ -100,6 +102,13 @@ def main() -> None:
         "fun MuslimOverflowMenu",
     ):
         require(component_name in interaction_v2, f"UI/UX V2 interaction primitive missing: {component_name}")
+
+    for component_name in (
+        "fun MuslimAdaptiveContentFrame",
+        "fun MuslimAdaptiveScreen",
+    ):
+        require(component_name in adaptive_v2, f"UI/UX V2 adaptive primitive missing: {component_name}")
+    require("IslamicLayout.adaptiveSpec(maxWidth)" in adaptive_v2, "adaptive screens must use the shared width policy")
     require("fun IslamicSelectableCard" in components, "shared selectable card component is required")
     for state_component in (
         "fun MuslimLoadingState",
