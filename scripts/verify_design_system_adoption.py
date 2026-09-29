@@ -50,9 +50,10 @@ def main() -> None:
     components = COMPONENTS.read_text(encoding="utf-8")
     app = APP.read_text(encoding="utf-8")
 
+    require("IslamicLayout" in layout, "shared layout tokens must drive the adaptive content frame")
     require("fun MuslimAppScaffold" in layout, "shared application scaffold is required")
     require("fun MuslimContentFrame" in layout, "adaptive content frame is required")
-    require("DefaultMuslimContentWidth = 760.dp" in layout, "wide content must retain a readable bound")
+    require("DefaultMuslimContentWidth = IslamicLayout.ReadableContentMaxWidth" in layout, "wide content must use the shared readable-width token")
     require("MuslimMotionPreferences" in layout, "motion preference model is required")
     require("reduceAnimations: Boolean" in theme, "theme must accept the persisted reduce-motion preference")
     require("LocalMuslimMotionPreferences provides MuslimMotionPreferences(reduceAnimations)" in theme, "theme must provide motion preference")
