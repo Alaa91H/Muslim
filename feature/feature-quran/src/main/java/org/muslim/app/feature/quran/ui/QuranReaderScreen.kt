@@ -143,6 +143,8 @@ import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicSelectableCard
 import org.muslim.app.core.ui.theme.MuslimActionItem
 import org.muslim.app.core.ui.theme.MuslimActionSheet
+import org.muslim.app.core.ui.theme.MuslimBottomSheet
+import org.muslim.app.core.ui.theme.MuslimSettingsItem
 import org.muslim.app.core.ui.theme.IslamicDecorationCorners
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicReadingBasmalaAccent
@@ -309,7 +311,7 @@ fun QuranReaderScreen(
     // The reader defaults to a continuous recitation from the selected ayah
     // through the end of the mushaf. Other ranges remain explicit choices.
     var playRange by rememberSaveable { mutableStateOf(DEFAULT_RECITATION_RANGE) }
-    var showMoreMenu by remember { mutableStateOf(false) }
+    var showReaderSettings by remember { mutableStateOf(false) }
     var showDetails by remember { mutableStateOf(false) }
     var showSupplementControls by remember { mutableStateOf(false) }
     var showAyahActions by remember { mutableStateOf(false) }
@@ -659,126 +661,11 @@ fun QuranReaderScreen(
                         }
                         Spacer(Modifier.width(IslamicSpacing.XSmall))
                     }
-                    IconButton(onClick = { viewModel.setReaderTheme(theme.next) }) {
+                    IconButton(onClick = { showReaderSettings = true }) {
                         Icon(
-                            imageVector = when (theme) {
-                                ReaderTheme.Light -> Icons.Filled.LightMode
-                                ReaderTheme.Sepia -> Icons.Filled.Nightlight
-                                ReaderTheme.Dark -> Icons.Filled.DarkMode
-                            },
-                            contentDescription = stringResource(R.string.quran_reader_theme),
+                            imageVector = Icons.Filled.MoreVert,
+                            contentDescription = stringResource(R.string.quran_more_actions),
                         )
-                    }
-                    Box {
-                        IconButton(onClick = { showMoreMenu = true }) {
-                            Icon(
-                                imageVector = Icons.Filled.MoreVert,
-                                contentDescription = stringResource(R.string.quran_more_actions),
-                            )
-                        }
-                        DropdownMenu(expanded = showMoreMenu, onDismissRequest = { showMoreMenu = false }) {
-                            // Font size: − 26 +, compact so the row stays slim.
-                            // Rendered directly (not as a disabled item) so the
-                            // − / + buttons stay interactive.
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(horizontal = 12.dp, vertical = 4.dp),
-                                verticalAlignment = Alignment.CenterVertically,
-                            ) {
-                                Text(
-                                    text = stringResource(R.string.quran_font_size),
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    modifier = Modifier.weight(1f),
-                                )
-                                FontSizeControls(
-                                    fontSize = fontSize,
-                                    onChanged = { newSize ->
-                                        fontSize = newSize
-                                        viewModel.setReaderFontSize(newSize)
-                                    },
-                                )
-                            }
-                            HorizontalDivider()
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(horizontal = 12.dp, vertical = 4.dp),
-                                verticalAlignment = Alignment.CenterVertically,
-                            ) {
-                                Text(
-                                    text = stringResource(R.string.quran_keep_screen_on),
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    modifier = Modifier.weight(1f),
-                                )
-                                Switch(
-                                    checked = keepScreenOn,
-                                    onCheckedChange = viewModel::setKeepScreenOn,
-                                )
-                            }
-                            HorizontalDivider()
-                            DropdownMenuItem(
-                                text = { Text(stringResource(R.string.quran_details)) },
-                                leadingIcon = {
-                                    Icon(Icons.Filled.Info, contentDescription = null)
-                                },
-                                onClick = {
-                                    showMoreMenu = false
-                                    if (state.surah != null) showDetails = true
-                                },
-                            )
-                            DropdownMenuItem(
-                                text = { Text(stringResource(R.string.quran_tajweed_show)) },
-                                leadingIcon = {
-                                    Icon(
-                                        Icons.Filled.Nightlight,
-                                        contentDescription = null,
-                                        tint = if (tajweedEnabled) {
-                                            MaterialTheme.colorScheme.primary
-                                        } else {
-                                            MaterialTheme.colorScheme.onSurfaceVariant
-                                        },
-                                    )
-                                },
-                                trailingIcon = {
-                                    if (tajweedEnabled) {
-                                        Icon(Icons.Filled.Check, contentDescription = null)
-                                    }
-                                },
-                                onClick = {
-                                    viewModel.setTajweedEnabled(!tajweedEnabled)
-                                    showMoreMenu = false
-                                },
-                            )
-                            DropdownMenuItem(
-                                text = { Text(stringResource(R.string.quran_supplement_controls)) },
-                                leadingIcon = {
-                                    Icon(
-                                        Icons.Filled.Translate,
-                                        contentDescription = null,
-                                        tint = if (supplementEnabled) {
-                                            MaterialTheme.colorScheme.primary
-                                        } else {
-                                            MaterialTheme.colorScheme.onSurfaceVariant
-                                        },
-                                    )
-                                },
-                                onClick = {
-                                    showMoreMenu = false
-                                    if (currentAyah != null) showSupplementControls = true
-                                },
-                            )
-                            DropdownMenuItem(
-                                text = { Text(stringResource(R.string.quran_downloads_title)) },
-                                leadingIcon = {
-                                    Icon(Icons.Filled.Download, contentDescription = null)
-                                },
-                                onClick = {
-                                    showMoreMenu = false
-                                    onOpenDownloads()
-                                },
-                            )
-                        }
                     }
                 },
             )
@@ -988,6 +875,38 @@ fun QuranReaderScreen(
                 }
             }
 
+            if (showReaderSettings) {
+                ReaderSettingsSheet(
+                    theme = theme,
+                    fontSize = fontSize,
+                    keepScreenOn = keepScreenOn,
+                    tajweedEnabled = tajweedEnabled,
+                    supplementEnabled = supplementEnabled,
+                    canOpenSupplement = currentAyah != null,
+                    canOpenDetails = state.surah != null,
+                    onDismiss = { showReaderSettings = false },
+                    onThemeChange = viewModel::setReaderTheme,
+                    onFontSizeChanged = { newSize ->
+                        fontSize = newSize
+                        viewModel.setReaderFontSize(newSize)
+                    },
+                    onKeepScreenOnChanged = viewModel::setKeepScreenOn,
+                    onTajweedChanged = viewModel::setTajweedEnabled,
+                    onOpenSupplement = {
+                        showReaderSettings = false
+                        showSupplementControls = true
+                    },
+                    onOpenDetails = {
+                        showReaderSettings = false
+                        showDetails = true
+                    },
+                    onOpenDownloads = {
+                        showReaderSettings = false
+                        onOpenDownloads()
+                    },
+                )
+            }
+
             if (showAyahActions) {
                 val selectedAyah = selectedStart ?: currentAyah
                 if (selectedAyah != null) {
@@ -1087,6 +1006,102 @@ fun QuranReaderScreen(
                 )
             }
         }
+    }
+}
+
+@Composable
+private fun ReaderSettingsSheet(
+    theme: ReaderTheme,
+    fontSize: Float,
+    keepScreenOn: Boolean,
+    tajweedEnabled: Boolean,
+    supplementEnabled: Boolean,
+    canOpenSupplement: Boolean,
+    canOpenDetails: Boolean,
+    onDismiss: () -> Unit,
+    onThemeChange: (ReaderTheme) -> Unit,
+    onFontSizeChanged: (Float) -> Unit,
+    onKeepScreenOnChanged: (Boolean) -> Unit,
+    onTajweedChanged: (Boolean) -> Unit,
+    onOpenSupplement: () -> Unit,
+    onOpenDetails: () -> Unit,
+    onOpenDownloads: () -> Unit,
+) {
+    MuslimBottomSheet(
+        onDismiss = onDismiss,
+        title = stringResource(R.string.quran_more_actions),
+    ) {
+        MuslimSettingsItem(
+            title = stringResource(R.string.quran_reader_theme),
+            icon = when (theme) {
+                ReaderTheme.Light -> Icons.Filled.LightMode
+                ReaderTheme.Sepia -> Icons.Filled.Nightlight
+                ReaderTheme.Dark -> Icons.Filled.DarkMode
+            },
+            onClick = { onThemeChange(theme.next) },
+        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(
+                    horizontal = IslamicSpacing.Medium,
+                    vertical = IslamicSpacing.Small,
+                ),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = stringResource(R.string.quran_font_size),
+                modifier = Modifier.weight(1f),
+                style = MaterialTheme.typography.bodyLarge,
+            )
+            FontSizeControls(
+                fontSize = fontSize,
+                onChanged = onFontSizeChanged,
+            )
+        }
+        MuslimSettingsItem(
+            title = stringResource(R.string.quran_keep_screen_on),
+            onClick = { onKeepScreenOnChanged(!keepScreenOn) },
+            trailing = {
+                Switch(
+                    checked = keepScreenOn,
+                    onCheckedChange = onKeepScreenOnChanged,
+                )
+            },
+        )
+        MuslimSettingsItem(
+            title = stringResource(R.string.quran_tajweed_show),
+            icon = Icons.Filled.Nightlight,
+            onClick = { onTajweedChanged(!tajweedEnabled) },
+            trailing = {
+                Switch(
+                    checked = tajweedEnabled,
+                    onCheckedChange = onTajweedChanged,
+                )
+            },
+        )
+        MuslimSettingsItem(
+            title = stringResource(R.string.quran_supplement_controls),
+            supportingText = if (supplementEnabled) {
+                stringResource(R.string.quran_supplement_show)
+            } else {
+                null
+            },
+            icon = Icons.Filled.Translate,
+            enabled = canOpenSupplement,
+            onClick = onOpenSupplement,
+        )
+        MuslimSettingsItem(
+            title = stringResource(R.string.quran_details),
+            icon = Icons.Filled.Info,
+            enabled = canOpenDetails,
+            onClick = onOpenDetails,
+        )
+        MuslimSettingsItem(
+            title = stringResource(R.string.quran_downloads_title),
+            icon = Icons.Filled.Download,
+            onClick = onOpenDownloads,
+        )
     }
 }
 
