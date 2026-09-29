@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 import org.muslim.app.feature.quran.data.AyahOfTheDayScheduler
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.data.QuranSupplementRepository
+import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.Bookmark
 import org.muslim.app.feature.quran.domain.LastRead
 import org.muslim.app.feature.quran.domain.QuranRepository
@@ -75,19 +76,22 @@ class SurahListViewModel @Inject constructor(
         viewModelScope.launch {
             AyahOfTheDayScheduler.schedule(context)
             supplementRepository.removeLegacySampleTafsir()
-            juzStarts.value = repository.allAyahs()
-                .groupBy { it.juz }
-                .toSortedMap()
-                .mapNotNull { (juz, ayahs) ->
-                    ayahs.minByOrNull { it.globalNumber }?.let { first ->
-                        JuzStart(
-                            juz = juz,
-                            surahNumber = first.surahNumber,
-                            ayahNumber = first.numberInSurah,
-                            globalNumber = first.globalNumber,
-                        )
-                    }
-                }
+            juzStarts.value = repository.allAyahs().toJuzStarts()
         }
     }
 }
+
+
+internal fun List<Ayah>.toJuzStarts(): List<SurahListViewModel.JuzStart> =
+    groupBy { it.juz }
+        .toSortedMap()
+        .mapNotNull { (juz, ayahs) ->
+            ayahs.minByOrNull { it.globalNumber }?.let { first ->
+                SurahListViewModel.JuzStart(
+                    juz = juz,
+                    surahNumber = first.surahNumber,
+                    ayahNumber = first.numberInSurah,
+                    globalNumber = first.globalNumber,
+                )
+            }
+        }
