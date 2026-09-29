@@ -10,6 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 LAYOUT = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/IslamicAppLayout.kt"
 THEME = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/Theme.kt"
 COMPONENTS = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/IslamicComponents.kt"
+SCREEN_V2 = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/MuslimScreenV2.kt"
+CONTENT_V2 = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/MuslimContentV2.kt"
+FEEDBACK_V2 = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/MuslimFeedbackV2.kt"
+INTERACTION_V2 = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/MuslimInteractionV2.kt"
 APP = ROOT / "app/src/main/java/org/muslim/app/ui/MuslimApp.kt"
 HOME = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeScreen.kt"
 LOCATION = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/location/LocationScreen.kt"
@@ -48,6 +52,10 @@ def main() -> None:
     layout = LAYOUT.read_text(encoding="utf-8")
     theme = THEME.read_text(encoding="utf-8")
     components = COMPONENTS.read_text(encoding="utf-8")
+    screen_v2 = SCREEN_V2.read_text(encoding="utf-8")
+    content_v2 = CONTENT_V2.read_text(encoding="utf-8")
+    feedback_v2 = FEEDBACK_V2.read_text(encoding="utf-8")
+    interaction_v2 = INTERACTION_V2.read_text(encoding="utf-8")
     app = APP.read_text(encoding="utf-8")
 
     require("IslamicLayout" in layout, "shared layout tokens must drive the adaptive content frame")
@@ -60,6 +68,38 @@ def main() -> None:
     require("reduceAnimations = preferences.reduceAnimations" in app, "app must bind the stored reduce-motion preference")
     require("MuslimAppScaffold" in app, "root app must use the shared scaffold")
     require("fun IslamicListItem" in components, "shared list item component is required")
+
+    for component_name in (
+        "fun MuslimScreen",
+        "fun MuslimTopBar",
+        "fun MuslimReaderScaffold",
+    ):
+        require(component_name in screen_v2, f"UI/UX V2 screen primitive missing: {component_name}")
+    for component_name in (
+        "fun MuslimHero",
+        "fun MuslimSection",
+        "fun MuslimGroup",
+        "fun MuslimSettingsItem",
+        "fun MuslimStatusChip",
+        "fun MuslimInlineMessage",
+    ):
+        require(component_name in content_v2, f"UI/UX V2 content primitive missing: {component_name}")
+    for component_name in (
+        "fun MuslimProgressHeader",
+        "fun MuslimMetric",
+        "fun MuslimExpandableSection",
+        "fun MuslimSkeleton",
+    ):
+        require(component_name in feedback_v2, f"UI/UX V2 feedback primitive missing: {component_name}")
+    for component_name in (
+        "fun MuslimSegmentedControl",
+        "fun MuslimSearchBar",
+        "fun MuslimFilterBar",
+        "fun MuslimBottomSheet",
+        "fun MuslimActionSheet",
+        "fun MuslimOverflowMenu",
+    ):
+        require(component_name in interaction_v2, f"UI/UX V2 interaction primitive missing: {component_name}")
     require("fun IslamicSelectableCard" in components, "shared selectable card component is required")
     for state_component in (
         "fun MuslimLoadingState",
