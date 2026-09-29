@@ -4,6 +4,7 @@
     <string name="scholar_library_loading">يجري تجهيز فهرس المكتبة…</string>
     <string name="scholar_library_search_label">بحث متقدم في المقاطع المفهرسة</string>
     <string name="scholar_library_search_hint">مثال: الاستدلال أو المراجع</string>
+    <string name="scholar_library_search_clear" tools:ignore="MissingTranslation">مسح البحث</string>
     <string name="scholar_library_all_categories">كل العلوم</string>
     <string name="scholar_library_search_results">نتائج البحث</string>
     <string name="scholar_library_no_search_results">لا توجد نتائج مطابقة. جرّب كلمة أقصر أو استورد حزمة مرخّصة.</string>
