@@ -2,6 +2,9 @@ package org.muslim.app.ui
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -16,6 +19,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.NavigationRail
+import androidx.compose.material3.NavigationRailItem
+import androidx.compose.material3.NavigationRailItemDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,6 +39,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
@@ -51,6 +58,7 @@ import org.muslim.app.R
 import org.muslim.app.crash.CrashReportDialog
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.datastore.AppThemeMode
+import org.muslim.app.core.designsystem.IslamicLayout
 import org.muslim.app.core.ui.theme.AppTheme
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.prayertimes.ui.home.HomeScreen
@@ -122,6 +130,110 @@ private fun tabsForRamadan(isRamadan: Boolean): List<Tab> =
 /** Returns [preferred] if it is one of the visible tab routes, else "home". */
 private fun startDestinationFor(preferred: String, visibleTabs: List<Tab>): String =
     if (visibleTabs.any { it.route == preferred }) preferred else "home"
+
+@Composable
+private fun PrimaryNavigationBar(
+    visibleTabs: List<Tab>,
+    currentDestination: NavDestination?,
+    onNavigate: (String) -> Unit,
+) {
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceContainer,
+        tonalElevation = 1.dp,
+    ) {
+        BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
+            val slotWidth = maxWidth / visibleTabs.size.toFloat()
+            val compactTabs = slotWidth < 92.dp
+            val iconSize = if (compactTabs) 21.dp else 24.dp
+            val labelStyle = if (compactTabs) {
+                MaterialTheme.typography.labelSmall
+            } else {
+                MaterialTheme.typography.labelMedium
+            }
+
+            NavigationBar(
+                containerColor = Color.Transparent,
+                tonalElevation = 0.dp,
+            ) {
+                visibleTabs.forEach { tab ->
+                    NavigationBarItem(
+                        selected = currentDestination?.hierarchy?.any { it.route == tab.route } == true,
+                        onClick = { onNavigate(tab.route) },
+                        icon = {
+                            Icon(
+                                imageVector = tab.icon,
+                                contentDescription = null,
+                                modifier = Modifier.size(iconSize),
+                            )
+                        },
+                        label = {
+                            Text(
+                                text = stringResource(tab.labelRes),
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                                style = labelStyle,
+                            )
+                        },
+                        colors = NavigationBarItemDefaults.colors(
+                            selectedIconColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                            selectedTextColor = MaterialTheme.colorScheme.onSurface,
+                            indicatorColor = MaterialTheme.colorScheme.secondaryContainer,
+                            unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                            unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                        ),
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun PrimaryNavigationRail(
+    visibleTabs: List<Tab>,
+    currentDestination: NavDestination?,
+    onNavigate: (String) -> Unit,
+) {
+    Surface(
+        modifier = Modifier.fillMaxHeight(),
+        color = MaterialTheme.colorScheme.surfaceContainer,
+        tonalElevation = 1.dp,
+    ) {
+        NavigationRail(
+            containerColor = Color.Transparent,
+        ) {
+            visibleTabs.forEach { tab ->
+                NavigationRailItem(
+                    selected = currentDestination?.hierarchy?.any { it.route == tab.route } == true,
+                    onClick = { onNavigate(tab.route) },
+                    icon = {
+                        Icon(
+                            imageVector = tab.icon,
+                            contentDescription = null,
+                            modifier = Modifier.size(24.dp),
+                        )
+                    },
+                    label = {
+                        Text(
+                            text = stringResource(tab.labelRes),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            style = MaterialTheme.typography.labelMedium,
+                        )
+                    },
+                    alwaysShowLabel = true,
+                    colors = NavigationRailItemDefaults.colors(
+                        selectedIconColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                        selectedTextColor = MaterialTheme.colorScheme.onSurface,
+                        indicatorColor = MaterialTheme.colorScheme.secondaryContainer,
+                        unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                        unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                    ),
+                )
+            }
+        }
+    }
+}
 
 private const val READER_ROUTE = "quran/reader"
 private const val BOOKMARKS_ROUTE = "quran/bookmarks"
