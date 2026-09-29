@@ -23,7 +23,7 @@ REQUIRED = {
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/settings/PrayerSettingsScreen.kt": [
         "LocalConfiguration.current",
         "heightIn(max = maximumContentHeight)",
-        "widthIn(max = maximumDialogWidth)",
+        "MuslimBottomSheet(",
         "AdhanInformationDensitySelector",
         "AppInformationDensity.Compact",
         "verticalScroll(rememberScrollState())",
