@@ -21,6 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.designsystem.IslamicElevation
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.MuslimEmptyState
 import org.muslim.app.core.ui.theme.MuslimScreen
@@ -94,7 +95,7 @@ private fun BookmarkCard(
         modifier = Modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.medium,
         color = MaterialTheme.colorScheme.surfaceContainerLow,
-        tonalElevation = androidx.compose.ui.unit.Dp.Hairline,
+        tonalElevation = IslamicElevation.Resting,
     ) {
         Column(
             modifier = Modifier.padding(IslamicSpacing.Medium),
