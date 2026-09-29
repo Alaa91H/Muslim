@@ -52,6 +52,7 @@
     <string name="quran_mini_ayah">Ayah %1$d</string>
     <string name="quran_stop_playback">Stop playback</string>
     <string name="quran_play_range">Playback range</string>
+    <string name="quran_playback_settings">Recitation settings</string>
     <string name="quran_range_single_ayah">Single ayah</string>
     <string name="quran_range_to_end">To the end of the Mushaf</string>
     <string name="quran_range_whole_surah">Whole surah</string>
