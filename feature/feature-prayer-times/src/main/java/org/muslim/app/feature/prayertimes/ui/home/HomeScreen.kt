@@ -375,13 +375,14 @@ private fun DailyPrayerRow(
     } else {
         MaterialTheme.colorScheme.onSurface
     }
-    val semanticModifier = if (isNextPrayer) {
-        Modifier.semantics {
-            stateDescription = stringResource(R.string.home_next_prayer)
-        }
+    val nextPrayerStateDescription = if (isNextPrayer) {
+        stringResource(R.string.home_next_prayer)
     } else {
-        Modifier
+        null
     }
+    val semanticModifier = nextPrayerStateDescription?.let { description ->
+        Modifier.semantics { stateDescription = description }
+    } ?: Modifier
 
     Surface(
         modifier = Modifier
