@@ -46,7 +46,8 @@ fun AdhkarCustomizeScreen(
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(
-                horizontal = IslamicSpacing.PageHorizontal,
+                start = IslamicSpacing.PageHorizontal,
+                end = IslamicSpacing.PageHorizontal,
                 bottom = IslamicSpacing.Large,
             ),
         ) {
