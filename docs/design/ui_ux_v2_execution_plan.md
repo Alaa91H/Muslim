@@ -113,6 +113,13 @@ The highlight system must use actual text layout geometry:
 - Cover recitation tracking, selected ayah, search result and manual selection states.
 - Test small/medium/large text, RTL, portrait, landscape, light/dark and multi-line ayat.
 
+### Ayah marker color consistency
+- Fix the first ayah number rendered on every Mushaf page so it never inherits the green primary/accent color merely because it is the first ayah in the page slice.
+- All normal ayah-number ornaments on a page must use the same gold/bronze Quran marker color, including the first visible ayah.
+- Selection, playback, search/open and tap highlighting may affect the surrounding ayah highlight state, but must not accidentally recolor only the first page ayah marker.
+- The rule must hold across light, dark and sepia reading themes, portrait/landscape, different font sizes and page boundaries.
+- Add an automated visual/style contract that explicitly checks first-page-ayah marker styling versus subsequent ayah markers.
+
 ## UX09–UX25 — Remaining feature redesign
 
 Sequentially redesign:
