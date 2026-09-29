@@ -127,6 +127,10 @@
     <string name="about_contact_support">Support development</string>
 
     <string name="privacy_title">Privacy policy</string>
+    <string name="privacy_no_account">No account required</string>
+    <string name="privacy_no_ads">No ads</string>
+    <string name="privacy_no_analytics">No behavioral analytics</string>
+    <string name="privacy_local_first">Local-first data</string>
     <string name="privacy_body">Muslim respects your privacy and does not collect your data.\n\n• No tracking: no ad SDKs, analytics or marketing trackers.\n• Data stays on your device: all your data (location, settings, bookmarks) is stored locally on your device only.\n• Location is used locally: your coordinates are used to calculate prayer times and the qibla on your device, and are never sent to any external server.\n• Permissions only when needed: we ask for permissions (location, notifications) only when a feature actually needs them, with a clear explanation.\n• No forced connectivity: the app works offline; network use is entirely optional for extras such as downloading recitations.\n\nThis policy is part of the open-source repository and is open to community review.</string>
 
     <string name="back">Back</string>
