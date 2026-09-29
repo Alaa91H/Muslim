@@ -127,7 +127,18 @@ def main() -> None:
         (SETTINGS, "settings"),
     ):
         source = path.read_text(encoding="utf-8")
-        require("MuslimContentFrame" in source, f"{label} must use the adaptive content frame")
+        require(
+            any(
+                shell in source
+                for shell in (
+                    "MuslimContentFrame",
+                    "MuslimAdaptiveContentFrame",
+                    "MuslimAdaptiveScreen(",
+                    "MuslimScreen(",
+                )
+            ),
+            f"{label} must use a shared adaptive screen/content shell",
+        )
 
     more_source = MORE.read_text(encoding="utf-8")
     require(

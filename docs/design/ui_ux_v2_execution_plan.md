@@ -1,7 +1,7 @@
 # Muslim UI/UX 2.0 — execution plan
 
-Status: active  
-Branch: `ux/ui-ux-2`  
+Status: integration review in progress
+Source branch: `ux/ui-ux-2`
 Started: 2026-09-29
 
 ## Goal
@@ -143,14 +143,72 @@ Sequentially redesign:
 
 All must preserve existing capability and use the shared patterns.
 
-## UX26–UX31 — Completion gates
+## UX25–UX31 — Completion gates and integration evidence
 
-- Tablet/Foldable pass
-- RTL/localization/200% font pass
-- Screenshot/visual regression infrastructure
-- Performance/motion polish
-- Final consistency audit
-- Full regression/release gate
+### UX25 — Android Auto
+
+- Existing `MediaBrowserServiceCompat` remains audio-first and exposes only
+  fully downloaded Surahs; it does not initiate downloads while driving.
+- The automotive descriptor declares the media category and the root offers
+  one concise “Downloaded recitations” entry.
+- Surah rows provide Arabic and English names. Playback/search and the
+  unavailable-recitation error remain in the existing media-session path.
+- Verified by `scripts/verify_iot_integration.py`; this is a static contract,
+  not a head-unit interaction test.
+
+### UX26 — Tablet/Foldable
+
+- Shared adaptive classes are Compact (0–599dp), Medium (600–839dp), and
+  Expanded (840dp+); the app shell switches to a navigation rail for wider
+  windows and allows two-pane content at Expanded width.
+- Boundary behavior has unit coverage in the design-system module.
+- Fold/unfold continuity and per-screen visual review still require a
+  running emulator/device and remain an external QA gate.
+
+### UX27 — RTL, localization, and large text
+
+- Static accessibility, responsive-layout, resource, and feature-parity
+  verifiers pass. The Quran Reader includes explicit RTL-aware line geometry
+  checks; shared accessibility preferences remain part of the UX00 contract.
+- No 200% system-font screenshot sweep has been captured in this environment.
+  Keep that sweep open until device QA can inspect clipping and focus order.
+
+### UX28 — Screenshot and visual regression
+
+- The baseline screen/variant matrix is defined below. The screenshot
+  capture/comparison runner remains an open UX28 deliverable; the repository
+  still has no checked-in screenshot baselines or comparison runner.
+- Do not call UX28 complete until screenshots are captured on a fixed emulator
+  image for Arabic RTL and English LTR, light and dark themes, normal and large
+  fonts, and compact and expanded widths; intentional changes need reviewed
+  baseline updates.
+
+### UX29 — Performance and motion
+
+- Reduced-motion and accessibility contracts are covered by static checks;
+  lazy lists/paging are used by large Hadith and library surfaces.
+- Frame-time, recomposition, and scrolling measurements have not been captured
+  on a representative device; retain these as a device QA gate.
+
+### UX30 — Final consistency audit
+
+- The full static CI verifier set is run during integration. The design-system
+  and visual-identity verifiers accept all supported shared V2 screen shells.
+- Review each newly migrated surface using the shell/component verifier and
+  preserve the UX00 feature-parity inventory.
+
+### UX31 — Full regression and release gate
+
+- Local static checks pass for adaptive design-system adoption, visual
+  identity, feature parity, the critical-screen/variant matrix, Android main
+  resource XML parsing, and IoT integration.
+- The Android SDK is present, but no emulator or physical device is connected.
+  A local `:app:assembleDebug` run using Gradle 9.5 and a D-drive cache remained
+  silent inside project initialization for over 14 minutes; it was stopped
+  without producing an APK. Earlier default-cache attempts exhausted C-drive
+  space and one ended in native-memory allocation failure. Gradle build, unit
+  tests, lint, Detekt, and emulator tests therefore remain CI/device gates.
+  No release-ready or visually verified claim is made from static checks.
 
 ## Definition of Done
 

@@ -221,7 +221,7 @@ These are explicit acceptance requirements for later phases:
 
 ## Visual baseline status
 
-The current repository does not yet contain a comprehensive screenshot-regression baseline for every critical screen. UX00 therefore freezes the functional contract immediately and records the required visual baseline matrix below; automated screenshot infrastructure is implemented in UX28.
+The current repository does not yet contain a comprehensive screenshot-regression baseline for every critical screen. UX00 therefore freezes the functional contract immediately and records the required visual baseline matrix below. The screenshot capture/comparison runner remains an open UX28 deliverable; the matrix is not evidence that screenshots have already been captured.
 
 Critical baseline screens:
 - Prayer Home
@@ -236,7 +236,7 @@ Critical baseline screens:
 Required baseline variants:
 - Arabic RTL / English LTR
 - Light / Dark
-- normal font / large font
+- normal font / large font / 200% font
 - compact phone / expanded device
 
-Until UX28 lands, intentional UI changes must be reviewed against the current UI and the explicit acceptance requirements in `ui_ux_v2_execution_plan.md`.
+Until UX28 lands, intentional UI changes must be reviewed against the current UI and the explicit acceptance requirements in `ui_ux_v2_execution_plan.md`. Current integration review has no Android SDK or connected emulator/device, so this workspace cannot capture or visually compare the matrix.

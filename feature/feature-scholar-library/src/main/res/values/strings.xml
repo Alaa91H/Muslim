@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="scholar_library_title">مكتبة طالب العلم</string>
     <string name="scholar_library_back">رجوع</string>
     <string name="scholar_library_loading">يجري تجهيز فهرس المكتبة…</string>
