@@ -158,4 +158,14 @@
     <string name="quran_car_not_downloaded" tools:ignore="MissingTranslation">هذه السورة غير مكتملة التحميل على الهاتف.</string>
     <string name="quran_car_search_unavailable" tools:ignore="MissingTranslation">لم تُعثر على سورة محمّلة مطابقة للطلب.</string>
 
+    <string name="quran_continue_reading">متابعة القراءة</string>
+    <string name="quran_search_hint">ابحث باسم السورة أو رقمها…</string>
+    <string name="quran_search_clear">مسح البحث</string>
+    <string name="quran_tab_surahs">السور</string>
+    <string name="quran_tab_juz">الأجزاء</string>
+    <string name="quran_tab_bookmarks">العلامات</string>
+    <string name="quran_juz_title">الجزء %1$d</string>
+    <string name="quran_juz_start">يبدأ من سورة %1$d، آية %2$d</string>
+    <string name="quran_search_no_results">لا توجد نتائج مطابقة</string>
+    <string name="quran_open_bookmarks">فتح شاشة العلامات المرجعية</string>
 </resources>
