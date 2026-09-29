@@ -72,85 +72,119 @@ fun SurahListScreen(
     var selectedTab by rememberSaveable { mutableIntStateOf(TAB_SURAHS) }
 
     Column(modifier = modifier.fillMaxSize()) {
-        IslamicReadingHeaderDecoration(
-            tint = MaterialTheme.colorScheme.tertiary,
-            modifier = Modifier.padding(top = IslamicSpacing.XXSmall),
+        QuranHomeHeader(
+            query = query,
+            onQueryChange = { query = it },
+            selectedTab = selectedTab,
+            onSelectedTabChange = { selectedTab = it },
         )
-        MuslimSectionHeader(
-            title = stringResource(R.string.quran_title),
-            modifier = Modifier.padding(
+        QuranHomeContent(
+            state = state,
+            query = query,
+            selectedTab = selectedTab,
+            onOpenSurah = onOpenSurah,
+            onPlaySurah = onPlaySurah,
+            onOpenBookmarks = onOpenBookmarks,
+            onResumeReading = onResumeReading,
+        )
+    }
+}
+
+@Composable
+private fun QuranHomeHeader(
+    query: String,
+    onQueryChange: (String) -> Unit,
+    selectedTab: Int,
+    onSelectedTabChange: (Int) -> Unit,
+) {
+    IslamicReadingHeaderDecoration(
+        tint = MaterialTheme.colorScheme.tertiary,
+        modifier = Modifier.padding(top = IslamicSpacing.XXSmall),
+    )
+    MuslimSectionHeader(
+        title = stringResource(R.string.quran_title),
+        modifier = Modifier.padding(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Small,
+        ),
+    )
+    IslamicDecorationDivider(
+        tint = MaterialTheme.colorScheme.tertiary,
+        modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
+    )
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(
                 horizontal = IslamicSpacing.PageHorizontal,
                 vertical = IslamicSpacing.Small,
             ),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+    ) {
+        MuslimSearchBar(
+            query = query,
+            onQueryChange = onQueryChange,
+            placeholder = stringResource(R.string.quran_search_hint),
+            clearContentDescription = stringResource(R.string.quran_search_clear),
         )
-        IslamicDecorationDivider(
-            tint = MaterialTheme.colorScheme.tertiary,
-            modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
+        MuslimSegmentedControl(
+            options = listOf(
+                stringResource(R.string.quran_tab_surahs),
+                stringResource(R.string.quran_tab_juz),
+                stringResource(R.string.quran_tab_bookmarks),
+            ),
+            selectedIndex = selectedTab,
+            onSelectedIndexChange = onSelectedTabChange,
         )
+    }
+}
 
-        Column(
+@Composable
+private fun QuranHomeContent(
+    state: SurahListViewModel.UiState,
+    query: String,
+    selectedTab: Int,
+    onOpenSurah: (Int) -> Unit,
+    onPlaySurah: (Int) -> Unit,
+    onOpenBookmarks: () -> Unit,
+    onResumeReading: (surahNumber: Int, globalNumber: Int) -> Unit,
+) {
+    if (state.loading) {
+        MuslimLoadingState(
+            title = stringResource(R.string.quran_loading),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(
-                    horizontal = IslamicSpacing.PageHorizontal,
-                    vertical = IslamicSpacing.Small,
-                ),
-            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
-        ) {
-            MuslimSearchBar(
-                query = query,
-                onQueryChange = { query = it },
-                placeholder = stringResource(R.string.quran_search_hint),
-                clearContentDescription = stringResource(R.string.quran_search_clear),
-            )
-            MuslimSegmentedControl(
-                options = listOf(
-                    stringResource(R.string.quran_tab_surahs),
-                    stringResource(R.string.quran_tab_juz),
-                    stringResource(R.string.quran_tab_bookmarks),
-                ),
-                selectedIndex = selectedTab,
-                onSelectedIndexChange = { selectedTab = it },
-            )
-        }
+                .padding(IslamicSpacing.Large),
+        )
+        return
+    }
 
-        if (state.loading) {
-            MuslimLoadingState(
-                title = stringResource(R.string.quran_loading),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(IslamicSpacing.Large),
-            )
-            return@Column
-        }
-
-        when (selectedTab) {
-            TAB_JUZ -> JuzContent(
-                state = state,
-                query = query,
-                onOpenJuz = { start ->
-                    onResumeReading(start.surahNumber, start.globalNumber)
-                },
-            )
-            TAB_BOOKMARKS -> QuranHomeBookmarksContent(
-                bookmarks = state.bookmarks,
-                query = query,
-                onOpenBookmarks = onOpenBookmarks,
-                onOpenAyah = { bookmark ->
-                    onResumeReading(
-                        bookmark.ayah.surahNumber,
-                        bookmark.ayah.globalNumber,
-                    )
-                },
-            )
-            else -> SurahContent(
-                state = state,
-                query = query,
-                onOpenSurah = onOpenSurah,
-                onPlaySurah = onPlaySurah,
-                onResumeReading = onResumeReading,
-            )
-        }
+    when (selectedTab) {
+        TAB_JUZ -> JuzContent(
+            state = state,
+            query = query,
+            onOpenJuz = { start ->
+                onResumeReading(start.surahNumber, start.globalNumber)
+            },
+        )
+        TAB_BOOKMARKS -> QuranHomeBookmarksContent(
+            bookmarks = state.bookmarks,
+            query = query,
+            onOpenBookmarks = onOpenBookmarks,
+            onOpenAyah = { bookmark ->
+                onResumeReading(
+                    bookmark.ayah.surahNumber,
+                    bookmark.ayah.globalNumber,
+                )
+            },
+        )
+        else -> SurahContent(
+            state = state,
+            query = query,
+            onOpenSurah = onOpenSurah,
+            onPlaySurah = onPlaySurah,
+            onResumeReading = onResumeReading,
+        )
     }
 }
 
