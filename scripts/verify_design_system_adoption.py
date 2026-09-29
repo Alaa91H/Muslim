@@ -290,8 +290,18 @@ def main() -> None:
         "Prayer home must use shared Islamic actions instead of raw Card/Button patterns",
     )
     require(
-        "IslamicSecondaryButton" in home,
-        "Prayer home share/month-view actions must use the shared secondary action",
+        "MuslimHero" in home
+        and "MuslimGroup" in home
+        and "MuslimOverflowMenu" in home,
+        "Prayer home must use the V2 hero/group/overflow hierarchy",
+    )
+    require(
+        "alert.volume" not in home,
+        "Prayer home must not expose raw per-prayer volume percentages",
+    )
+    require(
+        "MonthlyTimetable" in home and "Prayer.entries.forEach" in home,
+        "Prayer home monthly mode must expose the complete all-prayer timetable",
     )
     require(
         raw_material_component.search(location) is None,
