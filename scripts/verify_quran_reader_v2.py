@@ -37,6 +37,22 @@ def main() -> None:
         "renderer must keep per-line highlights vertically inset",
     )
     require(
+        "MuslimActionSheet(" in reader and "showAyahActions = true" in reader,
+        "tapping an ayah must open the shared contextual action sheet",
+    )
+    require(
+        'id = "play"' in reader
+        and 'id = "bookmark"' in reader
+        and 'id = "supplement"' in reader
+        and 'id = "share"' in reader
+        and 'id = "copy"' in reader,
+        "reader ayah sheet must preserve core contextual actions",
+    )
+    require(
+        "IconButton(\n                        onClick = viewModel::toggleBookmark" not in reader,
+        "bookmarking must not return as a permanently exposed top-bar action",
+    )
+    require(
         "getBoundingBox(offset)" in renderer,
         "renderer must derive visual horizontal edges from laid-out glyph boxes",
     )
