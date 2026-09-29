@@ -157,4 +157,14 @@
     <string name="quran_car_not_downloaded">This surah is not fully downloaded on the phone.</string>
     <string name="quran_car_search_unavailable">No matching downloaded surah was found.</string>
 
+    <string name="quran_continue_reading">Continue reading</string>
+    <string name="quran_search_hint">Search by Surah name or number…</string>
+    <string name="quran_search_clear">Clear search</string>
+    <string name="quran_tab_surahs">Surahs</string>
+    <string name="quran_tab_juz">Juz</string>
+    <string name="quran_tab_bookmarks">Bookmarks</string>
+    <string name="quran_juz_title">Juz %1$d</string>
+    <string name="quran_juz_start">Starts at Surah %1$d, ayah %2$d</string>
+    <string name="quran_search_no_results">No matching results</string>
+    <string name="quran_open_bookmarks">Open bookmarks screen</string>
 </resources>
