@@ -2,8 +2,10 @@ package org.muslim.app.core.designsystem
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class IslamicDesignSystemTest {
@@ -45,5 +47,35 @@ class IslamicDesignSystemTest {
         assertEquals(200, IslamicMotion.StandardMillis)
         assertEquals(250, IslamicMotion.EmphasisMillis)
         assertEquals(1.dp, IslamicElevation.Resting)
+        assertEquals(1.dp, IslamicStroke.Standard)
+        assertEquals(2.dp, IslamicStroke.Selected)
+    }
+
+    @Test
+    fun `adaptive layout breakpoints have no gaps or overlaps`() {
+        assertEquals(MuslimWindowWidthClass.Compact, IslamicLayout.widthClass(0.dp))
+        assertEquals(MuslimWindowWidthClass.Compact, IslamicLayout.widthClass(599.dp))
+        assertEquals(MuslimWindowWidthClass.Medium, IslamicLayout.widthClass(600.dp))
+        assertEquals(MuslimWindowWidthClass.Medium, IslamicLayout.widthClass(839.dp))
+        assertEquals(MuslimWindowWidthClass.Expanded, IslamicLayout.widthClass(840.dp))
+        assertEquals(760.dp, IslamicLayout.ReadableContentMaxWidth)
+        assertTrue(IslamicLayout.WideContentMaxWidth > IslamicLayout.ReadableContentMaxWidth)
+    }
+
+    @Test
+    fun `semantic typography keeps reader roles distinct and readable`() {
+        assertEquals(32.sp, MuslimSemanticTypography.QuranArabic.fontSize)
+        assertEquals(52.sp, MuslimSemanticTypography.QuranArabic.lineHeight)
+        assertEquals(MuslimFonts.Quran, MuslimSemanticTypography.QuranArabic.fontFamily)
+        assertTrue(MuslimSemanticTypography.Hero.fontSize > MuslimSemanticTypography.SectionTitle.fontSize)
+        assertTrue(MuslimSemanticTypography.QuranTranslation.lineHeight > MuslimSemanticTypography.QuranTranslation.fontSize)
+    }
+
+    @Test
+    fun `content emphasis tokens retain clear hierarchy`() {
+        assertEquals(1f, IslamicContentAlpha.Full)
+        assertTrue(IslamicContentAlpha.Secondary < IslamicContentAlpha.Full)
+        assertTrue(IslamicContentAlpha.Muted < IslamicContentAlpha.Secondary)
+        assertTrue(IslamicContentAlpha.Disabled < IslamicContentAlpha.Muted)
     }
 }
