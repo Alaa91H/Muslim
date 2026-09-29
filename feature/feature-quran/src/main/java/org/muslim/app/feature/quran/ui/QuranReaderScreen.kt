@@ -1,5 +1,9 @@
 package org.muslim.app.feature.quran.ui
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.content.Intent
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
@@ -34,6 +38,7 @@ import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.SkipNext
 import androidx.compose.material.icons.filled.SkipPrevious
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Download
@@ -46,6 +51,7 @@ import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Repeat
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.RadioButtonChecked
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material.icons.filled.Translate
@@ -135,6 +141,8 @@ import org.muslim.app.core.designsystem.MuslimSepiaColors
 import org.muslim.app.core.ui.accessibility.LocalAccessibilityVisuals
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicSelectableCard
+import org.muslim.app.core.ui.theme.MuslimActionItem
+import org.muslim.app.core.ui.theme.MuslimActionSheet
 import org.muslim.app.core.ui.theme.IslamicDecorationCorners
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicReadingBasmalaAccent
@@ -278,7 +286,8 @@ fun QuranReaderScreen(
     // Keep the screen lit while the mushaf reader is open (and therefore
     // during recitation) when the user enabled the keep-screen-on option;
     // restore the normal screen timeout on leave.
-    val window = (LocalContext.current as? Activity)?.window
+    val context = LocalContext.current
+    val window = (context as? Activity)?.window
     DisposableEffect(keepScreenOn) {
         val activityWindow = window ?: return@DisposableEffect onDispose {}
         if (keepScreenOn) {
@@ -303,6 +312,7 @@ fun QuranReaderScreen(
     var showMoreMenu by remember { mutableStateOf(false) }
     var showDetails by remember { mutableStateOf(false) }
     var showSupplementControls by remember { mutableStateOf(false) }
+    var showAyahActions by remember { mutableStateOf(false) }
     // A short-lived highlight flashed on the ayah the user just tapped, so the
     // selection is unmistakable before playback starts.
     var tappedAyahGlobal by remember { mutableStateOf<Int?>(null) }
@@ -659,22 +669,6 @@ fun QuranReaderScreen(
                             contentDescription = stringResource(R.string.quran_reader_theme),
                         )
                     }
-                    IconButton(
-                        onClick = viewModel::toggleBookmark,
-                        enabled = currentAyah != null,
-                    ) {
-                        Icon(
-                            imageVector = if (bookmarked) Icons.Filled.Bookmark else Icons.Outlined.BookmarkBorder,
-                            contentDescription = stringResource(
-                                if (bookmarked) R.string.quran_bookmark_remove else R.string.quran_bookmark_add
-                            ),
-                            tint = if (bookmarked) {
-                                MaterialTheme.colorScheme.primary
-                            } else {
-                                MaterialTheme.colorScheme.onSurfaceVariant
-                            },
-                        )
-                    }
                     Box {
                         IconButton(onClick = { showMoreMenu = true }) {
                             Icon(
@@ -822,6 +816,7 @@ fun QuranReaderScreen(
                             tappedAyahGlobal = ayah.globalNumber
                             scrollTargetAyah = ayah.globalNumber
                             targetAyahRootBoundsPx = null
+                            showAyahActions = true
                         },
                         onAyahRootBoundsPx = reportAyahBounds,
                         onAyahPositionsChanged = { page, positions ->
@@ -993,6 +988,80 @@ fun QuranReaderScreen(
                 }
             }
 
+            if (showAyahActions) {
+                val selectedAyah = selectedStart ?: currentAyah
+                if (selectedAyah != null) {
+                    MuslimActionSheet(
+                        title = stringResource(R.string.quran_ayah_actions),
+                        onDismiss = { showAyahActions = false },
+                        actions = listOf(
+                            MuslimActionItem(
+                                id = "play",
+                                label = stringResource(
+                                    R.string.quran_play_from_selected_ayah,
+                                    selectedAyah.numberInSurah,
+                                ),
+                                icon = Icons.Filled.PlayArrow,
+                                onClick = {
+                                    viewModel.playFromSelectedAyahToSurahEnd(
+                                        selectedAyah,
+                                        repeatCount,
+                                    )
+                                },
+                            ),
+                            MuslimActionItem(
+                                id = "bookmark",
+                                label = stringResource(
+                                    if (bookmarked) {
+                                        R.string.quran_bookmark_remove
+                                    } else {
+                                        R.string.quran_bookmark_add
+                                    },
+                                ),
+                                icon = if (bookmarked) {
+                                    Icons.Filled.Bookmark
+                                } else {
+                                    Icons.Outlined.BookmarkBorder
+                                },
+                                onClick = viewModel::toggleBookmark,
+                            ),
+                            MuslimActionItem(
+                                id = "supplement",
+                                label = stringResource(R.string.quran_supplement_controls),
+                                icon = Icons.Filled.Translate,
+                                onClick = { showSupplementControls = true },
+                            ),
+                            MuslimActionItem(
+                                id = "share",
+                                label = stringResource(R.string.quran_share_ayah),
+                                icon = Icons.Filled.Share,
+                                onClick = {
+                                    shareAyah(
+                                        context = context,
+                                        ayah = selectedAyah,
+                                        surahName = state.surah?.arabicName.orEmpty(),
+                                    )
+                                },
+                            ),
+                            MuslimActionItem(
+                                id = "copy",
+                                label = stringResource(R.string.quran_copy_ayah),
+                                icon = Icons.Filled.ContentCopy,
+                                onClick = {
+                                    copyAyah(
+                                        context = context,
+                                        ayah = selectedAyah,
+                                        surahName = state.surah?.arabicName.orEmpty(),
+                                    )
+                                },
+                            ),
+                        ),
+                    )
+                } else {
+                    showAyahActions = false
+                }
+            }
+
             if (showDetails) {
             state.surah?.let { surah ->
                 SurahDetailsDialog(surah = surah, onDismiss = { showDetails = false })
@@ -1019,6 +1088,46 @@ fun QuranReaderScreen(
             }
         }
     }
+}
+
+private fun ayahShareText(
+    ayah: Ayah,
+    surahName: String,
+): String = buildString {
+    if (surahName.isNotBlank()) {
+        append(surahName)
+        append(" — ")
+    }
+    append(ayah.numberInSurah)
+    append("\n")
+    append(ayah.text)
+}
+
+private fun shareAyah(
+    context: Context,
+    ayah: Ayah,
+    surahName: String,
+) {
+    val intent = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_TEXT, ayahShareText(ayah, surahName))
+    }
+    val chooser = Intent.createChooser(intent, context.getString(R.string.quran_share_ayah))
+    runCatching { context.startActivity(chooser) }
+}
+
+private fun copyAyah(
+    context: Context,
+    ayah: Ayah,
+    surahName: String,
+) {
+    val clipboard = context.getSystemService(ClipboardManager::class.java)
+    clipboard?.setPrimaryClip(
+        ClipData.newPlainText(
+            context.getString(R.string.quran_copy_ayah),
+            ayahShareText(ayah, surahName),
+        ),
+    )
 }
 
 @Composable
