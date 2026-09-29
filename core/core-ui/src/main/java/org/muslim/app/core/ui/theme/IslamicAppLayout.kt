@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import org.muslim.app.core.designsystem.IslamicLayout
 import org.muslim.app.core.designsystem.IslamicMotion
 
 /**
@@ -87,4 +88,4 @@ fun MuslimContentFrame(
     }
 }
 
-val DefaultMuslimContentWidth = 760.dp
+val DefaultMuslimContentWidth = IslamicLayout.ReadableContentMaxWidth
