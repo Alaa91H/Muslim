@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_choose_dhikr">Choose dhikr</string>
+    <string name="tasbih_choose_dhikr_desc">Change the category and phrase you want to count</string>
     <string name="tasbih_back">Back</string>
     <string name="tasbih_of_target">of %1$s</string>
     <string name="tasbih_target_reached">Goal reached — may Allah accept</string>
