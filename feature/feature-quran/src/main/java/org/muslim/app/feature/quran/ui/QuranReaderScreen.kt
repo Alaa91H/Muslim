@@ -873,33 +873,37 @@ fun QuranReaderScreen(
 
             if (showReaderSettings) {
                 ReaderSettingsSheet(
-                    theme = theme,
-                    fontSize = fontSize,
-                    keepScreenOn = keepScreenOn,
-                    tajweedEnabled = tajweedEnabled,
-                    supplementEnabled = supplementEnabled,
-                    canOpenSupplement = currentAyah != null,
-                    canOpenDetails = state.surah != null,
-                    onDismiss = { showReaderSettings = false },
-                    onThemeChange = viewModel::setReaderTheme,
-                    onFontSizeChanged = { newSize ->
-                        fontSize = newSize
-                        viewModel.setReaderFontSize(newSize)
-                    },
-                    onKeepScreenOnChanged = viewModel::setKeepScreenOn,
-                    onTajweedChanged = viewModel::setTajweedEnabled,
-                    onOpenSupplement = {
-                        showReaderSettings = false
-                        showSupplementControls = true
-                    },
-                    onOpenDetails = {
-                        showReaderSettings = false
-                        showDetails = true
-                    },
-                    onOpenDownloads = {
-                        showReaderSettings = false
-                        onOpenDownloads()
-                    },
+                    state = ReaderSettingsState(
+                        theme = theme,
+                        fontSize = fontSize,
+                        keepScreenOn = keepScreenOn,
+                        tajweedEnabled = tajweedEnabled,
+                        supplementEnabled = supplementEnabled,
+                        canOpenSupplement = currentAyah != null,
+                        canOpenDetails = state.surah != null,
+                    ),
+                    actions = ReaderSettingsActions(
+                        onDismiss = { showReaderSettings = false },
+                        onThemeChange = viewModel::setReaderTheme,
+                        onFontSizeChanged = { newSize ->
+                            fontSize = newSize
+                            viewModel.setReaderFontSize(newSize)
+                        },
+                        onKeepScreenOnChanged = viewModel::setKeepScreenOn,
+                        onTajweedChanged = viewModel::setTajweedEnabled,
+                        onOpenSupplement = {
+                            showReaderSettings = false
+                            showSupplementControls = true
+                        },
+                        onOpenDetails = {
+                            showReaderSettings = false
+                            showDetails = true
+                        },
+                        onOpenDownloads = {
+                            showReaderSettings = false
+                            onOpenDownloads()
+                        },
+                    ),
                 )
             }
 
@@ -1005,36 +1009,44 @@ fun QuranReaderScreen(
     }
 }
 
+private data class ReaderSettingsState(
+    val theme: ReaderTheme,
+    val fontSize: Float,
+    val keepScreenOn: Boolean,
+    val tajweedEnabled: Boolean,
+    val supplementEnabled: Boolean,
+    val canOpenSupplement: Boolean,
+    val canOpenDetails: Boolean,
+)
+
+private data class ReaderSettingsActions(
+    val onDismiss: () -> Unit,
+    val onThemeChange: (ReaderTheme) -> Unit,
+    val onFontSizeChanged: (Float) -> Unit,
+    val onKeepScreenOnChanged: (Boolean) -> Unit,
+    val onTajweedChanged: (Boolean) -> Unit,
+    val onOpenSupplement: () -> Unit,
+    val onOpenDetails: () -> Unit,
+    val onOpenDownloads: () -> Unit,
+)
+
 @Composable
 private fun ReaderSettingsSheet(
-    theme: ReaderTheme,
-    fontSize: Float,
-    keepScreenOn: Boolean,
-    tajweedEnabled: Boolean,
-    supplementEnabled: Boolean,
-    canOpenSupplement: Boolean,
-    canOpenDetails: Boolean,
-    onDismiss: () -> Unit,
-    onThemeChange: (ReaderTheme) -> Unit,
-    onFontSizeChanged: (Float) -> Unit,
-    onKeepScreenOnChanged: (Boolean) -> Unit,
-    onTajweedChanged: (Boolean) -> Unit,
-    onOpenSupplement: () -> Unit,
-    onOpenDetails: () -> Unit,
-    onOpenDownloads: () -> Unit,
+    state: ReaderSettingsState,
+    actions: ReaderSettingsActions,
 ) {
     MuslimBottomSheet(
-        onDismiss = onDismiss,
+        onDismiss = actions.onDismiss,
         title = stringResource(R.string.quran_more_actions),
     ) {
         MuslimSettingsItem(
             title = stringResource(R.string.quran_reader_theme),
-            icon = when (theme) {
+            icon = when (state.theme) {
                 ReaderTheme.Light -> Icons.Filled.LightMode
                 ReaderTheme.Sepia -> Icons.Filled.Nightlight
                 ReaderTheme.Dark -> Icons.Filled.DarkMode
             },
-            onClick = { onThemeChange(theme.next) },
+            onClick = { actions.onThemeChange(state.theme.next) },
         )
         Row(
             modifier = Modifier
@@ -1051,52 +1063,52 @@ private fun ReaderSettingsSheet(
                 style = MaterialTheme.typography.bodyLarge,
             )
             FontSizeControls(
-                fontSize = fontSize,
-                onChanged = onFontSizeChanged,
+                fontSize = state.fontSize,
+                onChanged = actions.onFontSizeChanged,
             )
         }
         MuslimSettingsItem(
             title = stringResource(R.string.quran_keep_screen_on),
-            onClick = { onKeepScreenOnChanged(!keepScreenOn) },
+            onClick = { actions.onKeepScreenOnChanged(!state.keepScreenOn) },
             trailing = {
                 Switch(
-                    checked = keepScreenOn,
-                    onCheckedChange = onKeepScreenOnChanged,
+                    checked = state.keepScreenOn,
+                    onCheckedChange = actions.onKeepScreenOnChanged,
                 )
             },
         )
         MuslimSettingsItem(
             title = stringResource(R.string.quran_tajweed_show),
             icon = Icons.Filled.Nightlight,
-            onClick = { onTajweedChanged(!tajweedEnabled) },
+            onClick = { actions.onTajweedChanged(!state.tajweedEnabled) },
             trailing = {
                 Switch(
-                    checked = tajweedEnabled,
-                    onCheckedChange = onTajweedChanged,
+                    checked = state.tajweedEnabled,
+                    onCheckedChange = actions.onTajweedChanged,
                 )
             },
         )
         MuslimSettingsItem(
             title = stringResource(R.string.quran_supplement_controls),
-            supportingText = if (supplementEnabled) {
+            supportingText = if (state.supplementEnabled) {
                 stringResource(R.string.quran_supplement_show)
             } else {
                 null
             },
             icon = Icons.Filled.Translate,
-            enabled = canOpenSupplement,
-            onClick = onOpenSupplement,
+            enabled = state.canOpenSupplement,
+            onClick = actions.onOpenSupplement,
         )
         MuslimSettingsItem(
             title = stringResource(R.string.quran_details),
             icon = Icons.Filled.Info,
-            enabled = canOpenDetails,
-            onClick = onOpenDetails,
+            enabled = state.canOpenDetails,
+            onClick = actions.onOpenDetails,
         )
         MuslimSettingsItem(
             title = stringResource(R.string.quran_downloads_title),
             icon = Icons.Filled.Download,
-            onClick = onOpenDownloads,
+            onClick = actions.onOpenDownloads,
         )
     }
 }
