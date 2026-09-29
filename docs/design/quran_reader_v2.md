@@ -34,6 +34,16 @@ For each highlighted ayah:
 
 Playback may retain a stronger fill and border, but it uses the exact same line-local geometry as every other highlight state.
 
+## Ayah marker color contract
+
+The Mushaf page renderer must keep ayah-number ornaments visually consistent:
+
+- the first visible ayah marker on every page uses the same gold/bronze marker color as later ayah markers,
+- page slicing must not cause the first ayah marker to inherit the green primary/accent color,
+- selected/tapped/opened/playback states may highlight the ayah text/background but must not create a one-off first-marker color,
+- the contract applies to light, sepia and dark reading themes and across page transitions,
+- regression coverage must include a page whose first visible ayah is not ayah 1 of the Surah.
+
 ## Contextual ayah actions
 
 Tapping an ayah still selects and scrolls to it, and now opens one shared `MuslimActionSheet`.
