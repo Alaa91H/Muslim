@@ -71,9 +71,6 @@ import org.muslim.app.feature.quran.data.DownloadTaskUi
 import kotlin.math.roundToInt
 import java.util.Locale
 
-/** 30-minute increments across a full day, as minutes from midnight. */
-private val nightTimeOptions: List<Int> = (0 until 24 * 60 step 30).toList()
-
 /** Downloads hub: choose scope + reciter, see verified sizes, and track background progress. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -252,7 +249,6 @@ fun QuranDownloadsScreen(
                                 )
                             },
                             onDeleteSurah = { confirmDeleteSurah = it },
-                            onDeleteReciter = { confirmDeleteReciter = true },
                         )
                     }
 
@@ -333,40 +329,22 @@ fun QuranDownloadsScreen(
 /** Summary of all downloaded recitation audio across every reciter. */
 @Composable
 private fun TotalSummaryCard(summary: TotalDownloadSummary) {
-    IslamicCard(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Icon(
-                imageVector = Icons.Filled.CheckCircle,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.primary,
-            )
-            Spacer(Modifier.width(IslamicSpacing.Compact))
-            Column {
-                Text(
-                    text = stringResource(R.string.quran_downloads_summary_title),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Text(
-                    text = stringResource(
-                        R.string.quran_downloads_summary,
-                        summary.downloadedSurahs,
-                        summary.downloadedAyahs,
-                        formatBytes(summary.totalBytes),
-                    ),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-            }
-        }
-    }
+    MuslimHero(
+        title = stringResource(R.string.quran_downloads_summary_title),
+        value = formatBytes(summary.totalBytes),
+        supportingText = stringResource(
+            R.string.quran_downloads_summary,
+            summary.downloadedSurahs,
+            summary.downloadedAyahs,
+            formatBytes(summary.totalBytes),
+        ),
+        icon = Icons.Filled.CheckCircle,
+        iconContentDescription = null,
+        modifier = Modifier.padding(
+            horizontal = IslamicSpacing.Medium,
+            vertical = IslamicSpacing.Small,
+        ),
+    )
 }
 
 /** How to order the downloaded-surah list. */
@@ -389,37 +367,22 @@ private fun SurahCoverageSection(
     totalMushafAyahs: Int,
 ) {
     if (coverages.isEmpty() || activeReciterCount == 0) {
-        MuslimEmptyState(
-            title = stringResource(R.string.quran_downloads_coverage_title),
-            supportingText = stringResource(R.string.quran_downloads_coverage_empty),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
+        Text(
+            text = stringResource(R.string.quran_downloads_coverage_empty),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         return
     }
 
-    IslamicCard(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-    ) {
-        Column {
-            Text(
-                text = stringResource(R.string.quran_downloads_coverage_title),
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Spacer(Modifier.height(IslamicSpacing.Small))
-            OverallCoverageRow(
-                coverages = coverages,
-                activeReciterCount = activeReciterCount,
-                totalMushafAyahs = totalMushafAyahs,
-            )
-            Spacer(Modifier.height(IslamicSpacing.Small))
-            SurahCoverageList(coverages)
-        }
+    Column {
+        OverallCoverageRow(
+            coverages = coverages,
+            activeReciterCount = activeReciterCount,
+            totalMushafAyahs = totalMushafAyahs,
+        )
+        Spacer(Modifier.height(IslamicSpacing.Small))
+        SurahCoverageList(coverages)
     }
 }
 
@@ -655,16 +618,21 @@ private fun ReciterHeaderSummary(
                 }
             }
             Spacer(Modifier.width(IslamicSpacing.Small))
-            IconButton(
-                onClick = onDeleteReciter,
-                enabled = downloaded > 0,
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.Delete,
-                    contentDescription = stringResource(R.string.quran_download_delete_reciter),
-                    tint = MaterialTheme.colorScheme.error,
-                )
-            }
+            var menuExpanded by remember(reciterName) { mutableStateOf(false) }
+            MuslimOverflowMenu(
+                expanded = menuExpanded,
+                onExpandedChange = { menuExpanded = it },
+                contentDescription = stringResource(R.string.quran_more_actions),
+                actions = listOf(
+                    MuslimMenuAction(
+                        id = "delete-reciter",
+                        label = stringResource(R.string.quran_download_delete_reciter),
+                        icon = Icons.Filled.Delete,
+                        enabled = downloaded > 0,
+                        onClick = onDeleteReciter,
+                    ),
+                ),
+            )
         }
     }
 }
@@ -681,14 +649,7 @@ private fun ReciterStateSection(
     sortMode: SurahSort,
     onSortModeChanged: (SurahSort) -> Unit,
     onDeleteSurah: (Int) -> Unit,
-    onDeleteReciter: () -> Unit,
 ) {
-    Text(
-        text = stringResource(R.string.quran_downloads_title) + " — " + stringResource(R.string.quran_reciter),
-        style = MaterialTheme.typography.titleMedium,
-        color = MaterialTheme.colorScheme.primary,
-    )
-    Spacer(Modifier.height(IslamicSpacing.Small))
     val current = state
     if (current == null || current.downloadedAyahs == 0) {
         Text(
@@ -762,13 +723,20 @@ private fun ReciterStateSection(
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-                IconButton(onClick = { onDeleteSurah(surahNumber) }) {
-                    Icon(
-                        imageVector = Icons.Filled.Delete,
-                        contentDescription = stringResource(R.string.quran_download_delete_surah),
-                        tint = MaterialTheme.colorScheme.error,
-                    )
-                }
+                var menuExpanded by remember(surahNumber) { mutableStateOf(false) }
+                MuslimOverflowMenu(
+                    expanded = menuExpanded,
+                    onExpandedChange = { menuExpanded = it },
+                    contentDescription = stringResource(R.string.quran_more_actions),
+                    actions = listOf(
+                        MuslimMenuAction(
+                            id = "delete",
+                            label = stringResource(R.string.quran_download_delete_surah),
+                            icon = Icons.Filled.Delete,
+                            onClick = { onDeleteSurah(surahNumber) },
+                        ),
+                    ),
+                )
             }
             Row(
                 modifier = Modifier.padding(start = IslamicSpacing.Large, top = IslamicSpacing.XXSmall),
@@ -788,16 +756,5 @@ private fun ReciterStateSection(
                 )
             }
         }
-    }
-    Spacer(Modifier.height(IslamicSpacing.XSmall))
-    TextButton(onClick = onDeleteReciter) {
-        Icon(
-            imageVector = Icons.Filled.Delete,
-            contentDescription = null,
-            tint = MaterialTheme.colorScheme.error,
-            modifier = Modifier.size(18.dp),
-        )
-        Spacer(Modifier.width(IslamicSpacing.Small))
-        Text(stringResource(R.string.quran_download_delete_reciter))
     }
 }
