@@ -12,6 +12,11 @@
     <!-- Islamic history and civilization -->
     <string name="history_title">Islamic History &amp; Civilization</string>
     <string name="history_timeline_tab">Timeline</string>
+    <string name="history_states_tab">States &amp; dynasties</string>
+    <string name="history_civilization_tab">Civilization</string>
+    <string name="history_events_tab">Events</string>
+    <string name="history_search_tab">Search</string>
+    <string name="history_more_views">More history views</string>
     <string name="history_atlas_tab">Atlas</string>
     <string name="history_people_tab">People &amp; figures</string>
     <string name="history_language_english">English</string>
