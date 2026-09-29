@@ -109,5 +109,6 @@
     <string name="adhkar_copy">نسخ</string>
     <string name="adhkar_copied">تم نسخ الذكر</string>
     <string name="adhkar_share">مشاركة</string>
+    <string name="adhkar_more_actions" tools:ignore="MissingTranslation">المزيد من الإجراءات</string>
     <string name="adhkar_remove_favorite">إزالة من المفضلة</string>
 </resources>
