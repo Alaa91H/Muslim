@@ -21,7 +21,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.automirrored.filled.TrendingUp
@@ -33,18 +32,13 @@ import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.Save
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
-import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -64,13 +58,16 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.common.lang.AppLanguage
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.common.text.Digits
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimScreen
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
+import org.muslim.app.core.ui.theme.MuslimSegmentedControl
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.finance.R
@@ -124,7 +121,6 @@ private val DebtDraftSaver: Saver<DebtDraft, List<Any>> = Saver(
     },
 )
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun IslamicFinanceScreen(
     onBack: () -> Unit,
@@ -135,45 +131,37 @@ fun IslamicFinanceScreen(
     val isArabic = AppLanguage.isArabicUi()
     var selectedTab by rememberSaveable { mutableIntStateOf(FinanceTab.Transactions.ordinal) }
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.finance_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.finance_back))
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.finance_title),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.finance_back),
             )
         },
-    ) { innerPadding ->
-        Column(Modifier.fillMaxSize().padding(innerPadding)) {
+    ) {
+        Column(Modifier.fillMaxSize()) {
             IslamicDecorationBand(
                 tint = MaterialTheme.colorScheme.tertiary,
                 compact = true,
             )
-            PrimaryScrollableTabRow(selectedTabIndex = selectedTab, edgePadding = 12.dp) {
-                FinanceTab.entries.forEach { tab ->
-                    Tab(
-                        selected = selectedTab == tab.ordinal,
-                        onClick = { selectedTab = tab.ordinal },
-                        text = {
-                            Text(
-                                when (tab) {
-                                    FinanceTab.Transactions -> stringResource(R.string.finance_tab_transactions)
-                                    FinanceTab.Stocks -> stringResource(R.string.finance_tab_stocks)
-                                    FinanceTab.Debts -> stringResource(R.string.finance_tab_debts)
-                                },
-                            )
-                        },
-                        icon = { Icon(tab.icon, contentDescription = null, modifier = Modifier.size(18.dp)) },
-                    )
-                }
-            }
+            MuslimSegmentedControl(
+                options = listOf(
+                    stringResource(R.string.finance_tab_transactions),
+                    stringResource(R.string.finance_tab_stocks),
+                    stringResource(R.string.finance_tab_debts),
+                ),
+                selectedIndex = selectedTab,
+                onSelectedIndexChange = { selectedTab = it },
+                modifier = Modifier.padding(
+                    horizontal = IslamicSpacing.PageHorizontal,
+                    vertical = IslamicSpacing.Small,
+                ),
+            )
             IslamicDecorationDivider(
                 tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 24.dp),
+                modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
             )
             when (FinanceTab.entries[selectedTab]) {
                 FinanceTab.Transactions -> TransactionsContent(isArabic = isArabic)
@@ -188,8 +176,11 @@ fun IslamicFinanceScreen(
 private fun TransactionsContent(isArabic: Boolean) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp),
+        contentPadding = PaddingValues(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Compact,
+        ),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         item {
             FinanceIntroCard(
@@ -280,15 +271,14 @@ private fun StockCheckerContent(isArabic: Boolean) {
         }
         item {
             MuslimSectionHeader(title = stringResource(R.string.finance_stock_provider))
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(top = 6.dp)) {
-                ScreeningProvider.entries.forEach { provider ->
-                    FilterChip(
-                        selected = selectedProvider == provider,
-                        onClick = { selectedProvider = provider },
-                        label = { Text(provider.label.pick(isArabic)) },
-                    )
-                }
-            }
+            MuslimSegmentedControl(
+                options = ScreeningProvider.entries.map { it.label.pick(isArabic) },
+                selectedIndex = ScreeningProvider.entries.indexOf(selectedProvider),
+                onSelectedIndexChange = { index ->
+                    selectedProvider = ScreeningProvider.entries[index]
+                },
+                modifier = Modifier.padding(top = IslamicSpacing.XSmall),
+            )
         }
         item {
             FinanceNoticeCard(selectedProvider.availability.pick(isArabic))
