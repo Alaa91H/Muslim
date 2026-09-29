@@ -109,5 +109,6 @@
     <string name="adhkar_copy">Copy</string>
     <string name="adhkar_copied">Dhikr copied</string>
     <string name="adhkar_share">Share</string>
+    <string name="adhkar_more_actions">More actions</string>
     <string name="adhkar_remove_favorite">Remove from favorites</string>
 </resources>
