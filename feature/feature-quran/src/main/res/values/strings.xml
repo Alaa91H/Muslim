@@ -168,4 +168,5 @@
     <string name="quran_juz_start">يبدأ من سورة %1$d، آية %2$d</string>
     <string name="quran_search_no_results">لا توجد نتائج مطابقة</string>
     <string name="quran_open_bookmarks">فتح شاشة العلامات المرجعية</string>
+    <string name="quran_loading">جارٍ تحميل القرآن…</string>
 </resources>
