@@ -60,25 +60,45 @@ private data class MoreSection(
     val entries: List<MoreEntry>,
 )
 
-private data class MoreActions(
-    val settings: () -> Unit,
-    val hadith: () -> Unit,
+private data class WorshipActions(
     val adhkar: () -> Unit,
     val tasbih: () -> Unit,
     val ramadan: () -> Unit,
     val habits: () -> Unit,
-    val zakat: () -> Unit,
-    val finance: () -> Unit,
+)
+
+private data class StudyActions(
+    val hadith: () -> Unit,
     val learn: () -> Unit,
     val reference: () -> Unit,
     val history: () -> Unit,
     val scholarLibrary: () -> Unit,
-    val accessibility: () -> Unit,
-    val downloads: () -> Unit,
-    val family: () -> Unit,
-    val funeralWill: () -> Unit,
+)
+
+private data class LifeActions(
     val noorani: () -> Unit,
     val traveler: () -> Unit,
+    val family: () -> Unit,
+    val funeralWill: () -> Unit,
+)
+
+private data class ToolActions(
+    val zakat: () -> Unit,
+    val finance: () -> Unit,
+    val downloads: () -> Unit,
+)
+
+private data class AppActions(
+    val settings: () -> Unit,
+    val accessibility: () -> Unit,
+)
+
+private data class MoreActions(
+    val worship: WorshipActions,
+    val study: StudyActions,
+    val life: LifeActions,
+    val tools: ToolActions,
+    val app: AppActions,
 )
 
 @Suppress("LongParameterList")
@@ -109,24 +129,34 @@ fun MoreScreen(
     hiddenSections: Set<String> = emptySet(),
 ) {
     val actions = MoreActions(
-        settings = onOpenSettings,
-        hadith = onOpenHadith,
-        adhkar = onOpenAdhkar,
-        tasbih = onOpenTasbih,
-        ramadan = onOpenRamadan,
-        habits = onOpenHabits,
-        zakat = onOpenZakat,
-        finance = onOpenIslamicFinance,
-        learn = onOpenLearn,
-        reference = onOpenReference,
-        history = onOpenIslamicHistory,
-        scholarLibrary = onOpenScholarLibrary,
-        accessibility = onOpenAccessibility,
-        downloads = onOpenDownloads,
-        family = onOpenFamily,
-        funeralWill = onOpenFuneralWill,
-        noorani = onOpenNoorani,
-        traveler = onOpenTraveler,
+        worship = WorshipActions(
+            adhkar = onOpenAdhkar,
+            tasbih = onOpenTasbih,
+            ramadan = onOpenRamadan,
+            habits = onOpenHabits,
+        ),
+        study = StudyActions(
+            hadith = onOpenHadith,
+            learn = onOpenLearn,
+            reference = onOpenReference,
+            history = onOpenIslamicHistory,
+            scholarLibrary = onOpenScholarLibrary,
+        ),
+        life = LifeActions(
+            noorani = onOpenNoorani,
+            traveler = onOpenTraveler,
+            family = onOpenFamily,
+            funeralWill = onOpenFuneralWill,
+        ),
+        tools = ToolActions(
+            zakat = onOpenZakat,
+            finance = onOpenIslamicFinance,
+            downloads = onOpenDownloads,
+        ),
+        app = AppActions(
+            settings = onOpenSettings,
+            accessibility = onOpenAccessibility,
+        ),
     )
     val sectionsById = moreSections(actions, showRamadanShortcut)
 
@@ -274,12 +304,12 @@ private fun worshipSection(
     id = AppPreferences.MORE_SECTION_WORSHIP,
     titleRes = R.string.more_section_worship,
     entries = buildList {
-        add(MoreEntry(R.string.more_adhkar, R.string.more_adhkar_desc, Icons.Filled.Favorite, actions.adhkar))
-        add(MoreEntry(R.string.more_tasbih, R.string.more_tasbih_desc, Icons.Filled.AutoStories, actions.tasbih))
+        add(MoreEntry(R.string.more_adhkar, R.string.more_adhkar_desc, Icons.Filled.Favorite, actions.worship.adhkar))
+        add(MoreEntry(R.string.more_tasbih, R.string.more_tasbih_desc, Icons.Filled.AutoStories, actions.worship.tasbih))
         if (showRamadanShortcut) {
-            add(MoreEntry(R.string.more_ramadan, R.string.more_ramadan_desc, Icons.Filled.NightsStay, actions.ramadan))
+            add(MoreEntry(R.string.more_ramadan, R.string.more_ramadan_desc, Icons.Filled.NightsStay, actions.worship.ramadan))
         }
-        add(MoreEntry(R.string.more_habits, R.string.more_habits_desc, Icons.Filled.SelfImprovement, actions.habits))
+        add(MoreEntry(R.string.more_habits, R.string.more_habits_desc, Icons.Filled.SelfImprovement, actions.worship.habits))
     },
 )
 
@@ -287,24 +317,24 @@ private fun knowledgeSection(actions: MoreActions): MoreSection = MoreSection(
     id = AppPreferences.MORE_SECTION_KNOWLEDGE,
     titleRes = R.string.more_section_knowledge,
     entries = listOf(
-        MoreEntry(R.string.more_hadith, R.string.more_hadith_desc, Icons.AutoMirrored.Filled.MenuBook, actions.hadith),
-        MoreEntry(R.string.more_learn, R.string.more_learn_desc, Icons.Filled.School, actions.learn),
-        MoreEntry(R.string.more_noorani, R.string.more_noorani_desc, Icons.Filled.School, actions.noorani),
-        MoreEntry(R.string.more_traveler, R.string.more_traveler_desc, Icons.Filled.Place, actions.traveler),
-        MoreEntry(R.string.more_family, R.string.more_family_desc, Icons.Filled.FamilyRestroom, actions.family),
+        MoreEntry(R.string.more_hadith, R.string.more_hadith_desc, Icons.AutoMirrored.Filled.MenuBook, actions.study.hadith),
+        MoreEntry(R.string.more_learn, R.string.more_learn_desc, Icons.Filled.School, actions.study.learn),
+        MoreEntry(R.string.more_noorani, R.string.more_noorani_desc, Icons.Filled.School, actions.life.noorani),
+        MoreEntry(R.string.more_traveler, R.string.more_traveler_desc, Icons.Filled.Place, actions.life.traveler),
+        MoreEntry(R.string.more_family, R.string.more_family_desc, Icons.Filled.FamilyRestroom, actions.life.family),
         MoreEntry(
             R.string.more_funeral_will,
             R.string.more_funeral_will_desc,
             Icons.Filled.HealthAndSafety,
-            actions.funeralWill,
+            actions.life.funeralWill,
         ),
-        MoreEntry(R.string.more_reference, R.string.more_reference_desc, Icons.Filled.AutoStories, actions.reference),
-        MoreEntry(R.string.more_islamic_history, R.string.more_islamic_history_desc, Icons.Filled.AutoStories, actions.history),
+        MoreEntry(R.string.more_reference, R.string.more_reference_desc, Icons.Filled.AutoStories, actions.study.reference),
+        MoreEntry(R.string.more_islamic_history, R.string.more_islamic_history_desc, Icons.Filled.AutoStories, actions.study.history),
         MoreEntry(
             R.string.more_scholar_library,
             R.string.more_scholar_library_desc,
             Icons.AutoMirrored.Filled.LibraryBooks,
-            actions.scholarLibrary,
+            actions.study.scholarLibrary,
         ),
     ),
 )
@@ -313,14 +343,14 @@ private fun toolsSection(actions: MoreActions): MoreSection = MoreSection(
     id = AppPreferences.MORE_SECTION_TOOLS,
     titleRes = R.string.more_section_tools,
     entries = listOf(
-        MoreEntry(R.string.more_zakat, R.string.more_zakat_desc, Icons.Filled.Calculate, actions.zakat),
+        MoreEntry(R.string.more_zakat, R.string.more_zakat_desc, Icons.Filled.Calculate, actions.tools.zakat),
         MoreEntry(
             R.string.more_islamic_finance,
             R.string.more_islamic_finance_desc,
             Icons.Filled.AccountBalance,
-            actions.finance,
+            actions.tools.finance,
         ),
-        MoreEntry(R.string.more_downloads, R.string.more_downloads_desc, Icons.Filled.Download, actions.downloads),
+        MoreEntry(R.string.more_downloads, R.string.more_downloads_desc, Icons.Filled.Download, actions.tools.downloads),
     ),
 )
 
@@ -332,9 +362,9 @@ private fun appSection(actions: MoreActions): MoreSection = MoreSection(
             R.string.more_accessibility,
             R.string.more_accessibility_desc,
             Icons.Filled.Visibility,
-            actions.accessibility,
+            actions.app.accessibility,
         ),
-        MoreEntry(R.string.more_settings, R.string.more_settings_desc, Icons.Filled.Settings, actions.settings),
+        MoreEntry(R.string.more_settings, R.string.more_settings_desc, Icons.Filled.Settings, actions.app.settings),
     ),
 )
 
