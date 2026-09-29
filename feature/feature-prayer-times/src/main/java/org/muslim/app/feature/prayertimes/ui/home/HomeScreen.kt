@@ -18,7 +18,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Brightness4
@@ -68,7 +67,6 @@ import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.feature.prayertimes.ui.formatCountdown
 import org.muslim.app.feature.prayertimes.ui.localDateFormatter
 import org.muslim.app.core.common.time.TimeFormats
-import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.MuslimContentFrame
 import org.muslim.app.core.ui.theme.MuslimGroup
 import org.muslim.app.core.ui.theme.MuslimHero
@@ -190,7 +188,7 @@ fun HomeScreen(
                         MuslimOverflowMenu(
                             expanded = overflowExpanded,
                             onExpandedChange = { overflowExpanded = it },
-                            contentDescription = stringResource(R.string.settings_adhan_customize),
+                            contentDescription = stringResource(R.string.times_title),
                             actions = listOf(
                                 MuslimMenuAction(
                                     id = "share",
