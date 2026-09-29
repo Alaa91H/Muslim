@@ -1,9 +1,5 @@
 package org.muslim.app.feature.quran.ui
 
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
-import android.content.Intent
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
@@ -40,11 +36,7 @@ import androidx.compose.material.icons.filled.SkipPrevious
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Download
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.LightMode
-import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PlayArrow
@@ -54,8 +46,6 @@ import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material.icons.filled.Translate
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material.icons.outlined.RadioButtonUnchecked
 import androidx.compose.material3.AlertDialog
@@ -156,10 +146,7 @@ import org.muslim.app.feature.quran.domain.Reciter
 import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.SurahRevelationData
 
-private const val MIN_FONT_SP = 18f
-private const val MAX_FONT_SP = 40f
 private const val DEFAULT_FONT_SP = 26f
-private const val FONT_STEP_SP = 2f
 private val REPEAT_OPTIONS = listOf(1, 3, 5, 10, -1) // -1 = continuous ("بدون توقف")
 
 /**
@@ -1019,150 +1006,6 @@ fun QuranReaderScreen(
             }
         }
     }
-}
-
-private data class ReaderSettingsState(
-    val theme: ReaderTheme,
-    val fontSize: Float,
-    val keepScreenOn: Boolean,
-    val tajweedEnabled: Boolean,
-    val supplementEnabled: Boolean,
-    val canOpenSupplement: Boolean,
-    val canOpenDetails: Boolean,
-)
-
-private data class ReaderSettingsActions(
-    val onDismiss: () -> Unit,
-    val onThemeChange: (ReaderTheme) -> Unit,
-    val onFontSizeChanged: (Float) -> Unit,
-    val onKeepScreenOnChanged: (Boolean) -> Unit,
-    val onTajweedChanged: (Boolean) -> Unit,
-    val onOpenSupplement: () -> Unit,
-    val onOpenDetails: () -> Unit,
-    val onOpenDownloads: () -> Unit,
-)
-
-@Composable
-private fun ReaderSettingsSheet(
-    state: ReaderSettingsState,
-    actions: ReaderSettingsActions,
-) {
-    MuslimBottomSheet(
-        onDismiss = actions.onDismiss,
-        title = stringResource(R.string.quran_more_actions),
-    ) {
-        MuslimSettingsItem(
-            title = stringResource(R.string.quran_reader_theme),
-            icon = when (state.theme) {
-                ReaderTheme.Light -> Icons.Filled.LightMode
-                ReaderTheme.Sepia -> Icons.Filled.Nightlight
-                ReaderTheme.Dark -> Icons.Filled.DarkMode
-            },
-            onClick = { actions.onThemeChange(state.theme.next) },
-        )
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    horizontal = IslamicSpacing.Medium,
-                    vertical = IslamicSpacing.Small,
-                ),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text(
-                text = stringResource(R.string.quran_font_size),
-                modifier = Modifier.weight(1f),
-                style = MaterialTheme.typography.bodyLarge,
-            )
-            FontSizeControls(
-                fontSize = state.fontSize,
-                onChanged = actions.onFontSizeChanged,
-            )
-        }
-        MuslimSettingsItem(
-            title = stringResource(R.string.quran_keep_screen_on),
-            onClick = { actions.onKeepScreenOnChanged(!state.keepScreenOn) },
-            trailing = {
-                Switch(
-                    checked = state.keepScreenOn,
-                    onCheckedChange = actions.onKeepScreenOnChanged,
-                )
-            },
-        )
-        MuslimSettingsItem(
-            title = stringResource(R.string.quran_tajweed_show),
-            icon = Icons.Filled.Nightlight,
-            onClick = { actions.onTajweedChanged(!state.tajweedEnabled) },
-            trailing = {
-                Switch(
-                    checked = state.tajweedEnabled,
-                    onCheckedChange = actions.onTajweedChanged,
-                )
-            },
-        )
-        MuslimSettingsItem(
-            title = stringResource(R.string.quran_supplement_controls),
-            supportingText = if (state.supplementEnabled) {
-                stringResource(R.string.quran_supplement_show)
-            } else {
-                null
-            },
-            icon = Icons.Filled.Translate,
-            enabled = state.canOpenSupplement,
-            onClick = actions.onOpenSupplement,
-        )
-        MuslimSettingsItem(
-            title = stringResource(R.string.quran_details),
-            icon = Icons.Filled.Info,
-            enabled = state.canOpenDetails,
-            onClick = actions.onOpenDetails,
-        )
-        MuslimSettingsItem(
-            title = stringResource(R.string.quran_downloads_title),
-            icon = Icons.Filled.Download,
-            onClick = actions.onOpenDownloads,
-        )
-    }
-}
-
-internal fun ayahShareText(
-    ayah: Ayah,
-    surahName: String,
-): String = buildString {
-    if (surahName.isNotBlank()) {
-        append(surahName)
-        append(" — ")
-    }
-    append(ayah.numberInSurah)
-    append("\n")
-    append(ayah.text)
-}
-
-private fun shareAyah(
-    context: Context,
-    ayah: Ayah,
-    surahName: String,
-) {
-    val intent = Intent(Intent.ACTION_SEND).apply {
-        type = "text/plain"
-        putExtra(Intent.EXTRA_TEXT, ayahShareText(ayah, surahName))
-    }
-    val chooser = Intent.createChooser(intent, context.getString(R.string.quran_share_ayah))
-    runCatching { context.startActivity(chooser) }
-}
-
-private fun copyAyah(
-    context: Context,
-    ayah: Ayah,
-    surahName: String,
-) {
-    val clipboard = context.getSystemService(ClipboardManager::class.java)
-    clipboard?.setPrimaryClip(
-        ClipData.newPlainText(
-            context.getString(R.string.quran_copy_ayah),
-            ayahShareText(ayah, surahName),
-        ),
-    )
 }
 
 @Composable
@@ -2119,37 +1962,6 @@ private fun MushafPageCard(
 private fun OrnamentedDivider(tint: Color) {
     IslamicReadingDivider(tint = tint)
 }
-
-@Composable
-private fun FontSizeControls(fontSize: Float, onChanged: (Float) -> Unit) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        IconButton(
-            onClick = { onChanged((fontSize - FONT_STEP_SP).coerceAtLeast(MIN_FONT_SP)) },
-            enabled = fontSize > MIN_FONT_SP,
-        ) {
-            Icon(Icons.Default.Remove, contentDescription = stringResource(R.string.quran_font_smaller))
-        }
-        Text(
-            text = "${fontSize.toInt()}",
-            style = MaterialTheme.typography.labelMedium,
-            modifier = Modifier.width(28.dp),
-            textAlign = TextAlign.Center,
-        )
-        IconButton(
-            onClick = { onChanged((fontSize + FONT_STEP_SP).coerceAtMost(MAX_FONT_SP)) },
-            enabled = fontSize < MAX_FONT_SP,
-        ) {
-            Icon(Icons.Default.Add, contentDescription = stringResource(R.string.quran_font_larger))
-        }
-    }
-}
-
-private val ReaderTheme.next: ReaderTheme
-    get() = when (this) {
-        ReaderTheme.Light -> ReaderTheme.Sepia
-        ReaderTheme.Sepia -> ReaderTheme.Dark
-        ReaderTheme.Dark -> ReaderTheme.Light
-    }
 
 /**
  * Details dialog for a surah: type (Meccan/Medinan), chronological order of
