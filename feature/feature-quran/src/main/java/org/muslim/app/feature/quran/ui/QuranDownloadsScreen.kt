@@ -1,6 +1,5 @@
 package org.muslim.app.feature.quran.ui
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -692,64 +691,92 @@ private fun ReciterStateSection(
         },
     )
     sortedEntries.forEach { (surahNumber, ayahs) ->
-        val total = surahAyahTotals[surahNumber] ?: ayahs
-        val fraction = if (total > 0) ayahs.toFloat() / total else 0f
-        Column(
-            modifier = Modifier.fillMaxWidth().padding(vertical = IslamicSpacing.XSmall),
+        DownloadedSurahRow(
+            surahNumber = surahNumber,
+            downloadedAyahs = ayahs,
+            totalAyahs = surahAyahTotals[surahNumber] ?: ayahs,
+            onDelete = { onDeleteSurah(surahNumber) },
+        )
+    }
+}
+
+@Composable
+private fun DownloadedSurahRow(
+    surahNumber: Int,
+    downloadedAyahs: Int,
+    totalAyahs: Int,
+    onDelete: () -> Unit,
+) {
+    val fraction = if (totalAyahs > 0) {
+        downloadedAyahs.toFloat() / totalAyahs
+    } else {
+        0f
+    }
+    var menuExpanded by remember(surahNumber) { mutableStateOf(false) }
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = IslamicSpacing.XSmall),
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.CheckCircle,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.size(18.dp),
-                )
-                Spacer(Modifier.width(IslamicSpacing.Small))
-                Text(
-                    text = stringResource(R.string.quran_surah_number_short, surahNumber),
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.weight(1f),
-                )
-                Text(
-                    text = stringResource(R.string.quran_download_surah_fraction, ayahs, total),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                var menuExpanded by remember(surahNumber) { mutableStateOf(false) }
-                MuslimOverflowMenu(
-                    expanded = menuExpanded,
-                    onExpandedChange = { menuExpanded = it },
-                    contentDescription = stringResource(R.string.quran_more_actions),
-                    actions = listOf(
-                        MuslimMenuAction(
-                            id = "delete",
-                            label = stringResource(R.string.quran_download_delete_surah),
-                            icon = Icons.Filled.Delete,
-                            onClick = { onDeleteSurah(surahNumber) },
-                        ),
+            Icon(
+                imageVector = Icons.Filled.CheckCircle,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(18.dp),
+            )
+            Spacer(Modifier.width(IslamicSpacing.Small))
+            Text(
+                text = stringResource(R.string.quran_surah_number_short, surahNumber),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f),
+            )
+            Text(
+                text = stringResource(
+                    R.string.quran_download_surah_fraction,
+                    downloadedAyahs,
+                    totalAyahs,
+                ),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            MuslimOverflowMenu(
+                expanded = menuExpanded,
+                onExpandedChange = { menuExpanded = it },
+                contentDescription = stringResource(R.string.quran_more_actions),
+                actions = listOf(
+                    MuslimMenuAction(
+                        id = "delete",
+                        label = stringResource(R.string.quran_download_delete_surah),
+                        icon = Icons.Filled.Delete,
+                        onClick = onDelete,
                     ),
-                )
-            }
-            Row(
-                modifier = Modifier.padding(start = IslamicSpacing.Large, top = IslamicSpacing.XXSmall),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                LinearProgressIndicator(
-                    progress = { fraction.coerceIn(0f, 1f) },
-                    modifier = Modifier
-                        .weight(1f)
-                        .height(4.dp),
-                )
-                Spacer(Modifier.width(IslamicSpacing.Small))
-                Text(
-                    text = percentText(fraction),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-            }
+                ),
+            )
+        }
+        Row(
+            modifier = Modifier.padding(
+                start = IslamicSpacing.Large,
+                top = IslamicSpacing.XXSmall,
+            ),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            LinearProgressIndicator(
+                progress = { fraction.coerceIn(0f, 1f) },
+                modifier = Modifier
+                    .weight(1f)
+                    .height(4.dp),
+            )
+            Spacer(Modifier.width(IslamicSpacing.Small))
+            Text(
+                text = percentText(fraction),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.primary,
+            )
         }
     }
 }
