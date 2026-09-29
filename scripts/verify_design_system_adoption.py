@@ -240,6 +240,19 @@ def main() -> None:
         "Surah list must use shared spacing tokens",
     )
     require(
+        "MuslimSearchBar" in surah_list
+        and "MuslimSegmentedControl" in surah_list
+        and "MuslimHero" in surah_list
+        and "MuslimProgressHeader" in surah_list,
+        "Quran home must use V2 search, segmented discovery, continue-reading hero and progress hierarchy",
+    )
+    require(
+        "TAB_SURAHS" in surah_list
+        and "TAB_JUZ" in surah_list
+        and "TAB_BOOKMARKS" in surah_list,
+        "Quran home must retain Surah/Juz/Bookmarks segmented navigation",
+    )
+    require(
         "IslamicCard" in notification_settings
         and "IslamicPrimaryButton" in notification_settings
         and "IslamicSecondaryButton" in notification_settings,
