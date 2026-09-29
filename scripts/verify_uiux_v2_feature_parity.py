@@ -39,6 +39,7 @@ def main() -> None:
     )
     quran = read("feature/feature-quran/src/main/java/org/muslim/app/feature/quran/data/QuranPrefsRepository.kt")
     reference = read("feature/feature-reference/src/main/java/org/muslim/app/feature/reference/data/ReferenceReaderPreferences.kt")
+    ci = read(".github/workflows/ci.yml")
 
     require_in(
         app,
@@ -174,6 +175,22 @@ def main() -> None:
         'KEY_BOOKMARKS = "bookmarks"', 'KEY_LAST_READ = "last_read"',
         'KEY_FONT_STEP = "font_step"',
     ], "reference reader preferences")
+
+    require_in(
+        ci,
+        [
+            "development-apk:",
+            "name: Development APK (PR/testing)",
+            "needs: [quality, emulator-tests, family-life-emulator-tests]",
+            "github.event_name == 'pull_request'",
+            "python3 scripts/verify_development_apk_ci.py",
+            "name: muslim-development-apk",
+            "Muslim-development.apk",
+            "Muslim-Wear-development.apk",
+            "retention-days: 30",
+        ],
+        "development APK CI",
+    )
 
     print("UI/UX V2 feature-parity contracts verified.")
 
