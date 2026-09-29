@@ -11,6 +11,9 @@
 
     <!-- Search -->
     <string name="quran_more_actions">More actions</string>
+    <string name="quran_ayah_actions">Ayah actions</string>
+    <string name="quran_share_ayah">Share ayah</string>
+    <string name="quran_copy_ayah">Copy ayah</string>
     <string name="quran_font_size">Font size</string>
     <string name="quran_keep_screen_on">Keep screen on while reading and reciting</string>
     <string name="quran_details">Surah details</string>
