@@ -89,11 +89,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
@@ -1630,8 +1626,6 @@ private fun MushafPageCard(
     var textRootTopPx by remember { mutableFloatStateOf(0f) }
     var targetCharOffset by remember { mutableIntStateOf(-1) }
     var targetCharEndExclusive by remember { mutableIntStateOf(-1) }
-    var playingCharOffset by remember { mutableIntStateOf(-1) }
-    var playingCharEndExclusive by remember { mutableIntStateOf(-1) }
     var targetLineTopPx by remember { mutableFloatStateOf(-1f) }
     var targetLineBottomPx by remember { mutableFloatStateOf(-1f) }
     var ayahLineTops by remember { mutableStateOf<List<AyahViewportPosition>>(emptyList()) }
@@ -1693,40 +1687,16 @@ private fun MushafPageCard(
     val firstAyahText = openingPresentation.ayahText
     val standaloneBasmala = openingPresentation.standaloneBasmala
     val ayahCharOffsets = ArrayList<AyahViewportPosition>(ayahs.size)
+    val highlightRanges = ArrayList<QuranTextHighlightRange>(4)
     val annotated = buildAnnotatedString {
         // Reset before scanning so a page whose target moved away (or a
         // follow-along advance within this page) never reports stale bounds.
         targetCharOffset = -1
         targetCharEndExclusive = -1
-        playingCharOffset = -1
-        playingCharEndExclusive = -1
         ayahs.forEach { ayah ->
             ayahCharOffsets += AyahViewportPosition(ayah.globalNumber, length.toFloat())
+            val ayahStartOffset = length
             if (ayah.globalNumber == presentation.scrollTargetAyahGlobal) targetCharOffset = length
-            if (ayah.globalNumber == presentation.playingAyahGlobal) playingCharOffset = length
-            // Visual hierarchy: the tapped ayah flashes strongest (temporary),
-            // the ayah being recited glows while playing (follow-along), and the
-            // currently selected ayah keeps a soft tint. All work on the light,
-            // sepia and night themes.
-            val highlight = when {
-                ayah.globalNumber == presentation.tappedAyahGlobal ->
-                    SpanStyle(background = scheme.primary.copy(alpha = 0.18f))
-                // Playback uses a rounded, theme-adaptive layer drawn behind
-                // the complete ayah below. Keeping the span itself transparent
-                // avoids the hard rectangular blocks produced by SpanStyle.
-                ayah.globalNumber == presentation.playingAyahGlobal ->
-                    SpanStyle()
-                // The ayah opened from search/bookmark/resume is tinted until
-                // it has been centered in the viewport.
-                ayah.globalNumber == presentation.openedAyahGlobal ->
-                    SpanStyle(background = scheme.primary.copy(alpha = 0.12f))
-                // Suppress the soft selection tint while recitation is playing so
-                // a stale highlight never lingers on the originally-tapped ayah
-                // once the reciter advances to the next ayah.
-                presentation.playingAyahGlobal == null && ayah.globalNumber == presentation.selectedAyahGlobal ->
-                    SpanStyle(background = scheme.primary.copy(alpha = 0.08f))
-                else -> SpanStyle()
-            }
             // Every ayah is individually tappable: tapping selects it (and
             // flashes the highlight); recitation starts from the play button.
             withLink(
@@ -1734,8 +1704,7 @@ private fun MushafPageCard(
                     callbacks.onAyahClick(ayah)
                 },
             ) {
-                withStyle(highlight) {
-                    val ayahText = if (ayah === firstAyah) firstAyahText else ayah.text
+                val ayahText = if (ayah === firstAyah) firstAyahText else ayah.text
                     val rawAnnotations = if (presentation.tajweedEnabled) {
                         presentation.tajweedByAyah[ayah.numberInSurah].orEmpty()
                     } else {
@@ -1784,18 +1753,28 @@ private fun MushafPageCard(
                         append("\uFD3F${ayah.numberInSurah.toString()}\uFD3E")
                     }
                     append(" ")
-                }
             }
-            if (ayah.globalNumber == presentation.playingAyahGlobal) {
-                // Exclude the separator space after the ayah marker so the
-                // visual highlight hugs the ayah rather than a trailing blank.
-                playingCharEndExclusive = (length - 1).coerceAtLeast(playingCharOffset + 1)
+            val ayahEndExclusive = (length - 1).coerceAtLeast(ayahStartOffset + 1)
+            val highlightKind = when {
+                ayah.globalNumber == presentation.tappedAyahGlobal -> QuranHighlightKind.Tapped
+                ayah.globalNumber == presentation.playingAyahGlobal -> QuranHighlightKind.Playback
+                ayah.globalNumber == presentation.openedAyahGlobal -> QuranHighlightKind.Opened
+                presentation.playingAyahGlobal == null &&
+                    ayah.globalNumber == presentation.selectedAyahGlobal -> QuranHighlightKind.Selected
+                else -> null
+            }
+            if (highlightKind != null) {
+                highlightRanges += QuranTextHighlightRange(
+                    start = ayahStartOffset,
+                    endExclusive = ayahEndExclusive,
+                    kind = highlightKind,
+                )
             }
             if (ayah.globalNumber == presentation.scrollTargetAyahGlobal) {
                 // Exclude the separator space after the ayah marker from the
                 // measured bounds so a wrapped trailing blank cannot create a
                 // phantom extra line at the bottom.
-                targetCharEndExclusive = (length - 1).coerceAtLeast(targetCharOffset + 1)
+                targetCharEndExclusive = ayahEndExclusive
             }
         }
     }
@@ -1868,71 +1847,13 @@ private fun MushafPageCard(
                     .fillMaxWidth()
                     .drawBehind {
                         val result = layoutResult ?: return@drawBehind
-                        val textLength = result.layoutInput.text.length
-                        if (
-                            textLength == 0 ||
-                            playingCharOffset < 0 ||
-                            playingCharEndExclusive <= playingCharOffset
-                        ) {
-                            return@drawBehind
-                        }
-
-                        val start = playingCharOffset.coerceIn(0, textLength - 1)
-                        val endExclusive = playingCharEndExclusive.coerceIn(start + 1, textLength)
-                        val startLine = result.getLineForOffset(start)
-                        val endLine = result.getLineForOffset(endExclusive - 1)
-                        val horizontalPadding = 7.dp.toPx()
-                        val verticalPadding = 2.dp.toPx()
-                        val cornerRadius = CornerRadius(9.dp.toPx(), 9.dp.toPx())
-                        val borderWidth = 1.dp.toPx()
-                        val fill = scheme.primary.copy(alpha = playingHighlightAlpha)
-                        val border = scheme.primary.copy(alpha = playingHighlightBorderAlpha)
-
-                        for (line in startLine..endLine) {
-                            val segmentStart = maxOf(start, result.getLineStart(line))
-                            val segmentEnd = minOf(
-                                endExclusive,
-                                result.getLineEnd(line, visibleEnd = true),
-                            )
-                            if (segmentStart >= segmentEnd) continue
-
-                            // Arabic text can contain bidi punctuation and the
-                            // ornamental ayah number. Scan the line segment's
-                            // glyph boxes instead of assuming the first/last
-                            // logical character is also the visual edge.
-                            var left = Float.POSITIVE_INFINITY
-                            var right = Float.NEGATIVE_INFINITY
-                            for (offset in segmentStart until segmentEnd) {
-                                val box = result.getBoundingBox(offset)
-                                left = minOf(left, box.left)
-                                right = maxOf(right, box.right)
-                            }
-                            if (!left.isFinite() || !right.isFinite()) continue
-
-                            val top = (result.getLineTop(line) - verticalPadding)
-                                .coerceAtLeast(0f)
-                            val bottom = (result.getLineBottom(line) + verticalPadding)
-                                .coerceAtMost(size.height)
-                            left = (left - horizontalPadding).coerceAtLeast(0f)
-                            right = (right + horizontalPadding).coerceAtMost(size.width)
-                            if (right <= left || bottom <= top) continue
-
-                            val topLeft = Offset(left, top)
-                            val highlightSize = Size(right - left, bottom - top)
-                            drawRoundRect(
-                                color = fill,
-                                topLeft = topLeft,
-                                size = highlightSize,
-                                cornerRadius = cornerRadius,
-                            )
-                            drawRoundRect(
-                                color = border,
-                                topLeft = topLeft,
-                                size = highlightSize,
-                                cornerRadius = cornerRadius,
-                                style = Stroke(width = borderWidth),
-                            )
-                        }
+                        drawQuranTextHighlights(
+                            layoutResult = result,
+                            ranges = highlightRanges,
+                            primaryColor = scheme.primary,
+                            playbackFillAlpha = playingHighlightAlpha,
+                            playbackBorderAlpha = playingHighlightBorderAlpha,
+                        )
                     }
                     .onGloballyPositioned { coords -> textRootTopPx = coords.positionInRoot().y }
                     .pointerInput(annotated) {
