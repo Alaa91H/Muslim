@@ -19,7 +19,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Map
@@ -254,8 +253,33 @@ private fun NearbyMosquesHeader(
     onRefresh: () -> Unit,
     onRadiusSelected: (Int) -> Unit,
 ) {
-    val refreshDescription = stringResource(R.string.nearby_mosques_refresh)
     var radiusSheetVisible by rememberSaveable { mutableStateOf(false) }
+
+    NearbyMosquesHeaderSummary(
+        radiusKm = radiusKm,
+        onRefresh = onRefresh,
+        onOpenRadius = { radiusSheetVisible = true },
+    )
+
+    if (radiusSheetVisible) {
+        NearbyMosquesRadiusSheet(
+            radiusKm = radiusKm,
+            onDismiss = { radiusSheetVisible = false },
+            onRadiusSelected = { option ->
+                radiusSheetVisible = false
+                if (option != radiusKm) onRadiusSelected(option)
+            },
+        )
+    }
+}
+
+@Composable
+private fun NearbyMosquesHeaderSummary(
+    radiusKm: Int,
+    onRefresh: () -> Unit,
+    onOpenRadius: () -> Unit,
+) {
+    val refreshDescription = stringResource(R.string.nearby_mosques_refresh)
 
     MuslimGroup {
         Row(
@@ -298,41 +322,43 @@ private fun NearbyMosquesHeader(
                 radiusKm,
             ),
             icon = Icons.Default.LocationOn,
-            onClick = { radiusSheetVisible = true },
+            onClick = onOpenRadius,
         )
     }
+}
 
-    if (radiusSheetVisible) {
-        MuslimBottomSheet(
-            title = stringResource(R.string.nearby_mosques_radius),
-            onDismiss = { radiusSheetVisible = false },
-        ) {
-            NearbyMosqueRadiusOptionsKm.forEach { option ->
-                val selected = option == radiusKm
-                MuslimSettingsItem(
-                    title = stringResource(R.string.nearby_mosques_radius_value, option),
-                    supportingText = if (selected) {
-                        stringResource(R.string.nearby_mosques_radius_selected, option)
-                    } else {
-                        null
-                    },
-                    onClick = {
-                        radiusSheetVisible = false
-                        if (!selected) onRadiusSelected(option)
-                    },
-                    trailing = if (selected) {
-                        {
-                            Icon(
-                                imageVector = Icons.Default.Check,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary,
-                            )
-                        }
-                    } else {
-                        null
-                    },
-                )
-            }
+@Composable
+private fun NearbyMosquesRadiusSheet(
+    radiusKm: Int,
+    onDismiss: () -> Unit,
+    onRadiusSelected: (Int) -> Unit,
+) {
+    MuslimBottomSheet(
+        title = stringResource(R.string.nearby_mosques_radius),
+        onDismiss = onDismiss,
+    ) {
+        NearbyMosqueRadiusOptionsKm.forEach { option ->
+            val selected = option == radiusKm
+            MuslimSettingsItem(
+                title = stringResource(R.string.nearby_mosques_radius_value, option),
+                supportingText = if (selected) {
+                    stringResource(R.string.nearby_mosques_radius_selected, option)
+                } else {
+                    null
+                },
+                onClick = { onRadiusSelected(option) },
+                trailing = if (selected) {
+                    {
+                        Icon(
+                            imageVector = Icons.Default.Check,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
+                        )
+                    }
+                } else {
+                    null
+                },
+            )
         }
     }
 }
