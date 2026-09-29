@@ -91,6 +91,14 @@ enum class MuslimWindowWidthClass {
  * drawing geometry (Qibla compass, Quran glyph/highlight metrics, maps, charts)
  * remains feature-owned and is intentionally outside this object.
  */
+data class MuslimAdaptiveLayoutSpec(
+    val widthClass: MuslimWindowWidthClass,
+    val maxContentWidth: androidx.compose.ui.unit.Dp,
+    val horizontalPadding: androidx.compose.ui.unit.Dp,
+    val preferNavigationRail: Boolean,
+    val supportsTwoPane: Boolean,
+)
+
 object IslamicLayout {
     val CompactMaxWidth = 599.dp
     val MediumMinWidth = 600.dp
@@ -110,6 +118,31 @@ object IslamicLayout {
         width <= MediumMaxWidth -> MuslimWindowWidthClass.Medium
         else -> MuslimWindowWidthClass.Expanded
     }
+
+    fun adaptiveSpec(width: androidx.compose.ui.unit.Dp): MuslimAdaptiveLayoutSpec =
+        when (widthClass(width)) {
+            MuslimWindowWidthClass.Compact -> MuslimAdaptiveLayoutSpec(
+                widthClass = MuslimWindowWidthClass.Compact,
+                maxContentWidth = ReadableContentMaxWidth,
+                horizontalPadding = IslamicSpacing.PageHorizontal,
+                preferNavigationRail = false,
+                supportsTwoPane = false,
+            )
+            MuslimWindowWidthClass.Medium -> MuslimAdaptiveLayoutSpec(
+                widthClass = MuslimWindowWidthClass.Medium,
+                maxContentWidth = ReadableContentMaxWidth,
+                horizontalPadding = IslamicSpacing.Large,
+                preferNavigationRail = true,
+                supportsTwoPane = false,
+            )
+            MuslimWindowWidthClass.Expanded -> MuslimAdaptiveLayoutSpec(
+                widthClass = MuslimWindowWidthClass.Expanded,
+                maxContentWidth = WideContentMaxWidth,
+                horizontalPadding = IslamicSpacing.Section,
+                preferNavigationRail = true,
+                supportsTwoPane = true,
+            )
+        }
 }
 
 /** Shared border/stroke weights for ordinary app surfaces and selection states. */
