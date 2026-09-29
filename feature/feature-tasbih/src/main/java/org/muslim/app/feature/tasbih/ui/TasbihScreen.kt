@@ -30,7 +30,6 @@ import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.automirrored.filled.Undo
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarHost
@@ -68,7 +67,6 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.designsystem.IslamicSpacing
-import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicDecorationMedallion
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
@@ -86,6 +84,7 @@ import org.muslim.app.feature.tasbih.domain.DailyCount
 import org.muslim.app.feature.tasbih.domain.TargetSoundSettings
 import org.muslim.app.feature.tasbih.domain.TasbihCategory
 import org.muslim.app.feature.tasbih.domain.TasbihPhrase
+import org.muslim.app.feature.tasbih.domain.TasbihSessionHistoryItem
 import org.muslim.app.feature.tasbih.domain.TasbihSessionMode
 import org.muslim.app.feature.tasbih.domain.TasbihState
 import java.time.format.DateTimeFormatter
@@ -109,36 +108,11 @@ fun TasbihScreen(
     val activeSession by viewModel.activeSession.collectAsStateWithLifecycle()
     val sessionHistory by viewModel.sessionHistory.collectAsStateWithLifecycle()
     val soundSettings by viewModel.targetSoundSettings.collectAsStateWithLifecycle()
-    val haptics = LocalHapticFeedback.current
     val snackbarHostState = remember { SnackbarHostState() }
     val context = LocalContext.current
     val roundCompleteFormat = stringResource(R.string.tasbih_round_complete)
     val currentSoundSettings by rememberUpdatedState(soundSettings)
-    var selectedCategory by remember { mutableStateOf(state.phrase.category) }
-    var showTargetDialog by remember { mutableStateOf(false) }
-    var virtueExpanded by rememberSaveable { mutableStateOf(false) }
-    var sessionSettingsExpanded by rememberSaveable { mutableStateOf(false) }
-    var activityExpanded by rememberSaveable { mutableStateOf(false) }
-    val counterDescription = "${state.phrase.text}. ${state.count}. " +
-        stringResource(R.string.tasbih_of_target, state.target.toString()) + ". " +
-        stringResource(R.string.tasbih_tap_hint)
-    val sessionRingProgress = activeSession?.let { session ->
-        when (session.mode) {
-            TasbihSessionMode.Free -> {
-                val remainder = session.count % session.target.toLong()
-                if (session.count > 0L && remainder == 0L) 1f
-                else remainder.toFloat() / session.target.toFloat()
-            }
-            TasbihSessionMode.Target ->
-                (session.count.toFloat() / session.target.toFloat()).coerceIn(0f, 1f)
-            TasbihSessionMode.Rounds -> {
-                val goal = session.target.toLong() * session.roundsGoal.toLong()
-                (session.count.toDouble() / goal.toDouble()).coerceIn(0.0, 1.0).toFloat()
-            }
-        }
-    } ?: 0f
 
-    // Vibrate + announce + optional tone whenever a full round completes (33/99/100/…).
     LaunchedEffect(Unit) {
         viewModel.roundCompleted.collect { event ->
             vibrateRoundComplete(context)
@@ -160,200 +134,325 @@ fun TasbihScreen(
             )
         },
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(horizontal = IslamicSpacing.PageHorizontal),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Spacer(Modifier.height(IslamicSpacing.Small))
+        TasbihContent(
+            state = state,
+            activeSession = activeSession,
+            sessionHistory = sessionHistory,
+            soundSettings = soundSettings,
+            viewModel = viewModel,
+        )
+    }
+}
 
-            CategorySelector(
-                selected = selectedCategory,
-                onSelect = { selectedCategory = it },
-            )
+@Composable
+private fun TasbihContent(
+    state: TasbihState,
+    activeSession: TasbihSessionHistoryItem?,
+    sessionHistory: List<TasbihSessionHistoryItem>,
+    soundSettings: TargetSoundSettings,
+    viewModel: TasbihViewModel,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = IslamicSpacing.PageHorizontal),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Spacer(Modifier.height(IslamicSpacing.Small))
+        TasbihSelectionSection(
+            state = state,
+            onPhraseSelected = viewModel::setPhrase,
+        )
 
-            Spacer(Modifier.height(IslamicSpacing.Small))
+        IslamicDecorationDivider(
+            tint = MaterialTheme.colorScheme.tertiary,
+            modifier = Modifier.padding(
+                horizontal = IslamicSpacing.Large,
+                vertical = IslamicSpacing.Small,
+            ),
+        )
+        Spacer(Modifier.height(IslamicSpacing.XSmall))
 
-            PhraseSelector(
-                phrases = TasbihPhrase.entries.filter { it.category == selectedCategory },
-                selected = state.phrase,
-                onSelect = {
-                    selectedCategory = it.category
-                    viewModel.setPhrase(it)
-                },
-            )
+        TasbihCounterSection(
+            state = state,
+            activeSession = activeSession,
+            onIncrement = viewModel::increment,
+        )
+        TasbihPhraseAndActions(
+            state = state,
+            onUndo = viewModel::decrement,
+            onReset = viewModel::reset,
+            onResetAll = viewModel::resetAll,
+        )
+        TasbihSecondarySections(
+            state = state,
+            activeSession = activeSession,
+            sessionHistory = sessionHistory,
+            soundSettings = soundSettings,
+            viewModel = viewModel,
+        )
+        Spacer(Modifier.height(IslamicSpacing.Large))
+    }
+}
 
-            IslamicDecorationDivider(
-                tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = IslamicSpacing.Large, vertical = IslamicSpacing.Small),
-            )
-            Spacer(Modifier.height(IslamicSpacing.XSmall))
+@Composable
+private fun TasbihSelectionSection(
+    state: TasbihState,
+    onPhraseSelected: (TasbihPhrase) -> Unit,
+) {
+    var selectedCategory by remember { mutableStateOf(state.phrase.category) }
 
-            // The counter remains the single, deliberately generous primary action.
-            Box(
-                modifier = Modifier
-                    .size(260.dp)
-                    .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.primaryContainer)
-                    .clickable {
-                        haptics.performHapticFeedback(HapticFeedbackType.LongPress)
-                        viewModel.increment()
-                    }
-                    .semantics {
-                        role = Role.Button
-                        contentDescription = counterDescription
-                    },
-                contentAlignment = Alignment.Center,
-            ) {
-                IslamicDecorationMedallion(
-                    tint = MaterialTheme.colorScheme.tertiary,
-                    modifier = Modifier.fillMaxSize(),
-                )
-                CounterRing(
-                    progress = sessionRingProgress,
-                    trackColor = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.22f),
-                    progressColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                )
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(
-                        text = state.count.toString(),
-                        style = MaterialTheme.typography.displayLarge,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
-                    )
-                    Text(
-                        text = stringResource(R.string.tasbih_of_target, state.target.toString()),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
-                    )
-                    if (state.sessionMode == TasbihSessionMode.Free && state.targetReached) {
-                        Text(
-                            text = stringResource(R.string.tasbih_target_reached),
-                            style = MaterialTheme.typography.titleSmall,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer,
-                        )
-                    }
-                    val visibleRounds = when (state.sessionMode) {
-                        TasbihSessionMode.Free -> state.rounds.toLong()
-                        TasbihSessionMode.Target -> 0L
-                        TasbihSessionMode.Rounds ->
-                            activeSession?.count?.div(state.target.toLong()) ?: 0L
-                    }
-                    if (visibleRounds > 0L) {
-                        Text(
-                            text = stringResource(R.string.tasbih_rounds, visibleRounds),
-                            style = MaterialTheme.typography.labelMedium,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer,
-                        )
-                    }
-                }
+    CategorySelector(
+        selected = selectedCategory,
+        onSelect = { selectedCategory = it },
+    )
+    Spacer(Modifier.height(IslamicSpacing.Small))
+    PhraseSelector(
+        phrases = TasbihPhrase.entries.filter { it.category == selectedCategory },
+        selected = state.phrase,
+        onSelect = { phrase ->
+            selectedCategory = phrase.category
+            onPhraseSelected(phrase)
+        },
+    )
+}
+
+@Composable
+private fun TasbihCounterSection(
+    state: TasbihState,
+    activeSession: TasbihSessionHistoryItem?,
+    onIncrement: () -> Unit,
+) {
+    val haptics = LocalHapticFeedback.current
+    val counterDescription = "${state.phrase.text}. ${state.count}. " +
+        stringResource(R.string.tasbih_of_target, state.target.toString()) + ". " +
+        stringResource(R.string.tasbih_tap_hint)
+    val progress = tasbihSessionRingProgress(activeSession)
+
+    Box(
+        modifier = Modifier
+            .size(260.dp)
+            .clip(CircleShape)
+            .background(MaterialTheme.colorScheme.primaryContainer)
+            .clickable {
+                haptics.performHapticFeedback(HapticFeedbackType.LongPress)
+                onIncrement()
             }
+            .semantics {
+                role = Role.Button
+                contentDescription = counterDescription
+            },
+        contentAlignment = Alignment.Center,
+    ) {
+        IslamicDecorationMedallion(
+            tint = MaterialTheme.colorScheme.tertiary,
+            modifier = Modifier.fillMaxSize(),
+        )
+        CounterRing(
+            progress = progress,
+            trackColor = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.22f),
+            progressColor = MaterialTheme.colorScheme.onPrimaryContainer,
+        )
+        TasbihCounterText(
+            state = state,
+            activeSession = activeSession,
+        )
+    }
+}
 
-            Spacer(Modifier.height(IslamicSpacing.Compact))
+@Composable
+private fun TasbihCounterText(
+    state: TasbihState,
+    activeSession: TasbihSessionHistoryItem?,
+) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(
+            text = state.count.toString(),
+            style = MaterialTheme.typography.displayLarge,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
+        )
+        Text(
+            text = stringResource(R.string.tasbih_of_target, state.target.toString()),
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
+        )
+        if (state.sessionMode == TasbihSessionMode.Free && state.targetReached) {
             Text(
-                text = state.phrase.text,
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center,
+                text = stringResource(R.string.tasbih_target_reached),
+                style = MaterialTheme.typography.titleSmall,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
             )
-            Spacer(Modifier.height(IslamicSpacing.XXSmall))
+        }
+        val visibleRounds = when (state.sessionMode) {
+            TasbihSessionMode.Free -> state.rounds.toLong()
+            TasbihSessionMode.Target -> 0L
+            TasbihSessionMode.Rounds ->
+                activeSession?.count?.div(state.target.toLong()) ?: 0L
+        }
+        if (visibleRounds > 0L) {
             Text(
-                text = state.phrase.transliteration,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center,
+                text = stringResource(R.string.tasbih_rounds, visibleRounds),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
             )
-
-            Spacer(Modifier.height(IslamicSpacing.XSmall))
-            Text(
-                text = stringResource(R.string.tasbih_tap_hint),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-
-            Spacer(Modifier.height(IslamicSpacing.Compact))
-
-            MuslimExpandableSection(
-                title = stringResource(R.string.tasbih_virtue_label),
-                expanded = virtueExpanded,
-                onExpandedChange = { virtueExpanded = it },
-            ) {
-                Text(
-                    text = state.phrase.virtue,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-
-            Spacer(Modifier.height(IslamicSpacing.Compact))
-
-            TasbihCounterActions(
-                onUndo = viewModel::decrement,
-                onReset = viewModel::reset,
-                onResetAll = viewModel::resetAll,
-            )
-
-            Spacer(Modifier.height(IslamicSpacing.Medium))
-
-            MuslimExpandableSection(
-                title = stringResource(R.string.tasbih_session_settings),
-                expanded = sessionSettingsExpanded,
-                onExpandedChange = { sessionSettingsExpanded = it },
-            ) {
-                TasbihSessionControls(
-                    state = state,
-                    activeSession = activeSession,
-                    onModeSelected = viewModel::setSessionMode,
-                    onRoundsGoalSelected = viewModel::setRoundsGoal,
-                    onPresetSelected = viewModel::applySessionPreset,
-                )
-                TargetSelector(
-                    selectedTarget = state.target,
-                    onTargetSelected = viewModel::setTarget,
-                    onCustomTarget = { showTargetDialog = true },
-                )
-                TargetSoundCard(
-                    settings = soundSettings,
-                    onToggle = viewModel::setTargetSoundEnabled,
-                )
-            }
-
-            Spacer(Modifier.height(IslamicSpacing.Medium))
-
-            MuslimExpandableSection(
-                title = stringResource(R.string.tasbih_activity),
-                supportingText = stringResource(R.string.tasbih_total_today, state.totalToday),
-                expanded = activityExpanded,
-                onExpandedChange = { activityExpanded = it },
-            ) {
-                MuslimSectionHeader(
-                    title = stringResource(R.string.tasbih_week_stats),
-                )
-                WeeklyChart(
-                    days = (state.history + DailyCount(java.time.LocalDate.now(), state.totalToday))
-                        .sortedBy { it.date }
-                        .takeLast(7),
-                )
-                RecentTasbihSessions(sessions = sessionHistory)
-            }
-
-            Spacer(Modifier.height(IslamicSpacing.Large))
         }
     }
+}
+
+@Composable
+private fun TasbihPhraseAndActions(
+    state: TasbihState,
+    onUndo: () -> Unit,
+    onReset: () -> Unit,
+    onResetAll: () -> Unit,
+) {
+    var virtueExpanded by rememberSaveable { mutableStateOf(false) }
+
+    Spacer(Modifier.height(IslamicSpacing.Compact))
+    Text(
+        text = state.phrase.text,
+        style = MaterialTheme.typography.titleLarge,
+        fontWeight = FontWeight.Bold,
+        textAlign = TextAlign.Center,
+    )
+    Spacer(Modifier.height(IslamicSpacing.XXSmall))
+    Text(
+        text = state.phrase.transliteration,
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        textAlign = TextAlign.Center,
+    )
+    Spacer(Modifier.height(IslamicSpacing.XSmall))
+    Text(
+        text = stringResource(R.string.tasbih_tap_hint),
+        style = MaterialTheme.typography.bodyMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+    Spacer(Modifier.height(IslamicSpacing.Compact))
+
+    MuslimExpandableSection(
+        title = stringResource(R.string.tasbih_virtue_label),
+        expanded = virtueExpanded,
+        onExpandedChange = { virtueExpanded = it },
+    ) {
+        Text(
+            text = state.phrase.virtue,
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+
+    Spacer(Modifier.height(IslamicSpacing.Compact))
+    TasbihCounterActions(
+        onUndo = onUndo,
+        onReset = onReset,
+        onResetAll = onResetAll,
+    )
+}
+
+@Composable
+private fun TasbihSecondarySections(
+    state: TasbihState,
+    activeSession: TasbihSessionHistoryItem?,
+    sessionHistory: List<TasbihSessionHistoryItem>,
+    soundSettings: TargetSoundSettings,
+    viewModel: TasbihViewModel,
+) {
+    var showTargetDialog by remember { mutableStateOf(false) }
+    var sessionSettingsExpanded by rememberSaveable { mutableStateOf(false) }
+    var activityExpanded by rememberSaveable { mutableStateOf(false) }
+
+    Spacer(Modifier.height(IslamicSpacing.Medium))
+    MuslimExpandableSection(
+        title = stringResource(R.string.tasbih_session_settings),
+        expanded = sessionSettingsExpanded,
+        onExpandedChange = { sessionSettingsExpanded = it },
+    ) {
+        TasbihSessionControls(
+            state = state,
+            activeSession = activeSession,
+            onModeSelected = viewModel::setSessionMode,
+            onRoundsGoalSelected = viewModel::setRoundsGoal,
+            onPresetSelected = viewModel::applySessionPreset,
+        )
+        TargetSelector(
+            selectedTarget = state.target,
+            onTargetSelected = viewModel::setTarget,
+            onCustomTarget = { showTargetDialog = true },
+        )
+        TargetSoundCard(
+            settings = soundSettings,
+            onToggle = viewModel::setTargetSoundEnabled,
+        )
+    }
+
+    Spacer(Modifier.height(IslamicSpacing.Medium))
+    TasbihActivitySection(
+        state = state,
+        sessionHistory = sessionHistory,
+        expanded = activityExpanded,
+        onExpandedChange = { activityExpanded = it },
+    )
 
     if (showTargetDialog) {
         CustomTargetDialog(
             initial = state.target,
-            onConfirm = {
+            onConfirm = { target ->
                 showTargetDialog = false
-                viewModel.setTarget(it)
+                viewModel.setTarget(target)
             },
             onDismiss = { showTargetDialog = false },
         )
     }
 }
+
+@Composable
+private fun TasbihActivitySection(
+    state: TasbihState,
+    sessionHistory: List<TasbihSessionHistoryItem>,
+    expanded: Boolean,
+    onExpandedChange: (Boolean) -> Unit,
+) {
+    MuslimExpandableSection(
+        title = stringResource(R.string.tasbih_activity),
+        supportingText = stringResource(R.string.tasbih_total_today, state.totalToday),
+        expanded = expanded,
+        onExpandedChange = onExpandedChange,
+    ) {
+        MuslimSectionHeader(
+            title = stringResource(R.string.tasbih_week_stats),
+        )
+        WeeklyChart(
+            days = (state.history + DailyCount(java.time.LocalDate.now(), state.totalToday))
+                .sortedBy { it.date }
+                .takeLast(7),
+        )
+        RecentTasbihSessions(sessions = sessionHistory)
+    }
+}
+
+private fun tasbihSessionRingProgress(
+    session: TasbihSessionHistoryItem?,
+): Float = session?.let { current ->
+    when (current.mode) {
+        TasbihSessionMode.Free -> {
+            val remainder = current.count % current.target.toLong()
+            if (current.count > 0L && remainder == 0L) {
+                1f
+            } else {
+                remainder.toFloat() / current.target.toFloat()
+            }
+        }
+        TasbihSessionMode.Target ->
+            (current.count.toFloat() / current.target.toFloat()).coerceIn(0f, 1f)
+        TasbihSessionMode.Rounds -> {
+            val goal = current.target.toLong() * current.roundsGoal.toLong()
+            (current.count.toDouble() / goal.toDouble()).coerceIn(0.0, 1.0).toFloat()
+        }
+    }
+} ?: 0f
 
 @Composable
 private fun CategorySelector(
