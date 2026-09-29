@@ -482,6 +482,10 @@ fun MuslimApp(
                         onOpenUpdates = { navController.navigate(UPDATE_ROUTE) },
                         onOpenAccessibility = { navController.navigate(ACCESSIBILITY_ROUTE) },
                         onOpenSmartDevices = { navController.navigate(SMART_DEVICES_ROUTE) },
+                        onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
+                        onOpenScholarDataManager = {
+                            navController.navigate(SCHOLAR_LIBRARY_DATA_ROUTE)
+                        },
                         onLanguageChanged = onLanguageChanged,
                     )
                 }
