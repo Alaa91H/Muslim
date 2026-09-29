@@ -11,6 +11,9 @@
 
     <!-- Search -->
     <string name="quran_more_actions">مزيد من الخيارات</string>
+    <string name="quran_ayah_actions" tools:ignore="MissingTranslation">خيارات الآية</string>
+    <string name="quran_share_ayah" tools:ignore="MissingTranslation">مشاركة الآية</string>
+    <string name="quran_copy_ayah" tools:ignore="MissingTranslation">نسخ الآية</string>
     <string name="quran_font_size">حجم الخط</string>
     <string name="quran_keep_screen_on">إبقاء الشاشة مضاءة أثناء القراءة والتلاوة</string>
     <string name="quran_details">تفاصيل السورة</string>
