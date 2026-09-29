@@ -152,6 +152,10 @@ fun SettingsScreen(
     onOpenAccessibility: () -> Unit = {},
     /** Opens optional Android Auto, Wear OS and home-automation bridge settings. */
     onOpenSmartDevices: () -> Unit = {},
+    /** Opens Quran recitation download/storage management. */
+    onOpenDownloads: () -> Unit = {},
+    /** Opens Scholar Library content packs and study backup management. */
+    onOpenScholarDataManager: () -> Unit = {},
     /** Back affordance when opened as a sub-screen (from the More hub). */
     onBack: (() -> Unit)? = null,
     viewModel: SettingsViewModel = hiltViewModel(),
@@ -229,6 +233,16 @@ fun SettingsScreen(
             stringResource(R.string.settings_smart_devices),
             Icons.Filled.Settings,
             onOpenSmartDevices,
+        ),
+        SettingsSearchEntry(
+            stringResource(R.string.settings_quran_downloads),
+            Icons.Filled.Download,
+            onOpenDownloads,
+        ),
+        SettingsSearchEntry(
+            stringResource(R.string.settings_scholar_data),
+            Icons.Filled.Settings,
+            onOpenScholarDataManager,
         ),
         SettingsSearchEntry(
             stringResource(R.string.settings_section_updates),
@@ -724,6 +738,30 @@ fun SettingsScreen(
                 }
             }
 
+            item(key = SettingsSection.Storage.name) {
+                SectionCard(
+                    title = stringResource(R.string.settings_section_storage),
+                    icon = Icons.Filled.Download,
+                    expanded = expandedSection == SettingsSection.Storage.name,
+                    onToggle = { toggleSection(SettingsSection.Storage) },
+                ) {
+                    MuslimSettingsItem(
+                        title = stringResource(R.string.settings_quran_downloads),
+                        supportingText = stringResource(R.string.settings_quran_downloads_desc),
+                        icon = Icons.Filled.Download,
+                        onClick = onOpenDownloads,
+                        trailing = { Chevron() },
+                    )
+                    MuslimSettingsItem(
+                        title = stringResource(R.string.settings_scholar_data),
+                        supportingText = stringResource(R.string.settings_scholar_data_desc),
+                        icon = Icons.Filled.Settings,
+                        onClick = onOpenScholarDataManager,
+                        trailing = { Chevron() },
+                    )
+                }
+            }
+
             item(key = SettingsSection.Data.name) {
                 SectionCard(
                     title = stringResource(R.string.settings_section_data),
@@ -867,6 +905,7 @@ private enum class SettingsSection(val titleRes: Int) {
     Prayer(R.string.settings_section_prayer),
     Managers(R.string.settings_section_managers),
     Updates(R.string.settings_section_updates),
+    Storage(R.string.settings_section_storage),
     Data(R.string.settings_section_data),
     About(R.string.settings_section_about),
 }
