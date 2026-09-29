@@ -53,13 +53,15 @@ class HomeViewModel @Inject constructor(
             .map { it.showPrayerTrackerOnHome }
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
-    /** One day's condensed times for the monthly grid. */
+    /** One complete day's times for the monthly imsakiyah-style timetable. */
     data class DayTimes(
         val date: LocalDate,
         val hijriDay: Int,
-        val fajr: LocalTime?,
-        val maghrib: LocalTime?,
-    )
+        val times: Map<Prayer, LocalTime>,
+    ) {
+        val fajr: LocalTime? get() = times[Prayer.Fajr]
+        val maghrib: LocalTime? get() = times[Prayer.Maghrib]
+    }
 
     /** Read-only alert presentation for a row; detailed editing remains in Prayer Settings. */
     data class PrayerAlert(
@@ -198,6 +200,22 @@ class HomeViewModel @Inject constructor(
         monthly.value = !monthly.value
     }
 
+    fun previousPeriod() {
+        selectedDate.value = if (monthly.value) {
+            selectedDate.value.minusMonths(1)
+        } else {
+            selectedDate.value.minusDays(1)
+        }
+    }
+
+    fun nextPeriod() {
+        selectedDate.value = if (monthly.value) {
+            selectedDate.value.plusMonths(1)
+        } else {
+            selectedDate.value.plusDays(1)
+        }
+    }
+
     fun togglePrayerCompletion(prayer: Prayer) {
         viewModelScope.launch {
             completionRepository.toggle(selectedDate.value, prayer)
@@ -218,8 +236,7 @@ class HomeViewModel @Inject constructor(
             DayTimes(
                 date = date,
                 hijriDay = hijri?.day ?: day,
-                fajr = result.timeFor(Prayer.Fajr),
-                maghrib = result.timeFor(Prayer.Maghrib),
+                times = result.times,
             )
         }
     }
