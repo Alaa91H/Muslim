@@ -8,26 +8,24 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimProgressHeader
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimSearchBar
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.LearnContent
 import org.muslim.app.feature.learn.domain.LearnTopic
@@ -46,18 +44,12 @@ internal fun LearningHubControls(
     onContinue: (LearnTopic) -> Unit,
     onReviewMistakes: () -> Unit,
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-        OutlinedTextField(
-            value = query,
-            onValueChange = onQueryChange,
-            modifier = Modifier.fillMaxWidth(),
-            singleLine = true,
-            leadingIcon = {
-                Icon(Icons.Filled.Search, contentDescription = null)
-            },
-            placeholder = {
-                Text(stringResource(R.string.learn_search_hint))
-            },
+    Column(verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small)) {
+        MuslimSearchBar(
+            query = query,
+            onQueryChange = onQueryChange,
+            placeholder = stringResource(R.string.learn_search_hint),
+            clearContentDescription = stringResource(R.string.learn_search_clear),
         )
         OverallProgressCard(progress)
         continueTopic?.let { topic ->
@@ -77,26 +69,14 @@ internal fun LearningHubControls(
 
 @Composable
 private fun OverallProgressCard(progress: LearningProgressSummary) {
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.primaryContainer,
-    ) {
-        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text(
-                text = stringResource(
-                    R.string.learn_overall_progress,
-                    progress.completed,
-                    progress.total,
-                ),
-                style = MaterialTheme.typography.titleSmall,
-                fontWeight = FontWeight.Bold,
-            )
-            LinearProgressIndicator(
-                progress = { progress.fraction },
-                modifier = Modifier.fillMaxWidth(),
-            )
-        }
-    }
+    MuslimProgressHeader(
+        title = stringResource(
+            R.string.learn_overall_progress,
+            progress.completed,
+            progress.total,
+        ),
+        progress = progress.fraction,
+    )
 }
 
 @Composable
@@ -182,7 +162,6 @@ internal fun LearningCategoryProgress(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun LearningMistakesScreen(
     quizAnswers: Map<String, String>,
@@ -193,26 +172,23 @@ internal fun LearningMistakesScreen(
     val mistakes = LearningAssessmentCatalog.incorrectEntries(quizAnswers)
     BackHandler(onBack = onBack)
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.learn_review_mistakes)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.learn_back),
-                        )
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.learn_review_mistakes),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.learn_back),
             )
         },
-    ) { innerPadding ->
+    ) {
         androidx.compose.foundation.lazy.LazyColumn(
-            modifier = Modifier.padding(innerPadding).fillMaxSize(),
-            contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp),
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = androidx.compose.foundation.layout.PaddingValues(
+                horizontal = IslamicSpacing.PageHorizontal,
+                vertical = IslamicSpacing.Compact,
+            ),
+            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
         ) {
             if (mistakes.isEmpty()) {
                 item {
@@ -220,7 +196,7 @@ internal fun LearningMistakesScreen(
                         modifier = Modifier.fillMaxWidth(),
                         containerColor = MaterialTheme.colorScheme.primaryContainer,
                     ) {
-                        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                        Column(verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small)) {
                             Icon(
                                 Icons.Filled.CheckCircle,
                                 contentDescription = null,
@@ -250,6 +226,7 @@ internal fun LearningMistakesScreen(
             }
         }
     }
+
 }
 
 @Composable
