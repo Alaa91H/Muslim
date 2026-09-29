@@ -167,4 +167,5 @@
     <string name="quran_juz_start">Starts at Surah %1$d, ayah %2$d</string>
     <string name="quran_search_no_results">No matching results</string>
     <string name="quran_open_bookmarks">Open bookmarks screen</string>
+    <string name="quran_loading">Loading Quran…</string>
 </resources>
