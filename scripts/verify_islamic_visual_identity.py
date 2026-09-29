@@ -80,9 +80,10 @@ REQUIRED_SNIPPETS = {
         "IslamicRadius.Card",
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeScreen.kt": [
-        "IslamicDecorationBand",
-        "IslamicDecorationCorners",
-        "IslamicDecorationDivider",
+        "MuslimHero",
+        "MuslimGroup",
+        "MuslimOverflowMenu",
+        "IslamicLayout.adaptiveSpec",
     ],
     "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/SurahListScreen.kt": [
         "IslamicReadingHeaderDecoration",
