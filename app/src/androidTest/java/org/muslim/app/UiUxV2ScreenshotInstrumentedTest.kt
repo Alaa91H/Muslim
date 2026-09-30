@@ -1,7 +1,6 @@
 package org.muslim.app
 
 import android.graphics.Bitmap
-import android.os.ParcelFileDescriptor
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import java.io.File
@@ -57,7 +56,10 @@ class UiUxV2ScreenshotInstrumentedTest {
                 }
             }
             check(sampledColors.size > 1) { "Screenshot appears blank; app content was not rendered" }
-            val outputDirectory = File(context.filesDir, "uiux-v2")
+            val externalFilesDirectory = checkNotNull(context.getExternalFilesDir(null)) {
+                "App external files directory is unavailable"
+            }
+            val outputDirectory = File(externalFilesDirectory, "uiux-v2")
             check(outputDirectory.mkdirs() || outputDirectory.isDirectory) {
                 "Could not create screenshot output directory: ${outputDirectory.absolutePath}"
             }
@@ -65,15 +67,6 @@ class UiUxV2ScreenshotInstrumentedTest {
                 check(bitmap.compress(Bitmap.CompressFormat.PNG, 100, output)) {
                     "Could not encode screenshot as PNG"
                 }
-            }
-            val sharedScreenshot = "/sdcard/Download/uiux-v2/prayer-home-ar-light.png"
-            val exportDescriptor = instrumentation.uiAutomation.executeShellCommand(
-                "mkdir -p /sdcard/Download/uiux-v2 && " +
-                    "run-as ${context.packageName} cat files/uiux-v2/prayer-home-ar-light.png " +
-                    "> $sharedScreenshot",
-            )
-            ParcelFileDescriptor.AutoCloseInputStream(exportDescriptor).use { shellOutput ->
-                while (shellOutput.read() != -1) Unit
             }
         } finally {
             activity.finish()

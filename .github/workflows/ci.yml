@@ -200,9 +200,8 @@ jobs:
           arch: x86_64
           disable-animations: true
           script: |
-            ./gradlew :app:connectedDebugAndroidTest
             mkdir -p artifacts/uiux-v2
-            adb pull /sdcard/Download/uiux-v2/prayer-home-ar-light.png artifacts/uiux-v2/prayer-home-ar-light.png
+            ./gradlew :app:connectedDebugAndroidTest > /tmp/uiux-v2-connected-tests.log 2>&1 & gradle_pid=$!; app_id="$(sed -n 's/^muslim.applicationId=//p' gradle.properties)"; device_screenshot="/sdcard/Android/data/$app_id/files/uiux-v2/prayer-home-ar-light.png"; for attempt in $(seq 1 180); do if adb shell test -s "$device_screenshot"; then adb pull "$device_screenshot" artifacts/uiux-v2/prayer-home-ar-light.png; break; fi; if ! kill -0 "$gradle_pid" 2>/dev/null; then break; fi; sleep 1; done; wait "$gradle_pid"; gradle_status=$?; cat /tmp/uiux-v2-connected-tests.log; exit "$gradle_status"
             python3 -c 'from pathlib import Path; import struct; p=Path("artifacts/uiux-v2/prayer-home-ar-light.png"); data=p.read_bytes(); assert data[:8] == bytes.fromhex("89504e470d0a1a0a"), f"not a PNG: {p}"; width,height=struct.unpack(">II", data[16:24]); assert width > 0 and height > 0 and len(data) > 100, f"invalid PNG: {width}x{height}, {len(data)} bytes"; print(f"Validated screenshot PNG: {width}x{height}, {len(data)} bytes")'
             ./gradlew :feature:feature-scholar-library:connectedDebugAndroidTest
             adb shell cmd audio set-enable-hardening throw
