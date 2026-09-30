@@ -72,7 +72,7 @@ class UiUxV2ScreenshotInstrumentedTest {
     ) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
-        val originalSystemFontScale = shell("settings get system font_scale").trim().toFloatOrNull() ?: 1f
+        val originalFontScale = shell("settings get system font_scale").trim().toFloatOrNull() ?: 1f
         val originalAccessibilityFlags = instrumentation.uiAutomation.serviceInfo.flags
         instrumentation.uiAutomation.serviceInfo = instrumentation.uiAutomation.serviceInfo.apply {
             flags = flags or AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS or
@@ -82,7 +82,6 @@ class UiUxV2ScreenshotInstrumentedTest {
         val prayerRepository = PrayerSettingsRepository(context)
         val originalPreferences = runBlocking { preferencesRepository.preferences.first() }
         val originalPrayerSettings = runBlocking { prayerRepository.settings.first() }
-        val originalFontScale = Settings.System.getFloat(context.contentResolver, Settings.System.FONT_SCALE, 1f)
         val fixedClock = InstrumentationRegistry.getArguments().getString("uiux.fixedClock") == "true"
         val originalWallTime = System.currentTimeMillis()
         val originalElapsedTime = SystemClock.elapsedRealtime()
@@ -214,7 +213,7 @@ class UiUxV2ScreenshotInstrumentedTest {
         } finally {
             try {
                 scenario?.close()
-                setSystemFontScale(originalSystemFontScale)
+                setSystemFontScale(originalFontScale)
                 if (fixedClock) {
                     val restoredTime = originalWallTime + SystemClock.elapsedRealtime() - originalElapsedTime
                     val date = DateTimeFormatter.ofPattern("MMddHHmmyyyy.ss", Locale.US)
