@@ -14,6 +14,9 @@ logcat_pid=$!
 gradle_pid=""
 trap 'kill "$logcat_pid" ${gradle_pid:+"$gradle_pid"} 2>/dev/null || true' EXIT INT TERM
 status=0
+device_ready() {
+    [ "$(adb get-state 2>/dev/null)" = device ]
+}
 run_batch() {
     local batch="$1"
     shift
@@ -43,6 +46,7 @@ run_batch() {
         "artifacts/emulator-diagnostics/test-results/$batch/" 2>/dev/null || true
     free -m >> artifacts/emulator-diagnostics/host-memory.txt
     [ "$result" = 0 ] || status="$result"
+    device_ready || status=1
 }
 # Reinstall between 48-case groups to bound retained Activity/graphics state.
 # Every configured case still runs; failures remain failures and are not retried away.
@@ -50,9 +54,9 @@ for screens in prayer-home,prayer-monthly quran-home,quran-reader qibla,more had
     run_batch "matrix-$screens" \
         -Pandroid.testInstrumentationRunnerArguments.class=org.muslim.app.UiUxV2MatrixInstrumentedTest \
         "-Pandroid.testInstrumentationRunnerArguments.uiux.screens=$screens"
-    [ "$(adb get-state 2>/dev/null)" = device ] || break
+    device_ready || break
 done
-if [ "$(adb get-state 2>/dev/null)" = device ]; then
+if [ "$status" = 0 ] && device_ready; then
     run_batch app-regression \
         -Pandroid.testInstrumentationRunnerArguments.notClass=org.muslim.app.UiUxV2MatrixInstrumentedTest
 fi
