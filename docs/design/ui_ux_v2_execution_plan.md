@@ -184,8 +184,10 @@ All must preserve existing capability and use the shared patterns.
   instrumentation tests passed, but the host's 180-second screenshot poll
   expired before Gradle completed its 4m40s emulator task. CI now allows a
   10-minute poll, pulls the app-specific external file while instrumentation
-  runs, then validates the PNG signature and dimensions. The repair awaits a
-  new end-to-end CI run; this path does not compare image output.
+  runs, then validates the PNG signature and dimensions. Run #1342 passed the
+  quality, emulator, and development APK jobs; both uploaded PNGs were
+  inspected and are valid 320x640 images. This path does not compare image
+  output.
 - No checked-in golden screenshots, comparison runner, or reviewed image
   baselines exist yet. UX28 remains open until the full matrix is captured,
   visually reviewed, and intentional differences are accepted.

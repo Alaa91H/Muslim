@@ -27,7 +27,7 @@
 **Files:** create `app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt`.
 
 - [x] Add an instrumentation test that launches the Hilt-backed `MainActivity` and writes `uiux-v2/prayer-home-ar-light.png` to app-private files.
-- [ ] Run the instrumentation test in CI and inspect the uploaded PNG dimensions/content (run #1341 passed all 13 tests, but its 180-second host poll expired before Gradle completed; CI now allows 10 minutes for screenshot pickup).
+- [x] Run the instrumentation test in CI and inspect the uploaded PNG dimensions/content (run #1342 passed; API 26 and API 36 artifacts are valid 320x640 PNGs).
 - [x] Keep capture isolated from production code and user data.
 
 ### Task 2: Publish screenshot artifacts from CI
@@ -43,4 +43,4 @@
 
 - [x] Document the configured capture/export path and retain comparison/variant/manual QA gates.
 - [x] Add a static contract that asserts emulator screenshot export/upload configuration and distinguishes capture from visual comparison.
-- [x] Run the QA matrix verifier; it passes locally. End-to-end CI validation remains pending after extending the screenshot poll to 10 minutes.
+- [x] Run the QA matrix verifier and verify end-to-end CI after extending screenshot polling to 10 minutes (run #1342 passed).
