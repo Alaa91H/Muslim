@@ -201,12 +201,12 @@ jobs:
           disable-animations: true
           script: |
             mkdir -p artifacts/uiux-v2
-            ./gradlew :app:connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=org.muslim.app.UiUxV2ScreenshotInstrumentedTest
+            ./gradlew :app:connectedDebugAndroidTest
             adb pull "/sdcard/Android/data/$(sed -n 's/^muslim.applicationId=//p' gradle.properties)/files/uiux-v2" artifacts/uiux-v2
             test -s artifacts/uiux-v2/prayer-home-ar-light.png
             ./gradlew :feature:feature-scholar-library:connectedDebugAndroidTest
             adb shell cmd audio set-enable-hardening throw
-            ./gradlew :app:connectedDebugAndroidTest :feature:feature-learn:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :feature:feature-qibla:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest
+            ./gradlew :feature:feature-learn:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :feature:feature-qibla:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest
 
       - name: Upload UI/UX V2 emulator screenshots
         if: always()
