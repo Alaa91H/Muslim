@@ -236,12 +236,13 @@ class UiUxV2ScreenshotInstrumentedTest {
         shell("settings put system font_scale $scale")
         val deadline = SystemClock.uptimeMillis() + 10_000
         while (SystemClock.uptimeMillis() < deadline) {
-            if (kotlin.math.abs(instrumentation.targetContext.resources.configuration.fontScale - scale) < 0.01f) {
+            val systemScale = shell("settings get system font_scale").trim().toFloatOrNull()
+            if (systemScale != null && kotlin.math.abs(systemScale - scale) < 0.01f) {
                 return
             }
             SystemClock.sleep(100)
         }
-        error("System font scale did not update to $scale")
+        error("System font scale setting did not update to $scale")
     }
 
     private fun AccessibilityNodeInfo.describeTree(): String = buildString {

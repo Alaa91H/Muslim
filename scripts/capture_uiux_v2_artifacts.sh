@@ -57,7 +57,7 @@ set_display_variant() {
         applied_size="$(adb shell wm size | tr -d '\r')"
         applied_density="$(adb shell wm density | tr -d '\r')"
         if [[ "$applied_size" != *"Override size: 1000x1600"* ]] ||
-            [[ "$applied_density" != *"Override density: 160"* ]]; then
+            { [[ "$applied_density" != *"Override density: 160"* ]] && [[ "$applied_density" != *"Physical density: 160"* ]]; }; then
             echo "Could not configure expanded emulator display: size=$applied_size density=$applied_density"
             return 1
         fi
