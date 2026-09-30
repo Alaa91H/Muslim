@@ -1,7 +1,17 @@
 package org.muslim.app.ui
 
+import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
+import androidx.activity.compose.LocalActivity
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -16,6 +26,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.NavigationRail
+import androidx.compose.material3.NavigationRailItem
+import androidx.compose.material3.NavigationRailItemDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,6 +46,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
@@ -51,8 +65,10 @@ import org.muslim.app.R
 import org.muslim.app.crash.CrashReportDialog
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.datastore.AppThemeMode
+import org.muslim.app.core.designsystem.IslamicLayout
 import org.muslim.app.core.ui.theme.AppTheme
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.feature.prayertimes.ui.home.MonthlyPrayerScreen
 import org.muslim.app.feature.prayertimes.ui.home.HomeScreen
 import org.muslim.app.feature.prayertimes.ui.location.LocationScreen
 import org.muslim.app.feature.prayertimes.ui.settings.PrayerSettingsScreen
@@ -122,6 +138,110 @@ private fun tabsForRamadan(isRamadan: Boolean): List<Tab> =
 /** Returns [preferred] if it is one of the visible tab routes, else "home". */
 private fun startDestinationFor(preferred: String, visibleTabs: List<Tab>): String =
     if (visibleTabs.any { it.route == preferred }) preferred else "home"
+
+@Composable
+private fun PrimaryNavigationBar(
+    visibleTabs: List<Tab>,
+    currentDestination: NavDestination?,
+    onNavigate: (String) -> Unit,
+) {
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceContainer,
+        tonalElevation = 1.dp,
+    ) {
+        BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
+            val slotWidth = maxWidth / visibleTabs.size.toFloat()
+            val compactTabs = slotWidth < 92.dp
+            val iconSize = if (compactTabs) 21.dp else 24.dp
+            val labelStyle = if (compactTabs) {
+                MaterialTheme.typography.labelSmall
+            } else {
+                MaterialTheme.typography.labelMedium
+            }
+
+            NavigationBar(
+                containerColor = Color.Transparent,
+                tonalElevation = 0.dp,
+            ) {
+                visibleTabs.forEach { tab ->
+                    NavigationBarItem(
+                        selected = currentDestination?.hierarchy?.any { it.route == tab.route } == true,
+                        onClick = { onNavigate(tab.route) },
+                        icon = {
+                            Icon(
+                                imageVector = tab.icon,
+                                contentDescription = null,
+                                modifier = Modifier.size(iconSize),
+                            )
+                        },
+                        label = {
+                            Text(
+                                text = stringResource(tab.labelRes),
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                                style = labelStyle,
+                            )
+                        },
+                        colors = NavigationBarItemDefaults.colors(
+                            selectedIconColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                            selectedTextColor = MaterialTheme.colorScheme.onSurface,
+                            indicatorColor = MaterialTheme.colorScheme.secondaryContainer,
+                            unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                            unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                        ),
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun PrimaryNavigationRail(
+    visibleTabs: List<Tab>,
+    currentDestination: NavDestination?,
+    onNavigate: (String) -> Unit,
+) {
+    Surface(
+        modifier = Modifier.fillMaxHeight(),
+        color = MaterialTheme.colorScheme.surfaceContainer,
+        tonalElevation = 1.dp,
+    ) {
+        NavigationRail(
+            containerColor = Color.Transparent,
+        ) {
+            visibleTabs.forEach { tab ->
+                NavigationRailItem(
+                    selected = currentDestination?.hierarchy?.any { it.route == tab.route } == true,
+                    onClick = { onNavigate(tab.route) },
+                    icon = {
+                        Icon(
+                            imageVector = tab.icon,
+                            contentDescription = null,
+                            modifier = Modifier.size(24.dp),
+                        )
+                    },
+                    label = {
+                        Text(
+                            text = stringResource(tab.labelRes),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            style = MaterialTheme.typography.labelMedium,
+                        )
+                    },
+                    alwaysShowLabel = true,
+                    colors = NavigationRailItemDefaults.colors(
+                        selectedIconColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                        selectedTextColor = MaterialTheme.colorScheme.onSurface,
+                        indicatorColor = MaterialTheme.colorScheme.secondaryContainer,
+                        unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                        unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                    ),
+                )
+            }
+        }
+    }
+}
 
 private const val READER_ROUTE = "quran/reader"
 private const val BOOKMARKS_ROUTE = "quran/bookmarks"
@@ -205,6 +325,20 @@ fun MuslimApp(
         AppThemeMode.Dark -> true
     }
 
+    val activity = LocalActivity.current as? ComponentActivity
+    LaunchedEffect(activity, darkTheme) {
+        activity?.enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.auto(
+                android.graphics.Color.TRANSPARENT,
+                android.graphics.Color.TRANSPARENT,
+            ) { darkTheme },
+            navigationBarStyle = SystemBarStyle.auto(
+                android.graphics.Color.TRANSPARENT,
+                android.graphics.Color.TRANSPARENT,
+            ) { darkTheme },
+        )
+    }
+
     AppTheme(
         darkTheme = darkTheme,
         dynamicColor = preferences.dynamicColor,
@@ -217,98 +351,78 @@ fun MuslimApp(
         ornamentStyle = preferences.ornamentStyle,
         ornamentIntensity = preferences.ornamentIntensity,
     ) {
-        MuslimAppScaffold(
-            modifier = modifier,
-            floatingActionButton = {
-                if (preferences.voiceNavigationEnabled) {
-                    VoiceNavigationButton(onTarget = { target ->
-                        when (target) {
-                            is VoiceNavigationTarget.Route -> navController.navigate(target.route) {
-                                launchSingleTop = true
-                            }
-                            is VoiceNavigationTarget.Reader -> navController.navigate(
-                                "$READER_ROUTE/${target.surahNumber}",
-                            ) {
-                                launchSingleTop = true
-                            }
-                        }
-                    })
+        val backStackEntry by navController.currentBackStackEntryAsState()
+        val currentDestination = backStackEntry?.destination
+        val onPrimaryTab = visibleTabs.any { currentDestination?.route == it.route }
+        val navigatePrimaryTab: (String) -> Unit = { route ->
+            navController.navigate(route) {
+                popUpTo(navController.graph.findStartDestination().id) {
+                    saveState = true
                 }
-            },
-            bottomBar = {
-                val backStackEntry by navController.currentBackStackEntryAsState()
-                val currentDestination = backStackEntry?.destination
-                val onTab = visibleTabs.any { currentDestination?.route == it.route }
-                if (onTab) {
-                    Surface(
-                        color = MaterialTheme.colorScheme.surfaceContainer,
-                        tonalElevation = 1.dp,
-                    ) {
-                        BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
-                            val slotWidth = maxWidth / visibleTabs.size.toFloat()
-                            val compactTabs = slotWidth < 92.dp
-                            val iconSize = if (compactTabs) 21.dp else 24.dp
-                            val labelStyle = if (compactTabs) {
-                                MaterialTheme.typography.labelSmall
-                            } else {
-                                MaterialTheme.typography.labelMedium
-                            }
+                launchSingleTop = true
+                restoreState = true
+            }
+        }
 
-                            NavigationBar(
-                                containerColor = Color.Transparent,
-                                tonalElevation = 0.dp,
-                            ) {
-                                visibleTabs.forEach { tab ->
-                                    NavigationBarItem(
-                                        selected = currentDestination?.hierarchy?.any { it.route == tab.route } == true,
-                                        onClick = {
-                                            navController.navigate(tab.route) {
-                                                popUpTo(navController.graph.findStartDestination().id) {
-                                                    saveState = true
-                                                }
-                                                launchSingleTop = true
-                                                restoreState = true
-                                            }
-                                        },
-                                        icon = {
-                                            Icon(
-                                                imageVector = tab.icon,
-                                                contentDescription = null,
-                                                modifier = Modifier.size(iconSize),
-                                            )
-                                        },
-                                        label = {
-                                            Text(
-                                                text = stringResource(tab.labelRes),
-                                                maxLines = 1,
-                                                overflow = TextOverflow.Ellipsis,
-                                                style = labelStyle,
-                                            )
-                                        },
-                                        colors = NavigationBarItemDefaults.colors(
-                                            selectedIconColor = MaterialTheme.colorScheme.onSecondaryContainer,
-                                            selectedTextColor = MaterialTheme.colorScheme.onSurface,
-                                            indicatorColor = MaterialTheme.colorScheme.secondaryContainer,
-                                            unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                                            unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                                        ),
-                                    )
-                                }
-                            }
-                        }
-                    }
+        BoxWithConstraints(modifier = modifier.fillMaxSize()) {
+            val adaptiveSpec = IslamicLayout.adaptiveSpec(maxWidth)
+            val showNavigationRail = adaptiveSpec.preferNavigationRail && onPrimaryTab
+
+            Row(modifier = Modifier.fillMaxSize()) {
+                if (showNavigationRail) {
+                    PrimaryNavigationRail(
+                        visibleTabs = visibleTabs,
+                        currentDestination = currentDestination,
+                        onNavigate = navigatePrimaryTab,
+                    )
                 }
-            },
-        ) { innerPadding ->
-            NavHost(
+
+                MuslimAppScaffold(
+                    modifier = Modifier.weight(1f),
+                    floatingActionButton = {
+                        if (preferences.voiceNavigationEnabled) {
+                            VoiceNavigationButton(onTarget = { target ->
+                                when (target) {
+                                    is VoiceNavigationTarget.Route -> navController.navigate(target.route) {
+                                        launchSingleTop = true
+                                    }
+                                    is VoiceNavigationTarget.Reader -> navController.navigate(
+                                        "$READER_ROUTE/${target.surahNumber}",
+                                    ) {
+                                        launchSingleTop = true
+                                    }
+                                }
+                            })
+                        }
+                    },
+                    bottomBar = {
+                        if (!showNavigationRail && onPrimaryTab) {
+                            PrimaryNavigationBar(
+                                visibleTabs = visibleTabs,
+                                currentDestination = currentDestination,
+                                onNavigate = navigatePrimaryTab,
+                            )
+                        }
+                    },
+                ) { innerPadding ->
+                    NavHost(
                 // The user-chosen start tab (default: prayer-times home), validated
                 // against the real tab routes so a stale value can never crash.
                 startDestination = startDestinationFor(initialStartTab, visibleTabs),
                 navController = navController,
-                modifier = Modifier.padding(innerPadding),
+                modifier = Modifier.padding(innerPadding)
+                    .testTag("uiux-route:${currentDestination?.route}")
+                    .semantics { testTagsAsResourceId = true },
             ) {
                 composable("home") {
                     HomeScreen(
+                        onSelectLocation = { navController.navigate("location") },
+                        onOpenMonthly = { navController.navigate("prayer/monthly") },
+                    )
+                }
+                composable("prayer/monthly") {
+                    MonthlyPrayerScreen(
+                        onBack = { navController.popBackStack() },
                         onSelectLocation = { navController.navigate("location") },
                     )
                 }
@@ -352,7 +466,10 @@ fun MuslimApp(
                 composable("qibla") {
                     val selected = location
                     if (selected == null) {
-                        HomeScreen(onSelectLocation = { navController.navigate("location") })
+                        HomeScreen(
+                            onSelectLocation = { navController.navigate("location") },
+                            onOpenMonthly = { navController.navigate("prayer/monthly") },
+                        )
                     } else {
                         QiblaScreen(
                             latitude = selected.latitude,
@@ -382,6 +499,7 @@ fun MuslimApp(
                         onOpenScholarLibrary = { navController.navigate(SCHOLAR_LIBRARY_ROUTE) },
                         onOpenAccessibility = { navController.navigate(ACCESSIBILITY_ROUTE) },
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
+                        onOpenMoreOrder = { navController.navigate(MORE_ORDER_ROUTE) },
                         sectionOrder = preferences.moreSectionOrder,
                         hiddenSections = preferences.hiddenMoreSections,
                     )
@@ -398,6 +516,10 @@ fun MuslimApp(
                         onOpenUpdates = { navController.navigate(UPDATE_ROUTE) },
                         onOpenAccessibility = { navController.navigate(ACCESSIBILITY_ROUTE) },
                         onOpenSmartDevices = { navController.navigate(SMART_DEVICES_ROUTE) },
+                        onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
+                        onOpenScholarDataManager = {
+                            navController.navigate(SCHOLAR_LIBRARY_DATA_ROUTE)
+                        },
                         onLanguageChanged = onLanguageChanged,
                     )
                 }
@@ -591,6 +713,8 @@ fun MuslimApp(
                 }
                 composable("location") {
                     LocationScreen(onSaved = { navController.popBackStack() })
+                }
+                    }
                 }
             }
         }

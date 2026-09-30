@@ -35,6 +35,7 @@ import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.QuranAyahIndex
 import org.muslim.app.feature.quran.domain.QuranRepository
+import org.muslim.app.feature.quran.domain.Reciter
 import org.muslim.app.feature.quran.domain.Surah
 import javax.inject.Inject
 
@@ -408,18 +409,27 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
             ),
         )
 
-        RECITATIONS_FOLDER_ID -> downloadedSurahs().map(::surahItem)
-        else -> emptyList()
+        RECITATIONS_FOLDER_ID -> downloadedReciters().map(::reciterFolder)
+        else -> if (parentId.startsWith(RECITER_MEDIA_PREFIX)) {
+            val reciterId = parentId.removePrefix(RECITER_MEDIA_PREFIX)
+            downloadedSurahs(reciterId).map { surah -> surahItem(surah, reciterId) }
+        } else emptyList()
     }
 
-    private suspend fun downloadedSurahs(): List<Surah> {
-        val selectedReciter = recitationRepository.selectedReciter()
+    private suspend fun downloadedReciters() = with(quranRepository.observeSurahs().first().associateBy { it.number }) {
+        Reciter.Bundled.mapNotNull { reciter ->
+            val hasCompleteSurah = recitationRepository.downloadState(reciter.id).surahCounts.any { (number, count) ->
+                val expectedAyahs = this[number]?.ayahCount
+                expectedAyahs != null && count >= expectedAyahs
+            }
+            reciter.takeIf { hasCompleteSurah }
+        }
+    }
+
+    private suspend fun downloadedSurahs(reciterId: String): List<Surah> {
+        val downloadedCounts = recitationRepository.downloadState(reciterId).surahCounts
         return quranRepository.observeSurahs().first().filter { surah ->
-            recitationRepository.isSurahComplete(
-                reciterId = selectedReciter.id,
-                surahNumber = surah.number,
-                expectedAyahs = surah.ayahCount,
-            )
+            (downloadedCounts[surah.number] ?: 0) >= surah.ayahCount
         }
     }
 
@@ -436,9 +446,15 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         MediaBrowserCompat.MediaItem.FLAG_BROWSABLE,
     )
 
-    private fun surahItem(surah: Surah): MediaBrowserCompat.MediaItem = MediaBrowserCompat.MediaItem(
+    private fun reciterFolder(reciter: Reciter): MediaBrowserCompat.MediaItem = browseFolder(
+        id = "$RECITER_MEDIA_PREFIX${reciter.id}",
+        title = reciter.name,
+        subtitle = reciter.style,
+    )
+
+    private fun surahItem(surah: Surah, reciterId: String): MediaBrowserCompat.MediaItem = MediaBrowserCompat.MediaItem(
         MediaDescriptionCompat.Builder()
-            .setMediaId("$SURAH_MEDIA_PREFIX${surah.number}")
+            .setMediaId("$SURAH_MEDIA_PREFIX${surah.number}_$reciterId")
             .setTitle(surah.arabicName)
             .setSubtitle(surah.englishName)
             .build(),
@@ -446,13 +462,14 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
     )
 
     private fun playMediaId(mediaId: String) {
-        val surahNumber = mediaId.removePrefix(SURAH_MEDIA_PREFIX).toIntOrNull() ?: return
-        scope.launch { playDownloadedSurah(surahNumber) }
+        val target = RecitationMediaId.parse(mediaId, Reciter.Bundled.mapTo(mutableSetOf()) { it.id }) ?: return
+        scope.launch { playDownloadedSurah(target.first, target.second) }
     }
 
-    private suspend fun playDownloadedSurah(surahNumber: Int) {
+    private suspend fun playDownloadedSurah(surahNumber: Int, requestedReciterId: String? = null) {
         val surah = quranRepository.observeSurahs().first().firstOrNull { it.number == surahNumber } ?: return
-        val reciter = recitationRepository.selectedReciter()
+        val reciter = requestedReciterId?.let { id -> Reciter.Bundled.firstOrNull { it.id == id } }
+            ?: recitationRepository.selectedReciter()
         if (!recitationRepository.isSurahComplete(reciter.id, surah.number, surah.ayahCount)) {
             publishPlaybackError(getString(R.string.quran_car_not_downloaded))
             return
@@ -477,9 +494,25 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
                     normalized.contains(surah.englishName.lowercase()) ||
                     normalized == surah.number.toString()
             }
-            matched?.let { surah -> playDownloadedSurah(surah.number) }
+            matched?.let { surah ->
+                val selectedReciter = recitationRepository.selectedReciter()
+                val reciterId = if (recitationRepository.isSurahComplete(selectedReciter.id, surah.number, surah.ayahCount)) {
+                    selectedReciter.id
+                } else {
+                    findDownloadedReciter(surah)
+                }
+                if (reciterId == null) publishPlaybackError(getString(R.string.quran_car_search_unavailable))
+                else playDownloadedSurah(surah.number, reciterId)
+            }
                 ?: publishPlaybackError(getString(R.string.quran_car_search_unavailable))
         }
+    }
+
+    private suspend fun findDownloadedReciter(surah: Surah): String? {
+        for (reciter in downloadedReciters()) {
+            if (recitationRepository.isSurahComplete(reciter.id, surah.number, surah.ayahCount)) return reciter.id
+        }
+        return null
     }
 
     private fun publishPlaybackError(message: String) {
@@ -540,7 +573,9 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         private const val MEDIA_SESSION_TAG = "org.muslim.app.quran.RecitationPlayback"
         private const val MEDIA_ROOT_ID = "muslim_recitation_root"
         private const val RECITATIONS_FOLDER_ID = "muslim_recitations"
+        private const val RECITER_MEDIA_PREFIX = "muslim_reciter_"
         private const val SURAH_MEDIA_PREFIX = "muslim_surah_"
+
         /** New identity ensures Android creates a fresh media card after the branding upgrade. */
         const val RECITATION_NOTIFICATION_ID = 7008
         /** Most recent foreground-card identity, retained for migration cleanup. */

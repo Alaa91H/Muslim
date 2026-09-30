@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Hatina kukwanisa kudhawunirodha tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Tevedzera ayah yakadzokororwa mu tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Fambisa zvinoreva uye tafsir nekudzokorora. Dzima kuti uverenge imwe tsananguro uku odhiyo ichienderera.</string>
+    <string name="quran_search_hint">Tsvaga mavhesi eKorani…</string>
+    <string name="quran_search_clear">Bvisa kutsvaga</string>
+    <string name="quran_search_no_results">Hapana mhinduro dzinoenderana</string>
+    <string name="quran_search_words">Mazwi ese</string>
+    <string name="quran_search_phrase">Mutsara chaiwo</string>
+    <string name="quran_search_ayah_summary">%1$d zvinoitika mumavhesi e%2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · kuitika kwezwi %3$d</string>
 </resources>

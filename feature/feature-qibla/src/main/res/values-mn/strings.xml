@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Хайж байна...</string>
     <string name="mosque_finder_title">Ойролцоох сүмүүд</string>
     <string name="qibla_bearing_cardinal">Кибла чиглэл: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Шалгалт тохируулахын тулд утсаа наймны дүрд шилжүүлээрэй</string>
     <string name="qibla_distance">Макка хүртэлх зай: %1$s</string>
     <string name="qibla_distance_km">%,.0f км</string>
-    <string name="qibla_facing">Та Кибла руу 🕋 тулж байна</string>
+    <string name="qibla_facing">Та Кибла руу  тулж байна</string>
     <string name="qibla_gps_error">Нарийвчилсан засвар авч чадсангүй. Дахин оролдоно уу.</string>
     <string name="qibla_gps_live">GPS-ийн шууд байршил</string>
     <string name="qibla_gps_refresh">GPS-ээр байршлыг сэргээнэ үү</string>

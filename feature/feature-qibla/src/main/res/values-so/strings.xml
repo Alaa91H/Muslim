@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Raadinta…</string>
     <string name="mosque_finder_title">Masaajidada u dhow</string>
     <string name="qibla_bearing_cardinal">Jihada Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">U guuri taleefankaaga sawir-sideed si aad u cabbirto</string>
     <string name="qibla_distance">Masaafada Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Qiblada ayaad ku wajahantahay 🕋</string>
+    <string name="qibla_facing">Qiblada ayaad ku wajahantahay</string>
     <string name="qibla_gps_error">Ma helin hagaajin sax ah Fadlan isku day mar kale</string>
     <string name="qibla_gps_live">Goobta GPS-ka tooska ah</string>
     <string name="qibla_gps_refresh">Ku cusboonaysii goobta adoo adeegsanaya GPS</string>

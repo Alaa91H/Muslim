@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Mencari…</string>
     <string name="mosque_finder_title">Masjid berdekatan</string>
     <string name="qibla_bearing_cardinal">Arah kiblat: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Gerakkan telefon anda dalam angka lapan untuk menentukur</string>
     <string name="qibla_distance">Jarak ke Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Anda menghadap kiblat 🕋</string>
+    <string name="qibla_facing">Anda menghadap kiblat</string>
     <string name="qibla_gps_error">Tidak boleh mendapatkan pembetulan yang tepat. Sila cuba lagi.</string>
     <string name="qibla_gps_live">Lokasi GPS langsung</string>
     <string name="qibla_gps_refresh">Muat semula lokasi melalui GPS</string>

@@ -160,7 +160,7 @@ def main() -> None:
     require("missedAdhanColor" not in service, "service must not pass a user-selected duration colour")
     require("START_NOT_STICKY" in service and "catch (_: Throwable)" in service, "countdown-service startup failures must not crash the app process")
     require("HomeAdhanCustomizationDialog" in home, "home alert icon must open the modal customizer")
-    require("onClick = { customizingPrayer = prayer }" in home, "home alert icon must not navigate to prayer settings")
+    require("onCustomizePrayer = { customizingPrayer = it }" in home, "home alert control must not navigate to prayer settings")
     require("PrayerSettingsViewModel" in home_dialog and "saveAdhanCustomization" in home_dialog, "home modal must share the persisted customisation flow")
     require("triggerQiblaHapticFeedback" in qibla_screen, "Qibla may retain non-audio haptic feedback")
     require("CompassPosture.isLevel" in compass_sensor, "compass must reject invalid upright or excessive-tilt postures")

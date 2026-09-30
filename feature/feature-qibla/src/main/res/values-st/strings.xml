@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">E batla...</string>
     <string name="mosque_finder_title">Mamosleme a haufi</string>
     <string name="qibla_bearing_cardinal">Qibla tataiso: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Tsamaisa fono ea hau ka palo-robeli ho e lokisa</string>
     <string name="qibla_distance">Sebaka ho ea Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">U tobane le Qibla 🕋</string>
+    <string name="qibla_facing">U tobane le Qibla</string>
     <string name="qibla_gps_error">Ha e khone ho fumana tokiso e nepahetseng. Ka kopo, leka hape.</string>
     <string name="qibla_gps_live">Sebaka sa GPS se phelang</string>
     <string name="qibla_gps_refresh">Nchafatsa sebaka ka GPS</string>

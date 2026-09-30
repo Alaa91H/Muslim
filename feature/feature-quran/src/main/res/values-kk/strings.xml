@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Тафсирді жүктеу мүмкін болмады: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Тәпсірде оқылған аятты ұстаныңыз</string>
+    <string name="quran_tafsir_follow_playback_description">Мағыналар мен тәпсірлерді оқумен жылжытыңыз. Дыбыс жалғасуда басқа түсініктемені оқу үшін өшіріңіз.</string>
+    <string name="quran_search_hint">Құран аяттарын іздеу...</string>
+    <string name="quran_search_clear">Іздеуді тазалау</string>
+    <string name="quran_search_no_results">Сәйкес нәтижелер жоқ</string>
+    <string name="quran_search_words">Барлық сөздер</string>
+    <string name="quran_search_phrase">Нақты сөз тіркесі</string>
+    <string name="quran_search_ayah_summary">%1$d %2$d өлеңдеріндегі оқиғалар</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · сөздердің кездесуі %3$d</string>
 </resources>

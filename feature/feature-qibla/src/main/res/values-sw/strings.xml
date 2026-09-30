@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Inatafuta...</string>
     <string name="mosque_finder_title">Misikiti iliyo karibu</string>
     <string name="qibla_bearing_cardinal">Mwelekeo wa Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Sogeza simu yako katika nambari ya nane ili kurekebisha</string>
     <string name="qibla_distance">Umbali wa Makka: %1$s</string>
     <string name="qibla_distance_km">Kilomita %,.0f</string>
-    <string name="qibla_facing">Unaelekea Qibla 🕋</string>
+    <string name="qibla_facing">Unaelekea Qibla</string>
     <string name="qibla_gps_error">Haikuweza kupata marekebisho sahihi. Tafadhali jaribu tena.</string>
     <string name="qibla_gps_live">Mahali pa kuishi GPS</string>
     <string name="qibla_gps_refresh">Onyesha upya eneo kupitia GPS</string>

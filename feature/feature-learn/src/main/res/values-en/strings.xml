@@ -25,6 +25,7 @@
     <string name="names_hadith_intro">The Prophet ﷺ said: “Allah has ninety-nine names, one hundred less one; whoever enumerates them will enter Paradise.” Tap any name to read its full explanation, meaning and evidence from the Quran.</string>
     <string name="names_count">Number of names: %1$d</string>
     <string name="names_search_hint">Search for a name…</string>
+    <string name="names_search_clear">Clear search</string>
     <string name="names_empty_search">No names match your search</string>
     <string name="names_meaning">Meaning</string>
     <string name="names_explanation">Detailed explanation</string>
@@ -416,6 +417,7 @@
     <string name="learn_topic_faith_questions">Questions and doubts</string>
     <string name="learn_topic_faith_questions_sub">A method for checking text, context and sources and handling difficult questions responsibly</string>
     <string name="learn_search_hint">Search the academy</string>
+    <string name="learn_search_clear">Clear search</string>
     <string name="learn_continue_learning">Continue learning</string>
     <string name="learn_continue_subtitle">Return to the last unfinished lesson or move to the next one</string>
     <string name="learn_overall_progress">Academy progress: %1$d of %2$d</string>

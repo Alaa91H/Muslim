@@ -82,6 +82,15 @@ class ReciterTest {
     }
 
     @Test
+    fun restoredEveryAyahReciters_useVerifiedServerFolderAndBitrateMetadata() {
+        val matroud = Reciter.Bundled.single { it.id == "abdullah_matroud_128kbps" }
+        val parhizgar = Reciter.Bundled.single { it.id == "parhizgar_48kbps" }
+        assertThat(matroud.urlFor(3, 18)).isEqualTo("https://everyayah.com/data/Abdullah_Matroud_128kbps/003018.mp3")
+        assertThat(parhizgar.bitrateKbps).isEqualTo(48)
+        assertThat(parhizgar.urlFor(3, 18)).isEqualTo("https://everyayah.com/data/Parhizgar_48kbps/003018.mp3")
+    }
+
+    @Test
     fun bundledReciters_folderNamesFollowServerSpelling() {
         // Every bundled folder must follow the live server's naming; a typo
         // yields HTTP 404 and silently broken downloads. Guards known bad

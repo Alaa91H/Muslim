@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Ndi khou setsha...</string>
     <string name="mosque_finder_title">Mosque dza tsini</string>
     <string name="qibla_bearing_cardinal">Nḓila ya Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Sudzulusani founu yaṋu kha figara ya vhumalo u itela u kalibrate</string>
     <string name="qibla_distance">Tshikhala tsha u ya Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">U khou sedzana na Qibla 🕋 .</string>
+    <string name="qibla_facing">U khou sedzana na Qibla  .</string>
     <string name="qibla_gps_error">A thi koni u wana fix yo teaho. Ndi khou humbela uri ni lingedze hafhu.</string>
     <string name="qibla_gps_live">Vhupo ha GPS vhu tshilaho</string>
     <string name="qibla_gps_refresh">U vusuludza fhethu nga GPS</string>

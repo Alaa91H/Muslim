@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">සොයමින්...</string>
     <string name="mosque_finder_title">ආසන්න මුස්ලිම් පල්ලි</string>
     <string name="qibla_bearing_cardinal">කිබ්ලා දිශාව: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">ක්‍රමාංකනය කිරීමට ඔබගේ දුරකථනය අංක අටකින් ගෙන යන්න</string>
     <string name="qibla_distance">මක්කාවට දුර: %1$s</string>
     <string name="qibla_distance_km">%,.0f කි.මී</string>
-    <string name="qibla_facing">ඔබ කිබ්ලා 🕋 දෙසට මුහුණලා සිටී</string>
+    <string name="qibla_facing">ඔබ කිබ්ලා  දෙසට මුහුණලා සිටී</string>
     <string name="qibla_gps_error">නිවැරදි විසඳුමක් ලබා ගැනීමට නොහැකි විය. කරුණාකර නැවත උත්සාහ කරන්න.</string>
     <string name="qibla_gps_live">සජීවී GPS ස්ථානය</string>
     <string name="qibla_gps_refresh">GPS හරහා ස්ථානය නැවුම් කරන්න</string>

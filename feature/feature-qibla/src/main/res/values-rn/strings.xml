@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Gushaka...</string>
     <string name="mosque_finder_title">Imisigiti iri hafi</string>
     <string name="qibla_bearing_cardinal">Uburongozi bwa kibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Kwimurira telefone yawe mu gishushanyo c\'umunani kugira ngo uyitunganye</string>
     <string name="qibla_distance">Urugendo rwo kuja i Makka: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Murabana na Kibla 🕋 .</string>
+    <string name="qibla_facing">Murabana na Kibla  .</string>
     <string name="qibla_gps_error">Ntiyashobora kuronka igisubizo nyaco. Ndagusavye wongere ugerageze.</string>
     <string name="qibla_gps_live">Aho GPS iri</string>
     <string name="qibla_gps_refresh">Gusubiramwo ahantu biciye kuri GPS</string>

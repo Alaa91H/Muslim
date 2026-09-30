@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Serĉante…</string>
     <string name="mosque_finder_title">Proksimaj moskeoj</string>
     <string name="qibla_bearing_cardinal">Qibla direkto: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Movu vian telefonon en oko por kalibri</string>
     <string name="qibla_distance">Distanco al Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Vi alfrontas la Ĉiblon 🕋</string>
+    <string name="qibla_facing">Vi alfrontas la Ĉiblon</string>
     <string name="qibla_gps_error">Ne eblis ricevi precizan solvon. Bonvolu provi denove.</string>
     <string name="qibla_gps_live">Viva GPS-loko</string>
     <string name="qibla_gps_refresh">Refreŝigu lokon per GPS</string>

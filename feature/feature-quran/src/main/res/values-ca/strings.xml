@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">No s\'ha pogut descarregar el tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Seguiu l\'àiah recitat en tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Moure els significats i tafsir amb la recitació. Apagueu per llegir una altra explicació mentre l\'àudio continua.</string>
+    <string name="quran_search_hint">Cerca versos de l\'Alcorà...</string>
+    <string name="quran_search_clear">Esborra la cerca</string>
+    <string name="quran_search_no_results">No hi ha resultats coincidents</string>
+    <string name="quran_search_words">Totes les paraules</string>
+    <string name="quran_search_phrase">Frase exacta</string>
+    <string name="quran_search_ayah_summary">Ocurrències de %1$d als versos de %2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · ocurrències de paraules %3$d</string>
 </resources>

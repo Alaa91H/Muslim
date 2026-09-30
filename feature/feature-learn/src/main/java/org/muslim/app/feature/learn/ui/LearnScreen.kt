@@ -16,7 +16,6 @@ import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.AccountBalance
 import androidx.compose.material.icons.filled.AutoStories
@@ -39,13 +38,11 @@ import androidx.compose.material.icons.filled.VerifiedUser
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.filled.WaterDrop
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -64,8 +61,10 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicDecorationBand
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.MuslimScreen
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.LearnContent
 import org.muslim.app.feature.learn.domain.LearnTopic
@@ -339,7 +338,6 @@ fun LearnScreen(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun LearnScreenScaffold(
     state: LearnScreenState,
@@ -348,33 +346,29 @@ private fun LearnScreenScaffold(
     modifier: Modifier,
 ) {
     val topic = state.topic
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(stringResource(if (topic == null) R.string.learn_title else topic.titleRes))
+            MuslimTopBar(
+                title = stringResource(if (topic == null) R.string.learn_title else topic.titleRes),
+                onNavigateBack = {
+                    if (topic == null) actions.onBack() else actions.onCloseTopic()
                 },
-                navigationIcon = {
-                    IconButton(
-                        onClick = {
-                            if (topic == null) actions.onBack() else actions.onCloseTopic()
-                        },
-                    ) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.learn_back),
-                        )
-                    }
-                },
+                navigationContentDescription = stringResource(R.string.learn_back),
                 actions = {
                     topic?.let { current ->
                         val isFav = current.id in state.favoriteIds
-                        IconButton(onClick = { actions.onToggleFavorite(current.id) }) {
+                        androidx.compose.material3.IconButton(
+                            onClick = { actions.onToggleFavorite(current.id) },
+                        ) {
                             Icon(
                                 imageVector = if (isFav) Icons.Filled.Star else Icons.Outlined.StarBorder,
                                 contentDescription = stringResource(
-                                    if (isFav) R.string.learn_remove_favorite else R.string.learn_add_favorite
+                                    if (isFav) {
+                                        R.string.learn_remove_favorite
+                                    } else {
+                                        R.string.learn_add_favorite
+                                    },
                                 ),
                                 tint = if (isFav) {
                                     MaterialTheme.colorScheme.primary
@@ -387,12 +381,11 @@ private fun LearnScreenScaffold(
                 },
             )
         },
-    ) { innerPadding ->
+    ) {
         if (topic == null) {
             TopicList(
                 state = state,
                 actions = actions,
-                modifier = Modifier.padding(innerPadding),
             )
         } else {
             LearningLessonReader(
@@ -404,7 +397,6 @@ private fun LearnScreenScaffold(
                     lessonActions.onAnswerQuiz(topic, quizId, optionId)
                 },
                 onOpenFeature = lessonActions.onOpenFeature,
-                modifier = Modifier.padding(innerPadding),
             )
         }
     }
@@ -431,8 +423,11 @@ private fun TopicList(
 
     LazyColumn(
         modifier = modifier.fillMaxSize(),
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Compact,
+        ),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         item(key = "islamic-decoration") {
             IslamicDecorationBand(

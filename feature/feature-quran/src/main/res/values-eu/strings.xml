@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Ezin izan da tafsir-a jaitsi: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Jarrai ezazu tafsir-en errezitatutako aiari</string>
+    <string name="quran_tafsir_follow_playback_description">Mugitu esanahiak eta tafsir errezitazioarekin. Desaktibatu beste azalpen bat irakurtzeko audioak jarraitzen duen bitartean.</string>
+    <string name="quran_search_hint">Bilatu Koraneko bertsoak...</string>
+    <string name="quran_search_clear">Garbitu bilaketa</string>
+    <string name="quran_search_no_results">Ez dago bat datorren emaitzarik</string>
+    <string name="quran_search_words">Hitz guztiak</string>
+    <string name="quran_search_phrase">Esaldi zehatza</string>
+    <string name="quran_search_ayah_summary">%1$d agerraldiak %2$d bertsoetan</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · hitz agerraldiak %3$d</string>
 </resources>

@@ -17,31 +17,26 @@ import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.BookmarkBorder
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Groups
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -58,14 +53,16 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.feature.reference.R
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimSearchBar
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import kotlinx.coroutines.flow.collect
@@ -155,7 +152,6 @@ private data class TopicReaderRenderData(
  * والمعجم الإسلامي الموسع والأسئلة الشائعة والمفاهيم الخاطئة،
  * مع بحث نصي ثنائي اللغة على مستوى المكتبة كلها.
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ReferenceScreen(
     onBack: () -> Unit,
@@ -223,15 +219,14 @@ fun ReferenceScreen(
     ReferenceScreenBody(state = viewState, actions = actions, modifier = modifier)
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ReferenceScreenBody(
     state: ReferenceScreenViewState,
     actions: ReferenceScreenActions,
     modifier: Modifier = Modifier,
 ) {
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
             ReferenceTopBar(
                 lang = state.lang,
@@ -247,8 +242,7 @@ private fun ReferenceScreenBody(
                 onToggleLanguage = actions.onToggleLanguage,
             )
         },
-    ) { innerPadding ->
-        val contentModifier = Modifier.padding(innerPadding)
+    ) {
         when {
             state.topic != null && state.book != null -> TopicContent(
                 repository = state.repository,
@@ -260,7 +254,6 @@ private fun ReferenceScreenBody(
                     actions.onOpenTopic(targetBook, targetTopic)
                     actions.onQueryChanged("")
                 },
-                modifier = contentModifier,
             )
             state.book != null -> {
                 val currentBook = state.book
@@ -272,7 +265,6 @@ private fun ReferenceScreenBody(
                     onQueryChanged = actions.onQueryChanged,
                     bookmarkKeys = state.readerState.bookmarkKeys,
                     onOpenTopic = { actions.onOpenTopic(currentBook, it) },
-                    modifier = contentModifier,
                 )
             }
             else -> HubContent(
@@ -286,7 +278,6 @@ private fun ReferenceScreenBody(
                     actions.onOpenTopic(targetBook, targetTopic)
                     actions.onHubQueryChanged("")
                 },
-                modifier = contentModifier,
             )
         }
     }
@@ -317,7 +308,6 @@ private fun ReferenceBackHandler(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ReferenceTopBar(
     lang: RefLang,
@@ -326,25 +316,14 @@ private fun ReferenceTopBar(
     onBack: () -> Unit,
     onToggleLanguage: () -> Unit,
 ) {
-    TopAppBar(
-        title = {
-            Text(
-                text = when {
-                    topic != null -> topic.title(lang)
-                    book != null -> book.title(lang)
-                    else -> stringResource(R.string.reference_title)
-                },
-                maxLines = 1,
-            )
+    MuslimTopBar(
+        title = when {
+            topic != null -> topic.title(lang)
+            book != null -> book.title(lang)
+            else -> stringResource(R.string.reference_title)
         },
-        navigationIcon = {
-            IconButton(onClick = onBack) {
-                Icon(
-                    Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = stringResource(R.string.reference_back),
-                )
-            }
-        },
+        onNavigateBack = onBack,
+        navigationContentDescription = stringResource(R.string.reference_back),
         actions = {
             TextButton(onClick = onToggleLanguage) {
                 Text(
@@ -379,7 +358,7 @@ private fun HubContent(
 
     LazyColumn(modifier = modifier.fillMaxSize()) {
         item(key = "library-search") {
-            LibrarySearchField(query = query, lang = lang, onQueryChanged = onQueryChanged)
+            LibrarySearchField(query = query, onQueryChanged = onQueryChanged)
         }
         when {
             query.isBlank() -> defaultHubItems(
@@ -406,27 +385,17 @@ private fun HubContent(
 @Composable
 private fun LibrarySearchField(
     query: String,
-    lang: RefLang,
     onQueryChanged: (String) -> Unit,
 ) {
-    OutlinedTextField(
-        value = query,
-        onValueChange = onQueryChanged,
-        placeholder = {
-            Text(
-                if (lang == RefLang.Arabic) {
-                    "ابحث في جميع كتب المكتبة…"
-                } else {
-                    "Search the entire library…"
-                },
-            )
-        },
-        leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-        singleLine = true,
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+    MuslimSearchBar(
+        query = query,
+        onQueryChange = onQueryChanged,
+        placeholder = stringResource(R.string.reference_library_search_hint),
+        clearContentDescription = stringResource(R.string.reference_search_clear),
+        modifier = Modifier.padding(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Small,
+        ),
     )
 }
 
@@ -661,16 +630,15 @@ private fun BookSearchField(
     query: String,
     onQueryChanged: (String) -> Unit,
 ) {
-    OutlinedTextField(
-        value = query,
-        onValueChange = onQueryChanged,
-        placeholder = { Text(stringResource(R.string.reference_search_hint)) },
-        leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-        singleLine = true,
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+    MuslimSearchBar(
+        query = query,
+        onQueryChange = onQueryChanged,
+        placeholder = stringResource(R.string.reference_search_hint),
+        clearContentDescription = stringResource(R.string.reference_search_clear),
+        modifier = Modifier.padding(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Small,
+        ),
     )
 }
 

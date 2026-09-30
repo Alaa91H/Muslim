@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Iyasesha...</string>
     <string name="mosque_finder_title">Ama-mosque aseduze</string>
     <string name="qibla_bearing_cardinal">Isiqondiso se-Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Hambisa ifoni yakho ibe yisishiyagalombili ukuze ulinganise</string>
     <string name="qibla_distance">Ibanga eliya eMakkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Ubhekene neQibla 🕋</string>
+    <string name="qibla_facing">Ubhekene neQibla</string>
     <string name="qibla_gps_error">Ayikwazanga ukuthola ukulungiswa okunembile. Sicela uzame futhi.</string>
     <string name="qibla_gps_live">Indawo ye-GPS ebukhoma</string>
     <string name="qibla_gps_refresh">Vuselela indawo nge-GPS</string>

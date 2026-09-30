@@ -17,23 +17,16 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -48,8 +41,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import org.muslim.app.core.common.lang.AppLanguage
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicDecorationBand
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimSearchBar
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.DivineName
 import org.muslim.app.feature.learn.domain.NamesOfAllahContent
@@ -59,7 +55,6 @@ import org.muslim.app.feature.learn.domain.NamesOfAllahContent
  * searchable list with a full bilingual detail view for every name —
  * meaning, detailed explanation and Quranic evidence.
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NamesOfAllahScreen(
     onBack: () -> Unit,
@@ -75,34 +70,28 @@ fun NamesOfAllahScreen(
     // English fallback hidden for Arabic UI (each language shows its own texts).
     val showEnglishFallback = AppLanguage.showEnglishFallback()
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.names_title)) },
-                navigationIcon = {
-                    IconButton(onClick = { if (name == null) onBack() else selected = null }) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.learn_back),
-                        )
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.names_title),
+                onNavigateBack = { if (name == null) onBack() else selected = null },
+                navigationContentDescription = stringResource(R.string.learn_back),
             )
         },
-    ) { innerPadding ->
+    ) {
         if (name == null) {
-            NamesList(
-                modifier = Modifier.padding(innerPadding),
-                onOpen = { selected = it },
-            )
+            NamesList(onOpen = { selected = it })
         } else {
             NameDetail(
                 name = name,
                 showEnglishFallback = showEnglishFallback,
-                onPrevious = { NamesOfAllahContent.byNumber(name.number - 1)?.let { selected = it } },
-                onNext = { NamesOfAllahContent.byNumber(name.number + 1)?.let { selected = it } },
-                modifier = Modifier.padding(innerPadding),
+                onPrevious = {
+                    NamesOfAllahContent.byNumber(name.number - 1)?.let { selected = it }
+                },
+                onNext = {
+                    NamesOfAllahContent.byNumber(name.number + 1)?.let { selected = it }
+                },
             )
         }
     }
@@ -130,13 +119,13 @@ private fun NamesList(
 
     LazyColumn(
         modifier = modifier.fillMaxSize(),
-        contentPadding = PaddingValues(bottom = 24.dp),
+        contentPadding = PaddingValues(bottom = IslamicSpacing.Large),
     ) {
         item(key = "names-decoration") {
             IslamicDecorationBand(
                 tint = MaterialTheme.colorScheme.tertiary,
                 compact = true,
-                modifier = Modifier.padding(horizontal = 16.dp),
+                modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
             )
         }
         item {
@@ -165,16 +154,15 @@ private fun NamesList(
         }
 
         item {
-            OutlinedTextField(
-                value = query,
-                onValueChange = { query = it },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 4.dp),
-                placeholder = { Text(stringResource(R.string.names_search_hint)) },
-                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-                singleLine = true,
-                keyboardOptions = KeyboardOptions.Default,
+            MuslimSearchBar(
+                query = query,
+                onQueryChange = { query = it },
+                placeholder = stringResource(R.string.names_search_hint),
+                clearContentDescription = stringResource(R.string.names_search_clear),
+                modifier = Modifier.padding(
+                    horizontal = IslamicSpacing.PageHorizontal,
+                    vertical = IslamicSpacing.XSmall,
+                ),
             )
         }
 

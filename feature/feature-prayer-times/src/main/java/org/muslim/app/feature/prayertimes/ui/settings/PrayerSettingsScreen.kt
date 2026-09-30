@@ -22,7 +22,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -38,6 +37,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -82,6 +82,7 @@ import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
+import org.muslim.app.core.ui.theme.MuslimBottomSheet
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.core.common.prayer.AdhanSoundOption
 import org.muslim.app.core.common.prayer.BundledAdhanSound
@@ -968,37 +969,47 @@ internal fun AdhanCustomizeDialog(
     var selection by remember(initial) { mutableStateOf(initial) }
     val configuration = LocalConfiguration.current
     val compactHeight = configuration.screenHeightDp < 640
-    val maximumContentHeight = (configuration.screenHeightDp * if (compactHeight) 0.52f else 0.62f).dp
-    val maximumDialogWidth = if (configuration.screenWidthDp >= 600) 560.dp else 600.dp
+    val maximumContentHeight =
+        (configuration.screenHeightDp * if (compactHeight) 0.56f else 0.66f).dp
 
-    AlertDialog(
-        onDismissRequest = actions.onDismiss,
-        modifier = Modifier.widthIn(max = maximumDialogWidth),
-        title = { Text(stringResource(R.string.settings_adhan_customize_title, stringResource(prayerLabelRes(prayer)))) },
-        text = {
-            Box(modifier = Modifier.heightIn(max = maximumContentHeight)) {
-                AdhanCustomizationFields(
-                    prayer = prayer,
-                    density = density,
-                    onDensityChange = onDensityChange,
-                    selection = selection,
-                    onSelectionChanged = { selection = it },
-                    onPreview = actions.onPreview,
-                    onLiveVolume = actions.onLiveVolume,
-                )
-            }
-        },
-        confirmButton = {
-            TextButton(onClick = { actions.onConfirm(selection) }) {
-                Text(stringResource(R.string.settings_adhan_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = actions.onDismiss) {
+    MuslimBottomSheet(
+        onDismiss = actions.onDismiss,
+        title = stringResource(
+            R.string.settings_adhan_customize_title,
+            stringResource(prayerLabelRes(prayer)),
+        ),
+    ) {
+        Box(modifier = Modifier.heightIn(max = maximumContentHeight)) {
+            AdhanCustomizationFields(
+                prayer = prayer,
+                density = density,
+                onDensityChange = onDensityChange,
+                selection = selection,
+                onSelectionChanged = { selection = it },
+                onPreview = actions.onPreview,
+                onLiveVolume = actions.onLiveVolume,
+            )
+        }
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(
+                IslamicSpacing.Small,
+            ),
+        ) {
+            IslamicSecondaryButton(
+                onClick = actions.onDismiss,
+                modifier = Modifier.weight(1f),
+            ) {
                 Text(stringResource(R.string.settings_adhan_cancel))
             }
-        },
-    )
+            IslamicPrimaryButton(
+                onClick = { actions.onConfirm(selection) },
+                modifier = Modifier.weight(1f),
+            ) {
+                Text(stringResource(R.string.settings_adhan_confirm))
+            }
+        }
+    }
 }
 
 @Composable
@@ -1112,27 +1123,33 @@ private fun BundledAdhanSoundSection(
     onSelected: (BundledAdhanSound) -> Unit,
     onPreview: (BundledAdhanSound) -> Unit,
 ) {
+    var expanded by remember { mutableStateOf(false) }
     DialogSectionTitle(R.string.settings_adhan_sound_choice, compact)
-    BundledAdhanSound.entries.forEach { sound ->
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable { onSelected(sound) }
-                .padding(vertical = if (compact) 0.dp else 2.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            RadioButton(selected = selected == sound, onClick = { onSelected(sound) })
-            Text(
-                text = stringResource(bundledSoundLabelRes(sound)),
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.weight(1f),
-            )
-            IconButton(onClick = { onPreview(sound) }) {
-                Icon(
-                    imageVector = Icons.Filled.PlayArrow,
-                    contentDescription = stringResource(R.string.settings_listen),
-                )
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Box(modifier = Modifier.weight(1f)) {
+            IslamicSecondaryButton(onClick = { expanded = true }, modifier = Modifier.fillMaxWidth()) {
+                Text(stringResource(bundledSoundLabelRes(selected)))
             }
+            DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+                BundledAdhanSound.entries.forEach { sound ->
+                    DropdownMenuItem(
+                        text = { Text(stringResource(bundledSoundLabelRes(sound))) },
+                        leadingIcon = { RadioButton(selected = selected == sound, onClick = null) },
+                        trailingIcon = {
+                            IconButton(onClick = { onPreview(sound) }) {
+                                Icon(Icons.Filled.PlayArrow, stringResource(R.string.settings_listen))
+                            }
+                        },
+                        onClick = {
+                            onSelected(sound)
+                            expanded = false
+                        },
+                    )
+                }
+            }
+        }
+        IconButton(onClick = { onPreview(selected) }) {
+            Icon(Icons.Filled.PlayArrow, stringResource(R.string.settings_listen))
         }
     }
 }

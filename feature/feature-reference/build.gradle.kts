@@ -31,6 +31,7 @@ ksp {
 
 dependencies {
     implementation(project(":core:core-ui"))
+    implementation(project(":core:core-design-system"))
     implementation(project(":core:core-common"))
 
     implementation(platform(libs.androidx.compose.bom))

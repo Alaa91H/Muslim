@@ -1,6 +1,6 @@
-<?xml version="1.0" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <SmellBaseline>
-  <ManuallySuppressedIssues/>
+  <ManuallySuppressedIssues />
   <CurrentIssues>
     <ID>ForbiddenComment:Color.kt$* Fallback Material 3 color schemes, used when Dynamic Color (Material You) * is unavailable (Android &lt; 12) or disabled. * * The palette is a calm teal/green with a warm gold accent — inspired by * traditional Islamic ornament while keeping WCAG AA contrast in both modes. * TODO: verify all color pairs against WCAG AA (contrast &gt;= 4.5:1 for text).</ID>
     <ID>LargeClass:HajjUmrahContent.kt$HajjUmrahContent</ID>
@@ -15,7 +15,6 @@
     <ID>LongMethod:HajjUmrahScreen.kt$@Composable private fun CategoryHub( showEnglishFallback: Boolean, modifier: Modifier = Modifier, onOpen: (HajjCategory) -&gt; Unit, onOpenCalculator: () -&gt; Unit, hajjCompanionEnabled: Boolean, onToggleCompanion: (Boolean) -&gt; Unit, )</ID>
     <ID>LongMethod:HajjUmrahScreen.kt$@Composable private fun StepCard( index: Int, step: HajjStep, checked: Boolean, onCheckedChange: (Boolean) -&gt; Unit, showEnglishFallback: Boolean, )</ID>
     <ID>LongMethod:HajjUmrahScreen.kt$@Composable private fun TopicDetail( topic: HajjTopic, checkedSteps: Set&lt;String&gt;, onToggleStep: (String, Int) -&gt; Unit, showEnglishFallback: Boolean, modifier: Modifier = Modifier, )</ID>
-    <ID>LongMethod:HajjUmrahScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun HajjUmrahScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: LearnViewModel = hiltViewModel(), )</ID>
     <ID>LongMethod:HomeScreen.kt$@Composable fun HomeScreen( onSelectLocation: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: HomeViewModel = hiltViewModel(), )</ID>
     <ID>LongMethod:LearnScreen.kt$@Composable private fun TopicList( favoriteIds: Set&lt;String&gt;, onToggleFavorite: (String) -&gt; Unit, modifier: Modifier = Modifier, onOpen: (LearnTopic) -&gt; Unit, onOpenNames: () -&gt; Unit, onOpenHajj: () -&gt; Unit, )</ID>
     <ID>LongMethod:LocationScreen.kt$@Composable fun LocationScreen( onSaved: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: LocationViewModel = hiltViewModel(), )</ID>
@@ -41,7 +40,6 @@
     <ID>LongMethod:SearchScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun SearchScreen( onBack: () -&gt; Unit, onOpenAyah: (surahNumber: Int, globalNumber: Int) -&gt; Unit, modifier: Modifier = Modifier, viewModel: SearchViewModel = hiltViewModel(), )</ID>
     <ID>LongMethod:SettingsScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun SettingsScreen( onOpenPrayerSettings: () -&gt; Unit, onOpenNotifications: () -&gt; Unit, onOpenPermissions: () -&gt; Unit, onOpenAbout: () -&gt; Unit, onOpenPrivacy: () -&gt; Unit, onLanguageChanged: () -&gt; Unit, modifier: Modifier = Modifier, onOpenMoreOrder: () -&gt; Unit = {}, /** Opens the in-app update screen (changelog + download). */ onOpenUpdates: () -&gt; Unit = {}, /** Back affordance when opened as a sub-screen (from the More hub). */ onBack: (() -&gt; Unit)? = null, viewModel: SettingsViewModel = hiltViewModel(), )</ID>
     <ID>LongMethod:TasbihScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun TasbihScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: TasbihViewModel = hiltViewModel(), )</ID>
-    <ID>LongMethod:UpdateScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun UpdateScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: UpdateViewModel = hiltViewModel(), )</ID>
     <ID>LongMethod:ZakatScreen.kt$@Composable private fun CountrySection(state: ZakatUiState, viewModel: ZakatViewModel)</ID>
     <ID>LongParameterList:AdhkarSettingsScreen.kt$( backgroundColor: Int, backgroundAlpha: Int, cornerRadiusDp: Int, fontSizeSp: Int, onBackgroundColor: (Int) -&gt; Unit, onBackgroundAlpha: (Int) -&gt; Unit, onCornerRadius: (Int) -&gt; Unit, onFontSize: (Int) -&gt; Unit, onReset: () -&gt; Unit, )</ID>
     <ID>LongParameterList:AdhkarSettingsScreen.kt$( enabled: Boolean, startHour: Int, startMinute: Int, endHour: Int, endMinute: Int, onEnabledChanged: (Boolean) -&gt; Unit, onStartHourChanged: (Int) -&gt; Unit, onStartMinuteChanged: (Int) -&gt; Unit, onEndHourChanged: (Int) -&gt; Unit, onEndMinuteChanged: (Int) -&gt; Unit, )</ID>
@@ -133,5 +131,39 @@
     <ID>UnusedPrivateProperty:MuslimApp.kt$val context = LocalContext.current</ID>
     <ID>UnusedPrivateProperty:NotificationSettingsScreen.kt$val context = LocalContext.current</ID>
     <ID>UnusedPrivateProperty:SolarAstronomy.kt$SolarAstronomy$i</ID>
+    <ID>CyclomaticComplexMethod:MuslimApp.kt$@Composable fun MuslimApp( modifier: Modifier = Modifier, initialRoute: String = "home", /** * The user-chosen start tab, snapshotted once at cold start (see * [org.muslim.app.MainActivity]). It is read on the very first composition * and never re-read reactively, so changing it in Settings does **not** * navigate to it — the choice applies on the next app launch only. */ initialStartTab: String = "home", onLanguageChanged: () -&gt; Unit = {}, )</ID>
+    <ID>CyclomaticComplexMethod:StringResourceFormatAuditTest.kt$StringResourceFormatAuditTest$private fun checkCall( file: File, src: String, callOffset: Int, name: String, specs: List&lt;Spec&gt;, args: List&lt;String&gt;, problems: MutableList&lt;String&gt;, )</ID>
+    <ID>CyclomaticComplexMethod:StringResourceFormatAuditTest.kt$StringResourceFormatAuditTest$private fun splitTopLevelArgs(text: String): List&lt;String&gt;</ID>
+    <ID>CyclomaticComplexMethod:PrayerTimesCalculator.kt$PrayerTimesCalculator$private fun computeInternal( date: LocalDate, coordinates: Coordinates, parameters: PrayerParameters, asrShadowLength: Double, ): RawResult</ID>
+    <ID>CyclomaticComplexMethod:QuranRootAnalyzer.kt$QuranRootAnalyzer$fun deriveRoot(word: String): String</ID>
+    <ID>CyclomaticComplexMethod:FileDownloader.kt$FileDownloader$suspend fun download( url: String, destination: File, onProgress: (Float) -&gt; Unit = {}, ): Result</ID>
+    <ID>CyclomaticComplexMethod:NotificationChannels.kt$NotificationChannels$private fun buildChannel( context: Context, category: NotificationCategory, prefs: NotificationCategoryPrefs, ): NotificationChannel</ID>
+    <ID>CyclomaticComplexMethod:Theme.kt$@Suppress("LongMethod") private fun paletteTokens( palette: AppColorPalette, darkTheme: Boolean, ): PaletteTokens</ID>
+    <ID>CyclomaticComplexMethod:FamilyGuideHub.kt$private fun FamilyTopicCategory.title(isArabic: Boolean): String</ID>
+    <ID>CyclomaticComplexMethod:FamilyGuideHub.kt$private fun FamilyTopicCategory.subtitle(isArabic: Boolean): String</ID>
+    <ID>LongMethod:HajjUmrahScreen.kt$@Composable fun HajjUmrahScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: LearnViewModel = hiltViewModel(), )</ID>
+    <ID>CyclomaticComplexMethod:HajjUmrahScreen.kt$@Composable fun HajjUmrahScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: LearnViewModel = hiltViewModel(), )</ID>
+    <ID>CyclomaticComplexMethod:PrayerCountdownData.kt$PrayerCountdownData.Companion$fun compute( settings: PrayerSettings, calculator: PrayerTimesCalculator, nowMillis: Long, ): PrayerCountdownData</ID>
+    <ID>CyclomaticComplexMethod:AdhanSoundPlayer.kt$AdhanSoundPlayer$private fun bundledSoundRes(sound: BundledAdhanSound): Int</ID>
+    <ID>CyclomaticComplexMethod:HomeScreen.kt$@Composable fun HomeScreen( onSelectLocation: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: HomeViewModel = hiltViewModel(), )</ID>
+    <ID>CyclomaticComplexMethod:PrayerSettingsScreen.kt$@Suppress("LongMethod") @Composable fun PrayerSettingsScreen( onOpenLocation: () -&gt; Unit, initialCustomizingPrayer: Prayer? = null, modifier: Modifier = Modifier, viewModel: PrayerSettingsViewModel = hiltViewModel(), )</ID>
+    <ID>CyclomaticComplexMethod:PrayerSettingsScreen.kt$@Composable private fun bundledSoundLabelRes(sound: BundledAdhanSound): Int</ID>
+    <ID>CyclomaticComplexMethod:QiblaScreen.kt$@Suppress("LongMethod") @Composable private fun CompassRose( trueHeading: Float, bearing: Double, aligned: Boolean, modifier: Modifier = Modifier, )</ID>
+    <ID>CyclomaticComplexMethod:QuranDownloadsViewModel.kt$QuranDownloadsViewModel$fun startDownload()</ID>
+    <ID>CyclomaticComplexMethod:QuranReaderScreen.kt$@OptIn(ExperimentalMaterial3Api::class, FlowPreview::class) @Composable fun QuranReaderScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, onOpenDownloads: () -&gt; Unit = {}, viewModel: QuranReaderViewModel = hiltViewModel(), )</ID>
+    <ID>CyclomaticComplexMethod:QuranReaderScreen.kt$@Suppress("LongMethod") @Composable private fun MushafPageCard( pageNumber: Int, ayahs: List&lt;Ayah&gt;, presentation: MushafPagePresentation, callbacks: MushafPageCallbacks, modifier: Modifier = Modifier, )</ID>
+    <ID>CyclomaticComplexMethod:HistoryContentValidator.kt$@Suppress("LongParameterList") private fun validateEvents( events: List&lt;HistoricalEvent&gt;, eraIds: Set&lt;String&gt;, stateIds: Set&lt;String&gt;, placeIds: Set&lt;String&gt;, personIds: Set&lt;String&gt;, topicIds: Set&lt;String&gt;, sourceIds: Set&lt;String&gt;, errors: MutableList&lt;String&gt;, )</ID>
+    <ID>CyclomaticComplexMethod:HistoryContentValidator.kt$private fun validateCivilizationTopics( topics: List&lt;CivilizationTopic&gt;, topicIds: Set&lt;String&gt;, personIds: Set&lt;String&gt;, sourceIds: Set&lt;String&gt;, errors: MutableList&lt;String&gt;, )</ID>
+    <ID>CyclomaticComplexMethod:IslamicHistoryEventsUi.kt$@Composable private fun EventRelations( event: HistoricalEvent, language: HistoryLanguage, onNavigate: (HistoryNavigationTarget) -&gt; Unit, )</ID>
+    <ID>CyclomaticComplexMethod:IslamicHistoryEventsUi.kt$private fun eventCategoryLabel( category: HistoricalEventCategory?, language: HistoryLanguage, ): String</ID>
+    <ID>CyclomaticComplexMethod:IslamicHistoryScreen.kt$private fun historyRegionLabel(region: HistoryRegion?, language: HistoryLanguage): String</ID>
+    <ID>CyclomaticComplexMethod:IslamicHistorySearchUi.kt$private fun searchTypeLabel( type: HistorySearchType?, language: HistoryLanguage, ): String</ID>
+    <ID>CyclomaticComplexMethod:SettingsScreen.kt$@Suppress("LongMethod") @Composable fun SettingsScreen( onOpenPrayerSettings: () -&gt; Unit, onOpenNotifications: () -&gt; Unit, onOpenPermissions: () -&gt; Unit, onOpenAbout: () -&gt; Unit, onOpenPrivacy: () -&gt; Unit, onLanguageChanged: () -&gt; Unit, modifier: Modifier = Modifier, onOpenMoreOrder: () -&gt; Unit = {}, /** Opens the in-app update screen (changelog + download). */ onOpenUpdates: () -&gt; Unit = {}, /** Opens local reading, contrast, TalkBack and optional voice-navigation settings. */ onOpenAccessibility: () -&gt; Unit = {}, /** Opens optional Android Auto, Wear OS and home-automation bridge settings. */ onOpenSmartDevices: () -&gt; Unit = {}, /** Opens Quran recitation download/storage management. */ onOpenDownloads: () -&gt; Unit = {}, /** Opens Scholar Library content packs and study backup management. */ onOpenScholarDataManager: () -&gt; Unit = {}, /** Back affordance when opened as a sub-screen (from the More hub). */ onBack: (() -&gt; Unit)? = null, viewModel: SettingsViewModel = hiltViewModel(), )</ID>
+    <ID>CyclomaticComplexMethod:GithubReleasesClient.kt$GithubReleasesClient$private fun parseRelease(json: JSONObject): ReleaseInfo?</ID>
+    <ID>CyclomaticComplexMethod:UpdateApkVerifier.kt$UpdateApkVerifier$fun verify( file: File, expectedVersion: String, expectedSha256: String? = null, expectedVersionCode: Long? = null, ): UpdateDownloadFailure?</ID>
+    <ID>CyclomaticComplexMethod:UpdateDownloadManager.kt$UpdateDownloadManager$suspend fun enqueue( release: ReleaseInfo, wifiOnly: Boolean, ): UpdateDownloadState</ID>
+    <ID>CyclomaticComplexMethod:UpdateDownloadManager.kt$UpdateDownloadManager$private fun state(prefs: AppPreferences): UpdateDownloadState</ID>
+    <ID>LongMethod:UpdateScreen.kt$@Composable fun UpdateScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: UpdateViewModel = hiltViewModel(), )</ID>
+    <ID>CyclomaticComplexMethod:UpdateScreen.kt$@Composable fun UpdateScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: UpdateViewModel = hiltViewModel(), )</ID>
   </CurrentIssues>
 </SmellBaseline>

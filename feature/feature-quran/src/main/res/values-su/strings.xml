@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Gagal ngunduh tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Turutan ayat anu dibacakeun dina tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Pindahkeun harti jeung tafsir ku bacaan. Pareuman pikeun maca katerangan anu sanés nalika audio diteruskeun.</string>
+    <string name="quran_search_hint">Cari ayat Al-Quran...</string>
+    <string name="quran_search_clear">Hapus pilarian</string>
+    <string name="quran_search_no_results">Taya hasil cocog</string>
+    <string name="quran_search_words">Sadaya kecap</string>
+    <string name="quran_search_phrase">Frasa tepatna</string>
+    <string name="quran_search_ayah_summary">%1$d kajadian dina ayat %2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · kecap kajadian %3$d</string>
 </resources>

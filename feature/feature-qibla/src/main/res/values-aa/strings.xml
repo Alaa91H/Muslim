@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Goranto...</string>
     <string name="mosque_finder_title">Xayikkel tan masjiiditte</string>
     <string name="qibla_bearing_cardinal">qibla afkan: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">isi silki esgey muuci-bacaar massossuh</string>
     <string name="qibla_distance">Makka fanah baxxo: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Qiblat foocat katan 🕋 .</string>
+    <string name="qibla_facing">Qiblat foocat katan  .</string>
     <string name="qibla_gps_error">Gitah yan massos geyam maduuda. Ku maganak qagitaak gibbat.</string>
     <string name="qibla_gps_live">Saanih GPS arac</string>
     <string name="qibla_gps_refresh">GPS gitaak arac uqusbus</string>

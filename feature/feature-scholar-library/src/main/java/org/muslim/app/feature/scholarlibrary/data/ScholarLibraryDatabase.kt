@@ -42,20 +42,20 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
          * are introduced.
          */
         internal val MIGRATION_1_2 = object : Migration(1, 2) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("ALTER TABLE scholar_books ADD COLUMN subtitle TEXT")
-                database.execSQL("ALTER TABLE scholar_books ADD COLUMN language TEXT NOT NULL DEFAULT 'ar'")
-                database.execSQL(
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE scholar_books ADD COLUMN subtitle TEXT")
+                db.execSQL("ALTER TABLE scholar_books ADD COLUMN language TEXT NOT NULL DEFAULT 'ar'")
+                db.execSQL(
                     "ALTER TABLE scholar_books ADD COLUMN difficulty TEXT NOT NULL DEFAULT 'Unspecified'",
                 )
-                database.execSQL("ALTER TABLE scholar_books ADD COLUMN publisher TEXT")
-                database.execSQL("ALTER TABLE scholar_books ADD COLUMN edition TEXT")
-                database.execSQL("ALTER TABLE scholar_books ADD COLUMN editor TEXT")
-                database.execSQL("ALTER TABLE scholar_books ADD COLUMN publicationYear TEXT")
-                database.execSQL("ALTER TABLE scholar_books ADD COLUMN volumeCount INTEGER")
-                database.execSQL("ALTER TABLE scholar_books ADD COLUMN keywords TEXT NOT NULL DEFAULT ''")
+                db.execSQL("ALTER TABLE scholar_books ADD COLUMN publisher TEXT")
+                db.execSQL("ALTER TABLE scholar_books ADD COLUMN edition TEXT")
+                db.execSQL("ALTER TABLE scholar_books ADD COLUMN editor TEXT")
+                db.execSQL("ALTER TABLE scholar_books ADD COLUMN publicationYear TEXT")
+                db.execSQL("ALTER TABLE scholar_books ADD COLUMN volumeCount INTEGER")
+                db.execSQL("ALTER TABLE scholar_books ADD COLUMN keywords TEXT NOT NULL DEFAULT ''")
 
-                database.execSQL(
+                db.execSQL(
                     """
                     CREATE TABLE IF NOT EXISTS scholar_bookmarks (
                         passageId TEXT NOT NULL,
@@ -64,12 +64,12 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
                     )
                     """.trimIndent(),
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_bookmarks_createdAtEpochMillis " +
                         "ON scholar_bookmarks (createdAtEpochMillis)",
                 )
 
-                database.execSQL(
+                db.execSQL(
                     """
                     CREATE TABLE IF NOT EXISTS scholar_highlights (
                         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -81,15 +81,15 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
                     )
                     """.trimIndent(),
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_highlights_passageId ON scholar_highlights (passageId)",
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_highlights_createdAtEpochMillis " +
                         "ON scholar_highlights (createdAtEpochMillis)",
                 )
 
-                database.execSQL(
+                db.execSQL(
                     """
                     CREATE TABLE IF NOT EXISTS scholar_reading_progress (
                         bookId TEXT NOT NULL,
@@ -101,11 +101,11 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
                     )
                     """.trimIndent(),
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_reading_progress_status " +
                         "ON scholar_reading_progress (status)",
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_reading_progress_updatedAtEpochMillis " +
                         "ON scholar_reading_progress (updatedAtEpochMillis)",
                 )
@@ -118,12 +118,12 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
          * safe defaults for the new section/order fields.
          */
         internal val MIGRATION_2_3 = object : Migration(2, 3) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("ALTER TABLE scholar_passages ADD COLUMN section TEXT")
-                database.execSQL(
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE scholar_passages ADD COLUMN section TEXT")
+                db.execSQL(
                     "ALTER TABLE scholar_passages ADD COLUMN orderIndex INTEGER NOT NULL DEFAULT 0",
                 )
-                database.execSQL(
+                db.execSQL(
                     """
                     CREATE TABLE IF NOT EXISTS scholar_study_plans (
                         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -137,10 +137,10 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
                     )
                     """.trimIndent(),
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_study_plans_pathId ON scholar_study_plans (pathId)",
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_study_plans_active ON scholar_study_plans (active)",
                 )
             }
@@ -151,8 +151,8 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
          * catalog, annotations, plans and reading progress untouched.
          */
         internal val MIGRATION_3_4 = object : Migration(3, 4) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL(
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
                     """
                     CREATE TABLE IF NOT EXISTS scholar_study_sessions (
                         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -168,15 +168,15 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
                     )
                     """.trimIndent(),
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_study_sessions_pathId " +
                         "ON scholar_study_sessions (pathId)",
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_study_sessions_status " +
                         "ON scholar_study_sessions (status)",
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_study_sessions_completedAtEpochMillis " +
                         "ON scholar_study_sessions (completedAtEpochMillis)",
                 )
@@ -188,23 +188,23 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
          * Existing cards remain due exactly when they were before this upgrade.
          */
         internal val MIGRATION_4_5 = object : Migration(4, 5) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL(
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
                     "ALTER TABLE scholar_flashcards ADD COLUMN intervalDays INTEGER NOT NULL DEFAULT 0",
                 )
-                database.execSQL(
+                db.execSQL(
                     "ALTER TABLE scholar_flashcards ADD COLUMN easeFactor REAL NOT NULL DEFAULT 2.5",
                 )
-                database.execSQL(
+                db.execSQL(
                     "ALTER TABLE scholar_flashcards ADD COLUMN lapseCount INTEGER NOT NULL DEFAULT 0",
                 )
-                database.execSQL(
+                db.execSQL(
                     "ALTER TABLE scholar_flashcards ADD COLUMN lastReviewedAtEpochMillis INTEGER",
                 )
-                database.execSQL(
+                db.execSQL(
                     "ALTER TABLE scholar_flashcards ADD COLUMN lastRating TEXT",
                 )
-                database.execSQL(
+                db.execSQL(
                     """
                     UPDATE scholar_flashcards
                     SET intervalDays = CASE
@@ -225,8 +225,8 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
          * summaries and filtered review-center history.
          */
         internal val MIGRATION_5_6 = object : Migration(5, 6) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL(
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
                     """
                     CREATE TABLE IF NOT EXISTS scholar_review_events (
                         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -242,19 +242,19 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
                     )
                     """.trimIndent(),
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_review_events_flashcardId " +
                         "ON scholar_review_events (flashcardId)",
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_review_events_bookId " +
                         "ON scholar_review_events (bookId)",
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_review_events_category " +
                         "ON scholar_review_events (category)",
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_review_events_reviewedAtEpochMillis " +
                         "ON scholar_review_events (reviewedAtEpochMillis)",
                 )
@@ -266,8 +266,8 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
          * catalog and study data remain untouched.
          */
         internal val MIGRATION_6_7 = object : Migration(6, 7) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL(
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
                     """
                     CREATE TABLE IF NOT EXISTS scholar_content_packs (
                         packId TEXT NOT NULL,
@@ -287,11 +287,11 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
                     )
                     """.trimIndent(),
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_content_packs_imported " +
                         "ON scholar_content_packs (imported)",
                 )
-                database.execSQL(
+                db.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_scholar_content_packs_updatedAtEpochMillis " +
                         "ON scholar_content_packs (updatedAtEpochMillis)",
                 )

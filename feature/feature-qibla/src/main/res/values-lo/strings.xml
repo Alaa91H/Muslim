@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">ກຳລັງຊອກຫາ...</string>
     <string name="mosque_finder_title">mosques ໃກ້ຄຽງ</string>
     <string name="qibla_bearing_cardinal">ທິດທາງ Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">ຍ້າຍໂທລະສັບຂອງທ່ານເປັນຮູບ-ແປດເພື່ອປັບ</string>
     <string name="qibla_distance">ໄລ​ຍະ​ທາງ​ກັບ Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f ກິໂລແມັດ</string>
-    <string name="qibla_facing">ເຈົ້າກໍາລັງປະເຊີນກັບ Qibla 🕋</string>
+    <string name="qibla_facing">ເຈົ້າກໍາລັງປະເຊີນກັບ Qibla</string>
     <string name="qibla_gps_error">ບໍ່ສາມາດແກ້ໄຂທີ່ຖືກຕ້ອງໄດ້. ກະລຸນາລອງອີກຄັ້ງ.</string>
     <string name="qibla_gps_live">ສະຖານທີ່ GPS ສົດ</string>
     <string name="qibla_gps_refresh">ໂຫຼດຂໍ້ມູນສະຖານທີ່ຄືນໃໝ່ຜ່ານ GPS</string>

@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Tafsiira buufachuun hin milkoofne: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Tafsiira keessatti aayaa qara\'ame hordofaa</string>
+    <string name="quran_tafsir_follow_playback_description">Hiikaa fi tafsiira qara\'uun sochoosuu. Sagaleen osoo itti fufuu ibsa biraa dubbisuuf cufi.</string>
+    <string name="quran_search_hint">Aayata Qur\'aanaa barbaadi...</string>
+    <string name="quran_search_clear">Barbaacha qulqulleessi</string>
+    <string name="quran_search_no_results">Bu\'aan walsimsiisu hin jiru</string>
+    <string name="quran_search_words">Jechoota hunda</string>
+    <string name="quran_search_phrase">Gaalee sirrii</string>
+    <string name="quran_search_ayah_summary">%1$d keeyyata %2$d keessatti mul’achuu</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · jechoota mul’atan %3$d</string>
 </resources>

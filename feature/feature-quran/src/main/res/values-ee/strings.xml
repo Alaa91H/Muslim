@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Mele dzi be megadzra tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Dze ayah si woxlẽ le tafsir me yome</string>
+    <string name="quran_tafsir_follow_playback_description">Ʋu gɔmesesewo kple tafsir kple nuxexlẽ. Tsi be nàxlẽ numeɖeɖe bubu esime odio le edzi yim.</string>
+    <string name="quran_search_hint">Di Quran ƒe kpukpuiwo...</string>
+    <string name="quran_search_clear">Didi si me kɔ nyuie</string>
+    <string name="quran_search_no_results">Nusiwo do tso eme si sɔ kple wo nɔewo aɖeke meli o</string>
+    <string name="quran_search_words">Nyawo katã</string>
+    <string name="quran_search_phrase">Nyagbɔgblɔ si sɔ pɛpɛpɛ</string>
+    <string name="quran_search_ayah_summary">%1$d ƒe dzɔdzɔ le %2$d kpukpuiwo me</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · nyawo ƒe dzɔdzɔ %3$d</string>
 </resources>

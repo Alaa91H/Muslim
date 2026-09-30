@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Ag cuardach…</string>
     <string name="mosque_finder_title">Moscanna in aice láimhe</string>
     <string name="qibla_bearing_cardinal">Treo Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Bog do ghuthán i bhfíor-ocht chun é a chalabrú</string>
     <string name="qibla_distance">Fad go Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Tá tú ag tabhairt aghaidh ar an Qibla 🕋</string>
+    <string name="qibla_facing">Tá tú ag tabhairt aghaidh ar an Qibla</string>
     <string name="qibla_gps_error">Níorbh fhéidir réiteach cruinn a fháil. Bain triail eile as.</string>
     <string name="qibla_gps_live">Suíomh GPS beo</string>
     <string name="qibla_gps_refresh">Íosluchtaigh suíomh trí gps</string>

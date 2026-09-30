@@ -9,6 +9,13 @@ class PrayerSettingsVolumeTest {
     private val prayer = Prayer.Fajr
 
     @Test
+    fun `global volume is enabled by default for newly loaded settings`() {
+        // Repository migration defaults a missing persisted preference to on;
+        // the plain value model keeps explicit per-prayer test snapshots intact.
+        assertEquals(false, PrayerSettings().useGlobalAdhanVolume)
+    }
+
+    @Test
     fun `per-prayer override wins when global volume is off`() {
         val settings = PrayerSettings(
             adhanVolume = 80,

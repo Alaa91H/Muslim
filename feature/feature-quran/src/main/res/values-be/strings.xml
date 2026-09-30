@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Не ўдалося загрузіць тафсір: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Выконвайце чытаемы аят у тафсіры</string>
+    <string name="quran_tafsir_follow_playback_description">Перамяшчэнне значэнняў і тафсір з чытаннем. Выключыце, каб прачытаць іншае тлумачэнне, пакуль гук працягваецца.</string>
+    <string name="quran_search_hint">Пошук вершаў Карана...</string>
+    <string name="quran_search_clear">Выразны пошук</string>
+    <string name="quran_search_no_results">Няма адпаведных вынікаў</string>
+    <string name="quran_search_words">Усе словы</string>
+    <string name="quran_search_phrase">Дакладная фраза</string>
+    <string name="quran_search_ayah_summary">%1$d выпадкі ў вершах %2$d</string>
+    <string name="quran_search_result_location">%1$s · аят %2$d · словы, якія ўваходзяць у слова %3$d</string>
 </resources>

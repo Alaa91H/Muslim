@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Okunoonya...</string>
     <string name="mosque_finder_title">Emizikiti egy’okumpi</string>
     <string name="qibla_bearing_cardinal">Obulagirizi bwa Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Tambuza essimu yo mu figure-eight okusobola okukalibira</string>
     <string name="qibla_distance">Engendo okutuuka e Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Otunudde mu Qibla 🕋</string>
+    <string name="qibla_facing">Otunudde mu Qibla</string>
     <string name="qibla_gps_error">Teyasobodde kufuna kutereeza kutuufu. Nsaba oddemu ogezeeko.</string>
     <string name="qibla_gps_live">Ekifo kya GPS ekitereevu</string>
     <string name="qibla_gps_refresh">Okuzza obuggya ekifo ng\'oyita mu GPS</string>

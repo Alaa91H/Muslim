@@ -21,10 +21,11 @@ import androidx.compose.ui.unit.sp
  *    separate from the UI font — wired in the Quran feature (Phase 2).
  */
 object MuslimFonts {
-    // TODO(Phase 0/design): bundle Arabic + Latin fonts and reference them here.
+    // Keep platform defaults until a separately licensed font asset is reviewed and bundled.
+    // Semantic roles below ensure screens no longer hard-code typography while that remains true.
     val Arabic = FontFamily.Default
     val Latin = FontFamily.Default
-    val Quran = FontFamily.Default // Uthmani script font lands with the Quran feature.
+    val Quran = FontFamily.Default
 }
 
 val IslamicShapes = Shapes(
@@ -136,3 +137,51 @@ val MuslimTypography = Typography(
         letterSpacing = 0.5.sp,
     ),
 )
+
+
+/**
+ * Semantic typography roles for UI/UX V2.
+ *
+ * Material roles remain the theme baseline. These semantic aliases describe why
+ * text exists, so feature screens do not invent sizes for the same responsibility.
+ * Reader-specific user scaling is applied by the owning feature on top of these
+ * base styles.
+ */
+object MuslimSemanticTypography {
+    val ReligiousDisplay = MuslimTypography.headlineLarge.copy(
+        fontWeight = FontWeight.SemiBold,
+        letterSpacing = 0.sp,
+    )
+
+    val Hero = MuslimTypography.displaySmall.copy(
+        fontWeight = FontWeight.SemiBold,
+        letterSpacing = 0.sp,
+    )
+
+    val ScreenTitle = MuslimTypography.headlineSmall
+    val SectionTitle = MuslimTypography.titleLarge
+    val ItemTitle = MuslimTypography.titleMedium
+    val Body = MuslimTypography.bodyLarge
+    val Supporting = MuslimTypography.bodyMedium
+    val Metadata = MuslimTypography.bodySmall
+
+    val QuranArabic = TextStyle(
+        fontFamily = MuslimFonts.Quran,
+        fontWeight = FontWeight.Normal,
+        fontSize = 32.sp,
+        lineHeight = 52.sp,
+        letterSpacing = 0.sp,
+    )
+
+    val QuranTranslation = MuslimTypography.bodyLarge.copy(
+        lineHeight = 28.sp,
+        letterSpacing = 0.sp,
+    )
+
+    val QuranTafsir = MuslimTypography.bodyMedium.copy(
+        lineHeight = 24.sp,
+        letterSpacing = 0.sp,
+    )
+
+    val QuranMetadata = MuslimTypography.labelMedium
+}

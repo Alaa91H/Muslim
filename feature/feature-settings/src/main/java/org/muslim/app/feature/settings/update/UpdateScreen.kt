@@ -13,17 +13,14 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.SystemUpdate
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.ErrorOutline
 import androidx.compose.material.icons.filled.Link
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import org.muslim.app.core.designsystem.IslamicIconSize
@@ -31,11 +28,11 @@ import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimErrorState
 import org.muslim.app.core.ui.theme.MuslimLoadingState
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -55,7 +52,6 @@ import java.util.Locale
  * a completed APK is verified for package identity, versionCode and signer
  * before Android's system installer is allowed to open it.
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun UpdateScreen(
     onBack: () -> Unit,
@@ -66,25 +62,24 @@ fun UpdateScreen(
     val downloadState by viewModel.downloadState.collectAsStateWithLifecycle()
     val lastCheckEpoch by viewModel.lastCheckEpoch.collectAsStateWithLifecycle()
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.update_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.settings_back))
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.update_title),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.settings_back),
             )
         },
-    ) { innerPadding ->
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
-                .padding(horizontal = IslamicSpacing.PageHorizontal, vertical = IslamicSpacing.Compact),
+                .padding(
+                    horizontal = IslamicSpacing.PageHorizontal,
+                    vertical = IslamicSpacing.Compact,
+                ),
             verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
         ) {
             when (val state = uiState) {

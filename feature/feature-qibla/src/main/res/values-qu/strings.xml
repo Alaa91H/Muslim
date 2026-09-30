@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Maskaspa...</string>
     <string name="mosque_finder_title">Chay qayllapi mezquitakuna</string>
     <string name="qibla_bearing_cardinal">Qibla dirección: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f° nisqa</string>
+    <string name="qibla_bearing_degree">%1$.0f° nisqa</string>
     <string name="qibla_calibrate">Telefonoykita pusaq siqipi kuyuchiy calibración ruwanaykipaq</string>
     <string name="qibla_distance">Makkah llaqtamanta karu: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Qamqa Qibla 🕋 uyayuq kachkanki</string>
+    <string name="qibla_facing">Qamqa Qibla  uyayuq kachkanki</string>
     <string name="qibla_gps_error">Mana chiqan allichayta tariyta atirqanchu. Ama hina kaspa, hukmanta kallpachakuy.</string>
     <string name="qibla_gps_live">Kawsaq GPS tarikuy</string>
     <string name="qibla_gps_refresh">GPS nisqawan maypi kasqanmanta musuqyachiy</string>

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Ieškoma…</string>
     <string name="mosque_finder_title">Šalia mečetės</string>
     <string name="qibla_bearing_cardinal">Qibla kryptis: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Norėdami sukalibruoti, perkelkite telefoną aštuntuku</string>
     <string name="qibla_distance">Atstumas iki Mekos: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Jūs susiduriate su Qibla 🕋</string>
+    <string name="qibla_facing">Jūs susiduriate su Qibla</string>
     <string name="qibla_gps_error">Nepavyko gauti tikslaus pataisymo. Bandykite dar kartą.</string>
     <string name="qibla_gps_live">Tiesioginė GPS vieta</string>
     <string name="qibla_gps_refresh">Atnaujinkite vietą per GPS</string>

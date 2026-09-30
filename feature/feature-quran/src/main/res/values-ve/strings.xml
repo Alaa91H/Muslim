@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">A nga kona u laedza tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Tevhelani ayah yo vhaliwaho kha tafsir .</string>
+    <string name="quran_tafsir_follow_playback_description">Move ṱhalutshedzo na tafsir na u vhala. Dzimani u itela u vhala iṅwe ṱhalutshedzo musi audio i tshi khou bvela phanḓa.</string>
+    <string name="quran_search_hint">Setsha ndimana dza Quran...</string>
+    <string name="quran_search_clear">Kha vha bvise ṱhoḓisiso</string>
+    <string name="quran_search_no_results">Ahuna mvelelo dzi tshimbilelanaho</string>
+    <string name="quran_search_words">Maipfi othe</string>
+    <string name="quran_search_phrase">Mubulo wo teaho</string>
+    <string name="quran_search_ayah_summary">%1$d zwiitea kha ndimana dza %2$d .</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
 </resources>

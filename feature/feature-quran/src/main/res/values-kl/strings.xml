@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Tafsir nassaarnissaanut suutinneqanngilaq: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Tafsirimi ayah atuarneqartoq maliguk</string>
+    <string name="quran_tafsir_follow_playback_description">Move isumat aamma tafsir oqaluttuarnermik. Nipit ingerlaqqinneranni nassuiaat alla atuarniarlugu qamittaruk.</string>
+    <string name="quran_search_hint">Koranimi versit ujarlugit...</string>
+    <string name="quran_search_clear">Ujaasineq erseqqissoq</string>
+    <string name="quran_search_no_results">Nalinginnaasumik inerneqanngilaq</string>
+    <string name="quran_search_words">Oqaatsit tamarmik</string>
+    <string name="quran_search_phrase">Oqaaseqatigiit eqqortut</string>
+    <string name="quran_search_ayah_summary">%1$d-mi takussaasut %2$d-mi versini</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · oqaatsit takussaanerat %3$d</string>
 </resources>

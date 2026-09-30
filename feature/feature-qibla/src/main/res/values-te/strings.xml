@@ -9,7 +9,7 @@
     <string name="mosque_finder_searching">శోధిస్తోంది...</string>
     <string name="mosque_finder_title">సమీపంలోని మసీదులు</string>
     <string name="qibla_bearing_cardinal">ఖిబ్లా దిశ: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">క్రమాంకనం చేయడానికి మీ ఫోన్‌ను ఫిగర్-ఎనిమిదిలో తరలించండి</string>
     <string name="qibla_distance">మక్కాకు దూరం: %1$s</string>
     <string name="qibla_distance_km">%,.0f కి.మీ</string>

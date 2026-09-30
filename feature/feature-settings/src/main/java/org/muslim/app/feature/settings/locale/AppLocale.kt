@@ -18,7 +18,7 @@ import java.util.Locale
  */
 fun Context.withAppLocale(languageCode: String): Context {
     val base = if (languageCode == AppPreferences.SYSTEM_LANGUAGE) {
-        Locale.getDefault()
+        resources.configuration.locales[0]
     } else {
         Locale.forLanguageTag(languageCode)
     }
@@ -29,7 +29,9 @@ fun Context.withAppLocale(languageCode: String): Context {
     // leak through the default-locale number formatting paths.
     Locale.setDefault(locale)
 
-    val config = Configuration(resources.configuration)
+    // Override only locale. Copying the full display configuration also pins
+    // width/density/font scale and can prevent window-resize updates on old APIs.
+    val config = Configuration().apply { fontScale = 0f }
     config.setLocale(locale)
     return createConfigurationContext(config)
 }

@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Nem sikerült letölteni a tafsirt: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Kövesse a szavalt ayah-t tafsirben</string>
+    <string name="quran_tafsir_follow_playback_description">Move jelentések és tafsir szavalat. Kapcsolja ki, ha másik magyarázatot szeretne olvasni, miközben a hang folytatódik.</string>
+    <string name="quran_search_hint">Keress a Korán verseiben…</string>
+    <string name="quran_search_clear">Keresés törlése</string>
+    <string name="quran_search_no_results">Nincsenek megfelelő eredmények</string>
+    <string name="quran_search_words">Minden szó</string>
+    <string name="quran_search_phrase">Pontos kifejezés</string>
+    <string name="quran_search_ayah_summary">%1$d előfordulások a %2$d versekben</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · szóelőfordulások %3$d</string>
 </resources>

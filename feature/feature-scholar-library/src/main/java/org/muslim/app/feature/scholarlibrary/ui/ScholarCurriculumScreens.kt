@@ -12,24 +12,19 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.School
 import androidx.compose.material3.Card
 import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -41,6 +36,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.scholarlibrary.R
 import org.muslim.app.feature.scholarlibrary.domain.ScholarAuthorSummary
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
@@ -125,7 +123,6 @@ private fun StudyPathSummaryCard(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScholarStudyPathScreen(
     pathId: String,
@@ -152,27 +149,21 @@ fun ScholarStudyPathScreen(
         }
     }
 
-    Scaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            TopAppBar(
-                title = { Text(path?.title ?: stringResource(R.string.scholar_library_study_paths)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.scholar_library_back),
-                        )
-                    }
-                },
+            MuslimTopBar(
+                title = path?.title ?: stringResource(R.string.scholar_library_study_paths),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.scholar_library_back),
             )
         },
-    ) { padding ->
+    ) {
         when {
             state.loading || state.catalogMetadataLoading -> {
                 Column(
-                    modifier = Modifier.fillMaxSize().padding(padding),
+                    modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
@@ -182,7 +173,7 @@ fun ScholarStudyPathScreen(
             path == null -> {
                 Text(
                     stringResource(R.string.scholar_library_path_not_found),
-                    modifier = Modifier.padding(padding).padding(16.dp),
+                    modifier = Modifier.padding(IslamicSpacing.Medium),
                 )
             }
             else -> {
@@ -195,7 +186,7 @@ fun ScholarStudyPathScreen(
                         hasActiveSession = hasActiveSession,
                         weeklySummary = weeklySummary,
                     ),
-                    padding = padding,
+                    padding = PaddingValues(),
                     actions = StudyPathActions(
                         onOpenBook = onOpenBook,
                         onOpenSession = { onOpenSession(path.id) },
@@ -235,8 +226,11 @@ private fun StudyPathContent(
     val booksById = books.associateBy { it.id }
     LazyColumn(
         modifier = Modifier.fillMaxSize().padding(padding),
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp),
+        contentPadding = PaddingValues(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Compact,
+        ),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         item {
             Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer)) {
@@ -309,7 +303,6 @@ private fun CurriculumBookCard(book: ScholarBook, onClick: () -> Unit) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScholarAuthorsScreen(
     onBack: () -> Unit,
@@ -320,25 +313,19 @@ fun ScholarAuthorsScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     val booksById = state.books.associateBy { it.id }
 
-    Scaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.scholar_library_authors)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.scholar_library_back),
-                        )
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.scholar_library_authors),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.scholar_library_back),
             )
         },
-    ) { padding ->
+    ) {
         if (state.loading || state.catalogMetadataLoading) {
             Column(
-                modifier = Modifier.fillMaxSize().padding(padding),
+                modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
@@ -346,9 +333,12 @@ fun ScholarAuthorsScreen(
             }
         } else {
             LazyColumn(
-                modifier = Modifier.fillMaxSize().padding(padding),
-                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-                verticalArrangement = Arrangement.spacedBy(10.dp),
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = PaddingValues(
+                    horizontal = IslamicSpacing.PageHorizontal,
+                    vertical = IslamicSpacing.Compact,
+                ),
+                verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
             ) {
                 items(state.authors, key = { it.name }) { author ->
                     AuthorCard(

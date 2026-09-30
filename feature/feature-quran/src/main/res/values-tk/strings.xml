@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Tafsir göçürilip bolmady: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Tafsirde okalan aýaty ýerine ýetiriň</string>
+    <string name="quran_tafsir_follow_playback_description">Manylary we tafsiri okaň. Ses dowam edýärkä başga bir düşündiriş okamak üçin öçüriň.</string>
+    <string name="quran_search_hint">Kuran aýatlaryny gözläň ...</string>
+    <string name="quran_search_clear">Gözleg arassala</string>
+    <string name="quran_search_no_results">Gabat gelýän netijeler ýok</string>
+    <string name="quran_search_words">Allhli sözler</string>
+    <string name="quran_search_phrase">Takyk söz düzümi</string>
+    <string name="quran_search_ayah_summary">%1$d %2$d aýatlarynda ýüze çykýar</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · söz hadysalary %3$d</string>
 </resources>

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">ڳولهي رهيو آهي…</string>
     <string name="mosque_finder_title">ڀرسان مسجدون</string>
     <string name="qibla_bearing_cardinal">قبلي طرف: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">پنھنجي فون کي ھڪڙي شڪل ۾ منتقل ڪريو-اٺ ۾ حساب ڪرڻ لاء</string>
     <string name="qibla_distance">مڪي کان فاصلو: %1$s</string>
     <string name="qibla_distance_km">%,.0f ڪلوميٽر</string>
-    <string name="qibla_facing">توهان قبله جي طرف منهن ڪري رهيا آهيو 🕋</string>
+    <string name="qibla_facing">توهان قبله جي طرف منهن ڪري رهيا آهيو</string>
     <string name="qibla_gps_error">صحيح اصلاح حاصل نه ٿي سگهي. مهرباني ڪري ٻيهر ڪوشش ڪريو.</string>
     <string name="qibla_gps_live">لائيو GPS مقام</string>
     <string name="qibla_gps_refresh">GPS ذريعي جڳھ کي تازو ڪريو</string>

@@ -13,17 +13,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Upload
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -42,12 +38,12 @@ import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimEmptyState
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.scholarlibrary.R
 import org.muslim.app.feature.scholarlibrary.domain.ScholarContentPack
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScholarLibraryDataManagerScreen(
     onBack: () -> Unit,
@@ -85,26 +81,20 @@ fun ScholarLibraryDataManagerScreen(
         }
     }
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.scholar_library_data_manager)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.scholar_library_back),
-                        )
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.scholar_library_data_manager),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.scholar_library_back),
             )
         },
-    ) { padding ->
+    ) {
         DataManagerContent(
             packs = state.contentPacks,
-            padding = padding,
+            padding = PaddingValues(),
             onImportPack = { packLauncher.launch(arrayOf("application/json", "text/plain")) },
             onRestoreBackup = { restoreLauncher.launch(arrayOf("application/json", "text/plain")) },
             onExportBackup = {

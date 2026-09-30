@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Lêgerîn…</string>
     <string name="mosque_finder_title">Mizgeftên nêzîk</string>
     <string name="qibla_bearing_cardinal">Arasteya Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Ji bo kalibrasyonê têlefona xwe di jimarek-heşt de bihejînin</string>
     <string name="qibla_distance">Dûrahiya Mekkê: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Tu ber bi Qiblayê ve 🕋</string>
+    <string name="qibla_facing">Tu ber bi Qiblayê ve</string>
     <string name="qibla_gps_error">Nekarî rastkirinek rast bi dest bixe. Ji kerema xwe dîsa biceribîne.</string>
     <string name="qibla_gps_live">Cihê GPS-ê zindî</string>
     <string name="qibla_gps_refresh">Cihê bi GPS-ê nûve bikin</string>

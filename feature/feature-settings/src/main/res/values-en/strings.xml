@@ -3,6 +3,9 @@
     <string name="app_name">Muslim</string>
 
     <string name="settings_title">Settings</string>
+    <string name="settings_search_hint">Search settings</string>
+    <string name="settings_search_clear">Clear search</string>
+    <string name="settings_search_empty">No matching settings</string>
     <string name="settings_back">Back</string>
 
     <string name="settings_section_appearance">Appearance</string>
@@ -76,6 +79,11 @@
     <string name="settings_more_order_desc">Customize the order of the More screen sections (Worship, Knowledge, Tools…)</string>
 
     <string name="settings_section_data">Data &amp; privacy</string>
+    <string name="settings_section_storage">Storage &amp; downloads</string>
+    <string name="settings_quran_downloads">Quran downloads</string>
+    <string name="settings_quran_downloads_desc">Manage downloaded recitations and active downloads</string>
+    <string name="settings_scholar_data">Scholar Library content &amp; backup</string>
+    <string name="settings_scholar_data_desc">Import packs and export or restore study data</string>
     <string name="settings_privacy">Privacy policy</string>
     <string name="settings_privacy_desc">How we handle your data: no tracking, everything stays on your device</string>
 
@@ -124,6 +132,10 @@
     <string name="about_contact_support">Support development</string>
 
     <string name="privacy_title">Privacy policy</string>
+    <string name="privacy_no_account">No account required</string>
+    <string name="privacy_no_ads">No ads</string>
+    <string name="privacy_no_analytics">No behavioral analytics</string>
+    <string name="privacy_local_first">Local-first data</string>
     <string name="privacy_body">Muslim respects your privacy and does not collect your data.\n\n• No tracking: no ad SDKs, analytics or marketing trackers.\n• Data stays on your device: all your data (location, settings, bookmarks) is stored locally on your device only.\n• Location is used locally: your coordinates are used to calculate prayer times and the qibla on your device, and are never sent to any external server.\n• Permissions only when needed: we ask for permissions (location, notifications) only when a feature actually needs them, with a clear explanation.\n• No forced connectivity: the app works offline; network use is entirely optional for extras such as downloading recitations.\n\nThis policy is part of the open-source repository and is open to community review.</string>
 
     <string name="back">Back</string>

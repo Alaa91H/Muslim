@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Aranıyor…</string>
     <string name="mosque_finder_title">Yakındaki camiler</string>
     <string name="qibla_bearing_cardinal">Kıble yönü: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Kalibre etmek için telefonunuzu sekiz şeklinde hareket ettirin</string>
     <string name="qibla_distance">Mekke\'ye Uzaklık: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Kıbleye dönüksün 🕋</string>
+    <string name="qibla_facing">Kıbleye dönüksün</string>
     <string name="qibla_gps_error">Doğru bir düzeltme alınamadı. Lütfen tekrar deneyin.</string>
     <string name="qibla_gps_live">Canlı GPS konumu</string>
     <string name="qibla_gps_refresh">Konumu GPS aracılığıyla yenile</string>

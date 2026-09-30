@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Ntivyashoboye kuronsa tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Kurikiza ayah yasomwe mu tafsir .</string>
+    <string name="quran_tafsir_follow_playback_description">Kwimurira insobanuro na tafsir n’ugusoma. Zima kugira usome iyindi nsobanuro mu gihe amajwi abandanya.</string>
+    <string name="quran_search_hint">Rondera imirongo ya Korowani...</string>
+    <string name="quran_search_clear">Kuraho ubushakashatsi</string>
+    <string name="quran_search_no_results">Nta bisubizo bihuye</string>
+    <string name="quran_search_words">Amajambo yose</string>
+    <string name="quran_search_phrase">Invugo nyayo</string>
+    <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
 </resources>

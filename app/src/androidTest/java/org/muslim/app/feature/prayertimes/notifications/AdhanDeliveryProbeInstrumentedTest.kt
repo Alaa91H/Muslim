@@ -83,9 +83,11 @@ class AdhanDeliveryProbeInstrumentedTest {
         val settings = runBlocking { entryPoint.settingsRepository().settings.first() }
         assertEquals(USER_SELECTED_VOLUME_PERCENT, settings.adhanVolume)
         assertTrue(entryPoint.scheduler().scheduleDeliveryProbe(settings, Prayer.Fajr))
+        // A concurrent settings observer must not cancel the user-triggered probe.
+        entryPoint.scheduler().schedule(settings)
 
         val result = waitForProbeTerminalState()
-        assertNotNull(result)
+        assertNotNull("Probe did not reach a terminal state: ${entryPoint.deliveryJournal().lastProbe.value}", result)
         assertEquals(Prayer.Fajr, result!!.prayer)
         assertTrue(
             "Active Adhan notification was not retained: ${result.detail}",

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Otsimine…</string>
     <string name="mosque_finder_title">Läheduses mošeed</string>
     <string name="qibla_bearing_cardinal">Qibla suund: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Kalibreerimiseks liigutage oma telefoni kaheksakujuliselt</string>
     <string name="qibla_distance">Kaugus Mekkast: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Olete silmitsi Qiblaga 🕋</string>
+    <string name="qibla_facing">Olete silmitsi Qiblaga</string>
     <string name="qibla_gps_error">Täpset parandust ei õnnestunud saada. Palun proovi uuesti.</string>
     <string name="qibla_gps_live">GPS-i reaalajas asukoht</string>
     <string name="qibla_gps_refresh">Värskendage asukohta GPS-i kaudu</string>

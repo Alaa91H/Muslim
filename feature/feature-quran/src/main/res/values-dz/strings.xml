@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">ཏཱཕསིར་གསོག་འཇུག་མི་བྱེད་མི་འདུག: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">ཏཕ་སིར་ནང་ལུ་ བཀླགས་ཡོད་པའི་ཨ་ཡ་གི་རྗེས་སུ་འཇུག་དགོ།</string>
+    <string name="quran_tafsir_follow_playback_description">དོན་དག་དང་ ཏཕ་སིར་ཚུ་ བཀླགས་ཐོག་ལས་ སྤོ་བཤུད་འབད། རྣར་ཉན་འཕྲོ་མཐུད་དེ་ཡོད་པའི་སྐབས་ འགྲེལ་བཤད་གཞན་ཅིག་ལྷག་ནི་ལུ་ ཁ་བསྡམས།</string>
+    <string name="quran_search_hint">འཚོལ་ཞིབ་ཁ་ཆེའི་ཚིག་དུམ་...</string>
+    <string name="quran_search_clear">འཚོལ་ཞིབ་བསལ།</string>
+    <string name="quran_search_no_results">མཐུན་པའི་གྲུབ་འབྲས་མེད།</string>
+    <string name="quran_search_words">མིང་ཚིག་ཆ་མཉམ།</string>
+    <string name="quran_search_phrase">ཚིག་ཕྲད་ཏག་ཏག།</string>
+    <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
 </resources>

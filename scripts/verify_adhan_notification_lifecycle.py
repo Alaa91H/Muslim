@@ -68,7 +68,7 @@ REQUIRED_SNIPPETS = {
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeScreen.kt": [
         "PrayerAlertAction(",
         "HomeAdhanCustomizationDialog",
-        "onClick = { customizingPrayer = prayer }",
+        "onCustomizePrayer = { customizingPrayer = it }",
         "state.prayerAlerts[prayer]",
         "Prayer.Sunrise",
     ],
@@ -85,7 +85,8 @@ REQUIRED_SNIPPETS = {
         "activeAdhan_exposesStopDismissAndLockScreenControls",
         "showAdhan_confirmsTheFreshActiveCard_andCancelsTheEarlierReminder",
         "NotificationCompat.VISIBILITY_PUBLIC",
-        "NotificationCompat.PRIORITY_HIGH",
+        "NotificationManager.IMPORTANCE_HIGH",
+        "NotificationChannels.ADHAN",
         "Swipe dismissal must reach the Adhan stop receiver",
         "Alarm notification must expose lock-screen controls",
         "The sole Stop action must be executable",

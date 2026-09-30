@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Chèche…</string>
     <string name="mosque_finder_title">Moske ki tou pre</string>
     <string name="qibla_bearing_cardinal">Direksyon Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Deplase telefòn ou nan yon figi-uit pou kalibre</string>
     <string name="qibla_distance">Distans Mekka: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Ou ap fè fas a Qibla 🕋</string>
+    <string name="qibla_facing">Ou ap fè fas a Qibla</string>
     <string name="qibla_gps_error">Pa t \'kapab jwenn yon ranje egzat. Tanpri eseye ankò.</string>
     <string name="qibla_gps_live">Live GPS kote</string>
     <string name="qibla_gps_refresh">Rafrechi kote yo atravè GPS</string>

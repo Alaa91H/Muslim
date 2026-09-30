@@ -25,7 +25,6 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Notes
 import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.Checklist
@@ -48,18 +47,14 @@ import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -80,9 +75,13 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.common.lang.AppLanguage
+import org.muslim.app.core.designsystem.IslamicLayout
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimSegmentedControl
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.data.FuneralWillIntroVisibility
 import org.muslim.app.feature.learn.data.printWillDraft
@@ -199,7 +198,6 @@ private val WillDraftSaver: Saver<WillDraft, List<String>> = Saver(
     },
 )
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FuneralWillScreen(
     onBack: () -> Unit,
@@ -388,31 +386,24 @@ private fun ConfirmationDialog(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun FuneralWillScaffold(
     modifier: Modifier,
     state: FuneralWillUiState,
     actions: FuneralWillUiActions,
 ) {
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.funeral_will_title)) },
-                navigationIcon = {
-                    IconButton(onClick = actions.onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.funeral_will_back),
-                        )
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.funeral_will_title),
+                onNavigateBack = actions.onBack,
+                navigationContentDescription = stringResource(R.string.funeral_will_back),
             )
         },
-    ) { innerPadding ->
+    ) {
         FuneralWillBody(
-            modifier = Modifier.padding(innerPadding),
+            modifier = Modifier.fillMaxSize(),
             state = state,
             actions = actions,
         )
@@ -439,7 +430,7 @@ private fun FuneralWillBody(
         )
         IslamicDecorationDivider(
             tint = MaterialTheme.colorScheme.tertiary,
-            modifier = Modifier.padding(horizontal = 24.dp),
+            modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
         )
         when (FuneralWillTab.entries[state.selectedTab]) {
             FuneralWillTab.Will -> PrivateWillTab(
@@ -490,29 +481,18 @@ private fun FuneralWillTabs(
     selectedTab: Int,
     onSelect: (Int) -> Unit,
 ) {
-    PrimaryScrollableTabRow(selectedTabIndex = selectedTab, edgePadding = 12.dp) {
-        FuneralWillTab.entries.forEach { tab ->
-            Tab(
-                selected = selectedTab == tab.ordinal,
-                onClick = { onSelect(tab.ordinal) },
-                text = {
-                    Text(
-                        when (tab) {
-                            FuneralWillTab.Will -> stringResource(R.string.funeral_will_tab_will)
-                            FuneralWillTab.FuneralGuide -> stringResource(R.string.funeral_will_tab_guide)
-                        },
-                    )
-                },
-                icon = {
-                    Icon(
-                        tab.icon,
-                        contentDescription = null,
-                        modifier = Modifier.size(18.dp),
-                    )
-                },
-            )
-        }
-    }
+    MuslimSegmentedControl(
+        options = listOf(
+            stringResource(R.string.funeral_will_tab_will),
+            stringResource(R.string.funeral_will_tab_guide),
+        ),
+        selectedIndex = selectedTab,
+        onSelectedIndexChange = onSelect,
+        modifier = Modifier.padding(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Small,
+        ),
+    )
 }
 
 @Composable
@@ -526,11 +506,14 @@ private fun WillDraftContent(
 
     LazyColumn(
         modifier = Modifier
-            .widthIn(max = 900.dp)
+            .widthIn(max = IslamicLayout.ReadableContentMaxWidth)
             .fillMaxWidth()
             .fillMaxHeight(),
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp),
+        contentPadding = PaddingValues(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Compact,
+        ),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         willDraftIntroduction(
             isArabic = state.isArabic,

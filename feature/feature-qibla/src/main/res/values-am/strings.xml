@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">በመፈለግ ላይ…</string>
     <string name="mosque_finder_title">በአቅራቢያ ያሉ መስጊዶች</string>
     <string name="qibla_bearing_cardinal">የቂብላ አቅጣጫ፡ %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">ለማስተካከል ስልክዎን በስእል-ስምንት ይውሰዱት።</string>
     <string name="qibla_distance">ወደ መካህ ያለው ርቀት፡ %1$s</string>
     <string name="qibla_distance_km">%,.0f ኪ.ሜ</string>
-    <string name="qibla_facing">ወደ ቂብላ እየተጋፈጡ ነው 🕋</string>
+    <string name="qibla_facing">ወደ ቂብላ እየተጋፈጡ ነው</string>
     <string name="qibla_gps_error">ትክክለኛ ጥገና ማግኘት አልተቻለም። እባክህ እንደገና ሞክር።</string>
     <string name="qibla_gps_live">የቀጥታ ጂፒኤስ አካባቢ</string>
     <string name="qibla_gps_refresh">አካባቢን በጂፒኤስ ያድሱ</string>

@@ -71,9 +71,7 @@ class HistorySearchPersistenceTest {
         assertThat(file).isNotNull()
         requireNotNull(file)
 
-        val asset = Json {
-            ignoreUnknownKeys = true
-        }.decodeFromString(
+        val asset = assetJson.decodeFromString(
             HistorySearchAsset.serializer(),
             file.readText(),
         ).validated()
@@ -90,4 +88,9 @@ class HistorySearchPersistenceTest {
             )
     }
 
+    private companion object {
+        val assetJson = Json {
+            ignoreUnknownKeys = true
+        }
+    }
 }

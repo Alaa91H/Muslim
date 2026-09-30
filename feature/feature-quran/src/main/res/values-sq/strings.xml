@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Shkarkimi i tafsirit dështoi: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Ndiqni ajetin e recituar në tefsir</string>
+    <string name="quran_tafsir_follow_playback_description">Lëvizni kuptimet dhe tefsirin me recitim. Çaktivizoje për të lexuar një shpjegim tjetër ndërsa audioja vazhdon.</string>
+    <string name="quran_search_hint">Kërko ajetet e Kuranit…</string>
+    <string name="quran_search_clear">Pastro kërkimin</string>
+    <string name="quran_search_no_results">Nuk ka rezultate që përputhen</string>
+    <string name="quran_search_words">Të gjitha fjalët</string>
+    <string name="quran_search_phrase">Fraza e saktë</string>
+    <string name="quran_search_ayah_summary">dukuri %1$d në vargjet %2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · dukuri fjalësh %3$d</string>
 </resources>

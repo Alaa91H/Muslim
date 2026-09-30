@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Kufufuza...</string>
     <string name="mosque_finder_title">Misikiti yapafupi</string>
     <string name="qibla_bearing_cardinal">Qibla njira: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Sunthani foni yanu mu chiwerengero chachisanu ndi chitatu kuti muyese</string>
     <string name="qibla_distance">Mtunda kupita ku Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f Km</string>
-    <string name="qibla_facing">Mukuyang\'anizana ndi Qibla 🕋</string>
+    <string name="qibla_facing">Mukuyang\'anizana ndi Qibla</string>
     <string name="qibla_gps_error">Sitinathe kukonza bwino. Chonde yesaninso.</string>
     <string name="qibla_gps_live">Malo amoyo a GPS</string>
     <string name="qibla_gps_refresh">Tsitsani malo kudzera pa GPS</string>

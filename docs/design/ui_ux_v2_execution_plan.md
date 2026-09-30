@@ -1,0 +1,267 @@
+# Muslim UI/UX 2.0 — execution plan
+
+Status: integration review in progress
+Source branch: `ux/ui-ux-2`
+Started: 2026-09-29
+
+## Goal
+
+Modernize and simplify the entire Muslim UI while preserving every current capability, route, deep link, preference, calculation, notification behavior, data contract, and offline behavior.
+
+Core rule:
+
+> Hide complexity; do not remove capability.
+
+## Non-negotiable guardrails
+
+1. Feature parity must remain 100%.
+2. UI refactors must not change prayer calculations, Quran/Hadith content, scheduling semantics, persisted data, or religious content.
+3. Secondary actions move to overflow menus, bottom sheets, or expandable advanced sections instead of remaining permanently exposed.
+4. Shared design-system components are preferred over feature-local visual patterns.
+5. Avoid card-within-card layouts unless hierarchy genuinely requires it.
+6. RTL/LTR, TalkBack, large text, dark/light themes, reduced motion, compact/medium/expanded layouts remain first-class.
+7. Every phase closes only after its relevant automated checks are green.
+
+## UX00 — Freeze functional contracts
+
+- Inventory routes and parameterized routes.
+- Inventory external deep links/app shortcuts.
+- Inventory persisted user preferences.
+- Inventory More hub destinations.
+- Record current visual baseline/screenshots for critical screens.
+- Add a feature-parity verifier to CI.
+- Do not begin UX01 until UX00 is closed.
+
+## UX01 — Full UI/UX audit
+
+Audit every screen/dialog/sheet/menu for purpose, primary action, secondary actions, duplication, unused space, excessive cards, local spacing, accessibility, RTL and adaptive-layout issues.
+
+## UX02 — Design Tokens V2
+
+Centralize spacing, typography, shapes, elevation, icon sizing, colors and motion.
+
+## UX03 — Shared Components V2
+
+Introduce/standardize:
+- MuslimScreen
+- MuslimTopBar
+- MuslimHero
+- MuslimSection / MuslimGroup
+- MuslimListItem / MuslimSettingsItem
+- MuslimStatusChip
+- MuslimSegmentedControl
+- MuslimSearchBar / MuslimFilterBar
+- MuslimBottomSheet / MuslimActionSheet / MuslimOverflowMenu
+- MuslimInlineMessage
+- MuslimSkeleton
+- MuslimReaderScaffold
+- MuslimProgressHeader / MuslimMetric
+- MuslimExpandableSection
+
+## UX04 — Responsive foundation
+
+Use shared compact/medium/expanded policies instead of scattered width/height thresholds.
+
+## UX05 — App shell/navigation
+
+Keep the primary destinations Prayer, Quran, Qibla and More, with the existing Ramadan seasonal behavior. Preserve navigation state and deep links.
+
+## UX06 — Prayer experience
+
+### Home
+- Remove excessive whitespace above the date/header.
+- Keep Hijri date, Gregorian date and location compact and non-duplicated.
+- Make the next prayer the single dominant hero.
+- Remove the duplicated date below “Today’s Prayer Times”.
+- Render prayer times as clean rows rather than visually heavy nested cards.
+- Replace inconsistent prayer symbols with one coherent icon family for Fajr, Sunrise, Dhuhr, Asr, Maghrib and Isha.
+- Replace exposed volume percentages such as `100%` with a compact state-based alert/customization indicator.
+- The indicator must distinguish enabled Adhan, short alert, vibration-only, silent, disabled and custom states without relying on color alone.
+- Move volume, sound, vibration, offsets and advanced configuration into a structured bottom sheet/settings surface.
+- Keep only one or two primary actions exposed; move secondary actions such as sharing/month view/secondary settings into overflow/sheets.
+
+### Monthly view
+Replace the dense calendar grid as the primary monthly prayer view with an imsakiyah-style timetable:
+- Days run sequentially from the first to the last day of the month.
+- Arabic layout reads naturally RTL.
+- Prayer names are column headers at the top.
+- Each day is a row.
+- Show Fajr, Sunrise, Dhuhr, Asr, Maghrib and Isha for every day.
+- Include Gregorian/Hijri context without crowding.
+- Highlight today and Friday calmly.
+- Prefer a sticky prayer header.
+- Preserve a traditional calendar only as an optional secondary view if it still provides value.
+
+## UX07 — Quran home
+
+Continue Reading hero, unified search, Surah/Juz/Bookmarks segmented navigation and cleaner Surah rows.
+
+## UX08 — Quran Reader and player
+
+- Reading-first layout.
+- Contextual ayah action sheet instead of permanently exposed actions.
+- Collapsible/auto-hiding reader chrome where appropriate.
+- Compact mini player with expanded player on demand.
+- Structured reading/audio settings sheet.
+
+### Quran highlight rendering fix
+The highlight system must use actual text layout geometry:
+- Split a multi-line highlight into per-line rectangles.
+- Never cover adjacent lines or glyphs.
+- Never move the text when highlight state changes.
+- Keep controlled insets/radius and stable geometry.
+- Cover recitation tracking, selected ayah, search result and manual selection states.
+- Test small/medium/large text, RTL, portrait, landscape, light/dark and multi-line ayat.
+
+### Ayah marker color consistency
+- Fix the first ayah number rendered on every Mushaf page so it never inherits the green primary/accent color merely because it is the first ayah in the page slice.
+- All normal ayah-number ornaments on a page must use the same gold/bronze Quran marker color, including the first visible ayah.
+- Selection, playback, search/open and tap highlighting may affect the surrounding ayah highlight state, but must not accidentally recolor only the first page ayah marker.
+- The rule must hold across light, dark and sepia reading themes, portrait/landscape, different font sizes and page boundaries.
+- Add an automated visual/style contract that explicitly checks first-page-ayah marker styling versus subsequent ayah markers.
+
+## UX09–UX25 — Remaining feature redesign
+
+Sequentially redesign:
+- Quran Downloads/Bookmarks
+- Qibla/Nearby Mosques
+- More hub
+- Adhkar/Tasbih
+- Ramadan/Habits
+- Hadith
+- Learning Centre
+- Hajj/Names/Noorani/Traveler
+- Family/Funeral/Will
+- Zakat/Finance
+- Reference/History
+- Scholar Library
+- Settings
+- Privacy/Permissions/Notifications
+- Storage/Downloads/Updates
+- Wear OS
+- Android Auto
+
+All must preserve existing capability and use the shared patterns.
+
+## UX25–UX31 — Completion gates and integration evidence
+
+### UX25 — Android Auto
+
+- Existing `MediaBrowserServiceCompat` remains audio-first and exposes only
+  fully downloaded Surahs; it does not initiate downloads while driving.
+- The automotive descriptor declares the media category and the root offers
+  one concise “Downloaded recitations” entry.
+- Surah rows provide Arabic and English names. Playback/search and the
+  unavailable-recitation error remain in the existing media-session path.
+- Verified by `scripts/verify_iot_integration.py`; this is a static contract,
+  not a head-unit interaction test.
+
+### UX26 — Tablet/Foldable
+
+- Shared adaptive classes are Compact (0–599dp), Medium (600–839dp), and
+  Expanded (840dp+); the app shell switches to a navigation rail for wider
+  windows and allows two-pane content at Expanded width.
+- Boundary behavior has unit coverage in the design-system module.
+- Fold/unfold continuity and per-screen visual review still require a
+  running emulator/device and remain an external QA gate.
+
+### UX27 — RTL, localization, and large text
+
+- Static accessibility, responsive-layout, resource, and feature-parity
+  verifiers pass. The Quran Reader includes explicit RTL-aware line geometry
+  checks; shared accessibility preferences remain part of the UX00 contract.
+- No 200% system-font screenshot sweep has been captured in this environment.
+  Keep that sweep open until device QA can inspect clipping and focus order.
+
+### UX28 — Screenshot and visual regression
+
+- CI is configured to capture the actual Prayer Home screen in Arabic and English
+  with light and dark themes on Android emulators and store normal-font and 200%-font PNGs as
+  per-API artifacts. Run
+  #1338 exposed that the post-instrumentation export produced a 40-byte
+  `run-as: unknown package` message instead of a PNG. Run #1339 failed on a
+  shell-output marker, and #1340 showed the screenshot instrumentation passes
+  but its shared-storage copy is missing. Run #1341 confirmed that all 13
+  instrumentation tests passed, but the host's 180-second screenshot poll
+  expired before Gradle completed its 4m40s emulator task. CI now allows a
+  10-minute poll, pulls the app-specific external file while instrumentation
+  runs, then validates the PNG signature and dimensions. Run #1342 passed the
+  quality, emulator, and development APK jobs; both Arabic/light PNGs were
+  inspected and are valid 320x640 images. Run #1344 exposed an Activity launch
+  timeout when repeating the capture on API 36. Using ActivityScenario fixed
+  the lifecycle wait; run #1345 passed all jobs, and all four Arabic/light and
+  English/dark PNG artifacts were inspected at 320x640. This path does not
+  compare image output.
+- A comparison runner and its policy tests now exist; no checked-in golden screenshots or reviewed image
+  baselines exist yet. UX28 remains open until the full matrix is captured,
+  visually reviewed, and intentional differences are accepted.
+- Do not call UX28 complete until screenshots are captured on a fixed emulator
+  image for Arabic RTL and English LTR, light and dark themes, normal and large
+  fonts, and compact and expanded widths; intentional changes need reviewed
+  baseline updates.
+- The configured CI capture covers Prayer Home in Arabic and English with light and dark themes
+  on emulator APIs 26 and 36; all other screen/variant pairs and visual
+  comparison remain open. The four language/theme combinations passed both emulator APIs in run
+  36730684425 with onboarding disabled and an active-window/content readiness gate.
+  Arabic/light and English/light at 200% font passed capture in run 36734323997;
+  all twelve images were visually inspected. Localized Hijri dates and app-theme
+  system bar contrast were correct. Arabic Gregorian years split across lines at
+  200%, prompting a stacked date/location layout awaiting fresh image review.
+  The complete 192-variant matrix is now configured across eight critical screens;
+  capture and visual review of that matrix are pending. Expanded captures assert
+  the window reaches the 840dp breakpoint. No comparison or golden acceptance is
+  implied by configuring capture.
+  Earlier English/dark PNGs passed encoding checks but visual inspection found
+  a dimmed screen during initial system permission setup.
+
+### UX29 — Performance and motion
+
+- Reduced-motion and accessibility contracts are covered by static checks;
+  lazy lists/paging are used by large Hadith and library surfaces.
+- Frame-time, recomposition, and scrolling measurements have not been captured
+  on a representative device; retain these as a device QA gate.
+
+### UX30 — Final consistency audit
+
+- The full static CI verifier set is run during integration. The design-system
+  and visual-identity verifiers accept all supported shared V2 screen shells.
+- Review each newly migrated surface using the shell/component verifier and
+  preserve the UX00 feature-parity inventory.
+
+### UX31 — Full regression and release gate
+
+- Local static checks pass for adaptive design-system adoption, visual
+  identity, feature parity, the critical-screen/variant matrix, Android main
+  resource XML parsing, and IoT integration.
+- The Android SDK is present, but no emulator or physical device is connected
+  locally. CI emulator jobs cover APIs 26 and 36 and build a debug APK with
+  instrumentation results; these do not substitute for all-variant visual or
+  physical-device QA.
+  A local `:app:assembleDebug` run using Gradle 9.5 and a D-drive cache remained
+  silent inside project initialization for over 14 minutes; it was stopped
+  without producing an APK. Earlier default-cache attempts exhausted C-drive
+  space and one ended in native-memory allocation failure. Gradle build, unit
+  tests, lint, Detekt, and emulator tests therefore remain CI gates.
+  No release-ready or visually verified claim is made from static checks.
+
+## Definition of Done
+
+A phase is not complete until:
+- all previous routes and deep links still resolve,
+- all relevant persisted settings remain represented,
+- no intentional feature is lost,
+- accessibility and RTL checks pass,
+- relevant unit/instrumented tests pass,
+- lint and Detekt pass,
+- design-system and feature-parity verifiers pass,
+- visual baselines are updated intentionally when the infrastructure exists,
+- CI is green.
+
+## Integration follow-up — 2026-09-30
+
+- Run 36738707642 passed APK compilation, unit tests and Android lint, but quality failed because the merged CLI-based Detekt configuration no longer exposes `detektBaseline`. The CI baseline-regeneration step has been removed: new findings must fail the committed-baseline gate.
+- Activating `CyclomaticComplexMethod` exposed legacy findings. Exact `origin/main` sources were separately analyzed with Detekt 1.23.8; only confirmed existing members received baseline entries (32 complexity signatures and two existing long-method signature remaps). New findings were fixed by extracting date/location, habit progress, session preset and Quran highlight helpers; unused imports and one unused private parameter were removed. The direct CLI UTF-8 analysis of 604 Kotlin files passed locally.
+- The matrix run produced 84 compact PNGs on API 26 and 77 PNGs on API 36, not a complete sweep. API 26 exposed expanded-width and monthly readiness failures; API 36 became offline mid-run. Capture now sets explicit expanded density, waits for content tags, refreshes accessibility cache and limits Gradle memory/workers. These fixes await the next CI run.
+- The reviewed Arabic Prayer Home 200% image confirms the stacked secondary date keeps the Gregorian year intact. Quran Home 200% exposed split chip labels; segmented controls now scroll horizontally with single-line labels.
+- Independent code review found Quran sheets could hide lower controls at large fonts. Shared sheets support opt-in scrolling, enabled for action and Quran sheets, with a new instrumented scrolling regression check. Locale configuration regression checks cover preservation of display settings and system language.
+- The user confirmed no physical Android phone is available. TalkBack on representative hardware, frame measurements and physical fold/unfold continuity remain open acceptance gates.

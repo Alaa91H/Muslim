@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">タフシールをダウンロードできませんでした: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">タフシールで唱えられたアーヤに従ってください</string>
+    <string name="quran_tafsir_follow_playback_description">意味とタフシルを朗読で動かします。音声が続いている間、別の説明を読むにはオフにします。</string>
+    <string name="quran_search_hint">コーランの聖句を検索…</string>
+    <string name="quran_search_clear">検索をクリア</string>
+    <string name="quran_search_no_results">一致する結果はありません</string>
+    <string name="quran_search_words">すべての単語</string>
+    <string name="quran_search_phrase">正確なフレーズ</string>
+    <string name="quran_search_ayah_summary">%1$d 詩の %2$d の出現数</string>
+    <string name="quran_search_result_location">%1$s · アヤ %2$d · 単語の出現 %3$d</string>
 </resources>

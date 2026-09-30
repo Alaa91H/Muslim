@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Ojehekávo...</string>
     <string name="mosque_finder_title">Mezquita hi’aguĩva</string>
     <string name="qibla_bearing_cardinal">Qibla dirección: %1$s. Ñe’ẽpoty ha ñe’ẽpoty</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f° rehegua</string>
+    <string name="qibla_bearing_degree">%1$.0f° rehegua</string>
     <string name="qibla_calibrate">Emoinge ne teléfono peteĩ figura-ocho-pe recalibra hag̃ua</string>
     <string name="qibla_distance">Makkah peve mombyry: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Peẽ peñembohovake hína pe Qibla 🕋 rehe</string>
+    <string name="qibla_facing">Peẽ peñembohovake hína pe Qibla  rehe</string>
     <string name="qibla_gps_error">Ndaikatúi ohupyty peteĩ arreglo hekopete. Eñeha’ã jey.</string>
     <string name="qibla_gps_live">GPS en vivo ñemohenda</string>
     <string name="qibla_gps_refresh">Ombopyahu ubicación GPS rupive</string>

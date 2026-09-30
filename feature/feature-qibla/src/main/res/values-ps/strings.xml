@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">لټون…</string>
     <string name="mosque_finder_title">نږدې جوماتونه</string>
     <string name="qibla_bearing_cardinal">قبله سمت: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">د کیلیبریټ کولو لپاره خپل تلیفون په اتم شکل کې حرکت وکړئ</string>
     <string name="qibla_distance">له مکې څخه واټن: %1$s</string>
     <string name="qibla_distance_km">%,.0f کیلومتره</string>
-    <string name="qibla_facing">ته قبلې ته مخامخ یې 🕋</string>
+    <string name="qibla_facing">ته قبلې ته مخامخ یې</string>
     <string name="qibla_gps_error">دقیق سمون نشي ترلاسه کولی. مهرباني وکړئ بیا هڅه وکړئ.</string>
     <string name="qibla_gps_live">د ژوندی GPS موقعیت</string>
     <string name="qibla_gps_refresh">د GPS له لارې ځای تازه کړئ</string>

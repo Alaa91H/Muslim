@@ -28,7 +28,6 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items as gridItems
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.ContentCopy
@@ -36,7 +35,6 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.outlined.BookmarkBorder
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -48,9 +46,6 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -87,11 +82,13 @@ import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.IslamicDecorationCorners
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicCard
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
-import org.muslim.app.core.ui.theme.MuslimContentFrame
 import org.muslim.app.core.ui.theme.MuslimEmptyState
 import org.muslim.app.core.ui.theme.MuslimErrorState
+import org.muslim.app.core.ui.theme.MuslimBottomSheet
 import org.muslim.app.core.ui.theme.MuslimLoadingState
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimSettingsItem
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.hadith.R
 import org.muslim.app.feature.hadith.data.HadithCorpusState
 import org.muslim.app.feature.hadith.domain.Hadith
@@ -164,12 +161,13 @@ fun HadithScreen(
         }
     }
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             HadithTopBar(
-                title = collection?.let { stringResource(it.titleRes) } ?: stringResource(R.string.hadith_title),
+                title = collection?.let { stringResource(it.titleRes) }
+                    ?: stringResource(R.string.hadith_title),
                 onBack = closeBookOrScreen,
                 onOpenSettings = { showNotificationSettings = true },
                 backDescription = if (chapter != null) {
@@ -179,34 +177,32 @@ fun HadithScreen(
                 },
             )
         },
-    ) { innerPadding ->
-        MuslimContentFrame(modifier = Modifier.padding(innerPadding)) {
-            when (val selected = collection) {
-                null -> HadithCatalogue(
-                    modifier = Modifier.fillMaxSize(),
-                    onOpenCollection = viewModel::openCollection,
-                )
-                else -> HadithBookContent(
-                    collection = selected,
-                    state = HadithBookContentState(
-                        chapter = chapter,
-                        chapters = chapters,
-                        query = query,
-                        corpusState = corpusState,
-                        pagedHadiths = pagedHadiths,
-                        daily = daily,
-                        bookmarkedIds = bookmarkedIds,
-                    ),
-                    actions = HadithBookActions(
-                        onQueryChanged = viewModel::setQuery,
-                        onOpenChapter = viewModel::openChapter,
-                        onRetry = viewModel::retryCollectionLoad,
-                        onToggleBookmark = viewModel::toggleBookmark,
-                        onCopied = { scope.launch { snackbarHostState.showSnackbar(copiedMessage) } },
-                    ),
-                    modifier = Modifier.fillMaxSize(),
-                )
-            }
+    ) {
+        when (val selected = collection) {
+            null -> HadithCatalogue(
+                modifier = Modifier.fillMaxSize(),
+                onOpenCollection = viewModel::openCollection,
+            )
+            else -> HadithBookContent(
+                collection = selected,
+                state = HadithBookContentState(
+                    chapter = chapter,
+                    chapters = chapters,
+                    query = query,
+                    corpusState = corpusState,
+                    pagedHadiths = pagedHadiths,
+                    daily = daily,
+                    bookmarkedIds = bookmarkedIds,
+                ),
+                actions = HadithBookActions(
+                    onQueryChanged = viewModel::setQuery,
+                    onOpenChapter = viewModel::openChapter,
+                    onRetry = viewModel::retryCollectionLoad,
+                    onToggleBookmark = viewModel::toggleBookmark,
+                    onCopied = { scope.launch { snackbarHostState.showSnackbar(copiedMessage) } },
+                ),
+                modifier = Modifier.fillMaxSize(),
+            )
         }
 
         if (showNotificationSettings) {
@@ -223,7 +219,6 @@ fun HadithScreen(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun HadithTopBar(
     title: String,
@@ -231,32 +226,21 @@ private fun HadithTopBar(
     onOpenSettings: () -> Unit,
     backDescription: String,
 ) {
-    TopAppBar(
-        title = {
-            Text(
-                text = title,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                fontWeight = FontWeight.Bold,
-            )
-        },
-        navigationIcon = {
-            IconButton(onClick = onBack) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = backDescription)
-            }
-        },
-        actions = {
-            IconButton(onClick = onOpenSettings) {
-                Icon(Icons.Filled.Settings, contentDescription = stringResource(R.string.hadith_notification_settings))
-            }
-        },
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = HadithLibraryBackground,
-            titleContentColor = HadithGold,
-            navigationIconContentColor = HadithIvory,
-            actionIconContentColor = HadithIvory,
-        ),
-    )
+    HadithLibraryTheme {
+        MuslimTopBar(
+            title = title,
+            onNavigateBack = onBack,
+            navigationContentDescription = backDescription,
+            actions = {
+                IconButton(onClick = onOpenSettings) {
+                    Icon(
+                        Icons.Filled.Settings,
+                        contentDescription = stringResource(R.string.hadith_notification_settings),
+                    )
+                }
+            },
+        )
+    }
 }
 
 @Suppress("LongMethod")
@@ -989,31 +973,26 @@ private fun HadithNotificationSettingsDialog(
     onTimeSelected: (Int) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(stringResource(R.string.hadith_notification_settings)) },
-        text = {
-            Column {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Column(modifier = Modifier.weight(1f)) {
-                        Text(stringResource(R.string.hadith_daily_notification), style = MaterialTheme.typography.bodyMedium)
-                        Text(
-                            stringResource(R.string.hadith_daily_notification_desc),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                    Switch(checked = enabled, onCheckedChange = onEnabledChanged)
-                }
-                HadithNotificationPreview(daily, timeMinutes, enabled, use24h)
-                if (enabled) HadithTimeDropdown(timeMinutes, hadithTimeOptions, onTimeSelected, use24h)
-            }
-        },
-        confirmButton = { TextButton(onClick = onDismiss) { Text(stringResource(R.string.hadith_done)) } },
-    )
+    MuslimBottomSheet(
+        onDismiss = onDismiss,
+        title = stringResource(R.string.hadith_notification_settings),
+    ) {
+        MuslimSettingsItem(
+            title = stringResource(R.string.hadith_daily_notification),
+            supportingText = stringResource(R.string.hadith_daily_notification_desc),
+            onClick = { onEnabledChanged(!enabled) },
+            trailing = {
+                Switch(
+                    checked = enabled,
+                    onCheckedChange = onEnabledChanged,
+                )
+            },
+        )
+        HadithNotificationPreview(daily, timeMinutes, enabled, use24h)
+        if (enabled) {
+            HadithTimeDropdown(timeMinutes, hadithTimeOptions, onTimeSelected, use24h)
+        }
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

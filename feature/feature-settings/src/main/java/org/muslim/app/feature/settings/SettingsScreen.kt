@@ -13,10 +13,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
@@ -34,17 +34,14 @@ import androidx.compose.material.icons.filled.SystemUpdate
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -72,8 +69,11 @@ import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
-import org.muslim.app.core.ui.theme.MuslimContentFrame
+import org.muslim.app.core.ui.theme.MuslimEmptyState
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimSearchBar
+import org.muslim.app.core.ui.theme.MuslimSettingsItem
+import org.muslim.app.core.ui.theme.MuslimTopBar
 
 /** A user-selectable UI language (PROJECT_PROMPT.md §5). */
 private data class LanguageOption(
@@ -124,13 +124,18 @@ private val timeFormatOptions = listOf(
     TimeFormatOption(true, R.string.settings_time_24),
 )
 
+private data class SettingsSearchEntry(
+    val label: String,
+    val icon: ImageVector,
+    val onClick: () -> Unit,
+)
+
 /**
  * Central settings hub (PROJECT_PROMPT.md §6 "وحدة الإعدادات العامة").
  * Cross-feature sections (prayer & adhan) are reached via app-level
  * navigation so this module never depends on another feature module.
  */
 @Suppress("LongMethod")
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(
     onOpenPrayerSettings: () -> Unit,
@@ -147,6 +152,10 @@ fun SettingsScreen(
     onOpenAccessibility: () -> Unit = {},
     /** Opens optional Android Auto, Wear OS and home-automation bridge settings. */
     onOpenSmartDevices: () -> Unit = {},
+    /** Opens Quran recitation download/storage management. */
+    onOpenDownloads: () -> Unit = {},
+    /** Opens Scholar Library content packs and study backup management. */
+    onOpenScholarDataManager: () -> Unit = {},
     /** Back affordance when opened as a sub-screen (from the More hub). */
     onBack: (() -> Unit)? = null,
     viewModel: SettingsViewModel = hiltViewModel(),
@@ -161,6 +170,8 @@ fun SettingsScreen(
     // the previously expanded section (single expanded card at a time).
     var expandedSection by rememberSaveable { mutableStateOf<String?>(null) }
 
+    var settingsQuery by rememberSaveable { mutableStateOf("") }
+
     // One-time confirmation before background update downloads are enabled.
     var confirmAutoUpdate by remember { mutableStateOf(false) }
 
@@ -171,21 +182,98 @@ fun SettingsScreen(
         expandedSection = if (expandedSection == section.name) null else section.name
     }
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    fun openSectionFromSearch(section: SettingsSection) {
+        settingsQuery = ""
+        expandedSection = section.name
+    }
+
+    val searchEntries = listOf(
+        SettingsSearchEntry(
+            stringResource(R.string.settings_section_appearance),
+            Icons.Filled.Palette,
+        ) { openSectionFromSearch(SettingsSection.Appearance) },
+        SettingsSearchEntry(
+            stringResource(R.string.settings_section_start),
+            Icons.Filled.Home,
+        ) { openSectionFromSearch(SettingsSection.Start) },
+        SettingsSearchEntry(
+            stringResource(R.string.settings_section_time_format),
+            Icons.Filled.Schedule,
+        ) { openSectionFromSearch(SettingsSection.TimeFormat) },
+        SettingsSearchEntry(
+            stringResource(R.string.settings_section_language),
+            Icons.Filled.Language,
+        ) { openSectionFromSearch(SettingsSection.Language) },
+        SettingsSearchEntry(
+            stringResource(R.string.settings_more_order),
+            Icons.Filled.ExpandLess,
+            onOpenMoreOrder,
+        ),
+        SettingsSearchEntry(
+            stringResource(R.string.settings_prayer_section),
+            Icons.Filled.Schedule,
+            onOpenPrayerSettings,
+        ),
+        SettingsSearchEntry(
+            stringResource(R.string.settings_notifications),
+            Icons.Filled.NotificationsActive,
+            onOpenNotifications,
+        ),
+        SettingsSearchEntry(
+            stringResource(R.string.settings_permissions),
+            Icons.Filled.Lock,
+            onOpenPermissions,
+        ),
+        SettingsSearchEntry(
+            stringResource(R.string.accessibility_title),
+            Icons.Filled.Visibility,
+            onOpenAccessibility,
+        ),
+        SettingsSearchEntry(
+            stringResource(R.string.settings_smart_devices),
+            Icons.Filled.Settings,
+            onOpenSmartDevices,
+        ),
+        SettingsSearchEntry(
+            stringResource(R.string.settings_quran_downloads),
+            Icons.Filled.Download,
+            onOpenDownloads,
+        ),
+        SettingsSearchEntry(
+            stringResource(R.string.settings_scholar_data),
+            Icons.Filled.Settings,
+            onOpenScholarDataManager,
+        ),
+        SettingsSearchEntry(
+            stringResource(R.string.settings_section_updates),
+            Icons.Filled.SystemUpdate,
+        ) { openSectionFromSearch(SettingsSection.Updates) },
+        SettingsSearchEntry(
+            stringResource(R.string.settings_privacy),
+            Icons.Filled.PrivacyTip,
+            onOpenPrivacy,
+        ),
+        SettingsSearchEntry(
+            stringResource(R.string.settings_about),
+            Icons.Filled.Info,
+            onOpenAbout,
+        ),
+    )
+
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.settings_title)) },
-                navigationIcon = {
-                    if (onBack != null) {
-                        IconButton(onClick = onBack) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.settings_back))
-                        }
-                    }
+            MuslimTopBar(
+                title = stringResource(R.string.settings_title),
+                onNavigateBack = onBack,
+                navigationContentDescription = if (onBack != null) {
+                    stringResource(R.string.settings_back)
+                } else {
+                    null
                 },
             )
         },
-    ) { innerPadding ->
+    ) {
         if (confirmAutoUpdate) {
             AlertDialog(
                 onDismissRequest = { confirmAutoUpdate = false },
@@ -206,15 +294,26 @@ fun SettingsScreen(
                 },
             )
         }
-        MuslimContentFrame(modifier = Modifier.padding(innerPadding)) {
-            LazyColumn(
-                modifier = Modifier.fillMaxSize(),
-            contentPadding = androidx.compose.foundation.layout.PaddingValues(
-                horizontal = IslamicSpacing.PageHorizontal,
-                vertical = IslamicSpacing.Compact,
-            ),
-            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
-        ) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            MuslimSearchBar(
+                query = settingsQuery,
+                onQueryChange = { settingsQuery = it },
+                placeholder = stringResource(R.string.settings_search_hint),
+                clearContentDescription = stringResource(R.string.settings_search_clear),
+                modifier = Modifier.padding(
+                    horizontal = IslamicSpacing.PageHorizontal,
+                    vertical = IslamicSpacing.Small,
+                ),
+            )
+            if (settingsQuery.isBlank()) {
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = androidx.compose.foundation.layout.PaddingValues(
+                        horizontal = IslamicSpacing.PageHorizontal,
+                        vertical = IslamicSpacing.Compact,
+                    ),
+                    verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+                ) {
             item(key = SettingsSection.Appearance.name) {
                 SectionCard(
                     title = stringResource(R.string.settings_section_appearance),
@@ -639,6 +738,30 @@ fun SettingsScreen(
                 }
             }
 
+            item(key = SettingsSection.Storage.name) {
+                SectionCard(
+                    title = stringResource(R.string.settings_section_storage),
+                    icon = Icons.Filled.Download,
+                    expanded = expandedSection == SettingsSection.Storage.name,
+                    onToggle = { toggleSection(SettingsSection.Storage) },
+                ) {
+                    MuslimSettingsItem(
+                        title = stringResource(R.string.settings_quran_downloads),
+                        supportingText = stringResource(R.string.settings_quran_downloads_desc),
+                        icon = Icons.Filled.Download,
+                        onClick = onOpenDownloads,
+                        trailing = { Chevron() },
+                    )
+                    MuslimSettingsItem(
+                        title = stringResource(R.string.settings_scholar_data),
+                        supportingText = stringResource(R.string.settings_scholar_data_desc),
+                        icon = Icons.Filled.Settings,
+                        onClick = onOpenScholarDataManager,
+                        trailing = { Chevron() },
+                    )
+                }
+            }
+
             item(key = SettingsSection.Data.name) {
                 SectionCard(
                     title = stringResource(R.string.settings_section_data),
@@ -673,6 +796,47 @@ fun SettingsScreen(
                     }
                 }
             }
+            } else {
+                SettingsSearchResults(
+                    query = settingsQuery,
+                    entries = searchEntries,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun SettingsSearchResults(
+    query: String,
+    entries: List<SettingsSearchEntry>,
+) {
+    val results = remember(query, entries) {
+        entries.filter { it.label.contains(query.trim(), ignoreCase = true) }
+    }
+    if (results.isEmpty()) {
+        MuslimEmptyState(
+            title = stringResource(R.string.settings_search_empty),
+            icon = Icons.Filled.Settings,
+            modifier = Modifier.padding(IslamicSpacing.Large),
+        )
+        return
+    }
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Compact,
+        ),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.XSmall),
+    ) {
+        items(results, key = { it.label }) { entry ->
+            MuslimSettingsItem(
+                title = entry.label,
+                icon = entry.icon,
+                onClick = entry.onClick,
+                trailing = { Chevron() },
+            )
         }
     }
 }
@@ -741,6 +905,7 @@ private enum class SettingsSection(val titleRes: Int) {
     Prayer(R.string.settings_section_prayer),
     Managers(R.string.settings_section_managers),
     Updates(R.string.settings_section_updates),
+    Storage(R.string.settings_section_storage),
     Data(R.string.settings_section_data),
     About(R.string.settings_section_about),
 }

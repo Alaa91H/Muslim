@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">ရှာဖွေနေသည်...</string>
     <string name="mosque_finder_title">အနီးနားရှိ ဗလီများ</string>
     <string name="qibla_bearing_cardinal">Qibla ဦးတည်ချက်- %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">ချိန်ညှိရန် သင့်ဖုန်းကို ပုံ-ရှစ်ဖြင့် ရွှေ့ပါ။</string>
     <string name="qibla_distance">မက္ကာမြို့အကွာအဝေး: %1$s</string>
     <string name="qibla_distance_km">%,.0f ကီလိုမီတာ</string>
-    <string name="qibla_facing">သင် Qibla 🕋 နှင့်ရင်ဆိုင်နေရသည်။</string>
+    <string name="qibla_facing">သင် Qibla  နှင့်ရင်ဆိုင်နေရသည်။</string>
     <string name="qibla_gps_error">တိကျသော ပြုပြင်မှုကို မရနိုင်ပါ။ ထပ်စမ်းကြည့်ပါ။</string>
     <string name="qibla_gps_live">တိုက်ရိုက် GPS တည်နေရာ</string>
     <string name="qibla_gps_refresh">GPS မှတစ်ဆင့် တည်နေရာကို ပြန်လည်စတင်ပါ။</string>

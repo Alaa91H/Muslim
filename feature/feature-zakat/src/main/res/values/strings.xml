@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="zakat_title">الزكاة</string>
     <string name="zakat_back">رجوع</string>
     <string name="zakat_money_section">زكاة المال</string>
+    <string name="zakat_step_assets" tools:ignore="MissingTranslation">الأموال</string>
+    <string name="zakat_step_debts" tools:ignore="MissingTranslation">الديون</string>
+    <string name="zakat_step_nisab" tools:ignore="MissingTranslation">النصاب</string>
+    <string name="zakat_step_result" tools:ignore="MissingTranslation">النتيجة</string>
     <string name="zakat_country_section">الدولة والعملة</string>
     <string name="zakat_country">الدولة</string>
     <string name="zakat_country_placeholder">اختر دولتك وعملتك</string>

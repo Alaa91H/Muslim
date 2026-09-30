@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Pa te kapab telechaje tafsir la: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Swiv ayah resite nan tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Deplase siyifikasyon ak tafsir ak resitasyon. Etenn li yon lòt eksplikasyon pandan odyo ap kontinye.</string>
+    <string name="quran_search_hint">Chèche vèsè koran...</string>
+    <string name="quran_search_clear">Klè rechèch</string>
+    <string name="quran_search_no_results">Pa gen rezilta matche</string>
+    <string name="quran_search_words">Tout mo</string>
+    <string name="quran_search_phrase">Fraz egzak</string>
+    <string name="quran_search_ayah_summary">%1$d ensidans nan vèsè %2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · evènman mo %3$d</string>
 </resources>

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Kei te rapu…</string>
     <string name="mosque_finder_title">Ko nga whare karakia e tata ana</string>
     <string name="qibla_bearing_cardinal">Te aronga kipi: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Nukuhia to waea ki te whika-waru hei whakatika</string>
     <string name="qibla_distance">Tawhiti ki Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Kei te anga koe ki te Qibla 🕋</string>
+    <string name="qibla_facing">Kei te anga koe ki te Qibla</string>
     <string name="qibla_gps_error">Kaore i taea te whakatika tika. Me ngana ano.</string>
     <string name="qibla_gps_live">Tauwāhi GPS ora</string>
     <string name="qibla_gps_refresh">Whakahouhia te waahi ma te GPS</string>

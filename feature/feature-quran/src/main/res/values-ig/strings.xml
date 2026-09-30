@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Enweghị ike ibudata tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Soro ayah agụpụtara na tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Bugharịa ihe pụtara na tafsir jiri ịgụgharị. Gbanyụọ ka ịgụọ nkọwa ọzọ ka ọdịyo na-aga n\'ihu.</string>
+    <string name="quran_search_hint">Chọọ amaokwu Quran…</string>
+    <string name="quran_search_clear">Kpochapụ ọchụchọ</string>
+    <string name="quran_search_no_results">Enweghị nsonaazụ dabara</string>
+    <string name="quran_search_words">Okwu niile</string>
+    <string name="quran_search_phrase">Akpaokwu kpọmkwem</string>
+    <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
 </resources>

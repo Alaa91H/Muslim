@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">ހޯދަމުންދަނީ...</string>
     <string name="mosque_finder_title">ކައިރީގައި ހުންނަ މިސްކިތްތަކެވެ</string>
     <string name="qibla_bearing_cardinal">ޤިބްލާ މިސްރާބު: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f° އެވެ</string>
+    <string name="qibla_bearing_degree">%1$.0f° އެވެ</string>
     <string name="qibla_calibrate">ކެލިބްރޭޓް ކުރުމަށްޓަކައި ފޯނު ފިގަރ-އެއިޓް އެއްގައި ގެންދާށެވެ</string>
     <string name="qibla_distance">މައްކާއާ ދެމެދުގެ ދުރުމިން: %1$s އެވެ</string>
     <string name="qibla_distance_km">%,.0f ކިލޯމީޓަރު</string>
-    <string name="qibla_facing">ތިޔަ ކުރިމަތިވަނީ ޤިބްލާ 🕋 އާއެވެ</string>
+    <string name="qibla_facing">ތިޔަ ކުރިމަތިވަނީ ޤިބްލާ  އާއެވެ</string>
     <string name="qibla_gps_error">ޞައްޙަ ފިކްސްއެއް ނުލިބުނެވެ. އަނެއްކާވެސް މަސައްކަތް ކުރައްވާށެވެ.</string>
     <string name="qibla_gps_live">ލައިވް ޖީޕީއެސް ލޮކޭޝަން</string>
     <string name="qibla_gps_refresh">ޖީޕީއެސް މެދުވެރިކޮށް ލޮކޭޝަން ރިފްރެޝް ކުރުން</string>

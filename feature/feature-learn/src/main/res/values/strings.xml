@@ -25,6 +25,7 @@
     <string name="names_hadith_intro">قال النبي ﷺ: «إنَّ للهِ تِسْعَةً وَتِسْعِينَ اسْمًا، مِئَةً إِلَّا وَاحِدًا، مَنْ أَحْصَاهَا دَخَلَ الْجَنَّةَ». اضغط على أي اسم لعرض شرحه الكامل ومعناه ودليله من القرآن الكريم.</string>
     <string name="names_count">عدد الأسماء: %1$d</string>
     <string name="names_search_hint">ابحث عن اسم…</string>
+    <string name="names_search_clear" tools:ignore="MissingTranslation">مسح البحث</string>
     <string name="names_empty_search">لا توجد أسماء تطابق بحثك</string>
     <string name="names_meaning">المعنى</string>
     <string name="names_explanation">الشرح المفصّل</string>
@@ -416,6 +417,7 @@
     <string name="learn_topic_faith_questions" tools:ignore="MissingTranslation">الأسئلة والشبهات</string>
     <string name="learn_topic_faith_questions_sub" tools:ignore="MissingTranslation">منهج التحقق من النص والسياق والمصدر والتعامل المتوازن مع الإشكالات</string>
     <string name="learn_search_hint" tools:ignore="MissingTranslation">ابحث في الأكاديمية</string>
+    <string name="learn_search_clear" tools:ignore="MissingTranslation">مسح البحث</string>
     <string name="learn_continue_learning" tools:ignore="MissingTranslation">متابعة التعلم</string>
     <string name="learn_continue_subtitle" tools:ignore="MissingTranslation">ارجع إلى آخر درس غير مكتمل أو انتقل إلى الدرس التالي</string>
     <string name="learn_overall_progress" tools:ignore="MissingTranslation">تقدمك في الأكاديمية: %1$d من %2$d</string>

@@ -11,21 +11,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Slider
-import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -37,10 +29,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimMenuAction
+import org.muslim.app.core.ui.theme.MuslimOverflowMenu
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimSegmentedControl
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.reference.R
 import org.muslim.app.feature.reference.domain.CivilizationCategory
 import org.muslim.app.feature.reference.domain.CivilizationTopic
@@ -58,7 +54,6 @@ import org.muslim.app.feature.reference.domain.IslamicHistorySources
 import org.muslim.app.feature.reference.domain.IslamicHistoryStates
 
 /** A standalone, bilingual history destination with source-aware map boundaries. */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun IslamicHistoryScreen(
     onBack: () -> Unit,
@@ -72,27 +67,23 @@ fun IslamicHistoryScreen(
         selectedTab = target.type.tabIndex()
     }
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.history_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.reference_back),
-                        )
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.history_title),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.reference_back),
                 actions = {
-                    TextButton(onClick = {
-                        language = if (language == HistoryLanguage.Arabic) {
-                            HistoryLanguage.English
-                        } else {
-                            HistoryLanguage.Arabic
-                        }
-                    }) {
+                    TextButton(
+                        onClick = {
+                            language = if (language == HistoryLanguage.Arabic) {
+                                HistoryLanguage.English
+                            } else {
+                                HistoryLanguage.Arabic
+                            }
+                        },
+                    ) {
                         Text(
                             if (language == HistoryLanguage.Arabic) {
                                 stringResource(R.string.history_language_english)
@@ -104,12 +95,12 @@ fun IslamicHistoryScreen(
                 },
             )
         },
-    ) { innerPadding ->
-        Column(modifier = Modifier.padding(innerPadding).fillMaxSize()) {
+    ) {
+        Column(modifier = Modifier.fillMaxSize()) {
             HistoryTabs(selectedTab = selectedTab, onSelect = { selectedTab = it })
             IslamicDecorationDivider(
                 tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 24.dp),
+                modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
             )
             HistoryDestinationContent(
                 selectedTab = selectedTab,
@@ -171,25 +162,62 @@ private fun HistoryDestinationContent(
 }
 
 @Composable
-private fun HistoryTabs(selectedTab: Int, onSelect: (Int) -> Unit) {
-    val labels = listOf(
-        stringResource(R.string.history_timeline_tab),
-        stringResource(R.string.history_states_tab),
-        stringResource(R.string.history_civilization_tab),
-        stringResource(R.string.history_events_tab),
-        stringResource(R.string.history_atlas_tab),
-        stringResource(R.string.history_people_tab),
-        stringResource(R.string.history_search_tab),
-    )
-    ScrollableTabRow(
-        selectedTabIndex = selectedTab,
-        edgePadding = 8.dp,
+private fun HistoryTabs(
+    selectedTab: Int,
+    onSelect: (Int) -> Unit,
+) {
+    var moreExpanded by remember { mutableStateOf(false) }
+    val primaryTabs = listOf(0, 5, 4)
+    val primarySelectedIndex = primaryTabs.indexOf(selectedTab)
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(
+                horizontal = IslamicSpacing.PageHorizontal,
+                vertical = IslamicSpacing.Small,
+            ),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.XSmall),
     ) {
-        labels.forEachIndexed { index, label ->
-            Tab(
-                selected = selectedTab == index,
-                onClick = { onSelect(index) },
-                text = { Text(label, maxLines = 2, textAlign = TextAlign.Center) },
+        MuslimSegmentedControl(
+            options = listOf(
+                stringResource(R.string.history_timeline_tab),
+                stringResource(R.string.history_people_tab),
+                stringResource(R.string.history_atlas_tab),
+            ),
+            selectedIndex = primarySelectedIndex,
+            onSelectedIndexChange = { index -> onSelect(primaryTabs[index]) },
+        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.End,
+        ) {
+            MuslimOverflowMenu(
+                expanded = moreExpanded,
+                onExpandedChange = { moreExpanded = it },
+                contentDescription = stringResource(R.string.history_more_views),
+                actions = listOf(
+                    MuslimMenuAction(
+                        id = "states",
+                        label = stringResource(R.string.history_states_tab),
+                        onClick = { onSelect(1) },
+                    ),
+                    MuslimMenuAction(
+                        id = "civilization",
+                        label = stringResource(R.string.history_civilization_tab),
+                        onClick = { onSelect(2) },
+                    ),
+                    MuslimMenuAction(
+                        id = "events",
+                        label = stringResource(R.string.history_events_tab),
+                        onClick = { onSelect(3) },
+                    ),
+                    MuslimMenuAction(
+                        id = "search",
+                        label = stringResource(R.string.history_search_tab),
+                        onClick = { onSelect(6) },
+                    ),
+                ),
             )
         }
     }

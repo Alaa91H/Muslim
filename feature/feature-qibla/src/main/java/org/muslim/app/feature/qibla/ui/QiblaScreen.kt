@@ -62,13 +62,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dagger.hilt.android.EntryPointAccessors
+import org.muslim.app.core.designsystem.IslamicLayout
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.location.MagneticDeclination
 import org.muslim.app.core.permissions.AppPermission
@@ -76,6 +76,8 @@ import org.muslim.app.core.permissions.PermissionEntryPoint
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicDecorationMedallion
+import org.muslim.app.core.ui.theme.MuslimExpandableSection
+import org.muslim.app.core.ui.theme.MuslimGroup
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.qibla.R
@@ -333,11 +335,8 @@ internal fun QiblaCompassContent(
 
     BoxWithConstraints(modifier = modifier.fillMaxSize()) {
         val compact = maxHeight < 620.dp
-        val horizontalPadding = when {
-            maxWidth < 360.dp -> 10.dp
-            maxWidth >= 600.dp -> 24.dp
-            else -> 16.dp
-        }
+        val adaptiveSpec = IslamicLayout.adaptiveSpec(maxWidth)
+        val horizontalPadding = adaptiveSpec.horizontalPadding
         val verticalPadding = if (compact) 6.dp else 10.dp
         val gap = if (compact) 6.dp else 10.dp
 
@@ -414,14 +413,12 @@ private fun QiblaLocationSummary(
     compact: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    IslamicCard(
+    MuslimGroup(
         modifier = modifier,
-        shape = MaterialTheme.shapes.extraLarge,
         contentPadding = PaddingValues(
-            horizontal = if (compact) 12.dp else 16.dp,
-            vertical = if (compact) 10.dp else 12.dp,
+            horizontal = if (compact) IslamicSpacing.Compact else IslamicSpacing.Medium,
+            vertical = if (compact) IslamicSpacing.Small else IslamicSpacing.Compact,
         ),
-        containerColor = MaterialTheme.colorScheme.primaryContainer,
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -431,19 +428,21 @@ private fun QiblaLocationSummary(
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = presentation.locationName,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis,
-                    style = if (compact) MaterialTheme.typography.titleMedium else MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer,
-                )
-                Spacer(Modifier.height(IslamicSpacing.XXSmall))
-                Text(
-                    text = stringResource(R.string.qibla_bearing_cardinal, presentation.bearingCardinal),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
-                    style = if (compact) MaterialTheme.typography.bodySmall else MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.80f),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.onSurface,
+                )
+                Text(
+                    text = stringResource(
+                        R.string.qibla_bearing_cardinal,
+                        presentation.bearingCardinal,
+                    ),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
             GpsRefreshControl(
@@ -453,7 +452,6 @@ private fun QiblaLocationSummary(
             )
         }
         if (gpsState == QiblaGpsState.Error) {
-            Spacer(Modifier.height(IslamicSpacing.Small))
             MuslimStateSurface(
                 title = stringResource(R.string.qibla_gps_error),
                 tone = MuslimStateTone.Critical,
@@ -495,121 +493,165 @@ private fun GpsRefreshControl(
     }
 }
 
-@Suppress("LongMethod")
 @Composable
 private fun QiblaDirectionDetails(
     presentation: QiblaPresentation,
     compact: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    val direction = when {
-        presentation.facingQibla -> stringResource(R.string.qibla_facing)
-        presentation.turnRight -> stringResource(R.string.qibla_turn_right, presentation.turnDegrees)
-        else -> stringResource(R.string.qibla_turn_left, presentation.turnDegrees)
-    }
-    val postureMessage = when {
-        presentation.needsFlatPosture -> stringResource(R.string.qibla_hold_flat)
-        presentation.needsCalibration -> stringResource(R.string.qibla_calibrate)
-        else -> null
-    }
+    var detailsExpanded by rememberSaveable { mutableStateOf(false) }
+    val direction = qiblaDirectionInstruction(presentation)
+    val postureMessage = qiblaPostureMessage(presentation)
 
-    IslamicCard(
+    Column(
         modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+    ) {
+        QiblaPrimaryStatusCard(
+            presentation = presentation,
+            direction = direction,
+            postureMessage = postureMessage,
+            compact = compact,
+        )
+        QiblaTechnicalDetails(
+            presentation = presentation,
+            expanded = detailsExpanded,
+            onExpandedChange = { detailsExpanded = it },
+        )
+    }
+}
+
+@Composable
+private fun qiblaDirectionInstruction(
+    presentation: QiblaPresentation,
+): String = when {
+    presentation.facingQibla -> stringResource(R.string.qibla_facing)
+    presentation.turnRight -> stringResource(
+        R.string.qibla_turn_right,
+        presentation.turnDegrees,
+    )
+    else -> stringResource(
+        R.string.qibla_turn_left,
+        presentation.turnDegrees,
+    )
+}
+
+@Composable
+private fun qiblaPostureMessage(
+    presentation: QiblaPresentation,
+): String? = when {
+    presentation.needsFlatPosture -> stringResource(R.string.qibla_hold_flat)
+    presentation.needsCalibration -> stringResource(R.string.qibla_calibrate)
+    else -> null
+}
+
+@Composable
+private fun QiblaPrimaryStatusCard(
+    presentation: QiblaPresentation,
+    direction: String,
+    postureMessage: String?,
+    compact: Boolean,
+) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.large,
         contentPadding = PaddingValues(
-            horizontal = if (compact) 12.dp else 16.dp,
-            vertical = if (compact) 9.dp else 12.dp,
+            horizontal = if (compact) IslamicSpacing.Compact else IslamicSpacing.Medium,
+            vertical = if (compact) IslamicSpacing.Small else IslamicSpacing.Compact,
         ),
         containerColor = if (presentation.facingQibla) {
             MaterialTheme.colorScheme.secondaryContainer
         } else {
-            MaterialTheme.colorScheme.surface
+            MaterialTheme.colorScheme.surfaceContainerLow
         },
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(if (compact) 8.dp else 12.dp),
+            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
         ) {
-            Text(
-                text = "🕋",
-                fontSize = if (compact) 22.sp else 26.sp,
-            )
-            Column(modifier = Modifier.weight(0.9f)) {
+            Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = stringResource(R.string.qibla_bearing_degree, presentation.bearing),
+                    text = stringResource(
+                        R.string.qibla_bearing_degree,
+                        presentation.bearing,
+                    ),
                     maxLines = 1,
-                    style = if (compact) MaterialTheme.typography.titleLarge else MaterialTheme.typography.headlineSmall,
+                    style = if (compact) {
+                        MaterialTheme.typography.titleLarge
+                    } else {
+                        MaterialTheme.typography.headlineSmall
+                    },
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary,
+                    color = MaterialTheme.colorScheme.tertiary,
                 )
                 Text(
-                    text = stringResource(R.string.qibla_bearing_cardinal, presentation.bearingCardinal),
-                    maxLines = 1,
+                    text = direction,
+                    maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    style = if (compact) {
+                        MaterialTheme.typography.bodyMedium
+                    } else {
+                        MaterialTheme.typography.titleSmall
+                    },
+                    fontWeight = FontWeight.SemiBold,
+                    color = if (presentation.facingQibla) {
+                        MaterialTheme.colorScheme.onSecondaryContainer
+                    } else {
+                        MaterialTheme.colorScheme.onSurface
+                    },
                 )
             }
-            Text(
-                text = direction,
-                modifier = Modifier.weight(1.1f),
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-                textAlign = TextAlign.End,
-                style = if (compact) MaterialTheme.typography.bodyMedium else MaterialTheme.typography.titleSmall,
-                fontWeight = FontWeight.SemiBold,
-                color = if (presentation.facingQibla) {
-                    MaterialTheme.colorScheme.onSecondaryContainer
-                } else {
-                    MaterialTheme.colorScheme.onSurface
-                },
-            )
-        }
-
-        Spacer(Modifier.height(if (compact) 5.dp else 8.dp))
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
-        ) {
-            Text(
-                text = stringResource(
-                    R.string.qibla_heading_degree,
-                    presentation.trueHeading,
-                    presentation.headingCardinal,
-                ),
-                modifier = Modifier.weight(1f),
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Text(
-                text = stringResource(
-                    R.string.qibla_distance,
-                    stringResource(R.string.qibla_distance_km, presentation.distanceKm),
-                ),
-                modifier = Modifier.weight(1f),
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-                textAlign = TextAlign.End,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
         }
 
         postureMessage?.let { message ->
-            Spacer(Modifier.height(if (compact) 4.dp else 6.dp))
+            Spacer(Modifier.height(IslamicSpacing.XSmall))
             Text(
                 text = message,
-                maxLines = 1,
+                maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
                 style = MaterialTheme.typography.labelMedium,
-                fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colorScheme.tertiary,
             )
         }
+    }
+}
+
+@Composable
+private fun QiblaTechnicalDetails(
+    presentation: QiblaPresentation,
+    expanded: Boolean,
+    onExpandedChange: (Boolean) -> Unit,
+) {
+    MuslimExpandableSection(
+        title = stringResource(R.string.qibla_details),
+        supportingText = stringResource(
+            R.string.qibla_bearing_cardinal,
+            presentation.bearingCardinal,
+        ),
+        expanded = expanded,
+        onExpandedChange = onExpandedChange,
+    ) {
+        Text(
+            text = stringResource(
+                R.string.qibla_heading_degree,
+                presentation.trueHeading,
+                presentation.headingCardinal,
+            ),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Text(
+            text = stringResource(
+                R.string.qibla_distance,
+                stringResource(
+                    R.string.qibla_distance_km,
+                    presentation.distanceKm,
+                ),
+            ),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
     }
 }
 

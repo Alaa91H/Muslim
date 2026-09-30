@@ -54,6 +54,11 @@ jobs:
       - name: Set up Gradle cache
         uses: gradle/actions/setup-gradle@v6
 
+      - name: Verify visual comparison policies
+        run: |
+          python3 -m pip install -r scripts/requirements-uiux-visual.txt
+          python3 -m unittest discover -s scripts/tests -p test_uiux_v2_visual_comparison.py -v
+
       - name: Verify feature module boundaries
         run: python3 scripts/verify_module_boundaries.py
 
@@ -77,12 +82,20 @@ jobs:
           python3 scripts/verify_hadith_chapter_localization.py
           python3 scripts/verify_prayer_location_notification_contract.py
           python3 scripts/verify_nearby_mosques_contract.py
+          python3 scripts/verify_qibla_v2.py
           python3 scripts/verify_funeral_will.py
           python3 scripts/verify_responsive_customization_layout.py
           python3 scripts/verify_design_system_adoption.py
           python3 scripts/verify_quran_playback_reliability.py
+          python3 scripts/verify_quran_reader_v2.py
+          python3 scripts/verify_quran_library_v2.py
           python3 scripts/verify_quran_session_restore.py
           python3 scripts/verify_home_uiux_contract.py
+          python3 scripts/verify_uiux_v2_feature_parity.py
+          python3 scripts/verify_uiux_v2_qa_matrix.py
+          python3 scripts/verify_development_apk_ci.py
+          python3 scripts/verify_more_hub_v2.py
+          python3 scripts/verify_adhkar_tasbih_v2.py
           python3 scripts/verify_scholar_library.py
           git diff --check
 
@@ -183,11 +196,32 @@ jobs:
           # API 36 exercises current background-audio and notification restrictions.
           api-level: ${{ matrix.api-level }}
           arch: x86_64
+          # Preserve android-emulator-runner defaults and explicitly opt out of
+          # emulator metrics so modern emulator builds never block CI for consent.
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -no-metrics
           disable-animations: true
           script: |
+            bash scripts/capture_uiux_v2_artifacts.sh
+            python3 scripts/validate_uiux_v2_screenshots.py artifacts/uiux-v2
             ./gradlew :feature:feature-scholar-library:connectedDebugAndroidTest
             adb shell cmd audio set-enable-hardening throw
-            ./gradlew :app:connectedDebugAndroidTest :feature:feature-learn:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :feature:feature-qibla:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest
+            ./gradlew :feature:feature-learn:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :feature:feature-qibla:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest
+
+      - name: Upload UI/UX V2 emulator screenshots
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: uiux-v2-screenshots-api-${{ matrix.api-level }}
+          path: artifacts/uiux-v2/*.png
+          if-no-files-found: error
+
+      - name: Upload emulator diagnostics
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: emulator-diagnostics-api-${{ matrix.api-level }}
+          path: artifacts/emulator-diagnostics/
+          if-no-files-found: ignore
 
       # Instrumentation failures are the hardest to reproduce locally, so the
       # device test report is always kept when this job fails.
@@ -195,7 +229,7 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v7
         with:
-          name: emulator-test-reports
+          name: emulator-test-reports-api-${{ matrix.api-level }}
           path: |
             **/build/outputs/androidTest-results/**/*.xml
             **/build/reports/androidTests/**
@@ -438,6 +472,83 @@ jobs:
         with:
           api-level: ${{ matrix.api-level }}
           arch: x86_64
+          # Preserve android-emulator-runner defaults and explicitly opt out of
+          # emulator metrics so modern emulator builds never block CI for consent.
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -no-metrics
           disable-animations: true
           script: ./gradlew :feature:feature-family-life:connectedDebugAndroidTest
+
+
+  # ---------------------------------------------------------------------------
+  # Development APK: every PR (and manual non-tag run) publishes installable
+  # debug APKs only after all quality + emulator gates are green. This is the
+  # stable tester artifact for active UI/feature development.
+  # ---------------------------------------------------------------------------
+  development-apk:
+    name: Development APK (PR/testing)
+    runs-on: ubuntu-26.04
+    needs: [quality, emulator-tests, family-life-emulator-tests]
+    if: >-
+      github.event_name == 'pull_request' ||
+      (github.event_name == 'workflow_dispatch' && !startsWith(github.ref, 'refs/tags/v'))
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v4
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Set up Gradle cache
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Build installable development APKs
+        run: ./gradlew :app:assembleDebug :wear:assembleDebug --stacktrace
+
+      - name: Assemble stable development tester pack
+        run: |
+          set -euo pipefail
+          mkdir -p development-apk
+
+          PHONE_APK="$(find app/build/outputs/apk/debug -name '*.apk' -type f | head -1)"
+          WEAR_APK="$(find wear/build/outputs/apk/debug -name '*.apk' -type f | head -1)"
+
+          [ -n "$PHONE_APK" ] || { echo "::error::No phone debug APK found"; exit 1; }
+          [ -n "$WEAR_APK" ] || { echo "::error::No Wear debug APK found"; exit 1; }
+
+          cp "$PHONE_APK" development-apk/Muslim-development.apk
+          cp "$WEAR_APK" development-apk/Muslim-Wear-development.apk
+
+          (
+            cd development-apk
+            sha256sum Muslim-development.apk Muslim-Wear-development.apk > SHA256SUMS.txt
+          )
+
+          {
+            echo "commit=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_number=$GITHUB_RUN_NUMBER"
+            echo "ref=$GITHUB_REF"
+            echo "event=$GITHUB_EVENT_NAME"
+          } > development-apk/build-info.txt
+
+      - name: Upload development APK tester pack
+        uses: actions/upload-artifact@v7
+        with:
+          name: muslim-development-apk
+          path: development-apk/
+          retention-days: 30
+          compression-level: 0
+          if-no-files-found: error
 

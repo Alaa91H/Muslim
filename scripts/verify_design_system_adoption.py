@@ -10,6 +10,11 @@ ROOT = Path(__file__).resolve().parents[1]
 LAYOUT = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/IslamicAppLayout.kt"
 THEME = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/Theme.kt"
 COMPONENTS = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/IslamicComponents.kt"
+SCREEN_V2 = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/MuslimScreenV2.kt"
+CONTENT_V2 = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/MuslimContentV2.kt"
+FEEDBACK_V2 = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/MuslimFeedbackV2.kt"
+INTERACTION_V2 = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/MuslimInteractionV2.kt"
+ADAPTIVE_V2 = ROOT / "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/MuslimAdaptiveLayout.kt"
 APP = ROOT / "app/src/main/java/org/muslim/app/ui/MuslimApp.kt"
 HOME = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeScreen.kt"
 LOCATION = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/location/LocationScreen.kt"
@@ -48,17 +53,62 @@ def main() -> None:
     layout = LAYOUT.read_text(encoding="utf-8")
     theme = THEME.read_text(encoding="utf-8")
     components = COMPONENTS.read_text(encoding="utf-8")
+    screen_v2 = SCREEN_V2.read_text(encoding="utf-8")
+    content_v2 = CONTENT_V2.read_text(encoding="utf-8")
+    feedback_v2 = FEEDBACK_V2.read_text(encoding="utf-8")
+    interaction_v2 = INTERACTION_V2.read_text(encoding="utf-8")
+    adaptive_v2 = ADAPTIVE_V2.read_text(encoding="utf-8")
     app = APP.read_text(encoding="utf-8")
 
+    require("IslamicLayout" in layout, "shared layout tokens must drive the adaptive content frame")
     require("fun MuslimAppScaffold" in layout, "shared application scaffold is required")
     require("fun MuslimContentFrame" in layout, "adaptive content frame is required")
-    require("DefaultMuslimContentWidth = 760.dp" in layout, "wide content must retain a readable bound")
+    require("DefaultMuslimContentWidth = IslamicLayout.ReadableContentMaxWidth" in layout, "wide content must use the shared readable-width token")
     require("MuslimMotionPreferences" in layout, "motion preference model is required")
     require("reduceAnimations: Boolean" in theme, "theme must accept the persisted reduce-motion preference")
     require("LocalMuslimMotionPreferences provides MuslimMotionPreferences(reduceAnimations)" in theme, "theme must provide motion preference")
     require("reduceAnimations = preferences.reduceAnimations" in app, "app must bind the stored reduce-motion preference")
     require("MuslimAppScaffold" in app, "root app must use the shared scaffold")
     require("fun IslamicListItem" in components, "shared list item component is required")
+
+    for component_name in (
+        "fun MuslimScreen",
+        "fun MuslimTopBar",
+        "fun MuslimReaderScaffold",
+    ):
+        require(component_name in screen_v2, f"UI/UX V2 screen primitive missing: {component_name}")
+    for component_name in (
+        "fun MuslimHero",
+        "fun MuslimSection",
+        "fun MuslimGroup",
+        "fun MuslimSettingsItem",
+        "fun MuslimStatusChip",
+        "fun MuslimInlineMessage",
+    ):
+        require(component_name in content_v2, f"UI/UX V2 content primitive missing: {component_name}")
+    for component_name in (
+        "fun MuslimProgressHeader",
+        "fun MuslimMetric",
+        "fun MuslimExpandableSection",
+        "fun MuslimSkeleton",
+    ):
+        require(component_name in feedback_v2, f"UI/UX V2 feedback primitive missing: {component_name}")
+    for component_name in (
+        "fun MuslimSegmentedControl",
+        "fun MuslimSearchBar",
+        "fun MuslimFilterBar",
+        "fun MuslimBottomSheet",
+        "fun MuslimActionSheet",
+        "fun MuslimOverflowMenu",
+    ):
+        require(component_name in interaction_v2, f"UI/UX V2 interaction primitive missing: {component_name}")
+
+    for component_name in (
+        "fun MuslimAdaptiveContentFrame",
+        "fun MuslimAdaptiveScreen",
+    ):
+        require(component_name in adaptive_v2, f"UI/UX V2 adaptive primitive missing: {component_name}")
+    require("IslamicLayout.adaptiveSpec(maxWidth)" in adaptive_v2, "adaptive screens must use the shared width policy")
     require("fun IslamicSelectableCard" in components, "shared selectable card component is required")
     for state_component in (
         "fun MuslimLoadingState",
@@ -74,12 +124,33 @@ def main() -> None:
         (HOME, "prayer home"),
         (LOCATION, "location"),
         (HADITH, "Hadith library"),
-        (MORE, "More hub"),
         (SETTINGS, "settings"),
     ):
         source = path.read_text(encoding="utf-8")
-        require("MuslimContentFrame" in source, f"{label} must use the adaptive content frame")
-    require("IslamicListItem" in MORE.read_text(encoding="utf-8"), "More hub must use the shared list item")
+        require(
+            any(
+                shell in source
+                for shell in (
+                    "MuslimContentFrame",
+                    "MuslimAdaptiveContentFrame",
+                    "MuslimAdaptiveScreen(",
+                    "MuslimScreen(",
+                )
+            ),
+            f"{label} must use a shared adaptive screen/content shell",
+        )
+
+    more_source = MORE.read_text(encoding="utf-8")
+    require(
+        "MuslimScreen(" in more_source
+        or "MuslimAdaptiveScreen(" in more_source
+        or "MuslimContentFrame" in more_source,
+        "More hub must use a shared adaptive screen/content shell",
+    )
+    require(
+        "MuslimSettingsItem" in more_source,
+        "More hub must use the shared V2 settings/navigation row",
+    )
     home = HOME.read_text(encoding="utf-8")
     location = LOCATION.read_text(encoding="utf-8")
 
@@ -190,6 +261,19 @@ def main() -> None:
         "Surah list must use shared spacing tokens",
     )
     require(
+        "MuslimSearchBar" in surah_list
+        and "MuslimSegmentedControl" in surah_list
+        and "MuslimHero" in surah_list
+        and "MuslimProgressHeader" in surah_list,
+        "Quran home must use V2 search, segmented discovery, continue-reading hero and progress hierarchy",
+    )
+    require(
+        "TAB_SURAHS" in surah_list
+        and "TAB_JUZ" in surah_list
+        and "TAB_BOOKMARKS" in surah_list,
+        "Quran home must retain Surah/Juz/Bookmarks segmented navigation",
+    )
+    require(
         "IslamicCard" in notification_settings
         and "IslamicPrimaryButton" in notification_settings
         and "IslamicSecondaryButton" in notification_settings,
@@ -240,8 +324,18 @@ def main() -> None:
         "Prayer home must use shared Islamic actions instead of raw Card/Button patterns",
     )
     require(
-        "IslamicSecondaryButton" in home,
-        "Prayer home share/month-view actions must use the shared secondary action",
+        "MuslimHero" in home
+        and "MuslimGroup" in home
+        and "MuslimOverflowMenu" in home,
+        "Prayer home must use the V2 hero/group/overflow hierarchy",
+    )
+    require(
+        "alert.volume" not in home,
+        "Prayer home must not expose raw per-prayer volume percentages",
+    )
+    require(
+        "MonthlyTimetable" in home and "Prayer.entries.forEach" in home,
+        "Prayer home monthly mode must expose the complete all-prayer timetable",
     )
     require(
         raw_material_component.search(location) is None,

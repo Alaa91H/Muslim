@@ -162,7 +162,7 @@ class QuranReaderViewModel @Inject constructor(
     override fun onCleared() = downloadNotifier.dismiss()
 
 
-    private val initialSurahNumber: Int = savedStateHandle["surahNumber"] ?: 1
+    val initialSurahNumber: Int = savedStateHandle["surahNumber"] ?: 1
 
     /** Current surah (mutable so continuous playback can auto-advance). */
     private val _surahNumber = MutableStateFlow(initialSurahNumber)
@@ -181,26 +181,25 @@ class QuranReaderViewModel @Inject constructor(
 
     /** The ayah currently in view; the UI updates this as the user scrolls. */
     val currentAyah = MutableStateFlow<Ayah?>(null)
+    private val supplementCursor = QuranReaderSupplementCursor(repository, prefsRepository, viewModelScope)
 
-    /** Opens an adjacent surah for manual Mushaf-style paging. */
-    fun openSurah(number: Int) {
-        if (number in 1..114 && number != _surahNumber.value) {
-            _surahNumber.value = number
-        }
+    private val mushafContent = QuranReaderMushaf(repository, viewModelScope)
+    val mushafAyahs = mushafContent.ayahs
+    val surahNames = mushafContent.surahNames
+
+    fun viewAyah(ayah: Ayah, manual: Boolean = true) {
+        if (manual) supplementCursor.recordReading(ayah)
+        currentAyah.value = ayah
+        _surahNumber.value = ayah.surahNumber
     }
 
-    val uiState: StateFlow<QuranReaderUiState> = combine(
-        _surahNumber.flatMapLatest { repository.observeSurahMetadata(it)
-}
-,
-        _surahNumber.flatMapLatest { repository.observeSurah(it)
-}
-,
-    ) { surah, ayahs ->
-        QuranReaderUiState(loading = false, surah = surah, ayahs = ayahs)
-
-}
-.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), QuranReaderUiState())
+    // Metadata and verses belong to the same request. Never combine new metadata
+    // with the previous surah's verses during an asynchronous boundary transition.
+    val uiState: StateFlow<QuranReaderUiState> = _surahNumber.flatMapLatest { number ->
+        combine(repository.observeSurahMetadata(number), repository.observeSurah(number)) { surah, ayahs ->
+            QuranReaderUiState(loading = false, surah = surah, ayahs = ayahs)
+        }
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), QuranReaderUiState())
 
     val isBookmarked: StateFlow<Boolean> = combine(
         currentAyah,
@@ -258,6 +257,12 @@ class QuranReaderViewModel @Inject constructor(
     /** Never exposes a stale preference: the selected source is always installed. */
     val selectedTafsirSource: StateFlow<String?> = effectiveSelectedTafsirSource
 
+    val supplementFollowPlayback = supplementCursor.followPlayback
+    val supplementAyah = supplementCursor.ayah(audioPlayer.currentAyah)
+
+    fun setSupplementFollowPlayback(enabled: Boolean) =
+        supplementCursor.setFollow(enabled, audioPlayer.currentAyah.value, currentAyah.value)
+
     /**
      * Translations + tafsir of the currently viewed ayah, when installed.
      * Honors the reader's meanings/tafsir controls: the panel hides when
@@ -265,7 +270,7 @@ class QuranReaderViewModel @Inject constructor(
      * language ("auto" resolves to the current app language).
      */
     val supplements: StateFlow<QuranReaderSupplementUi> = combine(
-        currentAyah,
+        supplementAyah,
         prefsRepository.supplementEnabled,
         prefsRepository.supplementLanguage,
         effectiveSelectedTafsirSource,
@@ -1022,4 +1027,3 @@ internal fun nextSurahForAdvance(currentSurah: Int, toEndOfQuran: Boolean, stopA
     if (currentSurah >= 114) return if (toEndOfQuran || stopAtEnd) null else 1
     return currentSurah + 1
 }
-

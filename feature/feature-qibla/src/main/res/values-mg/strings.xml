@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Mikaroka…</string>
     <string name="mosque_finder_title">Moske akaiky</string>
     <string name="qibla_bearing_cardinal">Kibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Alefaso amin\'ny tarehimarika valo ny findainao mba hanitsy</string>
     <string name="qibla_distance">Halavany mankany La Mecque: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Miatrika ny Qibla ianao 🕋</string>
+    <string name="qibla_facing">Miatrika ny Qibla ianao</string>
     <string name="qibla_gps_error">Tsy afaka nahazo fanitsiana marina. Andramo indray azafady.</string>
     <string name="qibla_gps_live">Toerana GPS mivantana</string>
     <string name="qibla_gps_refresh">Havaozy ny toerana amin\'ny alàlan\'ny GPS</string>

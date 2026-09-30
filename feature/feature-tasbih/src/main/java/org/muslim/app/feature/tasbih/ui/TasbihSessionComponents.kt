@@ -1,17 +1,11 @@
 package org.muslim.app.feature.tasbih.ui
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,9 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
-import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.MuslimEmptyState
+import org.muslim.app.core.ui.theme.MuslimFilterBar
+import org.muslim.app.core.ui.theme.MuslimFilterOption
+import org.muslim.app.core.ui.theme.MuslimGroup
+import org.muslim.app.core.ui.theme.MuslimProgressHeader
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
+import org.muslim.app.core.ui.theme.MuslimSegmentedControl
 import org.muslim.app.feature.tasbih.R
 import org.muslim.app.feature.tasbih.domain.TasbihPhrase
 import org.muslim.app.feature.tasbih.domain.TasbihSessionHistoryItem
@@ -43,23 +42,21 @@ internal fun TasbihSessionControls(
     onRoundsGoalSelected: (Int) -> Unit,
     onPresetSelected: (TasbihSessionMode, Int, Int) -> Unit,
 ) {
-    IslamicCard(
+    Column(
         modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         Text(
             text = stringResource(R.string.tasbih_session_mode_title),
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
         )
-        Spacer(Modifier.height(8.dp))
 
         SessionModeSelector(
             selected = state.sessionMode,
             onSelected = onModeSelected,
         )
 
-        Spacer(Modifier.height(6.dp))
         Text(
             text = sessionModeDescription(state.sessionMode),
             style = MaterialTheme.typography.bodySmall,
@@ -67,26 +64,22 @@ internal fun TasbihSessionControls(
         )
 
         if (state.sessionMode == TasbihSessionMode.Rounds) {
-            Spacer(Modifier.height(12.dp))
             RoundsGoalSelector(
                 selected = state.roundsGoal,
                 onSelected = onRoundsGoalSelected,
             )
         }
 
-        Spacer(Modifier.height(14.dp))
         SessionPresetSelector(
             state = state,
             onPresetSelected = onPresetSelected,
         )
 
-        Spacer(Modifier.height(14.dp))
         Text(
             text = stringResource(R.string.tasbih_session_active),
             style = MaterialTheme.typography.labelLarge,
             fontWeight = FontWeight.SemiBold,
         )
-        Spacer(Modifier.height(6.dp))
         ActiveSessionSummary(activeSession)
     }
 }
@@ -96,20 +89,14 @@ private fun SessionModeSelector(
     selected: TasbihSessionMode,
     onSelected: (TasbihSessionMode) -> Unit,
 ) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .horizontalScroll(rememberScrollState()),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        TasbihSessionMode.entries.forEach { mode ->
-            FilterChip(
-                selected = selected == mode,
-                onClick = { onSelected(mode) },
-                label = { Text(sessionModeLabel(mode)) },
-            )
-        }
-    }
+    val modes = TasbihSessionMode.entries
+    MuslimSegmentedControl(
+        options = modes.map { sessionModeLabel(it) },
+        selectedIndex = modes.indexOf(selected).coerceAtLeast(0),
+        onSelectedIndexChange = { index ->
+            modes.getOrNull(index)?.let(onSelected)
+        },
+    )
 }
 
 @Composable
@@ -122,21 +109,13 @@ private fun RoundsGoalSelector(
         style = MaterialTheme.typography.labelLarge,
         fontWeight = FontWeight.SemiBold,
     )
-    Spacer(Modifier.height(6.dp))
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .horizontalScroll(rememberScrollState()),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        ROUND_GOALS.forEach { rounds ->
-            FilterChip(
-                selected = selected == rounds,
-                onClick = { onSelected(rounds) },
-                label = { Text(rounds.toString()) },
-            )
-        }
-    }
+    MuslimSegmentedControl(
+        options = ROUND_GOALS.map(Int::toString),
+        selectedIndex = ROUND_GOALS.indexOf(selected).coerceAtLeast(0),
+        onSelectedIndexChange = { index ->
+            ROUND_GOALS.getOrNull(index)?.let(onSelected)
+        },
+    )
 }
 
 @Composable
@@ -149,105 +128,76 @@ private fun SessionPresetSelector(
         style = MaterialTheme.typography.labelLarge,
         fontWeight = FontWeight.SemiBold,
     )
-    Spacer(Modifier.height(6.dp))
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .horizontalScroll(rememberScrollState()),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        FilterChip(
-            selected = state.sessionMode == TasbihSessionMode.Free,
-            onClick = { onPresetSelected(TasbihSessionMode.Free, state.target, state.roundsGoal) },
-            label = { Text(stringResource(R.string.tasbih_preset_free)) },
-        )
-        FilterChip(
-            selected = state.sessionMode == TasbihSessionMode.Target && state.target == 33,
-            onClick = { onPresetSelected(TasbihSessionMode.Target, 33, 1) },
-            label = { Text(stringResource(R.string.tasbih_preset_33)) },
-        )
-        FilterChip(
-            selected = state.sessionMode == TasbihSessionMode.Target && state.target == 100,
-            onClick = { onPresetSelected(TasbihSessionMode.Target, 100, 1) },
-            label = { Text(stringResource(R.string.tasbih_preset_100)) },
-        )
-        FilterChip(
-            selected = state.sessionMode == TasbihSessionMode.Rounds &&
-                state.target == 33 &&
-                state.roundsGoal == 3,
-            onClick = { onPresetSelected(TasbihSessionMode.Rounds, 33, 3) },
-            label = { Text(stringResource(R.string.tasbih_preset_33x3)) },
-        )
-    }
+
+    val selectedId = sessionPresetId(state)
+    val options = listOf(
+        MuslimFilterOption("free", stringResource(R.string.tasbih_preset_free)),
+        MuslimFilterOption("33", stringResource(R.string.tasbih_preset_33)),
+        MuslimFilterOption("100", stringResource(R.string.tasbih_preset_100)),
+        MuslimFilterOption("33x3", stringResource(R.string.tasbih_preset_33x3)),
+    )
+
+    MuslimFilterBar(
+        options = options,
+        selectedIds = selectedId.takeIf(String::isNotBlank)?.let(::setOf) ?: emptySet(),
+        onToggle = { id ->
+            when (id) {
+                "free" -> onPresetSelected(TasbihSessionMode.Free, state.target, state.roundsGoal)
+                "33" -> onPresetSelected(TasbihSessionMode.Target, 33, 1)
+                "100" -> onPresetSelected(TasbihSessionMode.Target, 100, 1)
+                "33x3" -> onPresetSelected(TasbihSessionMode.Rounds, 33, 3)
+            }
+        },
+    )
 }
+
+private fun sessionPresetId(state: TasbihState): String = when {
+        state.sessionMode == TasbihSessionMode.Free -> "free"
+        state.sessionMode == TasbihSessionMode.Target && state.target == 33 -> "33"
+        state.sessionMode == TasbihSessionMode.Target && state.target == 100 -> "100"
+        state.sessionMode == TasbihSessionMode.Rounds &&
+            state.target == 33 &&
+            state.roundsGoal == 3 -> "33x3"
+        else -> ""
+    }
 
 @Composable
 private fun ActiveSessionSummary(session: TasbihSessionHistoryItem?) {
     if (session == null) {
-        Text(
-            text = stringResource(R.string.tasbih_session_ready),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        MuslimEmptyState(
+            title = stringResource(R.string.tasbih_session_ready),
         )
         return
     }
 
     val goal = sessionGoal(session)
-    val progress = if (goal == null || goal <= 0L) {
-        0f
+    val phrase = TasbihPhrase.fromStorageId(session.phraseId)?.text ?: session.phraseId
+    val countText = if (goal == null) {
+        stringResource(R.string.tasbih_session_free_count, session.count)
     } else {
-        (session.count.toDouble() / goal.toDouble()).coerceIn(0.0, 1.0).toFloat()
+        stringResource(R.string.tasbih_session_progress, session.count, goal)
     }
+    val modeText = sessionModeLabel(session.mode)
 
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Column(modifier = Modifier.weight(1f)) {
+    if (goal != null && goal > 0L) {
+        MuslimProgressHeader(
+            title = phrase,
+            progress = (session.count.toDouble() / goal.toDouble()).coerceIn(0.0, 1.0).toFloat(),
+            supportingText = "$countText • $modeText",
+        )
+    } else {
+        MuslimGroup {
             Text(
-                text = TasbihPhrase.fromStorageId(session.phraseId)?.text ?: session.phraseId,
+                text = phrase,
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.SemiBold,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
             Text(
-                text = if (goal == null) {
-                    stringResource(R.string.tasbih_session_free_count, session.count)
-                } else {
-                    stringResource(R.string.tasbih_session_progress, session.count, goal)
-                },
+                text = "$countText • $modeText",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-        Text(
-            text = sessionModeLabel(session.mode),
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.primary,
-        )
-    }
-
-    if (goal != null) {
-        Spacer(Modifier.height(8.dp))
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(6.dp)
-                .background(
-                    MaterialTheme.colorScheme.surfaceVariant,
-                    RoundedCornerShape(99.dp),
-                ),
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth(progress)
-                    .height(6.dp)
-                    .background(
-                        MaterialTheme.colorScheme.primary,
-                        RoundedCornerShape(99.dp),
-                    ),
             )
         }
     }
@@ -258,43 +208,32 @@ internal fun RecentTasbihSessions(
     sessions: List<TasbihSessionHistoryItem>,
     modifier: Modifier = Modifier,
 ) {
-    Column(modifier = modifier.fillMaxWidth()) {
+    Column(
+        modifier = modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+    ) {
         MuslimSectionHeader(title = stringResource(R.string.tasbih_recent_sessions))
-        Spacer(Modifier.height(8.dp))
 
         val completed = sessions.filterNot { it.isActive }.take(5)
         if (completed.isEmpty()) {
-            IslamicCard(
-                modifier = Modifier.fillMaxWidth(),
-                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-            ) {
-                Text(
-                    text = stringResource(R.string.tasbih_recent_sessions_empty),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-            return
+            MuslimEmptyState(
+                title = stringResource(R.string.tasbih_recent_sessions_empty),
+            )
+            return@Column
         }
 
-        completed.forEachIndexed { index, session ->
+        completed.forEach { session ->
             SessionHistoryRow(session)
-            if (index != completed.lastIndex) {
-                Spacer(Modifier.height(8.dp))
-            }
         }
     }
 }
 
 @Composable
 private fun SessionHistoryRow(session: TasbihSessionHistoryItem) {
-    IslamicCard(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-    ) {
+    MuslimGroup {
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Column(modifier = Modifier.weight(1f)) {
@@ -305,7 +244,7 @@ private fun SessionHistoryRow(session: TasbihSessionHistoryItem) {
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
-                Spacer(Modifier.height(2.dp))
+                Spacer(Modifier.height(IslamicSpacing.XXSmall))
                 val modeLabel = sessionModeLabel(session.mode)
                 val startedAt = formatSessionTime(session.startedAtEpochMillis)
                 val duration = formatSessionDuration(session.durationMillis)

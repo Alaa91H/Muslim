@@ -220,4 +220,5 @@
     <string name="settings_adhan_vibrate_on">مفعّل</string>
     <string name="settings_adhan_vibrate_off">معطّل</string>
     <string name="settings_preview_stop">إيقاف المعاينة</string>
+    <string name="prayer_navigate_back">العودة</string>
 </resources>

@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">E sega ni rawa ni taura na tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Muria na aya e wiliki ena tafsir .</string>
+    <string name="quran_tafsir_follow_playback_description">Toso na ibalebale kei na tafsir kei na wiliwili. Bokoca mo wilika e dua tale na ivakamacala ni tomani tiko na rorogo.</string>
+    <string name="quran_search_hint">Vakasaqara na veitikina ni Quran...</string>
+    <string name="quran_search_clear">Vakasavasavataka na vakasaqaqara</string>
+    <string name="quran_search_no_results">Sega ni dua na macala veiganiti</string>
+    <string name="quran_search_words">Na vosa kece</string>
+    <string name="quran_search_phrase">Na malanivosa dodonu</string>
+    <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
 </resources>

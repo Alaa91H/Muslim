@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Gingo ye...</string>
     <string name="mosque_finder_title">Amosquée so ayeke nduru .</string>
     <string name="qibla_bearing_cardinal">Na lege ti qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Mo zia téléphone ti mo na yâ ti mbeni figure-osio ti calibré .</string>
     <string name="qibla_distance">Yongoro ti kodoro ni ayeke %1$s</string>
     <string name="qibla_distance_km">%,.0f kilomètre</string>
-    <string name="qibla_facing">Lo yeke na mbage ti Qibla 🕋 .</string>
+    <string name="qibla_facing">Lo yeke na mbage ti Qibla  .</string>
     <string name="qibla_gps_error">A lingbi pëpe ti wara mbeni mbilimbili lekengo ye. Pardon, kiri mo tara ni.</string>
     <string name="qibla_gps_live">GPS ti ndo so mo yeke dä</string>
     <string name="qibla_gps_refresh">Zia ndo na ndo ti mo na lege ti GPS .</string>

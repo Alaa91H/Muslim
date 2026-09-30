@@ -9,7 +9,7 @@ import org.muslim.app.core.common.appearance.OrnamentIntensity
  * consume the Compose [LocalIslamicDecoration] composition local.
  */
 data class WidgetOrnamentSpec(
-    @DrawableRes val drawableRes: Int,
+    @get:DrawableRes val drawableRes: Int,
     val tintAlpha: Float,
 )
 

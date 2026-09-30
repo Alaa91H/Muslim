@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Αναζήτηση…</string>
     <string name="mosque_finder_title">Κοντινά τζαμιά</string>
     <string name="qibla_bearing_cardinal">Κατεύθυνση Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Μετακινήστε το τηλέφωνό σας σε σχήμα οκτώ για βαθμονόμηση</string>
     <string name="qibla_distance">Απόσταση από τη Μέκκα: %1$s</string>
     <string name="qibla_distance_km">%,.0f χλμ</string>
-    <string name="qibla_facing">Είστε στραμμένοι προς την Qibla 🕋</string>
+    <string name="qibla_facing">Είστε στραμμένοι προς την Qibla</string>
     <string name="qibla_gps_error">Δεν ήταν δυνατή η ακριβής διόρθωση. Δοκιμάστε ξανά.</string>
     <string name="qibla_gps_live">Ζωντανή τοποθεσία GPS</string>
     <string name="qibla_gps_refresh">Ανανέωση τοποθεσίας μέσω GPS</string>

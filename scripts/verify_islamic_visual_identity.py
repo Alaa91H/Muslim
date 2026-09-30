@@ -41,7 +41,7 @@ REQUIRED_SNIPPETS = {
     "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/IslamicOrnaments.kt": [
         "enum class IslamicOrnament",
         "IslamicOrnamentOpacity",
-        "@DrawableRes",
+        "@get:DrawableRes",
     ],
     "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/IslamicDecorationTheme.kt": [
         "fun IslamicDecorationLayer",
@@ -80,9 +80,10 @@ REQUIRED_SNIPPETS = {
         "IslamicRadius.Card",
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeScreen.kt": [
-        "IslamicDecorationBand",
-        "IslamicDecorationCorners",
-        "IslamicDecorationDivider",
+        "MuslimHero",
+        "MuslimGroup",
+        "MuslimOverflowMenu",
+        "IslamicLayout.adaptiveSpec",
     ],
     "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/SurahListScreen.kt": [
         "IslamicReadingHeaderDecoration",
@@ -100,14 +101,16 @@ REQUIRED_SNIPPETS = {
         "IslamicDecorationMedallion",
         "IslamicDecorationDivider",
         "IslamicSecondaryButton",
-        "MuslimAppScaffold",
+        "MuslimScreen",
+        "MuslimTopBar",
         "MuslimSectionHeader",
         "role = Role.Button",
     ],
     "feature/feature-adhkar/src/main/java/org/muslim/app/feature/adhkar/ui/AdhkarScreen.kt": [
         "IslamicCard",
         "IslamicDecorationDivider",
-        "MuslimAppScaffold",
+        "MuslimScreen",
+        "MuslimTopBar",
         "MuslimSectionHeader",
         "LocalAccessibilityVisuals",
     ],
@@ -115,22 +118,19 @@ REQUIRED_SNIPPETS = {
         "IslamicDecorationBand",
         "IslamicDecorationCorners",
         "IslamicDecorationDivider",
-        "MuslimAppScaffold",
+        "MuslimScreen",
     ],
     "feature/feature-finance/src/main/java/org/muslim/app/feature/finance/ui/IslamicFinanceScreen.kt": [
         "IslamicCard",
         "IslamicDecorationBand",
         "IslamicDecorationDivider",
         "IslamicPrimaryButton",
-        "MuslimAppScaffold",
         "MuslimStateSurface",
     ],
     "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/LearnScreen.kt": [
         "IslamicCard",
         "IslamicDecorationBand",
-        "MuslimAppScaffold",
         "MuslimSectionHeader",
-        "Arrangement.spacedBy(8.dp)",
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/widget/PrayerTimesWidget.kt": [
         "widgetOrnamentSpec",
@@ -161,8 +161,7 @@ REQUIRED_SNIPPETS = {
     "feature/feature-ramadan/src/main/java/org/muslim/app/feature/ramadan/ui/RamadanScreen.kt": [
         "IslamicCard",
         "IslamicDecorationBand",
-        "IslamicDecorationCorners",
-        "MuslimAppScaffold",
+        "MuslimScreen",
         "MuslimSectionHeader",
         "MuslimStateSurface",
     ],
@@ -170,7 +169,6 @@ REQUIRED_SNIPPETS = {
         "IslamicCard",
         "IslamicDecorationCorners",
         "IslamicDecorationDivider",
-        "MuslimAppScaffold",
         "MuslimSectionHeader",
     ],
     "feature/feature-zakat/src/main/java/org/muslim/app/feature/zakat/ui/ZakatScreen.kt": [
@@ -179,36 +177,40 @@ REQUIRED_SNIPPETS = {
         "IslamicDecorationCorners",
         "IslamicDecorationDivider",
         "IslamicPrimaryButton",
-        "MuslimAppScaffold",
         "MuslimStateSurface",
     ],
     "feature/feature-reference/src/main/java/org/muslim/app/feature/reference/ui/ReferenceScreen.kt": [
         "IslamicCard",
         "IslamicDecorationBand",
         "IslamicDecorationDivider",
-        "MuslimAppScaffold",
         "MuslimStateSurface",
     ],
     "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/QuranDownloadsScreen.kt": [
         "IslamicCard",
         "IslamicDecorationDivider",
         "IslamicReadingHeaderDecoration",
+        "MuslimAdaptiveScreen",
+        "MuslimTopBar",
+        "MuslimExpandableSection",
+        "MuslimHero",
+    ],
+    "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/QuranDownloadConfigurationV2.kt": [
         "IslamicPrimaryButton",
-        "MuslimAppScaffold",
+        "MuslimSegmentedControl",
+        "MuslimExpandableSection",
+        "MuslimSettingsItem",
     ],
     "feature/feature-family-life/src/main/java/org/muslim/app/feature/family/ui/FamilyLifeScreen.kt": [
         "IslamicCard",
         "IslamicDecorationBand",
         "IslamicDecorationDivider",
         "IslamicSecondaryButton",
-        "MuslimAppScaffold",
         "MuslimStateSurface",
     ],
     "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/HajjDaysCalculatorScreen.kt": [
         "IslamicCard",
         "IslamicDecorationBand",
         "IslamicDecorationCorners",
-        "MuslimAppScaffold",
         "MuslimStateSurface",
         "MuslimStateTone.Critical",
     ],
@@ -217,7 +219,6 @@ REQUIRED_SNIPPETS = {
         "IslamicDecorationDivider",
         "IslamicPrimaryButton",
         "IslamicSecondaryButton",
-        "MuslimAppScaffold",
         "MuslimStateSurface",
         "MuslimStateTone.Critical",
     ],
@@ -330,8 +331,12 @@ def verify() -> list[str]:
 
     wear_manifest = ROOT / "wear/src/main/AndroidManifest.xml"
     wear_manifest_text = wear_manifest.read_text(encoding="utf-8")
-    if "@drawable/ic_wear_launcher_v2028" not in wear_manifest_text:
-        failures.append("wear manifest: missing v2028 launcher identity")
+    if "@drawable/ic_wear_launcher_v2029" not in wear_manifest_text:
+        failures.append("wear manifest: must use the phone-matched v2029 launcher asset")
+    if not (ROOT / "wear/src/main/res/drawable-nodpi/ic_wear_launcher_v2029.png").is_file():
+        failures.append("wear manifest: phone-matched v2029 launcher asset is missing")
+    if (ROOT / "wear/src/main/res/drawable/ic_wear_launcher_v2028.xml").exists():
+        failures.append("mismatched Wear launcher icon remains packaged")
     if (ROOT / "wear/src/main/res/drawable/ic_wear_launcher.xml").exists():
         failures.append("retired Wear launcher resource remains packaged")
 
@@ -343,11 +348,17 @@ def verify() -> list[str]:
                     f"retired icon resource remains packaged: {asset.relative_to(ROOT)}",
                 )
 
+    shared_screen_shells = (
+        "MuslimAppScaffold(",
+        "MuslimScreen(",
+        "MuslimAdaptiveScreen(",
+        "MuslimReaderScaffold(",
+    )
     for relative in DECORATED_TOP_LEVEL_SCREENS:
         text = (ROOT / relative).read_text(encoding="utf-8")
-        if "MuslimAppScaffold(" not in text:
+        if not any(shell in text for shell in shared_screen_shells):
             failures.append(
-                f"{relative}: top-level screen must use MuslimAppScaffold",
+                f"{relative}: top-level screen must use a shared Muslim screen shell",
             )
 
     for source_root in (ROOT / "app/src/main/java", ROOT / "feature"):

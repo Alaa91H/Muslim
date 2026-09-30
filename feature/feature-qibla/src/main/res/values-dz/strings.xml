@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">འཚོལ་ཞིབ་འབད་དོ།</string>
     <string name="mosque_finder_title">ཉེ་འདབས་ཀྱི་ཁ་ཆེའི་ལྷ་ཁང་།</string>
     <string name="qibla_bearing_cardinal">ཀིབ་ལ་ཁ་ཕྱོགས།: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°།</string>
+    <string name="qibla_bearing_degree">%1$.0f°།</string>
     <string name="qibla_calibrate">ཚད་འཇལ་ནིའི་དོན་ལུ་ ཁྱོད་རའི་ཁ་པར་འདི་ པར་རིས་བརྒྱད་ནང་སྤོ་བཤུད་འབད།</string>
     <string name="qibla_distance">མཀ་ཀ་བར་ཐག་རིང་ཚད།: %1$s</string>
     <string name="qibla_distance_km">%,.0f ཀི་ལོ་མི་ཊར།</string>
-    <string name="qibla_facing">ཁྱོད་ཀིབ་ལ་ལུ་གདོང་གཏད་དེ་ཡོདཔ་ཨིན། 🕋</string>
+    <string name="qibla_facing">ཁྱོད་ཀིབ་ལ་ལུ་གདོང་གཏད་དེ་ཡོདཔ་ཨིན།</string>
     <string name="qibla_gps_error">ནོར་བཅོས་གཏན་གཏན་ཅིག་ཐོབ་མ་ཚུགས། ལོག་སྟེ་འབད་རྩོལ་བསྐྱེད་གནང་།</string>
     <string name="qibla_gps_live">དངོས་ཡོད་ཇི་པི་ཨེས་གནས་ཁོངས།</string>
     <string name="qibla_gps_refresh">ཇི་པི་ཨེསི་བརྒྱུད་དེ་ གནས་ཁོངས་གསརཔ་བཟོ།</string>

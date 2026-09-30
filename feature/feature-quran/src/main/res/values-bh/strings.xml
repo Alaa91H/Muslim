@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">तफ़सीर डाउनलोड ना भइल: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">तफसीर में पढ़ल आयत के पालन करीं</string>
+    <string name="quran_tafsir_follow_playback_description">पाठ के साथे अर्थ आ तफसीर के हिलाईं। जबले ऑडियो जारी रही तबले एगो अउरी सफाई पढ़े खातिर बंद कर दीं.</string>
+    <string name="quran_search_hint">कुरान के आयत खोजीं...</string>
+    <string name="quran_search_clear">खोज के साफ कर दिहल जाव</string>
+    <string name="quran_search_no_results">कवनो मिलान रिजल्ट ना मिलल</string>
+    <string name="quran_search_words">सब शब्द बा</string>
+    <string name="quran_search_phrase">सटीक मुहावरा बा</string>
+    <string name="quran_search_ayah_summary">%1$d श्लोक में %2$d के घटना</string>
+    <string name="quran_search_result_location">%1$s · आयाह %2$d · शब्द के घटना %3$d</string>
 </resources>

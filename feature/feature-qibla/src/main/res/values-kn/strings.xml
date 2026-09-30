@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">ಹುಡುಕಲಾಗುತ್ತಿದೆ...</string>
     <string name="mosque_finder_title">ಹತ್ತಿರದ ಮಸೀದಿಗಳು</string>
     <string name="qibla_bearing_cardinal">ಕಿಬ್ಲಾ ನಿರ್ದೇಶನ: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">ಮಾಪನಾಂಕ ನಿರ್ಣಯಿಸಲು ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಅಂಕಿ-ಎಂಟರಲ್ಲಿ ಸರಿಸಿ</string>
     <string name="qibla_distance">ಮಕ್ಕಾಗೆ ದೂರ: %1$s</string>
     <string name="qibla_distance_km">%,.0f ಕಿಮೀ</string>
-    <string name="qibla_facing">ನೀವು ಕಿಬ್ಲಾವನ್ನು ಎದುರಿಸುತ್ತಿರುವಿರಿ 🕋</string>
+    <string name="qibla_facing">ನೀವು ಕಿಬ್ಲಾವನ್ನು ಎದುರಿಸುತ್ತಿರುವಿರಿ</string>
     <string name="qibla_gps_error">ನಿಖರವಾದ ಪರಿಹಾರವನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="qibla_gps_live">ಲೈವ್ GPS ಸ್ಥಳ</string>
     <string name="qibla_gps_refresh">GPS ಮೂಲಕ ಸ್ಥಳವನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡಿ</string>

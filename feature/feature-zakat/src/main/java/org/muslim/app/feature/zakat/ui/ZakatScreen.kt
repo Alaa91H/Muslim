@@ -14,7 +14,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Save
@@ -30,11 +29,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -45,14 +45,17 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.feature.zakat.R
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.IslamicDecorationCorners
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimCenteredStatus
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimSegmentedControl
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
@@ -66,7 +69,6 @@ import java.time.LocalDate
  * and silver prices can be fetched live (gold-api.com + open.er-api.com) or
  * entered manually, and everything is cached for offline use.
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ZakatScreen(
     onBack: () -> Unit,
@@ -74,69 +76,72 @@ fun ZakatScreen(
     viewModel: ZakatViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    // Always western digits (never Arabic-Indic), regardless of the device
-    // locale — this is a project-wide rule (see Digits in core-common).
     val formatter = NumberFormat.getNumberInstance(java.util.Locale.ENGLISH)
+    var step by rememberSaveable { mutableIntStateOf(0) }
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.zakat_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.zakat_back))
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.zakat_title),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.zakat_back),
             )
         },
-    ) { innerPadding ->
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = IslamicSpacing.PageHorizontal),
         ) {
             IslamicDecorationBand(
                 tint = MaterialTheme.colorScheme.tertiary,
                 compact = true,
             )
-            CountrySection(state, viewModel)
-            IslamicDecorationDivider(
-                tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 24.dp, vertical = 8.dp),
+            MuslimSegmentedControl(
+                options = listOf(
+                    stringResource(R.string.zakat_step_assets),
+                    stringResource(R.string.zakat_step_debts),
+                    stringResource(R.string.zakat_step_nisab),
+                    stringResource(R.string.zakat_step_result),
+                ),
+                selectedIndex = step,
+                onSelectedIndexChange = { step = it },
+                modifier = Modifier.padding(vertical = IslamicSpacing.Small),
             )
-            Spacer(Modifier.height(4.dp))
-            MuslimSectionHeader(title = stringResource(R.string.zakat_money_section))
-            Spacer(Modifier.height(8.dp))
-            MoneyForm(state, viewModel, formatter)
-            Spacer(Modifier.height(12.dp))
-            ResultCard(state, formatter, viewModel)
-            Spacer(Modifier.height(16.dp))
-            IslamicDecorationDivider(
-                tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 24.dp),
-            )
-            Spacer(Modifier.height(8.dp))
-            FitrSection(state, viewModel, formatter)
-            Spacer(Modifier.height(16.dp))
-            IslamicDecorationDivider(
-                tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 24.dp),
-            )
-            Spacer(Modifier.height(8.dp))
-            HistorySection(state, viewModel, formatter)
-            Spacer(Modifier.height(12.dp))
+            when (step) {
+                0 -> {
+                    CountrySection(state, viewModel)
+                    IslamicDecorationDivider(
+                        tint = MaterialTheme.colorScheme.tertiary,
+                        modifier = Modifier.padding(vertical = IslamicSpacing.Small),
+                    )
+                    MuslimSectionHeader(title = stringResource(R.string.zakat_money_section))
+                    Spacer(Modifier.height(IslamicSpacing.Small))
+                    AssetsForm(state, viewModel, formatter)
+                }
+                1 -> DebtForm(state, viewModel, formatter)
+                2 -> ResultCard(state, formatter, viewModel)
+                else -> {
+                    ResultCard(state, formatter, viewModel)
+                    Spacer(Modifier.height(IslamicSpacing.Medium))
+                    FitrSection(state, viewModel, formatter)
+                    Spacer(Modifier.height(IslamicSpacing.Medium))
+                    HistorySection(state, viewModel, formatter)
+                }
+            }
+            Spacer(Modifier.height(IslamicSpacing.Medium))
             Text(
                 text = stringResource(R.string.zakat_rulings_note),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(IslamicSpacing.Large))
         }
     }
 }
+
 
 @Composable
 private fun CountrySection(state: ZakatUiState, viewModel: ZakatViewModel) {
@@ -287,7 +292,7 @@ private fun formatUpdatedAt(raw: String?): String {
 }
 
 @Composable
-private fun MoneyForm(
+private fun AssetsForm(
     state: ZakatUiState,
     viewModel: ZakatViewModel,
     formatter: NumberFormat,
@@ -300,7 +305,22 @@ private fun MoneyForm(
     NumberField(stringResource(R.string.zakat_silver_price), input.silverPricePerGram, formatter, viewModel::setSilverPrice)
     NumberField(stringResource(R.string.zakat_trade), input.tradeGoods, formatter, viewModel::setTradeGoods)
     NumberField(stringResource(R.string.zakat_investments), input.investments, formatter, viewModel::setInvestments)
-    NumberField(stringResource(R.string.zakat_debts), input.debtsOwed, formatter, viewModel::setDebtsOwed)
+}
+
+@Composable
+private fun DebtForm(
+    state: ZakatUiState,
+    viewModel: ZakatViewModel,
+    formatter: NumberFormat,
+) {
+    MuslimSectionHeader(title = stringResource(R.string.zakat_step_debts))
+    Spacer(Modifier.height(IslamicSpacing.Small))
+    NumberField(
+        stringResource(R.string.zakat_debts),
+        state.input.debtsOwed,
+        formatter,
+        viewModel::setDebtsOwed,
+    )
 }
 
 @Composable
@@ -327,7 +347,7 @@ private fun NumberField(
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 4.dp),
+            .padding(vertical = IslamicSpacing.XSmall),
     )
 }
 

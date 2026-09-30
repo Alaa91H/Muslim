@@ -9,7 +9,7 @@
     <string name="mosque_finder_searching">ئىزدەش…</string>
     <string name="mosque_finder_title">يېقىندىكى مەسچىتلەر</string>
     <string name="qibla_bearing_cardinal">قىبلا يۆنىلىشى: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f °</string>
+    <string name="qibla_bearing_degree">%1$.0f °</string>
     <string name="qibla_calibrate">تېلېفونىڭىزنى سەككىز خانىلىق سان بىلەن يۆتكەڭ</string>
     <string name="qibla_distance">مەككە بىلەن بولغان ئارىلىقى: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>

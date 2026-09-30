@@ -28,7 +28,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material3.DropdownMenuItem
@@ -37,19 +36,18 @@ import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -72,7 +70,11 @@ import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimExpandableSection
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimSectionHeader
+import org.muslim.app.core.ui.theme.MuslimSettingsItem
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.adhkar.R
 import org.muslim.app.feature.adhkar.data.AdhkarSpeechVoiceOption
 import org.muslim.app.feature.adhkar.domain.Dhikr
@@ -100,26 +102,24 @@ fun AdhkarSettingsScreen(
     val speechReady by viewModel.speechReady.collectAsStateWithLifecycle()
     val speechInitializationFailed by viewModel.speechInitializationFailed.collectAsStateWithLifecycle()
     val context = LocalContext.current
+    var overlayExpanded by rememberSaveable { mutableStateOf(false) }
+    var periodicExpanded by rememberSaveable { mutableStateOf(false) }
 
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.adhkar_settings_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.adhkar_back))
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.adhkar_settings_title),
+                onNavigateBack = onBack,
+                navigationContentDescription = stringResource(R.string.adhkar_back),
             )
         },
-    ) { innerPadding ->
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
-                .padding(horizontal = IslamicSpacing.Medium),
+                .padding(horizontal = IslamicSpacing.PageHorizontal),
         ) {
             SectionHeader(stringResource(R.string.adhkar_speech_section))
 
@@ -228,8 +228,11 @@ fun AdhkarSettingsScreen(
                 }
             }
 
-            SectionHeader(stringResource(R.string.adhkar_overlay_section))
-
+            MuslimExpandableSection(
+                title = stringResource(R.string.adhkar_overlay_section),
+                expanded = overlayExpanded,
+                onExpandedChange = { overlayExpanded = it },
+            ) {
             SwitchRow(
                 label = stringResource(R.string.adhkar_overlay_toggle),
                 checked = prefs.overlayEnabled,
@@ -308,18 +311,16 @@ fun AdhkarSettingsScreen(
             }
 
             Spacer(Modifier.height(IslamicSpacing.Small))
-            IslamicCard(
-                modifier = Modifier.fillMaxWidth(),
+            MuslimSettingsItem(
+                title = stringResource(R.string.adhkar_customize_title),
                 onClick = onOpenCustomize,
-            ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = stringResource(R.string.adhkar_customize_title),
-                        style = MaterialTheme.typography.bodyLarge,
-                        modifier = Modifier.weight(1f),
+                trailing = {
+                    Icon(
+                        Icons.AutoMirrored.Filled.KeyboardArrowLeft,
+                        contentDescription = null,
                     )
-                    Icon(Icons.AutoMirrored.Filled.KeyboardArrowLeft, contentDescription = null)
-                }
+                },
+            )
             }
 
             SectionHeader(stringResource(R.string.adhkar_reminders_section))
@@ -366,8 +367,11 @@ fun AdhkarSettingsScreen(
                 enabled = prefs.eveningReminderEnabled,
             )
 
-            SectionHeader(stringResource(R.string.adhkar_periodic_section))
-
+            MuslimExpandableSection(
+                title = stringResource(R.string.adhkar_periodic_section),
+                expanded = periodicExpanded,
+                onExpandedChange = { periodicExpanded = it },
+            ) {
             SwitchRow(
                 label = stringResource(R.string.adhkar_periodic_toggle),
                 checked = prefs.periodicReminderEnabled,
@@ -449,6 +453,7 @@ fun AdhkarSettingsScreen(
                         )
                     },
                 )
+            }
             }
 
             Spacer(Modifier.height(IslamicSpacing.Large))
@@ -791,23 +796,31 @@ private fun SpeechRateControl(
 
 @Composable
 private fun SectionHeader(text: String) {
-    Text(
-        text = text,
-        style = MaterialTheme.typography.titleMedium,
-        color = MaterialTheme.colorScheme.primary,
-        modifier = Modifier.padding(top = IslamicSpacing.Comfortable, bottom = IslamicSpacing.Small),
+    MuslimSectionHeader(
+        title = text,
+        modifier = Modifier.padding(
+            top = IslamicSpacing.Comfortable,
+            bottom = IslamicSpacing.Small,
+        ),
     )
 }
 
 @Composable
-private fun SwitchRow(label: String, checked: Boolean, onCheckedChange: (Boolean) -> Unit) {
-    Row(
-        modifier = Modifier.fillMaxWidth().padding(vertical = IslamicSpacing.XSmall),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Text(label, style = MaterialTheme.typography.bodyLarge, modifier = Modifier.weight(1f))
-        Switch(checked = checked, onCheckedChange = onCheckedChange)
-    }
+private fun SwitchRow(
+    label: String,
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+) {
+    MuslimSettingsItem(
+        title = label,
+        onClick = { onCheckedChange(!checked) },
+        trailing = {
+            Switch(
+                checked = checked,
+                onCheckedChange = onCheckedChange,
+            )
+        },
+    )
 }
 
 @Composable

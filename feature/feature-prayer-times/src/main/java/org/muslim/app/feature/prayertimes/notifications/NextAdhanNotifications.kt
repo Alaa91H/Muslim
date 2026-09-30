@@ -8,6 +8,7 @@ import android.os.SystemClock
 import android.view.View
 import android.widget.RemoteViews
 import androidx.annotation.IdRes
+import androidx.annotation.VisibleForTesting
 import androidx.core.app.NotificationCompat
 import androidx.core.net.toUri
 import org.muslim.app.core.common.prayer.Prayer
@@ -120,8 +121,7 @@ object NextAdhanNotifications {
             .setContentIntent(contentIntent)
 
         if (data.hasLocation && data.nextPrayer != null && data.nextPrayerAt != null) {
-            val compact = buildCompactRemoteViews(context, data, use24h)
-            val expanded = buildExpandedRemoteViews(context, data, showMissed, use24h)
+            val (compact, expanded) = buildCustomRemoteViews(context, data, showMissed, use24h)
             builder
                 .setStyle(NotificationCompat.DecoratedCustomViewStyle())
                 .setCustomContentView(compact)
@@ -154,6 +154,16 @@ object NextAdhanNotifications {
         )
         return title to remaining
     }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    fun buildCustomRemoteViews(
+        context: Context,
+        data: PrayerCountdownData,
+        showMissed: Boolean = true,
+        use24h: Boolean = false,
+    ): Pair<RemoteViews, RemoteViews> =
+        buildCompactRemoteViews(context, data, use24h) to
+            buildExpandedRemoteViews(context, data, showMissed, use24h)
 
     private fun buildCompactRemoteViews(
         context: Context,

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">검색 중…</string>
     <string name="mosque_finder_title">인근 모스크</string>
     <string name="qibla_bearing_cardinal">Qibla 방향: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">보정하려면 휴대전화를 8자 모양으로 움직여 보세요.</string>
     <string name="qibla_distance">메카까지의 거리: %1$s</string>
     <string name="qibla_distance_km">%,.0fkm</string>
-    <string name="qibla_facing">당신은 Qibla 🕋를 마주하고 있습니다.</string>
+    <string name="qibla_facing">당신은 Qibla 를 마주하고 있습니다.</string>
     <string name="qibla_gps_error">정확한 수정을 얻을 수 없습니다. 다시 시도해 주세요.</string>
     <string name="qibla_gps_live">실시간 GPS 위치</string>
     <string name="qibla_gps_refresh">GPS를 통해 위치 새로고침</string>

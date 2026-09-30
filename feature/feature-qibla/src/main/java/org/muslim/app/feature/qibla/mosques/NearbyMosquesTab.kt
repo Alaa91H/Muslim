@@ -8,7 +8,6 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -20,24 +19,17 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.ContentCopy
-import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Map
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Mosque
 import androidx.compose.material.icons.filled.Navigation
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.filled.Sort
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -54,11 +46,19 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
+import org.muslim.app.core.ui.theme.MuslimBottomSheet
 import org.muslim.app.core.ui.theme.MuslimEmptyState
 import org.muslim.app.core.ui.theme.MuslimErrorState
+import org.muslim.app.core.ui.theme.MuslimGroup
+import org.muslim.app.core.ui.theme.MuslimMenuAction
+import org.muslim.app.core.ui.theme.MuslimOverflowMenu
+import org.muslim.app.core.ui.theme.MuslimSearchBar
+import org.muslim.app.core.ui.theme.MuslimSegmentedControl
+import org.muslim.app.core.ui.theme.MuslimSettingsItem
 import org.muslim.app.core.ui.theme.MuslimLoadingState
 import org.muslim.app.core.ui.theme.MuslimOfflineState
 import org.muslim.app.core.ui.theme.MuslimPermissionRequiredState
@@ -90,8 +90,8 @@ internal fun NearbyMosquesTab(
         modifier = modifier
             .fillMaxSize()
             .semantics { contentDescription = title },
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-        contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(IslamicSpacing.Medium),
     ) {
         item {
             NearbyMosquesHeader(
@@ -216,7 +216,6 @@ private fun androidx.compose.foundation.lazy.LazyListScope.mosqueResultSection(
             totalCount = source.size,
             sortMode = sortMode,
             onQueryChange = onSearchQueryChange,
-            onClearQuery = onClearSearch,
             onSortModeChange = onSortModeChange,
         )
     }
@@ -248,110 +247,122 @@ private fun androidx.compose.foundation.lazy.LazyListScope.cachedMosqueRows(plac
     }
 }
 
-@Suppress("LongMethod")
 @Composable
 private fun NearbyMosquesHeader(
     radiusKm: Int,
     onRefresh: () -> Unit,
     onRadiusSelected: (Int) -> Unit,
 ) {
-    val refreshDescription = stringResource(R.string.nearby_mosques_refresh)
-    val radiusDescription = stringResource(R.string.nearby_mosques_radius_option_description, radiusKm)
-    var radiusMenuExpanded by remember { mutableStateOf(false) }
+    var radiusSheetVisible by rememberSaveable { mutableStateOf(false) }
 
-    IslamicCard(modifier = Modifier.fillMaxWidth()) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
+    NearbyMosquesHeaderSummary(
+        radiusKm = radiusKm,
+        onRefresh = onRefresh,
+        onOpenRadius = { radiusSheetVisible = true },
+    )
+
+    if (radiusSheetVisible) {
+        NearbyMosquesRadiusSheet(
+            radiusKm = radiusKm,
+            onDismiss = { radiusSheetVisible = false },
+            onRadiusSelected = { option ->
+                radiusSheetVisible = false
+                if (option != radiusKm) onRadiusSelected(option)
+            },
+        )
+    }
+}
+
+@Composable
+private fun NearbyMosquesHeaderSummary(
+    radiusKm: Int,
+    onRefresh: () -> Unit,
+    onOpenRadius: () -> Unit,
+) {
+    val refreshDescription = stringResource(R.string.nearby_mosques_refresh)
+
+    MuslimGroup {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
+        ) {
             Icon(
                 imageVector = Icons.Default.LocationOn,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
             )
-            Spacer(Modifier.size(8.dp))
             Column(Modifier.weight(1f)) {
                 Text(
                     text = stringResource(R.string.nearby_mosques_title),
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
                 )
                 Text(
                     text = stringResource(R.string.nearby_mosques_location_status),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-            IslamicSecondaryButton(
-                onClick = onRefresh,
-                modifier = Modifier.semantics { contentDescription = refreshDescription },
-            ) {
-                Icon(Icons.Default.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
-                Spacer(Modifier.size(6.dp))
-                Text(stringResource(R.string.nearby_mosques_refresh))
-            }
-        }
-
-        Spacer(Modifier.size(16.dp))
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            Column(Modifier.weight(1f)) {
-                Text(
-                    text = stringResource(R.string.nearby_mosques_radius),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Spacer(Modifier.size(2.dp))
-                Text(
-                    text = stringResource(R.string.nearby_mosques_radius_selected, radiusKm),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
+            IconButton(
+                onClick = onRefresh,
+                modifier = Modifier.semantics { contentDescription = refreshDescription },
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Refresh,
+                    contentDescription = null,
+                )
+            }
+        }
 
-            Box {
-                IslamicSecondaryButton(
-                    onClick = { radiusMenuExpanded = true },
-                    modifier = Modifier.semantics { contentDescription = radiusDescription },
-                ) {
-                    Text(stringResource(R.string.nearby_mosques_radius_value, radiusKm))
-                    Spacer(Modifier.size(6.dp))
-                    Icon(
-                        imageVector = Icons.Default.KeyboardArrowDown,
-                        contentDescription = null,
-                        modifier = Modifier.size(18.dp),
-                    )
-                }
-                DropdownMenu(
-                    expanded = radiusMenuExpanded,
-                    onDismissRequest = { radiusMenuExpanded = false },
-                ) {
-                    NearbyMosqueRadiusOptionsKm.forEach { option ->
-                        DropdownMenuItem(
-                            text = { Text(stringResource(R.string.nearby_mosques_radius_value, option)) },
-                            onClick = {
-                                radiusMenuExpanded = false
-                                if (option != radiusKm) onRadiusSelected(option)
-                            },
-                            trailingIcon = {
-                                if (option == radiusKm) {
-                                    Icon(
-                                        imageVector = Icons.Default.Check,
-                                        contentDescription = null,
-                                        tint = MaterialTheme.colorScheme.primary,
-                                    )
-                                }
-                            },
+        MuslimSettingsItem(
+            title = stringResource(R.string.nearby_mosques_radius),
+            supportingText = stringResource(
+                R.string.nearby_mosques_radius_selected,
+                radiusKm,
+            ),
+            icon = Icons.Default.LocationOn,
+            onClick = onOpenRadius,
+        )
+    }
+}
+
+@Composable
+private fun NearbyMosquesRadiusSheet(
+    radiusKm: Int,
+    onDismiss: () -> Unit,
+    onRadiusSelected: (Int) -> Unit,
+) {
+    MuslimBottomSheet(
+        title = stringResource(R.string.nearby_mosques_radius),
+        onDismiss = onDismiss,
+    ) {
+        NearbyMosqueRadiusOptionsKm.forEach { option ->
+            val selected = option == radiusKm
+            MuslimSettingsItem(
+                title = stringResource(R.string.nearby_mosques_radius_value, option),
+                supportingText = if (selected) {
+                    stringResource(R.string.nearby_mosques_radius_selected, option)
+                } else {
+                    null
+                },
+                onClick = { onRadiusSelected(option) },
+                trailing = if (selected) {
+                    {
+                        Icon(
+                            imageVector = Icons.Default.Check,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
                         )
                     }
-                }
-            }
+                } else {
+                    null
+                },
+            )
         }
     }
 }
 
-@Suppress("LongMethod")
 @Composable
 private fun MosqueResultsTools(
     query: String,
@@ -359,95 +370,39 @@ private fun MosqueResultsTools(
     totalCount: Int,
     sortMode: MosqueSortMode,
     onQueryChange: (String) -> Unit,
-    onClearQuery: () -> Unit,
     onSortModeChange: (MosqueSortMode) -> Unit,
 ) {
-    var sortMenuExpanded by remember { mutableStateOf(false) }
-
-    IslamicCard(modifier = Modifier.fillMaxWidth()) {
-        OutlinedTextField(
-            value = query,
-            onValueChange = onQueryChange,
-            modifier = Modifier.fillMaxWidth(),
-            singleLine = true,
-            leadingIcon = {
-                Icon(Icons.Default.Search, contentDescription = null)
-            },
-            trailingIcon = {
-                if (query.isNotBlank()) {
-                    IconButton(onClick = onClearQuery) {
-                        Icon(
-                            imageVector = Icons.Default.Close,
-                            contentDescription = stringResource(R.string.nearby_mosques_search_clear),
-                        )
-                    }
-                }
-            },
-            placeholder = {
-                Text(stringResource(R.string.nearby_mosques_search_hint))
-            },
-            shape = MaterialTheme.shapes.medium,
+    MuslimGroup {
+        MuslimSearchBar(
+            query = query,
+            onQueryChange = onQueryChange,
+            placeholder = stringResource(R.string.nearby_mosques_search_hint),
+            clearContentDescription = stringResource(R.string.nearby_mosques_search_clear),
         )
-
-        Spacer(Modifier.size(10.dp))
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(10.dp),
-        ) {
-            Text(
-                text = stringResource(R.string.nearby_mosques_results_count, visibleCount, totalCount),
-                modifier = Modifier.weight(1f),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-
-            Box {
-                IslamicSecondaryButton(onClick = { sortMenuExpanded = true }) {
-                    Icon(Icons.Default.Sort, contentDescription = null, modifier = Modifier.size(18.dp))
-                    Spacer(Modifier.size(6.dp))
-                    Text(
-                        when (sortMode) {
-                            MosqueSortMode.Distance -> stringResource(R.string.nearby_mosques_sort_distance)
-                            MosqueSortMode.Name -> stringResource(R.string.nearby_mosques_sort_name)
-                        },
-                    )
-                }
-
-                DropdownMenu(
-                    expanded = sortMenuExpanded,
-                    onDismissRequest = { sortMenuExpanded = false },
-                ) {
-                    MosqueSortMode.entries.forEach { option ->
-                        val selected = option == sortMode
-                        DropdownMenuItem(
-                            text = {
-                                Text(
-                                    when (option) {
-                                        MosqueSortMode.Distance -> stringResource(R.string.nearby_mosques_sort_distance)
-                                        MosqueSortMode.Name -> stringResource(R.string.nearby_mosques_sort_name)
-                                    },
-                                )
-                            },
-                            onClick = {
-                                sortMenuExpanded = false
-                                onSortModeChange(option)
-                            },
-                            trailingIcon = {
-                                if (selected) {
-                                    Icon(
-                                        imageVector = Icons.Default.Check,
-                                        contentDescription = null,
-                                        tint = MaterialTheme.colorScheme.primary,
-                                    )
-                                }
-                            },
-                        )
-                    }
-                }
-            }
-        }
+        Text(
+            text = stringResource(
+                R.string.nearby_mosques_results_count,
+                visibleCount,
+                totalCount,
+            ),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        MuslimSegmentedControl(
+            options = listOf(
+                stringResource(R.string.nearby_mosques_sort_distance),
+                stringResource(R.string.nearby_mosques_sort_name),
+            ),
+            selectedIndex = when (sortMode) {
+                MosqueSortMode.Distance -> 0
+                MosqueSortMode.Name -> 1
+            },
+            onSelectedIndexChange = { index ->
+                onSortModeChange(
+                    if (index == 0) MosqueSortMode.Distance else MosqueSortMode.Name,
+                )
+            },
+        )
     }
 }
 
@@ -536,47 +491,33 @@ private fun MosquePlaceRow(
                 }
             }
 
-            Box {
-                IconButton(onClick = { moreMenuExpanded = true }) {
-                    Icon(
-                        imageVector = Icons.Default.MoreVert,
-                        contentDescription = stringResource(R.string.nearby_mosques_more_actions),
-                    )
-                }
-                DropdownMenu(
-                    expanded = moreMenuExpanded,
-                    onDismissRequest = { moreMenuExpanded = false },
-                ) {
-                    DropdownMenuItem(
-                        text = { Text(stringResource(R.string.nearby_mosques_share)) },
-                        leadingIcon = {
-                            Icon(Icons.Default.Share, contentDescription = null)
-                        },
+            MuslimOverflowMenu(
+                expanded = moreMenuExpanded,
+                onExpandedChange = { moreMenuExpanded = it },
+                contentDescription = stringResource(R.string.nearby_mosques_more_actions),
+                actions = listOf(
+                    MuslimMenuAction(
+                        id = "share",
+                        label = stringResource(R.string.nearby_mosques_share),
+                        icon = Icons.Default.Share,
                         onClick = {
-                            moreMenuExpanded = false
                             shareMosque(context, place, shareChooserTitle)
                         },
-                    )
-                    DropdownMenuItem(
-                        text = {
-                            Text(
-                                if (place.address.isNullOrBlank()) {
-                                    stringResource(R.string.nearby_mosques_copy_coordinates)
-                                } else {
-                                    stringResource(R.string.nearby_mosques_copy_address)
-                                },
-                            )
+                    ),
+                    MuslimMenuAction(
+                        id = "copy",
+                        label = if (place.address.isNullOrBlank()) {
+                            stringResource(R.string.nearby_mosques_copy_coordinates)
+                        } else {
+                            stringResource(R.string.nearby_mosques_copy_address)
                         },
-                        leadingIcon = {
-                            Icon(Icons.Default.ContentCopy, contentDescription = null)
-                        },
+                        icon = Icons.Default.ContentCopy,
                         onClick = {
-                            moreMenuExpanded = false
                             copyMosqueLocation(context, place, copiedMessage)
                         },
-                    )
-                }
-            }
+                    ),
+                ),
+            )
         }
 
         Spacer(Modifier.size(14.dp))

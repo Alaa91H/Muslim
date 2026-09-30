@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Pukot...</string>
     <string name="mosque_finder_title">Mosque ko iturin</string>
     <string name="qibla_bearing_cardinal">Qibla direction: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Kōjepel taļboon eo am ilo juon figure-eight ñan kalibwin</string>
     <string name="qibla_distance">joñan ettol ñan Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Kwoj jelmae Qibla eo 🕋</string>
+    <string name="qibla_facing">Kwoj jelmae Qibla eo</string>
     <string name="qibla_gps_error">Ejjab maroñ in bōk juon kōttōpar eo ejimwe. Jouj im bar kajeoñ.</string>
     <string name="qibla_gps_live">Jikin GPS eo ej mour</string>
     <string name="qibla_gps_refresh">Kōkāāl jikin eo ilo GPS</string>

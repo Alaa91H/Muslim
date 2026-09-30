@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">તફસીર ડાઉનલોડ કરી શકાઈ નહોતી: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">તફસીરમાં પઠિત આયહને અનુસરો</string>
+    <string name="quran_tafsir_follow_playback_description">પઠન સાથે અર્થ અને તફસીર ખસેડો. જ્યારે ઑડિયો ચાલુ રહે ત્યારે અન્ય સમજૂતી વાંચવા માટે બંધ કરો.</string>
+    <string name="quran_search_hint">કુરાનની કલમો શોધો...</string>
+    <string name="quran_search_clear">શોધ સાફ કરો</string>
+    <string name="quran_search_no_results">કોઈ મેળ ખાતા પરિણામો નથી</string>
+    <string name="quran_search_words">બધા શબ્દો</string>
+    <string name="quran_search_phrase">ચોક્કસ શબ્દસમૂહ</string>
+    <string name="quran_search_ayah_summary">%1$d છંદોમાં %2$d ઘટનાઓ</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · શબ્દની ઘટનાઓ %3$d</string>
 </resources>

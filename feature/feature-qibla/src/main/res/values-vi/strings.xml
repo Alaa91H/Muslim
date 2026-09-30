@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Đang tìm kiếm…</string>
     <string name="mosque_finder_title">Nhà thờ Hồi giáo lân cận</string>
     <string name="qibla_bearing_cardinal">Hướng Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Di chuyển điện thoại của bạn theo hình số tám để hiệu chỉnh</string>
     <string name="qibla_distance">Khoảng cách đến Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Bạn đang đối mặt với Qibla 🕋</string>
+    <string name="qibla_facing">Bạn đang đối mặt với Qibla</string>
     <string name="qibla_gps_error">Không thể có được một sửa chữa chính xác. Vui lòng thử lại.</string>
     <string name="qibla_gps_live">Vị trí GPS trực tiếp</string>
     <string name="qibla_gps_refresh">Làm mới vị trí qua GPS</string>

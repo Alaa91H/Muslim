@@ -3,6 +3,8 @@
     <string name="reference_title">Islamic Reference Library</string>
     <string name="reference_back">Back</string>
     <string name="reference_search_hint">Search this book…</string>
+    <string name="reference_library_search_hint">Search the entire library…</string>
+    <string name="reference_search_clear">Clear search</string>
     <string name="reference_no_results">No matching results</string>
     <string name="reference_topics_count">topics</string>
     <string name="reference_copy">Copy</string>
@@ -10,6 +12,11 @@
     <!-- Islamic history and civilization -->
     <string name="history_title">Islamic History &amp; Civilization</string>
     <string name="history_timeline_tab">Timeline</string>
+    <string name="history_states_tab">States &amp; dynasties</string>
+    <string name="history_civilization_tab">Civilization</string>
+    <string name="history_events_tab">Events</string>
+    <string name="history_search_tab">Search</string>
+    <string name="history_more_views">More history views</string>
     <string name="history_atlas_tab">Atlas</string>
     <string name="history_people_tab">People &amp; figures</string>
     <string name="history_language_english">English</string>

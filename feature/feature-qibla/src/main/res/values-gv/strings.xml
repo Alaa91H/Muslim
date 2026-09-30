@@ -13,7 +13,7 @@
     <string name="qibla_calibrate">Gleash dty phone ayns figure-ocht dy calibrate</string>
     <string name="qibla_distance">Astyr gys Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Ta shiu er-gerrey da\'n Qibla 🕋</string>
+    <string name="qibla_facing">Ta shiu er-gerrey da\'n Qibla</string>
     <string name="qibla_gps_error">Cha b\'aashagh mee correct correct y gheddyn. Feayrish reesht, my yeearree.</string>
     <string name="qibla_gps_live">Sushtal GPS beo</string>
     <string name="qibla_gps_refresh">Refresh ynnyd liorish GPS</string>

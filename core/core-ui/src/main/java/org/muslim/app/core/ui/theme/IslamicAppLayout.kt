@@ -4,18 +4,20 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.ScaffoldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
+import org.muslim.app.core.designsystem.IslamicLayout
 import org.muslim.app.core.designsystem.IslamicMotion
 
 /**
@@ -45,6 +47,7 @@ fun MuslimAppScaffold(
     bottomBar: @Composable () -> Unit = {},
     snackbarHost: @Composable () -> Unit = {},
     floatingActionButton: @Composable () -> Unit = {},
+    contentWindowInsets: WindowInsets = ScaffoldDefaults.contentWindowInsets,
     content: @Composable (PaddingValues) -> Unit,
 ) {
     Box(
@@ -59,6 +62,7 @@ fun MuslimAppScaffold(
             bottomBar = bottomBar,
             snackbarHost = snackbarHost,
             floatingActionButton = floatingActionButton,
+            contentWindowInsets = contentWindowInsets,
             content = content,
         )
     }
@@ -87,4 +91,4 @@ fun MuslimContentFrame(
     }
 }
 
-val DefaultMuslimContentWidth = 760.dp
+val DefaultMuslimContentWidth = IslamicLayout.ReadableContentMaxWidth

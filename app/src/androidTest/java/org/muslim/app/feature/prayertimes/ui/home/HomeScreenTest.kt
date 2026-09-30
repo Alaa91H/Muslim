@@ -2,7 +2,7 @@ package org.muslim.app.feature.prayertimes.ui.home
 
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.junit4.v2.createAndroidComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onNodeWithText
@@ -59,7 +59,7 @@ class HomeScreenTest {
         )
         composeRule.setContent {
             AppTheme(dynamicColor = false) {
-                HomeScreen(onSelectLocation = {}, viewModel = viewModel)
+                HomeScreen(onSelectLocation = {}, onOpenMonthly = {}, viewModel = viewModel)
             }
         }
 
@@ -89,7 +89,7 @@ class HomeScreenTest {
 
         composeRule.setContent {
             AppTheme(dynamicColor = false) {
-                HomeScreen(onSelectLocation = {}, viewModel = viewModel)
+                HomeScreen(onSelectLocation = {}, onOpenMonthly = {}, viewModel = viewModel)
             }
         }
 

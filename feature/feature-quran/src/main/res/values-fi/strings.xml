@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Tafsiria ei voitu ladata: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Seuraa lausuttua ayahia tafsirissa</string>
+    <string name="quran_tafsir_follow_playback_description">Siirrä merkityksiä ja tafsiria lausunnon avulla. Sammuta, jos haluat lukea toisen selityksen äänen jatkuessa.</string>
+    <string name="quran_search_hint">Etsi Koraanin säkeitä…</string>
+    <string name="quran_search_clear">Tyhjennä haku</string>
+    <string name="quran_search_no_results">Ei vastaavia tuloksia</string>
+    <string name="quran_search_words">Kaikki sanat</string>
+    <string name="quran_search_phrase">Tarkka lause</string>
+    <string name="quran_search_ayah_summary">%1$d esiintymät %2$d säkeissä</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · sanan esiintymät %3$d</string>
 </resources>

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Kutsvaga...</string>
     <string name="mosque_finder_title">Mamosque ari pedyo</string>
     <string name="qibla_bearing_cardinal">Qibla nzira: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Fambisa foni yako munhamba-sere kuti uenzanise</string>
     <string name="qibla_distance">Kusvika kuMakkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Wakatarisana neQibla 🕋</string>
+    <string name="qibla_facing">Wakatarisana neQibla</string>
     <string name="qibla_gps_error">Hatina kukwanisa kugadzirisa. Ndapota edza zvakare.</string>
     <string name="qibla_gps_live">Rarama GPS nzvimbo</string>
     <string name="qibla_gps_refresh">Dzorera nzvimbo kuburikidza neGPS</string>

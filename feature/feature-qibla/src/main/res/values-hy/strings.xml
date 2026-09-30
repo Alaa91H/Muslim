@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Որոնում…</string>
     <string name="mosque_finder_title">Մոտակա մզկիթներ</string>
     <string name="qibla_bearing_cardinal">Քիբլայի ուղղությունը՝ %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Տեղափոխեք ձեր հեռախոսը ութ թվով չափորոշման համար</string>
     <string name="qibla_distance">Հեռավորությունը Մեքքա՝ %1$s</string>
     <string name="qibla_distance_km">%,.0f կմ</string>
-    <string name="qibla_facing">Դուք դեմքով դեպի Քիբլա եք 🕋</string>
+    <string name="qibla_facing">Դուք դեմքով դեպի Քիբլա եք</string>
     <string name="qibla_gps_error">Չհաջողվեց ճշգրիտ ուղղում ստանալ: Խնդրում ենք կրկին փորձել:</string>
     <string name="qibla_gps_live">Ուղիղ GPS տեղադրություն</string>
     <string name="qibla_gps_refresh">Թարմացրեք տեղադրությունը GPS-ի միջոցով</string>

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Na-achọ…</string>
     <string name="mosque_finder_title">Ụlọ alakụba dị nso</string>
     <string name="qibla_bearing_cardinal">Ntuziaka Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Bugharịa ekwentị gị n\'ọnụọgụgụ-asatọ ka ọ hazie</string>
     <string name="qibla_distance">Anya na Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Ị na-eche ihu Qibla 🕋</string>
+    <string name="qibla_facing">Ị na-eche ihu Qibla</string>
     <string name="qibla_gps_error">Enweghị ike ịnweta mmezi ziri ezi. Biko nwaa ọzọ.</string>
     <string name="qibla_gps_live">Ọnọdụ GPS dị ndụ</string>
     <string name="qibla_gps_refresh">Weghachite ọnọdụ site na GPS</string>

@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Не удалось скачать тафсир: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Тафсирын лыддьӧм аят бӧрын .</string>
+    <string name="quran_tafsir_follow_playback_description">Мöдöдны вежöртасъяс да тафсиръяс лыддьöмöн. Кусӧдӧй, медым лыддьыны мӧд гӧгӧрвоӧдӧм, кор аудио водзӧ мунӧ.</string>
+    <string name="quran_search_hint">Корсьны Коран стихъяс...</string>
+    <string name="quran_search_clear">Яснӧй корсьӧм .</string>
+    <string name="quran_search_no_results">Некутшӧм ӧткодь результатъяс абуӧсь .</string>
+    <string name="quran_search_words">Став кывъясыс .</string>
+    <string name="quran_search_phrase">Точнӧй кывтэчас</string>
+    <string name="quran_search_ayah_summary">%1$d паныдасьлӧмъяс %2$d стихъясын .</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
 </resources>

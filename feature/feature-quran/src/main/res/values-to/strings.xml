@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Kuo ʻikai ke lava ʻo tuku ʻa e tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Muimui ki he ayah kuo lau \'i he tafsir .</string>
+    <string name="quran_tafsir_follow_playback_description">Ue\'i \'a e ngaahi \'uhinga mo e tafsir mo e lau. Tāmateʻi ke lau ha fakamatala ʻe taha lolotonga ʻoku hokohoko atu ʻa e ʻōtió.</string>
+    <string name="quran_search_hint">Fekumi ki he ngaahi veesi Quran...</string>
+    <string name="quran_search_clear">Fakamaʻa ʻa e fekumi</string>
+    <string name="quran_search_no_results">\'Ikai ha ola \'oku fe\'unga</string>
+    <string name="quran_search_words">Ngaahi lea kotoa pe .</string>
+    <string name="quran_search_phrase">Ko e kupuʻi lea totonú</string>
+    <string name="quran_search_ayah_summary">%1$d ngaahi meʻa ʻoku hoko ʻi he ngaahi veesi %2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
 </resources>

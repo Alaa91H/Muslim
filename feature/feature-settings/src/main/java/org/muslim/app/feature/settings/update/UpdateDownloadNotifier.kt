@@ -5,6 +5,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Icon
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.net.toUri
 import org.muslim.app.core.notifications.NotificationChannels
@@ -63,7 +64,10 @@ internal class UpdateDownloadNotifier(
                 .setContentIntent(contentIntent)
                 .addAction(
                     Notification.Action.Builder(
-                        org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029,
+                        Icon.createWithResource(
+                            context,
+                            org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029,
+                        ),
                         actionLabel,
                         contentIntent,
                     ).build(),

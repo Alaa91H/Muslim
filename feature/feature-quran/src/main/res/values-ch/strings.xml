@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">Ti ma-descarga i tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Sige i ma\'usa na ayah gi tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Na\'fanhuyong i siniente yan i tafsir gi i tinige\'. Na\'suha para un taitai otro na esplikasion mientras sigi ha\' i audio.</string>
+    <string name="quran_search_hint">Li\'e\' i bersikulo siha gi i Quran…</string>
+    <string name="quran_search_clear">Na\'suha i inaligao</string>
+    <string name="quran_search_no_results">Ti parehu i risulta siha</string>
+    <string name="quran_search_words">Todu i palabras</string>
+    <string name="quran_search_phrase">I eksakto na sinangan</string>
+    <string name="quran_search_ayah_summary">%1$d ma sodda\' gi i %2$d na bidan-ñiha</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
 </resources>

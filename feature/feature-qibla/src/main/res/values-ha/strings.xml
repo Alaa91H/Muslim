@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Neman…</string>
     <string name="mosque_finder_title">Masallatan dake kusa</string>
     <string name="qibla_bearing_cardinal">Hanyar alqibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Matsar da wayarka a cikin adadi-takwas don daidaitawa</string>
     <string name="qibla_distance">Nisa zuwa Makka: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Kuna fuskantar alqibla 🕋</string>
+    <string name="qibla_facing">Kuna fuskantar alqibla</string>
     <string name="qibla_gps_error">An kasa samun ingantaccen gyara. Da fatan za a sake gwadawa.</string>
     <string name="qibla_gps_live">Wurin GPS kai tsaye</string>
     <string name="qibla_gps_refresh">Sabunta wurin ta hanyar GPS</string>

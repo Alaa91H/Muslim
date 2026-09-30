@@ -131,4 +131,13 @@
     <string name="quran_tafsir_download_failed">A swi koteki ku landza tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Landzelela ayah leyi hlayiweke eka tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Susa tinhlamuselo na tafsir hi ku hlayela. Tima leswaku u hlaya nhlamuselo yin’wana loko mpfumawulo wu ri karhi wu ya emahlweni.</string>
+    <string name="quran_search_hint">Ku lavisisa tindzimana ta Quran...</string>
+    <string name="quran_search_clear">Ku lavisisa loku nga erivaleni</string>
+    <string name="quran_search_no_results">Ku hava mbuyelo lowu fambelanaka</string>
+    <string name="quran_search_words">Marito hinkwawo</string>
+    <string name="quran_search_phrase">Xivulwa lexi kongomeke</string>
+    <string name="quran_search_ayah_summary">%1$d swiendlakalo eka tindzimana ta %2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · ku humelela ka marito %3$d</string>
 </resources>

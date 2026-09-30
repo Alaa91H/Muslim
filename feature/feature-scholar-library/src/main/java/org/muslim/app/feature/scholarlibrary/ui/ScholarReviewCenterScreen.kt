@@ -14,21 +14,17 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -42,7 +38,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.MuslimScreen
+import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.scholarlibrary.R
 import org.muslim.app.feature.scholarlibrary.domain.FlashcardWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
@@ -131,7 +129,6 @@ fun ScholarReviewCenterScreen(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ReviewCenterLayout(
     state: ScholarLibraryUiState,
@@ -141,27 +138,24 @@ private fun ReviewCenterLayout(
     modifier: Modifier,
 ) {
     val derived = deriveReviewCenterState(state, selection)
-    MuslimAppScaffold(
-        modifier = modifier.fillMaxSize(),
+    MuslimScreen(
+        modifier = modifier,
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.scholar_library_review_center)) },
-                navigationIcon = {
-                    IconButton(onClick = actions.onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.scholar_library_back),
-                        )
-                    }
-                },
+            MuslimTopBar(
+                title = stringResource(R.string.scholar_library_review_center),
+                onNavigateBack = actions.onBack,
+                navigationContentDescription = stringResource(R.string.scholar_library_back),
             )
         },
-    ) { padding ->
+    ) {
         LazyColumn(
-            modifier = Modifier.fillMaxSize().padding(padding),
-            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = PaddingValues(
+                horizontal = IslamicSpacing.PageHorizontal,
+                vertical = IslamicSpacing.Compact,
+            ),
+            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
         ) {
             reviewCenterItems(state, selection, actions, derived)
         }

@@ -11,6 +11,9 @@
 
     <!-- Search -->
     <string name="quran_more_actions">More actions</string>
+    <string name="quran_ayah_actions">Ayah actions</string>
+    <string name="quran_share_ayah">Share ayah</string>
+    <string name="quran_copy_ayah">Copy ayah</string>
     <string name="quran_font_size">Font size</string>
     <string name="quran_keep_screen_on">Keep screen on while reading and reciting</string>
     <string name="quran_details">Surah details</string>
@@ -49,6 +52,7 @@
     <string name="quran_mini_ayah">Ayah %1$d</string>
     <string name="quran_stop_playback">Stop playback</string>
     <string name="quran_play_range">Playback range</string>
+    <string name="quran_playback_settings">Recitation settings</string>
     <string name="quran_range_single_ayah">Single ayah</string>
     <string name="quran_range_to_end">To the end of the Mushaf</string>
     <string name="quran_range_whole_surah">Whole surah</string>
@@ -70,6 +74,8 @@
     <string name="quran_download_size_verified">Verified size: %1$s</string>
     <string name="quran_download_size_unknown">Enter a valid surah to see the approximate size</string>
     <string name="quran_download_start">Start download</string>
+    <string name="quran_download_new_title">New download</string>
+    <string name="quran_downloaded_for_reciter">Downloaded for this reciter</string>
     <string name="quran_download_cancel">Cancel</string>
     <string name="quran_downloads_active_title">Current and past downloads</string>
     <string name="quran_downloads_summary_title">Total downloaded</string>
@@ -157,4 +163,21 @@
     <string name="quran_car_not_downloaded">This surah is not fully downloaded on the phone.</string>
     <string name="quran_car_search_unavailable">No matching downloaded surah was found.</string>
 
+    <string name="quran_continue_reading">Continue reading</string>
+    <string name="quran_search_hint">Search Quran verses…</string>
+    <string name="quran_search_clear">Clear search</string>
+    <string name="quran_tab_surahs">Surahs</string>
+    <string name="quran_tab_juz">Juz</string>
+    <string name="quran_tab_bookmarks">Bookmarks</string>
+    <string name="quran_juz_title">Juz %1$d</string>
+    <string name="quran_juz_start">Starts at Surah %1$d, ayah %2$d</string>
+    <string name="quran_search_no_results">No matching results</string>
+    <string name="quran_search_words">All words</string>
+    <string name="quran_search_phrase">Exact phrase</string>
+    <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
+    <string name="quran_open_bookmarks">Open bookmarks screen</string>
+    <string name="quran_loading">Loading Quran…</string>
+    <string name="quran_tafsir_follow_playback">Follow the recited ayah in tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Move meanings and tafsir with recitation. Turn off to read another explanation while audio continues.</string>
 </resources>

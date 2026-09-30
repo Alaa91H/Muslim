@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">शोधत आहे...</string>
     <string name="mosque_finder_title">जवळच्या मशिदी</string>
     <string name="qibla_bearing_cardinal">किबला दिशा: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">कॅलिब्रेट करण्यासाठी तुमचा फोन आकृती-आठ मध्ये हलवा</string>
     <string name="qibla_distance">मक्केपर्यंतचे अंतर: %1$s</string>
     <string name="qibla_distance_km">%,.0f किमी</string>
-    <string name="qibla_facing">तुम्ही किब्लाकडे तोंड करत आहात 🕋</string>
+    <string name="qibla_facing">तुम्ही किब्लाकडे तोंड करत आहात</string>
     <string name="qibla_gps_error">अचूक निराकरण मिळू शकले नाही. कृपया पुन्हा प्रयत्न करा.</string>
     <string name="qibla_gps_live">थेट जीपीएस स्थान</string>
     <string name="qibla_gps_refresh">GPS द्वारे स्थान रिफ्रेश करा</string>
