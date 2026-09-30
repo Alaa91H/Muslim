@@ -164,7 +164,7 @@
     <string name="quran_car_search_unavailable">No matching downloaded surah was found.</string>
 
     <string name="quran_continue_reading">Continue reading</string>
-    <string name="quran_search_hint">Search by Surah name or number…</string>
+    <string name="quran_search_hint">Search Quran verses…</string>
     <string name="quran_search_clear">Clear search</string>
     <string name="quran_tab_surahs">Surahs</string>
     <string name="quran_tab_juz">Juz</string>
@@ -172,6 +172,10 @@
     <string name="quran_juz_title">Juz %1$d</string>
     <string name="quran_juz_start">Starts at Surah %1$d, ayah %2$d</string>
     <string name="quran_search_no_results">No matching results</string>
+    <string name="quran_search_words">All words</string>
+    <string name="quran_search_phrase">Exact phrase</string>
+    <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
     <string name="quran_open_bookmarks">Open bookmarks screen</string>
     <string name="quran_loading">Loading Quran…</string>
     <string name="quran_tafsir_follow_playback">Follow the recited ayah in tafsir</string>

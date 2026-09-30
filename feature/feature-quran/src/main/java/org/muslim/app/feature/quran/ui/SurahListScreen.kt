@@ -22,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -47,6 +48,9 @@ import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.core.ui.theme.MuslimSegmentedControl
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.Bookmark
+import org.muslim.app.feature.quran.domain.Ayah
+import org.muslim.app.feature.quran.domain.QuranTextSearch
+import org.muslim.app.feature.quran.domain.QuranTextSearchMatch
 import org.muslim.app.feature.quran.domain.Surah
 
 private const val TAB_SURAHS = 0
@@ -69,8 +73,10 @@ fun SurahListScreen(
     viewModel: SurahListViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
+    val searchableAyahs by viewModel.searchableAyahs.collectAsStateWithLifecycle()
     var query by rememberSaveable { mutableStateOf("") }
     var selectedTab by rememberSaveable { mutableIntStateOf(TAB_SURAHS) }
+    var searchModeIndex by rememberSaveable { mutableIntStateOf(0) }
 
     Column(modifier = modifier.fillMaxSize()) {
         QuranHomeHeader(
@@ -78,10 +84,14 @@ fun SurahListScreen(
             onQueryChange = { query = it },
             selectedTab = selectedTab,
             onSelectedTabChange = { selectedTab = it },
+            searchModeIndex = searchModeIndex,
+            onSearchModeChange = { searchModeIndex = it },
         )
         QuranHomeContent(
             state = state,
+            searchableAyahs = searchableAyahs,
             query = query,
+            searchMode = if (searchModeIndex == 0) QuranTextSearch.Mode.WORDS else QuranTextSearch.Mode.EXACT_PHRASE,
             selectedTab = selectedTab,
             onOpenSurah = onOpenSurah,
             onPlaySurah = onPlaySurah,
@@ -97,6 +107,8 @@ private fun QuranHomeHeader(
     onQueryChange: (String) -> Unit,
     selectedTab: Int,
     onSelectedTabChange: (Int) -> Unit,
+    searchModeIndex: Int,
+    onSearchModeChange: (Int) -> Unit,
 ) {
     IslamicReadingHeaderDecoration(
         tint = MaterialTheme.colorScheme.tertiary,
@@ -128,6 +140,16 @@ private fun QuranHomeHeader(
             placeholder = stringResource(R.string.quran_search_hint),
             clearContentDescription = stringResource(R.string.quran_search_clear),
         )
+        if (query.isNotBlank()) {
+            MuslimSegmentedControl(
+                options = listOf(
+                    stringResource(R.string.quran_search_words),
+                    stringResource(R.string.quran_search_phrase),
+                ),
+                selectedIndex = searchModeIndex,
+                onSelectedIndexChange = onSearchModeChange,
+            )
+        }
         MuslimSegmentedControl(
             options = listOf(
                 stringResource(R.string.quran_tab_surahs),
@@ -143,7 +165,9 @@ private fun QuranHomeHeader(
 @Composable
 private fun QuranHomeContent(
     state: SurahListViewModel.UiState,
+    searchableAyahs: List<Ayah>,
     query: String,
+    searchMode: QuranTextSearch.Mode,
     selectedTab: Int,
     onOpenSurah: (Int) -> Unit,
     onPlaySurah: (Int) -> Unit,
@@ -181,7 +205,9 @@ private fun QuranHomeContent(
         )
         else -> SurahContent(
             state = state,
+            searchableAyahs = searchableAyahs,
             query = query,
+            searchMode = searchMode,
             onOpenSurah = onOpenSurah,
             onPlaySurah = onPlaySurah,
             onResumeReading = onResumeReading,
@@ -192,7 +218,9 @@ private fun QuranHomeContent(
 @Composable
 private fun SurahContent(
     state: SurahListViewModel.UiState,
+    searchableAyahs: List<Ayah>,
     query: String,
+    searchMode: QuranTextSearch.Mode,
     onOpenSurah: (Int) -> Unit,
     onPlaySurah: (Int) -> Unit,
     onResumeReading: (surahNumber: Int, globalNumber: Int) -> Unit,
@@ -205,6 +233,10 @@ private fun SurahContent(
             surah.englishName.contains(normalizedQuery, ignoreCase = true) ||
             surah.translation.contains(normalizedQuery, ignoreCase = true)
     }
+    val ayahMatches = remember(searchableAyahs, normalizedQuery, searchMode) {
+        QuranTextSearch.search(searchableAyahs, normalizedQuery, searchMode)
+    }
+    val occurrenceCount = ayahMatches.sumOf(QuranTextSearchMatch::occurrences)
 
     LazyColumn(
         modifier = Modifier.fillMaxSize().testTag("uiux-quran-content-loaded"),
@@ -256,14 +288,14 @@ private fun SurahContent(
             }
         }
 
-        if (filtered.isEmpty()) {
+        if (normalizedQuery.isBlank() && filtered.isEmpty()) {
             item(key = "empty-search") {
                 MuslimEmptyState(
                     title = stringResource(R.string.quran_search_no_results),
                     modifier = Modifier.padding(vertical = IslamicSpacing.Large),
                 )
             }
-        } else {
+        } else if (filtered.isNotEmpty()) {
             items(filtered, key = { it.number }) { surah ->
                 SurahRow(
                     surah = surah,
@@ -273,6 +305,65 @@ private fun SurahContent(
                 HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
             }
         }
+
+        if (normalizedQuery.isNotBlank()) {
+            item(key = "ayah-search-heading") {
+                Text(
+                    text = stringResource(R.string.quran_search_ayah_summary, occurrenceCount, ayahMatches.size),
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier.padding(vertical = IslamicSpacing.Small),
+                )
+            }
+            if (ayahMatches.isEmpty()) {
+                item(key = "ayah-search-empty") {
+                    MuslimEmptyState(
+                        title = stringResource(R.string.quran_search_no_results),
+                        modifier = Modifier.padding(vertical = IslamicSpacing.Large),
+                    )
+                }
+            } else {
+                items(ayahMatches, key = { "ayah-search-${it.ayah.globalNumber}" }) { match ->
+                    AyahSearchResultRow(
+                        match = match,
+                        surah = state.surahs.firstOrNull { it.number == match.ayah.surahNumber },
+                        onClick = { onResumeReading(match.ayah.surahNumber, match.ayah.globalNumber) },
+                    )
+                    HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun AyahSearchResultRow(
+    match: QuranTextSearchMatch,
+    surah: Surah?,
+    onClick: () -> Unit,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(role = Role.Button, onClick = onClick)
+            .padding(vertical = IslamicSpacing.Small),
+        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.XXSmall),
+    ) {
+        Text(
+            text = match.ayah.text,
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.onSurface,
+        )
+        Text(
+            text = stringResource(
+                R.string.quran_search_result_location,
+                surah?.arabicName ?: stringResource(R.string.quran_surah_number_short, match.ayah.surahNumber),
+                match.ayah.numberInSurah,
+                match.occurrences,
+            ),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
     }
 }
 

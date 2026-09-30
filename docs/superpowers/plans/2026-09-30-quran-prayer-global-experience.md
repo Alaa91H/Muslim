@@ -37,7 +37,7 @@ Files: Reciter.kt, provider catalogue/quality metadata, reciter/download selecti
 
 Files: QuranPrefsRepository.kt, QuranReaderViewModel.kt, QuranReaderSettingsSheet.kt, QuranSupplementRepository, Quran search UI/domain.
 - [x] Persist follow-recited-ayah (default on when supplement is enabled), resolve playback ayah independently, expose off switch.
-- [ ] Support accurate match/occurrence totals, normalized Arabic search, exact/word modes and usable navigation to results.
+- [x] Add offline Arabic Quran search with tashkeel/alef normalization, all-words and exact-phrase modes, occurrence and ayah totals, and direct navigation to each matching ayah. Translation-language search remains open until attributed translation corpora are available.
 - [ ] Expand provider-backed translations with language/translator/source selection, downloads and offline attribution.
 
 ## Task 4: Prayer preferences, notifications and monthly screen
@@ -58,7 +58,7 @@ Files: existing media browser/session, automotive preference/screen metadata, Ca
 - [ ] Inspect Alaa91H/QuranLiveStream display/source contracts and reuse with attribution/license compatibility.
 - [ ] Add Cast playback payload with ayah, selected translation, Arabic/English tafsir and configurable world prayer locations; synchronize playback and settings.
 - [ ] Build custom receiver; expose registered receiver ID configuration where external registration is required, never invent credentials/IDs.
-- [x] Point the Wear launcher at the phone app's adaptive icon resource. A Wear notification icon path is not present in the current module.
+- [x] Match the Wear launcher artwork to the phone launcher using a size-optimized copy of the phone foreground asset. A Wear notification icon path is not present in the current module.
 - [ ] Separate tested sender/receiver contracts from unverified real car/watch/Cast behavior.
 
 ## Task 6: Localization and strict tag-based CI
@@ -76,5 +76,6 @@ Files: scripts/localize.py/resource audit, language settings, Gradle versioning,
 - On CI run `36756348324`, APK assembly and unit tests passed; Family Life emulator jobs passed on API 26 and 36. Lint failed because the two new tafsir-follow strings were missing from 153 existing Quran locale files. Emulator jobs were still running when this plan was updated; inspect their results before claiming completion.
 - On CI run `36759111996`, Quality (APK, unit tests, lint, Detekt) and Family Life emulator jobs passed. Both prayer/Qibla emulator jobs lost ADB during the app-wide UI screenshot matrix; API 36 failed while running `UiUxV2MatrixInstrumentedTest` with `AdbCommandRejectedException: device offline`. The capture script now returns failure on device loss and skips app-regression reruns, preserving first-failure diagnostics.
 - Local verification for Android Auto update: `:feature:feature-quran:testDebugUnitTest` passed (120 tests, 1 skipped); `:app:lintDebug` passed; Android app/resources compiled through lint; `bash -n scripts/capture_uiux_v2_artifacts.sh` and `scripts/verify_uiux_v2_qa_matrix.py` passed. This is emulator/build verification, not real Android Auto vehicle validation.
+- Quran search local verification: `:feature:feature-quran:testDebugUnitTest` and `:feature:feature-quran:lintDebug` passed; the new search suite reports 5 tests, 0 failures. `:wear:assembleDebug` passed with the independent Wear icon resource.
 - Direct local Detekt analyzed 609 Kotlin files with zero findings. Quran/prayer static contracts and three visual-comparison policy tests passed. The global `scripts/localize.py --check` reports extensive pre-existing missing-resource and placeholder problems across unrelated modules; do not present it as a Quran-only check.
 - No physical Android phone is available (user confirmed). Physical TalkBack/performance/fold/car/watch/Cast evidence remains an explicit acceptance gate.

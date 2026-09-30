@@ -52,6 +52,8 @@ class SurahListViewModel @Inject constructor(
     }
 
     private val juzStarts = MutableStateFlow<List<JuzStart>>(emptyList())
+    private val _searchableAyahs = MutableStateFlow<List<Ayah>>(emptyList())
+    val searchableAyahs: StateFlow<List<Ayah>> = _searchableAyahs
 
     val uiState: StateFlow<UiState> = combine(
         repository.observeSurahs().onStart { emit(emptyList()) },
@@ -76,7 +78,9 @@ class SurahListViewModel @Inject constructor(
         viewModelScope.launch {
             AyahOfTheDayScheduler.schedule(context)
             supplementRepository.removeLegacySampleTafsir()
-            juzStarts.value = repository.allAyahs().toJuzStarts()
+            val ayahs = repository.allAyahs()
+            juzStarts.value = ayahs.toJuzStarts()
+            _searchableAyahs.value = ayahs
         }
     }
 }

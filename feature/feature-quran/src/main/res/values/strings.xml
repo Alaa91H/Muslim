@@ -165,7 +165,7 @@
     <string name="quran_car_search_unavailable" tools:ignore="MissingTranslation">لم تُعثر على سورة محمّلة مطابقة للطلب.</string>
 
     <string name="quran_continue_reading" tools:ignore="MissingTranslation">متابعة القراءة</string>
-    <string name="quran_search_hint" tools:ignore="MissingTranslation">ابحث باسم السورة أو رقمها…</string>
+    <string name="quran_search_hint" tools:ignore="MissingTranslation">ابحث في آيات القرآن…</string>
     <string name="quran_search_clear" tools:ignore="MissingTranslation">مسح البحث</string>
     <string name="quran_tab_surahs" tools:ignore="MissingTranslation">السور</string>
     <string name="quran_tab_juz" tools:ignore="MissingTranslation">الأجزاء</string>
@@ -173,6 +173,10 @@
     <string name="quran_juz_title" tools:ignore="MissingTranslation">الجزء %1$d</string>
     <string name="quran_juz_start" tools:ignore="MissingTranslation">يبدأ من سورة %1$d، آية %2$d</string>
     <string name="quran_search_no_results" tools:ignore="MissingTranslation">لا توجد نتائج مطابقة</string>
+    <string name="quran_search_words" tools:ignore="MissingTranslation">كل الكلمات</string>
+    <string name="quran_search_phrase" tools:ignore="MissingTranslation">عبارة مطابقة</string>
+    <string name="quran_search_ayah_summary" tools:ignore="MissingTranslation">%1$d تكرارًا في %2$d آية</string>
+    <string name="quran_search_result_location" tools:ignore="MissingTranslation">%1$s · الآية %2$d · تكرار الكلمة %3$d</string>
     <string name="quran_open_bookmarks" tools:ignore="MissingTranslation">فتح شاشة العلامات المرجعية</string>
     <string name="quran_loading" tools:ignore="MissingTranslation">جارٍ تحميل القرآن…</string>
     <string name="quran_tafsir_follow_playback">تتبع تفسير الآية المتلوة</string>

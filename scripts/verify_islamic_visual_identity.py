@@ -331,8 +331,12 @@ def verify() -> list[str]:
 
     wear_manifest = ROOT / "wear/src/main/AndroidManifest.xml"
     wear_manifest_text = wear_manifest.read_text(encoding="utf-8")
-    if "@mipmap/ic_muslim_launcher_v2028" not in wear_manifest_text:
-        failures.append("wear manifest: must use the main app v2028 launcher identity")
+    if "@drawable/ic_wear_launcher_v2029" not in wear_manifest_text:
+        failures.append("wear manifest: must use the phone-matched v2029 launcher asset")
+    if not (ROOT / "wear/src/main/res/drawable-nodpi/ic_wear_launcher_v2029.png").is_file():
+        failures.append("wear manifest: phone-matched v2029 launcher asset is missing")
+    if (ROOT / "wear/src/main/res/drawable/ic_wear_launcher_v2028.xml").exists():
+        failures.append("mismatched Wear launcher icon remains packaged")
     if (ROOT / "wear/src/main/res/drawable/ic_wear_launcher.xml").exists():
         failures.append("retired Wear launcher resource remains packaged")
 
