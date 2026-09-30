@@ -200,18 +200,10 @@ jobs:
           arch: x86_64
           disable-animations: true
           script: |
-            set +e
             ./gradlew :app:connectedDebugAndroidTest
-            app_test_status=$?
-            set -e
             mkdir -p artifacts/uiux-v2
-            application_id="$(sed -n 's/^muslim.applicationId=//p' gradle.properties)"
-            adb exec-out run-as "$application_id" cat files/uiux-v2/prayer-home-ar-light.png > artifacts/uiux-v2/prayer-home-ar-light.png || true
-            if [ "$app_test_status" -eq 0 ]; then
-              test -s artifacts/uiux-v2/prayer-home-ar-light.png
-            else
-              exit "$app_test_status"
-            fi
+            adb exec-out run-as "$(sed -n 's/^muslim.applicationId=//p' gradle.properties)" cat files/uiux-v2/prayer-home-ar-light.png > artifacts/uiux-v2/prayer-home-ar-light.png
+            test -s artifacts/uiux-v2/prayer-home-ar-light.png
             ./gradlew :feature:feature-scholar-library:connectedDebugAndroidTest
             adb shell cmd audio set-enable-hardening throw
             ./gradlew :feature:feature-learn:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :feature:feature-qibla:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest
