@@ -2,6 +2,7 @@ package org.muslim.app
 
 import android.graphics.Bitmap
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.core.app.ActivityScenario
 import androidx.test.platform.app.InstrumentationRegistry
 import java.io.File
 import kotlinx.coroutines.runBlocking
@@ -48,11 +49,7 @@ class UiUxV2ScreenshotInstrumentedTest {
                 ),
             )
         }
-        val activity = instrumentation.startActivitySync(
-            android.content.Intent(context, MainActivity::class.java)
-                .addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK),
-        ) as MainActivity
-
+        val scenario = ActivityScenario.launch<MainActivity>(MainActivity::class.java)
         try {
             instrumentation.waitForIdleSync()
             Thread.sleep(1_000)
@@ -79,7 +76,7 @@ class UiUxV2ScreenshotInstrumentedTest {
                 }
             }
         } finally {
-            activity.finish()
+            scenario.close()
             runBlocking {
                 preferencesRepository.setThemeMode(originalPreferences.themeMode)
                 preferencesRepository.setLanguage(originalPreferences.languageCode)
