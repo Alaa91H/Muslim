@@ -2,10 +2,13 @@ package org.muslim.app
 
 import android.graphics.Bitmap
 import android.os.SystemClock
+import android.os.ParcelFileDescriptor
+import android.provider.Settings
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.core.app.ActivityScenario
 import androidx.test.platform.app.InstrumentationRegistry
+import androidx.core.view.WindowCompat
 import java.io.File
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.flow.first
@@ -40,13 +43,28 @@ class UiUxV2ScreenshotInstrumentedTest {
         capturePrayerHomeScreenshot(languageCode = "en", themeMode = AppThemeMode.Light)
     }
 
-    private fun capturePrayerHomeScreenshot(languageCode: String, themeMode: AppThemeMode) {
+    @Test
+    fun capturesPrayerHomeArabicLargeFontScreenshot() {
+        capturePrayerHomeScreenshot(languageCode = "ar", themeMode = AppThemeMode.Light, fontScale = 2f)
+    }
+
+    @Test
+    fun capturesPrayerHomeEnglishLargeFontScreenshot() {
+        capturePrayerHomeScreenshot(languageCode = "en", themeMode = AppThemeMode.Light, fontScale = 2f)
+    }
+
+    private fun capturePrayerHomeScreenshot(
+        languageCode: String,
+        themeMode: AppThemeMode,
+        fontScale: Float = 1f,
+    ) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
         val preferencesRepository = AppPreferencesRepository(context)
         val prayerRepository = PrayerSettingsRepository(context)
         val originalPreferences = runBlocking { preferencesRepository.preferences.first() }
         val originalPrayerSettings = runBlocking { prayerRepository.settings.first() }
+        val originalFontScale = Settings.System.getFloat(context.contentResolver, Settings.System.FONT_SCALE, 1f)
         runBlocking {
             // Screen QA starts after onboarding; system permission dialogs can
             // otherwise dim or replace the screen while still producing a PNG.
@@ -67,6 +85,7 @@ class UiUxV2ScreenshotInstrumentedTest {
         }
         var scenario: ActivityScenario<MainActivity>? = null
         try {
+            setSystemFontScale(fontScale)
             scenario = ActivityScenario.launch<MainActivity>(MainActivity::class.java)
             instrumentation.waitForIdleSync()
             val deadline = SystemClock.uptimeMillis() + 15_000
@@ -82,6 +101,22 @@ class UiUxV2ScreenshotInstrumentedTest {
             }
             SystemClock.sleep(500)
             instrumentation.waitForIdleSync()
+            checkNotNull(scenario).onActivity { activity ->
+                check(activity.resources.configuration.locales[0].language == languageCode) {
+                    "Activity locale does not match the requested screenshot variant"
+                }
+                check(kotlin.math.abs(activity.resources.configuration.fontScale - fontScale) < 0.01f) {
+                    "Activity font scale does not match the requested screenshot variant"
+                }
+                val bars = WindowCompat.getInsetsController(activity.window, activity.window.decorView)
+                val lightTheme = themeMode == AppThemeMode.Light
+                check(bars.isAppearanceLightStatusBars == lightTheme) {
+                    "Status bar icon contrast does not match the app theme"
+                }
+                check(bars.isAppearanceLightNavigationBars == lightTheme) {
+                    "Navigation bar icon contrast does not match the app theme"
+                }
+            }
             val bitmap = instrumentation.uiAutomation.takeScreenshot()
             check(bitmap.width > 0 && bitmap.height > 0) { "Screenshot has invalid dimensions" }
             val sampledColors = buildSet {
@@ -97,7 +132,8 @@ class UiUxV2ScreenshotInstrumentedTest {
             check(outputDirectory.mkdirs() || outputDirectory.isDirectory) {
                 "Could not create screenshot output directory: ${outputDirectory.absolutePath}"
             }
-            val screenshotName = "prayer-home-$languageCode-${themeMode.name.lowercase()}.png"
+            val fontSuffix = if (fontScale == 2f) "-200" else ""
+            val screenshotName = "prayer-home-$languageCode-${themeMode.name.lowercase()}$fontSuffix.png"
             val pendingScreenshot = File(outputDirectory, "$screenshotName.tmp")
             pendingScreenshot.outputStream().use { output ->
                 check(bitmap.compress(Bitmap.CompressFormat.PNG, 100, output)) {
@@ -112,6 +148,7 @@ class UiUxV2ScreenshotInstrumentedTest {
             }
         } finally {
             scenario?.close()
+            setSystemFontScale(originalFontScale)
             runBlocking {
                 preferencesRepository.setThemeMode(originalPreferences.themeMode)
                 preferencesRepository.setDynamicColor(originalPreferences.dynamicColor)
@@ -119,6 +156,20 @@ class UiUxV2ScreenshotInstrumentedTest {
                 prayerRepository.save(originalPrayerSettings)
             }
         }
+    }
+
+    private fun setSystemFontScale(scale: Float) {
+        val instrumentation = InstrumentationRegistry.getInstrumentation()
+        val descriptor = instrumentation.uiAutomation.executeShellCommand("settings put system font_scale $scale")
+        ParcelFileDescriptor.AutoCloseInputStream(descriptor).use { it.readBytes() }
+        val deadline = SystemClock.uptimeMillis() + 10_000
+        while (SystemClock.uptimeMillis() < deadline) {
+            if (kotlin.math.abs(instrumentation.targetContext.resources.configuration.fontScale - scale) < 0.01f) {
+                return
+            }
+            SystemClock.sleep(100)
+        }
+        error("System font scale did not update to $scale")
     }
 
     private fun AccessibilityNodeInfo.describeTree(): String = buildString {

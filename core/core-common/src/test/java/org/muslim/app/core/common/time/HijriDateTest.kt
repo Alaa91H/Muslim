@@ -3,6 +3,7 @@ package org.muslim.app.core.common.time
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 import java.time.LocalDate
+import java.util.Locale
 
 /**
  * Anchors are published Umm al-Qura dates (Saudi authorities):
@@ -50,6 +51,19 @@ class HijriDateTest {
     @Test
     fun `formatting`() {
         assertThat(HijriDate.of(1446, 9, 1).formatArabic()).isEqualTo("1 رمضان 1446")
+    }
+
+    @Test
+    fun `localized long date uses Hijri year and English month`() {
+        assertThat(HijriDate.of(1446, 9, 1).formatLocalizedLong(Locale.ENGLISH))
+            .isEqualTo("Saturday 1 Ramadan 1446 AH")
+    }
+
+    @Test
+    fun `localized Arabic long date preserves the existing presentation`() {
+        val date = HijriDate.of(1446, 9, 1, adjustment = 1)
+        assertThat(date.formatLocalizedLong(Locale.forLanguageTag("ar")))
+            .isEqualTo(date.formatArabicLong())
     }
 
     @Test

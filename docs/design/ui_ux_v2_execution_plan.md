@@ -175,9 +175,9 @@ All must preserve existing capability and use the shared patterns.
 
 ### UX28 — Screenshot and visual regression
 
-- CI is configured to capture the actual Prayer Home screen in Arabic/light
-  and English/dark on Android emulators and store both PNGs as per-API
-  artifacts. Run
+- CI is configured to capture the actual Prayer Home screen in Arabic and English
+  with light and dark themes on Android emulators and store normal-font and 200%-font PNGs as
+  per-API artifacts. Run
   #1338 exposed that the post-instrumentation export produced a 40-byte
   `run-as: unknown package` message instead of a PNG. Run #1339 failed on a
   shell-output marker, and #1340 showed the screenshot instrumentation passes
@@ -201,8 +201,10 @@ All must preserve existing capability and use the shared patterns.
   baseline updates.
 - The configured CI capture covers Prayer Home in Arabic and English with light and dark themes
   on emulator APIs 26 and 36; all other screen/variant pairs and visual
-  comparison remain open. The four language/theme combinations now await CI
-  validation with onboarding disabled and an active-window/content readiness gate.
+  comparison remain open. The four language/theme combinations passed both emulator APIs in run
+  36730684425 with onboarding disabled and an active-window/content readiness gate.
+  Arabic/light and English/light at 200% font are now configured and await CI
+  review alongside localized Hijri dates and app-theme system bar contrast.
   Earlier English/dark PNGs passed encoding checks but visual inspection found
   a dimmed screen during initial system permission setup.
 

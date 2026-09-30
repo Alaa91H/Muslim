@@ -44,3 +44,26 @@
 - [x] Document the configured capture/export path and retain comparison/variant/manual QA gates.
 - [x] Add a static contract that asserts emulator screenshot export/upload configuration and distinguishes capture from visual comparison.
 - [x] Run the QA matrix verifier and verify end-to-end CI after extending screenshot polling to 10 minutes (run #1342 passed).
+
+### Task 4: Review unobscured locale/theme captures and compact date layout
+
+**Files:** `UiUxV2ScreenshotInstrumentedTest.kt`, `HomeScreen.kt`, CI screenshot capture and QA matrix contract.
+
+- [x] Add Arabic/dark and English/light captures alongside existing variants.
+- [x] Mark initial system permission onboarding handled in test setup and disable dynamic color for reproducible palettes.
+- [x] Publish screenshot filenames only after encoding is complete.
+- [x] Allow the Hijri and Gregorian date labels to wrap on narrow screens.
+- [x] Add active-window diagnostics and inspect Compose accessibility descendants for the saved location.
+- [x] Pass the four-variant instrumentation capture on both emulator APIs (run 36730684425).
+- [x] Inspect all eight PNGs visually: unobscured content and complete dates; identified untranslated Hijri date and dark status icons for the next task.
+
+Ruling: PNG signature/dimensions prove encoding, not screen readiness. Earlier English/dark images were dimmed; visual QA remains open until the new captures are inspected.
+
+### Task 5: Localized date, system-bar contrast, and 200% font captures
+
+- [x] Add localized Hijri date formatting while preserving the Arabic date presentation and calendar calculations.
+- [x] Verify English Hijri year/month and preserved Arabic formatting with `HijriDateTest` locally.
+- [x] Bind status/navigation bar icons to the selected app theme.
+- [x] Add Arabic and English Prayer Home screenshots at system font scale 2.0, with scale restoration and an Activity configuration assertion.
+- [ ] Compile the updated app and instrumentation tests.
+- [ ] Pass CI on API 26 and 36, inspect all twelve images, and fix any clipping or incorrect system bar contrast found.

@@ -5,6 +5,9 @@ import java.time.chrono.HijrahChronology
 import java.time.chrono.HijrahDate
 import java.time.temporal.ChronoField
 import java.time.temporal.ChronoUnit
+import java.time.format.DateTimeFormatter
+import java.time.format.DecimalStyle
+import java.util.Locale
 
 /**
  * Hijri (Islamic lunar) date.
@@ -44,6 +47,17 @@ class HijriDate private constructor(
 
     /** Formats as "الجمعة 29 محرم 1448هـ". */
     fun formatArabicLong(): String = "${gregorian.dayOfWeek.toArabic()} $day $monthName $year هـ"
+
+    /** Localized weekday/month/era, retaining the existing Arabic presentation and Latin digits. */
+    fun formatLocalizedLong(locale: Locale = Locale.getDefault()): String =
+        if (locale.language == "ar") {
+            formatArabicLong()
+        } else {
+            hijrahDate.format(
+                DateTimeFormatter.ofPattern("EEEE d MMMM yyyy G", locale)
+                    .withDecimalStyle(DecimalStyle.STANDARD),
+            )
+        }
 
     fun plusDays(days: Long): HijriDate =
         HijriDate(hijrahDate.plus(days, ChronoUnit.DAYS), adjustment)

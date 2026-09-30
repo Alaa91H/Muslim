@@ -1,5 +1,8 @@
 package org.muslim.app.ui
 
+import androidx.activity.SystemBarStyle
+import androidx.activity.compose.LocalActivity
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Row
@@ -315,6 +318,20 @@ fun MuslimApp(
         AppThemeMode.System -> isSystemInDarkTheme()
         AppThemeMode.Light -> false
         AppThemeMode.Dark -> true
+    }
+
+    val activity = LocalActivity.current
+    LaunchedEffect(activity, darkTheme) {
+        activity?.enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.auto(
+                android.graphics.Color.TRANSPARENT,
+                android.graphics.Color.TRANSPARENT,
+            ) { darkTheme },
+            navigationBarStyle = SystemBarStyle.auto(
+                android.graphics.Color.TRANSPARENT,
+                android.graphics.Color.TRANSPARENT,
+            ) { darkTheme },
+        )
     }
 
     AppTheme(

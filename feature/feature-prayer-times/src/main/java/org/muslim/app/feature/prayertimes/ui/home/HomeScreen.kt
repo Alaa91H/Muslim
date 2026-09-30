@@ -267,7 +267,7 @@ private fun PrayerDateHeader(
             )
         }
         Text(
-            text = state.hijri?.formatArabicLong().orEmpty(),
+            text = state.hijri?.formatLocalizedLong().orEmpty(),
             modifier = Modifier.weight(1f),
             style = if (compact) {
                 MaterialTheme.typography.titleLarge

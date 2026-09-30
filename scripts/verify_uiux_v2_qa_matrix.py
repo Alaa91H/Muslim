@@ -84,6 +84,11 @@ def main() -> None:
         and "capturesPrayerHomeEnglishLightScreenshot" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
         and "markInitialPermissionSetupHandled()" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
         and "rootInActiveWindow" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
+        and "capturesPrayerHomeArabicLargeFontScreenshot" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
+        and "capturesPrayerHomeEnglishLargeFontScreenshot" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
+        and "setSystemFontScale(originalFontScale)" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
+        and "prayer-home-ar-light-200" in workflow
+        and "prayer-home-en-light-200" in workflow
         and "gradle_pid=$!" in workflow
         and "seq 1 600" in workflow
         and 'for screenshot in prayer-home-ar-light prayer-home-en-dark' in workflow
