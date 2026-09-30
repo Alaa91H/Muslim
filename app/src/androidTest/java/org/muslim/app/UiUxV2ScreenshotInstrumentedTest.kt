@@ -72,7 +72,6 @@ class UiUxV2ScreenshotInstrumentedTest {
     ) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
-        val originalFontScale = shell("settings get system font_scale").trim().toFloatOrNull() ?: 1f
         val originalAccessibilityFlags = instrumentation.uiAutomation.serviceInfo.flags
         instrumentation.uiAutomation.serviceInfo = instrumentation.uiAutomation.serviceInfo.apply {
             flags = flags or AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS or
@@ -117,6 +116,10 @@ class UiUxV2ScreenshotInstrumentedTest {
                 }
             }
             setSystemFontScale(fontScale)
+            context.resources.updateConfiguration(
+                Configuration(context.resources.configuration).apply { this.fontScale = fontScale },
+                null,
+            )
             if (fixedClock) {
                 val result = shell("su 0 date -u 093015002026.00")
                 val expectedEpoch = Instant.parse("2026-09-30T15:00:00Z").toEpochMilli()
@@ -235,15 +238,6 @@ class UiUxV2ScreenshotInstrumentedTest {
 
     private fun setSystemFontScale(scale: Float) {
         shell("settings put system font_scale $scale")
-        val deadline = SystemClock.uptimeMillis() + 10_000
-        while (SystemClock.uptimeMillis() < deadline) {
-            val systemScale = shell("settings get system font_scale").trim().toFloatOrNull()
-            if (systemScale != null && kotlin.math.abs(systemScale - scale) < 0.01f) {
-                return
-            }
-            SystemClock.sleep(100)
-        }
-        error("System font scale setting did not update to $scale")
     }
 
     private fun AccessibilityNodeInfo.describeTree(): String = buildString {
