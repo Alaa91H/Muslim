@@ -73,7 +73,8 @@ def main() -> None:
             for path in (ROOT / "app/src/androidTest").rglob("*.kt")
         )
         and 'adb pull "/sdcard/Android/data/$(sed -n' in workflow
-        and workflow.index("adb pull \"/sdcard/Android/data/$(sed -n") < workflow.index("- name: Upload UI/UX V2 emulator screenshots")
+        and workflow.index("-Pandroid.testInstrumentationRunnerArguments.class=org.muslim.app.UiUxV2ScreenshotInstrumentedTest") < workflow.index("adb pull \"/sdcard/Android/data/$(sed -n") < workflow.index("- name: Upload UI/UX V2 emulator screenshots")
+        and "if-no-files-found: error" in workflow
         and "muslim.applicationId=" in (ROOT / "gradle.properties").read_text(encoding="utf-8")
         and "Upload UI/UX V2 emulator screenshots" in workflow
         and "visual comparison" in normalized_plan.lower()

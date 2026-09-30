@@ -200,24 +200,21 @@ jobs:
           arch: x86_64
           disable-animations: true
           script: |
-            capture_uiux_screenshots() {
-              mkdir -p artifacts/uiux-v2
-              adb pull "/sdcard/Android/data/$(sed -n 's/^muslim.applicationId=//p' gradle.properties)/files/uiux-v2" artifacts/uiux-v2 || true
-            }
-            trap capture_uiux_screenshots EXIT
+            mkdir -p artifacts/uiux-v2
+            ./gradlew :app:connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=org.muslim.app.UiUxV2ScreenshotInstrumentedTest
+            adb pull "/sdcard/Android/data/$(sed -n 's/^muslim.applicationId=//p' gradle.properties)/files/uiux-v2" artifacts/uiux-v2
+            test -s artifacts/uiux-v2/prayer-home-ar-light.png
             ./gradlew :feature:feature-scholar-library:connectedDebugAndroidTest
             adb shell cmd audio set-enable-hardening throw
             ./gradlew :app:connectedDebugAndroidTest :feature:feature-learn:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :feature:feature-qibla:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest
-            test -s artifacts/uiux-v2/prayer-home-ar-light.png
-            file artifacts/uiux-v2/prayer-home-ar-light.png
 
       - name: Upload UI/UX V2 emulator screenshots
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: uiux-v2-screenshots-api-${{ matrix.api-level }}
-          path: artifacts/uiux-v2/*.png
-          if-no-files-found: ignore
+          path: artifacts/uiux-v2/prayer-home-ar-light.png
+          if-no-files-found: error
 
       # Instrumentation failures are the hardest to reproduce locally, so the
       # device test report is always kept when this job fails.
