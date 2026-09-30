@@ -187,8 +187,11 @@ All must preserve existing capability and use the shared patterns.
   10-minute poll, pulls the app-specific external file while instrumentation
   runs, then validates the PNG signature and dimensions. Run #1342 passed the
   quality, emulator, and development APK jobs; both Arabic/light PNGs were
-  inspected and are valid 320x640 images. English/dark capture has since been
-  added and awaits CI verification. This path does not compare image output.
+  inspected and are valid 320x640 images. Run #1344 exposed an Activity launch
+  timeout when repeating the capture on API 36. Using ActivityScenario fixed
+  the lifecycle wait; run #1345 passed all jobs, and all four Arabic/light and
+  English/dark PNG artifacts were inspected at 320x640. This path does not
+  compare image output.
 - No checked-in golden screenshots, comparison runner, or reviewed image
   baselines exist yet. UX28 remains open until the full matrix is captured,
   visually reviewed, and intentional differences are accepted.
