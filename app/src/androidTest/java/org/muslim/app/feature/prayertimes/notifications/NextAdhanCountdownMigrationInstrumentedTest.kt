@@ -8,8 +8,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import java.time.LocalTime
 import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
-import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
@@ -92,10 +92,24 @@ class NextAdhanCountdownMigrationInstrumentedTest {
             notification.smallIcon.resId ==
                 org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029,
         )
-        assertNotNull(notification.contentView)
-        assertNotNull(notification.bigContentView)
-        assertTrue(notification.contentView.layoutId == R.layout.notification_next_adhan_compact)
-        assertTrue(notification.bigContentView.layoutId == R.layout.notification_next_adhan_expanded)
+        val (compact, expanded) = NextAdhanNotifications.buildCustomRemoteViews(
+            context = context,
+            data = PrayerCountdownData(
+                hasLocation = true,
+                isValid = true,
+                nextPrayer = Prayer.Dhuhr,
+                nextPrayerAt = times.getValue(Prayer.Dhuhr),
+                remainingSeconds = remainingSeconds,
+                missedPrayer = Prayer.Fajr,
+                missedPrayerAt = times.getValue(Prayer.Fajr),
+                elapsedSeconds = elapsedSeconds,
+                prayerTimes = times,
+            ),
+            showMissed = true,
+            use24h = true,
+        )
+        assertEquals(R.layout.notification_next_adhan_compact, compact.layoutId)
+        assertEquals(R.layout.notification_next_adhan_expanded, expanded.layoutId)
 
         val title = requireNotNull(notification.extras.getCharSequence(Notification.EXTRA_TITLE))
         assertTrue(title.toString().contains(context.getString(prayerLabelRes(Prayer.Dhuhr))))

@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.graphics.drawable.Icon
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Icon
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.net.toUri
 import org.muslim.app.core.notifications.NotificationChannels

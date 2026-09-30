@@ -97,7 +97,7 @@ class UiUxV2ScreenshotInstrumentedTest {
             if (expanded) shell("wm size 1280x800")
             setSystemFontScale(fontScale)
             scenario = ActivityScenario.launch<MainActivity>(
-                Intent(context, MainActivity::class.java).putExtra(MainActivity.EXTRA_ROUTE, route),
+                Intent(context, MainActivity::class.java).putExtra("org.muslim.app.extra.ROUTE", route),
             )
             instrumentation.waitForIdleSync()
             val deadline = SystemClock.uptimeMillis() + 15_000

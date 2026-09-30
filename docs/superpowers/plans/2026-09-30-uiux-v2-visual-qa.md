@@ -81,3 +81,12 @@ Ruling: PNG signature/dimensions prove encoding, not screen readiness. Earlier E
 
 Ruling: expanded-window screenshots use the CI emulator's 1280x800 override and assert at least 840dp. This checks window adaptation; fold/unfold continuity still needs separate runtime coverage.
 Ruling: code inspection identified `schedule()` calling `cancelAll()` including probes. Routine refresh now cancels only prayer/reminder alarms; explicit cancellation and disabling Adhan retain cancellation of probes.
+
+### Integration of `fix/ci-warnings`
+
+- [x] Merge locally; retain V2 mosque sorting and history hierarchy, plus explicit drawable getter annotations, where older warning changes conflicted.
+- [x] Run all 28 static workflow verifiers after conflict resolution: passed.
+- [ ] Verify merged build, unit tests, lint, Detekt and complete screenshot matrix in CI.
+- [ ] Merge reviewed integration and UI/UX branches into main and remove merged remote branches.
+
+Run 36736715537 failed instrumentation compilation because MainActivity's extra constant belongs to a private companion. The capture now uses the existing intent extra string without changing the production visibility contract.
