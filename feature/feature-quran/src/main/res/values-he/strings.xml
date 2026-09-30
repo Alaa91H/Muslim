@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">לא ניתן להוריד את התפסיר: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">עקוב אחר האיה הנאמרת בתפסיר</string>
+    <string name="quran_tafsir_follow_playback_description">הזז משמעויות ותפסיר עם דקלום. כבה כדי לקרוא הסבר נוסף בזמן שהשמע נמשך.</string>
 </resources>

@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">تفسير ڊائونلوڊ نه ٿي سگهيو: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">تفسير ۾ پڙهيل آيت جي پيروي ڪريو</string>
+    <string name="quran_tafsir_follow_playback_description">مطلب ۽ تفسير کي تلاوت سان منتقل ڪريو. بند ڪريو ٻي وضاحت پڙهڻ لاءِ جڏهن آڊيو جاري رهي.</string>
 </resources>

@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">ཏཱཕསིར་གསོག་འཇུག་མི་བྱེད་མི་འདུག: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">ཏཕ་སིར་ནང་ལུ་ བཀླགས་ཡོད་པའི་ཨ་ཡ་གི་རྗེས་སུ་འཇུག་དགོ།</string>
+    <string name="quran_tafsir_follow_playback_description">དོན་དག་དང་ ཏཕ་སིར་ཚུ་ བཀླགས་ཐོག་ལས་ སྤོ་བཤུད་འབད། རྣར་ཉན་འཕྲོ་མཐུད་དེ་ཡོད་པའི་སྐབས་ འགྲེལ་བཤད་གཞན་ཅིག་ལྷག་ནི་ལུ་ ཁ་བསྡམས།</string>
 </resources>

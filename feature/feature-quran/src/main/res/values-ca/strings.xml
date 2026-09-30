@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">No s\'ha pogut descarregar el tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Seguiu l\'àiah recitat en tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Moure els significats i tafsir amb la recitació. Apagueu per llegir una altra explicació mentre l\'àudio continua.</string>
 </resources>

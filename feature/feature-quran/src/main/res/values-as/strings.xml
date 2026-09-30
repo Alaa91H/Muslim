@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">তাফসীৰ ডাউনলোড কৰিব পৰা নগ\'ল: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">তফছিৰত আবৃত্তি কৰা আয়াহ অনুসৰণ কৰক</string>
+    <string name="quran_tafsir_follow_playback_description">আবৃত্তিৰে অৰ্থ আৰু তফছিৰ লৰচৰ কৰক। অডিঅ\' চলি থকাৰ সময়ত আন এটা ব্যাখ্যা পঢ়িবলৈ বন্ধ কৰক।</string>
 </resources>

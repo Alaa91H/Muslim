@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">د تفسیر ډاونلوډ ناکام شو: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">په تفسیر کې د تلاوت شوي آیت تعقیب کړئ</string>
+    <string name="quran_tafsir_follow_playback_description">مطلب او تفسیر په تلاوت سره حرکت کړئ. د بل وضاحت لوستلو لپاره بند کړئ پداسې حال کې چې آډیو دوام لري.</string>
 </resources>

@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">无法下载注释：%1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">遵循塔夫西尔 (tafsir) 中背诵的阿雅 (Ayah)</string>
+    <string name="quran_tafsir_follow_playback_description">通过背诵移动意义和塔夫西尔。当音频继续时，请关闭以阅读其他说明。</string>
 </resources>

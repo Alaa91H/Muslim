@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Impossible ti télécharger tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Mo mû peko ti ayah so a diko ni na yâ ti tafsir .</string>
+    <string name="quran_tafsir_follow_playback_description">Move nda ti tënë na tafsir na dikongo mbeti. Zia ti diko mbeni fango nda ti ye nde na ngoi so audio ni angbâ ti gue.</string>
 </resources>

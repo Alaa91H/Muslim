@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Tafsir tile samu: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Aw bɛ aya kalanta labato tafsir kɔnɔ</string>
+    <string name="quran_tafsir_follow_playback_description">Kɔrɔw ni tafsir lamaga ni kalan ye. I ka a faga walisa ka ɲɛfɔli wɛrɛ kalan k’a sɔrɔ odio bɛ taa ɲɛ.</string>
 </resources>

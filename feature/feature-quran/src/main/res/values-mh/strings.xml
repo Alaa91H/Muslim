@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Could not download tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Lor ayah eo ilo tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Kōmman melele ko im tafsir ilo an riiti. Kōjem̧ļo̧k n̄an riiti bar juon kōmeļeļe ilo iien eo ej wōnm̧aanļo̧k wōt ainikien.</string>
 </resources>

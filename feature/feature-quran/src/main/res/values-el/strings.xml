@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Δεν ήταν δυνατή η λήψη του ταφσίρ: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Ακολουθήστε το απαγγελθέν ayah στο tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Μετακινήστε τα νοήματα και το tafsir με απαγγελία. Απενεργοποιήστε για να διαβάσετε μια άλλη εξήγηση όσο συνεχίζεται ο ήχος.</string>
 </resources>

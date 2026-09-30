@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Tókst ekki að sækja tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Fylgdu kveðnu ayah í tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Færa merkingar og tafsir með upplestri. Slökktu á til að lesa aðra skýringu á meðan hljóðið heldur áfram.</string>
 </resources>

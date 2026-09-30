@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">তাফসীর ডাউনলোড করা যায়নি: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">তাফসিরে তিলাওয়াত করা আয়াত অনুসরণ করুন</string>
+    <string name="quran_tafsir_follow_playback_description">তেলাওয়াতের সাথে অর্থ এবং তাফসির সরান। অডিও চলতে থাকাকালীন অন্য ব্যাখ্যা পড়তে বন্ধ করুন।</string>
 </resources>

@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Ne c\'haller ket kargañ ar tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Heuliañ an ayah lennet en tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Dilec\'hiañ ar sterioù hag an tafsir gant al lavar. Lazhañ evit lenn un displegadenn all e-keit ma kendalc\'h ar son.</string>
 </resources>

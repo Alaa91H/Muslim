@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Није било могуће преузети тафсир: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Слиједите изговорени ајет у тефсиру</string>
+    <string name="quran_tafsir_follow_playback_description">Померајте значења и тефсир рецитацијом. Искључите да бисте прочитали друго објашњење док се звук наставља.</string>
 </resources>

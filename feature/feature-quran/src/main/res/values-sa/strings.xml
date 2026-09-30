@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">तफ़्सीरम् डाउनलोड् कर्तुं न शक्यत्: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">तफसीरे पठितं अयः अनुसरणं कुर्वन्तु</string>
+    <string name="quran_tafsir_follow_playback_description">पाठेन अर्थान् च तफसीरं चालयतु। श्रव्यं निरन्तरं भवति चेत् अन्यं व्याख्यानं पठितुं निष्क्रियं कुर्वन्तु।</string>
 </resources>

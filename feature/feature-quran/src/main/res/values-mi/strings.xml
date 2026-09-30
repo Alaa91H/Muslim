@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Kāore i taea te tikiake i te tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">A pee i te papa i korerotia i roto i te tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Nuku tikanga me te tafsir me te taki. Whakawetohia ki te panui i tetahi atu whakamaramatanga i te wa e haere tonu ana te ororongo.</string>
 </resources>

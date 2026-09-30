@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Не удалось скачать тафсир: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Тафсиралъулъ цӀалараб аяталда хадуб хьваде .</string>
+    <string name="quran_tafsir_follow_playback_description">МагӀнаби ва тафсир цӀалиялдалъун хьвагӀи. Аудио халат бахъунеб мехалъ цоги баян цӀализе свинабе.</string>
 </resources>

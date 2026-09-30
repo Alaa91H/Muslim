@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Тәфсирны йөкләп булмады: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Тәфсирдә укылган аятькә иярегез</string>
+    <string name="quran_tafsir_follow_playback_description">Мәгънәләрне һәм тәфсирне уку белән күчерегез. Аудио дәвам иткәндә бүтән аңлатманы укыр өчен сүндерегез.</string>
 </resources>

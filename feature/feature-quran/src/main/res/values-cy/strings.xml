@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Methodd â lawrlwytho tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Dilynwch yr ayah a adroddwyd yn tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Symud ystyron a tafsir gyda llefaru. Trowch i ffwrdd i ddarllen esboniad arall tra bod sain yn parhau.</string>
 </resources>

@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Mënul a jël tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Topp aaya yi ñu jàng ci tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Toxal maana ak tafsir ak jàng. Fatt ko ngir jàng beneen leeral bi audio bi di wéy.</string>
 </resources>

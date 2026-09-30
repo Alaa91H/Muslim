@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Échec du téléchargement du tafsir : %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Landa ayah oyo etangami na tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Bo déplacer ba significations na tafsir na récitation. Boma mpo na kotanga ndimbola mosusu ntango mongongo ezali kokoba.</string>
 </resources>

@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Le mafai ona laʻuina mai le tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Mulimuli i le tala faitau i le tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Faagaioi uiga ma tafsir ma le tauloto. Tape e faitau se isi fa\'amatalaga a\'o fa\'aauau le leo.</string>
 </resources>

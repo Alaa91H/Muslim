@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">មិនអាចទាញយកតាហ្វស៊ីរ: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">អនុវត្តតាម ayah ដែលបានសូត្រនៅក្នុង tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">ផ្លាស់ទីអត្ថន័យនិង tafsir ជាមួយនឹងការសូត្រ។ បិទ​ដើម្បី​អាន​ការ​ពន្យល់​ផ្សេង​ទៀត ខណៈ​ដែល​សំឡេង​បន្ត។</string>
 </resources>

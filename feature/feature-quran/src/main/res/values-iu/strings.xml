@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Tafsir uqausi-qarlunilu atuinnaqarsinnaanngilaa: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">ᒪᓕᒡᓗᒍ ᐅᖃᓕᒫᖅᑕᐅᓯᒪᔪᖅ ᐊᔭ ᑕᕝᓯᐅᒥ</string>
+    <string name="quran_tafsir_follow_playback_description">ᓅᑦᑎᓗᑎᑦ ᑐᑭᖏᓐᓂᒃ ᐊᒻᒪᓗ ᑕᕝᓯᕐᒥᒃ ᐅᖃᓕᒫᕐᓂᒃᑯᑦ. ᖃᒥᑦᑎᓗᑎᑦ ᐅᖃᓕᒫᒃᑲᓐᓂᕈᒪᒍᕕᑦ ᓇᓗᓇᐃᔭᖅᓯᒪᔪᒥᒃ ᓂᐱ ᑲᔪᓯᑎᓪᓗᒍ.</string>
 </resources>

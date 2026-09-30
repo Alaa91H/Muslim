@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Could not download tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Landa ayah yina bo ke tanga na tafsir .</string>
+    <string name="quran_tafsir_follow_playback_description">Kutambula bantendula na tafsir ti kutanga. Katula sambu na kutanga ntendula ya nkaka ntangu audio ke landa.</string>
 </resources>

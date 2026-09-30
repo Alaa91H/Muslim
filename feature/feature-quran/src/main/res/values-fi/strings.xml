@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Tafsiria ei voitu ladata: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Seuraa lausuttua ayahia tafsirissa</string>
+    <string name="quran_tafsir_follow_playback_description">Siirrä merkityksiä ja tafsiria lausunnon avulla. Sammuta, jos haluat lukea toisen selityksen äänen jatkuessa.</string>
 </resources>

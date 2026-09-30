@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Lama soo dejin karin tafsiirka: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Tafsiirka la soco aayada la akhriyay</string>
+    <string name="quran_tafsir_follow_playback_description">Dhaqaaq macnayaasha iyo tafsiirka la akhrin. Dami si aad u akhrido sharraxaad kale inta codku sii socdo</string>
 </resources>

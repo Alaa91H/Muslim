@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Gagal ngundhuh tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Tindakake ayat sing diwaca ing tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Pindhahake makna lan tafsir kanthi waosan. Pateni kanggo maca panjelasan liyane nalika audio terus.</string>
 </resources>

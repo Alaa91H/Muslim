@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Hindi ma-download ang tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Sundin ang binigkas na ayah sa tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Ilipat ang mga kahulugan at tafsir gamit ang pagbigkas. I-off para magbasa ng isa pang paliwanag habang nagpapatuloy ang audio.</string>
 </resources>

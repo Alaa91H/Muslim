@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">තෆ්සීර් බාගත කළ නොහැකි විය: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">තෆ්සීර් හි පාරායනය කරන ලද අයයාව අනුගමනය කරන්න</string>
+    <string name="quran_tafsir_follow_playback_description">පාරායනය සමඟ අර්ථයන් සහ තෆ්සීර් චලනය කරන්න. ශ්‍රව්‍ය දිගටම පවතින අතරතුර තවත් පැහැදිලි කිරීමක් කියවීමට ක්‍රියාවිරහිත කරන්න.</string>
 </resources>

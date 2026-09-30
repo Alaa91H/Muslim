@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Tsy afaka nisintona ny tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Araho ny ayah voatanisa ao amin\'ny tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Afindrao ny dikany sy ny tafsir miaraka amin\'ny fitanisana. Atsaharo ny famakiana fanazavana hafa raha mbola mitohy ny feo.</string>
 </resources>

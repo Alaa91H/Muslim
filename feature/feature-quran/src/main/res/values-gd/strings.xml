@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Cha b\' urrainn an tafsir a luchdachadh sìos: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Lean an ayah air aithris ann an tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Gluais brìgh agus tafsir le aithris. Tionndaidh dheth gus mìneachadh eile a leughadh fhad ‘s a tha claisneachd a’ leantainn.</string>
 </resources>

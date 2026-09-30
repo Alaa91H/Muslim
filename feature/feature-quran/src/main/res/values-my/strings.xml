@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Tafsir ကို ဒေါင်းလုတ်ဆွဲ၍ မအောင်မြင်ပါ: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">tafsir ၌ ရွတ်ဆိုထားသော အာယာကို လိုက်နာပါ။</string>
+    <string name="quran_tafsir_follow_playback_description">ရွတ်ဆိုခြင်းဖြင့် အဓိပ္ပါယ်များကို ရွှေ့ပါ။ အသံဆက်နေချိန်တွင် အခြားရှင်းပြချက်ကို ဖတ်ရန် ပိတ်ပါ။</string>
 </resources>

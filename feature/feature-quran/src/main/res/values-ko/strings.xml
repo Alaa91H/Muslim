@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">타프시르 다운로드에 실패했습니다: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">tafsir에서 낭송되는 ayah를 따라가세요</string>
+    <string name="quran_tafsir_follow_playback_description">암송으로 의미와 tafsir를 이동합니다. 오디오가 계속되는 동안 다른 설명을 읽으려면 끄세요.</string>
 </resources>

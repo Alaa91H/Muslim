@@ -131,4 +131,6 @@
     <string name="quran_tafsir_download_failed">Cha abbyr mee er download taafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_follow_playback">Lesh y ayah er ny ghra ayns tafsir .</string>
+    <string name="quran_tafsir_follow_playback_description">Move ymmyd as tafsir lesh ymmyd. Cur stiagh dy leah myghin elley tra ta\'n clashtyn goll er.</string>
 </resources>

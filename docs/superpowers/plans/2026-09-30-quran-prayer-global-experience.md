@@ -20,23 +20,23 @@
 ## Task 1: Book-style Quran navigation
 
 Files: QuranReaderViewModel.kt, QuranReaderScreen.kt, a focused Mushaf page helper and regression tests.
-- [ ] Load the complete offline Mushaf once and group all ayahs by canonical page.
-- [ ] Initialize at the requested surah/ayah, preserve page order across surahs and complete shared pages.
-- [ ] Remove asynchronous previous-surah edge chaining; make metadata/ayah loading atomic.
-- [ ] Cover Aal Imran → previous page, first/last page and wide spreads; verify in CI.
+- [x] Load the complete offline Mushaf once and group all ayahs by canonical page.
+- [x] Initialize at the requested surah/ayah, preserve page order across surahs and complete shared pages.
+- [x] Remove asynchronous previous-surah edge chaining; make metadata/ayah loading atomic.
+- [ ] Cover Aal Imran → previous page, first/last page and wide spreads; verify in CI (instrumentation is running in CI).
 
 ## Task 2: Reciters and verified quality
 
 Files: Reciter.kt, provider catalogue/quality metadata, reciter/download selection, source validation tests/scripts.
-- [ ] Compare historic and live catalogues; preserve old IDs and restore missing valid recordings.
-- [ ] Inspect EveryAyah, MP3Quran and Quran Foundation primary sources; distinguish per-ayah files from full-surah audio/timing.
+- [x] Compare historic and live catalogues; preserve old IDs and restore missing valid recordings.
+- [x] Inspect EveryAyah, MP3Quran and Quran Foundation primary sources; distinguish per-ayah files from full-surah audio/timing.
 - [ ] Offer broad searchable localized reciter selection, styles, available scope and highest verified source quality.
 - [ ] Validate URLs/content type/audio bitrate with provenance rather than label-only quality claims; preserve resumable/offline download behavior.
 
 ## Task 3: Tafsir follow, Quran search and content languages
 
 Files: QuranPrefsRepository.kt, QuranReaderViewModel.kt, QuranReaderSettingsSheet.kt, QuranSupplementRepository, Quran search UI/domain.
-- [ ] Persist follow-recited-ayah (default on when supplement is enabled), resolve playback ayah independently, expose off switch.
+- [x] Persist follow-recited-ayah (default on when supplement is enabled), resolve playback ayah independently, expose off switch.
 - [ ] Support accurate match/occurrence totals, normalized Arabic search, exact/word modes and usable navigation to results.
 - [ ] Expand provider-backed translations with language/translator/source selection, downloads and offline attribution.
 
@@ -45,11 +45,11 @@ Files: QuranPrefsRepository.kt, QuranReaderViewModel.kt, QuranReaderSettingsShee
 Files: PrayerSettings.kt/repository, PrayerSettingsScreen.kt, quiet-hours prefs, Adhan/NextAdhan notifications/receiver, HomeScreen/navigation.
 - [ ] Verify quiet hours default 22:00–06:00 at feature activation without replacing saved times.
 - [ ] Default global Adhan volume on for unset preferences; preserve explicit per-prayer overrides.
-- [ ] Replace exposed long sound list with searchable modal selector and previews.
+- [x] Replace exposed long sound list with a compact popup selector and previews.
 - [ ] Cancel approaching-Adhan reminder on every actual Adhan dispatch path, including silent/fallback paths.
 - [ ] Keep prayer-times notification ongoing with an expanded custom layout; document OS-controlled dismissal/expansion behavior accurately.
-- [ ] Move monthly timetable to an independent destination with complete chronological table and RTL/sticky header.
-- [ ] Remove duplicated lower compass Kaaba emoji.
+- [x] Move monthly timetable to an independent destination with complete chronological table and RTL/sticky header.
+- [x] Remove duplicated lower compass Kaaba emoji.
 
 ## Task 5: Car, Cast and watch integration
 
@@ -70,8 +70,9 @@ Files: scripts/localize.py/resource audit, language settings, Gradle versioning,
 - [ ] Pass build/unit/lint/Detekt/instrumentation/visual contracts, push and monitor CI; fix actual failures.
 - [ ] Complete reviewed screenshot baselines and comparison gate, integrate branches into main, delete only merged branches and verify main CI.
 
-## Current evidence
+## Current evidence (2026-09-30)
 
-- 52270729 pushed; CI 36746288974 in progress. Local direct UTF-8 Detekt analyzed 604 files successfully; 28 static checks and three visual comparison policy tests passed.
-- Fresh source review confirms Quran sheet scrolling fix; runtime tests await CI.
-- No physical phone is available (user confirmed). Physical TalkBack/performance/fold/car/watch/Cast evidence remains an explicit acceptance gate.
+- `52270729` established the UI/UX V2 integration baseline. `e8ac775f` added Mushaf global-page navigation, monthly prayer screen, popup Adhan selection, tafsir follow controls, restored two verified EveryAyah entries, Qibla emoji removal, and CI emulator batching. `f463eb22` fixed the missing test-tag import. `5cb37341` preserved per-prayer audio overrides while defaulting the persisted master-volume preference to enabled.
+- On CI run `36756348324`, APK assembly and unit tests passed; Family Life emulator jobs passed on API 26 and 36. Lint failed because the two new tafsir-follow strings were missing from 153 existing Quran locale files. Emulator jobs were still running when this plan was updated; inspect their results before claiming completion.
+- Direct local Detekt analyzed 609 Kotlin files with zero findings. Quran/prayer static contracts and three visual-comparison policy tests passed. The global `scripts/localize.py --check` reports extensive pre-existing missing-resource and placeholder problems across unrelated modules; do not present it as a Quran-only check.
+- No physical Android phone is available (user confirmed). Physical TalkBack/performance/fold/car/watch/Cast evidence remains an explicit acceptance gate.
