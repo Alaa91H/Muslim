@@ -164,7 +164,8 @@ class UiUxV2ScreenshotInstrumentedTest {
                     "Activity locale does not match the requested screenshot variant"
                 }
                 check(kotlin.math.abs(activity.resources.configuration.fontScale - fontScale) < 0.01f) {
-                    "Activity font scale does not match the requested screenshot variant"
+                    "Activity font scale ${activity.resources.configuration.fontScale} does not match " +
+                        "requested $fontScale (system=${shell("settings get system font_scale")})"
                 }
                 if (expanded) check(activity.resources.configuration.screenWidthDp >= 840) {
                     "Expanded capture did not reach the expanded window breakpoint: " +
@@ -233,16 +234,11 @@ class UiUxV2ScreenshotInstrumentedTest {
     }
 
     private fun setSystemFontScale(scale: Float) {
-        val instrumentation = InstrumentationRegistry.getInstrumentation()
-        shell("settings put system font_scale $scale")
-        val configuration = Configuration(instrumentation.targetContext.resources.configuration).apply {
-            fontScale = scale
-        }
-        instrumentation.targetContext.resources.updateConfiguration(configuration, null)
+        shell("su 0 settings put system font_scale $scale")
         val deadline = SystemClock.uptimeMillis() + 10_000
         while (SystemClock.uptimeMillis() < deadline) {
-            val contextScale = instrumentation.targetContext.resources.configuration.fontScale
-            if (kotlin.math.abs(contextScale - scale) < 0.01f) {
+            val systemScale = shell("settings get system font_scale").trim().toFloatOrNull()
+            if (systemScale != null && kotlin.math.abs(systemScale - scale) < 0.01f) {
                 return
             }
             SystemClock.sleep(100)
