@@ -2,6 +2,7 @@ package org.muslim.app
 
 import android.graphics.Bitmap
 import android.content.Intent
+import android.content.res.Configuration
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.os.SystemClock
 import android.os.Build
@@ -71,6 +72,7 @@ class UiUxV2ScreenshotInstrumentedTest {
     ) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
+        val originalSystemFontScale = shell("settings get system font_scale").trim().toFloatOrNull() ?: 1f
         val originalAccessibilityFlags = instrumentation.uiAutomation.serviceInfo.flags
         instrumentation.uiAutomation.serviceInfo = instrumentation.uiAutomation.serviceInfo.apply {
             flags = flags or AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS or
@@ -212,7 +214,7 @@ class UiUxV2ScreenshotInstrumentedTest {
         } finally {
             try {
                 scenario?.close()
-                setSystemFontScale(originalFontScale)
+                setSystemFontScale(originalSystemFontScale)
                 if (fixedClock) {
                     val restoredTime = originalWallTime + SystemClock.elapsedRealtime() - originalElapsedTime
                     val date = DateTimeFormatter.ofPattern("MMddHHmmyyyy.ss", Locale.US)
@@ -234,10 +236,14 @@ class UiUxV2ScreenshotInstrumentedTest {
     private fun setSystemFontScale(scale: Float) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         shell("settings put system font_scale $scale")
+        val configuration = Configuration(instrumentation.targetContext.resources.configuration).apply {
+            fontScale = scale
+        }
+        instrumentation.targetContext.resources.updateConfiguration(configuration, null)
         val deadline = SystemClock.uptimeMillis() + 10_000
         while (SystemClock.uptimeMillis() < deadline) {
-            val systemScale = shell("settings get system font_scale").trim().toFloatOrNull()
-            if (systemScale != null && kotlin.math.abs(systemScale - scale) < 0.01f) {
+            val contextScale = instrumentation.targetContext.resources.configuration.fontScale
+            if (kotlin.math.abs(contextScale - scale) < 0.01f) {
                 return
             }
             SystemClock.sleep(100)
