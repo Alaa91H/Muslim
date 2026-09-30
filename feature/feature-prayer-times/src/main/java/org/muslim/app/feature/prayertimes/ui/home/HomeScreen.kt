@@ -276,8 +276,6 @@ private fun PrayerDateHeader(
             },
             fontWeight = FontWeight.SemiBold,
             textAlign = TextAlign.Center,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
         )
         IconButton(onClick = onNext) {
             Icon(
@@ -297,7 +295,6 @@ private fun PrayerDateHeader(
             modifier = Modifier.weight(1f),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
-            maxLines = 1,
         )
         Surface(
             onClick = onSelectLocation,

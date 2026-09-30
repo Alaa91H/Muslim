@@ -2,6 +2,7 @@ package org.muslim.app
 
 import android.graphics.Bitmap
 import android.os.SystemClock
+import android.view.accessibility.AccessibilityNodeInfo
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.core.app.ActivityScenario
 import androidx.test.platform.app.InstrumentationRegistry
@@ -64,19 +65,21 @@ class UiUxV2ScreenshotInstrumentedTest {
                 ),
             )
         }
-        val scenario = ActivityScenario.launch<MainActivity>(MainActivity::class.java)
+        var scenario: ActivityScenario<MainActivity>? = null
         try {
+            scenario = ActivityScenario.launch<MainActivity>(MainActivity::class.java)
             instrumentation.waitForIdleSync()
             val deadline = SystemClock.uptimeMillis() + 15_000
             var homeVisible = false
+            var activeWindowDescription = "No active window"
             while (SystemClock.uptimeMillis() < deadline) {
                 val root = instrumentation.uiAutomation.rootInActiveWindow
+                activeWindowDescription = root?.describeTree().orEmpty()
                 homeVisible = root != null && root.packageName?.toString() == context.packageName &&
-                    root.findAccessibilityNodeInfosByText("Makkah").isNotEmpty()
+                    "Makkah" in activeWindowDescription
                 if (homeVisible) break
                 SystemClock.sleep(100)
             }
-            check(homeVisible) { "Prayer Home is obscured or has not rendered its location" }
             SystemClock.sleep(500)
             instrumentation.waitForIdleSync()
             val bitmap = instrumentation.uiAutomation.takeScreenshot()
@@ -104,14 +107,25 @@ class UiUxV2ScreenshotInstrumentedTest {
             check(pendingScreenshot.renameTo(File(outputDirectory, screenshotName))) {
                 "Could not publish completed screenshot"
             }
+            check(homeVisible) {
+                "Prayer Home is obscured or has not rendered its location: $activeWindowDescription"
+            }
         } finally {
-            scenario.close()
+            scenario?.close()
             runBlocking {
                 preferencesRepository.setThemeMode(originalPreferences.themeMode)
                 preferencesRepository.setDynamicColor(originalPreferences.dynamicColor)
                 preferencesRepository.setLanguage(originalPreferences.languageCode)
                 prayerRepository.save(originalPrayerSettings)
             }
+        }
+    }
+
+    private fun AccessibilityNodeInfo.describeTree(): String = buildString {
+        append("package=").append(packageName).append(" text=").append(text)
+        append(" description=").append(contentDescription).append('\n')
+        for (index in 0 until childCount) {
+            getChild(index)?.let { append(it.describeTree()) }
         }
     }
 }
