@@ -27,7 +27,8 @@ REQUIRED_VARIANTS = (
     "compact phone / expanded device",
 )
 OPEN_GATES = (
-    "screenshot capture/comparison runner remains an open UX28 deliverable",
+    "visual comparison remain open",
+    "initial CI capture covers only Prayer Home Arabic/light",
     "200% system-font screenshot sweep has been captured",
     "Frame-time, recomposition, and scrolling measurements have not been captured",
 )
@@ -36,6 +37,7 @@ OPEN_GATES = (
 def main() -> None:
     baseline = BASELINE.read_text(encoding="utf-8")
     plan = EXECUTION_PLAN.read_text(encoding="utf-8")
+    workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
     normalized_baseline = " ".join(baseline.split())
     normalized_plan = " ".join(plan.split())
 
@@ -57,6 +59,25 @@ def main() -> None:
         if missing_gates:
             details.append(f"completion evidence/gates missing from plan: {', '.join(missing_gates)}")
         raise SystemExit("UI/UX V2 QA matrix is incomplete: " + "; ".join(details))
+    screenshot_contract = (
+        "fun capturesPrayerHomeArabicLightScreenshot()" in "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in (ROOT / "app/src/androidTest").rglob("*.kt")
+        )
+        and "uiAutomation.takeScreenshot()" in "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in (ROOT / "app/src/androidTest").rglob("*.kt")
+        )
+        and 'adb pull "/sdcard/Android/data/$(sed -n' in workflow
+        and "muslim.applicationId=" in (ROOT / "gradle.properties").read_text(encoding="utf-8")
+        and "Upload UI/UX V2 emulator screenshots" in workflow
+        and "visual comparison" in normalized_plan.lower()
+    )
+    if not screenshot_contract:
+        raise SystemExit(
+            "UI/UX V2 screenshot contract requires a real Activity capture, CI pull/upload, "
+            "and explicit distinction between capture and visual comparison"
+        )
     if invalid_resources:
         raise SystemExit("Invalid Android XML resources:\n- " + "\n- ".join(invalid_resources))
 

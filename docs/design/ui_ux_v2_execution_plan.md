@@ -175,13 +175,18 @@ All must preserve existing capability and use the shared patterns.
 
 ### UX28 — Screenshot and visual regression
 
-- The baseline screen/variant matrix is defined below. The screenshot
-  capture/comparison runner remains an open UX28 deliverable; the repository
-  still has no checked-in screenshot baselines or comparison runner.
+- CI captures the actual Prayer Home screen on Android emulators and stores
+  `prayer-home-ar-light.png` as a per-API screenshot artifact. This verifies
+  capture and artifact transport only; it does not compare image output.
+- No checked-in golden screenshots, comparison runner, or reviewed image
+  baselines exist yet. UX28 remains open until the full matrix is captured,
+  visually reviewed, and intentional differences are accepted.
 - Do not call UX28 complete until screenshots are captured on a fixed emulator
   image for Arabic RTL and English LTR, light and dark themes, normal and large
   fonts, and compact and expanded widths; intentional changes need reviewed
   baseline updates.
+- The initial CI capture covers only Prayer Home Arabic/light on emulator APIs
+  26 and 36; all other screen/variant pairs and visual comparison remain open.
 
 ### UX29 — Performance and motion
 
@@ -202,12 +207,15 @@ All must preserve existing capability and use the shared patterns.
 - Local static checks pass for adaptive design-system adoption, visual
   identity, feature parity, the critical-screen/variant matrix, Android main
   resource XML parsing, and IoT integration.
-- The Android SDK is present, but no emulator or physical device is connected.
+- The Android SDK is present, but no emulator or physical device is connected
+  locally. CI emulator jobs cover APIs 26 and 36 and build a debug APK with
+  instrumentation results; these do not substitute for all-variant visual or
+  physical-device QA.
   A local `:app:assembleDebug` run using Gradle 9.5 and a D-drive cache remained
   silent inside project initialization for over 14 minutes; it was stopped
   without producing an APK. Earlier default-cache attempts exhausted C-drive
   space and one ended in native-memory allocation failure. Gradle build, unit
-  tests, lint, Detekt, and emulator tests therefore remain CI/device gates.
+  tests, lint, Detekt, and emulator tests therefore remain CI gates.
   No release-ready or visually verified claim is made from static checks.
 
 ## Definition of Done

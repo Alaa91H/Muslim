@@ -204,6 +204,26 @@ jobs:
             adb shell cmd audio set-enable-hardening throw
             ./gradlew :app:connectedDebugAndroidTest :feature:feature-learn:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :feature:feature-qibla:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest
 
+      - name: Pull UI/UX V2 emulator screenshots
+        if: success()
+        run: |
+          mkdir -p artifacts/uiux-v2
+          adb pull "/sdcard/Android/data/$(sed -n 's/^muslim.applicationId=//p' gradle.properties)/files/uiux-v2" artifacts/uiux-v2
+          if [ -s artifacts/uiux-v2/prayer-home-ar-light.png ]; then
+            file artifacts/uiux-v2/prayer-home-ar-light.png
+          else
+            echo "Expected Prayer Home screenshot was not captured" >&2
+            exit 1
+          fi
+
+      - name: Upload UI/UX V2 emulator screenshots
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: uiux-v2-screenshots-api-${{ matrix.api-level }}
+          path: artifacts/uiux-v2/*.png
+          if-no-files-found: error
+
       # Instrumentation failures are the hardest to reproduce locally, so the
       # device test report is always kept when this job fails.
       - name: Upload device test reports on failure
