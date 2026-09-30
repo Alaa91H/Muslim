@@ -77,6 +77,7 @@ def main() -> None:
             for path in (ROOT / "app/src/androidTest").rglob("*.kt")
         )
         and "gradle_pid=$!" in workflow
+        and "seq 1 600" in workflow
         and "device_screenshot=\"/sdcard/Android/data/$app_id/files/uiux-v2/prayer-home-ar-light.png\"" in workflow
         and 'adb pull "$device_screenshot" artifacts/uiux-v2/prayer-home-ar-light.png' in workflow
         and 'kill -0 "$gradle_pid"' in workflow

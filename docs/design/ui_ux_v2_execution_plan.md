@@ -180,10 +180,12 @@ All must preserve existing capability and use the shared patterns.
   #1338 exposed that the post-instrumentation export produced a 40-byte
   `run-as: unknown package` message instead of a PNG. Run #1339 failed on a
   shell-output marker, and #1340 showed the screenshot instrumentation passes
-  but its shared-storage copy is missing. CI now pulls the app-specific
-  external file while Gradle instrumentation is still running, then validates
-  the PNG signature and dimensions. The repair awaits a new end-to-end CI run;
-  this path does not compare image output.
+  but its shared-storage copy is missing. Run #1341 confirmed that all 13
+  instrumentation tests passed, but the host's 180-second screenshot poll
+  expired before Gradle completed its 4m40s emulator task. CI now allows a
+  10-minute poll, pulls the app-specific external file while instrumentation
+  runs, then validates the PNG signature and dimensions. The repair awaits a
+  new end-to-end CI run; this path does not compare image output.
 - No checked-in golden screenshots, comparison runner, or reviewed image
   baselines exist yet. UX28 remains open until the full matrix is captured,
   visually reviewed, and intentional differences are accepted.
