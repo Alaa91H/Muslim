@@ -1349,65 +1349,82 @@ private fun ReciterSelectionSection(
         ReciterSelectionRow(option = selectedReciter, selected = true)
     }
 
-    if (pickerOpen) {
-        AlertDialog(
-            onDismissRequest = { pickerOpen = false },
-            title = { Text(stringResource(R.string.quran_reciter_picker_title)) },
-            text = {
-                Column(verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small)) {
-                    OutlinedTextField(
-                        value = query,
-                        onValueChange = { query = it },
-                        modifier = Modifier.fillMaxWidth(),
-                        singleLine = true,
-                        placeholder = {
-                            Text(stringResource(R.string.quran_reciter_search_hint))
-                        },
+    if (pickerOpen) ReciterPickerDialog(
+        query = query,
+        reciters = filteredReciters,
+        selectedReciter = selectedReciter,
+        onQueryChanged = { query = it },
+        onReciterSelected = {
+            onReciterSelected(it)
+            pickerOpen = false
+        },
+        onDismiss = { pickerOpen = false },
+    )
+}
+
+@Composable
+private fun ReciterPickerDialog(
+    query: String,
+    reciters: List<Reciter>,
+    selectedReciter: Reciter,
+    onQueryChanged: (String) -> Unit,
+    onReciterSelected: (Reciter) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.quran_reciter_picker_title)) },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small)) {
+                OutlinedTextField(
+                    value = query,
+                    onValueChange = onQueryChanged,
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
+                    placeholder = {
+                        Text(stringResource(R.string.quran_reciter_search_hint))
+                    },
+                )
+                if (reciters.isEmpty()) {
+                    Text(
+                        text = stringResource(R.string.quran_reciter_no_results),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
-                    if (filteredReciters.isEmpty()) {
-                        Text(
-                            text = stringResource(R.string.quran_reciter_no_results),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    } else {
-                        LazyColumn(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .heightIn(max = 420.dp),
-                            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.XSmall),
-                        ) {
-                            items(filteredReciters, key = Reciter::id) { option ->
-                                val selected = option.id == selectedReciter.id
-                                IslamicSelectableCard(
-                                    selected = selected,
-                                    onClick = {
-                                        onReciterSelected(option)
-                                        pickerOpen = false
-                                    },
-                                    modifier = Modifier.fillMaxWidth(),
-                                    shape = RoundedCornerShape(IslamicRadius.AyahMarker),
-                                    contentPadding = PaddingValues(IslamicSpacing.Compact),
-                                    containerColor = if (selected) {
-                                        MaterialTheme.colorScheme.primaryContainer
-                                    } else {
-                                        MaterialTheme.colorScheme.surfaceContainerHigh
-                                    },
-                                ) {
-                                    ReciterSelectionRow(option = option, selected = selected)
-                                }
+                } else {
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .heightIn(max = 420.dp),
+                        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.XSmall),
+                    ) {
+                        items(reciters, key = Reciter::id) { option ->
+                            val selected = option.id == selectedReciter.id
+                            IslamicSelectableCard(
+                                selected = selected,
+                                onClick = { onReciterSelected(option) },
+                                modifier = Modifier.fillMaxWidth(),
+                                shape = RoundedCornerShape(IslamicRadius.AyahMarker),
+                                contentPadding = PaddingValues(IslamicSpacing.Compact),
+                                containerColor = if (selected) {
+                                    MaterialTheme.colorScheme.primaryContainer
+                                } else {
+                                    MaterialTheme.colorScheme.surfaceContainerHigh
+                                },
+                            ) {
+                                ReciterSelectionRow(option = option, selected = selected)
                             }
                         }
                     }
                 }
-            },
-            confirmButton = {
-                TextButton(onClick = { pickerOpen = false }) {
-                    Text(stringResource(R.string.quran_details_close))
-                }
-            },
-        )
-    }
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(R.string.quran_details_close))
+            }
+        },
+    )
 }
 
 @Composable
