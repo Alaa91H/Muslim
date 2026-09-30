@@ -17,7 +17,6 @@ import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -33,7 +32,6 @@ import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -55,7 +53,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.muslim.app.core.designsystem.IslamicSpacing
@@ -361,7 +358,7 @@ private fun HubContent(
 
     LazyColumn(modifier = modifier.fillMaxSize()) {
         item(key = "library-search") {
-            LibrarySearchField(query = query, lang = lang, onQueryChanged = onQueryChanged)
+            LibrarySearchField(query = query, onQueryChanged = onQueryChanged)
         }
         when {
             query.isBlank() -> defaultHubItems(
@@ -388,7 +385,6 @@ private fun HubContent(
 @Composable
 private fun LibrarySearchField(
     query: String,
-    lang: RefLang,
     onQueryChanged: (String) -> Unit,
 ) {
     MuslimSearchBar(

@@ -1313,6 +1313,7 @@ private fun RecitationSettingsSheet(
     MuslimBottomSheet(
         onDismiss = onDismiss,
         title = stringResource(R.string.quran_playback_settings),
+        scrollable = true,
     ) {
         ReciterSelectionSection(
             selectedReciter = state.reciter,

@@ -6,7 +6,7 @@
 eight critical screens × Arabic/English × light/dark × font scales 1.0/1.5/2.0
 × compact/expanded. Each case launches the real Hilt-backed app with a saved
 Makkah location, system permission onboarding handled and dynamic colors disabled.
-Expanded cases use 1280×800 pixels and assert a window width of at least 840dp.
+Expanded cases use 1600×1000 pixels at density 160 and assert a window width of at least 840dp.
 This is window-resize coverage, not physical fold/unfold validation.
 
 The export script pulls atomically published PNGs while AGP instrumentation is
@@ -37,8 +37,7 @@ Masks are explicitly reviewed pixel rectangles `[left, top, right, bottom]`, wit
 right/bottom exclusive. They must not hide clipping, text geometry, focus targets
 or other requirements being accepted. Clock/date/countdown and sensor-dependent
 content need a deterministic fixture or a documented, narrowly reviewed mask
-before comparisons are enabled in CI. The current real-app captures use the
-emulator's clock; dates/countdowns are not deterministic goldens yet.
+before comparisons are enabled in CI. CI capture now requests a test-only fixed UTC clock (2026-09-30 15:00), restored after each case. This fixture requires a disposable root-capable emulator; it is disabled for ordinary instrumentation. Its full-matrix validation and reviewed masks for sensor/status content remain pending.
 
 ```powershell
 python -m pip install -r scripts/requirements-uiux-visual.txt

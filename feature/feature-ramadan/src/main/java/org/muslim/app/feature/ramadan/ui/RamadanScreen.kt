@@ -46,7 +46,6 @@ import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.feature.ramadan.R
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicDecorationBand
-import org.muslim.app.core.ui.theme.IslamicDecorationCorners
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimExpandableSection
 import org.muslim.app.core.ui.theme.MuslimHero

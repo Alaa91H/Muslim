@@ -3,7 +3,14 @@
 set -u
 mkdir -p artifacts/uiux-v2
 app_id="$(sed -n 's/^muslim.applicationId=//p' gradle.properties | tr -d '\r')"
-./gradlew :app:connectedDebugAndroidTest > /tmp/uiux-v2-connected-tests.log 2>&1 &
+# Clock control is confined to disposable, root-capable CI emulators.
+adb root
+adb wait-for-device
+[ "$(adb shell id -u | tr -d '\r')" = "0" ] || { echo "CI visual fixture needs a root-capable emulator"; exit 1; }
+adb shell settings put global auto_time 0
+adb shell settings put global auto_time_zone 0
+adb shell setprop persist.sys.timezone UTC
+./gradlew :app:connectedDebugAndroidTest --max-workers=2 '-Dorg.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8' -Pandroid.testInstrumentationRunnerArguments.uiux.fixedClock=true > /tmp/uiux-v2-connected-tests.log 2>&1 &
 gradle_pid=$!
 trap 'kill "$gradle_pid" 2>/dev/null || true' INT TERM
 while kill -0 "$gradle_pid" 2>/dev/null; do

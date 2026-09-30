@@ -62,6 +62,7 @@ internal fun ReaderSettingsSheet(
     MuslimBottomSheet(
         onDismiss = actions.onDismiss,
         title = stringResource(R.string.quran_more_actions),
+        scrollable = true,
     ) {
         MuslimSettingsItem(
             title = stringResource(R.string.quran_reader_theme),

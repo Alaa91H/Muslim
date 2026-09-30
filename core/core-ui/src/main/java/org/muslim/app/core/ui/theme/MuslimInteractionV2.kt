@@ -6,11 +6,13 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.MoreVert
@@ -41,16 +43,15 @@ fun MuslimSegmentedControl(
 ) {
     if (options.isEmpty()) return
 
-    Row(
+    LazyRow(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.ControlGap),
     ) {
-        options.forEachIndexed { index, label ->
+        itemsIndexed(options) { index, label ->
             FilterChip(
                 selected = selectedIndex == index,
                 onClick = { onSelectedIndexChange(index) },
-                label = { Text(label) },
-                modifier = Modifier.weight(1f),
+                label = { Text(label, maxLines = 1) },
             )
         }
     }
@@ -128,6 +129,7 @@ fun MuslimBottomSheet(
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
     title: String? = null,
+    scrollable: Boolean = false,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     ModalBottomSheet(
@@ -137,6 +139,7 @@ fun MuslimBottomSheet(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
+                .then(if (scrollable) Modifier.verticalScroll(rememberScrollState()) else Modifier)
                 .padding(
                     start = IslamicSpacing.PageHorizontal,
                     end = IslamicSpacing.PageHorizontal,
@@ -176,6 +179,7 @@ fun MuslimActionSheet(
         onDismiss = onDismiss,
         modifier = modifier,
         title = title,
+        scrollable = true,
     ) {
         actions.forEach { action ->
             MuslimSettingsItem(

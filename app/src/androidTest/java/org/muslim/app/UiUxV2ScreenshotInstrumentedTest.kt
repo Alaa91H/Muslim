@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.content.Intent
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.os.SystemClock
+import android.os.Build
 import android.os.ParcelFileDescriptor
 import android.provider.Settings
 import android.view.accessibility.AccessibilityNodeInfo
@@ -12,6 +13,10 @@ import androidx.test.core.app.ActivityScenario
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.core.view.WindowCompat
 import java.io.File
+import java.time.Instant
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.flow.first
 import org.junit.Test
@@ -67,13 +72,17 @@ class UiUxV2ScreenshotInstrumentedTest {
         val context = instrumentation.targetContext
         val originalAccessibilityFlags = instrumentation.uiAutomation.serviceInfo.flags
         instrumentation.uiAutomation.serviceInfo = instrumentation.uiAutomation.serviceInfo.apply {
-            flags = flags or AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS
+            flags = flags or AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS or
+                AccessibilityServiceInfo.FLAG_INCLUDE_NOT_IMPORTANT_VIEWS
         }
         val preferencesRepository = AppPreferencesRepository(context)
         val prayerRepository = PrayerSettingsRepository(context)
         val originalPreferences = runBlocking { preferencesRepository.preferences.first() }
         val originalPrayerSettings = runBlocking { prayerRepository.settings.first() }
         val originalFontScale = Settings.System.getFloat(context.contentResolver, Settings.System.FONT_SCALE, 1f)
+        val fixedClock = InstrumentationRegistry.getArguments().getString("uiux.fixedClock") == "true"
+        val originalWallTime = System.currentTimeMillis()
+        val originalElapsedTime = SystemClock.elapsedRealtime()
         runBlocking {
             // Screen QA starts after onboarding; system permission dialogs can
             // otherwise dim or replace the screen while still producing a PNG.
@@ -94,8 +103,22 @@ class UiUxV2ScreenshotInstrumentedTest {
         }
         var scenario: ActivityScenario<MainActivity>? = null
         try {
-            if (expanded) shell("wm size 1280x800")
+            if (expanded) {
+                shell("wm size 1600x1000")
+                shell("wm density 160")
+                val widthDeadline = SystemClock.uptimeMillis() + 10_000
+                while (context.resources.configuration.screenWidthDp < 840 && SystemClock.uptimeMillis() < widthDeadline) {
+                    SystemClock.sleep(100)
+                }
+            }
             setSystemFontScale(fontScale)
+            if (fixedClock) {
+                val result = shell("su 0 date -u 093015002026.00")
+                val expectedEpoch = Instant.parse("2026-09-30T15:00:00Z").toEpochMilli()
+                check(kotlin.math.abs(System.currentTimeMillis() - expectedEpoch) < 5_000L) {
+                    "CI screenshot clock could not be fixed: $result"
+                }
+            }
             scenario = ActivityScenario.launch<MainActivity>(
                 Intent(context, MainActivity::class.java).putExtra("org.muslim.app.extra.ROUTE", route),
             )
@@ -104,12 +127,12 @@ class UiUxV2ScreenshotInstrumentedTest {
             var homeVisible = false
             var activeWindowDescription = "No active window"
             while (SystemClock.uptimeMillis() < deadline) {
-                val root = instrumentation.uiAutomation.rootInActiveWindow
+                val root = activeRoot()
                 activeWindowDescription = root?.describeTree().orEmpty()
                 val expectedContent = if (route == "home") "Makkah" else "uiux-route:${routePattern(route)}"
                 val normalizedContent = activeWindowDescription.replace(Regex("[\\p{M}ـ]"), "").replace('ٱ', 'ا')
                 val dataReady = when (route) {
-                    "quran" -> "الفاتحة" in normalizedContent
+                    "quran" -> "uiux-quran-content-loaded" in activeWindowDescription
                     "quran/reader/1" -> "بسم الله" in normalizedContent
                     else -> true
                 }
@@ -127,9 +150,16 @@ class UiUxV2ScreenshotInstrumentedTest {
                 }
                 clickAccessibleLabel(timesTitle)
                 clickAccessibleLabel(monthlyTitle)
-                instrumentation.waitForIdleSync()
-                activeWindowDescription = instrumentation.uiAutomation.rootInActiveWindow?.describeTree().orEmpty()
-                check(monthlyTitle in activeWindowDescription) { "Monthly timetable was not selected" }
+                val monthlyDeadline = SystemClock.uptimeMillis() + 5_000
+                homeVisible = false
+                while (SystemClock.uptimeMillis() < monthlyDeadline) {
+                    val root = activeRoot()
+                    activeWindowDescription = root?.describeTree().orEmpty()
+                    homeVisible = "uiux-prayer-monthly-content" in activeWindowDescription
+                    if (homeVisible) break
+                    root?.findNode { it.isScrollable }?.performAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD)
+                    SystemClock.sleep(200)
+                }
             }
             SystemClock.sleep(500)
             instrumentation.waitForIdleSync()
@@ -141,7 +171,7 @@ class UiUxV2ScreenshotInstrumentedTest {
                     "Activity font scale does not match the requested screenshot variant"
                 }
                 if (expanded) check(activity.resources.configuration.screenWidthDp >= 840) {
-                    "Expanded capture did not reach the expanded window breakpoint"
+                    "Expanded capture did not reach the expanded window breakpoint: ${activity.resources.configuration}"
                 }
                 val bars = WindowCompat.getInsetsController(activity.window, activity.window.decorView)
                 val lightTheme = themeMode == AppThemeMode.Light
@@ -185,8 +215,17 @@ class UiUxV2ScreenshotInstrumentedTest {
         } finally {
             try {
                 scenario?.close()
-                if (expanded) shell("wm size reset")
+                if (expanded) {
+                    shell("wm size reset")
+                    shell("wm density reset")
+                }
                 setSystemFontScale(originalFontScale)
+                if (fixedClock) {
+                    val restoredTime = originalWallTime + SystemClock.elapsedRealtime() - originalElapsedTime
+                    val date = DateTimeFormatter.ofPattern("MMddHHmmyyyy.ss", Locale.US)
+                        .withZone(ZoneOffset.UTC).format(Instant.ofEpochMilli(restoredTime))
+                    shell("su 0 date -u $date")
+                }
             } finally { runBlocking {
                 preferencesRepository.setThemeMode(originalPreferences.themeMode)
                 preferencesRepository.setDynamicColor(originalPreferences.dynamicColor)
@@ -227,9 +266,8 @@ class UiUxV2ScreenshotInstrumentedTest {
     }
 
     private fun clickAccessibleLabel(label: String) {
-        val automation = InstrumentationRegistry.getInstrumentation().uiAutomation
         repeat(12) {
-            val root = automation.rootInActiveWindow
+            val root = activeRoot()
             val match = root?.findNode { it.text?.toString() == label || it.contentDescription?.toString() == label }
             var clickable = match
             while (clickable != null && !clickable.isClickable) clickable = clickable.parent
@@ -249,6 +287,12 @@ class UiUxV2ScreenshotInstrumentedTest {
             getChild(index)?.findNode(predicate)?.let { return it }
         }
         return null
+    }
+
+    private fun activeRoot(): AccessibilityNodeInfo? {
+        val automation = InstrumentationRegistry.getInstrumentation().uiAutomation
+        if (Build.VERSION.SDK_INT >= 33) automation.clearCache()
+        return automation.rootInActiveWindow
     }
 
     private fun routePattern(route: String): String =

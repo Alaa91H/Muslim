@@ -49,6 +49,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -286,6 +287,17 @@ private fun PrayerDateHeader(
         }
     }
 
+    DateLocationDetails(state, locationLabel, locationDescription, compact, onSelectLocation)
+}
+
+@Composable
+private fun DateLocationDetails(
+    state: HomeViewModel.UiState,
+    locationLabel: String,
+    locationDescription: String,
+    compact: Boolean,
+    onSelectLocation: () -> Unit,
+) {
     val dateAndLocation: @Composable (Modifier, Modifier) -> Unit = { dateModifier, locationModifier ->
         Text(
             text = state.hijri?.gregorian?.format(localDateFormatter).orEmpty(),
@@ -606,7 +618,8 @@ private fun MonthlyTimetable(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .horizontalScroll(horizontalState),
+            .horizontalScroll(horizontalState)
+            .testTag("uiux-prayer-monthly-content"),
     ) {
         MonthlyTimetableHeader(state)
         HorizontalDivider()

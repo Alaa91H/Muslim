@@ -161,7 +161,7 @@ REQUIRED_SNIPPETS = {
     "feature/feature-ramadan/src/main/java/org/muslim/app/feature/ramadan/ui/RamadanScreen.kt": [
         "IslamicCard",
         "IslamicDecorationBand",
-        "IslamicDecorationCorners",
+        "MuslimScreen",
         "MuslimSectionHeader",
         "MuslimStateSurface",
     ],

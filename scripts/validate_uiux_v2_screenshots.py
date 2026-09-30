@@ -31,7 +31,7 @@ def main() -> None:
         if len(data) <= 100 or data[:8] != bytes.fromhex("89504e470d0a1a0a"):
             raise SystemExit(f"Invalid PNG: {name}")
         width, height = struct.unpack(">II", data[16:24])
-        if width <= 0 or height <= 0 or ("-expanded" in name and width <= height):
+        if width <= 0 or height <= 0 or ("-expanded" in name and width < 840):
             raise SystemExit(f"Invalid capture dimensions {width}x{height}: {name}")
     print("Validated all 192 UI/UX V2 screen/locale/theme/font/window captures.")
 

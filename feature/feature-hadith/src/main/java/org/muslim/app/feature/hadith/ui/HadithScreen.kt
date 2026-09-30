@@ -46,7 +46,6 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -89,7 +88,6 @@ import org.muslim.app.core.ui.theme.MuslimBottomSheet
 import org.muslim.app.core.ui.theme.MuslimLoadingState
 import org.muslim.app.core.ui.theme.MuslimScreen
 import org.muslim.app.core.ui.theme.MuslimSettingsItem
-import org.muslim.app.core.ui.theme.MuslimSkeleton
 import org.muslim.app.core.ui.theme.MuslimTopBar
 import org.muslim.app.feature.hadith.R
 import org.muslim.app.feature.hadith.data.HadithCorpusState

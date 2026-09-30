@@ -103,55 +103,7 @@ fun HabitTrackerPanel(
     Column(
         modifier = modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
     ) {
-        IslamicCard(
-            modifier = Modifier.fillMaxWidth(),
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-        ) {
-            Box {
-                IslamicDecorationCorners(
-                    tint = MaterialTheme.colorScheme.tertiary,
-                    compact = true,
-                )
-                Column {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(
-                            Icons.Filled.CheckCircle,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.size(28.dp),
-                        )
-                        Spacer(Modifier.width(IslamicSpacing.Compact))
-                        Column(Modifier.weight(1f)) {
-                            Text(
-                                text = stringResource(R.string.habit_tracker_title),
-                                style = MaterialTheme.typography.titleLarge,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Text(
-                                text = stringResource(R.string.habit_tracker_today),
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                        }
-                        Icon(Icons.Filled.EmojiEvents, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
-                    }
-                    Spacer(Modifier.height(IslamicSpacing.Compact))
-                    Text(
-                        text = stringResource(
-                            R.string.habit_tracker_progress,
-                            summary.today.completedCount,
-                            HabitId.entries.size,
-                        ),
-                        style = MaterialTheme.typography.bodyMedium,
-                    )
-                    Spacer(Modifier.height(IslamicSpacing.Small))
-                    LinearProgressIndicator(
-                        progress = { summary.today.completedCount.toFloat() / HabitId.entries.size },
-                        modifier = Modifier.fillMaxWidth(),
-                    )
-                }
-            }
-        }
+        HabitProgressCard(summary.today.completedCount)
 
         IslamicDecorationDivider(
             tint = MaterialTheme.colorScheme.tertiary,
@@ -179,6 +131,59 @@ fun HabitTrackerPanel(
         Spacer(Modifier.height(IslamicSpacing.Medium))
         RamadanPlanCard(state, viewModel)
         Spacer(Modifier.height(IslamicSpacing.Large))
+    }
+}
+
+@Composable
+private fun HabitProgressCard(completedCount: Int) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.primaryContainer,
+    ) {
+        Box {
+            IslamicDecorationCorners(
+                tint = MaterialTheme.colorScheme.tertiary,
+                compact = true,
+            )
+            Column {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        Icons.Filled.CheckCircle,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(28.dp),
+                    )
+                    Spacer(Modifier.width(IslamicSpacing.Compact))
+                    Column(Modifier.weight(1f)) {
+                        Text(
+                            text = stringResource(R.string.habit_tracker_title),
+                            style = MaterialTheme.typography.titleLarge,
+                            fontWeight = FontWeight.Bold,
+                        )
+                        Text(
+                            text = stringResource(R.string.habit_tracker_today),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                    Icon(Icons.Filled.EmojiEvents, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+                }
+                Spacer(Modifier.height(IslamicSpacing.Compact))
+                Text(
+                    text = stringResource(
+                        R.string.habit_tracker_progress,
+                        completedCount,
+                        HabitId.entries.size,
+                    ),
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+                Spacer(Modifier.height(IslamicSpacing.Small))
+                LinearProgressIndicator(
+                    progress = { completedCount.toFloat() / HabitId.entries.size },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
+        }
     }
 }
 

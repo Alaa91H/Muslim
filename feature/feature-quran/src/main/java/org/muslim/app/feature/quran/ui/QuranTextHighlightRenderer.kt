@@ -3,8 +3,7 @@
 package org.muslim.app.feature.quran.ui
 
 import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -73,78 +72,86 @@ internal fun DrawScope.drawQuranTextHighlights(
 ) {
     val textLength = layoutResult.layoutInput.text.length
     if (textLength == 0 || ranges.isEmpty()) return
+    ranges.forEach { range ->
+        drawHighlightRange(layoutResult, range, primaryColor, playbackFillAlpha, playbackBorderAlpha)
+    }
+}
 
-    val horizontalPaddingPx = HighlightHorizontalPadding.toPx()
-    val verticalInsetPx = HighlightVerticalInset.toPx()
+private fun DrawScope.drawHighlightRange(
+    layoutResult: TextLayoutResult,
+    range: QuranTextHighlightRange,
+    primaryColor: Color,
+    playbackFillAlpha: Float,
+    playbackBorderAlpha: Float,
+) {
+    if (range.endExclusive <= range.start) return
+    val textLength = layoutResult.layoutInput.text.length
     val cornerRadiusPx = HighlightCornerRadius.toPx()
     val borderWidthPx = HighlightBorderWidth.toPx()
     val cornerRadius = CornerRadius(cornerRadiusPx, cornerRadiusPx)
 
-    ranges.forEach { range ->
-        if (range.endExclusive <= range.start) return@forEach
+    val start = range.start.coerceIn(0, textLength - 1)
+    val endExclusive = range.endExclusive.coerceIn(start + 1, textLength)
+    val startLine = layoutResult.getLineForOffset(start)
+    val endLine = layoutResult.getLineForOffset(endExclusive - 1)
+    val fillAlpha = when (range.kind) {
+        QuranHighlightKind.Tapped -> TAPPED_FILL_ALPHA
+        QuranHighlightKind.Playback -> playbackFillAlpha
+        QuranHighlightKind.Opened -> OPENED_FILL_ALPHA
+        QuranHighlightKind.Selected -> SELECTED_FILL_ALPHA
+    }
+    if (fillAlpha <= 0f) return
 
-        val start = range.start.coerceIn(0, textLength - 1)
-        val endExclusive = range.endExclusive.coerceIn(start + 1, textLength)
-        val startLine = layoutResult.getLineForOffset(start)
-        val endLine = layoutResult.getLineForOffset(endExclusive - 1)
-        val fillAlpha = when (range.kind) {
-            QuranHighlightKind.Tapped -> TAPPED_FILL_ALPHA
-            QuranHighlightKind.Playback -> playbackFillAlpha
-            QuranHighlightKind.Opened -> OPENED_FILL_ALPHA
-            QuranHighlightKind.Selected -> SELECTED_FILL_ALPHA
-        }
-        if (fillAlpha <= 0f) return@forEach
+    val fill = primaryColor.copy(alpha = fillAlpha)
+    val border = primaryColor.copy(alpha = playbackBorderAlpha)
 
-        val fill = primaryColor.copy(alpha = fillAlpha)
-        val border = primaryColor.copy(alpha = playbackBorderAlpha)
+    for (line in startLine..endLine) {
+        val bounds = lineHighlightBounds(layoutResult, start, endExclusive, line) ?: continue
+        drawRoundRect(
+            color = fill,
+            topLeft = bounds.topLeft,
+            size = bounds.size,
+            cornerRadius = cornerRadius,
+        )
 
-        for (line in startLine..endLine) {
-            val segmentStart = maxOf(start, layoutResult.getLineStart(line))
-            val segmentEnd = minOf(
-                endExclusive,
-                layoutResult.getLineEnd(line, visibleEnd = true),
-            )
-            if (segmentStart >= segmentEnd) continue
-
-            var left = Float.POSITIVE_INFINITY
-            var right = Float.NEGATIVE_INFINITY
-            for (offset in segmentStart until segmentEnd) {
-                val box = layoutResult.getBoundingBox(offset)
-                left = minOf(left, box.left)
-                right = maxOf(right, box.right)
-            }
-            if (!left.isFinite() || !right.isFinite()) continue
-
-            val verticalBounds = insetHighlightVerticalBounds(
-                lineTop = layoutResult.getLineTop(line),
-                lineBottom = layoutResult.getLineBottom(line),
-                insetPx = verticalInsetPx,
-            ) ?: continue
-
-            val top = verticalBounds.top.coerceAtLeast(0f)
-            val bottom = verticalBounds.bottom.coerceAtMost(size.height)
-            left = (left - horizontalPaddingPx).coerceAtLeast(0f)
-            right = (right + horizontalPaddingPx).coerceAtMost(size.width)
-            if (right <= left || bottom <= top) continue
-
-            val topLeft = Offset(left, top)
-            val highlightSize = Size(right - left, bottom - top)
+        if (range.kind == QuranHighlightKind.Playback && playbackBorderAlpha > 0f) {
             drawRoundRect(
-                color = fill,
-                topLeft = topLeft,
-                size = highlightSize,
+                color = border,
+                topLeft = bounds.topLeft,
+                size = bounds.size,
                 cornerRadius = cornerRadius,
+                style = Stroke(width = borderWidthPx),
             )
-
-            if (range.kind == QuranHighlightKind.Playback && playbackBorderAlpha > 0f) {
-                drawRoundRect(
-                    color = border,
-                    topLeft = topLeft,
-                    size = highlightSize,
-                    cornerRadius = cornerRadius,
-                    style = Stroke(width = borderWidthPx),
-                )
-            }
         }
     }
+}
+
+private fun DrawScope.lineHighlightBounds(
+    layoutResult: TextLayoutResult,
+    start: Int,
+    endExclusive: Int,
+    line: Int,
+): Rect? {
+    val segmentStart = maxOf(start, layoutResult.getLineStart(line))
+    val segmentEnd = minOf(endExclusive, layoutResult.getLineEnd(line, visibleEnd = true))
+    if (segmentStart >= segmentEnd) return null
+    var left = Float.POSITIVE_INFINITY
+    var right = Float.NEGATIVE_INFINITY
+    for (offset in segmentStart until segmentEnd) {
+        val box = layoutResult.getBoundingBox(offset)
+        left = minOf(left, box.left)
+        right = maxOf(right, box.right)
+    }
+    if (!left.isFinite() || !right.isFinite()) return null
+    val verticalBounds = insetHighlightVerticalBounds(
+        lineTop = layoutResult.getLineTop(line),
+        lineBottom = layoutResult.getLineBottom(line),
+        insetPx = HighlightVerticalInset.toPx(),
+    ) ?: return null
+    val top = verticalBounds.top.coerceAtLeast(0f)
+    val bottom = verticalBounds.bottom.coerceAtMost(size.height)
+    left = (left - HighlightHorizontalPadding.toPx()).coerceAtLeast(0f)
+    right = (right + HighlightHorizontalPadding.toPx()).coerceAtMost(size.width)
+    if (right <= left || bottom <= top) return null
+    return Rect(left, top, right, bottom)
 }

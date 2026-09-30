@@ -192,7 +192,7 @@ All must preserve existing capability and use the shared patterns.
   the lifecycle wait; run #1345 passed all jobs, and all four Arabic/light and
   English/dark PNG artifacts were inspected at 320x640. This path does not
   compare image output.
-- No checked-in golden screenshots, comparison runner, or reviewed image
+- A comparison runner and its policy tests now exist; no checked-in golden screenshots or reviewed image
   baselines exist yet. UX28 remains open until the full matrix is captured,
   visually reviewed, and intentional differences are accepted.
 - Do not call UX28 complete until screenshots are captured on a fixed emulator
@@ -256,3 +256,12 @@ A phase is not complete until:
 - design-system and feature-parity verifiers pass,
 - visual baselines are updated intentionally when the infrastructure exists,
 - CI is green.
+
+## Integration follow-up — 2026-09-30
+
+- Run 36738707642 passed APK compilation, unit tests and Android lint, but quality failed because the merged CLI-based Detekt configuration no longer exposes `detektBaseline`. The CI baseline-regeneration step has been removed: new findings must fail the committed-baseline gate.
+- Activating `CyclomaticComplexMethod` exposed legacy findings. Exact `origin/main` sources were separately analyzed with Detekt 1.23.8; only confirmed existing members received baseline entries (32 complexity signatures and two existing long-method signature remaps). New findings were fixed by extracting date/location, habit progress, session preset and Quran highlight helpers; unused imports and one unused private parameter were removed. The direct CLI UTF-8 analysis of 604 Kotlin files passed locally.
+- The matrix run produced 84 compact PNGs on API 26 and 77 PNGs on API 36, not a complete sweep. API 26 exposed expanded-width and monthly readiness failures; API 36 became offline mid-run. Capture now sets explicit expanded density, waits for content tags, refreshes accessibility cache and limits Gradle memory/workers. These fixes await the next CI run.
+- The reviewed Arabic Prayer Home 200% image confirms the stacked secondary date keeps the Gregorian year intact. Quran Home 200% exposed split chip labels; segmented controls now scroll horizontally with single-line labels.
+- Independent code review found Quran sheets could hide lower controls at large fonts. Shared sheets support opt-in scrolling, enabled for action and Quran sheets, with a new instrumented scrolling regression check. Locale configuration regression checks cover preservation of display settings and system language.
+- The user confirmed no physical Android phone is available. TalkBack on representative hardware, frame measurements and physical fold/unfold continuity remain open acceptance gates.

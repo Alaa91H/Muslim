@@ -129,15 +129,7 @@ private fun SessionPresetSelector(
         fontWeight = FontWeight.SemiBold,
     )
 
-    val selectedId = when {
-        state.sessionMode == TasbihSessionMode.Free -> "free"
-        state.sessionMode == TasbihSessionMode.Target && state.target == 33 -> "33"
-        state.sessionMode == TasbihSessionMode.Target && state.target == 100 -> "100"
-        state.sessionMode == TasbihSessionMode.Rounds &&
-            state.target == 33 &&
-            state.roundsGoal == 3 -> "33x3"
-        else -> ""
-    }
+    val selectedId = sessionPresetId(state)
     val options = listOf(
         MuslimFilterOption("free", stringResource(R.string.tasbih_preset_free)),
         MuslimFilterOption("33", stringResource(R.string.tasbih_preset_33)),
@@ -158,6 +150,16 @@ private fun SessionPresetSelector(
         },
     )
 }
+
+private fun sessionPresetId(state: TasbihState): String = when {
+        state.sessionMode == TasbihSessionMode.Free -> "free"
+        state.sessionMode == TasbihSessionMode.Target && state.target == 33 -> "33"
+        state.sessionMode == TasbihSessionMode.Target && state.target == 100 -> "100"
+        state.sessionMode == TasbihSessionMode.Rounds &&
+            state.target == 33 &&
+            state.roundsGoal == 3 -> "33x3"
+        else -> ""
+    }
 
 @Composable
 private fun ActiveSessionSummary(session: TasbihSessionHistoryItem?) {
