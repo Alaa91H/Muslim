@@ -48,13 +48,35 @@ run_batch() {
     [ "$result" = 0 ] || status="$result"
     device_ready || status=1
 }
-# Reinstall between 48-case groups to bound retained Activity/graphics state.
+set_display_variant() {
+    local expanded="$1"
+    if [ "$expanded" = true ]; then
+        adb shell wm size 1000x1600 >/dev/null
+        adb shell wm density 160 >/dev/null
+        local applied_size applied_density
+        applied_size="$(adb shell wm size | tr -d '\r')"
+        applied_density="$(adb shell wm density | tr -d '\r')"
+        if [[ "$applied_size" != *"Override size: 1000x1600"* ]] ||
+            [[ "$applied_density" != *"Override density: 160"* ]]; then
+            echo "Could not configure expanded emulator display: size=$applied_size density=$applied_density"
+            return 1
+        fi
+    else
+        adb shell wm size reset >/dev/null
+        adb shell wm density reset >/dev/null
+    fi
+}
+# Reinstall between 24-case width/screen groups to bound retained Activity/graphics state.
 # Every configured case still runs; failures remain failures and are not retried away.
 for screens in prayer-home,prayer-monthly quran-home,quran-reader qibla,more hadith,settings; do
-    run_batch "matrix-$screens" \
-        -Pandroid.testInstrumentationRunnerArguments.class=org.muslim.app.UiUxV2MatrixInstrumentedTest \
-        "-Pandroid.testInstrumentationRunnerArguments.uiux.screens=$screens"
-    device_ready || break
+    for expanded in false true; do
+        set_display_variant "$expanded" || { status=1; break 2; }
+        run_batch "matrix-$screens-$expanded" \
+            -Pandroid.testInstrumentationRunnerArguments.class=org.muslim.app.UiUxV2MatrixInstrumentedTest \
+            "-Pandroid.testInstrumentationRunnerArguments.uiux.screens=$screens" \
+            "-Pandroid.testInstrumentationRunnerArguments.uiux.expanded=$expanded"
+        device_ready || break 2
+    done
 done
 if [ "$status" = 0 ] && device_ready; then
     run_batch app-regression \

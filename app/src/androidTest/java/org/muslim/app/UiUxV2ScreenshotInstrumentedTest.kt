@@ -106,13 +106,10 @@ class UiUxV2ScreenshotInstrumentedTest {
         var scenario: ActivityScenario<MainActivity>? = null
         try {
             if (expanded) {
-                val sizeResult = shell("wm size 1600x1000")
-                val densityResult = shell("wm density 160")
                 val appliedSize = shell("wm size")
                 val appliedDensity = shell("wm density")
                 expandedDisplayDiagnostics =
-                    "sizeCommand=$sizeResult densityCommand=$densityResult appliedSize=$appliedSize " +
-                        "appliedDensity=$appliedDensity"
+                    "appliedSize=$appliedSize appliedDensity=$appliedDensity"
                 val widthDeadline = SystemClock.uptimeMillis() + 10_000
                 while (context.resources.configuration.screenWidthDp < 840 && SystemClock.uptimeMillis() < widthDeadline) {
                     SystemClock.sleep(100)
@@ -145,12 +142,18 @@ class UiUxV2ScreenshotInstrumentedTest {
                 val dataReady = when (route) {
                     "quran" -> "uiux-quran-content-loaded" in activeWindowDescription
                     "quran/reader/1" -> "بسم الله" in normalizedContent
+                    "quran/reader/3" -> root?.findAccessibilityNodeInfosByViewId(
+                        "${context.packageName}:id/mushaf-page-50",
+                    ).orEmpty().isNotEmpty()
                     else -> true
                 }
                 homeVisible = root != null && root.packageName?.toString() == context.packageName &&
                     expectedContent in activeWindowDescription && dataReady
                 if (homeVisible) break
                 SystemClock.sleep(100)
+            }
+            check(homeVisible) {
+                "Requested screen $route is not ready for interaction: $activeWindowDescription"
             }
             afterReady?.invoke(instrumentation)
             SystemClock.sleep(500)
@@ -209,10 +212,6 @@ class UiUxV2ScreenshotInstrumentedTest {
         } finally {
             try {
                 scenario?.close()
-                if (expanded) {
-                    shell("wm size reset")
-                    shell("wm density reset")
-                }
                 setSystemFontScale(originalFontScale)
                 if (fixedClock) {
                     val restoredTime = originalWallTime + SystemClock.elapsedRealtime() - originalElapsedTime

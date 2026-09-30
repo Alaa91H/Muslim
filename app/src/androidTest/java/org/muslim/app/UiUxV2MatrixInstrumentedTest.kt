@@ -44,12 +44,15 @@ class UiUxV2MatrixInstrumentedTest(
             )
             val requestedScreens = InstrumentationRegistry.getArguments().getString("uiux.screens")
                 ?.split(",")?.toSet()
+            val requestedExpanded = InstrumentationRegistry.getArguments().getString("uiux.expanded")
+                ?.toBooleanStrictOrNull()
             for ((name, route) in screens) {
                 if (requestedScreens != null && name !in requestedScreens) continue
                 for (language in listOf("ar", "en")) {
                     for (theme in listOf(AppThemeMode.Light, AppThemeMode.Dark)) {
                         for (fontScale in listOf(1f, 1.5f, 2f)) {
                             for (expanded in listOf(false, true)) {
+                                if (requestedExpanded != null && expanded != requestedExpanded) continue
                                 add(arrayOf(name, route, language, theme, fontScale, expanded))
                             }
                         }
