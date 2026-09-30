@@ -4,6 +4,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.LocalActivity
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Row
@@ -406,7 +409,9 @@ fun MuslimApp(
                 // against the real tab routes so a stale value can never crash.
                 startDestination = startDestinationFor(initialStartTab, visibleTabs),
                 navController = navController,
-                modifier = Modifier.padding(innerPadding),
+                modifier = Modifier.padding(innerPadding)
+                    .testTag("uiux-route:${currentDestination?.route}")
+                    .semantics { testTagsAsResourceId = true },
             ) {
                 composable("home") {
                     HomeScreen(

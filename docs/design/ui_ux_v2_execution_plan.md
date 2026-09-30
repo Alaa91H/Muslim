@@ -203,8 +203,14 @@ All must preserve existing capability and use the shared patterns.
   on emulator APIs 26 and 36; all other screen/variant pairs and visual
   comparison remain open. The four language/theme combinations passed both emulator APIs in run
   36730684425 with onboarding disabled and an active-window/content readiness gate.
-  Arabic/light and English/light at 200% font are now configured and await CI
-  review alongside localized Hijri dates and app-theme system bar contrast.
+  Arabic/light and English/light at 200% font passed capture in run 36734323997;
+  all twelve images were visually inspected. Localized Hijri dates and app-theme
+  system bar contrast were correct. Arabic Gregorian years split across lines at
+  200%, prompting a stacked date/location layout awaiting fresh image review.
+  The complete 192-variant matrix is now configured across eight critical screens;
+  capture and visual review of that matrix are pending. Expanded captures assert
+  the window reaches the 840dp breakpoint. No comparison or golden acceptance is
+  implied by configuring capture.
   Earlier English/dark PNGs passed encoding checks but visual inspection found
   a dimmed screen during initial system permission setup.
 

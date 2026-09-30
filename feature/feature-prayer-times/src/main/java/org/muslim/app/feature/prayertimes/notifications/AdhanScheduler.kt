@@ -68,8 +68,9 @@ class AdhanScheduler @Inject constructor(
         }
         val upcoming = selectEarliestUpcoming(candidates, now)
 
-        // Cancel any previous alarms, then schedule fresh ones.
-        cancelAll()
+        // Refresh scheduled prayers without cancelling an independent delivery
+        // probe requested by the user while settings observers are rescheduling.
+        cancelScheduledPrayerAlarms()
         for ((prayer, at) in upcoming) {
             scheduleExact(at, prayer, isReminder = false, settings = settings)
             if (settings.reminderMinutes > 0) {
@@ -110,19 +111,21 @@ class AdhanScheduler @Inject constructor(
     }
 
     fun cancelAll() {
+        cancelScheduledPrayerAlarms()
+        val defaults = PrayerSettings()
+        for (prayer in Prayer.entries) {
+            alarmManager.cancel(
+                prayerPendingIntent(prayer, isReminder = false, settings = defaults, isProbe = true),
+            )
+        }
+    }
+
+    private fun cancelScheduledPrayerAlarms() {
         // Extras don't affect PendingIntent identity, so defaults are fine here.
         val defaults = PrayerSettings()
         for (prayer in Prayer.entries) {
             alarmManager.cancel(prayerPendingIntent(prayer, isReminder = false, settings = defaults))
             alarmManager.cancel(prayerPendingIntent(prayer, isReminder = true, settings = defaults))
-            alarmManager.cancel(
-                prayerPendingIntent(
-                    prayer = prayer,
-                    isReminder = false,
-                    settings = defaults,
-                    isProbe = true,
-                ),
-            )
         }
     }
 

@@ -65,5 +65,19 @@ Ruling: PNG signature/dimensions prove encoding, not screen readiness. Earlier E
 - [x] Verify English Hijri year/month and preserved Arabic formatting with `HijriDateTest` locally.
 - [x] Bind status/navigation bar icons to the selected app theme.
 - [x] Add Arabic and English Prayer Home screenshots at system font scale 2.0, with scale restoration and an Activity configuration assertion.
-- [ ] Compile the updated app and instrumentation tests.
-- [ ] Pass CI on API 26 and 36, inspect all twelve images, and fix any clipping or incorrect system bar contrast found.
+- [x] Compile the updated app and instrumentation tests (quality job and both emulator app runs in 36734323997).
+- [x] Inspect all twelve images: localized dates and system bar contrast are correct; 200% Arabic Gregorian date split inside the year.
+- [ ] Verify the stacked large-font date/location layout in new captures.
+- [ ] Pass the entire run: 36734323997 failed the Adhan probe on API 36 after all six screenshot tests passed.
+
+### Task 6: Complete automated variant capture and preserve delivery probes
+
+- [x] Configure 192 individual results: eight screens, two locales, two themes, three font scales, two window sizes.
+- [x] Require actual destination accessibility IDs and Quran content before capture; monthly mode is selected through its accessible menu.
+- [x] Export completed PNGs continuously while instrumentation runs, then require every matrix filename and valid dimensions.
+- [x] Fix routine prayer rescheduling cancelling independent pending delivery probes; add rescheduling to the end-to-end probe regression.
+- [ ] Compile and run the complete matrix on API 26 and 36, inspect results and correct defects.
+- [ ] Establish reviewed image baselines and a comparison runner.
+
+Ruling: expanded-window screenshots use the CI emulator's 1280x800 override and assert at least 840dp. This checks window adaptation; fold/unfold continuity still needs separate runtime coverage.
+Ruling: code inspection identified `schedule()` calling `cancelAll()` including probes. Routine refresh now cancels only prayer/reminder alarms; explicit cancellation and disabling Adhan retain cancellation of probes.

@@ -48,6 +48,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -285,14 +286,10 @@ private fun PrayerDateHeader(
         }
     }
 
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
-    ) {
+    val dateAndLocation: @Composable (Modifier, Modifier) -> Unit = { dateModifier, locationModifier ->
         Text(
             text = state.hijri?.gregorian?.format(localDateFormatter).orEmpty(),
-            modifier = Modifier.weight(1f),
+            modifier = dateModifier,
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -300,8 +297,7 @@ private fun PrayerDateHeader(
             onClick = onSelectLocation,
             shape = MaterialTheme.shapes.large,
             color = MaterialTheme.colorScheme.secondaryContainer,
-            modifier = Modifier
-                .weight(1.35f)
+            modifier = locationModifier
                 .semantics {
                     contentDescription = locationDescription
                     role = Role.Button
@@ -328,6 +324,22 @@ private fun PrayerDateHeader(
                     overflow = TextOverflow.Ellipsis,
                 )
             }
+        }
+    }
+    if (compact && LocalDensity.current.fontScale >= 1.5f) {
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+        ) {
+            dateAndLocation(Modifier.fillMaxWidth(), Modifier.fillMaxWidth())
+        }
+    } else {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+        ) {
+            dateAndLocation(Modifier.weight(1f), Modifier.weight(1.35f))
         }
     }
 }

@@ -1,6 +1,8 @@
 package org.muslim.app
 
 import android.graphics.Bitmap
+import android.content.Intent
+import android.accessibilityservice.AccessibilityServiceInfo
 import android.os.SystemClock
 import android.os.ParcelFileDescriptor
 import android.provider.Settings
@@ -53,13 +55,20 @@ class UiUxV2ScreenshotInstrumentedTest {
         capturePrayerHomeScreenshot(languageCode = "en", themeMode = AppThemeMode.Light, fontScale = 2f)
     }
 
-    private fun capturePrayerHomeScreenshot(
+    internal fun capturePrayerHomeScreenshot(
         languageCode: String,
         themeMode: AppThemeMode,
         fontScale: Float = 1f,
+        route: String = "home",
+        screenName: String = "prayer-home",
+        expanded: Boolean = false,
     ) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
+        val originalAccessibilityFlags = instrumentation.uiAutomation.serviceInfo.flags
+        instrumentation.uiAutomation.serviceInfo = instrumentation.uiAutomation.serviceInfo.apply {
+            flags = flags or AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS
+        }
         val preferencesRepository = AppPreferencesRepository(context)
         val prayerRepository = PrayerSettingsRepository(context)
         val originalPreferences = runBlocking { preferencesRepository.preferences.first() }
@@ -85,8 +94,11 @@ class UiUxV2ScreenshotInstrumentedTest {
         }
         var scenario: ActivityScenario<MainActivity>? = null
         try {
+            if (expanded) shell("wm size 1280x800")
             setSystemFontScale(fontScale)
-            scenario = ActivityScenario.launch<MainActivity>(MainActivity::class.java)
+            scenario = ActivityScenario.launch<MainActivity>(
+                Intent(context, MainActivity::class.java).putExtra(MainActivity.EXTRA_ROUTE, route),
+            )
             instrumentation.waitForIdleSync()
             val deadline = SystemClock.uptimeMillis() + 15_000
             var homeVisible = false
@@ -94,10 +106,30 @@ class UiUxV2ScreenshotInstrumentedTest {
             while (SystemClock.uptimeMillis() < deadline) {
                 val root = instrumentation.uiAutomation.rootInActiveWindow
                 activeWindowDescription = root?.describeTree().orEmpty()
+                val expectedContent = if (route == "home") "Makkah" else "uiux-route:${routePattern(route)}"
+                val normalizedContent = activeWindowDescription.replace(Regex("[\\p{M}ـ]"), "").replace('ٱ', 'ا')
+                val dataReady = when (route) {
+                    "quran" -> "الفاتحة" in normalizedContent
+                    "quran/reader/1" -> "بسم الله" in normalizedContent
+                    else -> true
+                }
                 homeVisible = root != null && root.packageName?.toString() == context.packageName &&
-                    "Makkah" in activeWindowDescription
+                    expectedContent in activeWindowDescription && dataReady
                 if (homeVisible) break
                 SystemClock.sleep(100)
+            }
+            if (screenName == "prayer-monthly" && homeVisible) {
+                var timesTitle = ""
+                var monthlyTitle = ""
+                checkNotNull(scenario).onActivity { activity ->
+                    timesTitle = activity.getString(org.muslim.app.feature.prayertimes.R.string.times_title)
+                    monthlyTitle = activity.getString(org.muslim.app.feature.prayertimes.R.string.times_monthly)
+                }
+                clickAccessibleLabel(timesTitle)
+                clickAccessibleLabel(monthlyTitle)
+                instrumentation.waitForIdleSync()
+                activeWindowDescription = instrumentation.uiAutomation.rootInActiveWindow?.describeTree().orEmpty()
+                check(monthlyTitle in activeWindowDescription) { "Monthly timetable was not selected" }
             }
             SystemClock.sleep(500)
             instrumentation.waitForIdleSync()
@@ -107,6 +139,9 @@ class UiUxV2ScreenshotInstrumentedTest {
                 }
                 check(kotlin.math.abs(activity.resources.configuration.fontScale - fontScale) < 0.01f) {
                     "Activity font scale does not match the requested screenshot variant"
+                }
+                if (expanded) check(activity.resources.configuration.screenWidthDp >= 840) {
+                    "Expanded capture did not reach the expanded window breakpoint"
                 }
                 val bars = WindowCompat.getInsetsController(activity.window, activity.window.decorView)
                 val lightTheme = themeMode == AppThemeMode.Light
@@ -132,8 +167,9 @@ class UiUxV2ScreenshotInstrumentedTest {
             check(outputDirectory.mkdirs() || outputDirectory.isDirectory) {
                 "Could not create screenshot output directory: ${outputDirectory.absolutePath}"
             }
-            val fontSuffix = if (fontScale == 2f) "-200" else ""
-            val screenshotName = "prayer-home-$languageCode-${themeMode.name.lowercase()}$fontSuffix.png"
+            val fontSuffix = when (fontScale) { 2f -> "-200"; 1.5f -> "-150"; else -> "" }
+            val widthSuffix = if (expanded) "-expanded" else ""
+            val screenshotName = "$screenName-$languageCode-${themeMode.name.lowercase()}$fontSuffix$widthSuffix.png"
             val pendingScreenshot = File(outputDirectory, "$screenshotName.tmp")
             pendingScreenshot.outputStream().use { output ->
                 check(bitmap.compress(Bitmap.CompressFormat.PNG, 100, output)) {
@@ -144,24 +180,28 @@ class UiUxV2ScreenshotInstrumentedTest {
                 "Could not publish completed screenshot"
             }
             check(homeVisible) {
-                "Prayer Home is obscured or has not rendered its location: $activeWindowDescription"
+                "Requested screen $route is obscured or has not rendered: $activeWindowDescription"
             }
         } finally {
-            scenario?.close()
-            setSystemFontScale(originalFontScale)
-            runBlocking {
+            try {
+                scenario?.close()
+                if (expanded) shell("wm size reset")
+                setSystemFontScale(originalFontScale)
+            } finally { runBlocking {
                 preferencesRepository.setThemeMode(originalPreferences.themeMode)
                 preferencesRepository.setDynamicColor(originalPreferences.dynamicColor)
                 preferencesRepository.setLanguage(originalPreferences.languageCode)
                 prayerRepository.save(originalPrayerSettings)
-            }
+                instrumentation.uiAutomation.serviceInfo = instrumentation.uiAutomation.serviceInfo.apply {
+                    flags = originalAccessibilityFlags
+                }
+            } }
         }
     }
 
     private fun setSystemFontScale(scale: Float) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
-        val descriptor = instrumentation.uiAutomation.executeShellCommand("settings put system font_scale $scale")
-        ParcelFileDescriptor.AutoCloseInputStream(descriptor).use { it.readBytes() }
+        shell("settings put system font_scale $scale")
         val deadline = SystemClock.uptimeMillis() + 10_000
         while (SystemClock.uptimeMillis() < deadline) {
             if (kotlin.math.abs(instrumentation.targetContext.resources.configuration.fontScale - scale) < 0.01f) {
@@ -174,9 +214,43 @@ class UiUxV2ScreenshotInstrumentedTest {
 
     private fun AccessibilityNodeInfo.describeTree(): String = buildString {
         append("package=").append(packageName).append(" text=").append(text)
+        append(" id=").append(viewIdResourceName)
         append(" description=").append(contentDescription).append('\n')
         for (index in 0 until childCount) {
             getChild(index)?.let { append(it.describeTree()) }
         }
     }
+
+    private fun shell(command: String): String {
+        val descriptor = InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(command)
+        return ParcelFileDescriptor.AutoCloseInputStream(descriptor).use { it.readBytes().toString(Charsets.UTF_8) }
+    }
+
+    private fun clickAccessibleLabel(label: String) {
+        val automation = InstrumentationRegistry.getInstrumentation().uiAutomation
+        repeat(12) {
+            val root = automation.rootInActiveWindow
+            val match = root?.findNode { it.text?.toString() == label || it.contentDescription?.toString() == label }
+            var clickable = match
+            while (clickable != null && !clickable.isClickable) clickable = clickable.parent
+            if (clickable?.performAction(AccessibilityNodeInfo.ACTION_CLICK) == true) {
+                SystemClock.sleep(300)
+                return
+            }
+            root?.findNode { it.isScrollable }?.performAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD)
+            SystemClock.sleep(300)
+        }
+        error("Could not activate accessible control: $label")
+    }
+
+    private fun AccessibilityNodeInfo.findNode(predicate: (AccessibilityNodeInfo) -> Boolean): AccessibilityNodeInfo? {
+        if (predicate(this)) return this
+        for (index in 0 until childCount) {
+            getChild(index)?.findNode(predicate)?.let { return it }
+        }
+        return null
+    }
+
+    private fun routePattern(route: String): String =
+        if (route.startsWith("quran/reader/")) "quran/reader/{surahNumber}?ayah={ayah}&autoplay={autoplay}" else route
 }

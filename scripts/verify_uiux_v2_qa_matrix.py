@@ -59,45 +59,29 @@ def main() -> None:
         if missing_gates:
             details.append(f"completion evidence/gates missing from plan: {', '.join(missing_gates)}")
         raise SystemExit("UI/UX V2 QA matrix is incomplete: " + "; ".join(details))
+    capture = (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text(encoding="utf-8")
+    matrix = (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2MatrixInstrumentedTest.kt").read_text(encoding="utf-8")
+    exporter = (ROOT / "scripts/capture_uiux_v2_artifacts.sh").read_text(encoding="utf-8")
+    validator = (ROOT / "scripts/validate_uiux_v2_screenshots.py").read_text(encoding="utf-8")
     screenshot_contract = (
-        "fun capturesPrayerHomeArabicLightScreenshot()" in "\n".join(
-            path.read_text(encoding="utf-8")
-            for path in (ROOT / "app/src/androidTest").rglob("*.kt")
-        )
-        and "fun capturesPrayerHomeEnglishDarkScreenshot()" in "\n".join(
-            path.read_text(encoding="utf-8")
-            for path in (ROOT / "app/src/androidTest").rglob("*.kt")
-        )
-        and "uiAutomation.takeScreenshot()" in "\n".join(
-            path.read_text(encoding="utf-8")
-            for path in (ROOT / "app/src/androidTest").rglob("*.kt")
-        )
-        and "sampledColors.size > 1" in "\n".join(
-            path.read_text(encoding="utf-8")
-            for path in (ROOT / "app/src/androidTest").rglob("*.kt")
-        )
-        and "getExternalFilesDir(null)" in "\n".join(
-            path.read_text(encoding="utf-8")
-            for path in (ROOT / "app/src/androidTest").rglob("*.kt")
-        )
-        and "capturesPrayerHomeArabicDarkScreenshot" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
-        and "capturesPrayerHomeEnglishLightScreenshot" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
-        and "markInitialPermissionSetupHandled()" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
-        and "rootInActiveWindow" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
-        and "capturesPrayerHomeArabicLargeFontScreenshot" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
-        and "capturesPrayerHomeEnglishLargeFontScreenshot" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
-        and "setSystemFontScale(originalFontScale)" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
-        and "prayer-home-ar-light-200" in workflow
-        and "prayer-home-en-light-200" in workflow
-        and "gradle_pid=$!" in workflow
-        and "seq 1 600" in workflow
-        and 'for screenshot in prayer-home-ar-light prayer-home-en-dark' in workflow
-        and 'device_screenshot="/sdcard/Android/data/$app_id/files/uiux-v2/$screenshot.png"' in workflow
-        and 'adb pull "$device_screenshot" "artifacts/uiux-v2/$screenshot.png"' in workflow
-        and 'kill -0 "$gradle_pid"' in workflow
-        and "89504e470d0a1a0a" in workflow
-        and '"prayer-home-ar-light.png", "prayer-home-en-dark.png"' in workflow
-        and workflow.index("./gradlew :app:connectedDebugAndroidTest") < workflow.index('adb pull "$device_screenshot"') < workflow.index("- name: Upload UI/UX V2 emulator screenshots")
+        all(value in capture for value in (
+            "uiAutomation.takeScreenshot()", "sampledColors.size > 1", "getExternalFilesDir(null)",
+            "markInitialPermissionSetupHandled()", "rootInActiveWindow", "setSystemFontScale(originalFontScale)",
+            "screenWidthDp >= 840", "scenario?.close()", "Could not publish completed screenshot",
+        ))
+        and all(value in matrix for value in (
+            '"prayer-home"', '"prayer-monthly"', '"quran-home"', '"quran-reader"',
+            '"qibla"', '"more"', '"hadith"', '"settings"',
+            'listOf("ar", "en")', 'listOf(1f, 1.5f, 2f)', 'listOf(false, true)',
+            'AppThemeMode.Light, AppThemeMode.Dark',
+        ))
+        and all(value in exporter for value in (
+            "gradle_pid=$!", "kill -0", "adb pull", "wait", "*.png",
+        ))
+        and "89504e470d0a1a0a" in validator
+        and "bash scripts/capture_uiux_v2_artifacts.sh" in workflow
+        and "python3 scripts/validate_uiux_v2_screenshots.py artifacts/uiux-v2" in workflow
+        and "path: artifacts/uiux-v2/*.png" in workflow
         and "if-no-files-found: error" in workflow
         and "muslim.applicationId=" in (ROOT / "gradle.properties").read_text(encoding="utf-8")
         and "Upload UI/UX V2 emulator screenshots" in workflow
