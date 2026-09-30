@@ -68,7 +68,12 @@ def main() -> None:
             path.read_text(encoding="utf-8")
             for path in (ROOT / "app/src/androidTest").rglob("*.kt")
         )
+        and "sampledColors.size > 1" in "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in (ROOT / "app/src/androidTest").rglob("*.kt")
+        )
         and 'adb pull "/sdcard/Android/data/$(sed -n' in workflow
+        and workflow.index("adb pull \"/sdcard/Android/data/$(sed -n") < workflow.index("- name: Upload UI/UX V2 emulator screenshots")
         and "muslim.applicationId=" in (ROOT / "gradle.properties").read_text(encoding="utf-8")
         and "Upload UI/UX V2 emulator screenshots" in workflow
         and "visual comparison" in normalized_plan.lower()

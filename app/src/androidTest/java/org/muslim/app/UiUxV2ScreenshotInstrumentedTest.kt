@@ -50,6 +50,12 @@ class UiUxV2ScreenshotInstrumentedTest {
             instrumentation.waitForIdleSync()
             val bitmap = instrumentation.uiAutomation.takeScreenshot()
             check(bitmap.width > 0 && bitmap.height > 0) { "Screenshot has invalid dimensions" }
+            val sampledColors = buildSet {
+                for (x in 0 until bitmap.width step 32) {
+                    for (y in 0 until bitmap.height step 32) add(bitmap.getPixel(x, y))
+                }
+            }
+            check(sampledColors.size > 1) { "Screenshot appears blank; app content was not rendered" }
             val outputDirectory = File(activity.getExternalFilesDir(null), "uiux-v2")
             check(outputDirectory.mkdirs() || outputDirectory.isDirectory) {
                 "Could not create screenshot output directory: ${outputDirectory.absolutePath}"

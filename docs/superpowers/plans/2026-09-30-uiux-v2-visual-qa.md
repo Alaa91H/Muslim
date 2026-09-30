@@ -34,7 +34,7 @@
 
 **Files:** modify `.github/workflows/ci.yml` emulator job.
 
-- [ ] Upload `**/files/uiux-v2/*.png` on successful and failed emulator runs.
+- [ ] Pull `**/files/uiux-v2/*.png` before the emulator runner shuts the device down; upload after runner completion.
 - [ ] Verify YAML and the workflow's artifact paths using static checks.
 
 ### Task 3: Close only the automation portion of UX28
