@@ -19,6 +19,15 @@ import org.muslim.app.core.datastore.prayer.SelectedLocation
 class UiUxV2ScreenshotInstrumentedTest {
     @Test
     fun capturesPrayerHomeArabicLightScreenshot() {
+        capturePrayerHomeScreenshot(languageCode = "ar", themeMode = AppThemeMode.Light)
+    }
+
+    @Test
+    fun capturesPrayerHomeEnglishDarkScreenshot() {
+        capturePrayerHomeScreenshot(languageCode = "en", themeMode = AppThemeMode.Dark)
+    }
+
+    private fun capturePrayerHomeScreenshot(languageCode: String, themeMode: AppThemeMode) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
         val preferencesRepository = AppPreferencesRepository(context)
@@ -26,8 +35,8 @@ class UiUxV2ScreenshotInstrumentedTest {
         val originalPreferences = runBlocking { preferencesRepository.preferences.first() }
         val originalPrayerSettings = runBlocking { prayerRepository.settings.first() }
         runBlocking {
-            preferencesRepository.setThemeMode(AppThemeMode.Light)
-            preferencesRepository.setLanguage("ar")
+            preferencesRepository.setThemeMode(themeMode)
+            preferencesRepository.setLanguage(languageCode)
             prayerRepository.save(
                 PrayerSettings(
                     location = SelectedLocation(
@@ -63,7 +72,8 @@ class UiUxV2ScreenshotInstrumentedTest {
             check(outputDirectory.mkdirs() || outputDirectory.isDirectory) {
                 "Could not create screenshot output directory: ${outputDirectory.absolutePath}"
             }
-            File(outputDirectory, "prayer-home-ar-light.png").outputStream().use { output ->
+            val screenshotName = "prayer-home-$languageCode-${themeMode.name.lowercase()}.png"
+            File(outputDirectory, screenshotName).outputStream().use { output ->
                 check(bitmap.compress(Bitmap.CompressFormat.PNG, 100, output)) {
                     "Could not encode screenshot as PNG"
                 }

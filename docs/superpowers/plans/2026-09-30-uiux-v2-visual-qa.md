@@ -2,7 +2,7 @@
 
 > **For agentic workers:** execute task by task with TDD; do not claim screenshot comparison without a reviewed baseline.
 
-**Goal:** Produce reproducible emulator screenshots for the existing critical Compose test surface and publish them as CI artifacts, while accurately tracking remaining UX28/UX31 visual gates.
+**Goal:** Produce reproducible Arabic/light and English/dark emulator screenshots for the Prayer Home Compose surface and publish them as CI artifacts, while accurately tracking remaining UX28/UX31 visual gates.
 
 **Architecture:** Add a Hilt-backed app Activity instrumentation capture for Prayer Home using Android `UiAutomation`, then upload screenshots alongside emulator test evidence. Update the QA matrix verifier and plan so they distinguish captured artifacts from screenshot comparison and manual variant review.
 
@@ -26,7 +26,7 @@
 
 **Files:** create `app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt`.
 
-- [x] Add an instrumentation test that launches the Hilt-backed `MainActivity` and writes `uiux-v2/prayer-home-ar-light.png` to app-private files.
+- [x] Add instrumentation tests that launch the Hilt-backed `MainActivity` and write Prayer Home Arabic/light and English/dark PNGs to app-private files.
 - [x] Run the instrumentation test in CI and inspect the uploaded PNG dimensions/content (run #1342 passed; API 26 and API 36 artifacts are valid 320x640 PNGs).
 - [x] Keep capture isolated from production code and user data.
 

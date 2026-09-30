@@ -28,7 +28,7 @@ REQUIRED_VARIANTS = (
 )
 OPEN_GATES = (
     "visual comparison remain open",
-    "configured initial CI capture covers only Prayer Home Arabic/light",
+    "configured CI capture covers Prayer Home Arabic/light and English/dark",
     "200% system-font screenshot sweep has been captured",
     "Frame-time, recomposition, and scrolling measurements have not been captured",
 )
@@ -64,6 +64,10 @@ def main() -> None:
             path.read_text(encoding="utf-8")
             for path in (ROOT / "app/src/androidTest").rglob("*.kt")
         )
+        and "fun capturesPrayerHomeEnglishDarkScreenshot()" in "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in (ROOT / "app/src/androidTest").rglob("*.kt")
+        )
         and "uiAutomation.takeScreenshot()" in "\n".join(
             path.read_text(encoding="utf-8")
             for path in (ROOT / "app/src/androidTest").rglob("*.kt")
@@ -78,10 +82,12 @@ def main() -> None:
         )
         and "gradle_pid=$!" in workflow
         and "seq 1 600" in workflow
-        and "device_screenshot=\"/sdcard/Android/data/$app_id/files/uiux-v2/prayer-home-ar-light.png\"" in workflow
-        and 'adb pull "$device_screenshot" artifacts/uiux-v2/prayer-home-ar-light.png' in workflow
+        and 'for screenshot in prayer-home-ar-light prayer-home-en-dark' in workflow
+        and 'device_screenshot="/sdcard/Android/data/$app_id/files/uiux-v2/$screenshot.png"' in workflow
+        and 'adb pull "$device_screenshot" "artifacts/uiux-v2/$screenshot.png"' in workflow
         and 'kill -0 "$gradle_pid"' in workflow
         and "89504e470d0a1a0a" in workflow
+        and '"prayer-home-ar-light.png", "prayer-home-en-dark.png"' in workflow
         and workflow.index("./gradlew :app:connectedDebugAndroidTest") < workflow.index('adb pull "$device_screenshot"') < workflow.index("- name: Upload UI/UX V2 emulator screenshots")
         and "if-no-files-found: error" in workflow
         and "muslim.applicationId=" in (ROOT / "gradle.properties").read_text(encoding="utf-8")
@@ -90,7 +96,7 @@ def main() -> None:
     )
     if not screenshot_contract:
         raise SystemExit(
-            "UI/UX V2 screenshot contract requires a real Activity capture, CI file export/upload, "
+            "UI/UX V2 screenshot contract requires Arabic/light and English/dark Activity captures, CI file export/upload, "
             "and explicit distinction between capture and visual comparison"
         )
     if invalid_resources:

@@ -175,8 +175,9 @@ All must preserve existing capability and use the shared patterns.
 
 ### UX28 — Screenshot and visual regression
 
-- CI is configured to capture the actual Prayer Home screen on Android
-  emulators and store `prayer-home-ar-light.png` as a per-API artifact. Run
+- CI is configured to capture the actual Prayer Home screen in Arabic/light
+  and English/dark on Android emulators and store both PNGs as per-API
+  artifacts. Run
   #1338 exposed that the post-instrumentation export produced a 40-byte
   `run-as: unknown package` message instead of a PNG. Run #1339 failed on a
   shell-output marker, and #1340 showed the screenshot instrumentation passes
@@ -185,9 +186,9 @@ All must preserve existing capability and use the shared patterns.
   expired before Gradle completed its 4m40s emulator task. CI now allows a
   10-minute poll, pulls the app-specific external file while instrumentation
   runs, then validates the PNG signature and dimensions. Run #1342 passed the
-  quality, emulator, and development APK jobs; both uploaded PNGs were
-  inspected and are valid 320x640 images. This path does not compare image
-  output.
+  quality, emulator, and development APK jobs; both Arabic/light PNGs were
+  inspected and are valid 320x640 images. English/dark capture has since been
+  added and awaits CI verification. This path does not compare image output.
 - No checked-in golden screenshots, comparison runner, or reviewed image
   baselines exist yet. UX28 remains open until the full matrix is captured,
   visually reviewed, and intentional differences are accepted.
@@ -195,9 +196,11 @@ All must preserve existing capability and use the shared patterns.
   image for Arabic RTL and English LTR, light and dark themes, normal and large
   fonts, and compact and expanded widths; intentional changes need reviewed
   baseline updates.
-- The configured initial CI capture covers only Prayer Home Arabic/light on
-  emulator APIs 26 and 36; all other screen/variant pairs and visual
-  comparison remain open.
+- The configured CI capture covers Prayer Home Arabic/light and English/dark
+  on emulator APIs 26 and 36; all other screen/variant pairs and visual
+  comparison remain open. Arabic/light and English/dark are captured only
+  because RTL/localization and theme coverage still lack the Arabic/dark and
+  English/light combinations.
 
 ### UX29 — Performance and motion
 
