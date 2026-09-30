@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Tafsirda o\'qilgan oyatga amal qiling</string>
     <string name="quran_tafsir_follow_playback_description">Qiroat bilan ma\'no va tafsirlarni ko\'chiring. Audio davom etayotganda boshqa tushuntirishni o\'qish uchun o\'chiring.</string>
+    <string name="quran_search_hint">Qur\'on oyatlarini qidirish...</string>
+    <string name="quran_search_clear">Qidiruvni tozalash</string>
+    <string name="quran_search_no_results">Mos natijalar topilmadi</string>
+    <string name="quran_search_words">Barcha so\'zlar</string>
+    <string name="quran_search_phrase">Aniq ibora</string>
+    <string name="quran_search_ayah_summary">%1$d %2$d oyatlardagi voqeliklar</string>
+    <string name="quran_search_result_location">%1$s · oyat %2$d · so\'zlarning paydo bo\'lishi %3$d</string>
 </resources>

@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Fylgdu kveðnu ayah í tafsir</string>
     <string name="quran_tafsir_follow_playback_description">Færa merkingar og tafsir með upplestri. Slökktu á til að lesa aðra skýringu á meðan hljóðið heldur áfram.</string>
+    <string name="quran_search_hint">Leitaðu að vísum í Kóraninum...</string>
+    <string name="quran_search_clear">Hreinsa leit</string>
+    <string name="quran_search_no_results">Engar samsvarandi niðurstöður</string>
+    <string name="quran_search_words">Öll orð</string>
+    <string name="quran_search_phrase">Nákvæm setning</string>
+    <string name="quran_search_ayah_summary">%1$d tilvik í %2$d versum</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · orðatilvik %3$d</string>
 </resources>

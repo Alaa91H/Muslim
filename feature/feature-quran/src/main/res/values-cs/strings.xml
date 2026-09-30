@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Následujte recitovanou ayah v tafsir</string>
     <string name="quran_tafsir_follow_playback_description">Přesuňte významy a tafsir s recitací. Vypněte, chcete-li si přečíst další vysvětlení, zatímco zvuk pokračuje.</string>
+    <string name="quran_search_hint">Prohledejte verše Koránu…</string>
+    <string name="quran_search_clear">Vymazat vyhledávání</string>
+    <string name="quran_search_no_results">Žádné odpovídající výsledky</string>
+    <string name="quran_search_words">Všechna slova</string>
+    <string name="quran_search_phrase">Přesná fráze</string>
+    <string name="quran_search_ayah_summary">%1$d výskyty ve verších %2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · výskyty slov %3$d</string>
 </resources>

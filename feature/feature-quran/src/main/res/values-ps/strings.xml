@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">په تفسیر کې د تلاوت شوي آیت تعقیب کړئ</string>
     <string name="quran_tafsir_follow_playback_description">مطلب او تفسیر په تلاوت سره حرکت کړئ. د بل وضاحت لوستلو لپاره بند کړئ پداسې حال کې چې آډیو دوام لري.</string>
+    <string name="quran_search_hint">د قرآن کریم آیتونه وپلټئ...</string>
+    <string name="quran_search_clear">پاک لټون</string>
+    <string name="quran_search_no_results">هیڅ مطابقت نلري</string>
+    <string name="quran_search_words">ټول ټکي</string>
+    <string name="quran_search_phrase">دقیق جمله</string>
+    <string name="quran_search_ayah_summary">%1$d په %2$d آیتونو کې پیښې</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · د کلمې پیښې %3$d</string>
 </resources>

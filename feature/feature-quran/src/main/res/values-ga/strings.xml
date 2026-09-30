@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Lean an ayah aithris i tafsir</string>
     <string name="quran_tafsir_follow_playback_description">Bog bríonna agus tafsir le haithris. Múch chun míniú eile a léamh agus an fhuaim ar aghaidh.</string>
+    <string name="quran_search_hint">Cuardaigh véarsaí Quran…</string>
+    <string name="quran_search_clear">Glan cuardach</string>
+    <string name="quran_search_no_results">Gan torthaí meaitseála</string>
+    <string name="quran_search_words">Gach focal</string>
+    <string name="quran_search_phrase">Frása cruinn</string>
+    <string name="quran_search_ayah_summary">teagmhais %1$d i véarsaí %2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · tarluithe focal %3$d</string>
 </resources>

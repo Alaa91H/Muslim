@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">遵循塔夫西尔 (tafsir) 中背诵的阿雅 (Ayah)</string>
     <string name="quran_tafsir_follow_playback_description">通过背诵移动意义和塔夫西尔。当音频继续时，请关闭以阅读其他说明。</string>
+    <string name="quran_search_hint">搜索古兰经经文...</string>
+    <string name="quran_search_clear">清除搜索</string>
+    <string name="quran_search_no_results">没有匹配结果</string>
+    <string name="quran_search_words">所有的话</string>
+    <string name="quran_search_phrase">准确的短语</string>
+    <string name="quran_search_ayah_summary">%1$d 在 %2$d 经文中的出现次数</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · 单词出现 %3$d</string>
 </resources>

@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Tikriyyeh tan ayyaat tafsiirih addat katayta .</string>
     <string name="quran_tafsir_follow_playback_description">maqnisso esgegey kee tafsiir kawsi lih. Xongolo gexsitit tan uddur gersi baxxaqsa takriyuh alif.</string>
+    <string name="quran_search_hint">Kur\'aanak aayat gorrisa...</string>
+    <string name="quran_search_clear">Qado goranah</string>
+    <string name="quran_search_no_results">ittat axawah tan xalootitte matan</string>
+    <string name="quran_search_words">Inkih tan qangor</string>
+    <string name="quran_search_phrase">Hudunuh tan maxca</string>
+    <string name="quran_search_ayah_summary">%1$d tekkem %2$d aayatitteh addat</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · qangor geyto %3$d</string>
 </resources>

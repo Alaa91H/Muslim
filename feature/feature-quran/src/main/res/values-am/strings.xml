@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">የተነበበውን አያህ በተፍሲር ተከታተል።</string>
     <string name="quran_tafsir_follow_playback_description">ትርጉሞችን እና ተፍሲርን በንባብ ያንቀሳቅሱ። ኦዲዮ ሲቀጥል ሌላ ማብራሪያ ለማንበብ ያጥፉ።</string>
+    <string name="quran_search_hint">የቁርኣን ጥቅሶችን ፈልግ…</string>
+    <string name="quran_search_clear">ፍለጋን አጽዳ</string>
+    <string name="quran_search_no_results">ምንም ተዛማጅ ውጤቶች የሉም</string>
+    <string name="quran_search_words">ሁሉም ቃላት</string>
+    <string name="quran_search_phrase">ትክክለኛ ሐረግ</string>
+    <string name="quran_search_ayah_summary">%1$d ክስተቶች በ %2$d ቁጥሮች</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · የቃላት መከሰት %3$d</string>
 </resources>

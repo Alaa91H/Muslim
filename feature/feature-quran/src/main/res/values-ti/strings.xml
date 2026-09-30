@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">ኣብ ተፍሲር ዝተነበበ ኣያ ተኸተል</string>
     <string name="quran_tafsir_follow_playback_description">ትርጉማትን ተፍሲርን ምስ ምቅራብ ኣንቀሳቕስ። ድምጺ እናቐጸለ ካልእ መብርሂ ንምንባብ ኣጥፍእ ።</string>
+    <string name="quran_search_hint">ኣያታት ቁርኣን ድለዩ...</string>
+    <string name="quran_search_clear">ንጹር ምድላይ</string>
+    <string name="quran_search_no_results">ዝሰማማዕ ውጽኢት የለን</string>
+    <string name="quran_search_words">ኩሉ ቃላት</string>
+    <string name="quran_search_phrase">ልክዕ ሓረግ</string>
+    <string name="quran_search_ayah_summary">%1$d ኣብ %2$d ጥቕስታት ዝረአ እዩ።</string>
+    <string name="quran_search_result_location">%1$s · ኣያህ %2$d · ቃላት ምጥቃዕ %3$d</string>
 </resources>

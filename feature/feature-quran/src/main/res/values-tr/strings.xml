@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Tefsirde okunan ayeti takip edin</string>
     <string name="quran_tafsir_follow_playback_description">Anlamları ve tefsirleri tilavetle hareket ettirin. Ses devam ederken başka bir açıklamayı okumak için kapatın.</string>
+    <string name="quran_search_hint">Kuran ayetlerini arayın…</string>
+    <string name="quran_search_clear">Aramayı temizle</string>
+    <string name="quran_search_no_results">Eşleşen sonuç yok</string>
+    <string name="quran_search_words">Tüm kelimeler</string>
+    <string name="quran_search_phrase">Tam ifade</string>
+    <string name="quran_search_ayah_summary">%1$d ayetlerinde %2$d oluşumları</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · kelime oluşumları %3$d</string>
 </resources>

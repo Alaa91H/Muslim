@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">آیات خوانده شده را در تفسیر دنبال کنید</string>
     <string name="quran_tafsir_follow_playback_description">حرکت معانی و تفسیر با تلاوت. برای خواندن توضیح دیگری در حالی که صدا ادامه دارد خاموش کنید.</string>
+    <string name="quran_search_hint">جستجو در آیات قرآن …</string>
+    <string name="quran_search_clear">جستجو را پاک کنید</string>
+    <string name="quran_search_no_results">نتایج منطبقی وجود ندارد</string>
+    <string name="quran_search_words">همه کلمات</string>
+    <string name="quran_search_phrase">عبارت دقیق</string>
+    <string name="quran_search_ayah_summary">وقوع %1$d در آیات %2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · تکرار کلمه %3$d</string>
 </resources>

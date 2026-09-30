@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">tafsir에서 낭송되는 ayah를 따라가세요</string>
     <string name="quran_tafsir_follow_playback_description">암송으로 의미와 tafsir를 이동합니다. 오디오가 계속되는 동안 다른 설명을 읽으려면 끄세요.</string>
+    <string name="quran_search_hint">꾸란 구절 검색…</string>
+    <string name="quran_search_clear">검색 지우기</string>
+    <string name="quran_search_no_results">일치하는 결과가 없습니다</string>
+    <string name="quran_search_words">모든 단어</string>
+    <string name="quran_search_phrase">정확한 문구</string>
+    <string name="quran_search_ayah_summary">%1$d 구절에서 %2$d 발생</string>
+    <string name="quran_search_result_location">%1$s · 아야 %2$d · 단어 발생 %3$d</string>
 </resources>

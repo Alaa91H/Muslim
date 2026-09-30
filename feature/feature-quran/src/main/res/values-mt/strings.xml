@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Segwi l-ayah recited f\'tafsir</string>
     <string name="quran_tafsir_follow_playback_description">Ċaqlaq tifsiriet u tafsir bir-reċitazzjoni. Itfi biex taqra spjegazzjoni oħra waqt li l-awdjo jkompli.</string>
+    <string name="quran_search_hint">Fittex il-versi tal-Koran...</string>
+    <string name="quran_search_clear">Tiftix ċar</string>
+    <string name="quran_search_no_results">Ebda riżultati li jaqblu</string>
+    <string name="quran_search_words">Il-kliem kollu</string>
+    <string name="quran_search_phrase">Frażi eżatta</string>
+    <string name="quran_search_ayah_summary">%1$d okkorrenzi fil-versi %2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · okkorrenzi tal-kliem %3$d</string>
 </resources>

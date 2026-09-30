@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Тафсирта вуланӑ аята пӑхӑнӑр</string>
     <string name="quran_tafsir_follow_playback_description">Пӗлтерӗшсене тата тафсирсене вуласа куҫарӑр. Сасӑ малалла тӑсӑлнӑ вӑхӑтра тепӗр ӑнлантарӑва вулама сӳнтерӗр.</string>
+    <string name="quran_search_hint">Коран сӑвӑ йӗркисене шыраса тупӑр...</string>
+    <string name="quran_search_clear">Таса шырав</string>
+    <string name="quran_search_no_results">Пӗр пек результатсем ҫук</string>
+    <string name="quran_search_words">Пур сӑмах</string>
+    <string name="quran_search_phrase">Тӗрӗс сӑмах майлашӑвӗ</string>
+    <string name="quran_search_ayah_summary">%1$d %2$d сӑвӑ йӗркисенче тӗл пулаҫҫӗ</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · слова появления %3$d</string>
 </resources>

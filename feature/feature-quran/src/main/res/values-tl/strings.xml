@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Sundin ang binigkas na ayah sa tafsir</string>
     <string name="quran_tafsir_follow_playback_description">Ilipat ang mga kahulugan at tafsir gamit ang pagbigkas. I-off para magbasa ng isa pang paliwanag habang nagpapatuloy ang audio.</string>
+    <string name="quran_search_hint">Maghanap ng mga talata ng Quran...</string>
+    <string name="quran_search_clear">I-clear ang paghahanap</string>
+    <string name="quran_search_no_results">Walang tugmang resulta</string>
+    <string name="quran_search_words">Lahat ng salita</string>
+    <string name="quran_search_phrase">Eksaktong parirala</string>
+    <string name="quran_search_ayah_summary">%1$d na mga pangyayari sa %2$d na mga talata</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · mga paglitaw ng salita %3$d</string>
 </resources>

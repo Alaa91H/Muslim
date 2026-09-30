@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Landela i-ayah eshiwo ku-tafsir</string>
     <string name="quran_tafsir_follow_playback_description">Hambisa izincazelo kanye ne-tafsir ngokuphindaphinda. Vala ukuze ufunde enye incazelo ngenkathi umsindo uqhubeka.</string>
+    <string name="quran_search_hint">Sesha amavesi e-Quran...</string>
+    <string name="quran_search_clear">Sula ukusesha</string>
+    <string name="quran_search_no_results">Ayikho imiphumela efanayo</string>
+    <string name="quran_search_words">Wonke amagama</string>
+    <string name="quran_search_phrase">Ibinzana eliqondile</string>
+    <string name="quran_search_ayah_summary">%1$d ukuvela kumavesi %2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · ukuvela kwamagama %3$d</string>
 </resources>

@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Thực hiện theo ayah được đọc trong tafsir</string>
     <string name="quran_tafsir_follow_playback_description">Di chuyển ý nghĩa và tafsir với việc đọc thuộc lòng. Tắt để đọc phần giải thích khác trong khi âm thanh vẫn tiếp tục.</string>
+    <string name="quran_search_hint">Tìm kiếm những câu Kinh Qur\'an…</string>
+    <string name="quran_search_clear">Xóa tìm kiếm</string>
+    <string name="quran_search_no_results">Không có kết quả phù hợp</string>
+    <string name="quran_search_words">Tất cả các từ</string>
+    <string name="quran_search_phrase">Cụm từ chính xác</string>
+    <string name="quran_search_ayah_summary">%1$d xuất hiện trong các câu thơ %2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · lần xuất hiện từ %3$d</string>
 </resources>

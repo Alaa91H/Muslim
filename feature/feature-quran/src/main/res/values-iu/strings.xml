@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">ᒪᓕᒡᓗᒍ ᐅᖃᓕᒫᖅᑕᐅᓯᒪᔪᖅ ᐊᔭ ᑕᕝᓯᐅᒥ</string>
     <string name="quran_tafsir_follow_playback_description">ᓅᑦᑎᓗᑎᑦ ᑐᑭᖏᓐᓂᒃ ᐊᒻᒪᓗ ᑕᕝᓯᕐᒥᒃ ᐅᖃᓕᒫᕐᓂᒃᑯᑦ. ᖃᒥᑦᑎᓗᑎᑦ ᐅᖃᓕᒫᒃᑲᓐᓂᕈᒪᒍᕕᑦ ᓇᓗᓇᐃᔭᖅᓯᒪᔪᒥᒃ ᓂᐱ ᑲᔪᓯᑎᓪᓗᒍ.</string>
+    <string name="quran_search_hint">ᕿᓂᕐᓗᑎᑦ ᑯᕌᓐ ᑎᑎᕋᖅᓯᒪᔪᓂᒃ...</string>
+    <string name="quran_search_clear">ᐲᔭᕐᓗᒍ ᕿᓂᕐᓂᖅ</string>
+    <string name="quran_search_no_results">ᐊᔾᔨᒌᒃᑐᓂᒃ ᖃᐅᔨᔭᐅᔪᓂᒃ ᐱᑕᖃᙱᓚᖅ</string>
+    <string name="quran_search_words">ᐅᖃᐅᓯᓕᒫᑦ</string>
+    <string name="quran_search_phrase">ᐅᖃᐅᓯᖅᑕᓪᓚᑦᑖᖓ</string>
+    <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
 </resources>

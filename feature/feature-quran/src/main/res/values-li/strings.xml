@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Volg de gezagde ayah in tafsir</string>
     <string name="quran_tafsir_follow_playback_description">Verplaots beteikenisse en tafsir mit recitatie. Sjakel ‘t oet um ‘n aandere verklaoring te leze onderwieles dat de audio doorgeit.</string>
+    <string name="quran_search_hint">Zoek Koranverse…</string>
+    <string name="quran_search_clear">Zeuk wies</string>
+    <string name="quran_search_no_results">Geen euvereinkommende resultate</string>
+    <string name="quran_search_words">Alle wäörd</string>
+    <string name="quran_search_phrase">Exacte zin</string>
+    <string name="quran_search_ayah_summary">%1$d veurkomme in %2$d verse</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · veurkoms %3$d</string>
 </resources>

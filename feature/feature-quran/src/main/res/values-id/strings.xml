@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Ikuti ayat yang dibacakan dalam tafsir</string>
     <string name="quran_tafsir_follow_playback_description">Gerak makna dan tafsir dengan bacaannya. Matikan untuk membaca penjelasan lainnya selagi audio berlanjut.</string>
+    <string name="quran_search_hint">Cari ayat Alquran…</string>
+    <string name="quran_search_clear">Hapus pencarian</string>
+    <string name="quran_search_no_results">Tidak ada hasil yang cocok</string>
+    <string name="quran_search_words">Semua kata</string>
+    <string name="quran_search_phrase">Ungkapan yang tepat</string>
+    <string name="quran_search_ayah_summary">kemunculan %1$d dalam ayat %2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · kemunculan kata %3$d</string>
 </resources>

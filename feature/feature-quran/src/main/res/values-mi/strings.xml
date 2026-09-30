@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">A pee i te papa i korerotia i roto i te tafsir</string>
     <string name="quran_tafsir_follow_playback_description">Nuku tikanga me te tafsir me te taki. Whakawetohia ki te panui i tetahi atu whakamaramatanga i te wa e haere tonu ana te ororongo.</string>
+    <string name="quran_search_hint">Rapua nga whiti Quran…</string>
+    <string name="quran_search_clear">Maama te rapu</string>
+    <string name="quran_search_no_results">Karekau he hua taurite</string>
+    <string name="quran_search_words">Nga kupu katoa</string>
+    <string name="quran_search_phrase">Kīanga tika</string>
+    <string name="quran_search_ayah_summary">%1$d puta i roto i nga irava %2$d</string>
+    <string name="quran_search_result_location">%1$s · papa %2$d · puta kupu %3$d</string>
 </resources>

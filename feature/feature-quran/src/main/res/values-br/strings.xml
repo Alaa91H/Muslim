@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Heuliañ an ayah lennet en tafsir</string>
     <string name="quran_tafsir_follow_playback_description">Dilec\'hiañ ar sterioù hag an tafsir gant al lavar. Lazhañ evit lenn un displegadenn all e-keit ma kendalc\'h ar son.</string>
+    <string name="quran_search_hint">Klask gwerzennoù ar C\'horan...</string>
+    <string name="quran_search_clear">Diverkañ ar c\'hlask</string>
+    <string name="quran_search_no_results">Disoc\'h heñvel ebet</string>
+    <string name="quran_search_words">An holl c\'herioù</string>
+    <string name="quran_search_phrase">Frazenn rik</string>
+    <string name="quran_search_ayah_summary">%1$d c\'hoarvezadennoù e gwerzennoù %2$d</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · c\'hoarvezout a ra ar gerioù %3$d</string>
 </resources>

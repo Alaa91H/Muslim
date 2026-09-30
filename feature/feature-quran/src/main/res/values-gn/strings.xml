@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Segui pe ayah oje’éva tafsir-pe</string>
     <string name="quran_tafsir_follow_playback_description">Omomýi umi significado ha tafsir recitación reheve. Embogue elee hag̃ua ambue explicación osegi aja audio.</string>
+    <string name="quran_search_hint">Eheka umi versículo Corán rehegua...</string>
+    <string name="quran_search_clear">Ojeporeka hesakã porãva</string>
+    <string name="quran_search_no_results">Ndaipóri resultado ojoajúva</string>
+    <string name="quran_search_words">Opaite ñe’ẽ</string>
+    <string name="quran_search_phrase">Ñe’ẽjoaju añetegua</string>
+    <string name="quran_search_ayah_summary">%1$d ojehúva umi versículo %2$d-pe</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · ñe’ẽ ojejuhúva %3$d</string>
 </resources>

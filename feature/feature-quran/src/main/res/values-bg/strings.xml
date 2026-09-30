@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Следвайте прочетения аят в тефсир</string>
     <string name="quran_tafsir_follow_playback_description">Преместете значения и тафсир с рецитация. Изключете, за да прочетете друго обяснение, докато звукът продължава.</string>
+    <string name="quran_search_hint">Търсене на стихове от Корана...</string>
+    <string name="quran_search_clear">Изчистете търсенето</string>
+    <string name="quran_search_no_results">Няма съответстващи резултати</string>
+    <string name="quran_search_words">Всички думи</string>
+    <string name="quran_search_phrase">Точна фраза</string>
+    <string name="quran_search_ayah_summary">%1$d срещания в %2$d стихове</string>
+    <string name="quran_search_result_location">%1$s · ая %2$d · срещания на думи %3$d</string>
 </resources>

@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bookmark
@@ -49,6 +50,7 @@ import org.muslim.app.core.ui.theme.MuslimSegmentedControl
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.Bookmark
 import org.muslim.app.feature.quran.domain.Ayah
+import org.muslim.app.feature.quran.domain.LastRead
 import org.muslim.app.feature.quran.domain.QuranTextSearch
 import org.muslim.app.feature.quran.domain.QuranTextSearchMatch
 import org.muslim.app.feature.quran.domain.Surah
@@ -56,6 +58,13 @@ import org.muslim.app.feature.quran.domain.Surah
 private const val TAB_SURAHS = 0
 private const val TAB_JUZ = 1
 private const val TAB_BOOKMARKS = 2
+
+private data class QuranHomeActions(
+    val onOpenSurah: (Int) -> Unit,
+    val onPlaySurah: (Int) -> Unit,
+    val onOpenBookmarks: () -> Unit,
+    val onResumeReading: (surahNumber: Int, globalNumber: Int) -> Unit,
+)
 
 /**
  * Quran home: continue reading, unified discovery and Surah/Juz/Bookmarks views.
@@ -93,10 +102,7 @@ fun SurahListScreen(
             query = query,
             searchMode = if (searchModeIndex == 0) QuranTextSearch.Mode.WORDS else QuranTextSearch.Mode.EXACT_PHRASE,
             selectedTab = selectedTab,
-            onOpenSurah = onOpenSurah,
-            onPlaySurah = onPlaySurah,
-            onOpenBookmarks = onOpenBookmarks,
-            onResumeReading = onResumeReading,
+            actions = QuranHomeActions(onOpenSurah, onPlaySurah, onOpenBookmarks, onResumeReading),
         )
     }
 }
@@ -169,10 +175,7 @@ private fun QuranHomeContent(
     query: String,
     searchMode: QuranTextSearch.Mode,
     selectedTab: Int,
-    onOpenSurah: (Int) -> Unit,
-    onPlaySurah: (Int) -> Unit,
-    onOpenBookmarks: () -> Unit,
-    onResumeReading: (surahNumber: Int, globalNumber: Int) -> Unit,
+    actions: QuranHomeActions,
 ) {
     if (state.loading) {
         MuslimLoadingState(
@@ -189,15 +192,15 @@ private fun QuranHomeContent(
             state = state,
             query = query,
             onOpenJuz = { start ->
-                onResumeReading(start.surahNumber, start.globalNumber)
+                actions.onResumeReading(start.surahNumber, start.globalNumber)
             },
         )
         TAB_BOOKMARKS -> QuranHomeBookmarksContent(
             bookmarks = state.bookmarks,
             query = query,
-            onOpenBookmarks = onOpenBookmarks,
+            onOpenBookmarks = actions.onOpenBookmarks,
             onOpenAyah = { bookmark ->
-                onResumeReading(
+                actions.onResumeReading(
                     bookmark.ayah.surahNumber,
                     bookmark.ayah.globalNumber,
                 )
@@ -208,9 +211,9 @@ private fun QuranHomeContent(
             searchableAyahs = searchableAyahs,
             query = query,
             searchMode = searchMode,
-            onOpenSurah = onOpenSurah,
-            onPlaySurah = onPlaySurah,
-            onResumeReading = onResumeReading,
+            onOpenSurah = actions.onOpenSurah,
+            onPlaySurah = actions.onPlaySurah,
+            onResumeReading = actions.onResumeReading,
         )
     }
 }
@@ -248,44 +251,8 @@ private fun SurahContent(
         verticalArrangement = Arrangement.spacedBy(IslamicSpacing.XSmall),
     ) {
         if (normalizedQuery.isBlank()) {
-            state.lastRead?.let { last ->
-                item(key = "continue-reading") {
-                    val surahName = state.surahs
-                        .firstOrNull { it.number == last.surahNumber }
-                        ?.arabicName
-                        ?: stringResource(R.string.quran_surah_number_short, last.surahNumber)
-                    MuslimHero(
-                        title = stringResource(R.string.quran_continue_reading),
-                        value = surahName,
-                        supportingText = stringResource(
-                            R.string.quran_resume,
-                            last.surahNumber.toString(),
-                            last.numberInSurah.toString(),
-                        ),
-                        icon = Icons.Filled.PlayArrow,
-                        iconContentDescription = null,
-                        modifier = Modifier.clickable(
-                            role = Role.Button,
-                            onClick = {
-                                onResumeReading(last.surahNumber, last.globalNumber)
-                            },
-                        ),
-                    )
-                }
-            }
-            item(key = "khatma") {
-                MuslimGroup {
-                    MuslimProgressHeader(
-                        title = stringResource(R.string.quran_khatma_progress),
-                        progress = state.progressFraction,
-                        supportingText = stringResource(
-                            R.string.quran_khatma_detail,
-                            state.readThroughGlobal.toString(),
-                            state.totalAyahs.toString(),
-                        ),
-                    )
-                }
-            }
+            continueReadingItem(state, onResumeReading)
+            khatmaProgressItem(state)
         }
 
         if (normalizedQuery.isBlank() && filtered.isEmpty()) {
@@ -307,31 +274,95 @@ private fun SurahContent(
         }
 
         if (normalizedQuery.isNotBlank()) {
-            item(key = "ayah-search-heading") {
-                Text(
-                    text = stringResource(R.string.quran_search_ayah_summary, occurrenceCount, ayahMatches.size),
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.SemiBold,
-                    modifier = Modifier.padding(vertical = IslamicSpacing.Small),
-                )
-            }
-            if (ayahMatches.isEmpty()) {
-                item(key = "ayah-search-empty") {
-                    MuslimEmptyState(
-                        title = stringResource(R.string.quran_search_no_results),
-                        modifier = Modifier.padding(vertical = IslamicSpacing.Large),
-                    )
-                }
-            } else {
-                items(ayahMatches, key = { "ayah-search-${it.ayah.globalNumber}" }) { match ->
-                    AyahSearchResultRow(
-                        match = match,
-                        surah = state.surahs.firstOrNull { it.number == match.ayah.surahNumber },
-                        onClick = { onResumeReading(match.ayah.surahNumber, match.ayah.globalNumber) },
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
-                }
-            }
+            ayahSearchItems(ayahMatches, occurrenceCount, state.surahs, onResumeReading)
+        }
+    }
+}
+
+private fun LazyListScope.continueReadingItem(
+    state: SurahListViewModel.UiState,
+    onResumeReading: (surahNumber: Int, globalNumber: Int) -> Unit,
+) {
+    val lastRead = state.lastRead ?: return
+    item(key = "continue-reading") {
+        ContinueReadingCard(state.surahs, lastRead, onResumeReading)
+    }
+}
+
+@Composable
+private fun ContinueReadingCard(
+    surahs: List<Surah>,
+    last: LastRead,
+    onResumeReading: (surahNumber: Int, globalNumber: Int) -> Unit,
+) {
+    val surahName = surahs.firstOrNull { it.number == last.surahNumber }?.arabicName
+        ?: stringResource(R.string.quran_surah_number_short, last.surahNumber)
+    MuslimHero(
+        title = stringResource(R.string.quran_continue_reading),
+        value = surahName,
+        supportingText = stringResource(
+            R.string.quran_resume,
+            last.surahNumber.toString(),
+            last.numberInSurah.toString(),
+        ),
+        icon = Icons.Filled.PlayArrow,
+        iconContentDescription = null,
+        modifier = Modifier.clickable(role = Role.Button) {
+            onResumeReading(last.surahNumber, last.globalNumber)
+        },
+    )
+}
+
+private fun LazyListScope.khatmaProgressItem(state: SurahListViewModel.UiState) {
+    item(key = "khatma") {
+        KhatmaProgressCard(state)
+    }
+}
+
+@Composable
+private fun KhatmaProgressCard(state: SurahListViewModel.UiState) {
+    MuslimGroup {
+        MuslimProgressHeader(
+            title = stringResource(R.string.quran_khatma_progress),
+            progress = state.progressFraction,
+            supportingText = stringResource(
+                R.string.quran_khatma_detail,
+                state.readThroughGlobal.toString(),
+                state.totalAyahs.toString(),
+            ),
+        )
+    }
+}
+
+private fun LazyListScope.ayahSearchItems(
+    matches: List<QuranTextSearchMatch>,
+    occurrenceCount: Int,
+    surahs: List<Surah>,
+    onResumeReading: (surahNumber: Int, globalNumber: Int) -> Unit,
+) {
+    item(key = "ayah-search-heading") {
+        Text(
+            text = stringResource(R.string.quran_search_ayah_summary, occurrenceCount, matches.size),
+            style = MaterialTheme.typography.titleSmall,
+            fontWeight = FontWeight.SemiBold,
+            modifier = Modifier.padding(vertical = IslamicSpacing.Small),
+        )
+    }
+    if (matches.isEmpty()) {
+        item(key = "ayah-search-empty") {
+            MuslimEmptyState(
+                title = stringResource(R.string.quran_search_no_results),
+                modifier = Modifier.padding(vertical = IslamicSpacing.Large),
+            )
+        }
+    } else {
+        items(matches, key = { "ayah-search-${it.ayah.globalNumber}" }) { match ->
+            AyahSearchResultRow(
+                match = match,
+                surah = surahs.firstOrNull { it.number == match.ayah.surahNumber },
+                onClick = { onResumeReading(match.ayah.surahNumber, match.ayah.globalNumber) },
+            )
+            HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
         }
     }
 }

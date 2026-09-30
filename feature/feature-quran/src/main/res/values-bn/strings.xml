@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">তাফসিরে তিলাওয়াত করা আয়াত অনুসরণ করুন</string>
     <string name="quran_tafsir_follow_playback_description">তেলাওয়াতের সাথে অর্থ এবং তাফসির সরান। অডিও চলতে থাকাকালীন অন্য ব্যাখ্যা পড়তে বন্ধ করুন।</string>
+    <string name="quran_search_hint">কুরআনের আয়াত অনুসন্ধান করুন...</string>
+    <string name="quran_search_clear">সাফ অনুসন্ধান</string>
+    <string name="quran_search_no_results">কোন মিল ফলাফল</string>
+    <string name="quran_search_words">সব শব্দ</string>
+    <string name="quran_search_phrase">সঠিক বাক্যাংশ</string>
+    <string name="quran_search_ayah_summary">%1$d ঘটনাগুলি %2$d আয়াতে</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · শব্দ সংঘটন %3$d</string>
 </resources>

@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Ku bi ayatul kursiyyu cikin tafsiri</string>
     <string name="quran_tafsir_follow_playback_description">Matsar da ma\'anoni da tafsiri tare da karatu. Kashe don karanta wani bayani yayin da sauti ke ci gaba.</string>
+    <string name="quran_search_hint">Bincika ayoyin Qur\'ani…</string>
+    <string name="quran_search_clear">Share bincike</string>
+    <string name="quran_search_no_results">Babu sakamako da ya dace</string>
+    <string name="quran_search_words">Duk kalmomi</string>
+    <string name="quran_search_phrase">Madaidaicin magana</string>
+    <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
 </resources>

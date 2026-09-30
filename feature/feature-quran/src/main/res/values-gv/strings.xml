@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">Lesh y ayah er ny ghra ayns tafsir .</string>
     <string name="quran_tafsir_follow_playback_description">Move ymmyd as tafsir lesh ymmyd. Cur stiagh dy leah myghin elley tra ta\'n clashtyn goll er.</string>
+    <string name="quran_search_hint">Clasht rish verseyn Quran...</string>
+    <string name="quran_search_clear">Soilshey y ronsaghey</string>
+    <string name="quran_search_no_results">Cha nel toshiaghtyn co-chosney</string>
+    <string name="quran_search_words">Ooilley ny focklyn</string>
+    <string name="quran_search_phrase">Fockle kiart</string>
+    <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
+    <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
 </resources>

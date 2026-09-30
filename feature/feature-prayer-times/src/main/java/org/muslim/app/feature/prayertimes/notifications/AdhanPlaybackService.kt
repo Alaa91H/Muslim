@@ -86,6 +86,9 @@ class AdhanPlaybackService : Service() {
     )
 
     private fun startPlayback(request: PlaybackRequest) {
+        // The true Adhan is the final authority for this prayer window: remove
+        // any earlier reminder even when playback is silent or falls back.
+        AdhanNotifications.cancelReminder(this)
         val generation = beginSession(request)
         val plan = AdhanPlaybackPlan.plan(request.option, hasBundledSound = true, request.vibrateEnabled)
         if (!plan.playSound && !plan.vibrate) {

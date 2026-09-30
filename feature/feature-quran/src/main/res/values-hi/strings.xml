@@ -133,4 +133,11 @@
     <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
     <string name="quran_tafsir_follow_playback">तफ़सीर में पढ़ी गई आयत का पालन करें</string>
     <string name="quran_tafsir_follow_playback_description">सस्वर पाठ के साथ अर्थ और तफ़सीर को स्थानांतरित करें। ऑडियो जारी रहने तक अन्य स्पष्टीकरण पढ़ने के लिए बंद करें।</string>
+    <string name="quran_search_hint">कुरान की आयतें खोजें…</string>
+    <string name="quran_search_clear">स्पष्ट खोज</string>
+    <string name="quran_search_no_results">कोई मेल खाता परिणाम नहीं</string>
+    <string name="quran_search_words">सभी शब्द</string>
+    <string name="quran_search_phrase">सटीक वाक्यांश</string>
+    <string name="quran_search_ayah_summary">%1$d %2$d छंदों में घटनाएँ</string>
+    <string name="quran_search_result_location">%1$s · अयाह %2$d · शब्द घटनाएँ %3$d</string>
 </resources>
