@@ -9,7 +9,7 @@
     <string name="mosque_finder_searching">தேடுகிறது…</string>
     <string name="mosque_finder_title">அருகிலுள்ள மசூதிகள்</string>
     <string name="qibla_bearing_cardinal">கிப்லா திசை: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">அளவீடு செய்ய உங்கள் மொபைலை எண்-எட்டில் நகர்த்தவும்</string>
     <string name="qibla_distance">மக்காவிற்கு தூரம்: %1$s</string>
     <string name="qibla_distance_km">%,.0f கி.மீ</string>

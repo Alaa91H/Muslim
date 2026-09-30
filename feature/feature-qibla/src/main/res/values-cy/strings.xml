@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Wrthi\'n chwilio…</string>
     <string name="mosque_finder_title">Mosgiau cyfagos</string>
     <string name="qibla_bearing_cardinal">Cyfeiriad Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Symudwch eich ffôn mewn ffigur wyth i\'w raddnodi</string>
     <string name="qibla_distance">Pellter i Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Rydych chi\'n wynebu\'r Qibla 🕋</string>
+    <string name="qibla_facing">Rydych chi\'n wynebu\'r Qibla</string>
     <string name="qibla_gps_error">Methu cael ateb cywir. Ceisiwch eto.</string>
     <string name="qibla_gps_live">Lleoliad GPS byw</string>
     <string name="qibla_gps_refresh">Adnewyddu lleoliad trwy GPS</string>

@@ -31,7 +31,7 @@ fun Context.withAppLocale(languageCode: String): Context {
 
     // Override only locale. Copying the full display configuration also pins
     // width/density/font scale and can prevent window-resize updates on old APIs.
-    val config = Configuration()
+    val config = Configuration().apply { fontScale = 0f }
     config.setLocale(locale)
     return createConfigurationContext(config)
 }

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">検索中…</string>
     <string name="mosque_finder_title">近くのモスク</string>
     <string name="qibla_bearing_cardinal">キブラ方向: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">携帯電話を 8 の字に動かして調整します</string>
     <string name="qibla_distance">メッカまでの距離: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">あなたはキブラに面しています 🕋</string>
+    <string name="qibla_facing">あなたはキブラに面しています</string>
     <string name="qibla_gps_error">正確な修正を得ることができませんでした。もう一度試してください。</string>
     <string name="qibla_gps_live">ライブGPS位置情報</string>
     <string name="qibla_gps_refresh">GPS 経由で位置情報を更新する</string>

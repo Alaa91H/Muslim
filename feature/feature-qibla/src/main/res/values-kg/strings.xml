@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Kusosa...</string>
     <string name="mosque_finder_title">Ba mosquée ya pene-pene</string>
     <string name="qibla_bearing_cardinal">Nzila ya Kibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Tula telefone na nge na kifwanisu-nana sambu na kusala calibration .</string>
     <string name="qibla_distance">Ntama tii na Mekka: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Nge ke talana na Qibla 🕋 .</string>
+    <string name="qibla_facing">Nge ke talana na Qibla  .</string>
     <string name="qibla_gps_error">Ke balendi baka nsunzula yasikididi ko. Meka diaka.</string>
     <string name="qibla_gps_live">Kisika ya GPS ya ke zinga</string>
     <string name="qibla_gps_refresh">Vutula kisika na nzila ya GPS</string>

@@ -9,7 +9,7 @@
     <string name="mosque_finder_searching">Gözleg…</string>
     <string name="mosque_finder_title">Golaýda metjitler</string>
     <string name="qibla_bearing_cardinal">Kibla ugry: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f °</string>
+    <string name="qibla_bearing_degree">%1$.0f °</string>
     <string name="qibla_calibrate">Kalibrlemek üçin telefonyňyzy sekiz şekilde süýşüriň</string>
     <string name="qibla_distance">Mekgä çenli aralyk: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>

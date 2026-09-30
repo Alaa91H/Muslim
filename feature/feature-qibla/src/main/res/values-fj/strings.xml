@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Vakasaqaqara...</string>
     <string name="mosque_finder_title">Mosques voleka</string>
     <string name="qibla_bearing_cardinal">Veidusimaki ni qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Toso na nomu talevoni ena dua na iwiliwili-walu me calibrate .</string>
     <string name="qibla_distance">Na yawa ki Maka: %1$s</string>
     <string name="qibla_distance_km">%,.0f kilomita</string>
-    <string name="qibla_facing">O sa sotava tiko na Qibla 🕋 .</string>
+    <string name="qibla_facing">O sa sotava tiko na Qibla  .</string>
     <string name="qibla_gps_error">E sega ni rawa ni rawata e dua na veivakadodonutaki dodonu. Kerekere mo tovolea tale.</string>
     <string name="qibla_gps_live">Vanua ni GPS bula</string>
     <string name="qibla_gps_refresh">Vakavoutaka na vanua ena GPS</string>

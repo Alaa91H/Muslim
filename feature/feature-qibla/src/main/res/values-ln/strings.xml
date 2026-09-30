@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Koluka...</string>
     <string name="mosque_finder_title">Ba mosquées oyo ezali pene wana</string>
     <string name="qibla_bearing_cardinal">Direction ya Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Botindika téléphone na yo na figure-eight mpo na ko calibrer</string>
     <string name="qibla_distance">Distance ya Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Ozali kokutana na Qibla 🕋</string>
+    <string name="qibla_facing">Ozali kokutana na Qibla</string>
     <string name="qibla_gps_error">Ekokaki te kozwa bobongisi ya sikisiki. Svp meka lisusu.</string>
     <string name="qibla_gps_live">Esika ya GPS en direct</string>
     <string name="qibla_gps_refresh">Refresh esika na nzela ya GPS</string>

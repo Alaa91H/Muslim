@@ -59,7 +59,7 @@ class HomeScreenTest {
         )
         composeRule.setContent {
             AppTheme(dynamicColor = false) {
-                HomeScreen(onSelectLocation = {}, viewModel = viewModel)
+                HomeScreen(onSelectLocation = {}, onOpenMonthly = {}, viewModel = viewModel)
             }
         }
 
@@ -89,7 +89,7 @@ class HomeScreenTest {
 
         composeRule.setContent {
             AppTheme(dynamicColor = false) {
-                HomeScreen(onSelectLocation = {}, viewModel = viewModel)
+                HomeScreen(onSelectLocation = {}, onOpenMonthly = {}, viewModel = viewModel)
             }
         }
 

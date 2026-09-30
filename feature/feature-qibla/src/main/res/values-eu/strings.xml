@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Bilatzen…</string>
     <string name="mosque_finder_title">Inguruko meskitak</string>
     <string name="qibla_bearing_cardinal">Qibla norabidea: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Mugitu telefonoa zortziko irudian kalibratzeko</string>
     <string name="qibla_distance">Mekkarako distantzia: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Qibla aurrean zaude 🕋</string>
+    <string name="qibla_facing">Qibla aurrean zaude</string>
     <string name="qibla_gps_error">Ezin izan da konponketa zehatza lortu. Mesedez, saiatu berriro.</string>
     <string name="qibla_gps_live">Zuzeneko GPS kokapena</string>
     <string name="qibla_gps_refresh">Freskatu kokapena GPS bidez</string>

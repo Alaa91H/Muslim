@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Yiylaade...</string>
     <string name="mosque_finder_title">Juulirɗe saraaji</string>
     <string name="qibla_bearing_cardinal">Tiitoonde kiblaa: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Moƴƴin telefoŋ maa e limre-joyaɓere ngam kalibraade</string>
     <string name="qibla_distance">Woɗɗude Makka: %1$s</string>
     <string name="qibla_distance_km">%,.0f kiloomeeteer</string>
-    <string name="qibla_facing">Aɗa fadi Qibla 🕋</string>
+    <string name="qibla_facing">Aɗa fadi Qibla</string>
     <string name="qibla_gps_error">Waawaa heɓde feere laaɓtunde. Tiiɗno enndu kadi.</string>
     <string name="qibla_gps_live">Nokku GPS gonɗo e nguurndam</string>
     <string name="qibla_gps_refresh">Hesɗitin nokku oo e GPS</string>

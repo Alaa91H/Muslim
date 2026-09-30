@@ -1,5 +1,6 @@
 package org.muslim.app
 
+import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
@@ -33,7 +34,7 @@ class UiUxV2MatrixInstrumentedTest(
         fun variants(): List<Array<Any>> = buildList {
             val screens = listOf(
                 "prayer-home" to "home",
-                "prayer-monthly" to "home",
+                "prayer-monthly" to "prayer/monthly",
                 "quran-home" to "quran",
                 "quran-reader" to "quran/reader/1",
                 "qibla" to "qibla",
@@ -41,7 +42,10 @@ class UiUxV2MatrixInstrumentedTest(
                 "hadith" to "hadith",
                 "settings" to "settings",
             )
+            val requestedScreens = InstrumentationRegistry.getArguments().getString("uiux.screens")
+                ?.split(",")?.toSet()
             for ((name, route) in screens) {
+                if (requestedScreens != null && name !in requestedScreens) continue
                 for (language in listOf("ar", "en")) {
                     for (theme in listOf(AppThemeMode.Light, AppThemeMode.Dark)) {
                         for (fontScale in listOf(1f, 1.5f, 2f)) {

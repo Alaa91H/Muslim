@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Leita...</string>
     <string name="mosque_finder_title">Moskur í nærheit</string>
     <string name="qibla_bearing_cardinal">Kibla ætt: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Flyt telefonina í átta tal fyri at kalibrera</string>
     <string name="qibla_distance">Fjarlægd til Makka: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Tú stendur frammi fyri Qibla 🕋</string>
+    <string name="qibla_facing">Tú stendur frammi fyri Qibla</string>
     <string name="qibla_gps_error">Kundi ikki fáa eina nágreiniliga viðgerð. Vinarliga royn aftur.</string>
     <string name="qibla_gps_live">Beinleiðis GPS staðseting</string>
     <string name="qibla_gps_refresh">Fríska stað umvegis GPS</string>

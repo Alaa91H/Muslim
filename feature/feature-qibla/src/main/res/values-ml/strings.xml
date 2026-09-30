@@ -9,7 +9,7 @@
     <string name="mosque_finder_searching">തിരയുന്നു...</string>
     <string name="mosque_finder_title">അടുത്തുള്ള പള്ളികൾ</string>
     <string name="qibla_bearing_cardinal">ഖിബ്ല ദിശ: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">കാലിബ്രേറ്റ് ചെയ്യാൻ നിങ്ങളുടെ ഫോൺ ഒരു ഫിഗർ-എട്ടിലേക്ക് നീക്കുക</string>
     <string name="qibla_distance">മക്കയിലേക്കുള്ള ദൂരം: %1$s</string>
     <string name="qibla_distance_km">%,.0f കി.മീ</string>

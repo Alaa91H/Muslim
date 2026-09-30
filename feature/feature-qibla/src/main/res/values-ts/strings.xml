@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Ku lavisisa...</string>
     <string name="mosque_finder_title">Timosque ta le kusuhi</string>
     <string name="qibla_bearing_cardinal">Qibla nkongomiso: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Susa foni ya wena eka figure-eight ku calibrate</string>
     <string name="qibla_distance">Ku ya eMakkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">U langutane na Qibla 🕋</string>
+    <string name="qibla_facing">U langutane na Qibla</string>
     <string name="qibla_gps_error">A swi swi kotanga ku kuma ku lulamisiwa loku kongomeke. Hi kombela u ringeta nakambe.</string>
     <string name="qibla_gps_live">Ndhawu ya GPS leyi hanyaka</string>
     <string name="qibla_gps_refresh">Ku pfuxeta ndhawu hi ku tirhisa GPS</string>

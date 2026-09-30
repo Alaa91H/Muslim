@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">در حال جستجو…</string>
     <string name="mosque_finder_title">مساجد مجاور</string>
     <string name="qibla_bearing_cardinal">جهت قبله: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f درجه</string>
+    <string name="qibla_bearing_degree">%1$.0f درجه</string>
     <string name="qibla_calibrate">تلفن خود را به شکل هشت حرکت دهید تا کالیبره شود</string>
     <string name="qibla_distance">فاصله تا مکه: %1$s</string>
     <string name="qibla_distance_km">%,.0f کیلومتر</string>
-    <string name="qibla_facing">رو به قبله هستی 🕋</string>
+    <string name="qibla_facing">رو به قبله هستی</string>
     <string name="qibla_gps_error">نمی توان یک اصلاح دقیق دریافت کرد. لطفا دوباره امتحان کنید.</string>
     <string name="qibla_gps_live">موقعیت مکانی جی پی اس زنده</string>
     <string name="qibla_gps_refresh">به روز رسانی مکان از طریق GPS</string>

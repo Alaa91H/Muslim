@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Аԥшаара...</string>
     <string name="mosque_finder_title">Ааигәа иҟоу аџьаамақәа</string>
     <string name="qibla_bearing_cardinal">Ақыбла ахырхарҭа: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Акалибровказы уҭел аа-тәи асахьаҿы ииагатәуп</string>
     <string name="qibla_distance">Маккаҟа абжьаӡара: %1$s</string>
     <string name="qibla_distance_km">%,.0f км</string>
-    <string name="qibla_facing">Уара ақыбла уаҿаԥшуеит 🕋</string>
+    <string name="qibla_facing">Уара ақыбла уаҿаԥшуеит</string>
     <string name="qibla_gps_error">Ииашоу ашьақәыргылара аԥшаара ауам. Ҳаҳәоит даҽазнык шәҽазышәшәа.</string>
     <string name="qibla_gps_live">Ишыҟаҵәҟьоу GPS аҭыԥ</string>
     <string name="qibla_gps_refresh">Ирҿыцтәуп аҭыԥ GPS ала</string>

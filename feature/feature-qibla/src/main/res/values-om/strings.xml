@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Barbaacha...</string>
     <string name="mosque_finder_title">Masjiidota dhiyoo jiran</string>
     <string name="qibla_bearing_cardinal">Qibla kallattii: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f° jechuun ni danda\'ama</string>
+    <string name="qibla_bearing_degree">%1$.0f° jechuun ni danda\'ama</string>
     <string name="qibla_calibrate">Bilbila keessan fakkii-saddeetitti sochoosuun safaruu</string>
     <string name="qibla_distance">Fageenya Makkaa: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Qibla 🕋 fuuldura jirta</string>
+    <string name="qibla_facing">Qibla  fuuldura jirta</string>
     <string name="qibla_gps_error">Sirreeffama sirrii argachuu hin dandeenye. Mee irra deebi\'ii yaalaa.</string>
     <string name="qibla_gps_live">Bakka GPS kallattiin itti argamu</string>
     <string name="qibla_gps_refresh">Bakka karaa GPS haaromsuu</string>

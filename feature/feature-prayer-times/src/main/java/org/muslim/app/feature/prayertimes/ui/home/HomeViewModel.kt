@@ -196,8 +196,8 @@ class HomeViewModel @Inject constructor(
         selectedDate.value = selectedDate.value.plusDays(1)
     }
 
-    fun toggleMonthly() {
-        monthly.value = !monthly.value
+    fun setMonthly(enabled: Boolean) {
+        monthly.value = enabled
     }
 
     fun previousPeriod() {

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Ujaasineq...</string>
     <string name="mosque_finder_title">Moskee-t qaninnerpaat</string>
     <string name="qibla_bearing_cardinal">Qibla suunersoq: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Telefoni figur-8-imi nuuguk kalibrerniarlugu</string>
     <string name="qibla_distance">Makkamut ungasissusaa: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Qiblamut qiviarpit 🕋</string>
+    <string name="qibla_facing">Qiblamut qiviarpit</string>
     <string name="qibla_gps_error">Eqqortumik aaqqiissummik pissarsisinnaanngilaq. Misilittariaqarpat.</string>
     <string name="qibla_gps_live">Live GPS-imik sumiiffik</string>
     <string name="qibla_gps_refresh">GPS aqqutigalugu sumiiffik nutarterlugu</string>

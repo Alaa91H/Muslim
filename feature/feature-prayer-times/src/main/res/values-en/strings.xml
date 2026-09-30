@@ -207,4 +207,5 @@
     <string name="settings_adhan_vibrate_on">On</string>
     <string name="settings_adhan_vibrate_off">Off</string>
     <string name="settings_preview_stop">Stop preview</string>
+    <string name="prayer_navigate_back">Back</string>
 </resources>

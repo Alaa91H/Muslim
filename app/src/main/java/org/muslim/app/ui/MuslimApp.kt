@@ -68,6 +68,7 @@ import org.muslim.app.core.datastore.AppThemeMode
 import org.muslim.app.core.designsystem.IslamicLayout
 import org.muslim.app.core.ui.theme.AppTheme
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.feature.prayertimes.ui.home.MonthlyPrayerScreen
 import org.muslim.app.feature.prayertimes.ui.home.HomeScreen
 import org.muslim.app.feature.prayertimes.ui.location.LocationScreen
 import org.muslim.app.feature.prayertimes.ui.settings.PrayerSettingsScreen
@@ -416,6 +417,13 @@ fun MuslimApp(
                 composable("home") {
                     HomeScreen(
                         onSelectLocation = { navController.navigate("location") },
+                        onOpenMonthly = { navController.navigate("prayer/monthly") },
+                    )
+                }
+                composable("prayer/monthly") {
+                    MonthlyPrayerScreen(
+                        onBack = { navController.popBackStack() },
+                        onSelectLocation = { navController.navigate("location") },
                     )
                 }
                 composable("quran") {
@@ -458,7 +466,10 @@ fun MuslimApp(
                 composable("qibla") {
                     val selected = location
                     if (selected == null) {
-                        HomeScreen(onSelectLocation = { navController.navigate("location") })
+                        HomeScreen(
+                            onSelectLocation = { navController.navigate("location") },
+                            onOpenMonthly = { navController.navigate("prayer/monthly") },
+                        )
                     } else {
                         QiblaScreen(
                             latitude = selected.latitude,

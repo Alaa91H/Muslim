@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Notiek meklēšana…</string>
     <string name="mosque_finder_title">Blakus mošejas</string>
     <string name="qibla_bearing_cardinal">Qibla virziens: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Lai veiktu kalibrēšanu, pārvietojiet tālruni astoņu skaitli</string>
     <string name="qibla_distance">Attālums līdz Mekai: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Jūs esat pretī Kiblai 🕋</string>
+    <string name="qibla_facing">Jūs esat pretī Kiblai</string>
     <string name="qibla_gps_error">Nevarēja iegūt precīzu labojumu. Lūdzu, mēģiniet vēlreiz.</string>
     <string name="qibla_gps_live">Tiešā GPS atrašanās vieta</string>
     <string name="qibla_gps_refresh">Atsvaidzināt atrašanās vietu, izmantojot GPS</string>

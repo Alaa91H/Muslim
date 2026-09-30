@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">正在寻找...</string>
     <string name="mosque_finder_title">附近的清真寺</string>
     <string name="qibla_bearing_cardinal">朝拜方向：%1$s</string>
-    <string name="qibla_bearing_degree">🕋%1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">将手机呈 8 字形移动以进行校准</string>
     <string name="qibla_distance">到麦加的距离： %1$s</string>
     <string name="qibla_distance_km">%,.0f 公里</string>
-    <string name="qibla_facing">你面对朝拜🕋</string>
+    <string name="qibla_facing">你面对朝拜</string>
     <string name="qibla_gps_error">无法获得准确的修复。请再试一次。</string>
     <string name="qibla_gps_live">实时 GPS 位置</string>
     <string name="qibla_gps_refresh">通过 GPS 刷新位置</string>

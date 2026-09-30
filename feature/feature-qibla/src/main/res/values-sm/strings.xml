@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Su\'e...</string>
     <string name="mosque_finder_title">Faletapuai lata ane</string>
     <string name="qibla_bearing_cardinal">Ituaiga Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Fa\'asolo lau telefoni ile ata-valu e fa\'avasega</string>
     <string name="qibla_distance">Mamao i Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f kilomita</string>
-    <string name="qibla_facing">O lo\'o e fa\'asaga i le Qibla 🕋</string>
+    <string name="qibla_facing">O lo\'o e fa\'asaga i le Qibla</string>
     <string name="qibla_gps_error">Le mafai ona maua se fa\'atonuga sa\'o. Fa\'amolemole toe taumafai.</string>
     <string name="qibla_gps_live">Nofoaga GPS ola</string>
     <string name="qibla_gps_refresh">Toe faafou le nofoaga e ala i le GPS</string>

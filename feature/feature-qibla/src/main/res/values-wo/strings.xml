@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Seetug...</string>
     <string name="mosque_finder_title">Juma yi ci wetam</string>
     <string name="qibla_bearing_cardinal">Direction qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Toxal sa telefon ci lim-8 ngir kalibre</string>
     <string name="qibla_distance">Distance à Makkah : %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Yaa ngi jàkkarloo ak Qibla bi 🕋 .</string>
+    <string name="qibla_facing">Yaa ngi jàkkarloo ak Qibla bi  .</string>
     <string name="qibla_gps_error">Mënu ñu am saafara bu jaar yoon. Jéemaat.</string>
     <string name="qibla_gps_live">Barab GPS ci saasi</string>
     <string name="qibla_gps_refresh">Yeesal barab bi jaaraleko ci GPS</string>

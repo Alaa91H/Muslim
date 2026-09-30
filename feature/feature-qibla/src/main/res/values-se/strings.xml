@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Ohcan...</string>
     <string name="mosque_finder_title">Lagamus moskeat</string>
     <string name="qibla_bearing_cardinal">Qibla čujuhus: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Sirdde telefovnna figuvra-guhtta sisa vai sáhtát kalibreret</string>
     <string name="qibla_distance">Gaska Makkai: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Don leat Kibla ovddabealde 🕋</string>
+    <string name="qibla_facing">Don leat Kibla ovddabealde</string>
     <string name="qibla_gps_error">Ii nagodan oažžut dárkilis čovdosa. Geahččal fas.</string>
     <string name="qibla_gps_live">Njuolggo GPS-báiki</string>
     <string name="qibla_gps_refresh">Ođasmahttit báikki GPS bokte</string>

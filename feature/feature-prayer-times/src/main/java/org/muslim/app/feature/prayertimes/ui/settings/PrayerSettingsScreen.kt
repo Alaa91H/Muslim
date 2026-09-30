@@ -37,6 +37,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -1122,27 +1123,33 @@ private fun BundledAdhanSoundSection(
     onSelected: (BundledAdhanSound) -> Unit,
     onPreview: (BundledAdhanSound) -> Unit,
 ) {
+    var expanded by remember { mutableStateOf(false) }
     DialogSectionTitle(R.string.settings_adhan_sound_choice, compact)
-    BundledAdhanSound.entries.forEach { sound ->
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable { onSelected(sound) }
-                .padding(vertical = if (compact) 0.dp else 2.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            RadioButton(selected = selected == sound, onClick = { onSelected(sound) })
-            Text(
-                text = stringResource(bundledSoundLabelRes(sound)),
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.weight(1f),
-            )
-            IconButton(onClick = { onPreview(sound) }) {
-                Icon(
-                    imageVector = Icons.Filled.PlayArrow,
-                    contentDescription = stringResource(R.string.settings_listen),
-                )
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Box(modifier = Modifier.weight(1f)) {
+            IslamicSecondaryButton(onClick = { expanded = true }, modifier = Modifier.fillMaxWidth()) {
+                Text(stringResource(bundledSoundLabelRes(selected)))
             }
+            DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+                BundledAdhanSound.entries.forEach { sound ->
+                    DropdownMenuItem(
+                        text = { Text(stringResource(bundledSoundLabelRes(sound))) },
+                        leadingIcon = { RadioButton(selected = selected == sound, onClick = null) },
+                        trailingIcon = {
+                            IconButton(onClick = { onPreview(sound) }) {
+                                Icon(Icons.Filled.PlayArrow, stringResource(R.string.settings_listen))
+                            }
+                        },
+                        onClick = {
+                            onSelected(sound)
+                            expanded = false
+                        },
+                    )
+                }
+            }
+        }
+        IconButton(onClick = { onPreview(selected) }) {
+            Icon(Icons.Filled.PlayArrow, stringResource(R.string.settings_listen))
         }
     }
 }

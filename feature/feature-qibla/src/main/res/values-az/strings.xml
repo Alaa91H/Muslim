@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Axtarılır...</string>
     <string name="mosque_finder_title">Yaxınlıqdakı məscidlər</string>
     <string name="qibla_bearing_cardinal">Qiblə istiqaməti: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Kalibrləmək üçün telefonunuzu səkkiz rəqəmlə hərəkət etdirin</string>
     <string name="qibla_distance">Məkkəyə olan məsafə: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Üzü qibləyə 🕋</string>
+    <string name="qibla_facing">Üzü qibləyə</string>
     <string name="qibla_gps_error">Dəqiq düzəliş əldə etmək mümkün olmadı. Yenidən cəhd edin.</string>
     <string name="qibla_gps_live">Canlı GPS yeri</string>
     <string name="qibla_gps_refresh">GPS vasitəsilə yeri yeniləyin</string>

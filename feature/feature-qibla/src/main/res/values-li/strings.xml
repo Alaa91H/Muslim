@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Op zeuk…</string>
     <string name="mosque_finder_title">Moskeeje in de buurt</string>
     <string name="qibla_bearing_cardinal">Qiblarichting: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Verplaats eur tillefoon in un figuur-acht um te kalibrere</string>
     <string name="qibla_distance">Aafstand tot Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Geer kiekt op de Qibla 🕋</string>
+    <string name="qibla_facing">Geer kiekt op de Qibla</string>
     <string name="qibla_gps_error">Kon gein nauwkeurige oplossing kriege. Probeer nog ummer.</string>
     <string name="qibla_gps_live">Live GPS-locatie</string>
     <string name="qibla_gps_refresh">Vernuie de locatie via GPS</string>

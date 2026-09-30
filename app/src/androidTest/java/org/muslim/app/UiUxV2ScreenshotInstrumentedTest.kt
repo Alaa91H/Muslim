@@ -67,6 +67,7 @@ class UiUxV2ScreenshotInstrumentedTest {
         route: String = "home",
         screenName: String = "prayer-home",
         expanded: Boolean = false,
+        afterReady: ((android.app.Instrumentation) -> Unit)? = null,
     ) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
@@ -129,7 +130,11 @@ class UiUxV2ScreenshotInstrumentedTest {
             while (SystemClock.uptimeMillis() < deadline) {
                 val root = activeRoot()
                 activeWindowDescription = root?.describeTree().orEmpty()
-                val expectedContent = if (route == "home") "Makkah" else "uiux-route:${routePattern(route)}"
+                val expectedContent = when {
+                    screenName == "prayer-monthly" -> "uiux-prayer-monthly-content"
+                    route == "home" -> "Makkah"
+                    else -> "uiux-route:${routePattern(route)}"
+                }
                 val normalizedContent = activeWindowDescription.replace(Regex("[\\p{M}ـ]"), "").replace('ٱ', 'ا')
                 val dataReady = when (route) {
                     "quran" -> "uiux-quran-content-loaded" in activeWindowDescription
@@ -141,26 +146,7 @@ class UiUxV2ScreenshotInstrumentedTest {
                 if (homeVisible) break
                 SystemClock.sleep(100)
             }
-            if (screenName == "prayer-monthly" && homeVisible) {
-                var timesTitle = ""
-                var monthlyTitle = ""
-                checkNotNull(scenario).onActivity { activity ->
-                    timesTitle = activity.getString(org.muslim.app.feature.prayertimes.R.string.times_title)
-                    monthlyTitle = activity.getString(org.muslim.app.feature.prayertimes.R.string.times_monthly)
-                }
-                clickAccessibleLabel(timesTitle)
-                clickAccessibleLabel(monthlyTitle)
-                val monthlyDeadline = SystemClock.uptimeMillis() + 5_000
-                homeVisible = false
-                while (SystemClock.uptimeMillis() < monthlyDeadline) {
-                    val root = activeRoot()
-                    activeWindowDescription = root?.describeTree().orEmpty()
-                    homeVisible = "uiux-prayer-monthly-content" in activeWindowDescription
-                    if (homeVisible) break
-                    root?.findNode { it.isScrollable }?.performAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD)
-                    SystemClock.sleep(200)
-                }
-            }
+            afterReady?.invoke(instrumentation)
             SystemClock.sleep(500)
             instrumentation.waitForIdleSync()
             checkNotNull(scenario).onActivity { activity ->
@@ -206,6 +192,7 @@ class UiUxV2ScreenshotInstrumentedTest {
                     "Could not encode screenshot as PNG"
                 }
             }
+            bitmap.recycle()
             check(pendingScreenshot.renameTo(File(outputDirectory, screenshotName))) {
                 "Could not publish completed screenshot"
             }

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">זוכנדיק...</string>
     <string name="mosque_finder_title">נירביי מאָסקוועס</string>
     <string name="qibla_bearing_cardinal">קיבלאַ ריכטונג: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">מאַך דיין טעלעפאָן אין אַ פיגור אַכט צו קאַלאַברייט</string>
     <string name="qibla_distance">דיסטאַנסע צו מאַקקאַה: %1$s</string>
     <string name="qibla_distance_km">%,.0f קילאמעטער</string>
-    <string name="qibla_facing">איר זענט פייסינג די Qibla 🕋</string>
+    <string name="qibla_facing">איר זענט פייסינג די Qibla</string>
     <string name="qibla_gps_error">קען נישט באַקומען אַן פּינטלעך פאַרריכטן. ביטע פּרוּווט ווידער.</string>
     <string name="qibla_gps_live">לעבן גפּס אָרט</string>
     <string name="qibla_gps_refresh">דערפרישן אָרט דורך גפּס</string>

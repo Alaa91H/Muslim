@@ -241,11 +241,15 @@ fun QuranReaderScreen(
     viewModel: QuranReaderViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
+    val mushafAyahs by viewModel.mushafAyahs.collectAsStateWithLifecycle()
+    val surahNames by viewModel.surahNames.collectAsStateWithLifecycle()
     val bookmarked by viewModel.isBookmarked.collectAsStateWithLifecycle()
     val currentAyah by viewModel.currentAyah.collectAsStateWithLifecycle()
     val theme by viewModel.readerTheme.collectAsStateWithLifecycle()
     val persistedFont by viewModel.readerFontSize.collectAsStateWithLifecycle()
     val supplements by viewModel.supplements.collectAsStateWithLifecycle()
+    val supplementAyah by viewModel.supplementAyah.collectAsStateWithLifecycle()
+    val supplementFollowPlayback by viewModel.supplementFollowPlayback.collectAsStateWithLifecycle()
     val supplementEnabled by viewModel.supplementEnabled.collectAsStateWithLifecycle()
     val tajweedEnabled by viewModel.tajweedEnabled.collectAsStateWithLifecycle()
     val tajweedAnnotations by viewModel.tajweedAnnotations.collectAsStateWithLifecycle()
@@ -327,7 +331,7 @@ fun QuranReaderScreen(
     // Preserve the deliberately tapped ayah independently of the scrolling
     // cursor, so both play controls can start exactly from that selection.
     val selectedStart = userSelectedAyah?.let { global ->
-        state.ayahs.firstOrNull { it.globalNumber == global }
+        mushafAyahs.firstOrNull { it.globalNumber == global }
     }
 
     // Shared play/pause/resume toggle used by both the mini now-playing bar
@@ -360,7 +364,7 @@ fun QuranReaderScreen(
     }
 
     // The ayah currently playing (if any) — drives the mini now-playing bar.
-    val playingAyah = currentAudioAyah?.let { global -> state.ayahs.firstOrNull { it.globalNumber == global } }
+    val playingAyah = currentAudioAyah?.let { global -> mushafAyahs.firstOrNull { it.globalNumber == global } }
 
     // Auto-scroll state so the selected / recited ayah stays fully visible.
     var scrollTargetAyah by remember { mutableStateOf<Int?>(null) }
@@ -378,9 +382,9 @@ fun QuranReaderScreen(
         }
     }
 
-    // Group the surah's ayahs into mushaf pages (flowing text per page).
-    val pageEntries = remember(state.ayahs) {
-        state.ayahs.groupBy { it.page }.toSortedMap().entries.toList()
+    // Page the complete book, including pages shared by neighbouring surahs.
+    val pageEntries = remember(mushafAyahs) {
+        mushafPages(mushafAyahs)
     }
 
     // Wide screens (tablets, landscape phones) show two mushaf pages side by
@@ -390,8 +394,8 @@ fun QuranReaderScreen(
     val isWide = with(LocalDensity.current) {
         LocalWindowInfo.current.containerSize.width.toDp() >= 600.dp
     }
-    val spreads = remember(state.ayahs) {
-        state.ayahs.groupBy { it.page }.toSortedMap().entries
+    val spreads = remember(pageEntries) {
+        pageEntries
             .groupBy { (page, _) -> (page - 1) / 2 }
             .toSortedMap()
             .values
@@ -403,17 +407,14 @@ fun QuranReaderScreen(
     // Horizontal paging between mushaf pages (swipe left/right like a printed
     // mushaf). Each pager page keeps its own vertical scroll for content that
     // is taller than the screen.
-    // Reserve one virtual page at each edge. Swiping onto either edge opens
-    // the adjacent surah, so manual reading continues like a physical Mushaf
-    // rather than stopping at a surah boundary.
+    // Edge sentinels clamp only at the book covers. Surah boundaries are ordinary
+    // adjacent pages and never trigger asynchronous navigation/re-initialization.
     val realPageCount = if (isWide) spreads.size else pageEntries.size
     val pagerState = rememberPagerState(
         initialPage = 1,
         pageCount = { realPageCount + 2 },
     )
     val pageScrollStates = remember { mutableStateMapOf<Int, ScrollState>() }
-    var pendingAdjacentSurah by remember { mutableStateOf<Int?>(null) }
-    var openAdjacentAtEnd by remember { mutableStateOf(false) }
     // Each mushaf page reports the top of every ayah. This keeps the selected
     // ayah and the saved reading position in step with manual up/down reading,
     // while the existing audio follow-along remains authoritative during play.
@@ -436,11 +437,7 @@ fun QuranReaderScreen(
     LaunchedEffect(pageEntries, isWide) {
         if (scrolledToInitial || pageEntries.isEmpty()) return@LaunchedEffect
         val targetGlobal = viewModel.initialAyahGlobal
-        val pageIndex = if (targetGlobal > 0) {
-            pageEntries.indexOfFirst { (_, ayahs) -> ayahs.any { it.globalNumber == targetGlobal } }
-        } else {
-            -1
-        }
+        val pageIndex = initialMushafPageIndex(pageEntries, viewModel.initialSurahNumber, targetGlobal)
         val targetItem = if (pageIndex >= 0 && isWide) {
             contentIndexToReaderPagerPage(spreadIndexOfPage(pageEntries[pageIndex].key))
         } else {
@@ -450,7 +447,7 @@ fun QuranReaderScreen(
         // the ayah, so the one-shot centering sees a stable layout.
         pagerState.animateScrollToPage(targetItem)
         if (targetGlobal > 0) {
-            if (state.ayahs.any { it.globalNumber == targetGlobal }) {
+            if (mushafAyahs.any { it.globalNumber == targetGlobal }) {
                 // Highlight the target ayah and make it the scroll target so
                 // the centering pass below can align it in the viewport.
                 openedTargetGlobal = targetGlobal
@@ -538,7 +535,8 @@ fun QuranReaderScreen(
     // reader's top edge. This deliberately does not set scrollTargetAyah, so a
     // user can scroll in either direction without being pulled back unless an
     // actual recitation is playing.
-    LaunchedEffect(pagerState, pageEntries, spreads, isWide, currentAudioAyah) {
+    LaunchedEffect(pagerState, pageEntries, spreads, isWide, currentAudioAyah, scrolledToInitial) {
+        if (!scrolledToInitial) return@LaunchedEffect
         snapshotFlow {
             val itemIndex = pagerState.currentPage - 1
             // Reading this state makes the flow react to deliberate vertical
@@ -556,17 +554,17 @@ fun QuranReaderScreen(
             .distinctUntilChanged()
             .debounce(350)
             .collect { globalNumber ->
-                val ayah = state.ayahs.firstOrNull { it.globalNumber == globalNumber } ?: return@collect
+                val ayah = mushafAyahs.firstOrNull { it.globalNumber == globalNumber } ?: return@collect
                 if (viewModel.currentAyah.value?.globalNumber != globalNumber) {
-                    viewModel.currentAyah.value = ayah
+                    viewModel.viewAyah(ayah)
                     viewModel.saveLastRead()
                 }
             }
     }
 
     // Track the visible page (bookmark/play target) and persist resume + khatma.
-    LaunchedEffect(pagerState, pageEntries, isWide) {
-        if (pageEntries.isEmpty()) return@LaunchedEffect
+    LaunchedEffect(pagerState, pageEntries, isWide, scrolledToInitial, currentAudioAyah) {
+        if (!scrolledToInitial || pageEntries.isEmpty()) return@LaunchedEffect
         snapshotFlow { pagerState.currentPage }
             .map { virtualIndex ->
                 val itemIndex = virtualIndex - 1
@@ -582,7 +580,7 @@ fun QuranReaderScreen(
             }
             .filterNotNull()
             .distinctUntilChanged()
-            .onEach { viewModel.currentAyah.value = it }
+            .onEach { viewModel.viewAyah(it, manual = currentAudioAyah == null) }
             .debounce(2_000)
             .collect { viewModel.saveLastRead() }
     }
@@ -673,15 +671,16 @@ fun QuranReaderScreen(
                         scrollTargetAyahGlobal = scrollTargetAyah,
                         tajweedEnabled = tajweedEnabled,
                         tajweedByAyah = tajweedAnnotations,
+                        tajweedSurahNumber = state.surah?.number ?: 0,
                     )
                     val mushafCallbacks = MushafPageCallbacks(
                         onPageClick = { pageAyahs ->
-                            viewModel.currentAyah.value = pageAyahs.first()
+                            viewModel.viewAyah(pageAyahs.first())
                         },
                         onAyahClick = { ayah ->
                             // Tapping selects an ayah and keeps it visible;
                             // the user retains control over when to start audio.
-                            viewModel.currentAyah.value = ayah
+                            viewModel.viewAyah(ayah)
                             userSelectedAyah = ayah.globalNumber
                             tappedAyahGlobal = ayah.globalNumber
                             scrollTargetAyah = ayah.globalNumber
@@ -723,7 +722,7 @@ fun QuranReaderScreen(
                                     if (spread != null) {
                                         MushafSpreadRow(
                                             spread = spread,
-                                            presentation = mushafPresentation,
+                                            presentation = mushafPresentation.copy(surahNames = surahNames),
                                             callbacks = mushafCallbacks,
                                         )
                                     }
@@ -732,7 +731,7 @@ fun QuranReaderScreen(
                                     MushafPageCard(
                                         pageNumber = pageNumber,
                                         ayahs = pageAyahs,
-                                        presentation = mushafPresentation,
+                                        presentation = mushafPresentation.copy(surahNames = surahNames),
                                         callbacks = mushafCallbacks,
                                     )
                                 }
@@ -740,37 +739,18 @@ fun QuranReaderScreen(
                         }
                     }
 
-                    LaunchedEffect(pagerState.currentPage, realPageCount, state.surah?.number) {
-                        val currentSurah = state.surah?.number ?: return@LaunchedEffect
-                        val destination = when (pagerState.currentPage) {
-                            0 -> (currentSurah - 1).takeIf { it >= 1 }
-                            realPageCount + 1 -> (currentSurah + 1).takeIf { it <= 114 }
-                            else -> null
-                        }
-                        if (destination != null && pendingAdjacentSurah != destination) {
-                            pendingAdjacentSurah = destination
-                            openAdjacentAtEnd = pagerState.currentPage == 0
-                            viewModel.openSurah(destination)
-                        } else if (destination == null &&
-                            (pagerState.currentPage == 0 || pagerState.currentPage == realPageCount + 1)
-                        ) {
-                            pagerState.scrollToPage(
-                                if (pagerState.currentPage == 0) 1 else realPageCount,
-                            )
-                        }
-                    }
-
-                    LaunchedEffect(state.surah?.number, realPageCount, pendingAdjacentSurah) {
-                        val pending = pendingAdjacentSurah ?: return@LaunchedEffect
-                        if (state.surah?.number == pending && realPageCount > 0) {
-                            pagerState.scrollToPage(if (openAdjacentAtEnd) realPageCount else 1)
-                            pendingAdjacentSurah = null
+                    LaunchedEffect(pagerState.currentPage, realPageCount) {
+                        if (realPageCount > 0) {
+                            when (pagerState.currentPage) {
+                                0 -> pagerState.scrollToPage(1)
+                                realPageCount + 1 -> pagerState.scrollToPage(realPageCount)
+                            }
                         }
                     }
                     }
                 }
 
-            SupplementPanel(supplements = supplements, currentAyah = currentAyah)
+            SupplementPanel(supplements = supplements, currentAyah = supplementAyah)
 
             RecitationBar(
                 state = RecitationBarState(
@@ -878,6 +858,7 @@ fun QuranReaderScreen(
                         keepScreenOn = keepScreenOn,
                         tajweedEnabled = tajweedEnabled,
                         supplementEnabled = supplementEnabled,
+                        supplementFollowPlayback = supplementFollowPlayback,
                         canOpenSupplement = currentAyah != null,
                         canOpenDetails = state.surah != null,
                     ),
@@ -890,6 +871,7 @@ fun QuranReaderScreen(
                         },
                         onKeepScreenOnChanged = viewModel::setKeepScreenOn,
                         onTajweedChanged = viewModel::setTajweedEnabled,
+                        onSupplementFollowPlaybackChanged = viewModel::setSupplementFollowPlayback,
                         onOpenSupplement = {
                             showReaderSettings = false
                             showSupplementControls = true
@@ -1566,6 +1548,7 @@ internal fun contentIndexToReaderPagerPage(contentIndex: Int): Int = contentInde
 /** Shared visual state for one or two rendered mushaf pages. */
 private data class MushafPagePresentation(
     val surahName: String,
+    val surahNames: Map<Int, String> = emptyMap(),
     val fontSizeSp: Float,
     val playingAyahGlobal: Int?,
     val selectedAyahGlobal: Int?,
@@ -1574,6 +1557,7 @@ private data class MushafPagePresentation(
     val scrollTargetAyahGlobal: Int?,
     val tajweedEnabled: Boolean,
     val tajweedByAyah: Map<Int, List<org.muslim.app.feature.quran.domain.TajweedAnnotation>>,
+    val tajweedSurahNumber: Int,
 )
 
 /** Events emitted by a rendered mushaf page. */
@@ -1752,7 +1736,7 @@ private fun MushafPageCard(
                 },
             ) {
                 val ayahText = if (ayah === firstAyah) firstAyahText else ayah.text
-                    val rawAnnotations = if (presentation.tajweedEnabled) {
+                    val rawAnnotations = if (presentation.tajweedEnabled && ayah.surahNumber == presentation.tajweedSurahNumber) {
                         presentation.tajweedByAyah[ayah.numberInSurah].orEmpty()
                     } else {
                         emptyList()
@@ -1831,6 +1815,7 @@ private fun MushafPageCard(
         color = scheme.surface,
         border = BorderStroke(1.dp, scheme.outlineVariant),
         modifier = modifier
+            .testTag("mushaf-page-$pageNumber")
             .fillMaxWidth()
             .clickable(onClick = { callbacks.onPageClick(ayahs) }),
     ) {
@@ -1850,7 +1835,8 @@ private fun MushafPageCard(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    text = presentation.surahName,
+                    text = ayahs.map { it.surahNumber }.distinct().mapNotNull { presentation.surahNames[it] }
+                        .joinToString(" / ").ifEmpty { presentation.surahName },
                     style = MaterialTheme.typography.labelMedium.copy(textDirection = TextDirection.Rtl),
                     color = scheme.primary,
                     modifier = Modifier.weight(1f),

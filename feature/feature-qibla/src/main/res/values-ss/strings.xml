@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Ngiyasesha...</string>
     <string name="mosque_finder_title">Emamoski lasedvute</string>
     <string name="qibla_bearing_cardinal">Indlela ye-Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Hambisa lucingo lwakho ngesibalo-siphohlongo kute ululinganise</string>
     <string name="qibla_distance">Libanga leliya eMakkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f emakhilomitha</string>
-    <string name="qibla_facing">Ubhekene ne Qibla 🕋 .</string>
+    <string name="qibla_facing">Ubhekene ne Qibla  .</string>
     <string name="qibla_gps_error">Ayikwatanga kutfola silungiso lesinembile. Sicela uphindze uzame.</string>
     <string name="qibla_gps_live">Indzawo ye-GPS lebukhoma</string>
     <string name="qibla_gps_refresh">Vuselela indzawo nge-GPS</string>

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Buscando…</string>
     <string name="mosque_finder_title">Mesquitas próximas</string>
     <string name="qibla_bearing_cardinal">Dirección Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Move o teléfono en forma de oito para calibralo</string>
     <string name="qibla_distance">Distancia a Meca: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Estás ante a Qibla 🕋</string>
+    <string name="qibla_facing">Estás ante a Qibla</string>
     <string name="qibla_gps_error">Non se puido obter unha corrección precisa. Téntao de novo.</string>
     <string name="qibla_gps_live">Localización GPS en directo</string>
     <string name="qibla_gps_refresh">Actualiza a localización mediante GPS</string>

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Se caută…</string>
     <string name="mosque_finder_title">Moschei din apropiere</string>
     <string name="qibla_bearing_cardinal">Direcția Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Mutați telefonul într-o cifră opt pentru a-l calibra</string>
     <string name="qibla_distance">Distanța până la Mecca: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Te confrunți cu Qibla 🕋</string>
+    <string name="qibla_facing">Te confrunți cu Qibla</string>
     <string name="qibla_gps_error">Nu s-a putut obține o remediere precisă. Vă rugăm să încercați din nou.</string>
     <string name="qibla_gps_live">Locație GPS live</string>
     <string name="qibla_gps_refresh">Actualizează locația prin GPS</string>

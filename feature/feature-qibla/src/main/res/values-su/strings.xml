@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Pilarian…</string>
     <string name="mosque_finder_title">Deukeut masjid</string>
     <string name="qibla_bearing_cardinal">Arah Kiblat: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Pindahkeun telepon anjeun dina angka-dalapan pikeun ngakalibrasi</string>
     <string name="qibla_distance">Jarak ka Mekah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Anjeun nuju nyanghareupan kiblat 🕋</string>
+    <string name="qibla_facing">Anjeun nuju nyanghareupan kiblat</string>
     <string name="qibla_gps_error">Teu tiasa kéngingkeun perbaikan anu akurat. Mangga cobian deui.</string>
     <string name="qibla_gps_live">Lokasi GPS Live</string>
     <string name="qibla_gps_refresh">Refresh lokasi liwat GPS</string>

@@ -174,4 +174,6 @@
     <string name="quran_search_no_results">No matching results</string>
     <string name="quran_open_bookmarks">Open bookmarks screen</string>
     <string name="quran_loading">Loading Quran…</string>
+    <string name="quran_tafsir_follow_playback">Follow the recited ayah in tafsir</string>
+    <string name="quran_tafsir_follow_playback_description">Move meanings and tafsir with recitation. Turn off to read another explanation while audio continues.</string>
 </resources>

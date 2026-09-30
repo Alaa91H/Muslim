@@ -9,7 +9,7 @@
     <string name="mosque_finder_searching">ଖୋଜୁଛି…</string>
     <string name="mosque_finder_title">ନିକଟସ୍ଥ ମସଜିଦ</string>
     <string name="qibla_bearing_cardinal">କିବଲା ଦିଗ: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f °</string>
+    <string name="qibla_bearing_degree">%1$.0f °</string>
     <string name="qibla_calibrate">କାଲିବ୍ରେଟ୍ କରିବାକୁ ଆପଣଙ୍କ ଫୋନକୁ ଏକ ଚିତ୍ର-ଆଠରେ ଘୁଞ୍ଚାନ୍ତୁ |</string>
     <string name="qibla_distance">ମକ୍କା ପର୍ଯ୍ୟନ୍ତ ଦୂରତା: %1$s |</string>
     <string name="qibla_distance_km">%,.0f କିମି |</string>

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Се бара…</string>
     <string name="mosque_finder_title">Околните џамии</string>
     <string name="qibla_bearing_cardinal">Насока Кибла: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Поместете го телефонот во бројка осум за да го калибрирате</string>
     <string name="qibla_distance">Растојание до Мека: %1$s</string>
     <string name="qibla_distance_km">%,.0f км</string>
-    <string name="qibla_facing">Вие сте свртени кон Кибла 🕋</string>
+    <string name="qibla_facing">Вие сте свртени кон Кибла</string>
     <string name="qibla_gps_error">Не може да се добие точна поправка. Ве молиме обидете се повторно.</string>
     <string name="qibla_gps_live">GPS локација во живо</string>
     <string name="qibla_gps_refresh">Освежете ја локацијата преку GPS</string>

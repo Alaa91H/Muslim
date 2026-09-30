@@ -39,6 +39,7 @@ internal data class ReaderSettingsState(
     val keepScreenOn: Boolean,
     val tajweedEnabled: Boolean,
     val supplementEnabled: Boolean,
+    val supplementFollowPlayback: Boolean,
     val canOpenSupplement: Boolean,
     val canOpenDetails: Boolean,
 )
@@ -49,6 +50,7 @@ internal data class ReaderSettingsActions(
     val onFontSizeChanged: (Float) -> Unit,
     val onKeepScreenOnChanged: (Boolean) -> Unit,
     val onTajweedChanged: (Boolean) -> Unit,
+    val onSupplementFollowPlaybackChanged: (Boolean) -> Unit,
     val onOpenSupplement: () -> Unit,
     val onOpenDetails: () -> Unit,
     val onOpenDownloads: () -> Unit,
@@ -73,25 +75,7 @@ internal fun ReaderSettingsSheet(
             },
             onClick = { actions.onThemeChange(state.theme.nextReaderTheme()) },
         )
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    horizontal = IslamicSpacing.Medium,
-                    vertical = IslamicSpacing.Small,
-                ),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text(
-                text = stringResource(R.string.quran_font_size),
-                modifier = Modifier.weight(1f),
-                style = MaterialTheme.typography.bodyLarge,
-            )
-            FontSizeControls(
-                fontSize = state.fontSize,
-                onChanged = actions.onFontSizeChanged,
-            )
-        }
+        ReaderFontSizeSetting(state.fontSize, actions.onFontSizeChanged)
         MuslimSettingsItem(
             title = stringResource(R.string.quran_keep_screen_on),
             onClick = { actions.onKeepScreenOnChanged(!state.keepScreenOn) },
@@ -124,6 +108,7 @@ internal fun ReaderSettingsSheet(
             enabled = state.canOpenSupplement,
             onClick = actions.onOpenSupplement,
         )
+        TafsirFollowSetting(state, actions)
         MuslimSettingsItem(
             title = stringResource(R.string.quran_details),
             icon = Icons.Filled.Info,
@@ -136,6 +121,34 @@ internal fun ReaderSettingsSheet(
             onClick = actions.onOpenDownloads,
         )
     }
+}
+
+@Composable
+private fun ReaderFontSizeSetting(fontSize: Float, onChanged: (Float) -> Unit) {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Small),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(stringResource(R.string.quran_font_size), Modifier.weight(1f), style = MaterialTheme.typography.bodyLarge)
+        FontSizeControls(fontSize = fontSize, onChanged = onChanged)
+    }
+}
+
+@Composable
+private fun TafsirFollowSetting(state: ReaderSettingsState, actions: ReaderSettingsActions) {
+        MuslimSettingsItem(
+            title = stringResource(R.string.quran_tafsir_follow_playback),
+            supportingText = stringResource(R.string.quran_tafsir_follow_playback_description),
+            enabled = state.supplementEnabled,
+            onClick = { actions.onSupplementFollowPlaybackChanged(!state.supplementFollowPlayback) },
+            trailing = {
+                Switch(
+                    checked = state.supplementFollowPlayback,
+                    enabled = state.supplementEnabled,
+                    onCheckedChange = actions.onSupplementFollowPlaybackChanged,
+                )
+            },
+        )
 }
 
 @Composable

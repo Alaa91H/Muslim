@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Soek tans …</string>
     <string name="mosque_finder_title">Nabygeleë moskees</string>
     <string name="qibla_bearing_cardinal">Qibla-rigting: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Beweeg jou foon in \'n syfer-agt om te kalibreer</string>
     <string name="qibla_distance">Afstand na Mekka: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Jy staar die Qibla 🕋 in die gesig</string>
+    <string name="qibla_facing">Jy staar die Qibla  in die gesig</string>
     <string name="qibla_gps_error">Kon nie \'n akkurate oplossing kry nie. Probeer asseblief weer.</string>
     <string name="qibla_gps_live">Regstreekse GPS-ligging</string>
     <string name="qibla_gps_refresh">Verfris ligging via GPS</string>

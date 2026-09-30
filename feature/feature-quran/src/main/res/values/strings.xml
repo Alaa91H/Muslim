@@ -175,4 +175,6 @@
     <string name="quran_search_no_results" tools:ignore="MissingTranslation">لا توجد نتائج مطابقة</string>
     <string name="quran_open_bookmarks" tools:ignore="MissingTranslation">فتح شاشة العلامات المرجعية</string>
     <string name="quran_loading" tools:ignore="MissingTranslation">جارٍ تحميل القرآن…</string>
+    <string name="quran_tafsir_follow_playback">تتبع تفسير الآية المتلوة</string>
+    <string name="quran_tafsir_follow_playback_description">ينتقل التفسير والمعنى مع التلاوة. أوقفه لتصفح تفسير آية أخرى دون إيقاف الصوت.</string>
 </resources>

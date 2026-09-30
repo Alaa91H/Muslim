@@ -92,7 +92,7 @@ class PrayerSettingsRepository @Inject constructor(
                 }
                 .toMap(),
             adhanVolume = prefs[Keys.ADHAN_VOLUME] ?: 100,
-            useGlobalAdhanVolume = prefs[Keys.USE_GLOBAL_ADHAN_VOLUME] ?: false,
+            useGlobalAdhanVolume = prefs[Keys.USE_GLOBAL_ADHAN_VOLUME] ?: true,
             adhanVolumes = Prayer.entries
                 .mapNotNull { prayer ->
                     prefs[Keys.adhanVolumeFor(prayer)]?.let { prayer to it.coerceIn(0, 100) }

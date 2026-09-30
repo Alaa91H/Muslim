@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Uñakipt’añataki...</string>
     <string name="mosque_finder_title">Uka jak’an mezquitas ukanaka</string>
     <string name="qibla_bearing_cardinal">Qibla dirección: %1$s uka jakhuru</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f° ukat juk’ampinaka</string>
+    <string name="qibla_bearing_degree">%1$.0f° ukat juk’ampinaka</string>
     <string name="qibla_calibrate">Teléfono ukarux mä figura-llätunk ukar apkatañamawa calibración lurañataki</string>
     <string name="qibla_distance">Makkah markar puriñkamax: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Jumax Qibla 🕋 uñkatasktaxa</string>
+    <string name="qibla_facing">Jumax Qibla  uñkatasktaxa</string>
     <string name="qibla_gps_error">Janiw mä chiqap askichäw jikxataskänti. Ukhamaraki, mayampi yant’apxañani.</string>
     <string name="qibla_gps_live">GPS ukan jakawipa</string>
     <string name="qibla_gps_refresh">GPS tuqiw uñt’ayasi</string>

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Vyhledávání…</string>
     <string name="mosque_finder_title">Blízké mešity</string>
     <string name="qibla_bearing_cardinal">Směr Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Kalibraci provedete posunutím telefonu o číslo osm</string>
     <string name="qibla_distance">Vzdálenost do Mekky: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Čelíte Qibla 🕋</string>
+    <string name="qibla_facing">Čelíte Qibla</string>
     <string name="qibla_gps_error">Nepodařilo se získat přesnou opravu. Zkuste to prosím znovu.</string>
     <string name="qibla_gps_live">Aktuální poloha GPS</string>
     <string name="qibla_gps_refresh">Obnovte polohu pomocí GPS</string>

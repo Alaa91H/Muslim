@@ -83,6 +83,9 @@ data class Reciter(
             entry("Salah_Al_Budair_128kbps", "صلاح البدير", "مرتّل · 128k", 128),
             entry("Ibrahim_Akhdar_64kbps", "إبراهيم الأخضر", "مرتّل · 64k", 64),
             entry("Muhammad_Jibreel_128kbps", "محمد جبريل", "مرتّل · 128k", 128),
+            // Restored missing validated catalogue entries while retaining the stable folder-derived IDs.
+            entry("Abdullah_Matroud_128kbps", "عبد الله المطرود", "مرتّل · 128k", 128),
+            entry("Parhizgar_48kbps", "شهريار پرهيزگار", "مرتّل · 48k", 48),
             // --- More well-known reciters from the same licensed source ---
             entry("Abdullah_Basfar_192kbps", "عبد الله بصفر", "مرتّل · 192k", 192),
             entry("Abdullaah_3awwaad_Al-Juhaynee_128kbps", "عواد الجهني", "مرتّل · 128k", 128),

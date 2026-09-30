@@ -570,10 +570,6 @@ private fun QiblaPrimaryStatusCard(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
         ) {
-            Text(
-                text = "🕋",
-                fontSize = if (compact) 22.sp else 26.sp,
-            )
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = stringResource(

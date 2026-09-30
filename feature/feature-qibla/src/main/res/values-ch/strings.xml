@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Manhahassu…</string>
     <string name="mosque_finder_title">Moske siha gi fi\'on-måmi</string>
     <string name="qibla_bearing_cardinal">direksion Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Na\'hanao i tilifon-mu gi un figura-ocho para un kalibra</string>
     <string name="qibla_distance">Distansia asta Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Estague\' i Qibla 🕋</string>
+    <string name="qibla_facing">Estague\' i Qibla</string>
     <string name="qibla_gps_error">Ti siña hu sodda\' i eksakto na inadilånto. På\'go, prutehi ta\'lo.</string>
     <string name="qibla_gps_live">GPS na lugat</string>
     <string name="qibla_gps_refresh">Na\'lå\'la\' ta\'lo i lugat gi GPS</string>

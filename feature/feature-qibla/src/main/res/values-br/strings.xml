@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">O klask…</string>
     <string name="mosque_finder_title">Moskeennoù e-kichen</string>
     <string name="qibla_bearing_cardinal">Tu ar c\'hibla : %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Dilec\'hiañ ho pellgomzer en ur sifr eizh evit kalibrañ</string>
     <string name="qibla_distance">Pellder da Makkah : %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Dirak ar C\'hibla emaoc\'h 🕋</string>
+    <string name="qibla_facing">Dirak ar C\'hibla emaoc\'h</string>
     <string name="qibla_gps_error">N\'eus ket bet gallet kaout un diskoulm reizh. Klaskit en-dro mar plij.</string>
     <string name="qibla_gps_live">Lec\'hiadur GPS bev</string>
     <string name="qibla_gps_refresh">Nevesaat al lec\'hiadur dre ar GPS</string>

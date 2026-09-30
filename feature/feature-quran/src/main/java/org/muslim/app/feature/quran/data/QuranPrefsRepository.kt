@@ -93,6 +93,15 @@ class QuranPrefsRepository @Inject constructor(
         context.quranPrefsDataStore.edit { prefs -> prefs[Keys.SUPPLEMENT_ENABLED] = enabled }
     }
 
+    /** Follow recitation in the meanings/tafsir panel; explicit off survives restarts. */
+    val supplementFollowPlayback: Flow<Boolean> = context.quranPrefsDataStore.data.map { prefs ->
+        prefs[Keys.SUPPLEMENT_FOLLOW_PLAYBACK] ?: true
+    }
+
+    suspend fun setSupplementFollowPlayback(enabled: Boolean) {
+        context.quranPrefsDataStore.edit { it[Keys.SUPPLEMENT_FOLLOW_PLAYBACK] = enabled }
+    }
+
     /** Optional Hafs tajweed colourization; off by default for a plain Mushaf view. */
     val tajweedEnabled: Flow<Boolean> = context.quranPrefsDataStore.data.map { prefs ->
         prefs[Keys.TAJWEED_ENABLED] ?: false
@@ -208,6 +217,7 @@ class QuranPrefsRepository @Inject constructor(
         val READ_THROUGH = intPreferencesKey("read_through_global")
         val FONT_SIZE = floatPreferencesKey("reader_font_size")
         val RECITER = stringPreferencesKey("reciter_id")
+        val SUPPLEMENT_FOLLOW_PLAYBACK = booleanPreferencesKey("supplement_follow_playback")
         val SUPPLEMENT_ENABLED = booleanPreferencesKey("supplement_enabled")
         val SUPPLEMENT_LANGUAGE = stringPreferencesKey("supplement_language")
         val TAJWEED_ENABLED = booleanPreferencesKey("tajweed_enabled")

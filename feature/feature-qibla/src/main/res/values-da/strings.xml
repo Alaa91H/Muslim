@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Søger...</string>
     <string name="mosque_finder_title">Moskeer i nærheden</string>
     <string name="qibla_bearing_cardinal">Qibla retning: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Flyt din telefon i et ottetal for at kalibrere</string>
     <string name="qibla_distance">Afstand til Mekka: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Du står over for Qibla 🕋</string>
+    <string name="qibla_facing">Du står over for Qibla</string>
     <string name="qibla_gps_error">Kunne ikke få en præcis rettelse. Prøv venligst igen.</string>
     <string name="qibla_gps_live">Live GPS-placering</string>
     <string name="qibla_gps_refresh">Opdater placering via GPS</string>

@@ -9,7 +9,7 @@
     <string name="mosque_finder_searching">འཚོལ་བཞིན་ཡོད།</string>
     <string name="mosque_finder_title">ཉེ་འགྲམ་གྱི་ཁ་ཆེའི་ལྷ་ཁང་།</string>
     <string name="qibla_bearing_cardinal">ཁིབ་ལའི་ཁ་ཕྱོགས། %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°།</string>
+    <string name="qibla_bearing_degree">%1$.0f°།</string>
     <string name="qibla_calibrate">ཁྱེད་རང་གི་ཁ་པར་དེ་ཚད་གཞི་བརྒྱད་ཀྱི་ནང་དུ་སྤོ་རུ་བཅུག་རོགས།</string>
     <string name="qibla_distance">མཀ་ཀ་བར་གྱི་ལམ་ཐིག %1$s</string>
     <string name="qibla_distance_km">%,.0f སྤྱི་ལེ།</string>

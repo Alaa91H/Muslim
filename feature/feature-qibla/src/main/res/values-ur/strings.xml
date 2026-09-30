@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">تلاش کر رہا ہے…</string>
     <string name="mosque_finder_title">آس پاس کی مساجد</string>
     <string name="qibla_bearing_cardinal">قبلہ سمت: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">کیلیبریٹ کرنے کے لیے اپنے فون کو ایک عدد آٹھ میں منتقل کریں۔</string>
     <string name="qibla_distance">مکہ مکرمہ کا فاصلہ: %1$s</string>
     <string name="qibla_distance_km">%,.0f کلومیٹر</string>
-    <string name="qibla_facing">آپ کا منہ قبلہ ہے 🕋</string>
+    <string name="qibla_facing">آپ کا منہ قبلہ ہے</string>
     <string name="qibla_gps_error">درست حل نہیں مل سکا۔ براہ کرم دوبارہ کوشش کریں۔</string>
     <string name="qibla_gps_live">براہ راست GPS مقام</string>
     <string name="qibla_gps_refresh">GPS کے ذریعے مقام کو تازہ کریں۔</string>

@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">ምድላይ...</string>
     <string name="mosque_finder_title">ኣብ ቀረባ ዝርከቡ መሳጊድ</string>
     <string name="qibla_bearing_cardinal">ኣንፈት ቂብላ፡ %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f° ዝብል እዩ።</string>
+    <string name="qibla_bearing_degree">%1$.0f° ዝብል እዩ።</string>
     <string name="qibla_calibrate">ስልክኻ ኣብ ፊግር-ሸሞንተ ኣንቀሳቕሳ ንኽትዕቅን።</string>
     <string name="qibla_distance">ርሕቀት ናብ መካ፡ %1$s</string>
     <string name="qibla_distance_km">%,.0f ኪ.ሜ</string>
-    <string name="qibla_facing">ምስ ቂብላ 🕋 ገጢምኩም ኣለኹም</string>
+    <string name="qibla_facing">ምስ ቂብላ  ገጢምኩም ኣለኹም</string>
     <string name="qibla_gps_error">ቅኑዕ ምእራም ክረክብ ኣይከኣለን። በጃኹም ደጊምኩም ፈትኑ።</string>
     <string name="qibla_gps_live">ቀጥታዊ ጂፒኤስ ቦታ</string>
     <string name="qibla_gps_refresh">ብጂፒኤስ ኣቢልካ ቦታ ምሕዳስ</string>

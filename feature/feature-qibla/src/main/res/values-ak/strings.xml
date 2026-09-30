@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Hwehwɛ...</string>
     <string name="mosque_finder_title">Asɔredan ahorow a ɛbɛn hɔ</string>
     <string name="qibla_bearing_cardinal">Qibla akwankyerɛ: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f° na ɛyɛ</string>
+    <string name="qibla_bearing_degree">%1$.0f° na ɛyɛ</string>
     <string name="qibla_calibrate">Fa wo fon no kɔ figure-eight mu na ama ayɛ calibrate</string>
     <string name="qibla_distance">Ɔkwan a ɛda Makkah ntam: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">Worehyia Qibla 🕋</string>
+    <string name="qibla_facing">Worehyia Qibla</string>
     <string name="qibla_gps_error">Antumi annye nsiesie a edi mu. Yɛsrɛ sɛ sɔ hwɛ bio.</string>
     <string name="qibla_gps_live">Live GPS beae a ɛwɔ</string>
     <string name="qibla_gps_refresh">Fa GPS so kɔ beae no foforo</string>

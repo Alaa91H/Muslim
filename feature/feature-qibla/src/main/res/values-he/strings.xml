@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">מחפש...</string>
     <string name="mosque_finder_title">מסגדים בקרבת מקום</string>
     <string name="qibla_bearing_cardinal">כיוון קיבלה: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">הזז את הטלפון שלך בדמות שמונה כדי לכייל</string>
     <string name="qibla_distance">מרחק למכה: %1$s</string>
     <string name="qibla_distance_km">%,.0f ק"מ</string>
-    <string name="qibla_facing">אתה עומד מול הקיבלה 🕋</string>
+    <string name="qibla_facing">אתה עומד מול הקיבלה</string>
     <string name="qibla_gps_error">לא ניתן היה לקבל תיקון מדויק. אנא נסה שוב.</string>
     <string name="qibla_gps_live">מיקום GPS חי</string>
     <string name="qibla_gps_refresh">רענון מיקום באמצעות GPS</string>

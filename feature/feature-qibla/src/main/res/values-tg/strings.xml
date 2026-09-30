@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Ҷустуҷӯ…</string>
     <string name="mosque_finder_title">Масҷидҳои наздик</string>
     <string name="qibla_bearing_cardinal">Самти қибла: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Телефони худро бо рақами ҳашт барои калибрченкунӣ ҳаракат кунед</string>
     <string name="qibla_distance">Масофа то Макка: %1$s</string>
     <string name="qibla_distance_km">%,.0f км</string>
-    <string name="qibla_facing">Шумо рӯ ба сӯи қибла 🕋 ҳастед</string>
+    <string name="qibla_facing">Шумо рӯ ба сӯи қибла  ҳастед</string>
     <string name="qibla_gps_error">Ислоҳоти дақиқ пайдо карда натавонист. Лутфан бори дигар кӯшиш кунед.</string>
     <string name="qibla_gps_live">Ҷойгиршавии мустақими GPS</string>
     <string name="qibla_gps_refresh">Ҷойгиршавӣ тавассути GPS навсозӣ кунед</string>

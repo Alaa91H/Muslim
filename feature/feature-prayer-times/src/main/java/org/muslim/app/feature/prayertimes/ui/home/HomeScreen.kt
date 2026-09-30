@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -15,6 +16,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -92,34 +97,13 @@ import org.muslim.app.core.datastore.prayer.trackablePrayers
 @Composable
 fun HomeScreen(
     onSelectLocation: () -> Unit,
+    onOpenMonthly: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
     val showPrayerTrackerOnHome by viewModel.showPrayerTrackerOnHome.collectAsStateWithLifecycle()
-    val context = LocalContext.current
-
-    val locationLabel = if (state.hasLocation) {
-        state.locationName
-    } else {
-        stringResource(R.string.home_select_location)
-    }
-    val locationDescription = stringResource(R.string.home_location_action, locationLabel)
-    val nextPrayerLabel = state.nextPrayer?.let { stringResource(prayerLabelRes(it)) }
-    val nextPrayerTime = state.nextPrayerAt?.format(TimeFormats.timeFormatter(use24h))
-    val countdown = formatCountdown(state.countdownSeconds)
-    val nextPrayerDescription = if (nextPrayerLabel != null && nextPrayerTime != null) {
-        stringResource(
-            R.string.home_next_prayer_accessibility,
-            nextPrayerLabel,
-            nextPrayerTime,
-            countdown,
-        )
-    } else {
-        stringResource(R.string.home_next_prayer)
-    }
-
     var customizingPrayer by remember { mutableStateOf<Prayer?>(null) }
     var overflowExpanded by remember { mutableStateOf(false) }
 
@@ -147,15 +131,7 @@ fun HomeScreen(
                     ),
                 verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
             ) {
-                PrayerDateHeader(
-                    state = state,
-                    locationLabel = locationLabel,
-                    locationDescription = locationDescription,
-                    compact = compactLayout,
-                    onSelectLocation = onSelectLocation,
-                    onPrevious = viewModel::previousPeriod,
-                    onNext = viewModel::nextPeriod,
-                )
+                HomePrayerDateHeader(state, compactLayout, viewModel, onSelectLocation)
 
                 if (!state.hasLocation) {
                     MuslimStateSurface(
@@ -167,69 +143,22 @@ fun HomeScreen(
                     return@Column
                 }
 
-                MuslimHero(
-                    title = stringResource(R.string.home_next_prayer),
-                    value = nextPrayerLabel ?: "—",
-                    supportingText = listOfNotNull(nextPrayerTime, countdown)
-                        .filter(String::isNotBlank)
-                        .joinToString(" · "),
-                    icon = state.nextPrayer?.let(::prayerIcon),
-                    iconContentDescription = null,
-                    modifier = Modifier.semantics {
-                        contentDescription = nextPrayerDescription
-                    },
-                )
-
+                HomeNextPrayerHero(state, use24h)
                 Spacer(Modifier.height(sectionGap - IslamicSpacing.Small))
-
-                MuslimSectionHeader(
-                    title = stringResource(
-                        if (state.monthly) R.string.times_monthly else R.string.home_today_times,
-                    ),
-                    action = {
-                        MuslimOverflowMenu(
-                            expanded = overflowExpanded,
-                            onExpandedChange = { overflowExpanded = it },
-                            contentDescription = stringResource(R.string.times_title),
-                            actions = listOf(
-                                MuslimMenuAction(
-                                    id = "share",
-                                    label = stringResource(R.string.times_share),
-                                    enabled = state.isValid,
-                                    onClick = { shareDailyTimes(context, state, use24h) },
-                                ),
-                                MuslimMenuAction(
-                                    id = "view",
-                                    label = stringResource(
-                                        if (state.monthly) R.string.times_daily else R.string.times_monthly,
-                                    ),
-                                    onClick = viewModel::toggleMonthly,
-                                ),
-                            ),
-                        )
-                    },
+                HomePrayerScheduleHeader(
+                    state = state,
+                    use24h = use24h,
+                    expanded = overflowExpanded,
+                    onExpandedChange = { overflowExpanded = it },
+                    onOpenMonthly = onOpenMonthly,
                 )
-
-                if (!state.isValid) {
-                    MuslimStateSurface(
-                        title = stringResource(R.string.home_cannot_compute),
-                        tone = MuslimStateTone.Critical,
-                    )
-                    return@Column
-                }
-
-                if (state.monthly) {
-                    MonthlyTimetable(state = state, use24h = use24h)
-                } else {
-                    DailyPrayerSchedule(
-                        state = state,
-                        use24h = use24h,
-                        compact = compactLayout,
-                        onCustomizePrayer = { customizingPrayer = it },
-                    )
-                }
-
-                if (showPrayerTrackerOnHome) {
+                HomePrayerTimes(
+                    state = state,
+                    use24h = use24h,
+                    compact = compactLayout,
+                    onCustomizePrayer = { customizingPrayer = it },
+                )
+                if (state.isValid && showPrayerTrackerOnHome) {
                     Spacer(Modifier.height(sectionGap - IslamicSpacing.Small))
                     PrayerCompletionCard(
                         completedPrayers = state.completedPrayers,
@@ -249,7 +178,88 @@ fun HomeScreen(
 }
 
 @Composable
-private fun PrayerDateHeader(
+private fun HomePrayerDateHeader(
+    state: HomeViewModel.UiState,
+    compact: Boolean,
+    viewModel: HomeViewModel,
+    onSelectLocation: () -> Unit,
+) {
+    val location = if (state.hasLocation) state.locationName else stringResource(R.string.home_select_location)
+    PrayerDateHeader(
+        state = state,
+        locationLabel = location,
+        locationDescription = stringResource(R.string.home_location_action, location),
+        compact = compact,
+        onSelectLocation = onSelectLocation,
+        onPrevious = viewModel::previousPeriod,
+        onNext = viewModel::nextPeriod,
+    )
+}
+
+@Composable
+private fun HomeNextPrayerHero(state: HomeViewModel.UiState, use24h: Boolean) {
+    val nextLabel = state.nextPrayer?.let { stringResource(prayerLabelRes(it)) }
+    val nextTime = state.nextPrayerAt?.format(TimeFormats.timeFormatter(use24h))
+    val countdown = formatCountdown(state.countdownSeconds)
+    val nextPrayerDescription = if (nextLabel != null && nextTime != null) {
+        stringResource(R.string.home_next_prayer_accessibility, nextLabel, nextTime, countdown)
+    } else stringResource(R.string.home_next_prayer)
+    MuslimHero(
+        title = stringResource(R.string.home_next_prayer),
+        value = nextLabel ?: "—",
+        supportingText = listOfNotNull(nextTime, countdown).filter(String::isNotBlank).joinToString(" · "),
+        icon = state.nextPrayer?.let(::prayerIcon),
+        iconContentDescription = null,
+        modifier = Modifier.semantics { contentDescription = nextPrayerDescription },
+    )
+}
+
+@Composable
+private fun HomePrayerScheduleHeader(
+    state: HomeViewModel.UiState,
+    use24h: Boolean,
+    expanded: Boolean,
+    onExpandedChange: (Boolean) -> Unit,
+    onOpenMonthly: () -> Unit,
+) {
+    val context = LocalContext.current
+    MuslimSectionHeader(
+        title = stringResource(R.string.home_today_times),
+        action = {
+            MuslimOverflowMenu(
+                expanded = expanded,
+                onExpandedChange = onExpandedChange,
+                contentDescription = stringResource(R.string.times_title),
+                actions = listOf(
+                    MuslimMenuAction(
+                        id = "share", label = stringResource(R.string.times_share),
+                        enabled = state.isValid, onClick = { shareDailyTimes(context, state, use24h) },
+                    ),
+                    MuslimMenuAction(
+                        id = "view", label = stringResource(R.string.times_monthly), onClick = onOpenMonthly,
+                    ),
+                ),
+            )
+        },
+    )
+}
+
+@Composable
+private fun HomePrayerTimes(
+    state: HomeViewModel.UiState,
+    use24h: Boolean,
+    compact: Boolean,
+    onCustomizePrayer: (Prayer) -> Unit,
+) {
+    if (!state.isValid) {
+        MuslimStateSurface(title = stringResource(R.string.home_cannot_compute), tone = MuslimStateTone.Critical)
+    } else {
+        DailyPrayerSchedule(state, use24h, compact, onCustomizePrayer)
+    }
+}
+
+@Composable
+internal fun PrayerDateHeader(
     state: HomeViewModel.UiState,
     locationLabel: String,
     locationDescription: String,
@@ -606,30 +616,30 @@ private fun shareDailyTimes(context: Context, state: HomeViewModel.UiState, use2
 }
 
 /** Complete monthly prayer timetable with days in the leading RTL column. */
-private val MonthlyDayColumnWidth = 80.dp
-private val MonthlyPrayerColumnWidth = 88.dp
+@Composable
+private fun monthlyDayColumnWidth() = 80.dp * LocalDensity.current.fontScale.coerceAtLeast(1f)
 
 @Composable
-private fun MonthlyTimetable(
-    state: HomeViewModel.UiState,
-    use24h: Boolean,
-) {
-    val horizontalState = rememberScrollState()
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .horizontalScroll(horizontalState)
-            .testTag("uiux-prayer-monthly-content"),
-    ) {
-        MonthlyTimetableHeader(state)
-        HorizontalDivider()
-        state.monthDays.forEach { day ->
-            MonthlyTimetableRow(
-                day = day,
-                selected = day.date == state.selectedDate,
-                use24h = use24h,
-            )
-            HorizontalDivider()
+private fun monthlyPrayerColumnWidth() = 88.dp * LocalDensity.current.fontScale.coerceAtLeast(1f)
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+internal fun MonthlyTimetable(state: HomeViewModel.UiState, use24h: Boolean) {
+    val tableWidth = monthlyDayColumnWidth() + monthlyPrayerColumnWidth() * Prayer.entries.size
+    Box(Modifier.fillMaxSize().horizontalScroll(rememberScrollState())) {
+        LazyColumn(
+            modifier = Modifier.width(tableWidth).fillMaxHeight().testTag("uiux-prayer-monthly-content"),
+        ) {
+            stickyHeader {
+                Column(Modifier.background(MaterialTheme.colorScheme.surface)) {
+                    MonthlyTimetableHeader(state)
+                    HorizontalDivider()
+                }
+            }
+            items(state.monthDays, key = { it.date.toEpochDay() }) { day ->
+                MonthlyTimetableRow(day = day, selected = day.date == state.selectedDate, use24h = use24h)
+                HorizontalDivider()
+            }
         }
     }
 }
@@ -639,12 +649,12 @@ private fun MonthlyTimetableHeader(state: HomeViewModel.UiState) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         MonthlyHeaderCell(
             text = state.month.toString(),
-            width = MonthlyDayColumnWidth,
+            width = monthlyDayColumnWidth(),
         )
         Prayer.entries.forEach { prayer ->
             MonthlyHeaderCell(
                 text = stringResource(prayerLabelRes(prayer)),
-                width = MonthlyPrayerColumnWidth,
+                width = monthlyPrayerColumnWidth(),
             )
         }
     }
@@ -681,7 +691,7 @@ private fun MonthlyTimetableRow(
                         ?.format(TimeFormats.timeFormatter(use24h))
                         ?: "—",
                     modifier = Modifier
-                        .width(MonthlyPrayerColumnWidth)
+                        .width(monthlyPrayerColumnWidth())
                         .padding(
                             horizontal = IslamicSpacing.XSmall,
                             vertical = IslamicSpacing.Compact,
@@ -704,7 +714,7 @@ private fun MonthlyDayCell(
 ) {
     Column(
         modifier = Modifier
-            .width(MonthlyDayColumnWidth)
+            .width(monthlyDayColumnWidth())
             .padding(
                 horizontal = IslamicSpacing.Small,
                 vertical = IslamicSpacing.Small,

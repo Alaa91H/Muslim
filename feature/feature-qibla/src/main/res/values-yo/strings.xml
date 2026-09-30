@@ -9,11 +9,11 @@
     <string name="mosque_finder_searching">Ṣiṣawari…</string>
     <string name="mosque_finder_title">Awọn mọṣalaṣi nitosi</string>
     <string name="qibla_bearing_cardinal">Ilana Qibla: %1$s</string>
-    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
     <string name="qibla_calibrate">Gbe foonu rẹ ni nọmba-mẹjọ lati ṣe iwọntunwọnsi</string>
     <string name="qibla_distance">Ijinna si Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
-    <string name="qibla_facing">O dojukọ Qibla 🕋</string>
+    <string name="qibla_facing">O dojukọ Qibla</string>
     <string name="qibla_gps_error">Ko le ri atunṣe to peye. Jọwọ gbiyanju lẹẹkansi.</string>
     <string name="qibla_gps_live">Ipo GPS Live</string>
     <string name="qibla_gps_refresh">Tun ipo nipasẹ GPS</string>
