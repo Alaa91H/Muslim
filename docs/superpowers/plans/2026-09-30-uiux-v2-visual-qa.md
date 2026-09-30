@@ -77,7 +77,8 @@ Ruling: PNG signature/dimensions prove encoding, not screen readiness. Earlier E
 - [x] Export completed PNGs continuously while instrumentation runs, then require every matrix filename and valid dimensions.
 - [x] Fix routine prayer rescheduling cancelling independent pending delivery probes; add rescheduling to the end-to-end probe regression.
 - [ ] Compile and run the complete matrix on API 26 and 36, inspect results and correct defects.
-- [ ] Establish reviewed image baselines and a comparison runner.
+- [x] Add comparison runner with explicit per-image review/provenance, dimension checks, narrowly reviewed masks, JSON results and difference PNGs; three behavioral tests pass locally.
+- [ ] Establish deterministic dynamic content and reviewed image baselines, then enable comparison acceptance in CI.
 
 Ruling: expanded-window screenshots use the CI emulator's 1280x800 override and assert at least 840dp. This checks window adaptation; fold/unfold continuity still needs separate runtime coverage.
 Ruling: code inspection identified `schedule()` calling `cancelAll()` including probes. Routine refresh now cancels only prayer/reminder alarms; explicit cancellation and disabling Adhan retain cancellation of probes.
@@ -90,3 +91,5 @@ Ruling: code inspection identified `schedule()` calling `cancelAll()` including 
 - [ ] Merge reviewed integration and UI/UX branches into main and remove merged remote branches.
 
 Run 36736715537 failed instrumentation compilation because MainActivity's extra constant belongs to a private companion. The capture now uses the existing intent extra string without changing the production visibility contract.
+
+Run 36737537753 failed compilation on duplicate `Icon` imports introduced by automatic conflict-free merging of two update notifier files. Scanning all Kotlin source imports found no other duplicates; both files were corrected. The generated Room v5 schema was also missing from version control despite the existing v4→v5 migration, so the matching compiler export is preserved without changing database behavior.
