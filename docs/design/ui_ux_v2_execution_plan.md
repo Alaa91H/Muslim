@@ -178,9 +178,10 @@ All must preserve existing capability and use the shared patterns.
 - CI is configured to capture the actual Prayer Home screen on Android
   emulators and store `prayer-home-ar-light.png` as a per-API artifact. Run
   #1338 exposed that the post-instrumentation export produced a 40-byte
-  `run-as: unknown package` message instead of a PNG. Export now happens inside
-  instrumentation and CI validates the PNG signature and dimensions; the
-  repair awaits a new end-to-end CI run. This path does not compare image
+  `run-as: unknown package` message instead of a PNG. The first in-test export
+  attempt then failed on an empty shell-output marker, so that marker check was
+  removed; CI now validates the pulled PNG signature and dimensions directly.
+  The repair awaits a new end-to-end CI run. This path does not compare image
   output.
 - No checked-in golden screenshots, comparison runner, or reviewed image
   baselines exist yet. UX28 remains open until the full matrix is captured,

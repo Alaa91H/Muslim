@@ -70,13 +70,10 @@ class UiUxV2ScreenshotInstrumentedTest {
             val exportDescriptor = instrumentation.uiAutomation.executeShellCommand(
                 "mkdir -p /sdcard/Download/uiux-v2 && " +
                     "run-as ${context.packageName} cat files/uiux-v2/prayer-home-ar-light.png " +
-                    "> $sharedScreenshot; echo EXPORT_EXIT:$?",
+                    "> $sharedScreenshot",
             )
-            val exportOutput = ParcelFileDescriptor.AutoCloseInputStream(exportDescriptor)
-                .bufferedReader()
-                .use { it.readText() }
-            check("EXPORT_EXIT:0" in exportOutput) {
-                "Could not export screenshot while app package was installed: $exportOutput"
+            ParcelFileDescriptor.AutoCloseInputStream(exportDescriptor).use { shellOutput ->
+                while (shellOutput.read() != -1) Unit
             }
         } finally {
             activity.finish()

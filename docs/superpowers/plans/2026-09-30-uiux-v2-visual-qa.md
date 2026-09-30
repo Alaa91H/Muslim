@@ -27,7 +27,7 @@
 **Files:** create `app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt`.
 
 - [x] Add an instrumentation test that launches the Hilt-backed `MainActivity` and writes `uiux-v2/prayer-home-ar-light.png` to app-private files.
-- [ ] Run the instrumentation test in CI and inspect the uploaded PNG dimensions/content (run #1338 uploaded error text instead of PNG; repair awaits CI).
+- [ ] Run the instrumentation test in CI and inspect the uploaded PNG dimensions/content (run #1339 failed on an empty shell-output marker; marker removed, CI pull/PNG validation pending).
 - [x] Keep capture isolated from production code and user data.
 
 ### Task 2: Publish screenshot artifacts from CI
