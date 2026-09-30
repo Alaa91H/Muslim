@@ -234,7 +234,7 @@ class UiUxV2ScreenshotInstrumentedTest {
     }
 
     private fun setSystemFontScale(scale: Float) {
-        shell("su 0 settings put system font_scale $scale")
+        shell("settings put system font_scale $scale")
         val deadline = SystemClock.uptimeMillis() + 10_000
         while (SystemClock.uptimeMillis() < deadline) {
             val systemScale = shell("settings get system font_scale").trim().toFloatOrNull()
