@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">सटीक वाक्यम्</string>
     <string name="quran_search_ayah_summary">%1$d श्लोकों में %2$d प्रसंग</string>
     <string name="quran_search_result_location">%1$s · अयह %2$d · शब्दावस्था %3$d</string>
+    <string name="quran_reciter_picker_title">पाठकं चिनुत</string>
+    <string name="quran_reciter_search_hint">पाठकान् नाम, शैली, गुणवत्ता वा अन्वेष्टुम्...</string>
+    <string name="quran_reciter_no_results">न कोऽपि पाठकः अस्य अन्वेषणस्य सङ्गतिं करोति</string>
 </resources>

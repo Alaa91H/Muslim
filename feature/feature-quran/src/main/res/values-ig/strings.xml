@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Akpaokwu kpọmkwem</string>
     <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
+    <string name="quran_reciter_picker_title">Họrọ onye na-agụ akwụkwọ</string>
+    <string name="quran_reciter_search_hint">Chọọ ndị na-agụ akwụkwọ site n\'aha, ụdị, ma ọ bụ mma…</string>
+    <string name="quran_reciter_no_results">Ọ nweghị ndị na-agụ akwụkwọ dabara na nchọ a</string>
 </resources>

@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Mana kalkal</string>
     <string name="quran_search_ayah_summary">%1$d wagǝjin suro aya %2$dben</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
+    <string name="quran_reciter_picker_title">Kǝratǝma karne</string>
+    <string name="quran_reciter_search_hint">Su-a, zaye-a, au nəmngalwo-a lan kəratəwu kulasne...</string>
+    <string name="quran_reciter_no_results">Kəratəma ndasoma kulashi adəga samənzənyi</string>
 </resources>

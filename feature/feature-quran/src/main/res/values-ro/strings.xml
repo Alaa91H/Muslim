@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Fraza exactă</string>
     <string name="quran_search_ayah_summary">%1$d apariții în versetele %2$d</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · apariții de cuvinte %3$d</string>
+    <string name="quran_reciter_picker_title">Alege un recitator</string>
+    <string name="quran_reciter_search_hint">Căutați recitatori după nume, stil sau calitate...</string>
+    <string name="quran_reciter_no_results">Niciun recitator nu corespunde acestei căutări</string>
 </resources>

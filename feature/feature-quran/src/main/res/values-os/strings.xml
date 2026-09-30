@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Бæлвырд дзырдбаст</string>
     <string name="quran_search_ayah_summary">%1$d æмбæлынц %2$d стихты</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · дзырдты æмбæлдтытæ %3$d</string>
+    <string name="quran_reciter_picker_title">Равзарут дзурæджы</string>
+    <string name="quran_reciter_search_hint">Агур кæсджыты ном, стиль кæнæ хæрзхъæддзинадмæ гæсгæ...</string>
+    <string name="quran_reciter_no_results">Ацы агурæнæн æмбæлгæ дзурæг нæй</string>
 </resources>

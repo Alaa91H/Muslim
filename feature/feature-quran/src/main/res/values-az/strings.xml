@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Dəqiq ifadə</string>
     <string name="quran_search_ayah_summary">%1$d %2$d ayələrində baş verən hadisələr</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · söz baş vermələri %3$d</string>
+    <string name="quran_reciter_picker_title">Bir qiraətçi seçin</string>
+    <string name="quran_reciter_search_hint">Ada, üsluba və ya keyfiyyətə görə oxuyanları axtarın...</string>
+    <string name="quran_reciter_no_results">Bu axtarışa uyğun heç bir oxuyan yoxdur</string>
 </resources>

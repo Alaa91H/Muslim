@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">准确的短语</string>
     <string name="quran_search_ayah_summary">%1$d 在 %2$d 经文中的出现次数</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · 单词出现 %3$d</string>
+    <string name="quran_reciter_picker_title">选择朗诵者</string>
+    <string name="quran_reciter_search_hint">按姓名、风格或质量搜索朗诵者……</string>
+    <string name="quran_reciter_no_results">没有朗诵者匹配此搜索</string>
 </resources>

@@ -44,6 +44,9 @@
 
     <!-- Recitation -->
     <string name="quran_reciter">القارئ</string>
+    <string name="quran_reciter_picker_title">اختيار القارئ</string>
+    <string name="quran_reciter_search_hint">ابحث باسم القارئ أو النمط أو الجودة…</string>
+    <string name="quran_reciter_no_results">لا يوجد قارئ يطابق البحث</string>
     <string name="quran_play_ayah">تشغيل الآية</string>
     <string name="quran_play_from_selected_ayah">تشغيل من الآية المختارة (%1$d) حتى نهاية السورة</string>
     <string name="quran_repeat">تكرار</string>

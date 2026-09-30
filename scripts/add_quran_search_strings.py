@@ -19,6 +19,9 @@ KEYS = (
     "quran_search_phrase",
     "quran_search_ayah_summary",
     "quran_search_result_location",
+    "quran_reciter_picker_title",
+    "quran_reciter_search_hint",
+    "quran_reciter_no_results",
 )
 
 

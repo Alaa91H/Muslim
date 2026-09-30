@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">عبارت دقیق</string>
     <string name="quran_search_ayah_summary">وقوع %1$d در آیات %2$d</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · تکرار کلمه %3$d</string>
+    <string name="quran_reciter_picker_title">یک قاری انتخاب کنید</string>
+    <string name="quran_reciter_search_hint">قاریان را بر اساس نام، سبک یا کیفیت جستجو کنید…</string>
+    <string name="quran_reciter_no_results">هیچ قاری با این جستجو مطابقت ندارد</string>
 </resources>

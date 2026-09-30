@@ -91,6 +91,16 @@ class ReciterTest {
     }
 
     @Test
+    fun ibrahimAkhdar_keepsSavedIdButUsesAnAvailableSourceFolder() {
+        val reciter = Reciter.Bundled.single { it.id == "ibrahim_akhdar_64kbps" }
+
+        assertThat(reciter.bitrateKbps).isEqualTo(32)
+        assertThat(reciter.urlFor(2, 286)).isEqualTo(
+            "https://everyayah.com/data/Ibrahim_Akhdar_32kbps/002286.mp3",
+        )
+    }
+
+    @Test
     fun bundledReciters_folderNamesFollowServerSpelling() {
         // Every bundled folder must follow the live server's naming; a typo
         // yields HTTP 404 and silently broken downloads. Guards known bad

@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Dárkilis cealkka</string>
     <string name="quran_search_ayah_summary">%1$d gávdnojit %2$d veršuvnnain</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
+    <string name="quran_reciter_picker_title">Vállje lohkki</string>
+    <string name="quran_reciter_search_hint">Ohcat lohkkiid nama, stiilla dahje kvalitehta mielde...</string>
+    <string name="quran_reciter_no_results">Ii oktage lohkki heive dán ohcamii</string>
 </resources>

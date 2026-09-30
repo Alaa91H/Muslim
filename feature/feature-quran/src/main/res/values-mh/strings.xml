@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Naan eo ejimwe</string>
     <string name="quran_search_ayah_summary">%1$d ej walok ilo %2$d eon ko</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · nan ko rej walok %3$d</string>
+    <string name="quran_reciter_picker_title">Kālet juon ri-kōnono</string>
+    <string name="quran_reciter_search_hint">Pukot ri-kōmman al ro ilo etair, style, ak joñan emman...</string>
+    <string name="quran_reciter_no_results">Ejelok ri jeje ro rej errā ippān pukōt in</string>
 </resources>

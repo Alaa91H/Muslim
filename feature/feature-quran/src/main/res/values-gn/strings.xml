@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Ñe’ẽjoaju añetegua</string>
     <string name="quran_search_ayah_summary">%1$d ojehúva umi versículo %2$d-pe</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · ñe’ẽ ojejuhúva %3$d</string>
+    <string name="quran_reciter_picker_title">Eiporavo peteĩ recitador</string>
+    <string name="quran_reciter_search_hint">Eheka umi recitador héra, estilo térã calidad rupive...</string>
+    <string name="quran_reciter_no_results">Ndaipóri recitador ojoajúva ko jeporeka rehe</string>
 </resources>

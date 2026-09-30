@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">சரியான சொற்றொடர்</string>
     <string name="quran_search_ayah_summary">%1$d வசனங்களில் %2$d நிகழ்வுகள்</string>
     <string name="quran_search_result_location">%1$s · அயா %2$d · வார்த்தை நிகழ்வுகள் %3$d</string>
+    <string name="quran_reciter_picker_title">ஒரு வாசிப்பாளரை தேர்வு செய்யவும்</string>
+    <string name="quran_reciter_search_hint">பெயர், நடை அல்லது தரம் மூலம் வாசிப்பவர்களைத் தேடுங்கள்...</string>
+    <string name="quran_reciter_no_results">இந்தத் தேடலுடன் எந்த வாசிப்பாளரும் பொருந்தவில்லை</string>
 </resources>

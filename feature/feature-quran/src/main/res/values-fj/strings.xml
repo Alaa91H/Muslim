@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Na malanivosa dodonu</string>
     <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
+    <string name="quran_reciter_picker_title">Digitaka e dua na dauwiliwili</string>
+    <string name="quran_reciter_search_hint">Vakasaqara na dauwiliwili ena yaca, ivakarau, se vinaka...</string>
+    <string name="quran_reciter_no_results">E sega ni dua na dauwiliwili e veiganiti kei na vakasaqaqara oqo</string>
 </resources>

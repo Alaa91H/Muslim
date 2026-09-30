@@ -5,6 +5,7 @@ import android.app.AlarmManager
 import android.app.NotificationManager
 import android.content.Intent
 import android.os.Build
+import android.os.ParcelFileDescriptor
 import android.os.SystemClock
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -41,14 +42,14 @@ class AdhanDeliveryProbeInstrumentedTest {
     fun grantRequiredSystemAccessAndSaveAudibleSettings() = runBlocking {
         val automation = InstrumentationRegistry.getInstrumentation().uiAutomation
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            automation.executeShellCommand(
+            runShell(automation.executeShellCommand(
                 "pm grant ${context.packageName} ${Manifest.permission.POST_NOTIFICATIONS}",
-            ).close()
+            ))
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            automation.executeShellCommand(
+            runShell(automation.executeShellCommand(
                 "appops set ${context.packageName} SCHEDULE_EXACT_ALARM allow",
-            ).close()
+            ))
         }
         NotificationChannels.create(context)
         entryPoint.settingsRepository().save(
@@ -75,8 +76,17 @@ class AdhanDeliveryProbeInstrumentedTest {
     @Test
     fun scheduledProbe_reachesReceiver_postsActiveAdhanAndStartsAudio() {
         val alarmManager = context.getSystemService(AlarmManager::class.java)
+        val appOps = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            runShell(
+                InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(
+                    "appops get ${context.packageName} SCHEDULE_EXACT_ALARM",
+                ),
+            )
+        } else {
+            "not required"
+        }
         assertTrue(
-            "The test emulator must grant exact-alarm access before exercising the real probe",
+            "The test emulator must grant exact-alarm access before exercising the real probe; appops=$appOps",
             Build.VERSION.SDK_INT < Build.VERSION_CODES.S || alarmManager.canScheduleExactAlarms(),
         )
 
@@ -111,6 +121,9 @@ class AdhanDeliveryProbeInstrumentedTest {
         } while (SystemClock.elapsedRealtime() < deadline)
         return null
     }
+
+    private fun runShell(descriptor: ParcelFileDescriptor): String =
+        ParcelFileDescriptor.AutoCloseInputStream(descriptor).use { it.readBytes().toString(Charsets.UTF_8) }
 
     private companion object {
         const val USER_SELECTED_VOLUME_PERCENT = 17

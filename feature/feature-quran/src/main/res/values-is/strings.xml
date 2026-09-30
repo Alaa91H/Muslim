@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Nákvæm setning</string>
     <string name="quran_search_ayah_summary">%1$d tilvik í %2$d versum</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · orðatilvik %3$d</string>
+    <string name="quran_reciter_picker_title">Veldu upplesara</string>
+    <string name="quran_reciter_search_hint">Leitaðu að upplesendum eftir nafni, stíl eða gæðum ...</string>
+    <string name="quran_reciter_no_results">Engir upplesarar passa við þessa leit</string>
 </resources>

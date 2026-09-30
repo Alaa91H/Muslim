@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -26,6 +27,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.material.icons.Icons
@@ -55,6 +58,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Snackbar
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
@@ -143,6 +147,7 @@ import org.muslim.app.feature.quran.data.PlaybackState
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.ReaderTheme
+import org.muslim.app.feature.quran.domain.ReciterSearch
 import org.muslim.app.feature.quran.domain.Reciter
 import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.SurahRevelationData
@@ -1322,27 +1327,86 @@ private fun ReciterSelectionSection(
     reciters: List<Reciter>,
     onReciterSelected: (Reciter) -> Unit,
 ) {
+    var pickerOpen by rememberSaveable { mutableStateOf(false) }
+    var query by rememberSaveable { mutableStateOf("") }
+    val filteredReciters = remember(reciters, query) { ReciterSearch.filter(reciters, query) }
     Text(
         text = stringResource(R.string.quran_reciter),
         style = MaterialTheme.typography.titleMedium,
         color = MaterialTheme.colorScheme.primary,
     )
-    reciters.forEach { option ->
-        val selected = option.id == selectedReciter.id
-        IslamicSelectableCard(
-            selected = selected,
-            onClick = { onReciterSelected(option) },
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(IslamicRadius.AyahMarker),
-            contentPadding = PaddingValues(IslamicSpacing.Compact),
-            containerColor = if (selected) {
-                MaterialTheme.colorScheme.primaryContainer
-            } else {
-                MaterialTheme.colorScheme.surfaceContainerHigh
+
+    IslamicSelectableCard(
+        selected = true,
+        onClick = {
+            query = ""
+            pickerOpen = true
+        },
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(IslamicRadius.AyahMarker),
+        contentPadding = PaddingValues(IslamicSpacing.Compact),
+    ) {
+        ReciterSelectionRow(option = selectedReciter, selected = true)
+    }
+
+    if (pickerOpen) {
+        AlertDialog(
+            onDismissRequest = { pickerOpen = false },
+            title = { Text(stringResource(R.string.quran_reciter_picker_title)) },
+            text = {
+                Column(verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small)) {
+                    OutlinedTextField(
+                        value = query,
+                        onValueChange = { query = it },
+                        modifier = Modifier.fillMaxWidth(),
+                        singleLine = true,
+                        placeholder = {
+                            Text(stringResource(R.string.quran_reciter_search_hint))
+                        },
+                    )
+                    if (filteredReciters.isEmpty()) {
+                        Text(
+                            text = stringResource(R.string.quran_reciter_no_results),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    } else {
+                        LazyColumn(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .heightIn(max = 420.dp),
+                            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.XSmall),
+                        ) {
+                            items(filteredReciters, key = Reciter::id) { option ->
+                                val selected = option.id == selectedReciter.id
+                                IslamicSelectableCard(
+                                    selected = selected,
+                                    onClick = {
+                                        onReciterSelected(option)
+                                        pickerOpen = false
+                                    },
+                                    modifier = Modifier.fillMaxWidth(),
+                                    shape = RoundedCornerShape(IslamicRadius.AyahMarker),
+                                    contentPadding = PaddingValues(IslamicSpacing.Compact),
+                                    containerColor = if (selected) {
+                                        MaterialTheme.colorScheme.primaryContainer
+                                    } else {
+                                        MaterialTheme.colorScheme.surfaceContainerHigh
+                                    },
+                                ) {
+                                    ReciterSelectionRow(option = option, selected = selected)
+                                }
+                            }
+                        }
+                    }
+                }
             },
-        ) {
-            ReciterSelectionRow(option = option, selected = selected)
-        }
+            confirmButton = {
+                TextButton(onClick = { pickerOpen = false }) {
+                    Text(stringResource(R.string.quran_details_close))
+                }
+            },
+        )
     }
 }
 

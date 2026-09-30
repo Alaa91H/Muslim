@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Mutsara chaiwo</string>
     <string name="quran_search_ayah_summary">%1$d zvinoitika mumavhesi e%2$d</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · kuitika kwezwi %3$d</string>
+    <string name="quran_reciter_picker_title">Sarudza reciter</string>
+    <string name="quran_reciter_search_hint">Tsvaga vaverengi nemazita, maitiro, kana mhando…</string>
+    <string name="quran_reciter_no_results">Hapana vaverengi vanofanana netsvakiridzo iyi</string>
 </resources>

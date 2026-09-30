@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">صحيح جملو</string>
     <string name="quran_search_ayah_summary">%1$d واقعا %2$d آيتن ۾</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · لفظ واقعا %3$d</string>
+    <string name="quran_reciter_picker_title">هڪ تلاوت ڪندڙ چونڊيو</string>
+    <string name="quran_reciter_search_hint">نالي، انداز، يا معيار جي ذريعي تلاوت ڪندڙن کي ڳولهيو ...</string>
+    <string name="quran_reciter_no_results">هن ڳولها سان ڪوبه پڙهندڙ نه ملندو آهي</string>
 </resources>

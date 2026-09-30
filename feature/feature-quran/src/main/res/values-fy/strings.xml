@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Krekte útdrukking</string>
     <string name="quran_search_ayah_summary">%1$d foarfallen yn %2$d fersen</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · wurdfoarfallen %3$d</string>
+    <string name="quran_reciter_picker_title">Kies in reciter</string>
+    <string name="quran_reciter_search_hint">Sykje reciters op namme, styl, of kwaliteit ...</string>
+    <string name="quran_reciter_no_results">Gjin foardragers oerienkomme mei dizze sykopdracht</string>
 </resources>

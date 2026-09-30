@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Fuaiupu sa\'o</string>
     <string name="quran_search_ayah_summary">%1$d mea tutupu i %2$d fuaiupu</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · upu tupu %3$d</string>
+    <string name="quran_reciter_picker_title">Filifili se tauloto</string>
+    <string name="quran_reciter_search_hint">Su\'e le au tauloto ile igoa, sitaili, po\'o le lelei...</string>
+    <string name="quran_reciter_no_results">E leai se tauloto e fetaui ma lenei sailiga</string>
 </resources>

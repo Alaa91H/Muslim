@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Presiese frase</string>
     <string name="quran_search_ayah_summary">%1$d voorkomste in %2$d verse</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · woordvoorkomste %3$d</string>
+    <string name="quran_reciter_picker_title">Kies \'n voorleser</string>
+    <string name="quran_reciter_search_hint">Soek voorlesers volgens naam, styl of kwaliteit …</string>
+    <string name="quran_reciter_no_results">Geen voorlesers pas by hierdie soektog nie</string>
 </resources>

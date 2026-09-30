@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">नेमका वाक्प्रचार</string>
     <string name="quran_search_ayah_summary">%1$d श्लोकांमध्ये %2$d घटना</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · शब्द घटना %3$d</string>
+    <string name="quran_reciter_picker_title">एक वाचक निवडा</string>
+    <string name="quran_reciter_search_hint">नाव, शैली किंवा गुणवत्तेनुसार वाचक शोधा…</string>
+    <string name="quran_reciter_no_results">या शोधाशी कोणतेही वाचक जुळत नाहीत</string>
 </resources>

@@ -1,6 +1,7 @@
 package org.muslim.app
 
 import android.app.Instrumentation
+import android.graphics.Rect
 import android.os.ParcelFileDescriptor
 import android.os.SystemClock
 import android.view.accessibility.AccessibilityNodeInfo
@@ -15,6 +16,7 @@ class QuranReaderBookNavigationInstrumentedTest {
     @Test
     fun aalImranPreviousPageShowsTheBaqarahMushafPage() {
         var swipedBack = false
+        var sharedSpreadVerified = false
         UiUxV2ScreenshotInstrumentedTest().capturePrayerHomeScreenshot(
             languageCode = "ar",
             themeMode = AppThemeMode.Light,
@@ -26,19 +28,40 @@ class QuranReaderBookNavigationInstrumentedTest {
                 var reachedBaqarahPage = false
                 while (SystemClock.uptimeMillis() < deadline && !reachedBaqarahPage) {
                     val root = instrumentation.uiAutomation.rootInActiveWindow
+                    val windowBounds = Rect()
+                    root?.getBoundsInScreen(windowBounds)
                     val page50 = root?.findAccessibilityNodeInfosByViewId("$packageName:id/mushaf-page-50").orEmpty()
-                    if (page50.isNotEmpty() && !swipedBack) {
-                        instrumentationShell(instrumentation, "input swipe 70 320 270 320 400")
+                    val page49 = root?.findAccessibilityNodeInfosByViewId("$packageName:id/mushaf-page-49").orEmpty()
+                    val page50Visible = page50.any { substantiallyVisible(it, windowBounds) }
+                    val page49Visible = page49.any { substantiallyVisible(it, windowBounds) }
+                    if (page50Visible && page49Visible) {
+                        // On a two-page layout, Al Baqarah's last page (49)
+                        // and Aal Imran's first page (50) share one printed
+                        // spread. Both being substantially on-screen proves
+                        // the correct book order without flipping past 49.
+                        sharedSpreadVerified = true
+                        reachedBaqarahPage = true
+                    } else if (page50Visible && !swipedBack) {
+                        // On a one-page layout, use a full-width RTL page turn;
+                        // a short 200px swipe can be below the pager's fling
+                        // threshold on the CI emulator.
+                        val metrics = instrumentation.targetContext.resources.displayMetrics
+                        val y = (metrics.heightPixels * 0.4f).toInt()
+                        val startX = (metrics.widthPixels * 0.1f).toInt()
+                        val endX = (metrics.widthPixels * 0.9f).toInt()
+                        instrumentationShell(
+                            instrumentation,
+                            "input swipe $startX $y $endX $y 400",
+                        )
                         swipedBack = true
-                    } else if (swipedBack) {
-                        reachedBaqarahPage = root
-                            ?.findAccessibilityNodeInfosByViewId("$packageName:id/mushaf-page-49")
-                            .orEmpty().isNotEmpty()
+                    } else if (swipedBack && page49Visible) {
+                        reachedBaqarahPage = true
                     }
                     SystemClock.sleep(150)
                 }
-                check(swipedBack && reachedBaqarahPage) {
-                    "Paging back from Aal Imran must reach Al Baqarah's ending page 49"
+                check(reachedBaqarahPage) {
+                    "Al Baqarah page 49 must be visible before/after paging back from Aal Imran page 50 " +
+                        "(swiped=$swipedBack, sharedSpread=$sharedSpreadVerified)"
                 }
             },
         )
@@ -47,5 +70,19 @@ class QuranReaderBookNavigationInstrumentedTest {
     private fun instrumentationShell(instrumentation: Instrumentation, command: String) {
         val descriptor = instrumentation.uiAutomation.executeShellCommand(command)
         ParcelFileDescriptor.AutoCloseInputStream(descriptor).use { it.readBytes() }
+    }
+
+    private fun substantiallyVisible(node: AccessibilityNodeInfo, window: Rect): Boolean {
+        val bounds = Rect()
+        node.getBoundsInScreen(bounds)
+        if (bounds.width() <= 0 || bounds.height() <= 0 || !node.isVisibleToUser) return false
+        val visibleBounds = Rect(bounds)
+        if (!visibleBounds.intersect(window)) return false
+        return visibleBounds.width() >= bounds.width() * MIN_VISIBLE_FRACTION &&
+            visibleBounds.height() >= bounds.height() * MIN_VISIBLE_FRACTION
+    }
+
+    private companion object {
+        const val MIN_VISIBLE_FRACTION = 0.35f
     }
 }

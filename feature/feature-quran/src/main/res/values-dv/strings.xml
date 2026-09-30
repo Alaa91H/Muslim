@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">ސީދާ ޢިބާރާތެވެ</string>
     <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · ލަފުޒުތައް ފެންނަ ތަންތަން %3$d</string>
+    <string name="quran_reciter_picker_title">ކިޔުންތެރިއަކު ހޮވާށެވެ</string>
+    <string name="quran_reciter_search_hint">ރީސައިޓަރުންގެ ނަމާއި، ސްޓައިލް، ނުވަތަ ކޮލިޓީއަށް ބަލައިގެން ހޯދުން...</string>
+    <string name="quran_reciter_no_results">މި ސަރޗް އާއި އެއްވެސް ރީސައިޓަރަކު އެއްގޮތެވެ</string>
 </resources>

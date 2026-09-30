@@ -84,6 +84,7 @@ class UiUxV2ScreenshotInstrumentedTest {
         val fixedClock = InstrumentationRegistry.getArguments().getString("uiux.fixedClock") == "true"
         val originalWallTime = System.currentTimeMillis()
         val originalElapsedTime = SystemClock.elapsedRealtime()
+        var expandedDisplayDiagnostics = "not requested"
         runBlocking {
             // Screen QA starts after onboarding; system permission dialogs can
             // otherwise dim or replace the screen while still producing a PNG.
@@ -105,8 +106,13 @@ class UiUxV2ScreenshotInstrumentedTest {
         var scenario: ActivityScenario<MainActivity>? = null
         try {
             if (expanded) {
-                shell("wm size 1600x1000")
-                shell("wm density 160")
+                val sizeResult = shell("wm size 1600x1000")
+                val densityResult = shell("wm density 160")
+                val appliedSize = shell("wm size")
+                val appliedDensity = shell("wm density")
+                expandedDisplayDiagnostics =
+                    "sizeCommand=$sizeResult densityCommand=$densityResult appliedSize=$appliedSize " +
+                        "appliedDensity=$appliedDensity"
                 val widthDeadline = SystemClock.uptimeMillis() + 10_000
                 while (context.resources.configuration.screenWidthDp < 840 && SystemClock.uptimeMillis() < widthDeadline) {
                     SystemClock.sleep(100)
@@ -157,7 +163,8 @@ class UiUxV2ScreenshotInstrumentedTest {
                     "Activity font scale does not match the requested screenshot variant"
                 }
                 if (expanded) check(activity.resources.configuration.screenWidthDp >= 840) {
-                    "Expanded capture did not reach the expanded window breakpoint: ${activity.resources.configuration}"
+                    "Expanded capture did not reach the expanded window breakpoint: " +
+                        "${activity.resources.configuration}; $expandedDisplayDiagnostics"
                 }
                 val bars = WindowCompat.getInsetsController(activity.window, activity.window.decorView)
                 val lightTheme = themeMode == AppThemeMode.Light

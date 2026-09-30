@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">കൃത്യമായ വാചകം</string>
     <string name="quran_search_ayah_summary">%1$d വാക്യങ്ങളിലെ %2$d സംഭവങ്ങൾ</string>
     <string name="quran_search_result_location">%1$s · ആയ %2$d · പദ സംഭവങ്ങൾ %3$d</string>
+    <string name="quran_reciter_picker_title">ഒരു വായനക്കാരനെ തിരഞ്ഞെടുക്കുക</string>
+    <string name="quran_reciter_search_hint">പേര്, ശൈലി അല്ലെങ്കിൽ ഗുണമേന്മ പ്രകാരം വായനക്കാരെ തിരയുക...</string>
+    <string name="quran_reciter_no_results">ഈ തിരയലുമായി പൊരുത്തപ്പെടുന്ന വായനക്കാരൊന്നും</string>
 </resources>

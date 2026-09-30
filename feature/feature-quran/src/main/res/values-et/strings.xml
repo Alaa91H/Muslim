@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Täpne fraas</string>
     <string name="quran_search_ayah_summary">%1$d esinemised %2$d salmides</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · sõna esinemised %3$d</string>
+    <string name="quran_reciter_picker_title">Valige ettelugeja</string>
+    <string name="quran_reciter_search_hint">Otsige ülesütlejaid nime, stiili või kvaliteedi järgi…</string>
+    <string name="quran_reciter_no_results">Sellele otsingule ei vasta ükski ülesütleja</string>
 </resources>

@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Frasa tepat</string>
     <string name="quran_search_ayah_summary">kejadian %1$d dalam ayat %2$d</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · kejadian perkataan %3$d</string>
+    <string name="quran_reciter_picker_title">Pilih qari</string>
+    <string name="quran_reciter_search_hint">Cari qari mengikut nama, gaya atau kualiti…</string>
+    <string name="quran_reciter_no_results">Tiada qari yang sepadan dengan carian ini</string>
 </resources>

@@ -3,6 +3,7 @@ package org.muslim.app.feature.prayertimes.notifications
 import android.app.Notification
 import android.app.NotificationManager
 import android.os.Build
+import android.os.ParcelFileDescriptor
 import android.os.SystemClock
 import androidx.core.app.NotificationCompat
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -35,9 +36,10 @@ class AdhanNotificationsInstrumentedTest {
     @Before
     fun grantNotificationPermissionAndCreateChannels() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            InstrumentationRegistry.getInstrumentation().uiAutomation
-                .executeShellCommand("pm grant ${context.packageName} android.permission.POST_NOTIFICATIONS")
-                .close()
+            runShell(
+                InstrumentationRegistry.getInstrumentation().uiAutomation
+                    .executeShellCommand("pm grant ${context.packageName} android.permission.POST_NOTIFICATIONS"),
+            )
         }
         NotificationChannels.create(context)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -110,6 +112,9 @@ class AdhanNotificationsInstrumentedTest {
             finalState == expectedActive,
         )
     }
+
+    private fun runShell(descriptor: ParcelFileDescriptor): String =
+        ParcelFileDescriptor.AutoCloseInputStream(descriptor).use { it.readBytes().toString(Charsets.UTF_8) }
 
     @Test
     fun nextAdhanCountdown_usesTheCurrentPrayerNotificationIcon() {

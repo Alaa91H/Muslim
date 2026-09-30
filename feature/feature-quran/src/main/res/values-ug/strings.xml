@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">ئېنىق جۈملە</string>
     <string name="quran_search_ayah_summary">%1$d %2$d ئايەتلىرىدە كۆرۈلىدۇ</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · سۆزنىڭ پەيدا بولۇشى %3$d</string>
+    <string name="quran_reciter_picker_title">قىرائەتچىنى تاللاڭ</string>
+    <string name="quran_reciter_search_hint">قىرائەتچىلەرنى ئىسىم ، ئۇسلۇب ياكى سۈپەت بويىچە ئىزدەڭ…</string>
+    <string name="quran_reciter_no_results">ھېچقانداق ئىزدىگۈچىلەر بۇ ئىزدەشكە ماس كەلمەيدۇ</string>
 </resources>

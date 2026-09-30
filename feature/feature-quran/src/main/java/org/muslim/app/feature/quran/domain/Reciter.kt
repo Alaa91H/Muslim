@@ -35,8 +35,9 @@ data class Reciter(
             style: String,
             bitrate: Int,
             portraitUrl: String? = null,
+            stableId: String = folder.lowercase(),
         ) = Reciter(
-            id = folder.lowercase(),
+            id = stableId,
             name = name,
             style = style,
             urlTemplate = "https://everyayah.com/data/$folder/{surah}{ayah}.mp3",
@@ -81,7 +82,15 @@ data class Reciter(
             entry("Nasser_Alqatami_128kbps", "ناصر القطامي", "مرتّل · 128k", 128),
             entry("Sahl_Yassin_128kbps", "سهل ياسين", "مرتّل · 128k", 128),
             entry("Salah_Al_Budair_128kbps", "صلاح البدير", "مرتّل · 128k", 128),
-            entry("Ibrahim_Akhdar_64kbps", "إبراهيم الأخضر", "مرتّل · 64k", 64),
+            // Keep the original preference ID while switching away from a
+            // dead 64kbps folder; the verified 32kbps recording is available.
+            entry(
+                "Ibrahim_Akhdar_32kbps",
+                "إبراهيم الأخضر",
+                "مرتّل · 32k",
+                32,
+                stableId = "ibrahim_akhdar_64kbps",
+            ),
             entry("Muhammad_Jibreel_128kbps", "محمد جبريل", "مرتّل · 128k", 128),
             // Restored missing validated catalogue entries while retaining the stable folder-derived IDs.
             entry("Abdullah_Matroud_128kbps", "عبد الله المطرود", "مرتّل · 128k", 128),
@@ -111,4 +120,25 @@ data class Reciter(
             entry("Yaser_Salamah_128kbps", "ياسر سلامة", "مرتّل · 128k", 128),
         )
     }
+}
+
+/** Locale-tolerant catalog filtering for the reciter selector. */
+object ReciterSearch {
+    private val arabicMarks = Regex("[\\u064B-\\u065F\\u0670\\u06D6-\\u06ED]")
+
+    fun filter(reciters: List<Reciter>, query: String): List<Reciter> {
+        val terms = normalize(query).split(Regex("\\s+")).filter(String::isNotBlank)
+        if (terms.isEmpty()) return reciters
+        return reciters.filter { reciter ->
+            val searchable = normalize("${reciter.name} ${reciter.id} ${reciter.style}")
+            terms.all(searchable::contains)
+        }
+    }
+
+    private fun normalize(value: String): String = value
+        .lowercase(java.util.Locale.ROOT)
+        .replace(arabicMarks, "")
+        .replace('_', ' ')
+        .replace('-', ' ')
+        .trim()
 }

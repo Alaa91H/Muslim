@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Нийса дешнийн цхьаьнакхетар</string>
     <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
+    <string name="quran_reciter_picker_title">Дешархо харжа .</string>
+    <string name="quran_reciter_search_hint">ЦӀерашца, хатӀца, я дикаллица лаха дешархой...</string>
+    <string name="quran_reciter_no_results">Цхьа а дешархо ца догӀу хӀокху лехамца</string>
 </resources>

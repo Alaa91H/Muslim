@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">دقیق جمله</string>
     <string name="quran_search_ayah_summary">%1$d په %2$d آیتونو کې پیښې</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · د کلمې پیښې %3$d</string>
+    <string name="quran_reciter_picker_title">یو تلاوت کوونکی غوره کړئ</string>
+    <string name="quran_reciter_search_hint">د نوم، سټایل یا کیفیت له مخې تلاوت کوونکي وپلټئ...</string>
+    <string name="quran_reciter_no_results">هیڅ تلاوت کونکي د دې لټون سره سمون نه خوري</string>
 </resources>

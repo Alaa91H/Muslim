@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Tam ifade</string>
     <string name="quran_search_ayah_summary">%1$d ayetlerinde %2$d oluşumları</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · kelime oluşumları %3$d</string>
+    <string name="quran_reciter_picker_title">Bir okuyucu seçin</string>
+    <string name="quran_reciter_search_hint">Okuyucuları ada, stile veya kaliteye göre arayın…</string>
+    <string name="quran_reciter_no_results">Bu aramayla eşleşen okuyucu yok</string>
 </resources>

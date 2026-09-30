@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Bangogo ya sikisiki</string>
     <string name="quran_search_ayah_summary">%1$d kumonana na baverse ya %2$d</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · bangogo ya kumonana %3$d</string>
+    <string name="quran_reciter_picker_title">Pona muntu ya ke tanga</string>
+    <string name="quran_reciter_search_hint">Sosa bantu ya ke tanga na zina, mutindu, to kikalulu...</string>
+    <string name="quran_reciter_no_results">Ata muntu mosi ve ke tanga ke wakana ti nsosa yai</string>
 </resources>

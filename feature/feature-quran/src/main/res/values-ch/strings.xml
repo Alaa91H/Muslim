@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">I eksakto na sinangan</string>
     <string name="quran_search_ayah_summary">%1$d ma sodda\' gi i %2$d na bidan-ñiha</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
+    <string name="quran_reciter_picker_title">Pulan un kånta</string>
+    <string name="quran_reciter_search_hint">Fanli\'e\' i manma\'estra/ron-ñiha put na\'an, estilo, pat kualidåt...</string>
+    <string name="quran_reciter_no_results">taya\' na\'ma\'å\'ñao ni\' parehu yan este na inaligao</string>
 </resources>

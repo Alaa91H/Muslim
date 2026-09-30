@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Teny marina</string>
     <string name="quran_search_ayah_summary">%1$d fisehoan-javatra amin\'ny andininy %2$d</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · fisehoan\'ny teny %3$d</string>
+    <string name="quran_reciter_picker_title">Mifidiana reciter</string>
+    <string name="quran_reciter_search_hint">Mitadiava mpiteny amin\'ny anarana, fomba, na kalitao…</string>
+    <string name="quran_reciter_no_results">Tsy misy mpiteny mifanandrify amin\'ity fikarohana ity</string>
 </resources>

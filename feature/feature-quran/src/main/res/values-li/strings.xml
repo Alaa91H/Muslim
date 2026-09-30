@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Exacte zin</string>
     <string name="quran_search_ayah_summary">%1$d veurkomme in %2$d verse</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · veurkoms %3$d</string>
+    <string name="quran_reciter_picker_title">Keze un reciter</string>
+    <string name="quran_reciter_search_hint">Zeuk recitors op naam, stijl of kwaliteit…</string>
+    <string name="quran_reciter_no_results">Gein reciters euvereinkomme mit deze zeuktoch</string>
 </resources>

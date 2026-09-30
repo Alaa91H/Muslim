@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Præcis sætning</string>
     <string name="quran_search_ayah_summary">%1$d forekomster i %2$d vers</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · ordforekomster %3$d</string>
+    <string name="quran_reciter_picker_title">Vælg en reciter</string>
+    <string name="quran_reciter_search_hint">Søg oplæsere efter navn, stil eller kvalitet...</string>
+    <string name="quran_reciter_no_results">Ingen oplæsere matcher denne søgning</string>
 </resources>

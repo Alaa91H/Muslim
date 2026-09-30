@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Frasa exacta</string>
     <string name="quran_search_ayah_summary">%1$d ocurrencias en %2$d versos</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · ocurrencias de palabras %3$d</string>
+    <string name="quran_reciter_picker_title">Causissètz un recitator</string>
+    <string name="quran_reciter_search_hint">Cercar de recitaires per nom, estil o qualitat...</string>
+    <string name="quran_reciter_no_results">Cap de recitador correspond pas a aquesta recèrca</string>
 </resources>

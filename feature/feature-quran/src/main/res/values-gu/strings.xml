@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">ચોક્કસ શબ્દસમૂહ</string>
     <string name="quran_search_ayah_summary">%1$d છંદોમાં %2$d ઘટનાઓ</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · શબ્દની ઘટનાઓ %3$d</string>
+    <string name="quran_reciter_picker_title">એક પાઠક પસંદ કરો</string>
+    <string name="quran_reciter_search_hint">નામ, શૈલી અથવા ગુણવત્તા દ્વારા વાચકોને શોધો...</string>
+    <string name="quran_reciter_no_results">આ શોધ સાથે કોઈ વાચકો મેળ ખાતા નથી</string>
 </resources>

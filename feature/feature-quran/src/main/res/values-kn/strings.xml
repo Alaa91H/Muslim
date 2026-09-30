@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">ನಿಖರವಾದ ನುಡಿಗಟ್ಟು</string>
     <string name="quran_search_ayah_summary">%1$d ಸಂಭವಗಳು %2$d ಪದ್ಯಗಳಲ್ಲಿ</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · ಪದ ಸಂಭವಿಸುವಿಕೆಗಳು %3$d</string>
+    <string name="quran_reciter_picker_title">ವಾಚನಕಾರನನ್ನು ಆರಿಸಿ</string>
+    <string name="quran_reciter_search_hint">ಹೆಸರು, ಶೈಲಿ ಅಥವಾ ಗುಣಮಟ್ಟದ ಮೂಲಕ ವಾಚನಕಾರರನ್ನು ಹುಡುಕಿ...</string>
+    <string name="quran_reciter_no_results">ಈ ಹುಡುಕಾಟಕ್ಕೆ ಯಾವುದೇ ವಾಚನಕಾರರು ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ</string>
 </resources>
