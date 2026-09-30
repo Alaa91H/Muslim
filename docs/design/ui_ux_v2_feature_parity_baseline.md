@@ -221,7 +221,7 @@ These are explicit acceptance requirements for later phases:
 
 ## Visual baseline status
 
-The current repository does not yet contain a comprehensive screenshot-regression baseline for every critical screen. UX00 therefore freezes the functional contract immediately and records the required visual baseline matrix below. CI captures the Prayer Home Arabic/light screen on emulator APIs 26 and 36 as an artifact; this does not compare screenshots, establish reviewed goldens, or satisfy the full matrix.
+The current repository does not yet contain a comprehensive screenshot-regression baseline for every critical screen. UX00 therefore freezes the functional contract immediately and records the required visual baseline matrix below. CI is configured to capture the Prayer Home Arabic/light screen on emulator APIs 26 and 36 as an artifact, but the export path still awaits a green run; it does not compare screenshots, establish reviewed goldens, or satisfy the full matrix.
 
 Critical baseline screens:
 - Prayer Home
@@ -239,4 +239,4 @@ Required baseline variants:
 - normal font / large font / 200% font
 - compact phone / expanded device
 
-Until UX28 lands, intentional UI changes must be reviewed against the current UI and the explicit acceptance requirements in `ui_ux_v2_execution_plan.md`. The current CI capture covers only Prayer Home Arabic/light; this workspace has no connected local emulator/device and cannot capture or visually compare the remaining matrix.
+Until UX28 lands, intentional UI changes must be reviewed against the current UI and the explicit acceptance requirements in `ui_ux_v2_execution_plan.md`. The configured CI capture covers only Prayer Home Arabic/light; this workspace has no connected local emulator/device and cannot capture or visually compare the remaining matrix.

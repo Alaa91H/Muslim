@@ -175,9 +175,10 @@ All must preserve existing capability and use the shared patterns.
 
 ### UX28 — Screenshot and visual regression
 
-- CI captures the actual Prayer Home screen on Android emulators and stores
-  `prayer-home-ar-light.png` as a per-API screenshot artifact. This verifies
-  capture and artifact transport only; it does not compare image output.
+- CI is configured to capture the actual Prayer Home screen on Android
+  emulators and store `prayer-home-ar-light.png` as a per-API artifact. The
+  capture/export path is still awaiting a green CI run; it does not compare
+  image output.
 - No checked-in golden screenshots, comparison runner, or reviewed image
   baselines exist yet. UX28 remains open until the full matrix is captured,
   visually reviewed, and intentional differences are accepted.
@@ -185,8 +186,9 @@ All must preserve existing capability and use the shared patterns.
   image for Arabic RTL and English LTR, light and dark themes, normal and large
   fonts, and compact and expanded widths; intentional changes need reviewed
   baseline updates.
-- The initial CI capture covers only Prayer Home Arabic/light on emulator APIs
-  26 and 36; all other screen/variant pairs and visual comparison remain open.
+- The configured initial CI capture covers only Prayer Home Arabic/light on
+  emulator APIs 26 and 36; all other screen/variant pairs and visual
+  comparison remain open.
 
 ### UX29 — Performance and motion
 

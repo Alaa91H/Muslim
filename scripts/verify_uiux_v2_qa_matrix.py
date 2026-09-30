@@ -28,7 +28,7 @@ REQUIRED_VARIANTS = (
 )
 OPEN_GATES = (
     "visual comparison remain open",
-    "initial CI capture covers only Prayer Home Arabic/light",
+    "configured initial CI capture covers only Prayer Home Arabic/light",
     "200% system-font screenshot sweep has been captured",
     "Frame-time, recomposition, and scrolling measurements have not been captured",
 )
