@@ -1,5 +1,6 @@
 package org.muslim.app.ui
 
+import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.LocalActivity
 import androidx.activity.enableEdgeToEdge
@@ -320,7 +321,7 @@ fun MuslimApp(
         AppThemeMode.Dark -> true
     }
 
-    val activity = LocalActivity.current
+    val activity = LocalActivity.current as? ComponentActivity
     LaunchedEffect(activity, darkTheme) {
         activity?.enableEdgeToEdge(
             statusBarStyle = SystemBarStyle.auto(
