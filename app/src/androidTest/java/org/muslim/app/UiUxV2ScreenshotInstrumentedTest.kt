@@ -56,7 +56,7 @@ class UiUxV2ScreenshotInstrumentedTest {
                 }
             }
             check(sampledColors.size > 1) { "Screenshot appears blank; app content was not rendered" }
-            val outputDirectory = File(activity.getExternalFilesDir(null), "uiux-v2")
+            val outputDirectory = File(context.filesDir, "uiux-v2")
             check(outputDirectory.mkdirs() || outputDirectory.isDirectory) {
                 "Could not create screenshot output directory: ${outputDirectory.absolutePath}"
             }

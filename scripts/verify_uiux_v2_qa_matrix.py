@@ -72,8 +72,8 @@ def main() -> None:
             path.read_text(encoding="utf-8")
             for path in (ROOT / "app/src/androidTest").rglob("*.kt")
         )
-        and 'adb pull "/sdcard/Android/data/$(sed -n' in workflow
-        and workflow.index("./gradlew :app:connectedDebugAndroidTest") < workflow.index("adb pull \"/sdcard/Android/data/$(sed -n") < workflow.index("- name: Upload UI/UX V2 emulator screenshots")
+        and 'adb exec-out run-as "$application_id" cat files/uiux-v2/prayer-home-ar-light.png' in workflow
+        and workflow.index("./gradlew :app:connectedDebugAndroidTest") < workflow.index("adb exec-out run-as") < workflow.index("- name: Upload UI/UX V2 emulator screenshots")
         and "if-no-files-found: error" in workflow
         and "muslim.applicationId=" in (ROOT / "gradle.properties").read_text(encoding="utf-8")
         and "Upload UI/UX V2 emulator screenshots" in workflow
@@ -81,7 +81,7 @@ def main() -> None:
     )
     if not screenshot_contract:
         raise SystemExit(
-            "UI/UX V2 screenshot contract requires a real Activity capture, CI pull/upload, "
+            "UI/UX V2 screenshot contract requires a real Activity capture, CI file export/upload, "
             "and explicit distinction between capture and visual comparison"
         )
     if invalid_resources:
