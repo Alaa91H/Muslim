@@ -176,10 +176,12 @@ All must preserve existing capability and use the shared patterns.
 ### UX28 — Screenshot and visual regression
 
 - CI is configured to capture the actual Prayer Home screen on Android
-  emulators and store `prayer-home-ar-light.png` as a per-API artifact. The
-  capture/export path is implemented and the local QA-matrix contract passes;
-  the current end-to-end CI run is still pending, and this path does not compare
-  image output.
+  emulators and store `prayer-home-ar-light.png` as a per-API artifact. Run
+  #1338 exposed that the post-instrumentation export produced a 40-byte
+  `run-as: unknown package` message instead of a PNG. Export now happens inside
+  instrumentation and CI validates the PNG signature and dimensions; the
+  repair awaits a new end-to-end CI run. This path does not compare image
+  output.
 - No checked-in golden screenshots, comparison runner, or reviewed image
   baselines exist yet. UX28 remains open until the full matrix is captured,
   visually reviewed, and intentional differences are accepted.

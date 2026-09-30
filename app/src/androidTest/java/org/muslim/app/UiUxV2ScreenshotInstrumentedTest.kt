@@ -1,6 +1,7 @@
 package org.muslim.app
 
 import android.graphics.Bitmap
+import android.os.ParcelFileDescriptor
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import java.io.File
@@ -64,6 +65,18 @@ class UiUxV2ScreenshotInstrumentedTest {
                 check(bitmap.compress(Bitmap.CompressFormat.PNG, 100, output)) {
                     "Could not encode screenshot as PNG"
                 }
+            }
+            val sharedScreenshot = "/sdcard/Download/uiux-v2/prayer-home-ar-light.png"
+            val exportDescriptor = instrumentation.uiAutomation.executeShellCommand(
+                "mkdir -p /sdcard/Download/uiux-v2 && " +
+                    "run-as ${context.packageName} cat files/uiux-v2/prayer-home-ar-light.png " +
+                    "> $sharedScreenshot; echo EXPORT_EXIT:$?",
+            )
+            val exportOutput = ParcelFileDescriptor.AutoCloseInputStream(exportDescriptor)
+                .bufferedReader()
+                .use { it.readText() }
+            check("EXPORT_EXIT:0" in exportOutput) {
+                "Could not export screenshot while app package was installed: $exportOutput"
             }
         } finally {
             activity.finish()

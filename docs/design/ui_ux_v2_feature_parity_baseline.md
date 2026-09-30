@@ -221,7 +221,7 @@ These are explicit acceptance requirements for later phases:
 
 ## Visual baseline status
 
-The current repository does not yet contain a comprehensive screenshot-regression baseline for every critical screen. UX00 therefore freezes the functional contract immediately and records the required visual baseline matrix below. CI is configured to capture the Prayer Home Arabic/light screen on emulator APIs 26 and 36 as an artifact, but the export path still awaits a green run; it does not compare screenshots, establish reviewed goldens, or satisfy the full matrix.
+The current repository does not yet contain a comprehensive screenshot-regression baseline for every critical screen. UX00 therefore freezes the functional contract immediately and records the required visual baseline matrix below. CI is configured to capture the Prayer Home Arabic/light screen on emulator APIs 26 and 36 as an artifact. Run #1338 uploaded a 40-byte `run-as: unknown package` error message instead of a PNG; a repair now exports during instrumentation and validates the PNG before upload. It does not compare screenshots, establish reviewed goldens, or satisfy the full matrix.
 
 Critical baseline screens:
 - Prayer Home

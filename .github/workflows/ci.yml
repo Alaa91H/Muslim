@@ -202,8 +202,8 @@ jobs:
           script: |
             ./gradlew :app:connectedDebugAndroidTest
             mkdir -p artifacts/uiux-v2
-            adb exec-out run-as "$(sed -n 's/^muslim.applicationId=//p' gradle.properties)" cat files/uiux-v2/prayer-home-ar-light.png > artifacts/uiux-v2/prayer-home-ar-light.png
-            test -s artifacts/uiux-v2/prayer-home-ar-light.png
+            adb pull /sdcard/Download/uiux-v2/prayer-home-ar-light.png artifacts/uiux-v2/prayer-home-ar-light.png
+            python3 -c 'from pathlib import Path; import struct; p=Path("artifacts/uiux-v2/prayer-home-ar-light.png"); data=p.read_bytes(); assert data[:8] == bytes.fromhex("89504e470d0a1a0a"), f"not a PNG: {p}"; width,height=struct.unpack(">II", data[16:24]); assert width > 0 and height > 0 and len(data) > 100, f"invalid PNG: {width}x{height}, {len(data)} bytes"; print(f"Validated screenshot PNG: {width}x{height}, {len(data)} bytes")'
             ./gradlew :feature:feature-scholar-library:connectedDebugAndroidTest
             adb shell cmd audio set-enable-hardening throw
             ./gradlew :feature:feature-learn:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :feature:feature-qibla:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest

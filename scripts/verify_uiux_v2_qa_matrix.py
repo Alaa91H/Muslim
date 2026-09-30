@@ -72,8 +72,13 @@ def main() -> None:
             path.read_text(encoding="utf-8")
             for path in (ROOT / "app/src/androidTest").rglob("*.kt")
         )
-        and 'adb exec-out run-as "$(sed -n \'s/^muslim.applicationId=//p\' gradle.properties)" cat files/uiux-v2/prayer-home-ar-light.png' in workflow
-        and workflow.index("./gradlew :app:connectedDebugAndroidTest") < workflow.index("adb exec-out run-as") < workflow.index("- name: Upload UI/UX V2 emulator screenshots")
+        and "executeShellCommand(" in "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in (ROOT / "app/src/androidTest").rglob("*.kt")
+        )
+        and "adb pull /sdcard/Download/uiux-v2/prayer-home-ar-light.png" in workflow
+        and "89504e470d0a1a0a" in workflow
+        and workflow.index("./gradlew :app:connectedDebugAndroidTest") < workflow.index("adb pull /sdcard/Download/uiux-v2/prayer-home-ar-light.png") < workflow.index("- name: Upload UI/UX V2 emulator screenshots")
         and "if-no-files-found: error" in workflow
         and "muslim.applicationId=" in (ROOT / "gradle.properties").read_text(encoding="utf-8")
         and "Upload UI/UX V2 emulator screenshots" in workflow
