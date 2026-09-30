@@ -1,6 +1,7 @@
 package org.muslim.app
 
 import android.graphics.Bitmap
+import android.os.SystemClock
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.core.app.ActivityScenario
 import androidx.test.platform.app.InstrumentationRegistry
@@ -28,6 +29,16 @@ class UiUxV2ScreenshotInstrumentedTest {
         capturePrayerHomeScreenshot(languageCode = "en", themeMode = AppThemeMode.Dark)
     }
 
+    @Test
+    fun capturesPrayerHomeArabicDarkScreenshot() {
+        capturePrayerHomeScreenshot(languageCode = "ar", themeMode = AppThemeMode.Dark)
+    }
+
+    @Test
+    fun capturesPrayerHomeEnglishLightScreenshot() {
+        capturePrayerHomeScreenshot(languageCode = "en", themeMode = AppThemeMode.Light)
+    }
+
     private fun capturePrayerHomeScreenshot(languageCode: String, themeMode: AppThemeMode) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
@@ -36,6 +47,10 @@ class UiUxV2ScreenshotInstrumentedTest {
         val originalPreferences = runBlocking { preferencesRepository.preferences.first() }
         val originalPrayerSettings = runBlocking { prayerRepository.settings.first() }
         runBlocking {
+            // Screen QA starts after onboarding; system permission dialogs can
+            // otherwise dim or replace the screen while still producing a PNG.
+            preferencesRepository.markInitialPermissionSetupHandled()
+            preferencesRepository.setDynamicColor(false)
             preferencesRepository.setThemeMode(themeMode)
             preferencesRepository.setLanguage(languageCode)
             prayerRepository.save(
@@ -52,7 +67,17 @@ class UiUxV2ScreenshotInstrumentedTest {
         val scenario = ActivityScenario.launch<MainActivity>(MainActivity::class.java)
         try {
             instrumentation.waitForIdleSync()
-            Thread.sleep(1_000)
+            val deadline = SystemClock.uptimeMillis() + 15_000
+            var homeVisible = false
+            while (SystemClock.uptimeMillis() < deadline) {
+                val root = instrumentation.uiAutomation.rootInActiveWindow
+                homeVisible = root != null && root.packageName?.toString() == context.packageName &&
+                    root.findAccessibilityNodeInfosByText("Makkah").isNotEmpty()
+                if (homeVisible) break
+                SystemClock.sleep(100)
+            }
+            check(homeVisible) { "Prayer Home is obscured or has not rendered its location" }
+            SystemClock.sleep(500)
             instrumentation.waitForIdleSync()
             val bitmap = instrumentation.uiAutomation.takeScreenshot()
             check(bitmap.width > 0 && bitmap.height > 0) { "Screenshot has invalid dimensions" }
@@ -70,15 +95,20 @@ class UiUxV2ScreenshotInstrumentedTest {
                 "Could not create screenshot output directory: ${outputDirectory.absolutePath}"
             }
             val screenshotName = "prayer-home-$languageCode-${themeMode.name.lowercase()}.png"
-            File(outputDirectory, screenshotName).outputStream().use { output ->
+            val pendingScreenshot = File(outputDirectory, "$screenshotName.tmp")
+            pendingScreenshot.outputStream().use { output ->
                 check(bitmap.compress(Bitmap.CompressFormat.PNG, 100, output)) {
                     "Could not encode screenshot as PNG"
                 }
+            }
+            check(pendingScreenshot.renameTo(File(outputDirectory, screenshotName))) {
+                "Could not publish completed screenshot"
             }
         } finally {
             scenario.close()
             runBlocking {
                 preferencesRepository.setThemeMode(originalPreferences.themeMode)
+                preferencesRepository.setDynamicColor(originalPreferences.dynamicColor)
                 preferencesRepository.setLanguage(originalPreferences.languageCode)
                 prayerRepository.save(originalPrayerSettings)
             }

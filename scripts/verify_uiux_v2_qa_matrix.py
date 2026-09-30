@@ -28,7 +28,7 @@ REQUIRED_VARIANTS = (
 )
 OPEN_GATES = (
     "visual comparison remain open",
-    "configured CI capture covers Prayer Home Arabic/light and English/dark",
+    "configured CI capture covers Prayer Home in Arabic and English with light and dark themes",
     "200% system-font screenshot sweep has been captured",
     "Frame-time, recomposition, and scrolling measurements have not been captured",
 )
@@ -80,6 +80,10 @@ def main() -> None:
             path.read_text(encoding="utf-8")
             for path in (ROOT / "app/src/androidTest").rglob("*.kt")
         )
+        and "capturesPrayerHomeArabicDarkScreenshot" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
+        and "capturesPrayerHomeEnglishLightScreenshot" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
+        and "markInitialPermissionSetupHandled()" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
+        and "rootInActiveWindow" in (ROOT / "app/src/androidTest/java/org/muslim/app/UiUxV2ScreenshotInstrumentedTest.kt").read_text()
         and "gradle_pid=$!" in workflow
         and "seq 1 600" in workflow
         and 'for screenshot in prayer-home-ar-light prayer-home-en-dark' in workflow

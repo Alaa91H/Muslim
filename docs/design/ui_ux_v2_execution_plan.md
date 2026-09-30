@@ -199,11 +199,12 @@ All must preserve existing capability and use the shared patterns.
   image for Arabic RTL and English LTR, light and dark themes, normal and large
   fonts, and compact and expanded widths; intentional changes need reviewed
   baseline updates.
-- The configured CI capture covers Prayer Home Arabic/light and English/dark
+- The configured CI capture covers Prayer Home in Arabic and English with light and dark themes
   on emulator APIs 26 and 36; all other screen/variant pairs and visual
-  comparison remain open. Arabic/light and English/dark are captured only
-  because RTL/localization and theme coverage still lack the Arabic/dark and
-  English/light combinations.
+  comparison remain open. The four language/theme combinations now await CI
+  validation with onboarding disabled and an active-window/content readiness gate.
+  Earlier English/dark PNGs passed encoding checks but visual inspection found
+  a dimmed screen during initial system permission setup.
 
 ### UX29 — Performance and motion
 
