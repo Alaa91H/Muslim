@@ -173,7 +173,10 @@ class UiUxV2ScreenshotInstrumentedTest {
                 val dataReady = when (route) {
                     "quran" -> "uiux-quran-content-loaded" in activeWindowDescription
                     "quran/reader/1" -> "بسم الله" in normalizedContent
-                    "quran/reader/3" -> "صفحة 50" in normalizedContent
+                    "quran/reader/3" -> {
+                        val page50Label = if (languageCode == "ar") "صفحة 50" else "Page 50"
+                        page50Label in normalizedContent
+                    }
                     else -> true
                 }
                 homeVisible = root != null && root.packageName?.toString() == context.packageName &&

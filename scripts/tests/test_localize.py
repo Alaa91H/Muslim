@@ -44,6 +44,22 @@ class LocalizationQualityTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "untranslated source"):
                 localize.process_lang("res", "fr", {"play": source}, {}, None)
 
+    def test_quality_gate_rejects_copied_source_sentences(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            res = Path(temporary_directory)
+            (res / "values").mkdir()
+            (res / "values-fr").mkdir()
+            sentence = "Start the prayer audio now"
+            source_xml = f'<resources><string name="action">{sentence}</string></resources>'
+            (res / "values" / "strings.xml").write_text(source_xml, encoding="utf-8")
+            (res / "values-fr" / "strings.xml").write_text(source_xml, encoding="utf-8")
+
+            with patch("builtins.print") as output:
+                problems = localize.check_locales([str(res)])
+
+        self.assertGreater(problems, 0)
+        self.assertTrue(any("UNTRANSLATED" in str(call) for call in output.call_args_list))
+
     def test_appending_resources_preserves_existing_translations_and_escapes_xml(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             path = Path(temporary_directory) / "strings.xml"

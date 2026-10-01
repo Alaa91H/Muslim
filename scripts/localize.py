@@ -424,6 +424,14 @@ def check_locales(res_dirs: list[str] | None = None) -> int:
                 if src.strip() and not got[name].strip():
                     problem(f"EMPTY {res_dir}/{lang}/{name}")
                     continue
+                is_english = lang == f"values-{SOURCE_LANG}"
+                if (
+                    not is_english
+                    and len(src.split()) >= 2
+                    and any(character.isalpha() for character in src)
+                    and got[name].strip() == src.strip()
+                ):
+                    problem(f"UNTRANSLATED {res_dir}/{lang}/{name}")
                 src_tokens = format_signature(src)
                 out_tokens = format_signature(got[name])
                 if src_tokens != out_tokens:

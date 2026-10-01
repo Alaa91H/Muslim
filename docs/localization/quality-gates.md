@@ -4,9 +4,10 @@
 
 Interface text lives in Android string resources. `scripts/localize.py --check`
 parses the app, core, and feature modules and fails on invalid XML, duplicate
-keys, missing or empty values, missing English source resources, and formatting
-tokens that do not match their source. The CI workflow runs this check and its
-unit tests on every pull request. `--fill-missing` only adds absent values;
+keys, missing or empty values, missing English source resources, unchanged
+multiword source text, and formatting tokens that do not match their source.
+The CI workflow runs this check and its unit tests on every pull request.
+`--fill-missing` only adds absent values;
 `--repair-formats` only replaces values with damaged format tokens;
 `--complete-languages` only creates missing locale files. These commands keep
 existing localized values intact.
