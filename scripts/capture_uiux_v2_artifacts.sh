@@ -17,6 +17,16 @@ status=0
 device_ready() {
     [ "$(adb get-state 2>/dev/null)" = device ]
 }
+pull_screenshots() {
+    local files device_screenshot name
+    files="$(adb shell "find /sdcard/Android/data/$app_id/files/uiux-v2 -name '*.png' 2>/dev/null" | tr -d '\r')"
+    while IFS= read -r device_screenshot; do
+        [ -n "$device_screenshot" ] || continue
+        name="${device_screenshot##*/}"
+        [ -s "artifacts/uiux-v2/$name" ] && continue
+        adb pull "$device_screenshot" "artifacts/uiux-v2/$name" || true
+    done <<< "$files"
+}
 run_batch() {
     local batch="$1"
     shift
@@ -28,18 +38,15 @@ run_batch() {
         > "artifacts/emulator-diagnostics/$batch.txt" 2>&1 &
     gradle_pid=$!
     while kill -0 "$gradle_pid" 2>/dev/null; do
-        files="$(adb shell "find /sdcard/Android/data/$app_id/files/uiux-v2 -name '*.png' 2>/dev/null" | tr -d '\r')"
-        while IFS= read -r device_screenshot; do
-            [ -n "$device_screenshot" ] || continue
-            name="${device_screenshot##*/}"
-            [ -s "artifacts/uiux-v2/$name" ] && continue
-            adb pull "$device_screenshot" "artifacts/uiux-v2/$name" || true
-        done <<< "$files"
+        pull_screenshots
         sleep 1
     done
     wait "$gradle_pid"
     local result=$?
     gradle_pid=""
+    # The final UI test can publish its PNG just as Gradle exits, after the
+    # last polling pass above. Pull once more before validating the matrix.
+    device_ready && pull_screenshots
     cat "artifacts/emulator-diagnostics/$batch.txt"
     mkdir -p "artifacts/emulator-diagnostics/test-results/$batch"
     cp -a app/build/outputs/androidTest-results/connected/debug/. \
