@@ -141,7 +141,13 @@ class UiUxV2ScreenshotInstrumentedTest {
                     "The screenshot batch manages the clock"
                 }
                 val expectedEpoch = Instant.parse("2026-09-30T15:00:00Z").toEpochMilli()
-                check(kotlin.math.abs(System.currentTimeMillis() - expectedEpoch) < 5_000L) {
+                val actualEpoch = System.currentTimeMillis()
+                val clockIsExpected = if (manageScreenshotClock) {
+                    kotlin.math.abs(actualEpoch - expectedEpoch) < 5_000L
+                } else {
+                    actualEpoch in expectedEpoch until (expectedEpoch + 24 * 60 * 60 * 1_000L)
+                }
+                check(clockIsExpected) {
                     "CI screenshot clock could not be fixed: $result"
                 }
             }

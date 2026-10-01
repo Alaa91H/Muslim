@@ -13,6 +13,7 @@ class FixedClockContractTest(unittest.TestCase):
 
         self.assertIn('getString("uiux.fixedClockManaged") == "true"', capture)
         self.assertIn("if (manageScreenshotClock)", capture)
+        self.assertIn("actualEpoch in expectedEpoch until (expectedEpoch + 24 * 60 * 60 * 1_000L)", capture)
         self.assertIn("fixed_clock_original_device_epoch=", exporter)
         self.assertIn("restore_fixed_clock", exporter)
         self.assertIn("uiux.fixedClockManaged=true", exporter)

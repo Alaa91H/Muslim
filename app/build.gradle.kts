@@ -239,6 +239,9 @@ dependencies {
     implementation(libs.androidx.window)
     implementation(libs.androidx.media)
     implementation(libs.google.play.services.wearable)
+    implementation(libs.google.play.services.cast)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.coroutines.play.services)
     implementation(libs.kotlinx.coroutines.play.services)
 
     // Compose (versions from BOM)

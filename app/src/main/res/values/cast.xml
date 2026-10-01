@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Supply the registered custom Web Receiver ID in a release overlay. -->
+    <string name="muslim_cast_receiver_application_id" translatable="false">REPLACE_WITH_CAST_RECEIVER_ID</string>
+</resources>

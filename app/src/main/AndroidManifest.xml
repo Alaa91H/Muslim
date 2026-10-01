@@ -41,6 +41,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Muslim">
 
+        <!-- The default receiver makes sender discovery and audio handoff work
+             before a branded receiver is registered; Quran extras are sent
+             only to the configurable custom receiver ID. -->
+        <meta-data
+            android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
+            android:value="org.muslim.app.cast.MuslimCastOptionsProvider" />
+
         <service
             android:name="org.muslim.app.feature.quran.data.RecitationPlaybackService"
             android:exported="true"

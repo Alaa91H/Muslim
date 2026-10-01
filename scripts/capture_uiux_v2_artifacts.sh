@@ -102,9 +102,9 @@ else
     status=1
 fi
 
-# Change wall time once for the complete screenshot matrix. Android 16 rebuilds
-# time- and battery-usage state after every clock jump; toggling it per screenshot
-# caused intermittent ADB transport loss after expanded-display variants.
+# Set the deterministic date once for the complete screenshot matrix. Device
+# wall time naturally advances after the set; repeating the jump per capture
+# triggers Android 16 time-usage churn and can destabilize the ADB transport.
 # Reinstall between 24-case width/screen groups to bound retained Activity/graphics state.
 # Every configured case still runs; failures remain failures and are not retried away.
 if [ "$status" = 0 ] && device_ready; then
