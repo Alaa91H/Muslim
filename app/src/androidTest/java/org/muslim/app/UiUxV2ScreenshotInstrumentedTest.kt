@@ -34,6 +34,9 @@ import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.SelectedLocation
 import org.muslim.app.feature.settings.locale.withAppLocale
 
+private const val SCREENSHOT_ACK_TIMEOUT_MS = 10_000L
+private const val SCREENSHOT_ACK_POLL_INTERVAL_MS = 50L
+
 /** Captures the actual Hilt-backed Prayer Home screen on the CI emulator. */
 @RunWith(AndroidJUnit4::class)
 class UiUxV2ScreenshotInstrumentedTest {
@@ -219,6 +222,19 @@ class UiUxV2ScreenshotInstrumentedTest {
             bitmap.recycle()
             check(pendingScreenshot.renameTo(File(outputDirectory, screenshotName))) {
                 "Could not publish completed screenshot"
+            }
+            if (fixedClock) {
+                val acknowledgement = File(outputDirectory, "$screenshotName.ack")
+                val acknowledgementDeadline = SystemClock.uptimeMillis() + SCREENSHOT_ACK_TIMEOUT_MS
+                while (!acknowledgement.exists() && SystemClock.uptimeMillis() < acknowledgementDeadline) {
+                    SystemClock.sleep(SCREENSHOT_ACK_POLL_INTERVAL_MS)
+                }
+                check(acknowledgement.exists()) {
+                    "Screenshot host did not confirm pulling $screenshotName before the test finished"
+                }
+                check(acknowledgement.delete()) {
+                    "Could not remove screenshot acknowledgement for $screenshotName"
+                }
             }
             check(homeVisible) {
                 "Requested screen $route is obscured or has not rendered: $activeWindowDescription"

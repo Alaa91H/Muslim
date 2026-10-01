@@ -23,8 +23,9 @@ pull_screenshots() {
     while IFS= read -r device_screenshot; do
         [ -n "$device_screenshot" ] || continue
         name="${device_screenshot##*/}"
-        [ -s "artifacts/uiux-v2/$name" ] && continue
-        adb pull "$device_screenshot" "artifacts/uiux-v2/$name" || true
+        if [ -s "artifacts/uiux-v2/$name" ] || adb pull "$device_screenshot" "artifacts/uiux-v2/$name"; then
+            adb shell "touch '$device_screenshot.ack'" >/dev/null 2>&1 || true
+        fi
     done <<< "$files"
 }
 run_batch() {
