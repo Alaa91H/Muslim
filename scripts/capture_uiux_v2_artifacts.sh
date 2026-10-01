@@ -81,8 +81,14 @@ for screens in prayer-home,prayer-monthly quran-home,quran-reader qibla,more had
     done
 done
 if [ "$status" = 0 ] && device_ready; then
-    run_batch app-regression \
-        -Pandroid.testInstrumentationRunnerArguments.notClass=org.muslim.app.UiUxV2MatrixInstrumentedTest
+    if set_display_variant false; then
+        # Behavioral regressions target the compact phone layout. Leave the
+        # expanded configuration covered by its dedicated screenshot matrix.
+        run_batch app-regression \
+            -Pandroid.testInstrumentationRunnerArguments.notClass=org.muslim.app.UiUxV2MatrixInstrumentedTest
+    else
+        status=1
+    fi
 fi
 sudo dmesg -T > artifacts/emulator-diagnostics/kernel.txt 2>&1 || true
 exit "$status"
