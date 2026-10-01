@@ -6,9 +6,9 @@ import android.content.res.Configuration
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.os.Handler
 import android.os.HandlerThread
-import android.os.SystemClock
 import android.os.Build
 import android.os.ParcelFileDescriptor
+import android.os.SystemClock
 import android.view.Window
 import android.view.PixelCopy
 import android.view.accessibility.AccessibilityNodeInfo
@@ -34,8 +34,7 @@ import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.SelectedLocation
 import org.muslim.app.feature.settings.locale.withAppLocale
 
-private const val SCREENSHOT_ACK_TIMEOUT_MS = 10_000L
-private const val SCREENSHOT_ACK_POLL_INTERVAL_MS = 50L
+private const val SCREENSHOT_LOG_CHUNK_SIZE = 3_000
 
 /** Captures the actual Hilt-backed Prayer Home screen on the CI emulator. */
 @RunWith(AndroidJUnit4::class)
@@ -223,19 +222,7 @@ class UiUxV2ScreenshotInstrumentedTest {
             check(pendingScreenshot.renameTo(File(outputDirectory, screenshotName))) {
                 "Could not publish completed screenshot"
             }
-            if (fixedClock) {
-                val acknowledgement = File(outputDirectory, "$screenshotName.ack")
-                val acknowledgementDeadline = SystemClock.uptimeMillis() + SCREENSHOT_ACK_TIMEOUT_MS
-                while (!acknowledgement.exists() && SystemClock.uptimeMillis() < acknowledgementDeadline) {
-                    SystemClock.sleep(SCREENSHOT_ACK_POLL_INTERVAL_MS)
-                }
-                check(acknowledgement.exists()) {
-                    "Screenshot host did not confirm pulling $screenshotName before the test finished"
-                }
-                check(acknowledgement.delete()) {
-                    "Could not remove screenshot acknowledgement for $screenshotName"
-                }
-            }
+            if (fixedClock) emitScreenshotToInstrumentationLog(screenshotName, File(outputDirectory, screenshotName))
             check(homeVisible) {
                 "Requested screen $route is obscured or has not rendered: $activeWindowDescription"
             }
@@ -262,6 +249,27 @@ class UiUxV2ScreenshotInstrumentedTest {
                 }
             } }
         }
+    }
+
+    private fun emitScreenshotToInstrumentationLog(name: String, screenshot: File) {
+        val encoded = android.util.Base64.encodeToString(screenshot.readBytes(), android.util.Base64.NO_WRAP)
+        val instrumentation = InstrumentationRegistry.getInstrumentation()
+        val chunkCount = (encoded.length + SCREENSHOT_LOG_CHUNK_SIZE - 1) / SCREENSHOT_LOG_CHUNK_SIZE
+        instrumentation.sendStatus(0, android.os.Bundle().apply {
+            putString("uiux.screenshot.name", name)
+            putInt("uiux.screenshot.chunks", chunkCount)
+        })
+        for (index in 0 until chunkCount) {
+            val start = index * SCREENSHOT_LOG_CHUNK_SIZE
+            instrumentation.sendStatus(0, android.os.Bundle().apply {
+                putString("uiux.screenshot.name", name)
+                putInt("uiux.screenshot.chunk", index)
+                putString("uiux.screenshot.data", encoded.substring(start, minOf(start + SCREENSHOT_LOG_CHUNK_SIZE, encoded.length)))
+            })
+        }
+        instrumentation.sendStatus(0, android.os.Bundle().apply {
+            putString("uiux.screenshot.complete", name)
+        })
     }
 
     private fun AccessibilityNodeInfo.describeTree(): String = buildString {

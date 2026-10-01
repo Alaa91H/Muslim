@@ -2,7 +2,6 @@
 # Export atomic screenshots before AGP uninstalls each bounded instrumentation batch.
 set -u
 mkdir -p artifacts/uiux-v2 artifacts/emulator-diagnostics
-app_id="$(sed -n 's/^muslim.applicationId=//p' gradle.properties | tr -d '\r')"
 adb root
 adb wait-for-device
 [ "$(adb shell id -u | tr -d '\r')" = "0" ] || { echo "CI visual fixture needs a root-capable emulator"; exit 1; }
@@ -17,17 +16,6 @@ status=0
 device_ready() {
     [ "$(adb get-state 2>/dev/null)" = device ]
 }
-pull_screenshots() {
-    local files device_screenshot name
-    files="$(adb shell "find /sdcard/Android/data/$app_id/files/uiux-v2 -name '*.png' 2>/dev/null" | tr -d '\r')"
-    while IFS= read -r device_screenshot; do
-        [ -n "$device_screenshot" ] || continue
-        name="${device_screenshot##*/}"
-        if [ -s "artifacts/uiux-v2/$name" ] || adb pull "$device_screenshot" "artifacts/uiux-v2/$name"; then
-            adb shell "touch '$device_screenshot.ack'" >/dev/null 2>&1 || true
-        fi
-    done <<< "$files"
-}
 run_batch() {
     local batch="$1"
     shift
@@ -38,20 +26,16 @@ run_batch() {
         "$@" \
         > "artifacts/emulator-diagnostics/$batch.txt" 2>&1 &
     gradle_pid=$!
-    while kill -0 "$gradle_pid" 2>/dev/null; do
-        pull_screenshots
-        sleep 1
-    done
+    while kill -0 "$gradle_pid" 2>/dev/null; do sleep 1; done
     wait "$gradle_pid"
     local result=$?
     gradle_pid=""
-    # The final UI test can publish its PNG just as Gradle exits, after the
-    # last polling pass above. Pull once more before validating the matrix.
-    device_ready && pull_screenshots
     cat "artifacts/emulator-diagnostics/$batch.txt"
     mkdir -p "artifacts/emulator-diagnostics/test-results/$batch"
     cp -a app/build/outputs/androidTest-results/connected/debug/. \
         "artifacts/emulator-diagnostics/test-results/$batch/" 2>/dev/null || true
+    python3 scripts/extract_uiux_v2_instrumentation_screenshots.py \
+        "artifacts/emulator-diagnostics/test-results/$batch" artifacts/uiux-v2
     free -m >> artifacts/emulator-diagnostics/host-memory.txt
     [ "$result" = 0 ] || status="$result"
     device_ready || status=1

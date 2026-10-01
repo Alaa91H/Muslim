@@ -68,6 +68,7 @@ def main() -> None:
             "uiAutomation.takeScreenshot()", "sampledColors.size > 1", "getExternalFilesDir(null)",
             "markInitialPermissionSetupHandled()", "rootInActiveWindow",
             "screenWidthDp >= 840", "scenario?.close()", "Could not publish completed screenshot",
+            "emitScreenshotToInstrumentationLog", "uiux.screenshot.data",
         ))
         and all(value in matrix for value in (
             '"prayer-home"', '"prayer-monthly"', '"quran-home"', '"quran-reader"',
@@ -76,7 +77,7 @@ def main() -> None:
             'AppThemeMode.Light, AppThemeMode.Dark',
         ))
         and all(value in exporter for value in (
-            "gradle_pid=$!", "kill -0", "adb pull", "wait", "*.png",
+            "gradle_pid=$!", "kill -0", "wait", "extract_uiux_v2_instrumentation_screenshots.py",
         ))
         and "89504e470d0a1a0a" in validator
         and "bash scripts/capture_uiux_v2_artifacts.sh" in workflow
@@ -84,6 +85,7 @@ def main() -> None:
         and "path: artifacts/uiux-v2/*.png" in workflow
         and "if-no-files-found: error" in workflow
         and "muslim.applicationId=" in (ROOT / "gradle.properties").read_text(encoding="utf-8")
+        and (ROOT / "scripts/extract_uiux_v2_instrumentation_screenshots.py").is_file()
         and "Upload UI/UX V2 emulator screenshots" in workflow
         and "visual comparison" in normalized_plan.lower()
     )
