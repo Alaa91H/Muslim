@@ -27,6 +27,7 @@ import org.muslim.app.core.datastore.AppThemeMode
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.SelectedLocation
+import org.muslim.app.feature.settings.locale.withAppLocale
 
 /** Captures the actual Hilt-backed Prayer Home screen on the CI emulator. */
 @RunWith(AndroidJUnit4::class)
@@ -72,7 +73,9 @@ class UiUxV2ScreenshotInstrumentedTest {
     ) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
-        val originalFontScale = Settings.System.getFloat(context.contentResolver, Settings.System.FONT_SCALE, 1f)
+        val scaledContext = context.createConfigurationContext(
+            Configuration(context.resources.configuration).apply { this.fontScale = fontScale },
+        )
         val originalAccessibilityFlags = instrumentation.uiAutomation.serviceInfo.flags
         instrumentation.uiAutomation.serviceInfo = instrumentation.uiAutomation.serviceInfo.apply {
             flags = flags or AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS or
@@ -116,7 +119,6 @@ class UiUxV2ScreenshotInstrumentedTest {
                     SystemClock.sleep(100)
                 }
             }
-            setSystemFontScale(fontScale)
             if (fixedClock) {
                 val result = shell("su 0 date -u 093015002026.00")
                 val expectedEpoch = Instant.parse("2026-09-30T15:00:00Z").toEpochMilli()
@@ -127,6 +129,9 @@ class UiUxV2ScreenshotInstrumentedTest {
             scenario = ActivityScenario.launch<MainActivity>(
                 Intent(context, MainActivity::class.java).putExtra("org.muslim.app.extra.ROUTE", route),
             )
+            check(kotlin.math.abs(scaledContext.withAppLocale(languageCode).resources.configuration.fontScale - fontScale) < 0.01f) {
+                "App locale did not preserve the requested font scale"
+            }
             instrumentation.waitForIdleSync()
             val deadline = SystemClock.uptimeMillis() + 15_000
             var homeVisible = false
@@ -213,7 +218,6 @@ class UiUxV2ScreenshotInstrumentedTest {
         } finally {
             try {
                 scenario?.close()
-                setSystemFontScale(originalFontScale)
                 if (fixedClock) {
                     val restoredTime = originalWallTime + SystemClock.elapsedRealtime() - originalElapsedTime
                     val date = DateTimeFormatter.ofPattern("MMddHHmmyyyy.ss", Locale.US)
@@ -229,17 +233,6 @@ class UiUxV2ScreenshotInstrumentedTest {
                     flags = originalAccessibilityFlags
                 }
             } }
-        }
-    }
-
-    private fun setSystemFontScale(scale: Float) {
-        val descriptor = InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(
-            "settings put system font_scale $scale",
-        )
-        ParcelFileDescriptor.AutoCloseInputStream(descriptor).use { it.readBytes() }
-        val actualScale = shell("settings get system font_scale").trim().toFloatOrNull()
-        check(actualScale != null && kotlin.math.abs(actualScale - scale) < 0.01f) {
-            "System font scale did not update to $scale (actual=$actualScale)"
         }
     }
 
