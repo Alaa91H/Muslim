@@ -57,8 +57,8 @@ class QuranReaderBookNavigationInstrumentedTest {
                         // left-to-right swipe. Keep both points away from the
                         // left edge so Android's system-back gesture cannot
                         // intercept the page turn.
-                        val startX = (metrics.widthPixels * 0.25f).toInt()
-                        val endX = (metrics.widthPixels * 0.75f).toInt()
+                        val startX = (metrics.widthPixels * 0.15f).toInt()
+                        val endX = (metrics.widthPixels * 0.85f).toInt()
                         instrumentationShell(
                             instrumentation,
                             "input swipe $startX $y $endX $y 400",
