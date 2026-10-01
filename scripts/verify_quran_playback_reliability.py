@@ -46,7 +46,7 @@ def main() -> None:
             "runCatching {",
             "engine.start()",
             ".onSuccess {",
-            "_playbackState.value = PlaybackState.Playing",
+            "_playbackState.value = if (pauseWhenPrepared) PlaybackState.Paused else PlaybackState.Playing",
             ".onFailure {",
         ],
         "Playing state must follow a successful engine start",
