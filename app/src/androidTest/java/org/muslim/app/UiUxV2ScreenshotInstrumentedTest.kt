@@ -72,7 +72,6 @@ class UiUxV2ScreenshotInstrumentedTest {
     ) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
-        val originalFontScale = Settings.System.getFloat(context.contentResolver, Settings.System.FONT_SCALE, 1f)
         val originalAccessibilityFlags = instrumentation.uiAutomation.serviceInfo.flags
         instrumentation.uiAutomation.serviceInfo = instrumentation.uiAutomation.serviceInfo.apply {
             flags = flags or AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS or
@@ -116,11 +115,6 @@ class UiUxV2ScreenshotInstrumentedTest {
                     SystemClock.sleep(100)
                 }
             }
-            setSystemFontScale(fontScale)
-            context.resources.updateConfiguration(
-                Configuration(context.resources.configuration).apply { this.fontScale = fontScale },
-                null,
-            )
             if (fixedClock) {
                 val result = shell("su 0 date -u 093015002026.00")
                 val expectedEpoch = Instant.parse("2026-09-30T15:00:00Z").toEpochMilli()
@@ -131,11 +125,6 @@ class UiUxV2ScreenshotInstrumentedTest {
             scenario = ActivityScenario.launch<MainActivity>(
                 Intent(context, MainActivity::class.java).putExtra("org.muslim.app.extra.ROUTE", route),
             )
-            checkNotNull(scenario).onActivity { activity ->
-                activity.applyOverrideConfiguration(
-                    Configuration(activity.resources.configuration).apply { this.fontScale = fontScale },
-                )
-            }
             instrumentation.waitForIdleSync()
             val deadline = SystemClock.uptimeMillis() + 15_000
             var homeVisible = false
@@ -173,8 +162,7 @@ class UiUxV2ScreenshotInstrumentedTest {
                     "Activity locale does not match the requested screenshot variant"
                 }
                 check(kotlin.math.abs(activity.resources.configuration.fontScale - fontScale) < 0.01f) {
-                    "Activity font scale ${activity.resources.configuration.fontScale} does not match " +
-                        "requested $fontScale (system=${shell("settings get system font_scale")})"
+                    "Activity font scale does not match the requested screenshot variant"
                 }
                 if (expanded) check(activity.resources.configuration.screenWidthDp >= 840) {
                     "Expanded capture did not reach the expanded window breakpoint: " +
@@ -223,7 +211,6 @@ class UiUxV2ScreenshotInstrumentedTest {
         } finally {
             try {
                 scenario?.close()
-                setSystemFontScale(originalFontScale)
                 if (fixedClock) {
                     val restoredTime = originalWallTime + SystemClock.elapsedRealtime() - originalElapsedTime
                     val date = DateTimeFormatter.ofPattern("MMddHHmmyyyy.ss", Locale.US)
@@ -240,10 +227,6 @@ class UiUxV2ScreenshotInstrumentedTest {
                 }
             } }
         }
-    }
-
-    private fun setSystemFontScale(scale: Float) {
-        shell("settings put system font_scale $scale")
     }
 
     private fun AccessibilityNodeInfo.describeTree(): String = buildString {

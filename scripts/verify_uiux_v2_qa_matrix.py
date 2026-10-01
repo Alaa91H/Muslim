@@ -66,7 +66,7 @@ def main() -> None:
     screenshot_contract = (
         all(value in capture for value in (
             "uiAutomation.takeScreenshot()", "sampledColors.size > 1", "getExternalFilesDir(null)",
-            "markInitialPermissionSetupHandled()", "rootInActiveWindow", "setSystemFontScale(originalFontScale)",
+            "markInitialPermissionSetupHandled()", "rootInActiveWindow",
             "screenWidthDp >= 840", "scenario?.close()", "Could not publish completed screenshot",
         ))
         and all(value in matrix for value in (

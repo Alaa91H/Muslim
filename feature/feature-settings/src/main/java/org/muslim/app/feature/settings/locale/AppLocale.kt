@@ -32,7 +32,7 @@ fun Context.withAppLocale(languageCode: String): Context {
     // Carry the caller's font scale into the locale context. A zero scale is
     // treated as the default (1.0) on some platform versions rather than as an
     // instruction to inherit the caller's accessibility font setting.
-    val config = Configuration().apply { fontScale = resources.configuration.fontScale }
+    val config = Configuration(resources.configuration)
     config.setLocale(locale)
     return createConfigurationContext(config)
 }
