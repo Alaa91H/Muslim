@@ -34,6 +34,9 @@ import org.muslim.app.feature.prayertimes.widget.refreshPrayerTimesWidgets
 import org.muslim.app.feature.settings.locale.withAppLocale
 import org.muslim.app.feature.settings.update.UpdateCheckScheduler
 import org.muslim.app.ui.MuslimApp
+import org.muslim.app.cast.QuranCastPlayback
+import org.muslim.app.feature.quran.domain.QuranCastPayload
+import android.util.Log
 import java.util.ArrayDeque
 import javax.inject.Inject
 
@@ -45,6 +48,9 @@ import javax.inject.Inject
  */
 @AndroidEntryPoint
 class MainActivity : FragmentActivity() {
+
+    private var castPlayback: QuranCastPlayback? = null
+    private var pendingCastPayload: QuranCastPayload? = null
 
     @Inject
     lateinit var settingsRepository: PrayerSettingsRepository
@@ -107,6 +113,13 @@ class MainActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        castPlayback = runCatching {
+            QuranCastPlayback(this, onSessionChanged = { connected ->
+                if (connected) pendingCastPayload?.let { castPlayback?.load(it) }
+            }, onError = { message -> Log.w("MuslimCast", message) })
+        }.onFailure { Log.w("MuslimCast", "Cast services are unavailable on this device.", it) }
+            .getOrNull()
+            ?.also(QuranCastPlayback::start)
 
         // Surface the persisted fatal crash (from the auto-relaunch) once.
         showPreviousCrashIfAny()
@@ -143,12 +156,17 @@ class MainActivity : FragmentActivity() {
                 // persists the choice; it takes effect on the next cold start.
                 initialStartTab = appPreferencesRepository.readStartTabSync(),
                 onLanguageChanged = ::recreate,
+                onCastPayload = { payload ->
+                    pendingCastPayload = payload
+                    if (payload != null && castPlayback?.isConnected() == true) castPlayback?.load(payload)
+                },
             )
         }
     }
 
     override fun onResume() {
         super.onResume()
+        runCatching { castPlayback?.start() }
         // Exact-alarm access is granted in a system settings screen. The first
         // launch may have scheduled a degraded inexact alarm before the user
         // returned from that screen, so always replace it with the correct
@@ -156,6 +174,12 @@ class MainActivity : FragmentActivity() {
         lifecycleScope.launch {
             adhanScheduler.schedule(settingsRepository.settings.first())
         }
+    }
+
+    override fun onDestroy() {
+        castPlayback?.release()
+        castPlayback = null
+        super.onDestroy()
     }
 
     override fun onNewIntent(intent: Intent) {

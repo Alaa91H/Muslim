@@ -24,18 +24,31 @@ class QuranCastPlayback(
     private val appContext = context.applicationContext
     private val castContext = CastContext.getSharedInstance(appContext)
     private var session = castContext.sessionManager.currentCastSession
+    private var listening = false
 
     fun start() {
+        if (listening) return
         castContext.sessionManager.addSessionManagerListener(this, CastSession::class.java)
+        listening = true
         session?.let { onSessionChanged(it.isConnected) }
     }
 
     fun end() {
+        if (!listening) return
         castContext.sessionManager.removeSessionManagerListener(this, CastSession::class.java)
+        listening = false
         castContext.sessionManager.endCurrentSession(true)
         session = null
         onSessionChanged(false)
     }
+
+    fun release() {
+        if (!listening) return
+        castContext.sessionManager.removeSessionManagerListener(this, CastSession::class.java)
+        listening = false
+    }
+
+    fun isConnected(): Boolean = session?.isConnected == true
 
     fun load(payload: QuranCastPayload) {
         val currentSession = session
@@ -51,10 +64,12 @@ class QuranCastPlayback(
         val mediaMetadata = MediaMetadata(MediaMetadata.MEDIA_TYPE_MUSIC_TRACK).apply {
             putString(MediaMetadata.KEY_TITLE, "${payload.surahNumber}:${payload.ayahNumber}")
             putString(MediaMetadata.KEY_ARTIST, payload.reciterName)
-            putString(MediaMetadata.KEY_ALBUM_TITLE, payload.translation.text)
+            payload.translation?.let { putString(MediaMetadata.KEY_ALBUM_TITLE, it.text) }
             putString("quranAyahText", payload.arabicAyah)
-            putString("quranTranslation", payload.translation.text)
-            putString("quranTranslationLanguage", payload.translation.languageTag)
+            payload.translation?.let {
+                putString("quranTranslation", it.text)
+                putString("quranTranslationLanguage", it.languageTag)
+            }
             putString("quranTafsir", Json.encodeToString(payload.tafsir))
             putString("quranPrayerLocation", Json.encodeToString(payload.prayerLocation))
             putString("quranPrayerTimes", Json.encodeToString(payload.prayerTimes))

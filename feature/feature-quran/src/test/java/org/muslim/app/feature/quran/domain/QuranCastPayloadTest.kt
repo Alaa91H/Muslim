@@ -44,4 +44,24 @@ class QuranCastPayloadTest {
         assertThat(encoded).contains("\"tafsir\"")
         assertThat(encoded).contains("\"prayerTimes\"")
     }
+
+    @Test
+    fun `round trip permits an audio only cast when no translation is installed`() {
+        val payload = QuranCastPayload(
+            languageTag = "und",
+            surahNumber = 1,
+            ayahNumber = 1,
+            globalAyahNumber = 1,
+            reciterName = "Reciter",
+            audioUrl = "https://example.org/001001.mp3",
+            durationMs = null,
+            arabicAyah = "بِسْمِ اللَّهِ",
+            translation = null,
+            tafsir = emptyList(),
+            prayerLocation = null,
+            prayerTimes = emptyList(),
+        )
+
+        assertThat(Json.decodeFromString<QuranCastPayload>(Json.encodeToString(payload))).isEqualTo(payload)
+    }
 }

@@ -14,7 +14,7 @@ data class QuranCastPayload(
     val audioUrl: String,
     val durationMs: Long?,
     val arabicAyah: String,
-    val translation: CastText,
+    val translation: CastText?,
     val tafsir: List<CastText>,
     val prayerLocation: CastPrayerLocation?,
     val prayerTimes: List<CastPrayerTime>,
@@ -29,7 +29,7 @@ data class QuranCastPayload(
         require(audioUrl.startsWith("https://"))
         require(durationMs == null || durationMs >= 0L)
         require(arabicAyah.isNotBlank())
-        require(translation.text.isNotBlank())
+        require(translation == null || translation.text.isNotBlank())
         require(prayerTimes.all { it.name.isNotBlank() && it.localTime.isNotBlank() })
     }
 

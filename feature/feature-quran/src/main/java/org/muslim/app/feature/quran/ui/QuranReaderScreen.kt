@@ -105,8 +105,11 @@ import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withLink
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.viewinterop.AndroidView
 import android.app.Activity
 import android.view.WindowManager
+import androidx.mediarouter.app.MediaRouteButton
+import com.google.android.gms.cast.framework.CastButtonFactory
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDirection
@@ -151,6 +154,10 @@ import org.muslim.app.feature.quran.domain.ReciterSearch
 import org.muslim.app.feature.quran.domain.Reciter
 import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.SurahRevelationData
+import org.muslim.app.feature.quran.domain.CastPrayerLocation
+import org.muslim.app.feature.quran.domain.CastPrayerTime
+import org.muslim.app.feature.quran.domain.CastText
+import org.muslim.app.feature.quran.domain.QuranCastPayload
 
 private const val DEFAULT_FONT_SP = 26f
 private val REPEAT_OPTIONS = listOf(1, 3, 5, 10, -1) // -1 = continuous ("بدون توقف")
@@ -244,6 +251,9 @@ fun QuranReaderScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
     onOpenDownloads: () -> Unit = {},
+    onCastPayload: (QuranCastPayload?) -> Unit = {},
+    castPrayerLocation: CastPrayerLocation? = null,
+    castPrayerTimes: List<CastPrayerTime> = emptyList(),
     viewModel: QuranReaderViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
@@ -371,6 +381,37 @@ fun QuranReaderScreen(
 
     // The ayah currently playing (if any) — drives the mini now-playing bar.
     val playingAyah = currentAudioAyah?.let { global -> mushafAyahs.firstOrNull { it.globalNumber == global } }
+    val castAyah = playingAyah ?: currentAyah ?: state.ayahs.firstOrNull()
+    val castPayload = remember(
+        castAyah, selectedReciter, durationMs, supplements, supplementLanguage,
+        castPrayerLocation, castPrayerTimes, context,
+    ) {
+        castAyah?.let { ayah ->
+            val translation = supplements.translations.firstOrNull {
+                it.language.equals(supplementLanguage, ignoreCase = true)
+            } ?: supplements.translations.firstOrNull()
+            QuranCastPayload(
+                languageTag = translation?.language ?: "und",
+                surahNumber = ayah.surahNumber,
+                ayahNumber = ayah.numberInSurah,
+                globalAyahNumber = ayah.globalNumber,
+                reciterName = selectedReciter.name,
+                audioUrl = selectedReciter.urlFor(ayah.surahNumber, ayah.numberInSurah),
+                durationMs = durationMs.takeIf { playingAyah?.globalNumber == ayah.globalNumber },
+                arabicAyah = ayah.text,
+                translation = translation?.let {
+                    CastText(text = it.text, source = it.language, languageTag = it.language)
+                },
+                tafsir = supplements.tafsir.map { entry ->
+                    CastText(entry.text, entry.source, if (entry.source.contains("english", true)) "en" else "ar")
+                },
+                prayerLocation = castPrayerLocation,
+                prayerTimes = castPrayerTimes,
+            )
+        }
+    }
+    LaunchedEffect(castPayload) { onCastPayload(castPayload) }
+    DisposableEffect(Unit) { onDispose { onCastPayload(null) } }
 
     // Auto-scroll state so the selected / recited ayah stays fully visible.
     var scrollTargetAyah by remember { mutableStateOf<Int?>(null) }
@@ -624,6 +665,14 @@ fun QuranReaderScreen(
                     }
                 },
                 actions = {
+                    AndroidView(
+                        modifier = Modifier.size(48.dp),
+                        factory = { viewContext ->
+                            MediaRouteButton(viewContext).apply {
+                                CastButtonFactory.setUpMediaRouteButton(viewContext, this)
+                            }
+                        },
+                    )
                     // While recitation audio is being downloaded (before
                     // playback starts) show a compact download icon + the
                     // live percentage in the top bar; it disappears on its
@@ -700,7 +749,9 @@ fun QuranReaderScreen(
                     )
                     HorizontalPager(
                         state = pagerState,
-                        reverseLayout = LocalLayoutDirection.current == LayoutDirection.Rtl,
+                        // Keep the canonical page index aligned with horizontal swipe
+                        // direction. Compose already lays horizontal content out for RTL;
+                        // reversing the pager as well cancels page turns at chapter edges.
                         modifier = Modifier
                             .fillMaxSize()
                             .weight(1f)
