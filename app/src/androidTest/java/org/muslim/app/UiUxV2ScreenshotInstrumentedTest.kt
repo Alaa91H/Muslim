@@ -157,9 +157,7 @@ class UiUxV2ScreenshotInstrumentedTest {
                 val dataReady = when (route) {
                     "quran" -> "uiux-quran-content-loaded" in activeWindowDescription
                     "quran/reader/1" -> "بسم الله" in normalizedContent
-                    "quran/reader/3" -> root?.findAccessibilityNodeInfosByViewId(
-                        "${context.packageName}:id/mushaf-page-50",
-                    ).orEmpty().isNotEmpty()
+                    "quran/reader/3" -> "صفحة 50" in normalizedContent
                     else -> true
                 }
                 homeVisible = root != null && root.packageName?.toString() == context.packageName &&

@@ -92,11 +92,12 @@ class AdhanDeliveryProbeInstrumentedTest {
         } else {
             "not required"
         }
+        val exactAlarmAccess = Build.VERSION.SDK_INT < Build.VERSION_CODES.S || alarmManager.canScheduleExactAlarms()
         assertTrue(
             "The test emulator must grant exact-alarm access before exercising the real probe; appops=$appOps",
-            Build.VERSION.SDK_INT < Build.VERSION_CODES.S || alarmManager.canScheduleExactAlarms(),
+            exactAlarmAccess,
         )
-        Log.i(TAG, "Exact alarm access=${alarmManager.canScheduleExactAlarms()} appops=$appOps")
+        Log.i(TAG, "Exact alarm access=$exactAlarmAccess appops=$appOps")
 
         val settings = runBlocking { entryPoint.settingsRepository().settings.first() }
         assertEquals(USER_SELECTED_VOLUME_PERCENT, settings.adhanVolume)
