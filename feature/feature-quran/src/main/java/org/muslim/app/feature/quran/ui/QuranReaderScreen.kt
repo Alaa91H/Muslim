@@ -752,9 +752,10 @@ fun QuranReaderScreen(
                     )
                     HorizontalPager(
                         state = pagerState,
-                        // Keep the canonical page index aligned with horizontal swipe
-                        // direction. Compose already lays horizontal content out for RTL;
-                        // reversing the pager as well cancels page turns at chapter edges.
+                        // Reading RTL, a left-to-right swipe turns back one printed
+                        // page. reverseLayout maps that gesture to the preceding
+                        // canonical page index instead of advancing the Pager.
+                        reverseLayout = LocalLayoutDirection.current == LayoutDirection.Rtl,
                         modifier = Modifier
                             .fillMaxSize()
                             .weight(1f)

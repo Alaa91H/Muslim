@@ -75,11 +75,22 @@ class NotificationPrefsRepositoryTest {
     // ---------------------------------------------------------------- quiet hours
 
     @Test
-    fun `quiet hours default to disabled with the standard window`() = runTest {
+    fun `quiet hours default to enabled overnight without overriding saved settings`() = runTest {
         val hours = repository.quietHours.first()
-        assertThat(hours.enabled).isFalse()
+        assertThat(hours.enabled).isTrue()
         assertThat(hours.startMinutes).isEqualTo(22 * 60)
         assertThat(hours.endMinutes).isEqualTo(6 * 60)
+    }
+
+    @Test
+    fun `saved quiet hours preference overrides the default`() = runTest {
+        repository.setQuietHours(QuietHours(enabled = false, startMinutes = 21 * 60, endMinutes = 7 * 60))
+
+        val hours = repository.quietHours.first()
+
+        assertThat(hours.enabled).isFalse()
+        assertThat(hours.startMinutes).isEqualTo(21 * 60)
+        assertThat(hours.endMinutes).isEqualTo(7 * 60)
     }
 
     @Test
@@ -92,8 +103,8 @@ class NotificationPrefsRepositoryTest {
     }
 
     @Test
-    fun `isQuietHourActive is always false while quiet hours are disabled`() = runTest {
-        assertThat(repository.isQuietHourActive(epochAt(2, 0))).isFalse()
+    fun `isQuietHourActive follows the enabled overnight default`() = runTest {
+        assertThat(repository.isQuietHourActive(epochAt(2, 0))).isTrue()
         assertThat(repository.isQuietHourActive(epochAt(12, 0))).isFalse()
     }
 

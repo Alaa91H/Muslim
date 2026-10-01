@@ -52,7 +52,7 @@ class NotificationPrefsRepository @Inject constructor(
     val quietHours: Flow<QuietHours> =
         store.data.map { stored ->
             QuietHours(
-                enabled = stored[Keys.QUIET_ENABLED] ?: false,
+                enabled = stored[Keys.QUIET_ENABLED] ?: true,
                 startMinutes = stored[Keys.QUIET_START] ?: QuietHours.DEFAULT_QUIET_START,
                 endMinutes = stored[Keys.QUIET_END] ?: QuietHours.DEFAULT_QUIET_END,
             )
