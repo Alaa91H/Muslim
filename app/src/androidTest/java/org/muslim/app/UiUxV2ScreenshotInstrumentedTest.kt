@@ -73,6 +73,10 @@ class UiUxV2ScreenshotInstrumentedTest {
     ) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
+        val qaOverrides = context.getSharedPreferences("uiux-qa-overrides", android.content.Context.MODE_PRIVATE)
+        val hadOriginalQaFontScale = qaOverrides.contains("font-scale")
+        val originalQaFontScale = qaOverrides.getFloat("font-scale", 0f)
+        qaOverrides.edit().putFloat("font-scale", fontScale).commit()
         val scaledContext = context.createConfigurationContext(
             Configuration(context.resources.configuration).apply { this.fontScale = fontScale },
         )
@@ -225,6 +229,10 @@ class UiUxV2ScreenshotInstrumentedTest {
                     shell("su 0 date -u $date")
                 }
             } finally { runBlocking {
+                qaOverrides.edit().apply {
+                    if (hadOriginalQaFontScale) putFloat("font-scale", originalQaFontScale)
+                    else remove("font-scale")
+                }.commit()
                 preferencesRepository.setThemeMode(originalPreferences.themeMode)
                 preferencesRepository.setDynamicColor(originalPreferences.dynamicColor)
                 preferencesRepository.setLanguage(originalPreferences.languageCode)

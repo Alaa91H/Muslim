@@ -2,6 +2,7 @@ package org.muslim.app
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -83,7 +84,24 @@ class MainActivity : FragmentActivity() {
         val repository = EntryPointAccessors
             .fromApplication(newBase.applicationContext, LocaleEntryPoint::class.java)
             .appPreferencesRepository()
-        super.attachBaseContext(newBase.withAppLocale(repository.readLanguageSync()))
+        val localizedBase = newBase.withAppLocale(repository.readLanguageSync())
+        // The CI screenshot matrix needs deterministic large-font renders on
+        // emulator images that do not honor `settings put system font_scale`.
+        // This hook is debug-only; production always follows Android's setting.
+        val qaFontScale = if (BuildConfig.DEBUG) {
+            newBase.getSharedPreferences(QA_OVERRIDE_PREFERENCES, Context.MODE_PRIVATE)
+                .getFloat(QA_FONT_SCALE_KEY, 0f)
+        } else {
+            0f
+        }
+        val baseContext = if (qaFontScale in QA_FONT_SCALE_MIN..QA_FONT_SCALE_MAX) {
+            localizedBase.createConfigurationContext(
+                Configuration(localizedBase.resources.configuration).apply { fontScale = qaFontScale },
+            )
+        } else {
+            localizedBase
+        }
+        super.attachBaseContext(baseContext)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -244,6 +262,10 @@ class MainActivity : FragmentActivity() {
     }
 
     private companion object {
+        private const val QA_OVERRIDE_PREFERENCES = "uiux-qa-overrides"
+        private const val QA_FONT_SCALE_KEY = "font-scale"
+        private const val QA_FONT_SCALE_MIN = 0.8f
+        private const val QA_FONT_SCALE_MAX = 3f
         const val ROUTE_HOME = "home"
         const val ROUTE_QIBLA = "qibla"
         const val ROUTE_SETTINGS = "settings"
