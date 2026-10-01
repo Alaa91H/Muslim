@@ -54,9 +54,11 @@ class QuranReaderBookNavigationInstrumentedTest {
                         val metrics = instrumentation.targetContext.resources.displayMetrics
                         val y = (metrics.heightPixels * 0.4f).toInt()
                         // In RTL the previous printed page is revealed by a
-                        // right-to-left finger swipe, matching Arabic book flow.
-                        val startX = (metrics.widthPixels * 0.9f).toInt()
-                        val endX = (metrics.widthPixels * 0.1f).toInt()
+                        // left-to-right swipe. Keep both points away from the
+                        // left edge so Android's system-back gesture cannot
+                        // intercept the page turn.
+                        val startX = (metrics.widthPixels * 0.25f).toInt()
+                        val endX = (metrics.widthPixels * 0.75f).toInt()
                         instrumentationShell(
                             instrumentation,
                             "input swipe $startX $y $endX $y 400",
