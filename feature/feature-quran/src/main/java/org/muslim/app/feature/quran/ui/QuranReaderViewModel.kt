@@ -207,8 +207,6 @@ class QuranReaderViewModel @Inject constructor(
     ) { ayah, bookmarks ->
         ayah != null && bookmarks.any { it.ayah.globalNumber == ayah.globalNumber
 }
-
-
 }
 .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 

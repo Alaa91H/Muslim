@@ -50,7 +50,7 @@ class QuranCastPlayback(
 
     fun isConnected(): Boolean = session?.isConnected == true
 
-    fun load(payload: QuranCastPayload) {
+    fun load(payload: QuranCastPayload, autoplay: Boolean = true) {
         val currentSession = session
         if (currentSession?.isConnected != true) {
             onError("Connect to a Cast device first.")
@@ -83,7 +83,7 @@ class QuranCastPlayback(
         client.load(
             MediaLoadRequestData.Builder()
                 .setMediaInfo(mediaInfo)
-                .setAutoplay(true)
+                .setAutoplay(autoplay)
                 .setCurrentTime(0L)
                 .build(),
         )
@@ -101,6 +101,13 @@ class QuranCastPlayback(
     fun togglePlayback() {
         val client = session?.remoteMediaClient ?: return
         if (client.isPlaying) client.pause() else client.play()
+    }
+
+    fun syncPlayback(shouldPlay: Boolean) {
+        val client = session?.remoteMediaClient ?: return
+        if (client.isPlaying != shouldPlay) {
+            if (shouldPlay) client.play() else client.pause()
+        }
     }
 
     fun seekTo(positionMs: Long) {

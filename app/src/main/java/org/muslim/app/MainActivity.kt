@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.EntryPoint
@@ -36,6 +37,8 @@ import org.muslim.app.feature.settings.update.UpdateCheckScheduler
 import org.muslim.app.ui.MuslimApp
 import org.muslim.app.cast.QuranCastPlayback
 import org.muslim.app.feature.quran.domain.QuranCastPayload
+import org.muslim.app.feature.quran.ui.LocalQuranCastPayloadSink
+import org.muslim.app.feature.quran.ui.LocalQuranCastPlaybackSink
 import android.util.Log
 import java.util.ArrayDeque
 import javax.inject.Inject
@@ -51,6 +54,7 @@ class MainActivity : FragmentActivity() {
 
     private var castPlayback: QuranCastPlayback? = null
     private var pendingCastPayload: QuranCastPayload? = null
+    private var pendingCastPlayback: Boolean? = null
 
     @Inject
     lateinit var settingsRepository: PrayerSettingsRepository
@@ -115,7 +119,10 @@ class MainActivity : FragmentActivity() {
         enableEdgeToEdge()
         castPlayback = runCatching {
             QuranCastPlayback(this, onSessionChanged = { connected ->
-                if (connected) pendingCastPayload?.let { castPlayback?.load(it) }
+                if (connected) {
+                    pendingCastPayload?.let { castPlayback?.load(it, autoplay = pendingCastPlayback == true) }
+                    pendingCastPlayback?.let { castPlayback?.syncPlayback(it) }
+                }
             }, onError = { message -> Log.w("MuslimCast", message) })
         }.onFailure { Log.w("MuslimCast", "Cast services are unavailable on this device.", it) }
             .getOrNull()
@@ -148,19 +155,32 @@ class MainActivity : FragmentActivity() {
             refreshPrayerTimesWidgets(applicationContext)
         }
         targetRoute.value = routeFromIntent(intent)
+        val castPayloadSink: (QuranCastPayload?) -> Unit = { payload ->
+            pendingCastPayload = payload
+            if (payload != null && castPlayback?.isConnected() == true) {
+                castPlayback?.load(payload, autoplay = pendingCastPlayback == true)
+            }
+        }
+        val castPlaybackSink: (Boolean?) -> Unit = { shouldPlay ->
+            pendingCastPlayback = shouldPlay
+            if (shouldPlay != null && castPlayback?.isConnected() == true) {
+                castPlayback?.syncPlayback(shouldPlay)
+            }
+        }
         setContent {
-            val route by targetRoute.collectAsStateWithLifecycle()
-            MuslimApp(
-                initialRoute = route,
-                // Read once per process: changing the start tab in Settings only
-                // persists the choice; it takes effect on the next cold start.
-                initialStartTab = appPreferencesRepository.readStartTabSync(),
-                onLanguageChanged = ::recreate,
-                onCastPayload = { payload ->
-                    pendingCastPayload = payload
-                    if (payload != null && castPlayback?.isConnected() == true) castPlayback?.load(payload)
-                },
-            )
+            CompositionLocalProvider(
+                LocalQuranCastPayloadSink provides castPayloadSink,
+                LocalQuranCastPlaybackSink provides castPlaybackSink,
+            ) {
+                val route by targetRoute.collectAsStateWithLifecycle()
+                MuslimApp(
+                    initialRoute = route,
+                    // Read once per process: changing the start tab in Settings only
+                    // persists the choice; it takes effect on the next cold start.
+                    initialStartTab = appPreferencesRepository.readStartTabSync(),
+                    onLanguageChanged = ::recreate,
+                )
+            }
         }
     }
 

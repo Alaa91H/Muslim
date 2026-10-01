@@ -88,7 +88,6 @@ import org.muslim.app.feature.ramadan.ui.HabitTrackerScreen
 import org.muslim.app.feature.ramadan.ui.RamadanScreen
 import org.muslim.app.feature.quran.ui.QuranDownloadsScreen
 import org.muslim.app.feature.quran.ui.QuranReaderScreen
-import org.muslim.app.feature.quran.domain.QuranCastPayload
 import org.muslim.app.feature.quran.ui.SurahListScreen
 import org.muslim.app.feature.reference.ui.IslamicHistoryScreen
 import org.muslim.app.feature.reference.ui.ReferenceScreen
@@ -292,12 +291,10 @@ fun MuslimApp(
      */
     initialStartTab: String = "home",
     onLanguageChanged: () -> Unit = {},
-    onCastPayload: (QuranCastPayload?) -> Unit = {},
 ) {
     val navController = rememberNavController()
     val viewModel: MainViewModel = hiltViewModel()
     val location by viewModel.location.collectAsStateWithLifecycle()
-    val castPrayerSnapshot by viewModel.castPrayerSnapshot.collectAsStateWithLifecycle()
     val preferences by viewModel.appPreferences.collectAsStateWithLifecycle()
     val hijriAdjustment by viewModel.hijriAdjustment.collectAsStateWithLifecycle()
     val context = LocalContext.current
@@ -464,9 +461,6 @@ fun MuslimApp(
                     QuranReaderScreen(
                             onBack = { navController.popBackStack() },
                             onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
-                            onCastPayload = onCastPayload,
-                            castPrayerLocation = castPrayerSnapshot?.location,
-                            castPrayerTimes = castPrayerSnapshot?.times.orEmpty(),
                         )
                 }
                 composable("qibla") {

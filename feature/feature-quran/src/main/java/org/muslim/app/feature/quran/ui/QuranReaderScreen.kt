@@ -105,11 +105,8 @@ import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withLink
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.viewinterop.AndroidView
 import android.app.Activity
 import android.view.WindowManager
-import androidx.mediarouter.app.MediaRouteButton
-import com.google.android.gms.cast.framework.CastButtonFactory
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDirection
@@ -154,8 +151,6 @@ import org.muslim.app.feature.quran.domain.ReciterSearch
 import org.muslim.app.feature.quran.domain.Reciter
 import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.SurahRevelationData
-import org.muslim.app.feature.quran.domain.CastPrayerLocation
-import org.muslim.app.feature.quran.domain.CastPrayerTime
 import org.muslim.app.feature.quran.domain.CastText
 import org.muslim.app.feature.quran.domain.QuranCastPayload
 
@@ -251,9 +246,6 @@ fun QuranReaderScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
     onOpenDownloads: () -> Unit = {},
-    onCastPayload: (QuranCastPayload?) -> Unit = {},
-    castPrayerLocation: CastPrayerLocation? = null,
-    castPrayerTimes: List<CastPrayerTime> = emptyList(),
     viewModel: QuranReaderViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
@@ -264,6 +256,10 @@ fun QuranReaderScreen(
     val theme by viewModel.readerTheme.collectAsStateWithLifecycle()
     val persistedFont by viewModel.readerFontSize.collectAsStateWithLifecycle()
     val supplements by viewModel.supplements.collectAsStateWithLifecycle()
+    val castPrayerViewModel: QuranCastPrayerViewModel = hiltViewModel()
+    val castPrayerSnapshot by castPrayerViewModel.snapshot.collectAsStateWithLifecycle()
+    val castPayloadSink = LocalQuranCastPayloadSink.current
+    val castPlaybackSink = LocalQuranCastPlaybackSink.current
     val supplementAyah by viewModel.supplementAyah.collectAsStateWithLifecycle()
     val supplementFollowPlayback by viewModel.supplementFollowPlayback.collectAsStateWithLifecycle()
     val supplementEnabled by viewModel.supplementEnabled.collectAsStateWithLifecycle()
@@ -381,10 +377,10 @@ fun QuranReaderScreen(
 
     // The ayah currently playing (if any) — drives the mini now-playing bar.
     val playingAyah = currentAudioAyah?.let { global -> mushafAyahs.firstOrNull { it.globalNumber == global } }
-    val castAyah = playingAyah ?: currentAyah ?: state.ayahs.firstOrNull()
+    val castAyah = playingAyah.takeIf { playbackState == PlaybackState.Playing || playbackState == PlaybackState.Paused }
     val castPayload = remember(
         castAyah, selectedReciter, durationMs, supplements, supplementLanguage,
-        castPrayerLocation, castPrayerTimes, context,
+        castPrayerSnapshot, context,
     ) {
         castAyah?.let { ayah ->
             val translation = supplements.translations.firstOrNull {
@@ -405,13 +401,27 @@ fun QuranReaderScreen(
                 tafsir = supplements.tafsir.map { entry ->
                     CastText(entry.text, entry.source, if (entry.source.contains("english", true)) "en" else "ar")
                 },
-                prayerLocation = castPrayerLocation,
-                prayerTimes = castPrayerTimes,
+                prayerLocation = castPrayerSnapshot?.location,
+                prayerTimes = castPrayerSnapshot?.times.orEmpty(),
             )
         }
     }
-    LaunchedEffect(castPayload) { onCastPayload(castPayload) }
-    DisposableEffect(Unit) { onDispose { onCastPayload(null) } }
+    LaunchedEffect(castPayload) { castPayloadSink(castPayload) }
+    LaunchedEffect(playbackState) {
+        castPlaybackSink(
+            when (playbackState) {
+                PlaybackState.Playing -> true
+                PlaybackState.Paused -> false
+                PlaybackState.Idle -> null
+            },
+        )
+    }
+    DisposableEffect(Unit) {
+        onDispose {
+            castPayloadSink(null)
+            castPlaybackSink(null)
+        }
+    }
 
     // Auto-scroll state so the selected / recited ayah stays fully visible.
     var scrollTargetAyah by remember { mutableStateOf<Int?>(null) }
@@ -665,14 +675,7 @@ fun QuranReaderScreen(
                     }
                 },
                 actions = {
-                    AndroidView(
-                        modifier = Modifier.size(48.dp),
-                        factory = { viewContext ->
-                            MediaRouteButton(viewContext).apply {
-                                CastButtonFactory.setUpMediaRouteButton(viewContext, this)
-                            }
-                        },
-                    )
+                    QuranCastButton()
                     // While recitation audio is being downloaded (before
                     // playback starts) show a compact download icon + the
                     // live percentage in the top bar; it disappears on its
