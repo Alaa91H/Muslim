@@ -700,6 +700,7 @@ fun QuranReaderScreen(
                     )
                     HorizontalPager(
                         state = pagerState,
+                        reverseLayout = LocalLayoutDirection.current == LayoutDirection.Rtl,
                         modifier = Modifier
                             .fillMaxSize()
                             .weight(1f)
