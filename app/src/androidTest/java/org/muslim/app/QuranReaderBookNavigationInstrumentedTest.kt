@@ -29,6 +29,8 @@ class QuranReaderBookNavigationInstrumentedTest {
                 var page49Diagnostics = "not found"
                 var page50Diagnostics = "not found"
                 var pageHeaders = "none"
+                var lastPage50Bounds: Rect? = null
+                var stablePage50Samples = 0
                 while (SystemClock.uptimeMillis() < deadline && !reachedBaqarahPage) {
                     val root = instrumentation.uiAutomation.rootInActiveWindow?.also { it.refresh() }
                     windowBounds.setEmpty()
@@ -40,6 +42,15 @@ class QuranReaderBookNavigationInstrumentedTest {
                     page50Diagnostics = page50Bounds?.toShortString() ?: "not visible"
                     val page50Visible = page50Bounds != null
                     val page49Visible = page49Bounds != null
+                    if (page50Bounds == null) {
+                        lastPage50Bounds = null
+                        stablePage50Samples = 0
+                    } else if (page50Bounds == lastPage50Bounds) {
+                        stablePage50Samples += 1
+                    } else {
+                        lastPage50Bounds = Rect(page50Bounds)
+                        stablePage50Samples = 0
+                    }
                     if (page50Visible && page49Visible) {
                         // On a two-page layout, Al Baqarah's last page (49)
                         // and Aal Imran's first page (50) share one printed
@@ -47,7 +58,7 @@ class QuranReaderBookNavigationInstrumentedTest {
                         // the correct book order without flipping past 49.
                         sharedSpreadVerified = true
                         reachedBaqarahPage = true
-                    } else if (page50Visible && !swipedBack) {
+                    } else if (page50Visible && stablePage50Samples >= 3 && !swipedBack) {
                         // On a one-page layout, use a full-width RTL page turn;
                         // a short 200px swipe can be below the pager's fling
                         // threshold on the CI emulator.
