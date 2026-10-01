@@ -6,8 +6,8 @@ import android.content.res.Configuration
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.os.SystemClock
 import android.os.Build
-import android.os.ParcelFileDescriptor
 import android.provider.Settings
+import android.os.ParcelFileDescriptor
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.core.app.ActivityScenario
@@ -72,6 +72,7 @@ class UiUxV2ScreenshotInstrumentedTest {
     ) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
+        val originalFontScale = Settings.System.getFloat(context.contentResolver, Settings.System.FONT_SCALE, 1f)
         val originalAccessibilityFlags = instrumentation.uiAutomation.serviceInfo.flags
         instrumentation.uiAutomation.serviceInfo = instrumentation.uiAutomation.serviceInfo.apply {
             flags = flags or AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS or
@@ -115,6 +116,7 @@ class UiUxV2ScreenshotInstrumentedTest {
                     SystemClock.sleep(100)
                 }
             }
+            setSystemFontScale(fontScale)
             if (fixedClock) {
                 val result = shell("su 0 date -u 093015002026.00")
                 val expectedEpoch = Instant.parse("2026-09-30T15:00:00Z").toEpochMilli()
@@ -211,6 +213,7 @@ class UiUxV2ScreenshotInstrumentedTest {
         } finally {
             try {
                 scenario?.close()
+                setSystemFontScale(originalFontScale)
                 if (fixedClock) {
                     val restoredTime = originalWallTime + SystemClock.elapsedRealtime() - originalElapsedTime
                     val date = DateTimeFormatter.ofPattern("MMddHHmmyyyy.ss", Locale.US)
@@ -226,6 +229,17 @@ class UiUxV2ScreenshotInstrumentedTest {
                     flags = originalAccessibilityFlags
                 }
             } }
+        }
+    }
+
+    private fun setSystemFontScale(scale: Float) {
+        val descriptor = InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(
+            "settings put system font_scale $scale",
+        )
+        ParcelFileDescriptor.AutoCloseInputStream(descriptor).use { it.readBytes() }
+        val actualScale = shell("settings get system font_scale").trim().toFloatOrNull()
+        check(actualScale != null && kotlin.math.abs(actualScale - scale) < 0.01f) {
+            "System font scale did not update to $scale (actual=$actualScale)"
         }
     }
 
