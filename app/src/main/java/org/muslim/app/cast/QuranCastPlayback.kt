@@ -22,25 +22,36 @@ import org.muslim.app.feature.quran.data.RecitationQueueItem
 import org.muslim.app.feature.quran.domain.CastPlaybackState
 import org.muslim.app.feature.quran.data.RemotePlaybackCommand
 
+data class QuranCastPlaybackCallbacks(
+    val onSessionChanged: (Boolean) -> Unit,
+    val onError: (String) -> Unit,
+    val mediaUrlFor: (QuranCastPayload) -> String?,
+    val onRemoteEnded: () -> Unit,
+    val onRemoteAccepted: (Long) -> Unit,
+    val onRemoteProgress: (Long, Long, Boolean) -> Unit,
+    val onRemoteItemEnded: () -> Unit,
+    val customReceiverEnabled: Boolean,
+)
+
 /** Cast sender that keeps media transport and Quran screen data in sync. */
 class QuranCastPlayback(
     context: Context,
-    private val onSessionChanged: (Boolean) -> Unit,
-    private val onError: (String) -> Unit,
-    private val mediaUrlFor: (QuranCastPayload) -> String?,
-    private val onRemoteEnded: () -> Unit,
-    private val onRemoteAccepted: (Long) -> Unit,
-    private val onRemoteProgress: (Long, Long, Boolean) -> Unit,
-    private val onRemoteItemEnded: () -> Unit,
-    private val customReceiverEnabled: Boolean,
+    callbacks: QuranCastPlaybackCallbacks,
 ) : SessionManagerListener<CastSession> {
+    private val onSessionChanged = callbacks.onSessionChanged
+    private val onError = callbacks.onError
+    private val mediaUrlFor = callbacks.mediaUrlFor
+    private val onRemoteEnded = callbacks.onRemoteEnded
+    private val onRemoteAccepted = callbacks.onRemoteAccepted
+    private val onRemoteProgress = callbacks.onRemoteProgress
+    private val onRemoteItemEnded = callbacks.onRemoteItemEnded
+    private val customReceiverEnabled = callbacks.customReceiverEnabled
     private val appContext = context.applicationContext
     private val castContext = CastContext.getSharedInstance(appContext)
     private var session = castContext.sessionManager.currentCastSession
     private var listening = false
     private var lastPayload: QuranCastPayload? = null
     private var loadedGlobalAyah: Int? = null
-    private var messageCallback: com.google.android.gms.cast.Cast.MessageReceivedCallback? = null
     private var completionHandled = false
     private val progressListener = RemoteMediaClient.ProgressListener { position, duration ->
         val playing = remoteIsPlaying()

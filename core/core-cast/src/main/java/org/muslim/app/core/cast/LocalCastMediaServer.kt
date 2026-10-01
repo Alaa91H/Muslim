@@ -26,6 +26,8 @@ class LocalCastMediaServer(
     private var socket: ServerSocket? = null
     private var address: String? = null
 
+    private data class Request(val method: String, val path: String, val headers: Map<String, String>)
+
     @Synchronized fun start(): String {
         check(file.isFile && file.length() > 0L) { "Recitation file is unavailable" }
         if (socket != null) return mediaUrl()
@@ -43,10 +45,24 @@ class LocalCastMediaServer(
 
     private fun serve(client: Socket) = client.use { peer ->
         peer.soTimeout = 5_000
+        val request = readRequest(peer) ?: return@use
+        if (nowMs() - startedAt > ttlMs || request.path != "/$token/audio.mp3") {
+            respond(peer, "404 Not Found", "Content-Length: 0\r\n")
+            return@use
+        }
+        if (request.method != "GET" && request.method != "HEAD") {
+            respond(peer, "405 Method Not Allowed", "Allow: GET, HEAD\r\nContent-Length: 0\r\n")
+            return@use
+        }
+        serveFile(peer, request)
+    }
+
+    private fun readRequest(peer: Socket): Request? {
         val input = peer.getInputStream().bufferedReader(Charsets.US_ASCII)
-        val request = input.readLine()?.split(' ') ?: return@use
-        val method = request.getOrNull(0) ?: return@use
-        val path = request.getOrNull(1) ?: return@use
+        val line = input.readLine() ?: return null
+        val parts = line.split(' ')
+        val method = parts.getOrNull(0) ?: return null
+        val path = parts.getOrNull(1) ?: return null
         val headers = mutableMapOf<String, String>()
         while (true) {
             val line = input.readLine() ?: break
@@ -54,20 +70,16 @@ class LocalCastMediaServer(
             val colon = line.indexOf(':')
             if (colon > 0) headers[line.substring(0, colon).trim().lowercase()] = line.substring(colon + 1).trim()
         }
-        if (nowMs() - startedAt > ttlMs || path != "/$token/audio.mp3") {
-            respond(peer, "404 Not Found", "Content-Length: 0\r\n")
-            return@use
-        }
-        if (method != "GET" && method != "HEAD") {
-            respond(peer, "405 Method Not Allowed", "Allow: GET, HEAD\r\nContent-Length: 0\r\n")
-            return@use
-        }
+        return Request(method, path, headers)
+    }
+
+    private fun serveFile(peer: Socket, request: Request) {
         val length = file.length()
-        val rangeHeader = headers["range"]
+        val rangeHeader = request.headers["range"]
         val range = if (rangeHeader == null) null else ByteRange.parse(rangeHeader, length)
         if (rangeHeader != null && range == null) {
             respond(peer, "416 Range Not Satisfiable", "Content-Range: bytes */$length\r\nContent-Length: 0\r\n")
-            return@use
+            return
         }
         val start = range?.start ?: 0L
         val bytes = range?.length ?: length
@@ -77,17 +89,25 @@ class LocalCastMediaServer(
             if (range != null) append("Content-Range: bytes ${range.start}-${range.endInclusive}/$length\r\n")
         }
         respond(peer, status, extra)
-        if (method == "HEAD") return@use
+        if (request.method == "HEAD") return
         file.inputStream().use { stream ->
-            stream.skip(start)
-            val buffer = ByteArray(16 * 1024)
-            var remaining = bytes
-            while (remaining > 0L) {
-                val read = stream.read(buffer, 0, minOf(buffer.size.toLong(), remaining).toInt())
-                if (read <= 0) break
-                peer.getOutputStream().write(buffer, 0, read)
-                remaining -= read
-            }
+            copyRange(stream, peer, start, bytes)
+        }
+    }
+
+    private fun copyRange(stream: java.io.InputStream, peer: Socket, start: Long, byteCount: Long) {
+        var skipped = 0L
+        while (skipped < start) {
+            val count = stream.skip(start - skipped)
+            if (count > 0L) skipped += count else if (stream.read() >= 0) skipped++ else return
+        }
+        val buffer = ByteArray(16 * 1024)
+        var remaining = byteCount
+        while (remaining > 0L) {
+            val read = stream.read(buffer, 0, minOf(buffer.size.toLong(), remaining).toInt())
+            if (read <= 0) break
+            peer.getOutputStream().write(buffer, 0, read)
+            remaining -= read
         }
     }
 

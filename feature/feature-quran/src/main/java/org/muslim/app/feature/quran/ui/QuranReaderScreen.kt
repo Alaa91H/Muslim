@@ -65,14 +65,12 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import java.util.Locale
-import kotlinx.coroutines.launch
 import androidx.compose.material3.TopAppBar
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
@@ -156,7 +154,6 @@ import org.muslim.app.feature.quran.domain.SurahRevelationData
 import org.muslim.app.feature.quran.domain.CastText
 import org.muslim.app.feature.quran.domain.QuranCastPayload
 import org.muslim.app.feature.quran.domain.CastPlaybackState
-import org.muslim.app.feature.quran.ui.LocalQuranCastStartSink
 
 private const val DEFAULT_FONT_SP = 26f
 private val REPEAT_OPTIONS = listOf(1, 3, 5, 10, -1) // -1 = continuous ("بدون توقف")
@@ -385,7 +382,7 @@ fun QuranReaderScreen(
 
     // The ayah currently playing (if any) — drives the mini now-playing bar.
     val playingAyah = currentAudioAyah?.let { global -> mushafAyahs.firstOrNull { it.globalNumber == global } }
-    val recitationSnapshot = viewModel.recitationPlaybackSnapshot()
+    val recitationSnapshot = viewModel.recitationPlaybackSnapshot
     val castAyah = playingAyah.takeIf { playbackState == PlaybackState.Playing || playbackState == PlaybackState.Paused }
     val castSessionId = rememberCastSessionId(context)
     val castSequence = rememberCastSequence(castSessionId, castAyah?.globalNumber, positionMs, playbackState)

@@ -37,6 +37,7 @@ import org.muslim.app.feature.settings.locale.withAppLocale
 import org.muslim.app.feature.settings.update.UpdateCheckScheduler
 import org.muslim.app.ui.MuslimApp
 import org.muslim.app.cast.QuranCastPlayback
+import org.muslim.app.cast.QuranCastPlaybackCallbacks
 import org.muslim.app.cast.CastReceiverConfig
 import org.muslim.app.feature.quran.domain.QuranCastPayload
 import org.muslim.app.feature.quran.ui.LocalQuranCastPayloadSink
@@ -61,7 +62,6 @@ class MainActivity : FragmentActivity() {
 
     private var castPlayback: QuranCastPlayback? = null
     private var pendingCastPayload: QuranCastPayload? = null
-    private var pendingCastPlayback: Boolean? = null
     private val castConnected = mutableStateOf(false)
     private val castDeviceName = mutableStateOf<String?>(null)
     private val castError = mutableStateOf<String?>(null)
@@ -130,37 +130,7 @@ class MainActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        castPlayback = runCatching {
-            QuranCastPlayback(this, onSessionChanged = { connected ->
-                castConnected.value = connected
-                castDeviceName.value = if (connected) castPlayback?.deviceName() else null
-                if (connected) castError.value = null
-                if (connected) {
-                    pendingCastPayload?.let { castPlayback?.sendCurrentState(it) }
-                }
-            }, onError = { message ->
-                castError.value = message
-                Log.w("MuslimCast", message)
-            }, mediaUrlFor = { payload ->
-                quranCastHandoffManager.mediaUrl(payload)
-            }, onRemoteEnded = {
-                val (position, playing) = castPlayback?.lastRemotePosition ?: (0L to false)
-                quranCastHandoffManager.handoffToLocal(position, playing)
-                quranCastHandoffManager.endSession()
-                castConnected.value = false
-                castDeviceName.value = null
-            }, onRemoteAccepted = { position ->
-                quranCastHandoffManager.handoffToRemote(position)
-            }, onRemoteProgress = { position, duration, playing ->
-                quranCastHandoffManager.acceptRemotePosition(position, duration, playing)
-            }, onRemoteItemEnded = quranCastHandoffManager::onRemoteMediaEnded,
-                customReceiverEnabled = CastReceiverConfig.applicationId(this) != null)
-        }.onFailure { Log.w("MuslimCast", "Cast services are unavailable on this device.", it) }
-            .getOrNull()
-            ?.also {
-                quranCastHandoffManager.onRemoteCommand = it::execute
-                it.start()
-            }
+        castPlayback = createCastPlayback()
 
         // Surface the persisted fatal crash (from the auto-relaunch) once.
         showPreviousCrashIfAny()
@@ -193,7 +163,6 @@ class MainActivity : FragmentActivity() {
             pendingCastPayload = payload
         }
         val castPlaybackSink: (Boolean?) -> Unit = { shouldPlay ->
-            pendingCastPlayback = shouldPlay
             if (shouldPlay != null && castPlayback?.isConnected() == true) {
                 castPlayback?.syncPlayback(shouldPlay)
             }
@@ -223,6 +192,46 @@ class MainActivity : FragmentActivity() {
             }
         }
     }
+
+    private fun createCastPlayback(): QuranCastPlayback? = runCatching {
+        QuranCastPlayback(this, QuranCastPlaybackCallbacks(
+            onSessionChanged = { connected ->
+                castConnected.value = connected
+                castDeviceName.value = if (connected) castPlayback?.deviceName() else null
+                if (connected) castError.value = null
+                if (connected) {
+                    pendingCastPayload?.let { castPlayback?.sendCurrentState(it) }
+                }
+            },
+            onError = { message ->
+                castError.value = message
+                Log.w("MuslimCast", message)
+            },
+            mediaUrlFor = { payload ->
+                quranCastHandoffManager.mediaUrl(payload)
+            },
+            onRemoteEnded = {
+                val (position, playing) = castPlayback?.lastRemotePosition ?: (0L to false)
+                quranCastHandoffManager.handoffToLocal(position, playing)
+                quranCastHandoffManager.endSession()
+                castConnected.value = false
+                castDeviceName.value = null
+            },
+            onRemoteAccepted = { position ->
+                quranCastHandoffManager.handoffToRemote(position)
+            },
+            onRemoteProgress = { position, duration, playing ->
+                quranCastHandoffManager.acceptRemotePosition(position, duration, playing)
+            },
+            onRemoteItemEnded = quranCastHandoffManager::onRemoteMediaEnded,
+            customReceiverEnabled = CastReceiverConfig.applicationId(this) != null,
+        ))
+        }.onFailure { Log.w("MuslimCast", "Cast services are unavailable on this device.", it) }
+            .getOrNull()
+            ?.also {
+                quranCastHandoffManager.onRemoteCommand = it::execute
+                it.start()
+            }
 
     override fun onResume() {
         super.onResume()
