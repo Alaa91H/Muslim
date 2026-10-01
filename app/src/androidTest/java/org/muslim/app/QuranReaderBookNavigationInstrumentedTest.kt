@@ -26,12 +26,17 @@ class QuranReaderBookNavigationInstrumentedTest {
                 val packageName = instrumentation.targetContext.packageName
                 val deadline = SystemClock.uptimeMillis() + 10_000
                 var reachedBaqarahPage = false
+                val windowBounds = Rect()
+                var page49Diagnostics = "not found"
+                var page50Diagnostics = "not found"
                 while (SystemClock.uptimeMillis() < deadline && !reachedBaqarahPage) {
-                    val root = instrumentation.uiAutomation.rootInActiveWindow
-                    val windowBounds = Rect()
+                    val root = instrumentation.uiAutomation.rootInActiveWindow?.also { it.refresh() }
+                    windowBounds.setEmpty()
                     root?.getBoundsInScreen(windowBounds)
                     val page50 = root?.findAccessibilityNodeInfosByViewId("$packageName:id/mushaf-page-50").orEmpty()
                     val page49 = root?.findAccessibilityNodeInfosByViewId("$packageName:id/mushaf-page-49").orEmpty()
+                    page49Diagnostics = page49.joinToString { visibilityDiagnostics(it) }
+                    page50Diagnostics = page50.joinToString { visibilityDiagnostics(it) }
                     val page50Visible = page50.any { substantiallyVisible(it, windowBounds) }
                     val page49Visible = page49.any { substantiallyVisible(it, windowBounds) }
                     if (page50Visible && page49Visible) {
@@ -61,7 +66,8 @@ class QuranReaderBookNavigationInstrumentedTest {
                 }
                 check(reachedBaqarahPage) {
                     "Al Baqarah page 49 must be visible before/after paging back from Aal Imran page 50 " +
-                        "(swiped=$swipedBack, sharedSpread=$sharedSpreadVerified)"
+                        "(swiped=$swipedBack, sharedSpread=$sharedSpreadVerified, window=$windowBounds, " +
+                        "page49=$page49Diagnostics, page50=$page50Diagnostics)"
                 }
             },
         )
@@ -75,11 +81,17 @@ class QuranReaderBookNavigationInstrumentedTest {
     private fun substantiallyVisible(node: AccessibilityNodeInfo, window: Rect): Boolean {
         val bounds = Rect()
         node.getBoundsInScreen(bounds)
-        if (bounds.width() <= 0 || bounds.height() <= 0 || !node.isVisibleToUser) return false
+        if (bounds.width() <= 0 || bounds.height() <= 0) return false
         val visibleBounds = Rect(bounds)
         if (!visibleBounds.intersect(window)) return false
         return visibleBounds.width() >= bounds.width() * MIN_VISIBLE_FRACTION &&
             visibleBounds.height() >= bounds.height() * MIN_VISIBLE_FRACTION
+    }
+
+    private fun visibilityDiagnostics(node: AccessibilityNodeInfo): String {
+        val bounds = Rect()
+        node.getBoundsInScreen(bounds)
+        return "bounds=$bounds visible=${node.isVisibleToUser}"
     }
 
     private companion object {

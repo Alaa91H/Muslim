@@ -322,7 +322,7 @@ class UiUxV2ScreenshotInstrumentedTest {
     private fun activeRoot(): AccessibilityNodeInfo? {
         val automation = InstrumentationRegistry.getInstrumentation().uiAutomation
         if (Build.VERSION.SDK_INT >= 33) automation.clearCache()
-        return automation.rootInActiveWindow
+        return automation.rootInActiveWindow?.also { it.refresh() }
     }
 
     private fun routePattern(route: String): String =
