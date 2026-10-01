@@ -47,6 +47,7 @@ dependencies {
     implementation(project(":core:core-ui"))
     implementation(project(":core:core-design-system"))
     implementation(project(":core:core-common"))
+    implementation(project(":core:core-cast"))
     implementation(project(":core:core-database"))
     implementation(project(":core:core-datastore"))
     implementation(project(":core:core-network"))

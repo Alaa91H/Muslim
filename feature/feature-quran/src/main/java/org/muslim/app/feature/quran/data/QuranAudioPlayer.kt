@@ -33,6 +33,17 @@ data class RecitationQueueItem(
     val globalNumber: Int,
 )
 
+data class RecitationPlaybackSnapshot(
+    val queue: List<RecitationQueueItem>,
+    val queueIndex: Int,
+    val repeatCount: Int,
+    val remainingRepeats: Int,
+    val positionMs: Long,
+    val durationMs: Long,
+    val state: PlaybackState,
+    val continuous: Boolean,
+)
+
 /**
  * A small sequential audio player for Quran recitation. It plays a queue of
  * ayahs one after another (auto-advancing at the end of each) with a per-ayah
@@ -90,9 +101,71 @@ class QuranAudioPlayer @Inject constructor(
      */
     var onQueueCompleted: (() -> Unit)? = null
     private var continuous = false
+    private var remotelyControlled = false
 
     /** True while the loaded ayah is playing its configured repeats. */
     val isPlaying: Boolean get() = _playbackState.value == PlaybackState.Playing
+
+    fun snapshot(): RecitationPlaybackSnapshot? {
+        if (queueIndex !in queue.indices) return null
+        val capturedPosition = if (
+            _playbackState.value == PlaybackState.Playing || _playbackState.value == PlaybackState.Paused
+        ) {
+            runCatching { currentEngine?.positionMs?.toLong() }.getOrNull() ?: _positionMs.value
+        } else {
+            pendingStartPositionMs
+        }
+        return RecitationPlaybackSnapshot(
+            queue = queue.toList(),
+            queueIndex = queueIndex,
+            repeatCount = repeatPerAyah,
+            remainingRepeats = _remainingRepeats.value.coerceAtLeast(1),
+            positionMs = capturedPosition.coerceAtLeast(0L),
+            durationMs = _durationMs.value.coerceAtLeast(0L),
+            state = _playbackState.value,
+            continuous = continuous,
+        )
+    }
+
+    /** Transfer playback ownership to Cast after the remote item is prepared. */
+    fun handoffToRemote(positionMs: Long) {
+        if (queueIndex !in queue.indices) return
+        remotelyControlled = true
+        releaseEngine()
+        _positionMs.value = positionMs.coerceAtLeast(0L)
+        _playbackState.value = PlaybackState.Paused
+        playbackBridge.onPlaybackActiveChanged(false, PlaybackDeactivationReason.CastHandoff)
+    }
+
+    fun leaveRemote(positionMs: Long, wasPlaying: Boolean) {
+        if (!remotelyControlled || queueIndex !in queue.indices) return
+        remotelyControlled = false
+        pendingStartPositionMs = positionMs.coerceAtLeast(0L)
+        pauseWhenPrepared = !wasPlaying
+        loadCurrent()
+        playbackBridge.onPlaybackActiveChanged(true, null)
+    }
+
+    /** Reclaim the same queue and repeat position from a remote Cast session. */
+    fun handoffToLocal(positionMs: Long, shouldPlay: Boolean) {
+        val savedQueue = queue
+        val savedIndex = queueIndex
+        val savedRepeats = _remainingRepeats.value.coerceAtLeast(1)
+        val savedRepeatCount = repeatPerAyah
+        val savedContinuous = continuous
+        remotelyControlled = false
+        pauseWhenPrepared = !shouldPlay
+        playQueue(
+            items = savedQueue,
+            startIndex = savedIndex,
+            repeatCount = savedRepeatCount,
+            continuous = savedContinuous,
+            startPositionMs = positionMs,
+            remainingRepeatsForCurrent = savedRepeats,
+        )
+    }
+
+    private var pauseWhenPrepared = false
 
     /**
      * Starts [items] at [startIndex]; each item repeats [repeatCount] times
@@ -122,17 +195,39 @@ class QuranAudioPlayer @Inject constructor(
     fun next() {
         if (queueIndex < 0 || queueIndex >= queue.lastIndex) return
         queueIndex++
-        loadCurrent()
+        if (remotelyControlled) {
+            _currentAyah.value = queue[queueIndex].globalNumber
+            _remainingRepeats.value = repeatPerAyah
+            _positionMs.value = 0L
+            _durationMs.value = 0L
+            updateNavState()
+            publishRemoteCommand(RemotePlaybackCommand.Next)
+        } else loadCurrent()
     }
 
     fun previous() {
         if (queueIndex <= 0) return
         queueIndex--
-        loadCurrent()
+        if (remotelyControlled) {
+            _currentAyah.value = queue[queueIndex].globalNumber
+            _positionMs.value = 0L
+            _durationMs.value = 0L
+            updateNavState()
+            publishRemoteCommand(RemotePlaybackCommand.Previous)
+        } else loadCurrent()
     }
+
+    var onRemoteCommand: ((RemotePlaybackCommand) -> Unit)? = null
+
+    private fun publishRemoteCommand(command: RemotePlaybackCommand) { onRemoteCommand?.invoke(command) }
 
     fun pause() {
         if (_playbackState.value != PlaybackState.Playing) return
+        if (remotelyControlled) {
+            publishRemoteCommand(RemotePlaybackCommand.Pause)
+            _playbackState.value = PlaybackState.Paused
+            return
+        }
         runCatching {
             currentEngine?.pause() ?: error("No active recitation engine")
         }.onSuccess {
@@ -144,6 +239,11 @@ class QuranAudioPlayer @Inject constructor(
 
     fun resume() {
         if (_playbackState.value != PlaybackState.Paused) return
+        if (remotelyControlled) {
+            publishRemoteCommand(RemotePlaybackCommand.Play)
+            _playbackState.value = PlaybackState.Playing
+            return
+        }
         runCatching {
             currentEngine?.start() ?: error("No active recitation engine")
         }.onSuccess {
@@ -154,6 +254,8 @@ class QuranAudioPlayer @Inject constructor(
     }
 
     fun stop() {
+        if (remotelyControlled) publishRemoteCommand(RemotePlaybackCommand.Stop)
+        remotelyControlled = false
         releaseEngine()
         queue = emptyList()
         queueIndex = -1
@@ -210,7 +312,11 @@ class QuranAudioPlayer @Inject constructor(
                 engine.start()
             }
                 .onSuccess {
-                    _playbackState.value = PlaybackState.Playing
+                    _playbackState.value = if (pauseWhenPrepared) PlaybackState.Paused else PlaybackState.Playing
+                    if (pauseWhenPrepared) {
+                        runCatching { engine.pause() }
+                        pauseWhenPrepared = false
+                    }
                     // Keep the process alive in the background only after the
                     // engine really started; never publish a false Playing state.
                     playbackBridge.onPlaybackActiveChanged(true, null)
@@ -301,4 +407,48 @@ class QuranAudioPlayer @Inject constructor(
         _hasNext.value = queueIndex in 0 until queue.lastIndex
         _hasPrevious.value = queueIndex > 0
     }
+
+    fun acceptRemotePosition(positionMs: Long, durationMs: Long, playing: Boolean) {
+        if (!remotelyControlled) return
+        _positionMs.value = positionMs.coerceAtLeast(0L)
+        if (durationMs > 0L) _durationMs.value = durationMs
+        _playbackState.value = if (playing) PlaybackState.Playing else PlaybackState.Paused
+    }
+
+    /** Advance the app-owned queue after Cast reports that the current item finished. */
+    fun onRemoteMediaEnded() {
+        if (!remotelyControlled) return
+        if (_remainingRepeats.value > 1) {
+            _remainingRepeats.value -= 1
+            _positionMs.value = 0L
+            publishRemoteCommand(RemotePlaybackCommand.Seek(0L))
+            publishRemoteCommand(RemotePlaybackCommand.Play)
+            _playbackState.value = PlaybackState.Playing
+        } else if (queueIndex < queue.lastIndex) {
+            next()
+        } else {
+            publishRemoteCommand(RemotePlaybackCommand.Stop)
+            remotelyControlled = false
+            finish()
+        }
+    }
+
+    fun seekTo(positionMs: Long) {
+        if (remotelyControlled) publishRemoteCommand(RemotePlaybackCommand.Seek(positionMs.coerceAtLeast(0L)))
+        else runCatching {
+            val engine = currentEngine ?: return
+            val bounded = positionMs.coerceAtLeast(0L).let { if (_durationMs.value > 0) it.coerceAtMost(_durationMs.value - 1) else it }
+            engine.seekTo(bounded.coerceAtMost(Int.MAX_VALUE.toLong()).toInt())
+            _positionMs.value = bounded
+        }
+    }
+}
+
+sealed interface RemotePlaybackCommand {
+    data object Play : RemotePlaybackCommand
+    data object Pause : RemotePlaybackCommand
+    data object Next : RemotePlaybackCommand
+    data object Previous : RemotePlaybackCommand
+    data object Stop : RemotePlaybackCommand
+    data class Seek(val positionMs: Long) : RemotePlaybackCommand
 }

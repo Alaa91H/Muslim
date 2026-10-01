@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -36,9 +37,15 @@ import org.muslim.app.feature.settings.locale.withAppLocale
 import org.muslim.app.feature.settings.update.UpdateCheckScheduler
 import org.muslim.app.ui.MuslimApp
 import org.muslim.app.cast.QuranCastPlayback
+import org.muslim.app.cast.CastReceiverConfig
 import org.muslim.app.feature.quran.domain.QuranCastPayload
 import org.muslim.app.feature.quran.ui.LocalQuranCastPayloadSink
 import org.muslim.app.feature.quran.ui.LocalQuranCastPlaybackSink
+import org.muslim.app.feature.quran.ui.LocalQuranCastConnected
+import org.muslim.app.feature.quran.ui.LocalQuranCastDeviceName
+import org.muslim.app.feature.quran.ui.LocalQuranCastError
+import org.muslim.app.feature.quran.ui.LocalQuranCastStartSink
+import org.muslim.app.feature.quran.ui.QuranCastHandoffManager
 import android.util.Log
 import java.util.ArrayDeque
 import javax.inject.Inject
@@ -55,6 +62,9 @@ class MainActivity : FragmentActivity() {
     private var castPlayback: QuranCastPlayback? = null
     private var pendingCastPayload: QuranCastPayload? = null
     private var pendingCastPlayback: Boolean? = null
+    private val castConnected = mutableStateOf(false)
+    private val castDeviceName = mutableStateOf<String?>(null)
+    private val castError = mutableStateOf<String?>(null)
 
     @Inject
     lateinit var settingsRepository: PrayerSettingsRepository
@@ -67,6 +77,9 @@ class MainActivity : FragmentActivity() {
 
     @Inject
     lateinit var permissionManager: PermissionManager
+
+    @Inject
+    lateinit var quranCastHandoffManager: QuranCastHandoffManager
 
     /** Tab requested by an App Shortcut (`muslim://times` etc.), else home. */
     private val targetRoute = MutableStateFlow(ROUTE_HOME)
@@ -119,14 +132,35 @@ class MainActivity : FragmentActivity() {
         enableEdgeToEdge()
         castPlayback = runCatching {
             QuranCastPlayback(this, onSessionChanged = { connected ->
+                castConnected.value = connected
+                castDeviceName.value = if (connected) castPlayback?.deviceName() else null
+                if (connected) castError.value = null
                 if (connected) {
-                    pendingCastPayload?.let { castPlayback?.load(it, autoplay = pendingCastPlayback == true) }
-                    pendingCastPlayback?.let { castPlayback?.syncPlayback(it) }
+                    pendingCastPayload?.let { castPlayback?.sendCurrentState(it) }
                 }
-            }, onError = { message -> Log.w("MuslimCast", message) })
+            }, onError = { message ->
+                castError.value = message
+                Log.w("MuslimCast", message)
+            }, mediaUrlFor = { payload ->
+                quranCastHandoffManager.mediaUrl(payload)
+            }, onRemoteEnded = {
+                val (position, playing) = castPlayback?.lastRemotePosition ?: (0L to false)
+                quranCastHandoffManager.handoffToLocal(position, playing)
+                quranCastHandoffManager.endSession()
+                castConnected.value = false
+                castDeviceName.value = null
+            }, onRemoteAccepted = { position ->
+                quranCastHandoffManager.handoffToRemote(position)
+            }, onRemoteProgress = { position, duration, playing ->
+                quranCastHandoffManager.acceptRemotePosition(position, duration, playing)
+            }, onRemoteItemEnded = quranCastHandoffManager::onRemoteMediaEnded,
+                customReceiverEnabled = CastReceiverConfig.applicationId(this) != null)
         }.onFailure { Log.w("MuslimCast", "Cast services are unavailable on this device.", it) }
             .getOrNull()
-            ?.also(QuranCastPlayback::start)
+            ?.also {
+                quranCastHandoffManager.onRemoteCommand = it::execute
+                it.start()
+            }
 
         // Surface the persisted fatal crash (from the auto-relaunch) once.
         showPreviousCrashIfAny()
@@ -157,9 +191,6 @@ class MainActivity : FragmentActivity() {
         targetRoute.value = routeFromIntent(intent)
         val castPayloadSink: (QuranCastPayload?) -> Unit = { payload ->
             pendingCastPayload = payload
-            if (payload != null && castPlayback?.isConnected() == true) {
-                castPlayback?.load(payload, autoplay = pendingCastPlayback == true)
-            }
         }
         val castPlaybackSink: (Boolean?) -> Unit = { shouldPlay ->
             pendingCastPlayback = shouldPlay
@@ -167,10 +198,19 @@ class MainActivity : FragmentActivity() {
                 castPlayback?.syncPlayback(shouldPlay)
             }
         }
+        val castStartSink: (QuranCastPayload, org.muslim.app.feature.quran.data.RecitationPlaybackSnapshot) -> Unit = { payload, snapshot ->
+            if (castPlayback?.isConnected() == true) {
+                castPlayback?.loadSnapshot(payload, snapshot)
+            }
+        }
         setContent {
             CompositionLocalProvider(
                 LocalQuranCastPayloadSink provides castPayloadSink,
                 LocalQuranCastPlaybackSink provides castPlaybackSink,
+                LocalQuranCastConnected provides castConnected.value,
+                LocalQuranCastDeviceName provides castDeviceName.value,
+                LocalQuranCastError provides castError.value,
+                LocalQuranCastStartSink provides castStartSink,
             ) {
                 val route by targetRoute.collectAsStateWithLifecycle()
                 MuslimApp(
@@ -198,6 +238,7 @@ class MainActivity : FragmentActivity() {
 
     override fun onDestroy() {
         castPlayback?.release()
+        quranCastHandoffManager.onRemoteCommand = null
         castPlayback = null
         super.onDestroy()
     }

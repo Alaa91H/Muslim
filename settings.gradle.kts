@@ -33,6 +33,7 @@ include(":wear")
 
 // Core modules
 include(":core:core-common")
+include(":core:core-cast")
 include(":core:core-design-system")
 include(":core:core-ui")
 include(":core:core-database")

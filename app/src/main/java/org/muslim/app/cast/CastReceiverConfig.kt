@@ -6,19 +6,18 @@ import org.muslim.app.BuildConfig
 
 /** Build-time receiver ID: custom display features stay disabled until registered by the owner. */
 object CastReceiverConfig {
-    private const val DEBUG_DEFAULT_RECEIVER = "CC1AD845"
-
-    fun applicationId(context: Context): String? =
-        configuredApplicationId(context) ?: if (BuildConfig.DEBUG) DEBUG_DEFAULT_RECEIVER else null
+    fun applicationId(context: Context): String? = configuredApplicationId(context)
 
     @VisibleForTesting
     internal fun configuredApplicationId(context: Context): String? {
-        val id = context.resources.getIdentifier("muslim_cast_receiver_application_id", "string", context.packageName)
-        if (id == 0) return null
-        return context.getString(id).takeIf(::isValidCustomApplicationId)
+        val id = BuildConfig.CAST_RECEIVER_APP_ID.ifBlank {
+            context.getSharedPreferences("cast_receiver", Context.MODE_PRIVATE)
+                .getString("application_id", "").orEmpty()
+        }
+        return id.takeIf(::isValidCustomApplicationId)
     }
 
     @VisibleForTesting
     internal fun isValidCustomApplicationId(value: String): Boolean =
-        value.matches(Regex("[A-Fa-f0-9]{8}")) && value != DEBUG_DEFAULT_RECEIVER
+        value.matches(Regex("[A-Fa-f0-9]{8}")) && value != "CC1AD845"
 }

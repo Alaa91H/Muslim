@@ -65,12 +65,14 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import java.util.Locale
+import kotlinx.coroutines.launch
 import androidx.compose.material3.TopAppBar
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
@@ -153,6 +155,8 @@ import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.SurahRevelationData
 import org.muslim.app.feature.quran.domain.CastText
 import org.muslim.app.feature.quran.domain.QuranCastPayload
+import org.muslim.app.feature.quran.domain.CastPlaybackState
+import org.muslim.app.feature.quran.ui.LocalQuranCastStartSink
 
 private const val DEFAULT_FONT_SP = 26f
 private val REPEAT_OPTIONS = listOf(1, 3, 5, 10, -1) // -1 = continuous ("بدون توقف")
@@ -258,8 +262,14 @@ fun QuranReaderScreen(
     val supplements by viewModel.supplements.collectAsStateWithLifecycle()
     val castPrayerViewModel: QuranCastPrayerViewModel = hiltViewModel()
     val castPrayerSnapshot by castPrayerViewModel.snapshot.collectAsStateWithLifecycle()
+    val positionMs by viewModel.positionMs.collectAsStateWithLifecycle()
+    val durationMs by viewModel.durationMs.collectAsStateWithLifecycle()
     val castPayloadSink = LocalQuranCastPayloadSink.current
     val castPlaybackSink = LocalQuranCastPlaybackSink.current
+    val castConnected = LocalQuranCastConnected.current
+    val castDeviceName = LocalQuranCastDeviceName.current
+    val castError = LocalQuranCastError.current
+    val castStartSink = LocalQuranCastStartSink.current
     val supplementAyah by viewModel.supplementAyah.collectAsStateWithLifecycle()
     val supplementFollowPlayback by viewModel.supplementFollowPlayback.collectAsStateWithLifecycle()
     val supplementEnabled by viewModel.supplementEnabled.collectAsStateWithLifecycle()
@@ -277,8 +287,6 @@ fun QuranReaderScreen(
     val hasPreviousAyah by viewModel.hasPreviousAyah.collectAsStateWithLifecycle()
     val recitationFailure by viewModel.recitationFailure.collectAsStateWithLifecycle()
     val restorableSession by viewModel.restorableSession.collectAsStateWithLifecycle()
-    val positionMs by viewModel.positionMs.collectAsStateWithLifecycle()
-    val durationMs by viewModel.durationMs.collectAsStateWithLifecycle()
     val selectedReciter by viewModel.selectedReciter.collectAsStateWithLifecycle()
     val downloading by viewModel.downloading.collectAsStateWithLifecycle()
     val downloadProgress by viewModel.downloadProgress.collectAsStateWithLifecycle()
@@ -377,23 +385,45 @@ fun QuranReaderScreen(
 
     // The ayah currently playing (if any) — drives the mini now-playing bar.
     val playingAyah = currentAudioAyah?.let { global -> mushafAyahs.firstOrNull { it.globalNumber == global } }
+    val recitationSnapshot = viewModel.recitationPlaybackSnapshot()
     val castAyah = playingAyah.takeIf { playbackState == PlaybackState.Playing || playbackState == PlaybackState.Paused }
+    val castSessionId = rememberCastSessionId(context)
+    val castSequence = rememberCastSequence(castSessionId, castAyah?.globalNumber, positionMs, playbackState)
     val castPayload = remember(
         castAyah, selectedReciter, durationMs, supplements, supplementLanguage,
-        castPrayerSnapshot, context,
+        castPrayerSnapshot, context, castSequence, positionMs, playbackState,
+        recitationSnapshot, state.surah,
     ) {
         castAyah?.let { ayah ->
             val translation = supplements.translations.firstOrNull {
                 it.language.equals(supplementLanguage, ignoreCase = true)
             } ?: supplements.translations.firstOrNull()
             QuranCastPayload(
+                sessionId = castSessionId,
+                sequence = castSequence,
+                timestampEpochMs = System.currentTimeMillis(),
                 languageTag = translation?.language ?: "und",
                 surahNumber = ayah.surahNumber,
+                surahArabicName = state.surah?.arabicName ?: "سورة ${ayah.surahNumber}",
+                surahLocalizedName = state.surah?.englishName ?: "Surah ${ayah.surahNumber}",
+                totalAyahs = state.surah?.ayahCount ?: ayah.numberInSurah,
+                revelationType = state.surah?.revelationType,
                 ayahNumber = ayah.numberInSurah,
                 globalAyahNumber = ayah.globalNumber,
                 reciterName = selectedReciter.name,
+                reciterId = selectedReciter.id,
                 audioUrl = selectedReciter.urlFor(ayah.surahNumber, ayah.numberInSurah),
                 durationMs = durationMs.takeIf { playingAyah?.globalNumber == ayah.globalNumber },
+                positionMs = positionMs,
+                playbackState = when (playbackState) {
+                    PlaybackState.Playing -> CastPlaybackState.PLAYING
+                    PlaybackState.Paused -> CastPlaybackState.PAUSED
+                    PlaybackState.Idle -> CastPlaybackState.IDLE
+                },
+                repeatCount = recitationSnapshot?.repeatCount ?: 1,
+                remainingRepeats = recitationSnapshot?.remainingRepeats ?: 1,
+                queueGlobalNumbers = recitationSnapshot?.queue?.map { it.globalNumber } ?: listOf(ayah.globalNumber),
+                queueIndex = recitationSnapshot?.queueIndex ?: 0,
                 arabicAyah = ayah.text,
                 translation = translation?.let {
                     CastText(text = it.text, source = it.language, languageTag = it.language)
@@ -407,6 +437,15 @@ fun QuranReaderScreen(
         }
     }
     LaunchedEffect(castPayload) { castPayloadSink(castPayload) }
+    val castPlayablePayload = remember(castPayload, playbackState, castConnected) {
+        castPayload?.takeIf { payload ->
+            payload.audioUrl.startsWith("https://") ||
+                viewModel.isRecitationDownloaded(selectedReciter, payload.surahNumber, payload.globalAyahNumber)
+        }
+    }
+    LaunchedEffect(castConnected, castPayload, recitationSnapshot) {
+        if (castConnected && castPlayablePayload != null && recitationSnapshot != null) castStartSink(castPlayablePayload, recitationSnapshot)
+    }
     LaunchedEffect(playbackState) {
         castPlaybackSink(
             when (playbackState) {
@@ -676,6 +715,12 @@ fun QuranReaderScreen(
                 },
                 actions = {
                     QuranCastButton()
+                    castDeviceName?.let { name ->
+                        Text(name, style = MaterialTheme.typography.labelSmall, maxLines = 1)
+                    }
+                    castError?.let { message ->
+                        Text(message, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.error, maxLines = 1)
+                    }
                     // While recitation audio is being downloaded (before
                     // playback starts) show a compact download icon + the
                     // live percentage in the top bar; it disappears on its

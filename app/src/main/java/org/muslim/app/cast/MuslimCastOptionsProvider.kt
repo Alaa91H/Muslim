@@ -6,13 +6,16 @@ import com.google.android.gms.cast.framework.CastOptions.Builder
 import com.google.android.gms.cast.framework.OptionsProvider
 import com.google.android.gms.cast.framework.SessionProvider
 
-/** Uses Cast's public Default Media Receiver until an owner-registered Quran receiver is configured. */
+/** Custom Quran receiver only; discovery stays disabled until a real owner-registered ID is configured. */
 class MuslimCastOptionsProvider : OptionsProvider {
-    override fun getCastOptions(context: Context): CastOptions =
-        Builder()
-            .setReceiverApplicationId(CastReceiverConfig.applicationId(context) ?: "CC1AD845")
-            .setSupportedNamespaces(listOf(QuranCastPlayback.CUSTOM_NAMESPACE))
-            .build()
+    override fun getCastOptions(context: Context): CastOptions = CastReceiverConfig.applicationId(context)
+        ?.let { id ->
+            Builder()
+                .setReceiverApplicationId(id)
+                .setSupportedNamespaces(listOf(QuranCastPlayback.CUSTOM_NAMESPACE))
+                .build()
+        }
+        ?: Builder().setReceiverApplicationId("CC1AD845").build()
 
     override fun getAdditionalSessionProviders(context: Context): List<SessionProvider>? = null
 }

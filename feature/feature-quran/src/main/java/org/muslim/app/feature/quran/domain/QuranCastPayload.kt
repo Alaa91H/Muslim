@@ -6,13 +6,27 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class QuranCastPayload(
     val schemaVersion: Int = CURRENT_SCHEMA_VERSION,
+    val sessionId: String,
+    val sequence: Long,
+    val timestampEpochMs: Long,
     val languageTag: String,
     val surahNumber: Int,
+    val surahArabicName: String,
+    val surahLocalizedName: String,
+    val totalAyahs: Int,
+    val revelationType: String?,
     val ayahNumber: Int,
     val globalAyahNumber: Int,
     val reciterName: String,
+    val reciterId: String,
     val audioUrl: String,
     val durationMs: Long?,
+    val positionMs: Long,
+    val playbackState: CastPlaybackState,
+    val repeatCount: Int,
+    val remainingRepeats: Int,
+    val queueGlobalNumbers: List<Int>,
+    val queueIndex: Int,
     val arabicAyah: String,
     val translation: CastText?,
     val tafsir: List<CastText>,
@@ -21,25 +35,39 @@ data class QuranCastPayload(
 ) {
     init {
         require(schemaVersion == CURRENT_SCHEMA_VERSION) { "Unsupported Quran Cast payload version" }
+        require(sessionId.isNotBlank())
+        require(sequence >= 0L)
+        require(timestampEpochMs > 0L)
         require(languageTag.isNotBlank())
         require(surahNumber in 1..114)
+        require(surahArabicName.isNotBlank())
+        require(surahLocalizedName.isNotBlank())
+        require(totalAyahs > 0)
         require(ayahNumber > 0)
         require(globalAyahNumber > 0)
         require(reciterName.isNotBlank())
-        require(audioUrl.startsWith("https://"))
+        require(reciterId.isNotBlank())
+        require(audioUrl.startsWith("https://") || audioUrl.startsWith("http://"))
         require(durationMs == null || durationMs >= 0L)
+        require(positionMs >= 0L)
+        require(repeatCount >= 1 && remainingRepeats >= 0)
+        require(queueGlobalNumbers.isNotEmpty() && queueIndex in queueGlobalNumbers.indices)
+        require(queueGlobalNumbers[queueIndex] == globalAyahNumber)
         require(arabicAyah.isNotBlank())
         require(translation == null || translation.text.isNotBlank())
         require(prayerTimes.all { it.name.isNotBlank() && it.localTime.isNotBlank() })
     }
 
     companion object {
-        const val CURRENT_SCHEMA_VERSION = 1
+        const val CURRENT_SCHEMA_VERSION = 2
 
         fun isValidReceiverApplicationId(value: String): Boolean =
             value.matches(Regex("[A-Fa-f0-9]{8}"))
     }
 }
+
+@Serializable
+enum class CastPlaybackState { IDLE, PLAYING, PAUSED, BUFFERING }
 
 /** One localized text value with visible provenance for the receiver. */
 @Serializable

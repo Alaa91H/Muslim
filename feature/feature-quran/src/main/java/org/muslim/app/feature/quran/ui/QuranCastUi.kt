@@ -1,6 +1,10 @@
 package org.muslim.app.feature.quran.ui
 
+import android.content.Context
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableLongStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
@@ -15,6 +19,22 @@ import org.muslim.app.feature.quran.domain.QuranCastPayload
 /** Activity-owned Cast sender hook; keeps app navigation APIs independent of Cast. */
 val LocalQuranCastPayloadSink = staticCompositionLocalOf<(QuranCastPayload?) -> Unit> { {} }
 val LocalQuranCastPlaybackSink = staticCompositionLocalOf<(Boolean?) -> Unit> { {} }
+val LocalQuranCastConnected = staticCompositionLocalOf { false }
+val LocalQuranCastDeviceName = staticCompositionLocalOf<String?> { null }
+val LocalQuranCastError = staticCompositionLocalOf<String?> { null }
+val LocalQuranCastStartSink = staticCompositionLocalOf<(QuranCastPayload, org.muslim.app.feature.quran.data.RecitationPlaybackSnapshot) -> Unit> { { _, _ -> } }
+
+@Composable
+internal fun rememberCastSessionId(context: Context): String = remember(context) {
+    java.util.UUID.randomUUID().toString()
+}
+
+@Composable
+internal fun rememberCastSequence(sessionId: String, globalAyah: Int?, positionMs: Long, playbackState: Any): Long {
+    val sequence = remember(sessionId) { mutableLongStateOf(0L) }
+    LaunchedEffect(globalAyah, positionMs, playbackState) { sequence.longValue += 1L }
+    return sequence.longValue
+}
 
 @Composable
 internal fun QuranCastButton() {
