@@ -12,7 +12,25 @@ adb shell setprop persist.sys.timezone UTC
 adb logcat -b all -v threadtime '*:E' > artifacts/emulator-diagnostics/logcat.txt 2>&1 &
 logcat_pid=$!
 gradle_pid=""
-trap 'kill "$logcat_pid" ${gradle_pid:+"$gradle_pid"} 2>/dev/null || true' EXIT INT TERM
+fixed_clock_original_device_epoch=""
+fixed_clock_started_host_epoch=""
+restore_fixed_clock() {
+    [ -n "$fixed_clock_original_device_epoch" ] || return 0
+    local now_host_epoch restore_epoch restore_date
+    now_host_epoch="$(date -u +%s)"
+    restore_epoch=$((fixed_clock_original_device_epoch + now_host_epoch - fixed_clock_started_host_epoch))
+    restore_date="$(date -u -d "@$restore_epoch" +%m%d%H%M%Y.%S)"
+    adb shell "su 0 date -u $restore_date" >/dev/null 2>&1 || true
+    fixed_clock_original_device_epoch=""
+    fixed_clock_started_host_epoch=""
+}
+start_fixed_clock() {
+    fixed_clock_original_device_epoch="$(adb shell date -u +%s | tr -d '\r')"
+    fixed_clock_started_host_epoch="$(date -u +%s)"
+    [[ "$fixed_clock_original_device_epoch" =~ ^[0-9]+$ ]] || return 1
+    adb shell su 0 date -u 093015002026.00
+}
+trap 'restore_fixed_clock; kill "$logcat_pid" ${gradle_pid:+"$gradle_pid"} 2>/dev/null || true' EXIT INT TERM
 status=0
 device_ready() {
     [ "$(adb get-state 2>/dev/null)" = device ]
@@ -84,20 +102,28 @@ else
     status=1
 fi
 
+# Change wall time once for the complete screenshot matrix. Android 16 rebuilds
+# time- and battery-usage state after every clock jump; toggling it per screenshot
+# caused intermittent ADB transport loss after expanded-display variants.
 # Reinstall between 24-case width/screen groups to bound retained Activity/graphics state.
 # Every configured case still runs; failures remain failures and are not retried away.
 if [ "$status" = 0 ] && device_ready; then
-for screens in prayer-home,prayer-monthly quran-home,quran-reader qibla,more hadith,settings; do
-    for expanded in false true; do
-        set_display_variant "$expanded" || { status=1; break 2; }
-        run_batch "matrix-$screens-$expanded" \
-            -Pandroid.testInstrumentationRunnerArguments.class=org.muslim.app.UiUxV2MatrixInstrumentedTest \
-            "-Pandroid.testInstrumentationRunnerArguments.uiux.screens=$screens" \
-            "-Pandroid.testInstrumentationRunnerArguments.uiux.expanded=$expanded" \
-            -Pandroid.testInstrumentationRunnerArguments.uiux.fixedClock=true
-        device_ready || break 2
-    done
-done
+    start_fixed_clock || status=1
+    if [ "$status" = 0 ]; then
+        for screens in prayer-home,prayer-monthly quran-home,quran-reader qibla,more hadith,settings; do
+            for expanded in false true; do
+                set_display_variant "$expanded" || { status=1; break 2; }
+                run_batch "matrix-$screens-$expanded" \
+                    -Pandroid.testInstrumentationRunnerArguments.class=org.muslim.app.UiUxV2MatrixInstrumentedTest \
+                    "-Pandroid.testInstrumentationRunnerArguments.uiux.screens=$screens" \
+                    "-Pandroid.testInstrumentationRunnerArguments.uiux.expanded=$expanded" \
+                    -Pandroid.testInstrumentationRunnerArguments.uiux.fixedClock=true \
+                    -Pandroid.testInstrumentationRunnerArguments.uiux.fixedClockManaged=true
+                device_ready || break 2
+            done
+        done
+    fi
+    restore_fixed_clock
 fi
 sudo dmesg -T > artifacts/emulator-diagnostics/kernel.txt 2>&1 || true
 exit "$status"

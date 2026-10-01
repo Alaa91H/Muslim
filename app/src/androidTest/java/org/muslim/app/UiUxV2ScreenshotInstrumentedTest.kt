@@ -98,6 +98,9 @@ class UiUxV2ScreenshotInstrumentedTest {
         val originalPreferences = runBlocking { preferencesRepository.preferences.first() }
         val originalPrayerSettings = runBlocking { prayerRepository.settings.first() }
         val fixedClock = InstrumentationRegistry.getArguments().getString("uiux.fixedClock") == "true"
+        val fixedClockManaged = InstrumentationRegistry.getArguments()
+            .getString("uiux.fixedClockManaged") == "true"
+        val manageScreenshotClock = fixedClock && !fixedClockManaged
         val originalWallTime = System.currentTimeMillis()
         val originalElapsedTime = SystemClock.elapsedRealtime()
         var expandedDisplayDiagnostics = "not requested"
@@ -132,7 +135,11 @@ class UiUxV2ScreenshotInstrumentedTest {
                 }
             }
             if (fixedClock) {
-                val result = shell("su 0 date -u 093015002026.00")
+                val result = if (manageScreenshotClock) {
+                    shell("su 0 date -u 093015002026.00")
+                } else {
+                    "The screenshot batch manages the clock"
+                }
                 val expectedEpoch = Instant.parse("2026-09-30T15:00:00Z").toEpochMilli()
                 check(kotlin.math.abs(System.currentTimeMillis() - expectedEpoch) < 5_000L) {
                     "CI screenshot clock could not be fixed: $result"
@@ -230,7 +237,7 @@ class UiUxV2ScreenshotInstrumentedTest {
         } finally {
             try {
                 scenario?.close()
-                if (fixedClock) {
+                if (manageScreenshotClock) {
                     val restoredTime = originalWallTime + SystemClock.elapsedRealtime() - originalElapsedTime
                     val date = DateTimeFormatter.ofPattern("MMddHHmmyyyy.ss", Locale.US)
                         .withZone(ZoneOffset.UTC).format(Instant.ofEpochMilli(restoredTime))
