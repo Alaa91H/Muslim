@@ -18,6 +18,15 @@ class UiUxV2MatrixInstrumentedTest(
 ) {
     @Test
     fun capturesRequestedScreenVariant() {
+        val arguments = InstrumentationRegistry.getArguments()
+        val requestedScreens = arguments.getString("uiux.screens")?.split(",").orEmpty()
+        val finalRequestedScreen = requestedScreens.lastOrNull()
+        val requestedExpanded = arguments.getString("uiux.expanded")?.toBooleanStrictOrNull()
+        val holdForHostCapture = screenName == finalRequestedScreen &&
+            language == "en" &&
+            theme == AppThemeMode.Dark &&
+            fontScale == 2f &&
+            (requestedExpanded == null || expanded == requestedExpanded)
         UiUxV2ScreenshotInstrumentedTest().capturePrayerHomeScreenshot(
             languageCode = language,
             themeMode = theme,
@@ -25,6 +34,7 @@ class UiUxV2MatrixInstrumentedTest(
             route = route,
             screenName = screenName,
             expanded = expanded,
+            holdForHostCapture = holdForHostCapture,
         )
     }
 

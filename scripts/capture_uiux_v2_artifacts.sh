@@ -19,13 +19,12 @@ device_ready() {
 }
 pull_screenshots() {
     local files device_screenshot name
-    files="$(adb shell run-as "$app_id" find files/uiux-v2 -name '*.png' 2>/dev/null | tr -d '\r')"
+    files="$(adb shell "find /sdcard/Android/data/$app_id/files/uiux-v2 -name '*.png' 2>/dev/null" | tr -d '\r')"
     while IFS= read -r device_screenshot; do
         [ -n "$device_screenshot" ] || continue
         name="${device_screenshot##*/}"
-        if [ -s "artifacts/uiux-v2/$name" ] || adb exec-out run-as "$app_id" cat "$device_screenshot" > "artifacts/uiux-v2/$name"; then
+        if [ -s "artifacts/uiux-v2/$name" ] || adb pull "$device_screenshot" "artifacts/uiux-v2/$name"; then
             [ -s "artifacts/uiux-v2/$name" ] || continue
-            adb shell run-as "$app_id" touch "$device_screenshot.ack"
         fi
     done <<< "$files"
 }

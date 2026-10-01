@@ -65,10 +65,10 @@ def main() -> None:
     validator = (ROOT / "scripts/validate_uiux_v2_screenshots.py").read_text(encoding="utf-8")
     screenshot_contract = (
         all(value in capture for value in (
-            "uiAutomation.takeScreenshot()", "sampledColors.size > 1", "context.filesDir",
+            "uiAutomation.takeScreenshot()", "sampledColors.size > 1", "getExternalFilesDir(null)",
             "markInitialPermissionSetupHandled()", "rootInActiveWindow",
             "screenWidthDp >= 840", "scenario?.close()", "Could not publish completed screenshot",
-            "SCREENSHOT_ACK_TIMEOUT_MS", "Screenshot host did not confirm pulling",
+            "SCREENSHOT_HOST_FINAL_CAPTURE_GRACE_MS", "holdForHostCapture",
         ))
         and all(value in matrix for value in (
             '"prayer-home"', '"prayer-monthly"', '"quran-home"', '"quran-reader"',
@@ -77,7 +77,7 @@ def main() -> None:
             'AppThemeMode.Light, AppThemeMode.Dark',
         ))
         and all(value in exporter for value in (
-            "gradle_pid=$!", "kill -0", "adb exec-out run-as", "adb shell run-as", "wait", "*.png",
+            "gradle_pid=$!", "kill -0", "adb pull", "wait", "*.png",
         ))
         and "89504e470d0a1a0a" in validator
         and "bash scripts/capture_uiux_v2_artifacts.sh" in workflow

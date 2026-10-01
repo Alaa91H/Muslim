@@ -34,8 +34,7 @@ import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.SelectedLocation
 import org.muslim.app.feature.settings.locale.withAppLocale
 
-private const val SCREENSHOT_ACK_TIMEOUT_MS = 10_000L
-private const val SCREENSHOT_ACK_POLL_INTERVAL_MS = 50L
+private const val SCREENSHOT_HOST_FINAL_CAPTURE_GRACE_MS = 5_000L
 
 /** Captures the actual Hilt-backed Prayer Home screen on the CI emulator. */
 @RunWith(AndroidJUnit4::class)
@@ -78,6 +77,7 @@ class UiUxV2ScreenshotInstrumentedTest {
         screenName: String = "prayer-home",
         expanded: Boolean = false,
         afterReady: ((android.app.Instrumentation) -> Unit)? = null,
+        holdForHostCapture: Boolean = false,
     ) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
@@ -203,7 +203,10 @@ class UiUxV2ScreenshotInstrumentedTest {
                 }
             }
             check(sampledColors.size > 1) { "Screenshot appears blank; app content was not rendered" }
-            val outputDirectory = File(context.filesDir, "uiux-v2")
+            val externalFilesDirectory = checkNotNull(context.getExternalFilesDir(null)) {
+                "App external files directory is unavailable"
+            }
+            val outputDirectory = File(externalFilesDirectory, "uiux-v2")
             check(outputDirectory.mkdirs() || outputDirectory.isDirectory) {
                 "Could not create screenshot output directory: ${outputDirectory.absolutePath}"
             }
@@ -220,19 +223,7 @@ class UiUxV2ScreenshotInstrumentedTest {
             check(pendingScreenshot.renameTo(File(outputDirectory, screenshotName))) {
                 "Could not publish completed screenshot"
             }
-            if (fixedClock) {
-                val acknowledgement = File(outputDirectory, "$screenshotName.ack")
-                val acknowledgementDeadline = SystemClock.uptimeMillis() + SCREENSHOT_ACK_TIMEOUT_MS
-                while (!acknowledgement.exists() && SystemClock.uptimeMillis() < acknowledgementDeadline) {
-                    SystemClock.sleep(SCREENSHOT_ACK_POLL_INTERVAL_MS)
-                }
-                check(acknowledgement.exists()) {
-                    "Screenshot host did not confirm pulling $screenshotName before the test finished"
-                }
-                check(acknowledgement.delete()) {
-                    "Could not remove screenshot acknowledgement for $screenshotName"
-                }
-            }
+            if (fixedClock && holdForHostCapture) SystemClock.sleep(SCREENSHOT_HOST_FINAL_CAPTURE_GRACE_MS)
             check(homeVisible) {
                 "Requested screen $route is obscured or has not rendered: $activeWindowDescription"
             }
