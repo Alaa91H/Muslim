@@ -77,7 +77,7 @@ def main() -> None:
             'AppThemeMode.Light, AppThemeMode.Dark',
         ))
         and all(value in exporter for value in (
-            "gradle_pid=$!", "kill -0", "adb pull", "adb shell \"touch", "wait", "*.png",
+            "gradle_pid=$!", "kill -0", "adb exec-out run-as", "adb shell run-as", "wait", "*.png",
         ))
         and "89504e470d0a1a0a" in validator
         and "bash scripts/capture_uiux_v2_artifacts.sh" in workflow
