@@ -51,13 +51,15 @@ run_batch() {
 set_display_variant() {
     local expanded="$1"
     if [ "$expanded" = true ]; then
-        adb shell wm size 1000x1600 >/dev/null
-        adb shell wm density 160 >/dev/null
+        # API 26's CI AVD is capped at 640x1280 pixels. At 120 dpi this is
+        # still 853dp wide, enough to exercise the expanded-layout breakpoint.
+        adb shell wm size 640x1280 >/dev/null
+        adb shell wm density 120 >/dev/null
         local applied_size applied_density
         applied_size="$(adb shell wm size | tr -d '\r')"
         applied_density="$(adb shell wm density | tr -d '\r')"
-        if [[ "$applied_size" != *"Override size: 1000x1600"* ]] ||
-            { [[ "$applied_density" != *"Override density: 160"* ]] && [[ "$applied_density" != *"Physical density: 160"* ]]; }; then
+        if [[ "$applied_size" != *"Override size: 640x1280"* ]] ||
+            [[ "$applied_density" != *"Override density: 120"* ]]; then
             echo "Could not configure expanded emulator display: size=$applied_size density=$applied_density"
             return 1
         fi
