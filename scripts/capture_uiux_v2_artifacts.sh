@@ -75,8 +75,19 @@ set_display_variant() {
         adb shell wm density reset >/dev/null
     fi
 }
+# Behavioral regressions target the compact phone layout. Run them before the
+# screenshot matrix because screenshot variants temporarily change wall clock
+# and can invalidate later RTC_WAKEUP delivery probes.
+if set_display_variant false; then
+    run_batch app-regression \
+        -Pandroid.testInstrumentationRunnerArguments.notClass=org.muslim.app.UiUxV2MatrixInstrumentedTest
+else
+    status=1
+fi
+
 # Reinstall between 24-case width/screen groups to bound retained Activity/graphics state.
 # Every configured case still runs; failures remain failures and are not retried away.
+if [ "$status" = 0 ] && device_ready; then
 for screens in prayer-home,prayer-monthly quran-home,quran-reader qibla,more hadith,settings; do
     for expanded in false true; do
         set_display_variant "$expanded" || { status=1; break 2; }
@@ -87,15 +98,6 @@ for screens in prayer-home,prayer-monthly quran-home,quran-reader qibla,more had
         device_ready || break 2
     done
 done
-if [ "$status" = 0 ] && device_ready; then
-    if set_display_variant false; then
-        # Behavioral regressions target the compact phone layout. Leave the
-        # expanded configuration covered by its dedicated screenshot matrix.
-        run_batch app-regression \
-            -Pandroid.testInstrumentationRunnerArguments.notClass=org.muslim.app.UiUxV2MatrixInstrumentedTest
-    else
-        status=1
-    fi
 fi
 sudo dmesg -T > artifacts/emulator-diagnostics/kernel.txt 2>&1 || true
 exit "$status"
