@@ -131,6 +131,11 @@ class UiUxV2ScreenshotInstrumentedTest {
             scenario = ActivityScenario.launch<MainActivity>(
                 Intent(context, MainActivity::class.java).putExtra("org.muslim.app.extra.ROUTE", route),
             )
+            checkNotNull(scenario).onActivity { activity ->
+                activity.applyOverrideConfiguration(
+                    Configuration(activity.resources.configuration).apply { this.fontScale = fontScale },
+                )
+            }
             instrumentation.waitForIdleSync()
             val deadline = SystemClock.uptimeMillis() + 15_000
             var homeVisible = false
