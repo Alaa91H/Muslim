@@ -4,10 +4,13 @@ import android.graphics.Bitmap
 import android.content.Intent
 import android.content.res.Configuration
 import android.accessibilityservice.AccessibilityServiceInfo
+import android.os.Handler
+import android.os.HandlerThread
 import android.os.SystemClock
 import android.os.Build
-import android.provider.Settings
 import android.os.ParcelFileDescriptor
+import android.view.Window
+import android.view.PixelCopy
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.core.app.ActivityScenario
@@ -18,6 +21,8 @@ import java.time.Instant
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.util.Locale
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.flow.first
 import org.junit.Test
@@ -189,6 +194,7 @@ class UiUxV2ScreenshotInstrumentedTest {
                 }
             }
             val bitmap = instrumentation.uiAutomation.takeScreenshot()
+                ?: captureActivityWindowBitmap(checkNotNull(scenario))
             check(bitmap.width > 0 && bitmap.height > 0) { "Screenshot has invalid dimensions" }
             val sampledColors = buildSet {
                 for (x in 0 until bitmap.width step 32) {
@@ -250,6 +256,39 @@ class UiUxV2ScreenshotInstrumentedTest {
         append(" description=").append(contentDescription).append('\n')
         for (index in 0 until childCount) {
             getChild(index)?.let { append(it.describeTree()) }
+        }
+    }
+
+    private fun captureActivityWindowBitmap(scenario: ActivityScenario<MainActivity>): Bitmap {
+        var window: Window? = null
+        var width = 0
+        var height = 0
+        scenario.onActivity { activity ->
+            window = activity.window
+            width = activity.window.decorView.width
+            height = activity.window.decorView.height
+        }
+        val sourceWindow = checkNotNull(window) { "Could not obtain the Activity window for screenshot fallback" }
+        check(width > 0 && height > 0) { "Activity window has invalid screenshot dimensions: ${width}x$height" }
+        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val handlerThread = HandlerThread("UiUxScreenshotCapture").apply { start() }
+        try {
+            val copyFinished = CountDownLatch(1)
+            var copyStatus = PixelCopy.ERROR_UNKNOWN
+            PixelCopy.request(sourceWindow, bitmap, { status ->
+                copyStatus = status
+                copyFinished.countDown()
+            }, Handler(handlerThread.looper))
+            check(copyFinished.await(10, TimeUnit.SECONDS)) {
+                "Timed out while copying the expanded Activity window"
+            }
+            check(copyStatus == PixelCopy.SUCCESS) { "Activity window screenshot failed with status $copyStatus" }
+            return bitmap
+        } catch (failure: Throwable) {
+            bitmap.recycle()
+            throw failure
+        } finally {
+            handlerThread.quitSafely()
         }
     }
 
