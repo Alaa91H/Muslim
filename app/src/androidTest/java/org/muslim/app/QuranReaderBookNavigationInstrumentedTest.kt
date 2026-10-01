@@ -23,7 +23,6 @@ class QuranReaderBookNavigationInstrumentedTest {
             route = "quran/reader/3",
             screenName = "quran-book-navigation",
             afterReady = { instrumentation ->
-                val packageName = instrumentation.targetContext.packageName
                 val deadline = SystemClock.uptimeMillis() + 10_000
                 var reachedBaqarahPage = false
                 val windowBounds = Rect()
@@ -33,12 +32,12 @@ class QuranReaderBookNavigationInstrumentedTest {
                     val root = instrumentation.uiAutomation.rootInActiveWindow?.also { it.refresh() }
                     windowBounds.setEmpty()
                     root?.getBoundsInScreen(windowBounds)
-                    val page50 = root?.findAccessibilityNodeInfosByViewId("$packageName:id/mushaf-page-50").orEmpty()
-                    val page49 = root?.findAccessibilityNodeInfosByViewId("$packageName:id/mushaf-page-49").orEmpty()
-                    page49Diagnostics = page49.joinToString { visibilityDiagnostics(it) }
-                    page50Diagnostics = page50.joinToString { visibilityDiagnostics(it) }
-                    val page50Visible = page50.any { substantiallyVisible(it, windowBounds) }
-                    val page49Visible = page49.any { substantiallyVisible(it, windowBounds) }
+                    val page50Bounds = visiblePageHeaderBounds(root, 50, windowBounds)
+                    val page49Bounds = visiblePageHeaderBounds(root, 49, windowBounds)
+                    page49Diagnostics = page49Bounds?.toShortString() ?: "not visible"
+                    page50Diagnostics = page50Bounds?.toShortString() ?: "not visible"
+                    val page50Visible = page50Bounds != null
+                    val page49Visible = page49Bounds != null
                     if (page50Visible && page49Visible) {
                         // On a two-page layout, Al Baqarah's last page (49)
                         // and Aal Imran's first page (50) share one printed
@@ -78,20 +77,27 @@ class QuranReaderBookNavigationInstrumentedTest {
         ParcelFileDescriptor.AutoCloseInputStream(descriptor).use { it.readBytes() }
     }
 
-    private fun substantiallyVisible(node: AccessibilityNodeInfo, window: Rect): Boolean {
-        val bounds = Rect()
-        node.getBoundsInScreen(bounds)
-        if (bounds.width() <= 0 || bounds.height() <= 0) return false
-        val visibleBounds = Rect(bounds)
-        if (!visibleBounds.intersect(window)) return false
-        return visibleBounds.width() >= bounds.width() * MIN_VISIBLE_FRACTION &&
-            visibleBounds.height() >= bounds.height() * MIN_VISIBLE_FRACTION
-    }
-
-    private fun visibilityDiagnostics(node: AccessibilityNodeInfo): String {
-        val bounds = Rect()
-        node.getBoundsInScreen(bounds)
-        return "bounds=$bounds visible=${node.isVisibleToUser}"
+    private fun visiblePageHeaderBounds(
+        node: AccessibilityNodeInfo?,
+        page: Int,
+        window: Rect,
+    ): Rect? {
+        if (node == null) return null
+        if (node.text?.toString()?.contains("صفحة $page") == true) {
+            val bounds = Rect()
+            node.getBoundsInScreen(bounds)
+            if (bounds.width() > 0 && bounds.height() > 0) {
+                val visibleBounds = Rect(bounds)
+                if (visibleBounds.intersect(window) &&
+                    visibleBounds.width() >= bounds.width() * MIN_VISIBLE_FRACTION &&
+                    visibleBounds.height() >= bounds.height() * MIN_VISIBLE_FRACTION
+                ) return visibleBounds
+            }
+        }
+        for (index in 0 until node.childCount) {
+            visiblePageHeaderBounds(node.getChild(index), page, window)?.let { return it }
+        }
+        return null
     }
 
     private companion object {
