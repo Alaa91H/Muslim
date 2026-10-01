@@ -53,8 +53,10 @@ class QuranReaderBookNavigationInstrumentedTest {
                         // threshold on the CI emulator.
                         val metrics = instrumentation.targetContext.resources.displayMetrics
                         val y = (metrics.heightPixels * 0.4f).toInt()
-                        val startX = (metrics.widthPixels * 0.1f).toInt()
-                        val endX = (metrics.widthPixels * 0.9f).toInt()
+                        // In RTL the previous printed page is revealed by a
+                        // right-to-left finger swipe, matching Arabic book flow.
+                        val startX = (metrics.widthPixels * 0.9f).toInt()
+                        val endX = (metrics.widthPixels * 0.1f).toInt()
                         instrumentationShell(
                             instrumentation,
                             "input swipe $startX $y $endX $y 400",

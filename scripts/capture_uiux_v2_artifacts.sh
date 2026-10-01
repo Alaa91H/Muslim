@@ -34,7 +34,7 @@ run_batch() {
     ./gradlew :app:connectedDebugAndroidTest --max-workers=2 \
         '-Dorg.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8 -Duser.language=en -Duser.country=US' \
         '-Pkotlin.daemon.jvmargs=-Xmx1024m -Duser.language=en -Duser.country=US' \
-        -Pandroid.testInstrumentationRunnerArguments.uiux.fixedClock=true "$@" \
+        "$@" \
         > "artifacts/emulator-diagnostics/$batch.txt" 2>&1 &
     gradle_pid=$!
     while kill -0 "$gradle_pid" 2>/dev/null; do
@@ -94,7 +94,8 @@ for screens in prayer-home,prayer-monthly quran-home,quran-reader qibla,more had
         run_batch "matrix-$screens-$expanded" \
             -Pandroid.testInstrumentationRunnerArguments.class=org.muslim.app.UiUxV2MatrixInstrumentedTest \
             "-Pandroid.testInstrumentationRunnerArguments.uiux.screens=$screens" \
-            "-Pandroid.testInstrumentationRunnerArguments.uiux.expanded=$expanded"
+            "-Pandroid.testInstrumentationRunnerArguments.uiux.expanded=$expanded" \
+            -Pandroid.testInstrumentationRunnerArguments.uiux.fixedClock=true
         device_ready || break 2
     done
 done
