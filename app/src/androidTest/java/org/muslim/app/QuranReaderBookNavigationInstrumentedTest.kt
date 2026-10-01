@@ -28,10 +28,12 @@ class QuranReaderBookNavigationInstrumentedTest {
                 val windowBounds = Rect()
                 var page49Diagnostics = "not found"
                 var page50Diagnostics = "not found"
+                var pageHeaders = "none"
                 while (SystemClock.uptimeMillis() < deadline && !reachedBaqarahPage) {
                     val root = instrumentation.uiAutomation.rootInActiveWindow?.also { it.refresh() }
                     windowBounds.setEmpty()
                     root?.getBoundsInScreen(windowBounds)
+                    pageHeaders = pageHeaderDiagnostics(root)
                     val page50Bounds = visiblePageHeaderBounds(root, 50, windowBounds)
                     val page49Bounds = visiblePageHeaderBounds(root, 49, windowBounds)
                     page49Diagnostics = page49Bounds?.toShortString() ?: "not visible"
@@ -66,7 +68,7 @@ class QuranReaderBookNavigationInstrumentedTest {
                 check(reachedBaqarahPage) {
                     "Al Baqarah page 49 must be visible before/after paging back from Aal Imran page 50 " +
                         "(swiped=$swipedBack, sharedSpread=$sharedSpreadVerified, window=$windowBounds, " +
-                        "page49=$page49Diagnostics, page50=$page50Diagnostics)"
+                        "page49=$page49Diagnostics, page50=$page50Diagnostics, headers=$pageHeaders)"
                 }
             },
         )
@@ -98,6 +100,22 @@ class QuranReaderBookNavigationInstrumentedTest {
             visiblePageHeaderBounds(node.getChild(index), page, window)?.let { return it }
         }
         return null
+    }
+
+    private fun pageHeaderDiagnostics(node: AccessibilityNodeInfo?): String {
+        if (node == null) return "no active window"
+        val headers = mutableListOf<String>()
+        fun visit(current: AccessibilityNodeInfo) {
+            val text = current.text?.toString().orEmpty()
+            if (text.contains("صفحة ")) {
+                val bounds = Rect()
+                current.getBoundsInScreen(bounds)
+                headers += "$text@$bounds"
+            }
+            for (index in 0 until current.childCount) current.getChild(index)?.let(::visit)
+        }
+        visit(node)
+        return headers.takeLast(6).joinToString(" | ").ifEmpty { "no page labels in accessibility tree" }
     }
 
     private companion object {
