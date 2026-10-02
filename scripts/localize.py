@@ -361,10 +361,12 @@ def check_locales(res_dirs: list[str] | None = None) -> int:
     problems = 0
     reported = 0
     report_limit = 100
+    counts_by_category: collections.Counter[str] = collections.Counter()
 
     def problem(message: str) -> None:
         nonlocal problems, reported
         problems += 1
+        counts_by_category[message.split(" ", 1)[0]] += 1
         if reported < report_limit:
             print(message)
             reported += 1
@@ -440,6 +442,11 @@ def check_locales(res_dirs: list[str] | None = None) -> int:
         print(f"{res_dir}: {len(strings_en)} strings checked")
     if problems > reported:
         print(f"... {problems - reported} additional localization quality errors suppressed.")
+    if counts_by_category:
+        summary = ", ".join(
+            f"{category}={count}" for category, count in sorted(counts_by_category.items())
+        )
+        print(f"Localization issue summary: {summary}")
     return problems
 
 
