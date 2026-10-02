@@ -182,8 +182,8 @@ class QuranReaderBookNavigationInstrumentedTest {
         // in from both edges: Android's back-gesture region can consume a
         // rightward page turn that starts too close to the screen edge.
         val movesRight = if (isRtl) towardNext else !towardNext
-        val startX = (metrics.widthPixels * if (movesRight) 0.30f else 0.70f).toInt()
-        val endX = (metrics.widthPixels * if (movesRight) 0.70f else 0.30f).toInt()
+        val startX = (metrics.widthPixels * if (movesRight) 0.22f else 0.78f).toInt()
+        val endX = (metrics.widthPixels * if (movesRight) 0.78f else 0.22f).toInt()
         instrumentationShell(instrumentation, "input swipe $startX $y $endX $y 400")
     }
 
