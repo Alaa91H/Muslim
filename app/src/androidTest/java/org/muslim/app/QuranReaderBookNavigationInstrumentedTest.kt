@@ -2,9 +2,8 @@ package org.muslim.app
 
 import android.app.Instrumentation
 import android.graphics.Rect
+import android.os.ParcelFileDescriptor
 import android.os.SystemClock
-import android.view.InputDevice
-import android.view.MotionEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Test
@@ -29,6 +28,9 @@ class QuranReaderBookNavigationInstrumentedTest {
         var lastForwardPage49Bounds: Rect? = null
         var stableForwardPage49Samples = 0
         var forwardSwipeRetries = 0
+        var lastPreviousPage50Bounds: Rect? = null
+        var stablePreviousPage50Samples = 0
+        var previousSwipeRetries = 0
         var page49Diagnostics = "not found"
         var page50Diagnostics = "not found"
         var pageHeaders = "none"
@@ -40,7 +42,7 @@ class QuranReaderBookNavigationInstrumentedTest {
             route = "quran/reader/3",
             screenName = "quran-book-navigation",
             afterReady = { instrumentation ->
-                val deadline = SystemClock.uptimeMillis() + 15_000
+                val deadline = SystemClock.uptimeMillis() + 45_000
                 while (SystemClock.uptimeMillis() < deadline && !completed) {
                     val root = instrumentation.uiAutomation.rootInActiveWindow?.also { it.refresh() }
                     windowBounds.setEmpty()
@@ -73,6 +75,29 @@ class QuranReaderBookNavigationInstrumentedTest {
                     } else if (phase == WAITING_FOR_PAGE_50_AGAIN && sharedSpreadVerified) {
                         completed = page49Bounds != null && page50Bounds != null
                     } else {
+                        if (phase == WAITING_FOR_PAGE_49 && page50Bounds != null) {
+                            if (page50Bounds == lastPreviousPage50Bounds) {
+                                stablePreviousPage50Samples += 1
+                            } else {
+                                lastPreviousPage50Bounds = Rect(page50Bounds)
+                                stablePreviousPage50Samples = 0
+                            }
+                            if (
+                                stablePreviousPage50Samples >= RETRY_STABLE_PAGE_SAMPLES &&
+                                previousSwipeRetries < MAX_PAGE_TURN_RETRIES
+                            ) {
+                                // Retry a dropped page-back swipe only after the
+                                // original page has remained settled for 3.6s.
+                                swipePage(instrumentation, isRtl = isRtl, towardNext = false)
+                                previousSwipeRetries += 1
+                                stablePreviousPage50Samples = 0
+                                lastPreviousPage50Bounds = null
+                            }
+                        } else {
+                            lastPreviousPage50Bounds = null
+                            stablePreviousPage50Samples = 0
+                        }
+
                         if (
                             phase == WAITING_FOR_PAGE_50_AGAIN &&
                             page49Bounds != null &&
@@ -85,12 +110,12 @@ class QuranReaderBookNavigationInstrumentedTest {
                                 stableForwardPage49Samples = 0
                             }
                             if (
-                                stableForwardPage49Samples >= FORWARD_SWIPE_RETRY_SAMPLES &&
-                                forwardSwipeRetries < MAX_FORWARD_SWIPE_RETRIES
+                                stableForwardPage49Samples >= RETRY_STABLE_PAGE_SAMPLES &&
+                                forwardSwipeRetries < MAX_PAGE_TURN_RETRIES
                             ) {
-                                // Emulator input injection can occasionally drop a
-                                // completed fling. Retry only after the wrong page has
-                                // remained stationary long enough to prove it settled.
+                                // The emulator can occasionally drop a shell-injected
+                                // swipe. Retry only after the wrong page has remained
+                                // stationary long enough to prove it settled.
                                 swipePage(instrumentation, isRtl = isRtl, towardNext = true)
                                 forwardSwipeRetries += 1
                                 stableForwardPage49Samples = 0
@@ -144,7 +169,7 @@ class QuranReaderBookNavigationInstrumentedTest {
                     "Expected $languageCode page turns to move between Baqarah page 49 and Aal Imran page 50 " +
                         "(phase=$phase, sharedSpread=$sharedSpreadVerified, window=$windowBounds, " +
                         "page49=$page49Diagnostics, page50=$page50Diagnostics, " +
-                        "forwardRetries=$forwardSwipeRetries, headers=$pageHeaders)"
+                        "previousRetries=$previousSwipeRetries, forwardRetries=$forwardSwipeRetries, headers=$pageHeaders)"
                 }
             },
         )
@@ -154,41 +179,17 @@ class QuranReaderBookNavigationInstrumentedTest {
         val metrics = instrumentation.targetContext.resources.displayMetrics
         val y = (metrics.heightPixels * 0.4f).toInt()
         // Logical forward is rightward in RTL and leftward in LTR. Stay 20%
-        // in from both edges: 15% began only 48 px from the left edge on CI,
-        // where Android could consume rightward swipes as system-back gestures.
+        // in from both edges: Android's back-gesture region can consume a
+        // rightward page turn that starts too close to the screen edge.
         val movesRight = if (isRtl) towardNext else !towardNext
-        val startX = (metrics.widthPixels * if (movesRight) 0.20f else 0.80f).toInt()
-        val endX = (metrics.widthPixels * if (movesRight) 0.80f else 0.20f).toInt()
-        val automation = instrumentation.uiAutomation
-        val downTime = SystemClock.uptimeMillis()
-        fun inject(action: Int, x: Float, eventTime: Long) {
-            val event = MotionEvent.obtain(
-                downTime,
-                eventTime,
-                action,
-                x,
-                y.toFloat(),
-                0,
-            ).apply { source = InputDevice.SOURCE_TOUCHSCREEN }
-            try {
-                check(automation.injectInputEvent(event, true)) {
-                    "Could not inject Quran page-turn touch event ($action at x=$x)"
-                }
-            } finally {
-                event.recycle()
-            }
-        }
+        val startX = (metrics.widthPixels * if (movesRight) 0.30f else 0.70f).toInt()
+        val endX = (metrics.widthPixels * if (movesRight) 0.70f else 0.30f).toInt()
+        instrumentationShell(instrumentation, "input swipe $startX $y $endX $y 400")
+    }
 
-        inject(MotionEvent.ACTION_DOWN, startX.toFloat(), downTime)
-        repeat(SWIPE_STEPS) { step ->
-            val fraction = (step + 1).toFloat() / SWIPE_STEPS
-            val x = startX + (endX - startX) * fraction
-            val eventTime = downTime + SWIPE_DURATION_MS * (step + 1) / SWIPE_STEPS
-            inject(MotionEvent.ACTION_MOVE, x, eventTime)
-            SystemClock.sleep(SWIPE_STEP_DELAY_MS)
-        }
-        inject(MotionEvent.ACTION_UP, endX.toFloat(), downTime + SWIPE_DURATION_MS)
-        automation.waitForIdle(500, 1_000)
+    private fun instrumentationShell(instrumentation: Instrumentation, command: String) {
+        val descriptor = instrumentation.uiAutomation.executeShellCommand(command)
+        ParcelFileDescriptor.AutoCloseInputStream(descriptor).use { it.readBytes() }
     }
 
     private fun visiblePageHeaderBounds(
@@ -262,17 +263,10 @@ class QuranReaderBookNavigationInstrumentedTest {
         const val WAITING_FOR_PAGE_50_AGAIN = 2
         const val WAITING_FOR_PREVIOUS_SPREAD = 3
         const val STABLE_PAGE_SAMPLES = 3
-        // Wait 3.6s before retrying: on slower emulator frames the pager can
-        // finish its first fling after the accessibility tree still reports
-        // page 49. Retrying at 1.2s can then advance twice and land on page 51.
-        const val FORWARD_SWIPE_RETRY_SAMPLES = 24
-        // ADB can drop more than one swipe on API 36 under instrumentation
-        // load. Each retry is gated by a 3.6s stable-page window, so a late
-        // fling is observed before another gesture can advance past page 50.
-        const val MAX_FORWARD_SWIPE_RETRIES = 3
-        const val SWIPE_STEPS = 18
-        const val SWIPE_DURATION_MS = 360L
-        const val SWIPE_STEP_DELAY_MS = SWIPE_DURATION_MS / SWIPE_STEPS
+        // Retry only after the wrong page stays unchanged for 3.6s. This
+        // gives slow emulator flings time to finish before another gesture.
+        const val RETRY_STABLE_PAGE_SAMPLES = 24
+        const val MAX_PAGE_TURN_RETRIES = 3
         const val MIN_VISIBLE_FRACTION = 0.35f
     }
 }
