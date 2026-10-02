@@ -45,8 +45,14 @@ class QuranReaderBookNavigationInstrumentedTest {
                     windowBounds.setEmpty()
                     root?.getBoundsInScreen(windowBounds)
                     pageHeaders = pageHeaderDiagnostics(root, languageCode)
-                    val page50Bounds = visiblePageHeaderBounds(root, 50, languageCode, windowBounds)
-                    val page49Bounds = visiblePageHeaderBounds(root, 49, languageCode, windowBounds)
+                    // Page-header text can disappear from the accessibility tree
+                    // during a pager settle even while the tagged page is already
+                    // visible. Use the page container identity as the primary
+                    // signal so a stale text node cannot trigger a duplicate swipe.
+                    val page50Bounds = visibleMushafPageBounds(root, 50, windowBounds)
+                        ?: visiblePageHeaderBounds(root, 50, languageCode, windowBounds)
+                    val page49Bounds = visibleMushafPageBounds(root, 49, windowBounds)
+                        ?: visiblePageHeaderBounds(root, 49, languageCode, windowBounds)
                     page49Diagnostics = page49Bounds?.toShortString() ?: "not visible"
                     page50Diagnostics = page50Bounds?.toShortString() ?: "not visible"
 
@@ -181,6 +187,29 @@ class QuranReaderBookNavigationInstrumentedTest {
         }
         for (index in 0 until node.childCount) {
             visiblePageHeaderBounds(node.getChild(index), page, languageCode, window)?.let { return it }
+        }
+        return null
+    }
+
+    private fun visibleMushafPageBounds(
+        node: AccessibilityNodeInfo?,
+        page: Int,
+        window: Rect,
+    ): Rect? {
+        if (node == null) return null
+        if (node.viewIdResourceName?.endsWith("mushaf-page-$page") == true) {
+            val bounds = Rect()
+            node.getBoundsInScreen(bounds)
+            if (bounds.width() > 0 && bounds.height() > 0) {
+                val visibleBounds = Rect(bounds)
+                if (visibleBounds.intersect(window) &&
+                    visibleBounds.width() >= bounds.width() * MIN_VISIBLE_FRACTION &&
+                    visibleBounds.height() >= bounds.height() * MIN_VISIBLE_FRACTION
+                ) return visibleBounds
+            }
+        }
+        for (index in 0 until node.childCount) {
+            visibleMushafPageBounds(node.getChild(index), page, window)?.let { return it }
         }
         return null
     }
