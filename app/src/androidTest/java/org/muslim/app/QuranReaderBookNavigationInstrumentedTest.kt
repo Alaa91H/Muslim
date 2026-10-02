@@ -25,6 +25,10 @@ class QuranReaderBookNavigationInstrumentedTest {
         var phase = WAITING_FOR_PAGE_50
         var lastTargetBounds: Rect? = null
         var stableTargetSamples = 0
+        var stableReturnSourceBounds: Rect? = null
+        var stableReturnSourceSamples = 0
+        var returnSwipeAt = 0L
+        var returnSwipeRetries = 0
         var page49Diagnostics = "not found"
         var page50Diagnostics = "not found"
         var pageHeaders = "none"
@@ -52,6 +56,36 @@ class QuranReaderBookNavigationInstrumentedTest {
                         ?: visiblePageHeaderBounds(root, 49, languageCode, windowBounds)
                     page49Diagnostics = page49Bounds?.toShortString() ?: "not visible"
                     page50Diagnostics = page50Bounds?.toShortString() ?: "not visible"
+
+                    // A framework-injected shell swipe can occasionally be
+                    // dropped while Compose is settling the previous page.
+                    // Retry only after the source page remains stable and a
+                    // full settle interval passed; this avoids a fast second
+                    // gesture turning an already-moving pager twice.
+                    if (phase == WAITING_FOR_PAGE_50_AGAIN && !sharedSpreadVerified) {
+                        if (page49Bounds != null && page50Bounds == null) {
+                            if (stableReturnSourceBounds == page49Bounds) {
+                                stableReturnSourceSamples += 1
+                            } else {
+                                stableReturnSourceBounds = Rect(page49Bounds)
+                                stableReturnSourceSamples = 0
+                            }
+                            val now = SystemClock.uptimeMillis()
+                            if (stableReturnSourceSamples >= STABLE_PAGE_SAMPLES &&
+                                returnSwipeRetries < MAX_RETURN_SWIPE_RETRIES &&
+                                now - returnSwipeAt >= PAGE_SETTLE_RETRY_DELAY_MS
+                            ) {
+                                swipePage(instrumentation, isRtl = isRtl, towardNext = true)
+                                returnSwipeAt = now
+                                returnSwipeRetries += 1
+                                stableReturnSourceSamples = 0
+                                stableReturnSourceBounds = null
+                            }
+                        } else {
+                            stableReturnSourceSamples = 0
+                            stableReturnSourceBounds = null
+                        }
+                    }
 
                     if (phase == WAITING_FOR_PREVIOUS_SPREAD) {
                         if (page49Bounds == null && page50Bounds == null) {
@@ -98,6 +132,10 @@ class QuranReaderBookNavigationInstrumentedTest {
                                 WAITING_FOR_PAGE_49 -> {
                                     swipePage(instrumentation, isRtl = isRtl, towardNext = true)
                                     phase = WAITING_FOR_PAGE_50_AGAIN
+                                    returnSwipeAt = SystemClock.uptimeMillis()
+                                    returnSwipeRetries = 0
+                                    stableReturnSourceBounds = null
+                                    stableReturnSourceSamples = 0
                                     lastTargetBounds = null
                                     stableTargetSamples = 0
                                 }
@@ -206,6 +244,8 @@ class QuranReaderBookNavigationInstrumentedTest {
         const val WAITING_FOR_PAGE_50_AGAIN = 2
         const val WAITING_FOR_PREVIOUS_SPREAD = 3
         const val STABLE_PAGE_SAMPLES = 3
+        const val MAX_RETURN_SWIPE_RETRIES = 2
+        const val PAGE_SETTLE_RETRY_DELAY_MS = 1_200L
         const val MIN_VISIBLE_FRACTION = 0.35f
     }
 }
