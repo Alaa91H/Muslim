@@ -191,4 +191,13 @@
     <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
     <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
     <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
+    <string name="adhan_notification_big_text">%1$s에 대한 질문은 무엇입니까? 나는 당신이 당신의 이야기를 이해하지 못하거나 당신의 생각을 이해하지 못한다고 생각합니다.</string>
+    <string name="adhan_notification_ticker">또는 %1$s — 안녕하세요</string>
+    <string name="home_location_action">위치 변경: %1$s</string>
+    <string name="home_next_prayer_accessibility">다음 기도: %1$s, %2$s에서, %3$s 남음</string>
+    <string name="next_adhan_summary">المسلم — 무아퀴트 사진</string>
+    <string name="prayer_navigate_back">뒤로</string>
+    <string name="settings_information_density">정보 밀도</string>
+    <string name="settings_information_density_comfortable">편안함</string>
+    <string name="settings_information_density_compact">콤팩트</string>
 </resources>

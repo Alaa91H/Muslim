@@ -144,4 +144,22 @@
     <string name="quran_reciter_search_hint">पाठक लोग के नाम, शैली, या गुणवत्ता के आधार पर खोजीं...</string>
     <string name="quran_reciter_no_results">कवनो पाठक एह खोज से मेल ना खात बाड़े</string>
     <string name="quran_tab_bookmarks">बुकमार्क के बारे में बतावल गइल बा</string>
+    <string name="quran_ayah_actions">अयह कर्म के बा</string>
+    <string name="quran_car_not_downloaded">फोन पर ई सूरह पूरा तरह से डाउनलोड नइखे भइल.</string>
+    <string name="quran_car_recitations">डाउनलोड कइल गइल पाठ</string>
+    <string name="quran_car_recitations_subtitle">बिना ड्राइविंग-टाइम डाउनलोड के सुरक्षित प्लेबैक खातिर पूरा तरीका से डाउनलोड कइल सूरह</string>
+    <string name="quran_car_search_unavailable">कवनो मिलान डाउनलोड कइल सूरह ना मिलल.</string>
+    <string name="quran_continue_reading">पढ़ल जारी राखीं</string>
+    <string name="quran_copy_ayah">कॉपी आयत के बा</string>
+    <string name="quran_download_new_title">नया डाउनलोड कइल गइल बा</string>
+    <string name="quran_downloaded_for_reciter">एह पाठक खातिर डाउनलोड कइल गइल बा</string>
+    <string name="quran_juz_start">सूरह %1$d, आयाह %2$d से शुरू होला</string>
+    <string name="quran_juz_title">जुज %1$d के बा</string>
+    <string name="quran_loading">कुरान लोड हो रहल बा...</string>
+    <string name="quran_open_bookmarks">बुकमार्क के स्क्रीन खोलीं</string>
+    <string name="quran_playback_settings">पाठ के सेटिंग्स के बारे में बतावल गइल बा</string>
+    <string name="quran_recitation_notif_subtext">القرآن الكريم — تلاوة مباركة के बारे में बतावल गइल बा</string>
+    <string name="quran_share_ayah">शेयर करीं आह</string>
+    <string name="quran_tab_juz">जुज के बा</string>
+    <string name="quran_tab_surahs">सूरह के बारे में बतावल गइल बा</string>
 </resources>

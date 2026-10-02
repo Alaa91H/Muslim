@@ -144,4 +144,22 @@
     <string name="quran_reciter_search_hint">按姓名、风格或质量搜索朗诵者……</string>
     <string name="quran_reciter_no_results">没有朗诵者匹配此搜索</string>
     <string name="quran_tab_bookmarks">书签</string>
+    <string name="quran_ayah_actions">阿亚行动</string>
+    <string name="quran_car_not_downloaded">本章节未完全下载到手机上。</string>
+    <string name="quran_car_recitations">下载的朗诵</string>
+    <string name="quran_car_recitations_subtitle">完全下载的古兰经可安全播放，无需开车时下载</string>
+    <string name="quran_car_search_unavailable">未找到匹配的下载古兰经。</string>
+    <string name="quran_continue_reading">继续阅读</string>
+    <string name="quran_copy_ayah">复制阿亚</string>
+    <string name="quran_download_new_title">新下载</string>
+    <string name="quran_downloaded_for_reciter">为这位朗诵者下载</string>
+    <string name="quran_juz_start">从古兰经 %1$d 开始，ayah %2$d</string>
+    <string name="quran_juz_title">朱兹·%1$d</string>
+    <string name="quran_loading">正在加载《古兰经》...</string>
+    <string name="quran_open_bookmarks">打开书签屏幕</string>
+    <string name="quran_playback_settings">背诵设置</string>
+    <string name="quran_recitation_notif_subtext">阿拉伯语 — 阿拉伯语</string>
+    <string name="quran_share_ayah">分享阿亚</string>
+    <string name="quran_tab_juz">朱兹</string>
+    <string name="quran_tab_surahs">古兰经</string>
 </resources>

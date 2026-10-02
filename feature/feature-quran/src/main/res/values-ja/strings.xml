@@ -144,4 +144,22 @@
     <string name="quran_reciter_search_hint">名前、スタイル、品質で朗読者を検索…</string>
     <string name="quran_reciter_no_results">この検索に一致する朗読家はありません</string>
     <string name="quran_tab_bookmarks">ブックマーク</string>
+    <string name="quran_ayah_actions">アヤの行動</string>
+    <string name="quran_car_not_downloaded">このスーラは携帯電話に完全にはダウンロードされていません。</string>
+    <string name="quran_car_recitations">ダウンロードした朗読</string>
+    <string name="quran_car_recitations_subtitle">完全にダウンロードされたスーラにより、運転時間中のダウンロードなしで安全に再生できます</string>
+    <string name="quran_car_search_unavailable">一致するダウンロードされたスーラが見つかりませんでした。</string>
+    <string name="quran_continue_reading">続きを読む</string>
+    <string name="quran_copy_ayah">コピーします</string>
+    <string name="quran_download_new_title">新規ダウンロード</string>
+    <string name="quran_downloaded_for_reciter">この朗読家のためにダウンロードされました</string>
+    <string name="quran_juz_start">スーラ %1$d、アヤ %2$d から始まります</string>
+    <string name="quran_juz_title">ジュズ %1$d</string>
+    <string name="quran_loading">コーランを読み込んでいます…</string>
+    <string name="quran_open_bookmarks">ブックマーク画面を開く</string>
+    <string name="quran_playback_settings">朗読設定</string>
+    <string name="quran_recitation_notif_subtext">ニュース — ニュース</string>
+    <string name="quran_share_ayah">アヤをシェアする</string>
+    <string name="quran_tab_juz">ジュズ</string>
+    <string name="quran_tab_surahs">スーラ</string>
 </resources>

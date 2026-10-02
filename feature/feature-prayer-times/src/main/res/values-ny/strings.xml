@@ -191,4 +191,13 @@
     <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
     <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
     <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
+    <string name="adhan_notification_big_text">حان وقت صلاة %1$s — اضغط إيقاف الأذان لإنهاء التنبيه. يبقى هذا الإشعار ظاهرًا حتى ينتهي صوت الأذان kapena توقفه يدويًا.</string>
+    <string name="adhan_notification_ticker">أذان %1$s - tsatirani malangizo</string>
+    <string name="home_location_action">Sinthani malo: %1$s</string>
+    <string name="home_next_prayer_accessibility">Pemphero lotsatira: %1$s, pa %2$s, %3$s otsala</string>
+    <string name="next_adhan_summary">Chidziwitso - Chidziwitso Chachikulu</string>
+    <string name="prayer_navigate_back">Kubwerera</string>
+    <string name="settings_information_density">Kuchulukana kwa chidziwitso</string>
+    <string name="settings_information_density_comfortable">Omasuka</string>
+    <string name="settings_information_density_compact">Zochepa</string>
 </resources>

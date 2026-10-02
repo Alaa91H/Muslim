@@ -112,6 +112,16 @@ class LocalizationQualityTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "untranslated source"):
                 localize.process_lang("res", "fr", {"play": source}, {}, None)
 
+    def test_fill_mode_keeps_safe_values_when_one_translation_is_rejected(self) -> None:
+        first = "Start Quran playback"
+        second = "Open prayer settings"
+        first_protected, _ = localize.protect(first)
+        with patch.object(localize, "translate_batch", return_value=[first_protected, "Ouvrir les paramètres de prière"]):
+            translated = localize.process_lang(
+                "res", "fr", {"bad": first, "good": second}, {}, None, allow_incomplete=True,
+            )
+        self.assertEqual(translated, {"good": "Ouvrir les paramètres de prière"})
+
     def test_quality_gate_rejects_copied_source_sentences(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             res = Path(temporary_directory)
@@ -143,6 +153,30 @@ class LocalizationQualityTests(unittest.TestCase):
                 "old": "Already curated",
                 "new": "Qur\\'an & <meaning>",
             })
+
+    def test_fill_missing_continues_other_locales_after_provider_rejects_one(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            res = Path(temporary_directory)
+            for locale in ("values-en", "values-aa", "values-ab"):
+                (res / locale).mkdir()
+            (res / "values-en/strings.xml").write_text(
+                '<resources><string name="action">Open Quran</string></resources>', encoding="utf-8",
+            )
+            for locale in ("values-aa", "values-ab"):
+                (res / locale / "strings.xml").write_text("<resources></resources>", encoding="utf-8")
+
+            def translate(_res_dir: str, lang: str, strings: dict[str, str], _cache: dict[str, str], _app_name: str | None, **_kwargs: object) -> dict[str, str]:
+                if lang == "aa":
+                    raise RuntimeError("provider returned untranslated source")
+                return {"action": "Abrir el Corán"}
+
+            with patch.object(localize, "process_lang", side_effect=translate), patch("builtins.print"):
+                filled, failures = localize.fill_missing_locales([str(res)], {})
+
+            self.assertEqual(filled, 1)
+            self.assertEqual(len(failures), 1)
+            self.assertIn("aa", failures[0])
+            self.assertEqual(localize.read_locale_strings(str(res / "values-ab/strings.xml")), {"action": "Abrir el Corán"})
 
 
 if __name__ == "__main__":

@@ -290,7 +290,7 @@ def save_cache(cache: dict[str, str]) -> None:
 
 
 def process_lang(res_dir: str, lang: str, strings: dict[str, str], cache: dict[str, str],
-                 existing_app_name: str | None) -> dict[str, str]:
+                 existing_app_name: str | None, allow_incomplete: bool = False) -> dict[str, str]:
     """Returns {name: translated} for one language."""
     out: dict[str, str] = {}
     to_fetch: list[tuple[str, str, list[str]]] = []  # (name, protected_text, tokens)
@@ -319,9 +319,15 @@ def process_lang(res_dir: str, lang: str, strings: dict[str, str], cache: dict[s
     for (name, protected, tokens), tr in zip(to_fetch, translated):
         found_markers = [int(marker) for marker in TOKEN_MARKER_RE.findall(tr)]
         if sorted(found_markers) != list(range(len(tokens))):
+            if allow_incomplete:
+                print(f"Skipped unsafe formatted translation: {res_dir}/{lang}/{name}", flush=True)
+                continue
             raise RuntimeError(f"Unsafe placeholder translation for {res_dir}/{lang}/{name}")
         restored = restore(tr, tokens)
         if restored.strip() == strings[name].strip() and strings[name].strip():
+            if allow_incomplete:
+                print(f"Skipped untranslated source value: {res_dir}/{lang}/{name}", flush=True)
+                continue
             raise RuntimeError(f"Provider returned untranslated source for {res_dir}/{lang}/{name}")
         out[name] = restored
         cache[f"{lang}|{protected}"] = restored
@@ -528,45 +534,55 @@ def replace_locale_strings(path: str, replacements: dict[str, str]) -> None:
         target_file.write(updated)
 
 
-def fill_missing_locales(res_dirs: list[str], cache: dict[str, str]) -> int:
+def fill_missing_locales(res_dirs: list[str], cache: dict[str, str]) -> tuple[int, list[str]]:
     """Translate only missing values; never overwrite an existing locale entry."""
     total = 0
+    failures: list[str] = []
     for res_dir in res_dirs:
         strings_en = parse_strings(res_dir)
         if not strings_en:
             continue
         paths = sorted(glob.glob(os.path.join(res_dir, "values-*", "strings.xml")))
 
-        def work(path: str) -> tuple[str, int]:
+        def work(path: str) -> tuple[str, int, str | None]:
             folder = os.path.basename(os.path.dirname(path))
             lang = folder[len("values-"):].split("-r", 1)[0]
             if lang in (SOURCE_LANG, BASE_LANG):
-                return path, 0
+                return path, 0, None
             current = read_locale_strings(path)
             missing = {
                 name: value for name, value in strings_en.items()
                 if name not in current and value.strip()
             }
             if not missing:
-                return path, 0
-            translated = process_lang(res_dir, lang, missing, cache, current.get("app_name"))
+                return path, 0, None
+            try:
+                translated = process_lang(
+                    res_dir, lang, missing, cache, current.get("app_name"), allow_incomplete=True,
+                )
+            except RuntimeError as error:
+                return path, 0, f"{lang}: {error}"
             append_locale_strings(path, translated)
-            return path, len(translated)
+            skipped = len(missing) - len(translated)
+            incomplete = f"{lang}: {skipped} value(s) skipped by translation quality checks" if skipped else None
+            return path, len(translated), incomplete
 
         module_filled = 0
         locale_files_filled = 0
         with ThreadPoolExecutor(max_workers=WORKERS) as pool:
-            for _, count in pool.map(work, paths):
+            for path, count, error in pool.map(work, paths):
                 if count:
                     module_filled += count
                     locale_files_filled += 1
+                if error:
+                    failures.append(f"{path}: {error}")
         total += module_filled
         print(
             f"Filled {module_filled} missing strings across {locale_files_filled} locale files: {res_dir}",
             flush=True,
         )
         save_cache(cache)
-    return total
+    return total, failures
 
 
 def supported_locale_catalog() -> list[str]:
@@ -684,8 +700,15 @@ def main() -> int:
         res_dirs = module_res_dirs()
         if args.module:
             res_dirs = [os.path.join(PROJECT_ROOT, args.module, "src", "main", "res")]
-        filled = fill_missing_locales(res_dirs, cache)
+        filled, failures = fill_missing_locales(res_dirs, cache)
         print(f"Filled {filled} missing strings without replacing existing translations.")
+        if failures:
+            print(f"Translation provider could not safely complete {len(failures)} locale files:")
+            for failure in failures[:30]:
+                print(f"  {failure}")
+            if len(failures) > 30:
+                print(f"  ... {len(failures) - 30} more failures; rerun after provider recovery.")
+            return 1
         return 0
 
     if args.repair_formats:

@@ -191,4 +191,13 @@
     <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
     <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
     <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
+    <string name="adhan_notification_big_text">ḥạn wqt ṣlạẗ %1$s — ạẖgẖạ ạẖgạf ạlạ̉dẖạn lạnhạʾ ạltnbyh. ybqy hdẖạ ạlạ̉sẖʿạr ạhrqạ ḥtyy ynthy ṣwt ạlạ̉dẖạn ạ̉w tuqf yduyfạ.</string>
+    <string name="adhan_notification_ticker">ạ̉dẖạn %1$s — ḥạn ạlạn</string>
+    <string name="home_location_action">Joylashuvni o\'zgartirish: %1$s</string>
+    <string name="home_next_prayer_accessibility">Keyingi namoz: %1$s, at %2$s, %3$s qolgan</string>
+    <string name="next_adhan_summary">ạlmslm — mwạqyt ạlṣlạẗ</string>
+    <string name="prayer_navigate_back">Orqaga</string>
+    <string name="settings_information_density">Axborot zichligi</string>
+    <string name="settings_information_density_comfortable">Qulay</string>
+    <string name="settings_information_density_compact">Yilni</string>
 </resources>
