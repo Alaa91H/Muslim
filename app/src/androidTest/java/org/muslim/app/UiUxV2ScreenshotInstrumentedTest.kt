@@ -105,9 +105,11 @@ class UiUxV2ScreenshotInstrumentedTest {
         var scenario: ActivityScenario<MainActivity>? = null
         try {
             if (expanded) {
-                // Keep the emulator's native surface so UiAutomation can
-                // capture it; lower density makes its available width exceed
-                // the 840 dp expanded breakpoint without resizing the display.
+                // Increase the emulator surface while lowering density so the
+                // activity crosses the 840 dp breakpoint. The host test runner
+                // uses an xvfb surface, so the larger logical display remains
+                // capturable by UiAutomation.
+                shell("wm size 1600x1000")
                 shell("wm density 120")
                 val widthDeadline = SystemClock.uptimeMillis() + 10_000
                 while (context.resources.configuration.screenWidthDp < 840 && SystemClock.uptimeMillis() < widthDeadline) {
