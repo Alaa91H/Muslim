@@ -25,9 +25,6 @@ class QuranReaderBookNavigationInstrumentedTest {
         var phase = WAITING_FOR_PAGE_50
         var lastTargetBounds: Rect? = null
         var stableTargetSamples = 0
-        var lastForwardPage49Bounds: Rect? = null
-        var stableForwardPage49Samples = 0
-        var forwardSwipeRetries = 0
         var page49Diagnostics = "not found"
         var page50Diagnostics = "not found"
         var pageHeaders = "none"
@@ -39,7 +36,7 @@ class QuranReaderBookNavigationInstrumentedTest {
             route = "quran/reader/3",
             screenName = "quran-book-navigation",
             afterReady = { instrumentation ->
-                val deadline = SystemClock.uptimeMillis() + 45_000
+                val deadline = SystemClock.uptimeMillis() + 25_000
                 while (SystemClock.uptimeMillis() < deadline && !completed) {
                     val root = instrumentation.uiAutomation.rootInActiveWindow?.also { it.refresh() }
                     windowBounds.setEmpty()
@@ -72,34 +69,6 @@ class QuranReaderBookNavigationInstrumentedTest {
                     } else if (phase == WAITING_FOR_PAGE_50_AGAIN && sharedSpreadVerified) {
                         completed = page49Bounds != null && page50Bounds != null
                     } else {
-                        if (
-                            phase == WAITING_FOR_PAGE_50_AGAIN &&
-                            page49Bounds != null &&
-                            page50Bounds == null
-                        ) {
-                            if (page49Bounds == lastForwardPage49Bounds) {
-                                stableForwardPage49Samples += 1
-                            } else {
-                                lastForwardPage49Bounds = Rect(page49Bounds)
-                                stableForwardPage49Samples = 0
-                            }
-                            if (
-                                stableForwardPage49Samples >= FORWARD_SWIPE_RETRY_SAMPLES &&
-                                forwardSwipeRetries < MAX_FORWARD_SWIPE_RETRIES
-                            ) {
-                                // Emulator input injection can occasionally drop a
-                                // completed fling. Retry only after the wrong page has
-                                // remained stationary long enough to prove it settled.
-                                swipePage(instrumentation, isRtl = isRtl, towardNext = true)
-                                forwardSwipeRetries += 1
-                                stableForwardPage49Samples = 0
-                                lastForwardPage49Bounds = null
-                            }
-                        } else {
-                            lastForwardPage49Bounds = null
-                            stableForwardPage49Samples = 0
-                        }
-
                         val targetPage = if (phase == WAITING_FOR_PAGE_49) 49 else 50
                         val targetBounds = if (targetPage == 49) page49Bounds else page50Bounds
                         if (targetBounds == null) {
@@ -143,7 +112,7 @@ class QuranReaderBookNavigationInstrumentedTest {
                     "Expected $languageCode page turns to move between Baqarah page 49 and Aal Imran page 50 " +
                         "(phase=$phase, sharedSpread=$sharedSpreadVerified, window=$windowBounds, " +
                         "page49=$page49Diagnostics, page50=$page50Diagnostics, " +
-                        "forwardRetries=$forwardSwipeRetries, headers=$pageHeaders)"
+                        "headers=$pageHeaders)"
                 }
             },
         )
@@ -152,13 +121,13 @@ class QuranReaderBookNavigationInstrumentedTest {
     private fun swipePage(instrumentation: Instrumentation, isRtl: Boolean, towardNext: Boolean) {
         val metrics = instrumentation.targetContext.resources.displayMetrics
         val y = (metrics.heightPixels * 0.4f).toInt()
-        // Logical forward is rightward in RTL and leftward in LTR. Stay 22%
-        // in from both edges: 15% began only 48 px from the left edge on CI,
-        // where Android could consume rightward swipes as system-back gestures.
+        // Logical forward is rightward in RTL and leftward in LTR. Keep the
+        // gesture away from Android's edge-back region while crossing the
+        // pager's half-page drag threshold.
         val movesRight = if (isRtl) towardNext else !towardNext
         val startX = (metrics.widthPixels * if (movesRight) 0.22f else 0.78f).toInt()
         val endX = (metrics.widthPixels * if (movesRight) 0.78f else 0.22f).toInt()
-        instrumentationShell(instrumentation, "input swipe $startX $y $endX $y 400")
+        instrumentationShell(instrumentation, "input swipe $startX $y $endX $y 700")
     }
 
     private fun instrumentationShell(instrumentation: Instrumentation, command: String) {
@@ -237,14 +206,6 @@ class QuranReaderBookNavigationInstrumentedTest {
         const val WAITING_FOR_PAGE_50_AGAIN = 2
         const val WAITING_FOR_PREVIOUS_SPREAD = 3
         const val STABLE_PAGE_SAMPLES = 3
-        // Wait 3.6s before retrying: on slower emulator frames the pager can
-        // finish its first fling after the accessibility tree still reports
-        // page 49. Retrying at 1.2s can then advance twice and land on page 51.
-        const val FORWARD_SWIPE_RETRY_SAMPLES = 24
-        // ADB can drop more than one swipe on API 36 under instrumentation
-        // load. Each retry is gated by a 3.6s stable-page window, so a late
-        // fling is observed before another gesture can advance past page 50.
-        const val MAX_FORWARD_SWIPE_RETRIES = 3
         const val MIN_VISIBLE_FRACTION = 0.35f
     }
 }
