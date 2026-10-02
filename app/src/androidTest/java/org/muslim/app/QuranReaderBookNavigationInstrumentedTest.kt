@@ -146,11 +146,12 @@ class QuranReaderBookNavigationInstrumentedTest {
     private fun swipePage(instrumentation: Instrumentation, isRtl: Boolean, towardNext: Boolean) {
         val metrics = instrumentation.targetContext.resources.displayMetrics
         val y = (metrics.heightPixels * 0.4f).toInt()
-        // Logical forward is rightward in RTL and leftward in LTR. Keep both
-        // endpoints away from system gesture edges so CI sees the pager event.
+        // Logical forward is rightward in RTL and leftward in LTR. Stay 20%
+        // in from both edges: 15% began only 48 px from the left edge on CI,
+        // where Android could consume rightward swipes as system-back gestures.
         val movesRight = if (isRtl) towardNext else !towardNext
-        val startX = (metrics.widthPixels * if (movesRight) 0.15f else 0.85f).toInt()
-        val endX = (metrics.widthPixels * if (movesRight) 0.85f else 0.15f).toInt()
+        val startX = (metrics.widthPixels * if (movesRight) 0.20f else 0.80f).toInt()
+        val endX = (metrics.widthPixels * if (movesRight) 0.80f else 0.20f).toInt()
         instrumentationShell(instrumentation, "input swipe $startX $y $endX $y 400")
     }
 
