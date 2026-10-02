@@ -7,6 +7,7 @@ import android.media.AudioManager
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
 import android.speech.tts.Voice
+import org.muslim.app.core.notifications.CallAudioMode
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.util.Locale
 import javax.inject.Inject
@@ -157,7 +158,7 @@ class AdhkarSpeechController @Inject constructor(
         allowNetworkVoices: Boolean = false,
         utteranceId: String,
     ): Boolean {
-        if (!_ready.value || text.isBlank()) return false
+        if (!_ready.value || text.isBlank() || CallAudioMode.isActive(appContext)) return false
 
         val available = allArabicVoices()
             .filter { allowNetworkVoices || !it.isNetworkConnectionRequired }

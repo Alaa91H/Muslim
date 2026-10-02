@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.net.toUri
 import org.muslim.app.core.common.lang.AppLanguage
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.hadith.R
 import org.muslim.app.feature.hadith.domain.Hadith
@@ -19,6 +20,7 @@ import org.muslim.app.feature.hadith.domain.Hadith
 open class HadithOfTheDayNotifier(private val context: Context) {
 
     fun show(hadith: Hadith) {
+        if (CallAudioMode.isActive(context)) return
         NotificationChannels.create(context)
         val contentIntent = PendingIntent.getActivity(
             context,

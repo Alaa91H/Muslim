@@ -9,6 +9,7 @@ import androidx.core.net.toUri
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import org.muslim.app.core.notifications.NotificationCategory
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.core.notifications.notificationAllowed
 import org.muslim.app.feature.family.R
@@ -20,6 +21,7 @@ open class AqiqahReminderWorker(
 ) : CoroutineWorker(context, params) {
     override suspend fun doWork(): Result {
         if (!applicationContext.notificationAllowed(NotificationCategory.Family)) return Result.success()
+        if (CallAudioMode.isActive(applicationContext)) return Result.success()
         NotificationChannels.create(applicationContext)
         val contentIntent = PendingIntent.getActivity(
             applicationContext,

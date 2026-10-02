@@ -26,6 +26,7 @@ import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.toPrayerCalculationProfile
 import org.muslim.app.core.notifications.FeatureNotificationCoordinator
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.NotificationCategoryPrefs
 import org.muslim.app.core.notifications.NotificationImportance
@@ -225,6 +226,7 @@ class NotificationSettingsViewModel @Inject constructor(
 
     /** Posts a sample notification on [category]'s channel so the user sees the exact result. */
     fun testNotification(category: NotificationCategory) {
+        if (CallAudioMode.isActive(context)) return
         val notification = Notification.Builder(context, category.channelId)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029)
             .setContentTitle(context.getString(categoryLabelRes(category)))

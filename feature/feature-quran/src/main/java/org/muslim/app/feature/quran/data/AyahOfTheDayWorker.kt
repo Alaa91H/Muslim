@@ -13,6 +13,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.flow.first
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.core.notifications.notificationAllowed
@@ -52,6 +53,7 @@ class AyahOfTheDayWorker(
     }
 
     private fun showNotification(ayah: Ayah, surahName: String) {
+        if (CallAudioMode.isActive(applicationContext)) return
         NotificationChannels.create(applicationContext)
         val contentIntent = PendingIntent.getActivity(
             applicationContext,

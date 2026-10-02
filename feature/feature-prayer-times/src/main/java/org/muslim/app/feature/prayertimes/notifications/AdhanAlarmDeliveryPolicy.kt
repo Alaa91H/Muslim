@@ -15,9 +15,10 @@ internal data class AdhanAlarmDeliveryPolicy(
         fun resolve(
             adhanEnabled: Boolean,
             presentationAllowed: Boolean,
+            communicationActive: Boolean = false,
         ): AdhanAlarmDeliveryPolicy = AdhanAlarmDeliveryPolicy(
-            postVisibleNotification = adhanEnabled && presentationAllowed,
-            startAudio = adhanEnabled,
+            postVisibleNotification = adhanEnabled && presentationAllowed && !communicationActive,
+            startAudio = adhanEnabled && !communicationActive,
         )
     }
 }

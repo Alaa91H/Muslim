@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import androidx.core.net.toUri
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.HajjMansik
@@ -18,6 +19,7 @@ import org.muslim.app.feature.learn.domain.HajjMansik
 open class HajjCompanionNotifier(private val context: Context) {
 
     fun show(mansik: HajjMansik) {
+        if (CallAudioMode.isActive(context)) return
         NotificationChannels.create(context)
         val contentIntent = PendingIntent.getActivity(
             context,

@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.muslim.app.core.common.prayer.AdhanSoundOption
 import org.muslim.app.core.common.prayer.Prayer
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.notificationAllowed
 import org.muslim.app.feature.prayertimes.widget.PrayerTimesWidget
@@ -75,6 +76,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
             val deliveryPolicy = AdhanAlarmDeliveryPolicy.resolve(
                 adhanEnabled = settings.adhanEnabled,
                 presentationAllowed = appContext.notificationAllowed(NotificationCategory.Adhan),
+                communicationActive = CallAudioMode.isActive(appContext),
             )
             // The service that owns live playback also owns the active
             // foreground card. Avoid pre-posting a separate receiver-owned

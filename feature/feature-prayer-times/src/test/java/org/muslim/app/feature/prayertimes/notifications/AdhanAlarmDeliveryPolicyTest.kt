@@ -37,4 +37,16 @@ class AdhanAlarmDeliveryPolicyTest {
         assertThat(policy.postVisibleNotification).isFalse()
         assertThat(policy.startAudio).isFalse()
     }
+
+    @Test
+    fun `active call suppresses Adhan audio and visible notification`() {
+        val policy = AdhanAlarmDeliveryPolicy.resolve(
+            adhanEnabled = true,
+            presentationAllowed = true,
+            communicationActive = true,
+        )
+
+        assertThat(policy.postVisibleNotification).isFalse()
+        assertThat(policy.startAudio).isFalse()
+    }
 }

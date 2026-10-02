@@ -20,13 +20,14 @@ suspend fun Context.notificationCategoryEnabled(category: NotificationCategory):
 /**
  * The full gate used by every notifier: the category must be enabled AND
  * (for non-adhan categories) the current time must fall outside the user's
- * quiet-hours window. The Adhan is deliberately exempt so the call to prayer
- * is never silenced during quiet hours.
+ * quiet-hours window. Adhan is exempt from quiet hours, but all app alerts and
+ * Adhan playback are suppressed while Android reports an active call mode.
  */
 suspend fun Context.notificationAllowed(
     category: NotificationCategory,
     atMillis: Long = System.currentTimeMillis(),
 ): Boolean {
+    if (CallAudioMode.isActive(applicationContext)) return false
     val entryPoint = EntryPointAccessors.fromApplication(
         applicationContext, NotificationEntryPoint::class.java,
     )

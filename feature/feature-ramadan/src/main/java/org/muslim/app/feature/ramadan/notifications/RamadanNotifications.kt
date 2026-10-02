@@ -16,6 +16,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.core.notifications.notificationAllowed
@@ -31,6 +32,7 @@ class RamadanNotifier @Inject constructor(
 ) {
 
     fun notify(type: String) {
+        if (CallAudioMode.isActive(context)) return
         val isIftar = type == RamadanAlarmReceiver.TYPE_IFTAR
         val title = context.getString(if (isIftar) R.string.ramadan_notification_iftar_title else R.string.ramadan_notification_suhoor_title)
         val body = context.getString(if (isIftar) R.string.ramadan_notification_iftar_body else R.string.ramadan_notification_suhoor_body)

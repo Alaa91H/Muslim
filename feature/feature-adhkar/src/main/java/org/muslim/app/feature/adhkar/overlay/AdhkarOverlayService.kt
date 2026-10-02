@@ -1,6 +1,7 @@
 package org.muslim.app.feature.adhkar.overlay
 
 import android.app.Notification
+import android.app.NotificationManager
 import android.app.Service
 import android.content.Context
 import android.content.Intent
@@ -28,6 +29,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeoutOrNull
 import org.muslim.app.core.common.lang.AppLanguage
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.adhkar.R
 import org.muslim.app.feature.adhkar.data.AdhkarSpeechController
@@ -56,15 +58,30 @@ class AdhkarOverlayService : Service() {
     private var speechJob: Job? = null
     private var activeSpeechUtteranceId: String? = null
     private var activeStartId: Int = 0
+    private val callModePoll = object : Runnable {
+        override fun run() {
+            if (CallAudioMode.isActive(this@AdhkarOverlayService)) {
+                stopForActiveCall()
+            } else {
+                handler.postDelayed(this, COMMUNICATION_MODE_POLL_MS)
+            }
+        }
+    }
 
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onCreate() {
         super.onCreate()
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        handler.post(callModePoll)
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        if (CallAudioMode.isActive(this)) {
+            activeStartId = startId
+            stopForActiveCall()
+            return START_NOT_STICKY
+        }
         val arabic = intent?.getStringExtra(EXTRA_ARABIC).orEmpty()
         val translation = intent?.getStringExtra(EXTRA_TRANSLATION).orEmpty()
         val source = intent?.getStringExtra(EXTRA_SOURCE).orEmpty()
@@ -191,6 +208,14 @@ class AdhkarOverlayService : Service() {
         activeSpeechUtteranceId = null
     }
 
+    private fun stopForActiveCall() {
+        clearDismissTimer()
+        cancelSpeechForCurrentOverlay()
+        removeOverlay()
+        runCatching { getSystemService(NotificationManager::class.java).cancel(NOTIFICATION_ID) }
+        stopSelf()
+    }
+
     /** Renders the dhikr card and attaches it to the window manager. */
     private fun showOverlay(
         arabic: String,
@@ -302,6 +327,7 @@ class AdhkarOverlayService : Service() {
         cancelSpeechForCurrentOverlay()
         serviceScope.cancel()
         removeOverlay()
+        handler.removeCallbacks(callModePoll)
         super.onDestroy()
     }
 
@@ -318,6 +344,7 @@ class AdhkarOverlayService : Service() {
         private const val TTS_INIT_TIMEOUT_MS = 4_000L
         private const val POST_SPEECH_DISMISS_DELAY_MS = 450L
         private const val OVERLAY_UTTERANCE_PREFIX = "adhkar-overlay-"
+        private const val COMMUNICATION_MODE_POLL_MS = 500L
 
         private const val EXTRA_ARABIC = "extra_arabic"
         private const val EXTRA_TRANSLATION = "extra_translation"
@@ -348,6 +375,7 @@ class AdhkarOverlayService : Service() {
             speechRate: Float = DEFAULT_SPEECH_RATE,
             speechAllowNetworkVoices: Boolean = false,
         ) {
+            if (CallAudioMode.isActive(context)) return
             val intent = Intent(context, AdhkarOverlayService::class.java)
                 .putExtra(EXTRA_ARABIC, dhikr.arabic)
                 .putExtra(EXTRA_TRANSLATION, dhikr.translation)

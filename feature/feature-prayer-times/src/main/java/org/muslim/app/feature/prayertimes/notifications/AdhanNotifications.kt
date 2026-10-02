@@ -12,6 +12,7 @@ import android.os.SystemClock
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import org.muslim.app.core.common.prayer.Prayer
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
@@ -161,6 +162,10 @@ object AdhanNotifications {
     fun showAdhan(context: Context, prayer: Prayer): PostResult {
         cancelReminder(context)
         cancelRetiredAdhan(context)
+        if (CallAudioMode.isActive(context)) {
+            cancelActiveAdhan(context)
+            return PostResult(posted = false, detail = "Adhan suppressed during an active call")
+        }
         val preflight = notificationPreflight(context)
         if (!preflight.posted) return preflight
         val manager = context.getSystemService(NotificationManager::class.java)
@@ -209,6 +214,10 @@ object AdhanNotifications {
     }
 
     fun showReminder(context: Context, prayer: Prayer, minutesBefore: Int) {
+        if (CallAudioMode.isActive(context)) {
+            cancelReminder(context)
+            return
+        }
         val label = context.getString(prayerNameRes(prayer))
         val notification = NotificationCompat.Builder(context, NotificationChannels.REMINDER)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029)

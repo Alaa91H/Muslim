@@ -8,9 +8,12 @@ import android.media.AudioManager
 import android.media.AudioTrack
 import android.media.MediaPlayer
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import androidx.core.net.toUri
 import dagger.hilt.android.qualifiers.ApplicationContext
 import org.muslim.app.core.common.prayer.BundledAdhanSound
+import org.muslim.app.core.notifications.CallAudioMode
 import java.io.File
 import kotlin.math.min
 import javax.inject.Inject
@@ -41,6 +44,16 @@ class AdhanSoundPlayer @Inject constructor(
     private val audioTrackLock = Any()
     private var audioFocusRequest: AudioFocusRequest? = null
     private var hasFocus = false
+    private val callModeHandler = Handler(Looper.getMainLooper())
+    private val callModePoll = object : Runnable {
+        override fun run() {
+            if (CallAudioMode.isActive(context)) {
+                AdhanPlaybackService.stop(context.applicationContext)
+            } else if (mediaPlayer != null || audioTrack != null) {
+                callModeHandler.postDelayed(this, COMMUNICATION_MODE_POLL_MS)
+            }
+        }
+    }
 
     private val audioManager: AudioManager?
         get() = context.getSystemService(Context.AUDIO_SERVICE) as? AudioManager
@@ -49,6 +62,10 @@ class AdhanSoundPlayer @Inject constructor(
         when (change) {
             AudioManager.AUDIOFOCUS_LOSS -> stop()
             AudioManager.AUDIOFOCUS_LOSS_TRANSIENT -> {
+                if (CallAudioMode.isActive(context)) {
+                    AdhanPlaybackService.stop(context.applicationContext)
+                    return@OnAudioFocusChangeListener
+                }
                 // Pause briefly, resume when focus is regained.
                 mediaPlayer?.let { if (it.isPlaying) it.pause() }
                 synchronized(audioTrackLock) {
@@ -74,6 +91,8 @@ class AdhanSoundPlayer @Inject constructor(
 
     /** Requests transient audio focus (best-effort; never blocks playback). */
     private fun requestFocus() {
+        callModeHandler.removeCallbacks(callModePoll)
+        callModeHandler.postDelayed(callModePoll, COMMUNICATION_MODE_POLL_MS)
         val manager = audioManager ?: return
         val attrs = AudioAttributes.Builder()
             .setUsage(AudioAttributes.USAGE_ALARM)
@@ -96,6 +115,7 @@ class AdhanSoundPlayer @Inject constructor(
     }
 
     private fun abandonFocus() {
+        callModeHandler.removeCallbacks(callModePoll)
         if (!hasFocus) return
         val manager = audioManager ?: return
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -441,6 +461,7 @@ class AdhanSoundPlayer @Inject constructor(
 
     private companion object {
         const val STREAM_CHUNK_SAMPLES = 4_410
+        const val COMMUNICATION_MODE_POLL_MS = 500L
     }
 
     private fun bundledSoundRes(sound: BundledAdhanSound): Int = when (sound) {

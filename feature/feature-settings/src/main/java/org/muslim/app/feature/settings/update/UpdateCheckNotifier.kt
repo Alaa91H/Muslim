@@ -8,6 +8,7 @@ import android.content.Intent
 import android.graphics.drawable.Icon
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.net.toUri
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.settings.R
 
@@ -25,6 +26,7 @@ class UpdateCheckNotifier(private val context: Context) {
      * crashing the caller (the permissions manager guides the user there).
      */
     fun show(release: ReleaseInfo): Boolean {
+        if (CallAudioMode.isActive(context)) return false
         if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) return false
         return runCatching {
             NotificationChannels.create(context)

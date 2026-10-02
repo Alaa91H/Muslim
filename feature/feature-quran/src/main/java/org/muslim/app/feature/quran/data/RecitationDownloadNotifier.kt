@@ -5,6 +5,7 @@ import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import androidx.core.app.NotificationCompat
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.feature.quran.R
 import java.util.Locale
 
@@ -30,6 +31,10 @@ class RecitationDownloadNotifier(private val context: Context) {
     /** Posts/updates the progress notification (replaces the previous one). */
     fun show(surahName: String, percent: Int, remainingSeconds: Long, bytesPerSecond: Long) {
         val nm = context.getSystemService(NotificationManager::class.java)
+        if (CallAudioMode.isActive(context)) {
+            nm.cancel(NOTIFICATION_ID)
+            return
+        }
         nm.createNotificationChannel(
             NotificationChannel(
                 CHANNEL_ID,

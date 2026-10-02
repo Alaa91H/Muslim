@@ -19,6 +19,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.muslim.app.core.network.FileDownloader
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.NightDownloadWindow
 import org.muslim.app.feature.quran.domain.QuranRepository
@@ -176,7 +177,9 @@ class QuranDownloadService : Service() {
             alarm.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, openAt, pending)
         }
         val nm = getSystemService(NotificationManager::class.java)
-        nm.notify(NOTIFICATION_ID, buildNightNotification(request.label, windowStart, windowEnd))
+        if (!CallAudioMode.isActive(this)) {
+            nm.notify(NOTIFICATION_ID, buildNightNotification(request.label, windowStart, windowEnd))
+        }
         // This request is parked; nothing else to run for it right now.
         jobs.remove(request.id)
         maybeStop()
@@ -260,6 +263,7 @@ class QuranDownloadService : Service() {
     }
 
     private fun notifyFinal(label: String, success: Boolean) {
+        if (CallAudioMode.isActive(this)) return
         val text = getString(if (success) R.string.quran_download_done else R.string.quran_download_failed)
         val contentIntent = PendingIntent.getActivity(
             this,

@@ -9,6 +9,7 @@ import androidx.core.net.toUri
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import org.muslim.app.core.notifications.NotificationCategory
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.core.notifications.notificationAllowed
 import org.muslim.app.feature.finance.R
@@ -22,6 +23,7 @@ open class DebtReminderWorker(
 ) : CoroutineWorker(context, params) {
     override suspend fun doWork(): Result {
         if (!applicationContext.notificationAllowed(NotificationCategory.Finance)) return Result.success()
+        if (CallAudioMode.isActive(applicationContext)) return Result.success()
         val reminder = DebtReminderScheduler.reminderData(inputData) ?: return Result.failure()
         NotificationChannels.create(applicationContext)
         val contentIntent = PendingIntent.getActivity(

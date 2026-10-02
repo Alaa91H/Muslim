@@ -13,11 +13,12 @@ import android.os.Vibrator
 import android.os.VibratorManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.MutableStateFlow
-import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.core.common.prayer.AdhanPlaybackPlan
 import org.muslim.app.core.common.prayer.AdhanSoundOption
 import org.muslim.app.core.common.prayer.BundledAdhanSound
 import org.muslim.app.core.common.prayer.Prayer
+import org.muslim.app.core.notifications.CallAudioMode
+import org.muslim.app.core.notifications.NotificationChannels
 import java.io.File
 import javax.inject.Inject
 
@@ -56,12 +57,26 @@ class AdhanPlaybackService : Service() {
     private var wakeLock: PowerManager.WakeLock? = null
     private var activeVibrator: Vibrator? = null
     private val mainHandler = Handler(Looper.getMainLooper())
+    private val callModePoll = object : Runnable {
+        override fun run() {
+            if (CallAudioMode.isActive(this@AdhanPlaybackService)) {
+                stopForActiveCall()
+            } else {
+                mainHandler.postDelayed(this, COMMUNICATION_MODE_POLL_MS)
+            }
+        }
+    }
     private var playbackGeneration = 0L
 
     /** The request that currently owns the active foreground notification. */
     private var activeRequest: PlaybackRequest? = null
 
     override fun onBind(intent: Intent?): IBinder? = null
+
+    override fun onCreate() {
+        super.onCreate()
+        mainHandler.post(callModePoll)
+    }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         startPlayback(playbackRequest(intent))
@@ -86,6 +101,12 @@ class AdhanPlaybackService : Service() {
     )
 
     private fun startPlayback(request: PlaybackRequest) {
+        if (CallAudioMode.isActive(this)) {
+            AdhanNotifications.cancelReminder(this)
+            AdhanNotifications.cancelActiveAdhan(this)
+            stopSelf()
+            return
+        }
         // The true Adhan is the final authority for this prayer window: remove
         // any earlier reminder even when playback is silent or falls back.
         AdhanNotifications.cancelReminder(this)
@@ -254,6 +275,13 @@ class AdhanPlaybackService : Service() {
         stopSelf()
     }
 
+    private fun stopForActiveCall() {
+        if (activeRequest == null) return
+        playbackGeneration += 1L
+        mainHandler.removeCallbacksAndMessages(null)
+        stopSelf()
+    }
+
     private fun audioStartedFor(request: PlaybackRequest, deliveryStartedAt: Long): Boolean {
         val latest = if (request.isProbe) deliveryJournal.lastProbe.value else deliveryJournal.lastDelivery.value
         return latest.audioStarted &&
@@ -344,7 +372,9 @@ class AdhanPlaybackService : Service() {
         // Removing the app task must not remove the live Adhan card while the
         // foreground service still owns playback. Re-posting with the same id
         // is idempotent and preserves the only explicit Stop action.
-        activeRequest?.takeIf { AdhanPlaybackStatus.isPlaying.value }?.let { request ->
+        activeRequest?.takeIf {
+            AdhanPlaybackStatus.isPlaying.value && !CallAudioMode.isActive(this)
+        }?.let { request ->
             runCatching { startForegroundNotification(request) }
         }
         super.onTaskRemoved(rootIntent)
@@ -356,6 +386,7 @@ class AdhanPlaybackService : Service() {
         cancelVibration()
         releaseWakeLock()
         activeRequest = null
+        mainHandler.removeCallbacks(callModePoll)
         AdhanPlaybackStatus.isPlaying.value = false
         AdhanPlaybackStatus.isPreviewing.value = false
         // The card ends only with the owning playback session: natural
@@ -380,6 +411,7 @@ class AdhanPlaybackService : Service() {
         private const val PLAYBACK_WAKELOCK_TIMEOUT_MS = 15 * 60 * 1000L
         private const val MAX_PLAYBACK_DURATION_MS = 10 * 60 * 1000L
         private const val VIBRATION_DURATION_MS = 2_800L
+        private const val COMMUNICATION_MODE_POLL_MS = 500L
 
         fun start(
             context: Context,

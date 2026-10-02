@@ -11,6 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.adhkar.R
 import org.muslim.app.feature.adhkar.domain.Dhikr
@@ -23,6 +24,7 @@ internal object AdhkarNotifications {
     const val PERIODIC_NOTIFICATION_ID = 3003
 
     fun showReminder(context: Context, dhikr: Dhikr) {
+        if (CallAudioMode.isActive(context)) return
         NotificationChannels.create(context)
         val contentIntent = context.packageManager.getLaunchIntentForPackage(context.packageName)
         val notification = NotificationCompat.Builder(context, NotificationChannels.ADHKAR)
@@ -63,6 +65,7 @@ internal object AdhkarNotifications {
         cornerRadiusDp: Int = 20,
         fontSizeSp: Int = 22,
     ) {
+        if (CallAudioMode.isActive(context)) return
         NotificationChannels.create(context)
         val bubbleIntent = PendingIntent.getActivity(
             context,

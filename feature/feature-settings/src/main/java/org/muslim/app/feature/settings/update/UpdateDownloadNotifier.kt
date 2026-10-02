@@ -8,6 +8,7 @@ import android.content.Intent
 import android.graphics.drawable.Icon
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.net.toUri
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.settings.R
 
@@ -22,6 +23,7 @@ internal class UpdateDownloadNotifier(
     private val context: Context,
 ) {
     fun showReady(version: String) {
+        if (CallAudioMode.isActive(context)) return
         if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) return
         post(
             title = context.getString(R.string.update_ready_title),
@@ -31,6 +33,7 @@ internal class UpdateDownloadNotifier(
     }
 
     fun showFailed() {
+        if (CallAudioMode.isActive(context)) return
         if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) return
         post(
             title = context.getString(R.string.update_download_failed_title),
