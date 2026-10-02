@@ -50,4 +50,7 @@
     <string name="more_names_desc">Ba kombo 99 na explication mobimba</string>
     <string name="more_hajj">Hajj &amp; Umrah na mokili mobimba</string>
     <string name="more_hajj_desc">Motambwisi ya sikisiki mpo na milulu ya Hajj mpe Umrah</string>
+    <string name="more_search_clear">Boluki ya polele</string>
+    <string name="tab_ramadan">Ramadan na mokolo ya Ramadan</string>
+    <string name="voice_listen">Yoka</string>
 </resources>

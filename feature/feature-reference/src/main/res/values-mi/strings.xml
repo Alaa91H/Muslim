@@ -7,4 +7,8 @@
     <string name="reference_topics_count">kaupapa</string>
     <string name="reference_copy">Tārua</string>
     <string name="reference_share">Tiria</string>
+    <string name="history_atlas_zoom_in">Topa mai</string>
+    <string name="history_atlas_zoom_out">Topa atu</string>
+    <string name="history_language_english">Ingarihi</string>
+    <string name="reference_search_clear">Maama te rapu</string>
 </resources>

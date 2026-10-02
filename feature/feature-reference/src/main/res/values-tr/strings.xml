@@ -7,4 +7,8 @@
     <string name="reference_topics_count">konular</string>
     <string name="reference_copy">Kopyala</string>
     <string name="reference_share">Paylaş</string>
+    <string name="history_atlas_zoom_in">Yakınlaştır</string>
+    <string name="history_atlas_zoom_out">Uzaklaştır</string>
+    <string name="history_language_english">İngilizce</string>
+    <string name="reference_search_clear">Aramayı temizle</string>
 </resources>

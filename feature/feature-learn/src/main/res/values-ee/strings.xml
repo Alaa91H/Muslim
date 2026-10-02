@@ -106,4 +106,10 @@
     <string name="names_position">Ŋkɔ %1$d le %2$d me</string>
     <string name="names_search_hint">Di ŋkɔ aɖe...</string>
     <string name="names_title">Allah ƒe ŋkɔ 99 la</string>
+    <string name="funeral_will_cancel">Te fli ɖe eme</string>
+    <string name="hajj_map_zoom_in">Zoom ɖe edzi</string>
+    <string name="hajj_map_zoom_out">Zãe ɖe edzi</string>
+    <string name="learn_search_clear">Didi si me kɔ nyuie</string>
+    <string name="learn_topic_zakat_fitr">Zakat al-Fitr ƒe agbalẽ</string>
+    <string name="names_search_clear">Didi si me kɔ nyuie</string>
 </resources>

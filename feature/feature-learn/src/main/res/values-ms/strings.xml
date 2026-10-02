@@ -106,4 +106,9 @@
     <string name="names_position">Nama %1$d daripada %2$d</string>
     <string name="names_search_hint">Cari nama…</string>
     <string name="names_title">99 nama Allah</string>
+    <string name="funeral_will_cancel">Batal</string>
+    <string name="hajj_map_zoom_in">Zum masuk</string>
+    <string name="hajj_map_zoom_out">Zum keluar</string>
+    <string name="learn_search_clear">Kosongkan carian</string>
+    <string name="names_search_clear">Kosongkan carian</string>
 </resources>

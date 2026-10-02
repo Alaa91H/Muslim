@@ -106,4 +106,10 @@
     <string name="names_position">%2$d 중 이름 %1$d</string>
     <string name="names_search_hint">이름을 검색해 보세요…</string>
     <string name="names_title">알라의 99가지 이름</string>
+    <string name="funeral_will_cancel">취소</string>
+    <string name="hajj_map_zoom_in">확대</string>
+    <string name="hajj_map_zoom_out">축소</string>
+    <string name="learn_search_clear">검색 지우기</string>
+    <string name="learn_topic_zakat_fitr">자카트 알피트르</string>
+    <string name="names_search_clear">검색 지우기</string>
 </resources>

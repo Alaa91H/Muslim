@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Dhikr yakopiye</string>
     <string name="adhkar_periodic_dhikr">Dhikr yihariye</string>
     <string name="adhkar_periodic_dhikr_random">Imburakimazi (aho gutora n\'amaboko)</string>
+    <string name="adhkar_more_actions">Ibindi bikorwa</string>
+    <string name="adhkar_reader_next">Ibikurikira</string>
+    <string name="adhkar_reader_previous">Imbere</string>
+    <string name="adhkar_search_clear">Kuraho ubushakashatsi</string>
 </resources>

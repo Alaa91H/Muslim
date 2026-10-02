@@ -106,4 +106,9 @@
     <string name="names_position">%2$d के %1$d नाम</string>
     <string name="names_search_hint">नाम अन्वेष्टुम्...</string>
     <string name="names_title">अल्लाहस्य ९९ नाम</string>
+    <string name="hajj_map_zoom_in">जूम इन करें</string>
+    <string name="hajj_map_zoom_out">जूम आउट् कुर्वन्तु</string>
+    <string name="learn_search_clear">अन्वेषणं स्पष्टं कुरुत</string>
+    <string name="learn_topic_zakat_fitr">जकात अल-फितर</string>
+    <string name="names_search_clear">अन्वेषणं स्पष्टं कुरुत</string>
 </resources>

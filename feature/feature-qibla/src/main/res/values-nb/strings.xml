@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Vis alle moskeer</string>
     <string name="mosque_finder_share">Åpne veibeskrivelser</string>
     <string name="offline_maps_use_my_location">Gå til min nåværende plassering</string>
+    <string name="nearby_mosques_map_action">Kart</string>
+    <string name="nearby_mosques_more_actions">Flere handlinger</string>
+    <string name="nearby_mosques_search_clear">Tøm søk</string>
 </resources>

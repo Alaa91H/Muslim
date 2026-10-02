@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">Faka\'ali\'ali \'a e ngaahi mosque kotoa pe</string>
     <string name="mosque_finder_share">Fakaava e ngaahi fakahinohino</string>
     <string name="offline_maps_use_my_location">Alu ki hoku feitu\'u lolotonga .</string>
+    <string name="nearby_mosques_map_action">Mape</string>
+    <string name="nearby_mosques_more_actions">Ngaahi ngaue lahi ange</string>
+    <string name="nearby_mosques_search_clear">Fakamaʻa ʻa e fekumi</string>
+    <string name="qibla_tab_qibla">Qipula</string>
 </resources>

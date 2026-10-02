@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">ཁ་ཆེའི་ལྷ་ཁང་ཆ་མཉམ་སྟོན།</string>
     <string name="mosque_finder_share">ཕྱོགས་ཁ་ཕྱེ་བ།</string>
     <string name="offline_maps_use_my_location">ངའི་ད་ལྟོའི་གནས་ལུ་འགྱོ།</string>
+    <string name="nearby_mosques_map_action">ས་ཁྲ།</string>
+    <string name="nearby_mosques_more_actions">བྱ་བ་མང་བ།</string>
+    <string name="nearby_mosques_search_clear">འཚོལ་ཞིབ་བསལ།</string>
+    <string name="qibla_tab_qibla">ཀིབ་ལ།</string>
 </resources>

@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">አንባቢ ይምረጡ</string>
     <string name="quran_reciter_search_hint">አንባቢዎችን በስም፣ ዘይቤ ወይም በጥራት ይፈልጉ…</string>
     <string name="quran_reciter_no_results">ከዚህ ፍለጋ ጋር የሚዛመድ ምንም አንባቢዎች የሉም</string>
+    <string name="quran_tab_bookmarks">ዕልባቶች</string>
 </resources>

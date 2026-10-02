@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Tannal ki koy jàng</string>
     <string name="quran_reciter_search_hint">Seetal ñiy jàng ci tur, stil wala kalite...</string>
     <string name="quran_reciter_no_results">Amul benn jàngkat bu méngoo ak seetlu bii</string>
+    <string name="quran_tab_bookmarks">Marke-pages</string>
 </resources>

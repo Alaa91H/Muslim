@@ -7,4 +7,8 @@
     <string name="reference_topics_count">mowzuklary</string>
     <string name="reference_copy">Göçüriň</string>
     <string name="reference_share">Paýlaş</string>
+    <string name="history_atlas_zoom_in">Ulaltmak</string>
+    <string name="history_atlas_zoom_out">Ulaltmak</string>
+    <string name="history_language_english">Iňlis</string>
+    <string name="reference_search_clear">Gözleg arassala</string>
 </resources>

@@ -7,4 +7,9 @@
     <string name="reference_topics_count">temave</string>
     <string name="reference_copy">Kopjo</string>
     <string name="reference_share">Shpërndaje</string>
+    <string name="history_atlas_zoom_in">Zmadhoni</string>
+    <string name="history_atlas_zoom_out">Zmadhoni</string>
+    <string name="history_language_arabic">Arabisht</string>
+    <string name="history_language_english">anglisht</string>
+    <string name="reference_search_clear">Pastro kërkimin</string>
 </resources>

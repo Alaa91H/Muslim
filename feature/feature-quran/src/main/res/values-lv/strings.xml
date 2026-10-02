@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Izvēlieties deklamētāju</string>
     <string name="quran_reciter_search_hint">Meklēt deklamētājus pēc nosaukuma, stila vai kvalitātes...</string>
     <string name="quran_reciter_no_results">Šim meklējumam neatbilst neviens deklamētājs</string>
+    <string name="quran_tab_bookmarks">Grāmatzīmes</string>
 </resources>

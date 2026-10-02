@@ -106,4 +106,9 @@
     <string name="names_position">Téra %1$d de %2$d</string>
     <string name="names_search_hint">Eheka peteĩ téra...</string>
     <string name="names_title">Umi 99 Allah réra</string>
+    <string name="hajj_map_zoom_in">Embotuichave</string>
+    <string name="hajj_map_zoom_out">Emboguejy michĩmi</string>
+    <string name="learn_search_clear">Ojeporeka hesakã porãva</string>
+    <string name="learn_topic_zakat_fitr">Zakat al-Fitr rehegua</string>
+    <string name="names_search_clear">Ojeporeka hesakã porãva</string>
 </resources>

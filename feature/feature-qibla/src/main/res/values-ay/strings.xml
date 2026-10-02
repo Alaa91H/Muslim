@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Taqi mezquitas ukanaka uñacht’ayaña</string>
     <string name="mosque_finder_share">Jisk’a thakhinaka</string>
     <string name="offline_maps_use_my_location">Jichhax kawkhantï jikxataskta ukaruw sarañama</string>
+    <string name="nearby_mosques_map_action">Mapa</string>
+    <string name="nearby_mosques_more_actions">Juk’ampi lurawinakampi</string>
+    <string name="nearby_mosques_search_clear">Qhana thaqhaña</string>
 </resources>

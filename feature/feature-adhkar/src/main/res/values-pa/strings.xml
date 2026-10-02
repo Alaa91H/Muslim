@@ -72,4 +72,8 @@
     <string name="adhkar_copied">ਧਿਆਨ ਨਕਲ ਕੀਤਾ</string>
     <string name="adhkar_periodic_dhikr">ਖਾਸ ਧਿਆਨ</string>
     <string name="adhkar_periodic_dhikr_random">ਬੇਤਰਤੀਬ (ਮੈਨੂਅਲ ਪਿਕ ਦੀ ਬਜਾਏ)</string>
+    <string name="adhkar_more_actions">ਹੋਰ ਕਾਰਵਾਈਆਂ</string>
+    <string name="adhkar_reader_next">ਅੱਗੇ</string>
+    <string name="adhkar_reader_previous">ਪਿਛਲਾ</string>
+    <string name="adhkar_search_clear">ਖੋਜ ਸਾਫ਼ ਕਰੋ</string>
 </resources>

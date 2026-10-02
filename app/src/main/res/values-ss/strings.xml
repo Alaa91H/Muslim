@@ -50,4 +50,7 @@
     <string name="more_names_desc">Emagama langu-99 lanenchazelo lephelele</string>
     <string name="more_hajj">I-Hajji ne-Umrah</string>
     <string name="more_hajj_desc">Umhlahlandlela lonemininingwane yemasiko e-Hajj ne-Umrah</string>
+    <string name="more_search_clear">Susa lokusesha</string>
+    <string name="tab_ramadan">I-Ramadan</string>
+    <string name="voice_listen">Lalela</string>
 </resources>

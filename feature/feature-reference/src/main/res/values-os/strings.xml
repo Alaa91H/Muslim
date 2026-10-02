@@ -7,4 +7,8 @@
     <string name="reference_topics_count">темæтæ</string>
     <string name="reference_copy">Копи</string>
     <string name="reference_share">Дих кæнын</string>
+    <string name="history_atlas_zoom_in">Уæрæхдæр кæнын</string>
+    <string name="history_atlas_zoom_out">Фæкъаддæр кæнын</string>
+    <string name="history_language_english">Англисаг</string>
+    <string name="reference_search_clear">Сыгъдæг кæнут агурæн</string>
 </resources>

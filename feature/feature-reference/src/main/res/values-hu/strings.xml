@@ -7,4 +7,8 @@
     <string name="reference_topics_count">témákat</string>
     <string name="reference_copy">Másolás</string>
     <string name="reference_share">Megosztás</string>
+    <string name="history_atlas_zoom_in">Nagyítás</string>
+    <string name="history_atlas_zoom_out">Kicsinyítés</string>
+    <string name="history_language_english">angolul</string>
+    <string name="reference_search_clear">Keresés törlése</string>
 </resources>

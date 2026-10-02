@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Elige un recitador</string>
     <string name="quran_reciter_search_hint">Busque recitadores por nombre, estilo o calidad...</string>
     <string name="quran_reciter_no_results">Ningún recitador coincide con esta búsqueda</string>
+    <string name="quran_tab_bookmarks">Marcadores</string>
 </resources>

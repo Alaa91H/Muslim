@@ -106,4 +106,9 @@
     <string name="names_position">ስም %1$d ካብ %2$d</string>
     <string name="names_search_hint">ስም ድለዩ...</string>
     <string name="names_title">እቶም 99 ኣስማት ኣላህ</string>
+    <string name="hajj_map_zoom_in">ዙም ኢን</string>
+    <string name="hajj_map_zoom_out">ዙም ኣውት ግበር</string>
+    <string name="learn_search_clear">ንጹር ምድላይ</string>
+    <string name="learn_topic_zakat_fitr">ዘካት ኣልፊጥር</string>
+    <string name="names_search_clear">ንጹር ምድላይ</string>
 </resources>

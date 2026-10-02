@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">קלייַבן אַ רעסיטער</string>
     <string name="quran_reciter_search_hint">זוכן רעסיטערס לויט נאָמען, סטיל אָדער קוואַליטעט ...</string>
     <string name="quran_reciter_no_results">קיין רעסיטערס שטימען צו דעם זוכן</string>
+    <string name="quran_tab_bookmarks">בוקמאַרקס</string>
 </resources>

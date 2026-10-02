@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 ngaran kalayan katerangan lengkep</string>
     <string name="more_hajj">Haji &amp; Umroh</string>
     <string name="more_hajj_desc">Pitunjuk lengkep ngeunaan ibadah haji sareng umroh</string>
+    <string name="more_search_clear">Hapus pilarian</string>
+    <string name="tab_ramadan">Ramadhan</string>
+    <string name="voice_listen">Dengekeun</string>
 </resources>

@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Soro mbeni zo ti dikongo mbeti .</string>
     <string name="quran_reciter_search_hint">Gi azo so ayeke diko ni na iri, style wala qualité...</string>
     <string name="quran_reciter_no_results">Mbeni zo ti dikongo mbeti alingbi na gingo nda ti ye so pëpe .</string>
+    <string name="quran_tab_bookmarks">Marque-page</string>
 </resources>

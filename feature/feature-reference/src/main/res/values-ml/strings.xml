@@ -7,4 +7,8 @@
     <string name="reference_topics_count">വിഷയങ്ങൾ</string>
     <string name="reference_copy">പകർത്തുക</string>
     <string name="reference_share">പങ്കിടുക</string>
+    <string name="history_atlas_zoom_in">സൂം ഇൻ ചെയ്യുക</string>
+    <string name="history_atlas_zoom_out">സൂം ഔട്ട് ചെയ്യുക</string>
+    <string name="history_language_english">ഇംഗ്ലീഷ്</string>
+    <string name="reference_search_clear">തിരയൽ മായ്‌ക്കുക</string>
 </resources>

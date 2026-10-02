@@ -7,4 +7,8 @@
     <string name="reference_topics_count">tumu parau</string>
     <string name="reference_copy">Copy</string>
     <string name="reference_share">A faaite</string>
+    <string name="history_atlas_zoom_in">Zoom i roto</string>
+    <string name="history_atlas_zoom_out">Zoom i rapae</string>
+    <string name="history_language_english">Beretane</string>
+    <string name="reference_search_clear">A tatara i te imiraa</string>
 </resources>

@@ -106,4 +106,9 @@
     <string name="names_position">Tur %1$d ci %2$d</string>
     <string name="names_search_hint">Seetal ab tur...</string>
     <string name="names_title">tur Yalla yi 99</string>
+    <string name="hajj_map_zoom_in">Zoom ci</string>
+    <string name="hajj_map_zoom_out">Wàññi zoom</string>
+    <string name="learn_search_clear">Futti seetug</string>
+    <string name="learn_topic_zakat_fitr">Zakatul Fitr</string>
+    <string name="names_search_clear">Futti seetug</string>
 </resources>

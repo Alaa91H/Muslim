@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Taispeáin gach mosques</string>
     <string name="mosque_finder_share">Treoracha oscailte</string>
     <string name="offline_maps_use_my_location">Téigh go dtí mo shuíomh reatha</string>
+    <string name="nearby_mosques_map_action">Léarscáil</string>
+    <string name="nearby_mosques_more_actions">Tuilleadh gníomhartha</string>
+    <string name="nearby_mosques_search_clear">Glan cuardach</string>
 </resources>

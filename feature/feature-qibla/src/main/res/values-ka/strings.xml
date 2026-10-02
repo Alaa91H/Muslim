@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">აჩვენე ყველა მეჩეთი</string>
     <string name="mosque_finder_share">გახსენით მიმართულებები</string>
     <string name="offline_maps_use_my_location">გადადით ჩემს ამჟამინდელ მდებარეობაზე</string>
+    <string name="nearby_mosques_map_action">რუკა</string>
+    <string name="nearby_mosques_more_actions">მეტი მოქმედებები</string>
+    <string name="nearby_mosques_search_clear">ძიების გასუფთავება</string>
+    <string name="qibla_tab_qibla">ქიბლა</string>
 </resources>

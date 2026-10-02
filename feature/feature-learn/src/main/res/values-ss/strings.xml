@@ -106,4 +106,10 @@
     <string name="names_position">Ligama %1$d ku %2$d</string>
     <string name="names_search_hint">Sesha ligama...</string>
     <string name="names_title">Emagama langu-99 a-Allah</string>
+    <string name="funeral_will_cancel">Khansela</string>
+    <string name="hajj_map_zoom_in">Sondzeta</string>
+    <string name="hajj_map_zoom_out">Sondzeta</string>
+    <string name="learn_search_clear">Susa lokusesha</string>
+    <string name="learn_topic_zakat_fitr">I-Zakat ye-Fitr</string>
+    <string name="names_search_clear">Susa lokusesha</string>
 </resources>

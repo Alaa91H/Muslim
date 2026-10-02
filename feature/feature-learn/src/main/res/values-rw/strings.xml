@@ -106,4 +106,9 @@
     <string name="names_position">Vuga %1$d ya %2$d</string>
     <string name="names_search_hint">Shakisha izina…</string>
     <string name="names_title">Amazina 99 ya Allah</string>
+    <string name="funeral_will_cancel">Kureka</string>
+    <string name="hajj_map_zoom_in">Kwegera</string>
+    <string name="hajj_map_zoom_out">Kwegera</string>
+    <string name="learn_search_clear">Gushakisha neza</string>
+    <string name="names_search_clear">Gushakisha neza</string>
 </resources>

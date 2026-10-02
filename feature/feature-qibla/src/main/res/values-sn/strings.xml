@@ -78,4 +78,6 @@
     <string name="mosque_finder_show_all">Ratidza mamosque ese</string>
     <string name="mosque_finder_share">Vhura nzira</string>
     <string name="offline_maps_use_my_location">Enda kunzvimbo yangu ikozvino</string>
+    <string name="nearby_mosques_more_actions">Zvimwe zviito</string>
+    <string name="nearby_mosques_search_clear">Bvisa kutsvaga</string>
 </resources>

@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Bir okuyucu seçin</string>
     <string name="quran_reciter_search_hint">Okuyucuları ada, stile veya kaliteye göre arayın…</string>
     <string name="quran_reciter_no_results">Bu aramayla eşleşen okuyucu yok</string>
+    <string name="quran_tab_bookmarks">Yer imleri</string>
 </resources>

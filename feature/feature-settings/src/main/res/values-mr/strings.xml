@@ -198,4 +198,7 @@
     <string name="settings_ornament_arabesque">Arabesque</string>
     <string name="settings_ornament_stars">Stars</string>
     <string name="settings_ornament_minimal">Minimal</string>
+    <string name="settings_ornament_intensity_off">बंद</string>
+    <string name="settings_search_clear">शोध साफ करा</string>
+    <string name="settings_updates_last_successful">शेवटची तपासणी: %1$s</string>
 </resources>

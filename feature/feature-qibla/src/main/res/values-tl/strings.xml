@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Ipakita ang lahat ng mga mosque</string>
     <string name="mosque_finder_share">Buksan ang mga direksyon</string>
     <string name="offline_maps_use_my_location">Pumunta sa aking kasalukuyang lokasyon</string>
+    <string name="nearby_mosques_map_action">Mapa</string>
+    <string name="nearby_mosques_more_actions">Higit pang mga aksyon</string>
+    <string name="nearby_mosques_search_clear">I-clear ang paghahanap</string>
 </resources>

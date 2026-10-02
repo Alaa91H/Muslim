@@ -106,4 +106,7 @@
     <string name="names_position">Nav %1$d ji %2$d</string>
     <string name="names_search_hint">Li navekî bigerin…</string>
     <string name="names_title">99 navên Xwedê</string>
+    <string name="learn_search_clear">Lêgerînê paqij bike</string>
+    <string name="learn_topic_zakat_fitr">Zekatê Fitrê</string>
+    <string name="names_search_clear">Lêgerînê paqij bike</string>
 </resources>

@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Nama qara\'u filadhu</string>
     <string name="quran_reciter_search_hint">Maqaa, akkaataa, ykn qulqullina dubbistoota barbaadi...</string>
     <string name="quran_reciter_no_results">Dubbisaan kamiyyuu barbaacha kanaan wal hin simne</string>
+    <string name="quran_tab_bookmarks">Mallattoolee (bookmarks).</string>
 </resources>

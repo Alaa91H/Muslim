@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Pasirinkite deklamatorių</string>
     <string name="quran_reciter_search_hint">Ieškokite deklamuojančiųjų pagal pavadinimą, stilių ar kokybę...</string>
     <string name="quran_reciter_no_results">Šiai paieškai neatitiko nė vienas deklamatorius</string>
+    <string name="quran_tab_bookmarks">Žymės</string>
 </resources>

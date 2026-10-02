@@ -72,4 +72,8 @@
     <string name="adhkar_copied">ذکر نسخ شد</string>
     <string name="adhkar_periodic_dhikr">ذکر خاص</string>
     <string name="adhkar_periodic_dhikr_random">تصادفی (به جای انتخاب دستی)</string>
+    <string name="adhkar_more_actions">اقدامات بیشتر</string>
+    <string name="adhkar_reader_next">بعدی</string>
+    <string name="adhkar_reader_previous">قبلی</string>
+    <string name="adhkar_search_clear">جستجو را پاک کنید</string>
 </resources>

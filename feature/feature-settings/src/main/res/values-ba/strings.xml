@@ -198,4 +198,7 @@
     <string name="settings_ornament_arabesque">Arabesque</string>
     <string name="settings_ornament_stars">Stars</string>
     <string name="settings_ornament_minimal">Minimal</string>
+    <string name="settings_ornament_intensity_off">Һүндерелгән</string>
+    <string name="settings_search_clear">Эҙләүҙе таҙартыу</string>
+    <string name="settings_updates_last_successful">Һуңғы тикшерелеү: %1$s.</string>
 </resources>

@@ -106,4 +106,10 @@
     <string name="names_position">נאָמען %1$d פון %2$d</string>
     <string name="names_search_hint">זוכן פֿאַר אַ נאָמען ...</string>
     <string name="names_title">די 99 נעמען פון אַלאַ</string>
+    <string name="funeral_will_cancel">באָטל מאַכן</string>
+    <string name="hajj_map_zoom_in">פארגרעסער אין</string>
+    <string name="hajj_map_zoom_out">פארגרעסער אויס</string>
+    <string name="learn_search_clear">קלאָר זוכן</string>
+    <string name="learn_topic_zakat_fitr">זַכָּאת אֶל פִּיטר</string>
+    <string name="names_search_clear">קלאָר זוכן</string>
 </resources>

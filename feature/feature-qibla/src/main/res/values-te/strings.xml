@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">అన్ని మసీదులను చూపించు</string>
     <string name="mosque_finder_share">దిశలను తెరవండి</string>
     <string name="offline_maps_use_my_location">నా ప్రస్తుత స్థానానికి వెళ్లు</string>
+    <string name="nearby_mosques_map_action">మ్యాప్</string>
+    <string name="nearby_mosques_more_actions">మరిన్ని చర్యలు</string>
+    <string name="nearby_mosques_search_clear">శోధనను క్లియర్ చేయండి</string>
+    <string name="qibla_tab_qibla">ఖిబ్లా</string>
 </resources>

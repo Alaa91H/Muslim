@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">सब मस्जिद देखाईं</string>
     <string name="mosque_finder_share">खुला दिशा-निर्देश दिहल जाला</string>
     <string name="offline_maps_use_my_location">हमार वर्तमान लोकेशन पर जाइए</string>
+    <string name="nearby_mosques_map_action">नक्शा के बा</string>
+    <string name="nearby_mosques_more_actions">अउरी कार्रवाई कइल जाव</string>
+    <string name="nearby_mosques_search_clear">खोज के साफ कर दिहल जाव</string>
+    <string name="qibla_tab_qibla">किबला के बा</string>
 </resources>

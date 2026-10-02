@@ -106,4 +106,10 @@
     <string name="names_position">Ngaran %1$d tina %2$d</string>
     <string name="names_search_hint">Pilarian nami…</string>
     <string name="names_title">99 Asma Allah</string>
+    <string name="funeral_will_cancel">Ngabolaykeun</string>
+    <string name="hajj_map_zoom_in">Gedekeun</string>
+    <string name="hajj_map_zoom_out">Zum kaluar</string>
+    <string name="learn_search_clear">Hapus pilarian</string>
+    <string name="learn_topic_zakat_fitr">Zakat fitrah</string>
+    <string name="names_search_clear">Hapus pilarian</string>
 </resources>

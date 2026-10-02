@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Kies \'n voorleser</string>
     <string name="quran_reciter_search_hint">Soek voorlesers volgens naam, styl of kwaliteit …</string>
     <string name="quran_reciter_no_results">Geen voorlesers pas by hierdie soektog nie</string>
+    <string name="quran_tab_bookmarks">Boekmerke</string>
 </resources>

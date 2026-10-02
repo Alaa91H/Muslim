@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 vardai su išsamiu paaiškinimu</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>
     <string name="more_hajj_desc">Išsamus Hajj ir Umrah apeigų vadovas</string>
+    <string name="more_search_clear">Išvalyti paiešką</string>
+    <string name="tab_ramadan">Ramadanas</string>
+    <string name="voice_listen">Klausyk</string>
 </resources>

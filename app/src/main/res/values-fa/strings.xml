@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 نام با توضیح کامل</string>
     <string name="more_hajj">حج و عمره</string>
     <string name="more_hajj_desc">راهنمای تفصیلی مناسک حج و عمره</string>
+    <string name="more_search_clear">جستجو را پاک کنید</string>
+    <string name="tab_ramadan">رمضان</string>
+    <string name="voice_listen">گوش کن</string>
 </resources>

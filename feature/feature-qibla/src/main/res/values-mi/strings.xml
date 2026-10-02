@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Whakaatuhia nga whare karakia katoa</string>
     <string name="mosque_finder_share">Tuwhera nga tohutohu</string>
     <string name="offline_maps_use_my_location">Haere ki taku waahi o naianei</string>
+    <string name="nearby_mosques_map_action">Mapi</string>
+    <string name="nearby_mosques_more_actions">He maha atu nga mahi</string>
+    <string name="nearby_mosques_search_clear">Maama te rapu</string>
 </resources>

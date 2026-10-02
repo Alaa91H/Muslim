@@ -7,4 +7,8 @@
     <string name="reference_topics_count">ବିଷୟଗୁଡିକ |</string>
     <string name="reference_copy">କପି କରନ୍ତୁ |</string>
     <string name="reference_share">ଅଂଶୀଦାର କରନ୍ତୁ |</string>
+    <string name="history_atlas_zoom_in">ଜୁମ୍ ଇନ୍ କରନ୍ତୁ |</string>
+    <string name="history_atlas_zoom_out">ଜୁମ୍ ଆଉଟ୍ କରନ୍ତୁ |</string>
+    <string name="history_language_english">ଇଂରାଜୀ |</string>
+    <string name="reference_search_clear">ସନ୍ଧାନ ସଫା କରନ୍ତୁ |</string>
 </resources>

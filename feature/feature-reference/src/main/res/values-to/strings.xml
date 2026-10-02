@@ -7,4 +7,8 @@
     <string name="reference_topics_count">ngaahi kaveinga</string>
     <string name="reference_copy">Kopi</string>
     <string name="reference_share">Vahevahe</string>
+    <string name="history_atlas_zoom_in">Fakalahi</string>
+    <string name="history_atlas_zoom_out">Fakalahi</string>
+    <string name="history_language_english">Faka-Pilitānia</string>
+    <string name="reference_search_clear">Fakamaʻa ʻa e fekumi</string>
 </resources>

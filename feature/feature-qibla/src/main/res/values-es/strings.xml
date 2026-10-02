@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">Mostrar todas las mezquitas</string>
     <string name="mosque_finder_share">direcciones abiertas</string>
     <string name="offline_maps_use_my_location">Ir a mi ubicación actual</string>
+    <string name="nearby_mosques_map_action">Mapa</string>
+    <string name="nearby_mosques_more_actions">Más acciones</string>
+    <string name="nearby_mosques_search_clear">Borrar búsqueda</string>
+    <string name="qibla_tab_qibla">Quibla</string>
 </resources>

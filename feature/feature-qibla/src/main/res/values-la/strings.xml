@@ -78,4 +78,6 @@
     <string name="mosque_finder_show_all">Monstra omnia meschitis</string>
     <string name="mosque_finder_share">Directiones apertae</string>
     <string name="offline_maps_use_my_location">Vade ad locum meum current</string>
+    <string name="nearby_mosques_more_actions">Plures actiones</string>
+    <string name="nearby_mosques_search_clear">Patet quaerere</string>
 </resources>

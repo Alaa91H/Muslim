@@ -106,4 +106,10 @@
     <string name="names_position">نالو %1$d مان %2$d</string>
     <string name="names_search_hint">نالو ڳولھيو…</string>
     <string name="names_title">الله جا 99 نالا</string>
+    <string name="funeral_will_cancel">منسوخ ڪريو</string>
+    <string name="hajj_map_zoom_in">وڏو ڪريو</string>
+    <string name="hajj_map_zoom_out">وڏو ڪريو</string>
+    <string name="learn_search_clear">صاف ڳولا</string>
+    <string name="learn_topic_zakat_fitr">زڪوات الفطر</string>
+    <string name="names_search_clear">صاف ڳولا</string>
 </resources>

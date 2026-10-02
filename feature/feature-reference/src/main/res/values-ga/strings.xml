@@ -7,4 +7,9 @@
     <string name="reference_topics_count">topaicí</string>
     <string name="reference_copy">Cóip</string>
     <string name="reference_share">Comhroinn</string>
+    <string name="history_atlas_zoom_in">Súmáil isteach</string>
+    <string name="history_atlas_zoom_out">Súmáil amach</string>
+    <string name="history_language_arabic">abair</string>
+    <string name="history_language_english">Béarla</string>
+    <string name="reference_search_clear">Glan cuardach</string>
 </resources>

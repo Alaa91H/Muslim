@@ -50,4 +50,7 @@
     <string name="more_names_desc">Ŋkɔ 99-awo kple numeɖeɖe blibo</string>
     <string name="more_hajj">Hajj &amp; Umrah ƒe ɣeyiɣia</string>
     <string name="more_hajj_desc">Mɔfiame tsitotsito le Hajj kple Umrah kɔnuwo ŋu</string>
+    <string name="more_search_clear">Didi si me kɔ nyuie</string>
+    <string name="tab_ramadan">Ramadan ƒe ɣeyiɣia me</string>
+    <string name="voice_listen">Ðo to</string>
 </resources>

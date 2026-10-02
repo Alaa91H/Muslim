@@ -106,4 +106,10 @@
     <string name="names_position">Անունը %1$d %2$d-ից</string>
     <string name="names_search_hint">Որոնել անուն…</string>
     <string name="names_title">Ալլահի 99 անունները</string>
+    <string name="funeral_will_cancel">Չեղարկել</string>
+    <string name="hajj_map_zoom_in">Մեծացնել</string>
+    <string name="hajj_map_zoom_out">Մեծացնել</string>
+    <string name="learn_search_clear">Մաքրել որոնումը</string>
+    <string name="learn_topic_zakat_fitr">Զաքաթ ալ-Ֆիտր</string>
+    <string name="names_search_clear">Մաքրել որոնումը</string>
 </resources>

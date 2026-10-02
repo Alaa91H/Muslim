@@ -7,4 +7,9 @@
     <string name="reference_topics_count">主题</string>
     <string name="reference_copy">复制</string>
     <string name="reference_share">分享</string>
+    <string name="history_atlas_zoom_in">放大</string>
+    <string name="history_atlas_zoom_out">缩小</string>
+    <string name="history_language_arabic">巴黎</string>
+    <string name="history_language_english">英语</string>
+    <string name="reference_search_clear">清除搜索</string>
 </resources>

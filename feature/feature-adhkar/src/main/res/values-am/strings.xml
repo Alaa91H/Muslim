@@ -72,4 +72,8 @@
     <string name="adhkar_copied">ዚክር ገልብጧል</string>
     <string name="adhkar_periodic_dhikr">የተወሰነ ዚክር</string>
     <string name="adhkar_periodic_dhikr_random">በዘፈቀደ (በእጅ ከመምረጥ ይልቅ)</string>
+    <string name="adhkar_more_actions">ተጨማሪ ድርጊቶች</string>
+    <string name="adhkar_reader_next">ቀጥሎ</string>
+    <string name="adhkar_reader_previous">ቀዳሚ</string>
+    <string name="adhkar_search_clear">ፍለጋን አጽዳ</string>
 </resources>

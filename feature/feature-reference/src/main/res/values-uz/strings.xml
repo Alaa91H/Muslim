@@ -7,4 +7,9 @@
     <string name="reference_topics_count">mavzular</string>
     <string name="reference_copy">Nusxalash</string>
     <string name="reference_share">Ulashish</string>
+    <string name="history_atlas_zoom_in">Kattalashtirish</string>
+    <string name="history_atlas_zoom_out">Kichraytirish</string>
+    <string name="history_language_arabic">ạlʿrbyẗ</string>
+    <string name="history_language_english">Ingliz</string>
+    <string name="reference_search_clear">Qidiruvni tozalash</string>
 </resources>

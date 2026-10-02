@@ -50,4 +50,7 @@
     <string name="more_names_desc">Majina 99 yenye maelezo kamili</string>
     <string name="more_hajj">Hajj na Umrah</string>
     <string name="more_hajj_desc">Mwongozo wa kina wa ibada za Hajj na Umrah</string>
+    <string name="more_search_clear">Futa utafutaji</string>
+    <string name="tab_ramadan">Ramadhani</string>
+    <string name="voice_listen">Sikiliza</string>
 </resources>

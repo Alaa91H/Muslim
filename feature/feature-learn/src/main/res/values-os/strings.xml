@@ -106,4 +106,9 @@
     <string name="names_position">Ном %1$d %2$d-æй</string>
     <string name="names_search_hint">Агур ном...</string>
     <string name="names_title">Аллахы 99 номы</string>
+    <string name="hajj_map_zoom_in">Уæрæхдæр кæнын</string>
+    <string name="hajj_map_zoom_out">Фæкъаддæр кæнын</string>
+    <string name="learn_search_clear">Сыгъдæг кæнут агурæн</string>
+    <string name="learn_topic_zakat_fitr">Закат аль-Фитр</string>
+    <string name="names_search_clear">Сыгъдæг кæнут агурæн</string>
 </resources>

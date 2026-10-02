@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Mostrar totas las mosquèas</string>
     <string name="mosque_finder_share">Dubrir las indicacions</string>
     <string name="offline_maps_use_my_location">Anatz a mon emplaçament actual</string>
+    <string name="nearby_mosques_map_action">Mapa</string>
+    <string name="nearby_mosques_more_actions">Mai d\'accions</string>
+    <string name="nearby_mosques_search_clear">Suprimir la recèrca</string>
 </resources>

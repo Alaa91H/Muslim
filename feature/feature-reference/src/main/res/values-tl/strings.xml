@@ -7,4 +7,8 @@
     <string name="reference_topics_count">mga paksa</string>
     <string name="reference_copy">Kopyahin</string>
     <string name="reference_share">Ibahagi</string>
+    <string name="history_atlas_zoom_in">Mag-zoom in</string>
+    <string name="history_atlas_zoom_out">Mag-zoom out</string>
+    <string name="history_language_english">Ingles</string>
+    <string name="reference_search_clear">I-clear ang paghahanap</string>
 </resources>

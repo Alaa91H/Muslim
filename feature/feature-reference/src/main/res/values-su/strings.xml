@@ -7,4 +7,8 @@
     <string name="reference_topics_count">jejer</string>
     <string name="reference_copy">nyalin</string>
     <string name="reference_share">Bagikeun</string>
+    <string name="history_atlas_zoom_in">Gedekeun</string>
+    <string name="history_atlas_zoom_out">Zum kaluar</string>
+    <string name="history_language_english">Inggris</string>
+    <string name="reference_search_clear">Hapus pilarian</string>
 </resources>

@@ -7,4 +7,8 @@
     <string name="reference_topics_count">ប្រធានបទ</string>
     <string name="reference_copy">ចម្លង</string>
     <string name="reference_share">ចែករំលែក</string>
+    <string name="history_atlas_zoom_in">ពង្រីក</string>
+    <string name="history_atlas_zoom_out">ពង្រីក</string>
+    <string name="history_language_english">ភាសាអង់គ្លេស</string>
+    <string name="reference_search_clear">ជម្រះការស្វែងរក</string>
 </resources>

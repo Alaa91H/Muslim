@@ -106,4 +106,8 @@
     <string name="names_position">Namn %1$d av %2$d</string>
     <string name="names_search_hint">Sök efter ett namn...</string>
     <string name="names_title">Allahs 99 namn</string>
+    <string name="hajj_map_zoom_in">Zooma in</string>
+    <string name="hajj_map_zoom_out">Zooma ut</string>
+    <string name="learn_search_clear">Rensa sökning</string>
+    <string name="names_search_clear">Rensa sökning</string>
 </resources>

@@ -198,4 +198,7 @@
     <string name="settings_ornament_arabesque">Arabesque</string>
     <string name="settings_ornament_stars">Stars</string>
     <string name="settings_ornament_minimal">Minimal</string>
+    <string name="settings_ornament_intensity_off">끄기</string>
+    <string name="settings_search_clear">검색 지우기</string>
+    <string name="settings_updates_last_successful">마지막 확인: %1$s</string>
 </resources>

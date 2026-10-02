@@ -106,4 +106,6 @@
     <string name="names_position">Anarana %1$d amin\'ny %2$d</string>
     <string name="names_search_hint">Mitadiava anarana…</string>
     <string name="names_title">Ny anaran\'i Allah 99</string>
+    <string name="learn_search_clear">Fafao ny fikarohana</string>
+    <string name="names_search_clear">Fafao ny fikarohana</string>
 </resources>

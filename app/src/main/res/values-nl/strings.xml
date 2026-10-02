@@ -50,4 +50,6 @@
     <string name="more_names_desc">De 99 namen met volledige uitleg</string>
     <string name="more_hajj">Hadj &amp; Umrah</string>
     <string name="more_hajj_desc">Gedetailleerde gids voor de hadj- en umrah-rituelen</string>
+    <string name="more_search_clear">Duidelijke zoekopdracht</string>
+    <string name="voice_listen">Luister</string>
 </resources>

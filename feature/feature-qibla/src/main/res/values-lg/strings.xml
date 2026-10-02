@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Laga emizikiti gyonna</string>
     <string name="mosque_finder_share">Ggulawo endagiriro</string>
     <string name="offline_maps_use_my_location">Genda mu kifo we ndi kati</string>
+    <string name="nearby_mosques_map_action">Maapu</string>
+    <string name="nearby_mosques_more_actions">Ebikolwa ebirala</string>
+    <string name="nearby_mosques_search_clear">Okunoonya okutangaavu</string>
 </resources>

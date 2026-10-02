@@ -7,4 +7,8 @@
     <string name="reference_topics_count">Themen</string>
     <string name="reference_copy">Kopie</string>
     <string name="reference_share">Deelen</string>
+    <string name="history_atlas_zoom_in">Zoom an</string>
+    <string name="history_atlas_zoom_out">Auszoomen</string>
+    <string name="history_language_english">Englesch</string>
+    <string name="reference_search_clear">Kloer Sich</string>
 </resources>

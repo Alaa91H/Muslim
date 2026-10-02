@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Valige ettelugeja</string>
     <string name="quran_reciter_search_hint">Otsige ülesütlejaid nime, stiili või kvaliteedi järgi…</string>
     <string name="quran_reciter_no_results">Sellele otsingule ei vasta ükski ülesütleja</string>
+    <string name="quran_tab_bookmarks">Järjehoidjad</string>
 </resources>

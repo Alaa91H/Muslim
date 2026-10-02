@@ -50,4 +50,7 @@
     <string name="more_names_desc">పూర్తి వివరణతో 99 పేర్లు</string>
     <string name="more_hajj">హజ్ &amp; ఉమ్రా</string>
     <string name="more_hajj_desc">హజ్ మరియు ఉమ్రా ఆచారాలకు వివరణాత్మక గైడ్</string>
+    <string name="more_search_clear">శోధనను క్లియర్ చేయండి</string>
+    <string name="tab_ramadan">రంజాన్</string>
+    <string name="voice_listen">వినండి</string>
 </resources>

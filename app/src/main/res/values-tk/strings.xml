@@ -50,4 +50,7 @@
     <string name="more_names_desc">Doly düşündirişli 99 at</string>
     <string name="more_hajj">Haj we Umra</string>
     <string name="more_hajj_desc">Haj we Umra dessurlary barada jikme-jik maglumat</string>
+    <string name="more_search_clear">Gözleg arassala</string>
+    <string name="tab_ramadan">Remezan</string>
+    <string name="voice_listen">Diňle</string>
 </resources>

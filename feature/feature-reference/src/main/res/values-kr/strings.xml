@@ -7,4 +7,8 @@
     <string name="reference_topics_count">maudua</string>
     <string name="reference_copy">Ruwo</string>
     <string name="reference_share">Yayaktǝ</string>
+    <string name="history_atlas_zoom_in">Zoom suro</string>
+    <string name="history_atlas_zoom_out">Zoom diya</string>
+    <string name="history_language_english">Nasara</string>
+    <string name="reference_search_clear">Kulashi cinne</string>
 </resources>

@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Čájehit buot moskeijaid</string>
     <string name="mosque_finder_share">Rabas čujuhusat</string>
     <string name="offline_maps_use_my_location">Mannet mu dálá báikái</string>
+    <string name="nearby_mosques_map_action">Kárta</string>
+    <string name="nearby_mosques_more_actions">Eanet doaimmat</string>
+    <string name="nearby_mosques_search_clear">Buhtte ohcama</string>
 </resources>

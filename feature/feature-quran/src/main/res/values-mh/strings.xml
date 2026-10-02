@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Kālet juon ri-kōnono</string>
     <string name="quran_reciter_search_hint">Pukot ri-kōmman al ro ilo etair, style, ak joñan emman...</string>
     <string name="quran_reciter_no_results">Ejelok ri jeje ro rej errā ippān pukōt in</string>
+    <string name="quran_tab_bookmarks">Bookmark ko</string>
 </resources>

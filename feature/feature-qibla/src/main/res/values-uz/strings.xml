@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Barcha masjidlarni ko\'rsating</string>
     <string name="mosque_finder_share">Yo\'nalishlarni ochish</string>
     <string name="offline_maps_use_my_location">Mening joriy manzilimga o\'ting</string>
+    <string name="nearby_mosques_map_action">Xarita</string>
+    <string name="nearby_mosques_more_actions">Ko\'proq harakatlar</string>
+    <string name="nearby_mosques_search_clear">Qidiruvni tozalash</string>
 </resources>

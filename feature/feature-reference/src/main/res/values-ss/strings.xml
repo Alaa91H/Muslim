@@ -7,4 +7,8 @@
     <string name="reference_topics_count">tihloko</string>
     <string name="reference_copy">Kopisha</string>
     <string name="reference_share">Yabelana</string>
+    <string name="history_atlas_zoom_in">Sondzeta</string>
+    <string name="history_atlas_zoom_out">Sondzeta</string>
+    <string name="history_language_english">Siswati</string>
+    <string name="reference_search_clear">Susa lokusesha</string>
 </resources>

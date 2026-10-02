@@ -78,4 +78,6 @@
     <string name="mosque_finder_show_all">Hemî mizgeftan nîşan bide</string>
     <string name="mosque_finder_share">Rêbernameyên vekirî</string>
     <string name="offline_maps_use_my_location">Biçe cihê min ê niha</string>
+    <string name="nearby_mosques_more_actions">Çalakiyên bêtir</string>
+    <string name="nearby_mosques_search_clear">Lêgerînê paqij bike</string>
 </resources>

@@ -7,4 +7,8 @@
     <string name="reference_topics_count">ammuntitte</string>
     <string name="reference_copy">korraq</string>
     <string name="reference_share">Tabsa</string>
+    <string name="history_atlas_zoom_in">zoom addat</string>
+    <string name="history_atlas_zoom_out">Zoom iroh</string>
+    <string name="history_language_english">Engelo</string>
+    <string name="reference_search_clear">Qado goranah</string>
 </resources>

@@ -50,4 +50,7 @@
     <string name="more_names_desc">99-ka magac oo sharraxaad buuxa leh</string>
     <string name="more_hajj">Xajka &amp; Cumrada</string>
     <string name="more_hajj_desc">Tilmaan faahfaahsan oo ku saabsan acmaasha xajka iyo cumrada</string>
+    <string name="more_search_clear">Nadiifi raadinta</string>
+    <string name="tab_ramadan">Ramadaan</string>
+    <string name="voice_listen">Dhageyso</string>
 </resources>

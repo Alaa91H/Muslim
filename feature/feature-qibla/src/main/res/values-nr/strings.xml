@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Tjengisa woke ama-mosque</string>
     <string name="mosque_finder_share">Vula iinqophiso</string>
     <string name="offline_maps_use_my_location">Yiya endaweni yami yamanje</string>
+    <string name="nearby_mosques_map_action">Imephu</string>
+    <string name="nearby_mosques_more_actions">Izenzo ezinengi</string>
+    <string name="nearby_mosques_search_clear">Sula ukusesha</string>
 </resources>

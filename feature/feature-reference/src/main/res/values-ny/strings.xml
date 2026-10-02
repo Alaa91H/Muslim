@@ -7,4 +7,8 @@
     <string name="reference_topics_count">mitu</string>
     <string name="reference_copy">Koperani</string>
     <string name="reference_share">Gawani</string>
+    <string name="history_atlas_zoom_in">Onerani pafupi</string>
+    <string name="history_atlas_zoom_out">Onetsani kutali</string>
+    <string name="history_language_english">Chingerezi</string>
+    <string name="reference_search_clear">Chotsani kufufuza</string>
 </resources>

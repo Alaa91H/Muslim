@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Trieu un recitador</string>
     <string name="quran_reciter_search_hint">Cerca recitadors per nom, estil o qualitat...</string>
     <string name="quran_reciter_no_results">Cap recitador coincideix amb aquesta cerca</string>
+    <string name="quran_tab_bookmarks">Adreces d\'interès</string>
 </resources>

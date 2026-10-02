@@ -106,4 +106,9 @@
     <string name="names_position">Dzina %1$d la %2$d</string>
     <string name="names_search_hint">Sakani dzina…</string>
     <string name="names_title">Mayina 99 a Allah</string>
+    <string name="funeral_will_cancel">Letsani</string>
+    <string name="hajj_map_zoom_in">Onerani pafupi</string>
+    <string name="hajj_map_zoom_out">Onetsani kutali</string>
+    <string name="learn_search_clear">Chotsani kufufuza</string>
+    <string name="names_search_clear">Chotsani kufufuza</string>
 </resources>

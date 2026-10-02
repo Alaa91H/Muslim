@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Waneel Juma yépp</string>
     <string name="mosque_finder_share">Ubbi yoon yi</string>
     <string name="offline_maps_use_my_location">Demal ci barab bima nekk leegi</string>
+    <string name="nearby_mosques_map_action">Kaart</string>
+    <string name="nearby_mosques_more_actions">Yeneen jëf</string>
+    <string name="nearby_mosques_search_clear">Futti seetug</string>
 </resources>

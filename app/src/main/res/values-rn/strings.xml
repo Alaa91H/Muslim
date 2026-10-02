@@ -50,4 +50,7 @@
     <string name="more_names_desc">Amazina 99 afise insobanuro yuzuye .</string>
     <string name="more_hajj">Haji na Umrah</string>
     <string name="more_hajj_desc">Inyigisho ido n\'ido y\'imigenzo ya Hajj na Umrah</string>
+    <string name="more_search_clear">Kuraho ubushakashatsi</string>
+    <string name="tab_ramadan">Ramadani</string>
+    <string name="voice_listen">Umviriza</string>
 </resources>

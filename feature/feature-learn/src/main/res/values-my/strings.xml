@@ -106,4 +106,9 @@
     <string name="names_position">အမည် %1$d ၏ %2$d</string>
     <string name="names_search_hint">နာမည်တစ်ခုရှာပါ...</string>
     <string name="names_title">အလ္လာဟ်အရှင်မြတ်၏ နာမတော် ၉၉ ခု</string>
+    <string name="funeral_will_cancel">မလုပ်တော့</string>
+    <string name="hajj_map_zoom_in">ချဲ့ကြည့်ပါ။</string>
+    <string name="hajj_map_zoom_out">ချဲ့ကြည့်ပါ။</string>
+    <string name="learn_search_clear">ရှာဖွေမှုကို ရှင်းလင်းပါ။</string>
+    <string name="names_search_clear">ရှာဖွေမှုကို ရှင်းလင်းပါ။</string>
 </resources>

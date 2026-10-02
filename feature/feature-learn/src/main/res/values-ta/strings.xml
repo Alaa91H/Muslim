@@ -106,4 +106,10 @@
     <string name="names_position">பெயர் %1$d of %2$d</string>
     <string name="names_search_hint">பெயரைத் தேடு…</string>
     <string name="names_title">அல்லாஹ்வின் 99 பெயர்கள்</string>
+    <string name="funeral_will_cancel">ரத்து செய்</string>
+    <string name="hajj_map_zoom_in">பெரிதாக்கவும்</string>
+    <string name="hajj_map_zoom_out">பெரிதாக்கவும்</string>
+    <string name="learn_search_clear">தெளிவான தேடல்</string>
+    <string name="learn_topic_zakat_fitr">ஜகாத் அல் பித்ர்</string>
+    <string name="names_search_clear">தெளிவான தேடல்</string>
 </resources>

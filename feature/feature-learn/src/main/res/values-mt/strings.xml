@@ -106,4 +106,7 @@
     <string name="names_position">Isem %1$d ta\' %2$d</string>
     <string name="names_search_hint">Fittex isem...</string>
     <string name="names_title">Id-99 isem ta’ Alla</string>
+    <string name="funeral_will_cancel">Ikkanċella</string>
+    <string name="learn_search_clear">Tiftix ċar</string>
+    <string name="names_search_clear">Tiftix ċar</string>
 </resources>

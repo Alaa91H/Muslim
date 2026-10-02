@@ -198,4 +198,7 @@
     <string name="settings_ornament_arabesque">Arabesque</string>
     <string name="settings_ornament_stars">Stars</string>
     <string name="settings_ornament_minimal">Minimal</string>
+    <string name="settings_ornament_intensity_off">خاموش</string>
+    <string name="settings_search_clear">جستجو را پاک کنید</string>
+    <string name="settings_updates_last_successful">آخرین بررسی: %1$s</string>
 </resources>

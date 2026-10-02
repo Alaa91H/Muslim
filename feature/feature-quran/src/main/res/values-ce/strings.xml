@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Дешархо харжа .</string>
     <string name="quran_reciter_search_hint">ЦӀерашца, хатӀца, я дикаллица лаха дешархой...</string>
     <string name="quran_reciter_no_results">Цхьа а дешархо ца догӀу хӀокху лехамца</string>
+    <string name="quran_tab_bookmarks">Закладкаш</string>
 </resources>

@@ -7,4 +7,8 @@
     <string name="reference_topics_count">tēmas</string>
     <string name="reference_copy">Kopēt</string>
     <string name="reference_share">Dalīties</string>
+    <string name="history_atlas_zoom_in">Pietuvināt</string>
+    <string name="history_atlas_zoom_out">Tālināt</string>
+    <string name="history_language_english">angļu valoda</string>
+    <string name="reference_search_clear">Notīrīt meklēšanu</string>
 </resources>

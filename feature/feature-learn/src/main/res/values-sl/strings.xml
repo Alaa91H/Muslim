@@ -106,4 +106,9 @@
     <string name="names_position">Ime %1$d od %2$d</string>
     <string name="names_search_hint">Poiščite ime ...</string>
     <string name="names_title">99 Allahovih imen</string>
+    <string name="funeral_will_cancel">Prekliči</string>
+    <string name="hajj_map_zoom_in">Povečaj</string>
+    <string name="hajj_map_zoom_out">Pomanjšaj</string>
+    <string name="learn_search_clear">Počisti iskanje</string>
+    <string name="names_search_clear">Počisti iskanje</string>
 </resources>

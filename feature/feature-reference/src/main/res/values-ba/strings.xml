@@ -7,4 +7,9 @@
     <string name="reference_topics_count">темалар .</string>
     <string name="reference_copy">Күсермә</string>
     <string name="reference_share">Таҡлашыу</string>
+    <string name="history_atlas_zoom_in">Ҙурайтыу</string>
+    <string name="history_atlas_zoom_out">Ҡыҫҡартыу</string>
+    <string name="history_language_arabic">العرب</string>
+    <string name="history_language_english">Инглиз теле</string>
+    <string name="reference_search_clear">Эҙләүҙе таҙартыу</string>
 </resources>

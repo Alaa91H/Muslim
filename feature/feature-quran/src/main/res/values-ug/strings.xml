@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">قىرائەتچىنى تاللاڭ</string>
     <string name="quran_reciter_search_hint">قىرائەتچىلەرنى ئىسىم ، ئۇسلۇب ياكى سۈپەت بويىچە ئىزدەڭ…</string>
     <string name="quran_reciter_no_results">ھېچقانداق ئىزدىگۈچىلەر بۇ ئىزدەشكە ماس كەلمەيدۇ</string>
+    <string name="quran_tab_bookmarks">خەتكۈچلەر</string>
 </resources>

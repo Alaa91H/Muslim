@@ -7,4 +7,8 @@
     <string name="reference_topics_count">sijè</string>
     <string name="reference_copy">Kopi</string>
     <string name="reference_share">Pataje</string>
+    <string name="history_atlas_zoom_in">Zoom nan</string>
+    <string name="history_atlas_zoom_out">Zoom deyò</string>
+    <string name="history_language_english">angle</string>
+    <string name="reference_search_clear">Klè rechèch</string>
 </resources>

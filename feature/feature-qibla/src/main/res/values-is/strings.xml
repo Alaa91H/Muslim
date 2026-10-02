@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Sýndu allar moskur</string>
     <string name="mosque_finder_share">Opna leiðarlýsingu</string>
     <string name="offline_maps_use_my_location">Farðu á núverandi staðsetningu mína</string>
+    <string name="nearby_mosques_map_action">Kort</string>
+    <string name="nearby_mosques_more_actions">Fleiri aðgerðir</string>
+    <string name="nearby_mosques_search_clear">Hreinsa leit</string>
 </resources>

@@ -7,4 +7,8 @@
     <string name="reference_topics_count">teemasid</string>
     <string name="reference_copy">Kopeeri</string>
     <string name="reference_share">Jaga</string>
+    <string name="history_atlas_zoom_in">Suumi sisse</string>
+    <string name="history_atlas_zoom_out">Suumi välja</string>
+    <string name="history_language_english">inglise keel</string>
+    <string name="reference_search_clear">Tühjenda otsing</string>
 </resources>

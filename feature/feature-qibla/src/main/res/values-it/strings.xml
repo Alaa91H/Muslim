@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Mostra tutte le moschee</string>
     <string name="mosque_finder_share">Direzioni aperte</string>
     <string name="offline_maps_use_my_location">Vai alla mia posizione attuale</string>
+    <string name="nearby_mosques_map_action">Mappa</string>
+    <string name="nearby_mosques_more_actions">Più azioni</string>
+    <string name="nearby_mosques_search_clear">Cancella ricerca</string>
 </resources>

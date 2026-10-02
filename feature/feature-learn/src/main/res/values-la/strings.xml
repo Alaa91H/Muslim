@@ -106,4 +106,7 @@
     <string name="names_position">Name %1$d of %2$d</string>
     <string name="names_search_hint">Quaere nomen…</string>
     <string name="names_title">XCIX nomina Allah</string>
+    <string name="hajj_map_zoom_out">zoom out</string>
+    <string name="learn_search_clear">Patet quaerere</string>
+    <string name="names_search_clear">Patet quaerere</string>
 </resources>

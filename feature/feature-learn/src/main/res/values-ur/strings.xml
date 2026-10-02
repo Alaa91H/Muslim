@@ -106,4 +106,10 @@
     <string name="names_position">%2$d میں سے %1$d کا نام</string>
     <string name="names_search_hint">نام تلاش کریں…</string>
     <string name="names_title">اللہ کے 99 نام</string>
+    <string name="funeral_will_cancel">منسوخ کریں۔</string>
+    <string name="hajj_map_zoom_in">زوم ان کریں۔</string>
+    <string name="hajj_map_zoom_out">زوم آؤٹ کریں۔</string>
+    <string name="learn_search_clear">تلاش صاف کریں۔</string>
+    <string name="learn_topic_zakat_fitr">زکوۃ الفطر</string>
+    <string name="names_search_clear">تلاش صاف کریں۔</string>
 </resources>

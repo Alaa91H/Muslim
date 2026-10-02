@@ -7,4 +7,9 @@
     <string name="reference_topics_count">བརྗོད་གཞི།</string>
     <string name="reference_copy">འདྲ་བཤུས།</string>
     <string name="reference_share">མཉམ་སྤེལ།</string>
+    <string name="history_atlas_zoom_in">ཆེ་རུ་གཏོང་བ།</string>
+    <string name="history_atlas_zoom_out">ཆེ་རུ་གཏོང་བ།</string>
+    <string name="history_language_arabic">العربབ།</string>
+    <string name="history_language_english">དབྱིན་ཇི།</string>
+    <string name="reference_search_clear">འཚོལ་བཤེར་གསལ་བ།</string>
 </resources>

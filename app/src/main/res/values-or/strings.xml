@@ -50,4 +50,7 @@
     <string name="more_names_desc">ପୂର୍ଣ୍ଣ ବ୍ୟାଖ୍ୟା ସହିତ 99 ନାମ |</string>
     <string name="more_hajj">ହଜ୍ ଏବଂ ଉମ୍ରା |</string>
     <string name="more_hajj_desc">ହଜ୍ ଏବଂ ଉମ୍ରା ରୀତିନୀତି ପାଇଁ ବିସ୍ତୃତ ଗାଇଡ୍ |</string>
+    <string name="more_search_clear">ସନ୍ଧାନ ସଫା କରନ୍ତୁ |</string>
+    <string name="tab_ramadan">ରମଜାନ |</string>
+    <string name="voice_listen">ଶୁଣ</string>
 </resources>

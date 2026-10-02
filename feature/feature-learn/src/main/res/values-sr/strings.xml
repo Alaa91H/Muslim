@@ -106,4 +106,10 @@
     <string name="names_position">Име %1$d од %2$d</string>
     <string name="names_search_hint">Потражите име…</string>
     <string name="names_title">99 Аллахових имена</string>
+    <string name="funeral_will_cancel">Откажи</string>
+    <string name="hajj_map_zoom_in">Увећајте</string>
+    <string name="hajj_map_zoom_out">Умањите</string>
+    <string name="learn_search_clear">Обриши претрагу</string>
+    <string name="learn_topic_zakat_fitr">Зекат ал-Фитр</string>
+    <string name="names_search_clear">Обриши претрагу</string>
 </resources>

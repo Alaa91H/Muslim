@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Uri l-moskej kollha</string>
     <string name="mosque_finder_share">Direzzjonijiet miftuħa</string>
     <string name="offline_maps_use_my_location">Mur fil-post attwali tiegħi</string>
+    <string name="nearby_mosques_map_action">Mappa</string>
+    <string name="nearby_mosques_more_actions">Aktar azzjonijiet</string>
+    <string name="nearby_mosques_search_clear">Tiftix ċar</string>
 </resources>

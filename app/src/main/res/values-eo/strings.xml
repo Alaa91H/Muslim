@@ -50,4 +50,7 @@
     <string name="more_names_desc">La 99 nomoj kun plena klarigo</string>
     <string name="more_hajj">Hadjo &amp; Umrah</string>
     <string name="more_hajj_desc">Detala gvidisto al la Hajj kaj Umrah-ritoj</string>
+    <string name="more_search_clear">Klara serĉo</string>
+    <string name="tab_ramadan">Ramadano</string>
+    <string name="voice_listen">Aŭskultu</string>
 </resources>

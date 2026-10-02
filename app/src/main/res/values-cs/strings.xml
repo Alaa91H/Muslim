@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 jmen s úplným vysvětlením</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>
     <string name="more_hajj_desc">Podrobný průvodce obřady Hajj a Umrah</string>
+    <string name="more_search_clear">Vymazat vyhledávání</string>
+    <string name="tab_ramadan">Ramadán</string>
+    <string name="voice_listen">Poslouchejte</string>
 </resources>

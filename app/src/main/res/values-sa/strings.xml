@@ -50,4 +50,7 @@
     <string name="more_names_desc">पूर्णव्याख्यानसहितं ९९ नामानि</string>
     <string name="more_hajj">हज एवं उमरा</string>
     <string name="more_hajj_desc">हज-उमरा-संस्कारस्य विस्तृतमार्गदर्शिका</string>
+    <string name="more_search_clear">अन्वेषणं स्पष्टं कुरुत</string>
+    <string name="tab_ramadan">रमजान</string>
+    <string name="voice_listen">शृणु</string>
 </resources>

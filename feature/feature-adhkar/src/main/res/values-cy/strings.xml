@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Copïodd Dhikr</string>
     <string name="adhkar_periodic_dhikr">Dhikr penodol</string>
     <string name="adhkar_periodic_dhikr_random">Ar hap (yn lle dewis â llaw)</string>
+    <string name="adhkar_more_actions">Mwy o gamau gweithredu</string>
+    <string name="adhkar_reader_next">Nesaf</string>
+    <string name="adhkar_reader_previous">Blaenorol</string>
+    <string name="adhkar_search_clear">Chwiliad clir</string>
 </resources>

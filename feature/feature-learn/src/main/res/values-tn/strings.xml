@@ -106,4 +106,9 @@
     <string name="names_position">Leina %1$d la %2$d</string>
     <string name="names_search_hint">Batla leina...</string>
     <string name="names_title">Maina a le 99 a ga Allah</string>
+    <string name="hajj_map_zoom_in">Go atolosetsa</string>
+    <string name="hajj_map_zoom_out">Zoom fokotsega</string>
+    <string name="learn_search_clear">Phimola patlo</string>
+    <string name="learn_topic_zakat_fitr">Zakate ya Lejelo</string>
+    <string name="names_search_clear">Phimola patlo</string>
 </resources>

@@ -50,4 +50,7 @@
     <string name="more_names_desc">முழு விளக்கத்துடன் 99 பெயர்கள்</string>
     <string name="more_hajj">ஹஜ் &amp; உம்ரா</string>
     <string name="more_hajj_desc">ஹஜ் மற்றும் உம்ரா சடங்குகளுக்கான விரிவான வழிகாட்டி</string>
+    <string name="more_search_clear">தெளிவான தேடல்</string>
+    <string name="tab_ramadan">ரமலான்</string>
+    <string name="voice_listen">கேள்</string>
 </resources>

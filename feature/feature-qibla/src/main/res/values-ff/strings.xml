@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">Kollit jumaaji ɗii fof</string>
     <string name="mosque_finder_share">Uddit laabi</string>
     <string name="offline_maps_use_my_location">Yah to nokku am jooni oo</string>
+    <string name="nearby_mosques_map_action">Kartal</string>
+    <string name="nearby_mosques_more_actions">Golle goɗɗe</string>
+    <string name="nearby_mosques_search_clear">Laɓɓin njiylawu</string>
+    <string name="qibla_tab_qibla">Kibla</string>
 </resources>

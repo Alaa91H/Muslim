@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Kawsa abe doora</string>
     <string name="quran_reciter_search_hint">Kawsa mara migaaqal, maagaxxi akkek mexxatal gorrisa...</string>
     <string name="quran_reciter_no_results">Faxe kawseenit ta goranah ramad mali</string>
+    <string name="quran_tab_bookmarks">Kitab Asta</string>
 </resources>

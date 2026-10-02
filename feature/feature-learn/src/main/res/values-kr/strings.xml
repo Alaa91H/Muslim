@@ -106,4 +106,9 @@
     <string name="names_position">Su %1$d suro %2$d</string>
     <string name="names_search_hint">Su kulasne...</string>
     <string name="names_title">Su Allahbe 99</string>
+    <string name="hajj_map_zoom_in">Zoom suro</string>
+    <string name="hajj_map_zoom_out">Zoom diya</string>
+    <string name="learn_search_clear">Kulashi cinne</string>
+    <string name="learn_topic_zakat_fitr">Zakat fitribe</string>
+    <string name="names_search_clear">Kulashi cinne</string>
 </resources>

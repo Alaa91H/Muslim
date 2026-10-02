@@ -72,4 +72,8 @@
     <string name="adhkar_copied">ᑎᑯᕐ ᐊᔾᔨᓕᐅᖅᑕᐅᓯᒪᔪᖅ</string>
     <string name="adhkar_periodic_dhikr">ᓇᓗᓇᐃᖅᑕᐅᓯᒪᔪᖅ ᑎᑯᕐ</string>
     <string name="adhkar_periodic_dhikr_random">ᓇᓕᐊᓐᓄᑐᐃᓐᓇᖅ (ᐊᒡᒐᒃᑯᑦ ᓂᕈᐊᙱᖔᕐᓗᓂ)</string>
+    <string name="adhkar_more_actions">ᖃᓄᐃᓕᐅᕈᑎᒃᓴᒃᑲᓐᓃᑦ</string>
+    <string name="adhkar_reader_next">ᑭᖑᓪᓕᖅ</string>
+    <string name="adhkar_reader_previous">ᓯᕗᓪᓕᖅ</string>
+    <string name="adhkar_search_clear">ᐲᔭᕐᓗᒍ ᕿᓂᕐᓂᖅ</string>
 </resources>

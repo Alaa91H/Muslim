@@ -106,4 +106,9 @@
     <string name="names_position">Noem %1$d van %2$d</string>
     <string name="names_search_hint">Soek vir \'n naam...</string>
     <string name="names_title">Die 99 name van Allah</string>
+    <string name="funeral_will_cancel">Kanselleer</string>
+    <string name="hajj_map_zoom_in">Zoem in</string>
+    <string name="hajj_map_zoom_out">Zoem uit</string>
+    <string name="learn_search_clear">Vee soektog uit</string>
+    <string name="names_search_clear">Vee soektog uit</string>
 </resources>

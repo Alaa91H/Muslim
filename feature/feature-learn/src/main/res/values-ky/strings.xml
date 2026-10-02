@@ -106,4 +106,10 @@
     <string name="names_position">Аты %1$d ичинен %2$d</string>
     <string name="names_search_hint">Аты издөө…</string>
     <string name="names_title">Аллахтын 99 ысымы</string>
+    <string name="funeral_will_cancel">Жокко чыгаруу</string>
+    <string name="hajj_map_zoom_in">Чоңойтуу</string>
+    <string name="hajj_map_zoom_out">Кичирейтүү</string>
+    <string name="learn_search_clear">Издөөнү тазалоо</string>
+    <string name="learn_topic_zakat_fitr">Зекет аль-Фитр</string>
+    <string name="names_search_clear">Издөөнү тазалоо</string>
 </resources>

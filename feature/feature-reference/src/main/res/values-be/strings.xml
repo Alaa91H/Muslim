@@ -7,4 +7,8 @@
     <string name="reference_topics_count">тэмы</string>
     <string name="reference_copy">Копія</string>
     <string name="reference_share">Падзяліцеся</string>
+    <string name="history_atlas_zoom_in">Павялічыць</string>
+    <string name="history_atlas_zoom_out">Паменшыць маштаб</string>
+    <string name="history_language_english">англійская</string>
+    <string name="reference_search_clear">Выразны пошук</string>
 </resources>

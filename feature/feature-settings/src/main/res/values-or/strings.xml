@@ -198,4 +198,7 @@
     <string name="settings_ornament_arabesque">Arabesque</string>
     <string name="settings_ornament_stars">Stars</string>
     <string name="settings_ornament_minimal">Minimal</string>
+    <string name="settings_ornament_intensity_off">ବନ୍ଦ</string>
+    <string name="settings_search_clear">ସନ୍ଧାନ ସଫା କରନ୍ତୁ |</string>
+    <string name="settings_updates_last_successful">ଶେଷ ଯାଞ୍ଚ: %1$s |</string>
 </resources>

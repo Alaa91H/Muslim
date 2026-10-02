@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">ހުރިހާ މިސްކިތްތަކެއް ދައްކާށެވެ</string>
     <string name="mosque_finder_share">ހުޅުވާފައި ހުންނަ މިސްރާބުތަކެވެ</string>
     <string name="offline_maps_use_my_location">އަހަރެން މިހާރު ހުރި ތަނަށް ދާށެވެ</string>
+    <string name="nearby_mosques_map_action">މެޕް</string>
+    <string name="nearby_mosques_more_actions">އިތުރު އަމަލުތަކެވެ</string>
+    <string name="nearby_mosques_search_clear">ސާފު ހޯދުން</string>
+    <string name="qibla_tab_qibla">ޤިބްލާ އެވެ</string>
 </resources>

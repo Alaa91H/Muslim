@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Huk rimaqta akllay</string>
     <string name="quran_reciter_search_hint">Maskay recitadores sutiwan, estilowan utaq calidadwan...</string>
     <string name="quran_reciter_no_results">Mana ima rimaqkunapas kay maskaywan tupanchu</string>
+    <string name="quran_tab_bookmarks">Marcadores nisqakuna</string>
 </resources>

@@ -106,4 +106,9 @@
     <string name="names_position">Nafn %1$d af %2$d</string>
     <string name="names_search_hint">Leitaðu að nafni…</string>
     <string name="names_title">99 nöfn Allah</string>
+    <string name="funeral_will_cancel">Hætta við</string>
+    <string name="hajj_map_zoom_in">Aðdráttur</string>
+    <string name="hajj_map_zoom_out">Aðdráttur út</string>
+    <string name="learn_search_clear">Hreinsa leit</string>
+    <string name="names_search_clear">Hreinsa leit</string>
 </resources>

@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Toon alle moskeeën</string>
     <string name="mosque_finder_share">Routebeschrijving openen</string>
     <string name="offline_maps_use_my_location">Ga naar mijn huidige locatie</string>
+    <string name="nearby_mosques_map_action">Kaart</string>
+    <string name="nearby_mosques_more_actions">Meer acties</string>
+    <string name="nearby_mosques_search_clear">Duidelijke zoekopdracht</string>
 </resources>

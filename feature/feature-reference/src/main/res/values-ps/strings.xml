@@ -7,4 +7,8 @@
     <string name="reference_topics_count">موضوعات</string>
     <string name="reference_copy">کاپي</string>
     <string name="reference_share">شریکول</string>
+    <string name="history_atlas_zoom_in">زوم ان</string>
+    <string name="history_atlas_zoom_out">زوم بهر</string>
+    <string name="history_language_english">انګلیسي</string>
+    <string name="reference_search_clear">پاک لټون</string>
 </resources>

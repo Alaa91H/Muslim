@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Dhikr imenakiliwa</string>
     <string name="adhkar_periodic_dhikr">Dhikr maalum</string>
     <string name="adhkar_periodic_dhikr_random">Nasibu (badala ya kuchagua kwa mikono)</string>
+    <string name="adhkar_more_actions">Vitendo zaidi</string>
+    <string name="adhkar_reader_next">Inayofuata</string>
+    <string name="adhkar_reader_previous">Iliyotangulia</string>
+    <string name="adhkar_search_clear">Futa utafutaji</string>
 </resources>

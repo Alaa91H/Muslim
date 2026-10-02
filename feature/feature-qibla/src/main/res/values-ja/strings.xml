@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">すべてのモスクを表示</string>
     <string name="mosque_finder_share">道順を開く</string>
     <string name="offline_maps_use_my_location">現在の場所に行く</string>
+    <string name="nearby_mosques_map_action">地図</string>
+    <string name="nearby_mosques_more_actions">さらなるアクション</string>
+    <string name="nearby_mosques_search_clear">検索をクリア</string>
+    <string name="qibla_tab_qibla">キブラ</string>
 </resources>

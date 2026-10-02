@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Dewiswch adroddwr</string>
     <string name="quran_reciter_search_hint">Chwiliwch am adroddwyr yn ôl enw, arddull neu ansawdd…</string>
     <string name="quran_reciter_no_results">Nid oes unrhyw adroddwyr yn cyfateb i\'r chwiliad hwn</string>
+    <string name="quran_tab_bookmarks">Llyfrnodau</string>
 </resources>

@@ -7,4 +7,8 @@
     <string name="reference_topics_count">gaiak</string>
     <string name="reference_copy">Kopiatu</string>
     <string name="reference_share">Partekatu</string>
+    <string name="history_atlas_zoom_in">Handitu</string>
+    <string name="history_atlas_zoom_out">Txikiagotu</string>
+    <string name="history_language_english">ingelesa</string>
+    <string name="reference_search_clear">Garbitu bilaketa</string>
 </resources>

@@ -106,4 +106,9 @@
     <string name="names_position">Ainm %1$d de %2$d</string>
     <string name="names_search_hint">Cuardaigh ainm…</string>
     <string name="names_title">Na 99 ainm Allah</string>
+    <string name="funeral_will_cancel">Cealaigh</string>
+    <string name="hajj_map_zoom_in">Súmáil isteach</string>
+    <string name="hajj_map_zoom_out">Súmáil amach</string>
+    <string name="learn_search_clear">Glan cuardach</string>
+    <string name="names_search_clear">Glan cuardach</string>
 </resources>

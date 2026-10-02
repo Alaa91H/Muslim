@@ -50,4 +50,7 @@
     <string name="more_names_desc">සම්පූර්ණ පැහැදිලි කිරීමක් සහිත නම් 99</string>
     <string name="more_hajj">හජ් සහ උම්රා</string>
     <string name="more_hajj_desc">හජ් සහ උම්රා චාරිත්‍ර සඳහා සවිස්තරාත්මක මාර්ගෝපදේශය</string>
+    <string name="more_search_clear">සෙවීම පැහැදිලි කරන්න</string>
+    <string name="tab_ramadan">රාමසාන්</string>
+    <string name="voice_listen">සවන් දෙන්න</string>
 </resources>

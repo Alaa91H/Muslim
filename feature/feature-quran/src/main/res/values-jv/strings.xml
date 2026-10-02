@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Pilih reciter</string>
     <string name="quran_reciter_search_hint">Telusuri qari miturut jeneng, gaya, utawa kualitas…</string>
     <string name="quran_reciter_no_results">Ora ana reciters sing cocog karo panelusuran iki</string>
+    <string name="quran_tab_bookmarks">Tetenger</string>
 </resources>

@@ -7,4 +7,8 @@
     <string name="reference_topics_count">ವಿಷಯಗಳು</string>
     <string name="reference_copy">ನಕಲು ಮಾಡಿ</string>
     <string name="reference_share">ಹಂಚಿಕೊಳ್ಳಿ</string>
+    <string name="history_atlas_zoom_in">ಜೂಮ್ ಇನ್ ಮಾಡಿ</string>
+    <string name="history_atlas_zoom_out">ಜೂಮ್ ಔಟ್</string>
+    <string name="history_language_english">ಇಂಗ್ಲೀಷ್</string>
+    <string name="reference_search_clear">ಹುಡುಕಾಟವನ್ನು ತೆರವುಗೊಳಿಸಿ</string>
 </resources>

@@ -106,4 +106,9 @@
     <string name="names_position">Jina %1$d ya %2$d</string>
     <string name="names_search_hint">Tafuta jina...</string>
     <string name="names_title">Majina 99 ya Mwenyezi Mungu</string>
+    <string name="funeral_will_cancel">Ghairi</string>
+    <string name="hajj_map_zoom_in">Vuta karibu</string>
+    <string name="hajj_map_zoom_out">Kuza nje</string>
+    <string name="learn_search_clear">Futa utafutaji</string>
+    <string name="names_search_clear">Futa utafutaji</string>
 </resources>

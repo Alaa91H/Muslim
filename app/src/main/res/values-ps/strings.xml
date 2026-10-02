@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 نومونه د بشپړ وضاحت سره</string>
     <string name="more_hajj">حج او عمره</string>
     <string name="more_hajj_desc">د حج او عمرې د احکامو تفصيلي لارښود</string>
+    <string name="more_search_clear">پاک لټون</string>
+    <string name="tab_ramadan">روژه</string>
+    <string name="voice_listen">واورئ</string>
 </resources>

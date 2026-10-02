@@ -106,4 +106,9 @@
     <string name="names_position">Nimi %1$d/%2$d</string>
     <string name="names_search_hint">Otsi nime…</string>
     <string name="names_title">Allahi 99 nime</string>
+    <string name="funeral_will_cancel">Tühista</string>
+    <string name="hajj_map_zoom_in">Suumi sisse</string>
+    <string name="hajj_map_zoom_out">Suumi välja</string>
+    <string name="learn_search_clear">Tühjenda otsing</string>
+    <string name="names_search_clear">Tühjenda otsing</string>
 </resources>

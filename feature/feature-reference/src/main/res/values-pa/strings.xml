@@ -7,4 +7,8 @@
     <string name="reference_topics_count">ਵਿਸ਼ੇ</string>
     <string name="reference_copy">ਕਾਪੀ ਕਰੋ</string>
     <string name="reference_share">ਸ਼ੇਅਰ ਕਰੋ</string>
+    <string name="history_atlas_zoom_in">ਜ਼ੂਮ ਇਨ ਕਰੋ</string>
+    <string name="history_atlas_zoom_out">ਜ਼ੂਮ ਘਟਾਓ</string>
+    <string name="history_language_english">ਅੰਗਰੇਜ਼ੀ</string>
+    <string name="reference_search_clear">ਖੋਜ ਸਾਫ਼ ਕਰੋ</string>
 </resources>

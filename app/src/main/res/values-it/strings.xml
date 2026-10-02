@@ -50,4 +50,6 @@
     <string name="more_names_desc">I 99 nomi con la spiegazione completa</string>
     <string name="more_hajj">Hajj e Umrah</string>
     <string name="more_hajj_desc">Guida dettagliata ai riti Hajj e Umrah</string>
+    <string name="more_search_clear">Cancella ricerca</string>
+    <string name="voice_listen">Ascolta</string>
 </resources>

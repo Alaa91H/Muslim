@@ -7,4 +7,8 @@
     <string name="reference_topics_count">విషయాలు</string>
     <string name="reference_copy">కాపీ చేయండి</string>
     <string name="reference_share">షేర్ చేయండి</string>
+    <string name="history_atlas_zoom_in">జూమ్ ఇన్ చేయండి</string>
+    <string name="history_atlas_zoom_out">జూమ్ అవుట్ చేయండి</string>
+    <string name="history_language_english">ఇంగ్లీష్</string>
+    <string name="reference_search_clear">శోధనను క్లియర్ చేయండి</string>
 </resources>

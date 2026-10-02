@@ -7,4 +7,8 @@
     <string name="reference_topics_count">subiecte</string>
     <string name="reference_copy">Copiere</string>
     <string name="reference_share">Distribuie</string>
+    <string name="history_atlas_zoom_in">Măriți</string>
+    <string name="history_atlas_zoom_out">Micșorați</string>
+    <string name="history_language_english">engleză</string>
+    <string name="reference_search_clear">Ștergeți căutarea</string>
 </resources>

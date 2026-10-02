@@ -198,4 +198,7 @@
     <string name="settings_ornament_arabesque">Arabesque</string>
     <string name="settings_ornament_stars">Stars</string>
     <string name="settings_ornament_minimal">Minimal</string>
+    <string name="settings_ornament_intensity_off">ДӀадаьккхина</string>
+    <string name="settings_search_clear">ЦӀена лехамаш</string>
+    <string name="settings_updates_last_successful">ТӀаьххьара теллина: %1$s.</string>
 </resources>

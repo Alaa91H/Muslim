@@ -106,4 +106,9 @@
     <string name="names_position">Edin %1$d a ɛwɔ %2$d mu</string>
     <string name="names_search_hint">Hwehwɛ din bi...</string>
     <string name="names_title">Allah din 99 no</string>
+    <string name="hajj_map_zoom_in">Zoom wɔ mu</string>
+    <string name="hajj_map_zoom_out">Zoom ketewaa bi</string>
+    <string name="learn_search_clear">Hwehwɛ nhwehwɛmu a emu da hɔ</string>
+    <string name="learn_topic_zakat_fitr">Zakat al-Fitr a ɔkyerɛwee</string>
+    <string name="names_search_clear">Hwehwɛ nhwehwɛmu a emu da hɔ</string>
 </resources>

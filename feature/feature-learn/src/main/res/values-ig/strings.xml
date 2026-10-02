@@ -106,4 +106,9 @@
     <string name="names_position">Aha %1$d nke %2$d</string>
     <string name="names_search_hint">Chọọ aha…</string>
     <string name="names_title">Aha 99 nke Allah</string>
+    <string name="funeral_will_cancel">Kagbuo</string>
+    <string name="hajj_map_zoom_in">Bugharịa</string>
+    <string name="hajj_map_zoom_out">Wepụ ya</string>
+    <string name="learn_search_clear">Kpochapụ ọchụchọ</string>
+    <string name="names_search_clear">Kpochapụ ọchụchọ</string>
 </resources>

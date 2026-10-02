@@ -7,4 +7,8 @@
     <string name="reference_topics_count">topik</string>
     <string name="reference_copy">salin</string>
     <string name="reference_share">Kongsi</string>
+    <string name="history_atlas_zoom_in">Zum masuk</string>
+    <string name="history_atlas_zoom_out">Zum keluar</string>
+    <string name="history_language_english">Inggeris</string>
+    <string name="reference_search_clear">Kosongkan carian</string>
 </resources>

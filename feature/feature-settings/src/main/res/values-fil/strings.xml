@@ -33,4 +33,7 @@
     <string name="settings_ornament_arabesque">Arabesque</string>
     <string name="settings_ornament_stars">Stars</string>
     <string name="settings_ornament_minimal">Minimal</string>
+    <string name="notif_time_picker_cancel">Kanselahin</string>
+    <string name="permissions_enable">Paganahin</string>
+    <string name="settings_updates_last_successful">Huling pagsusuri: %1$s</string>
 </resources>

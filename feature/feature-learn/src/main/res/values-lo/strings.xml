@@ -106,4 +106,9 @@
     <string name="names_position">ຊື່ %1$d ຂອງ %2$d</string>
     <string name="names_search_hint">ຊອກຫາຊື່...</string>
     <string name="names_title">99 ຊື່​ຂອງ Allah​</string>
+    <string name="funeral_will_cancel">ຍົກເລີກ</string>
+    <string name="hajj_map_zoom_in">ຊູມເຂົ້າ</string>
+    <string name="hajj_map_zoom_out">ຊູມອອກ</string>
+    <string name="learn_search_clear">ລຶບການຊອກຫາ</string>
+    <string name="names_search_clear">ລຶບການຊອກຫາ</string>
 </resources>

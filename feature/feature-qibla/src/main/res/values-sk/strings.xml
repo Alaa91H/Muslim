@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Ukáž všetky mešity</string>
     <string name="mosque_finder_share">Otvoriť trasu</string>
     <string name="offline_maps_use_my_location">Prejsť na moju aktuálnu polohu</string>
+    <string name="nearby_mosques_map_action">Mapa</string>
+    <string name="nearby_mosques_more_actions">Viac akcií</string>
+    <string name="nearby_mosques_search_clear">Vymazať vyhľadávanie</string>
 </resources>

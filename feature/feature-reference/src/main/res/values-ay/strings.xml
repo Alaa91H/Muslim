@@ -7,4 +7,9 @@
     <string name="reference_topics_count">temas ukanakat yatxataña</string>
     <string name="reference_copy">Copia luraña</string>
     <string name="reference_share">Compartir</string>
+    <string name="history_atlas_zoom_in">Ukax mä jach’a uñacht’äwiwa</string>
+    <string name="history_atlas_zoom_out">Ukax mä jach’a uñacht’äwiwa</string>
+    <string name="history_language_arabic">العربية ukax mä juk’a pachanakanwa</string>
+    <string name="history_language_english">Aymara aru</string>
+    <string name="reference_search_clear">Qhana thaqhaña</string>
 </resources>

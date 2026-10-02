@@ -7,4 +7,8 @@
     <string name="reference_topics_count">tèmas</string>
     <string name="reference_copy">Còpia</string>
     <string name="reference_share">Partatjar</string>
+    <string name="history_atlas_zoom_in">Zoom</string>
+    <string name="history_atlas_zoom_out">Zoom fòra</string>
+    <string name="history_language_english">Anglés</string>
+    <string name="reference_search_clear">Suprimir la recèrca</string>
 </resources>

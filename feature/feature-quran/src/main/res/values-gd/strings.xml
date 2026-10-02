@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Tagh neach-aithris</string>
     <string name="quran_reciter_search_hint">Rannsaich luchd-aithris a rèir ainm, stoidhle no càileachd…</string>
     <string name="quran_reciter_no_results">Chan eil neach-aithris sam bith a\' freagairt ris an rannsachadh seo</string>
+    <string name="quran_tab_bookmarks">Comharran-leabhair</string>
 </resources>

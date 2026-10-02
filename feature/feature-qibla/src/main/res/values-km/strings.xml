@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">បង្ហាញវិហារអ៊ីស្លាមទាំងអស់។</string>
     <string name="mosque_finder_share">បើកទិសដៅ</string>
     <string name="offline_maps_use_my_location">ទៅកាន់ទីតាំងបច្ចុប្បន្នរបស់ខ្ញុំ</string>
+    <string name="nearby_mosques_map_action">ផែនទី</string>
+    <string name="nearby_mosques_more_actions">សកម្មភាពច្រើនទៀត</string>
+    <string name="nearby_mosques_search_clear">ជម្រះការស្វែងរក</string>
 </resources>

@@ -106,4 +106,9 @@
     <string name="names_position">שם %1$d מתוך %2$d</string>
     <string name="names_search_hint">חפש שם...</string>
     <string name="names_title">99 השמות של אללה</string>
+    <string name="hajj_map_zoom_in">התקרב</string>
+    <string name="hajj_map_zoom_out">זום החוצה</string>
+    <string name="learn_search_clear">נקה חיפוש</string>
+    <string name="learn_topic_zakat_fitr">זכת אל פיטר</string>
+    <string name="names_search_clear">נקה חיפוש</string>
 </resources>

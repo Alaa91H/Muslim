@@ -106,4 +106,10 @@
     <string name="names_position">Номи %1$d аз %2$d</string>
     <string name="names_search_hint">Ҷустуҷӯи ном…</string>
     <string name="names_title">99 номи Аллох</string>
+    <string name="funeral_will_cancel">Бекор кардан</string>
+    <string name="hajj_map_zoom_in">Масштаб кардан</string>
+    <string name="hajj_map_zoom_out">Масоҳат кардан</string>
+    <string name="learn_search_clear">Ҷустуҷӯро тоза кунед</string>
+    <string name="learn_topic_zakat_fitr">Закоти Фитр</string>
+    <string name="names_search_clear">Ҷустуҷӯро тоза кунед</string>
 </resources>

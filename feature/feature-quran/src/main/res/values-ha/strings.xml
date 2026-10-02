@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Zabi mai karatu</string>
     <string name="quran_reciter_search_hint">Bincika masu karatu da suna, salo, ko inganci…</string>
     <string name="quran_reciter_no_results">Babu masu karatu da suka dace da wannan binciken</string>
+    <string name="quran_tab_bookmarks">Alamomi</string>
 </resources>

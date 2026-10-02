@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Misiriw bɛɛ jira</string>
     <string name="mosque_finder_share">Siraw da wuli</string>
     <string name="offline_maps_use_my_location">Taga n ka yɔrɔ la sisan</string>
+    <string name="nearby_mosques_map_action">Karta</string>
+    <string name="nearby_mosques_more_actions">Waleya caman wɛrɛw</string>
+    <string name="nearby_mosques_search_clear">Ɲini jɛlen</string>
 </resources>

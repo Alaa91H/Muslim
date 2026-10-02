@@ -72,4 +72,8 @@
     <string name="adhkar_copied">ສຳເນົາ Dhikr</string>
     <string name="adhkar_periodic_dhikr">dhikr ສະເພາະ</string>
     <string name="adhkar_periodic_dhikr_random">ແບບສຸ່ມ (ແທນການເລືອກດ້ວຍຕົນເອງ)</string>
+    <string name="adhkar_more_actions">ການປະຕິບັດເພີ່ມເຕີມ</string>
+    <string name="adhkar_reader_next">ຕໍ່ໄປ</string>
+    <string name="adhkar_reader_previous">ທີ່ຜ່ານມາ</string>
+    <string name="adhkar_search_clear">ລຶບການຊອກຫາ</string>
 </resources>

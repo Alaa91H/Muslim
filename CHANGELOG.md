@@ -22,6 +22,7 @@ This release advances Quran reading and recitation, adds a configurable Google C
 
 - Expanded Quran interface translations and added automated checks for missing strings, untranslated values, malformed XML, and Android format placeholders.
 - Added a complete English resource catalog for the Scholar Library and verified its key and formatting coverage against the Arabic source.
+- Added deterministic reuse for exact matching interface strings when a locale has one unambiguous existing translation; all existing localized values are preserved.
 - Added localization guidance that separates interface text from Quran translations, tafsir, and hadith editions, with source and review requirements for religious content.
 - Expanded automated verification for Quran navigation, Cast payloads, local media ranges, and emulator screenshots.
 

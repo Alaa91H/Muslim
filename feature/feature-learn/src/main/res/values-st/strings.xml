@@ -106,4 +106,9 @@
     <string name="names_position">Lebitso %1$d la %2$d</string>
     <string name="names_search_hint">Batla lebitso...</string>
     <string name="names_title">Mabitso a 99 a Allah</string>
+    <string name="funeral_will_cancel">Hlakola</string>
+    <string name="hajj_map_zoom_in">Atometsa</string>
+    <string name="hajj_map_zoom_out">Atolosa</string>
+    <string name="learn_search_clear">Hlakola patlo</string>
+    <string name="names_search_clear">Hlakola patlo</string>
 </resources>

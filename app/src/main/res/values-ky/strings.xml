@@ -50,4 +50,7 @@
     <string name="more_names_desc">Толук түшүндүрмө менен 99 ысым</string>
     <string name="more_hajj">Ажылык жана умра</string>
     <string name="more_hajj_desc">Ажылык жана умра жөрөлгөлөрү боюнча толук маалымат</string>
+    <string name="more_search_clear">Издөөнү тазалоо</string>
+    <string name="tab_ramadan">Рамазан</string>
+    <string name="voice_listen">Угуңуз</string>
 </resources>

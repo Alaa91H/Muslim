@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">ამოირჩიე რეპეტიტორი</string>
     <string name="quran_reciter_search_hint">მოძებნეთ მომღერლები სახელის, სტილის ან ხარისხის მიხედვით…</string>
     <string name="quran_reciter_no_results">ამ ძიებას არც ერთი მომღერალი არ ემთხვევა</string>
+    <string name="quran_tab_bookmarks">სანიშნეები</string>
 </resources>

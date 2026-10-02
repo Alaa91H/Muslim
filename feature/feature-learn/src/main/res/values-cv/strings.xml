@@ -106,4 +106,9 @@
     <string name="names_position">Ят %1$d %2$d</string>
     <string name="names_search_hint">Ят шырӑр...</string>
     <string name="names_title">Аллахӑн 99 ячӗ</string>
+    <string name="hajj_map_zoom_in">Пысӑклат</string>
+    <string name="hajj_map_zoom_out">Пысӑклатмалла</string>
+    <string name="learn_search_clear">Таса шырав</string>
+    <string name="learn_topic_zakat_fitr">Закат аль-Фитр</string>
+    <string name="names_search_clear">Таса шырав</string>
 </resources>

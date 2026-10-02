@@ -7,4 +7,8 @@
     <string name="reference_topics_count">temas</string>
     <string name="reference_copy">Copiar</string>
     <string name="reference_share">Compartir</string>
+    <string name="history_atlas_zoom_in">Acercar</string>
+    <string name="history_atlas_zoom_out">alejar</string>
+    <string name="history_language_english">ingles</string>
+    <string name="reference_search_clear">Borrar búsqueda</string>
 </resources>

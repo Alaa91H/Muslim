@@ -50,4 +50,7 @@
     <string name="more_names_desc">ਪੂਰੀ ਵਿਆਖਿਆ ਦੇ ਨਾਲ 99 ਨਾਮ</string>
     <string name="more_hajj">ਹੱਜ ਅਤੇ ਉਮਰਾਹ</string>
     <string name="more_hajj_desc">ਹੱਜ ਅਤੇ ਉਮਰਾਹ ਸੰਸਕਾਰਾਂ ਲਈ ਵਿਸਤ੍ਰਿਤ ਗਾਈਡ</string>
+    <string name="more_search_clear">ਖੋਜ ਸਾਫ਼ ਕਰੋ</string>
+    <string name="tab_ramadan">ਰਮਜ਼ਾਨ</string>
+    <string name="voice_listen">ਸੁਣੋ</string>
 </resources>

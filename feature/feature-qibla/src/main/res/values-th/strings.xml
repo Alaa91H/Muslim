@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">แสดงมัสยิดทั้งหมด</string>
     <string name="mosque_finder_share">เปิดทิศทาง</string>
     <string name="offline_maps_use_my_location">ไปที่ตำแหน่งปัจจุบันของฉัน</string>
+    <string name="nearby_mosques_map_action">แผนที่</string>
+    <string name="nearby_mosques_more_actions">การดำเนินการเพิ่มเติม</string>
+    <string name="nearby_mosques_search_clear">ล้างการค้นหา</string>
+    <string name="qibla_tab_qibla">กิบลัต</string>
 </resources>

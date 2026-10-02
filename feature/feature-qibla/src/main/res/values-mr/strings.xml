@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">सर्व मशिदी दाखवा</string>
     <string name="mosque_finder_share">दिशा उघडा</string>
     <string name="offline_maps_use_my_location">माझ्या वर्तमान स्थानावर जा</string>
+    <string name="nearby_mosques_map_action">नकाशा</string>
+    <string name="nearby_mosques_more_actions">अधिक क्रिया</string>
+    <string name="nearby_mosques_search_clear">शोध साफ करा</string>
+    <string name="qibla_tab_qibla">किब्ला</string>
 </resources>

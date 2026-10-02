@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Vyberte si recitátora</string>
     <string name="quran_reciter_search_hint">Vyhľadávajte recitátorov podľa mena, štýlu alebo kvality...</string>
     <string name="quran_reciter_no_results">Tomuto vyhľadávaniu nezodpovedajú žiadni recitátori</string>
+    <string name="quran_tab_bookmarks">Záložky</string>
 </resources>

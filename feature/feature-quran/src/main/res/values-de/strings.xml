@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Wählen Sie einen Rezitator</string>
     <string name="quran_reciter_search_hint">Rezitatoren nach Name, Stil oder Qualität suchen …</string>
     <string name="quran_reciter_no_results">Zu dieser Suche passen keine Rezitatoren</string>
+    <string name="quran_tab_bookmarks">Lesezeichen</string>
 </resources>

@@ -50,4 +50,6 @@
     <string name="more_names_desc">Na 99 ainmean le làn mhìneachadh</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>
     <string name="more_hajj_desc">Stiùireadh mionaideach air deas-ghnàthan Hajj agus Umrah</string>
+    <string name="more_search_clear">Glan lorg</string>
+    <string name="voice_listen">Eisdibh</string>
 </resources>

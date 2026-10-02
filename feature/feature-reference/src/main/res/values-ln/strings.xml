@@ -7,4 +7,8 @@
     <string name="reference_topics_count">mitó ya makambo</string>
     <string name="reference_copy">Kopi na yango</string>
     <string name="reference_share">Bokabola</string>
+    <string name="history_atlas_zoom_in">Zoom na kati</string>
+    <string name="history_atlas_zoom_out">Zoom na moke</string>
+    <string name="history_language_english">Lingala</string>
+    <string name="reference_search_clear">Boluki ya polele</string>
 </resources>

@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Bir qiraətçi seçin</string>
     <string name="quran_reciter_search_hint">Ada, üsluba və ya keyfiyyətə görə oxuyanları axtarın...</string>
     <string name="quran_reciter_no_results">Bu axtarışa uyğun heç bir oxuyan yoxdur</string>
+    <string name="quran_tab_bookmarks">Əlfəcinlər</string>
 </resources>

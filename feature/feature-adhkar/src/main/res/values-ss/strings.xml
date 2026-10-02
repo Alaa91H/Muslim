@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Dhikr wakopishwa</string>
     <string name="adhkar_periodic_dhikr">Dzikr letsite</string>
     <string name="adhkar_periodic_dhikr_random">Ngekungakahleleki (esikhundleni sekukhetsa ngesandla)</string>
+    <string name="adhkar_more_actions">Tento letinyenti</string>
+    <string name="adhkar_reader_next">Lokulandzelako</string>
+    <string name="adhkar_reader_previous">Ngaphambilini</string>
+    <string name="adhkar_search_clear">Susa lokusesha</string>
 </resources>

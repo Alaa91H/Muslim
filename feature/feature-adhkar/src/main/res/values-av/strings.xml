@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Зикр копия гьабуна .</string>
     <string name="adhkar_periodic_dhikr">Хасаб зикру .</string>
     <string name="adhkar_periodic_dhikr_random">Случайный (вместо ручного выбора)</string>
+    <string name="adhkar_more_actions">Дагьалги ишал</string>
+    <string name="adhkar_reader_next">Хадуб</string>
+    <string name="adhkar_reader_previous">Цебесеб</string>
+    <string name="adhkar_search_clear">ЦӀех-рех бацӀцӀад гьабе</string>
 </resources>

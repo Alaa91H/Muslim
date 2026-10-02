@@ -106,4 +106,9 @@
     <string name="names_position">Izina %1$d kuri %2$d</string>
     <string name="names_search_hint">Rondera izina...</string>
     <string name="names_title">Amazina 99 ya Allah</string>
+    <string name="hajj_map_zoom_in">Gukuraho</string>
+    <string name="hajj_map_zoom_out">Gukuraho</string>
+    <string name="learn_search_clear">Kuraho ubushakashatsi</string>
+    <string name="learn_topic_zakat_fitr">Zakati ya Fitiri</string>
+    <string name="names_search_clear">Kuraho ubushakashatsi</string>
 </resources>

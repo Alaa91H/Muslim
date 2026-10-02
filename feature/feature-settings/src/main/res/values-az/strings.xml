@@ -198,4 +198,7 @@
     <string name="settings_ornament_arabesque">Arabesque</string>
     <string name="settings_ornament_stars">Stars</string>
     <string name="settings_ornament_minimal">Minimal</string>
+    <string name="settings_ornament_intensity_off">Söndür</string>
+    <string name="settings_search_clear">Axtarışı təmizləyin</string>
+    <string name="settings_updates_last_successful">Son yoxlama: %1$s</string>
 </resources>

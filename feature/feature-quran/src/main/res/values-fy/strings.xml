@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Kies in reciter</string>
     <string name="quran_reciter_search_hint">Sykje reciters op namme, styl, of kwaliteit ...</string>
     <string name="quran_reciter_no_results">Gjin foardragers oerienkomme mei dizze sykopdracht</string>
+    <string name="quran_tab_bookmarks">Blêdwizers</string>
 </resources>

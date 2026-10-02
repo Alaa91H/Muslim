@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Gosi ụlọ alakụba niile</string>
     <string name="mosque_finder_share">Mepee ntụziaka</string>
     <string name="offline_maps_use_my_location">Gaa na ebe m dị ugbu a</string>
+    <string name="nearby_mosques_map_action">Maapụ</string>
+    <string name="nearby_mosques_more_actions">Omume ndị ọzọ</string>
+    <string name="nearby_mosques_search_clear">Kpochapụ ọchụchọ</string>
 </resources>

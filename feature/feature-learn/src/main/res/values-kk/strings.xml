@@ -106,4 +106,10 @@
     <string name="names_position">%2$d санының %1$d атауы</string>
     <string name="names_search_hint">Атын іздеу…</string>
     <string name="names_title">Алланың 99 есімі</string>
+    <string name="funeral_will_cancel">Болдырмау</string>
+    <string name="hajj_map_zoom_in">Үлкейту</string>
+    <string name="hajj_map_zoom_out">Кішірейту</string>
+    <string name="learn_search_clear">Іздеуді тазалау</string>
+    <string name="learn_topic_zakat_fitr">Зекет әл-Фитр</string>
+    <string name="names_search_clear">Іздеуді тазалау</string>
 </resources>

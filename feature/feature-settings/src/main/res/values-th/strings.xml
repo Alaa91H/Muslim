@@ -198,4 +198,7 @@
     <string name="settings_ornament_arabesque">Arabesque</string>
     <string name="settings_ornament_stars">Stars</string>
     <string name="settings_ornament_minimal">Minimal</string>
+    <string name="settings_ornament_intensity_off">ปิด</string>
+    <string name="settings_search_clear">ล้างการค้นหา</string>
+    <string name="settings_updates_last_successful">ตรวจสอบครั้งล่าสุด: %1$s</string>
 </resources>

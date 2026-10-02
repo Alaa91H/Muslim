@@ -50,4 +50,7 @@
     <string name="more_names_desc">Amannya 99 nga gannyonnyola mu bujjuvu</string>
     <string name="more_hajj">Hijja &amp; Umrah</string>
     <string name="more_hajj_desc">Obulagirizi obukwata ku mikolo gya Hijja ne Umrah mu bujjuvu</string>
+    <string name="more_search_clear">Okunoonya okutangaavu</string>
+    <string name="tab_ramadan">Ramadhan</string>
+    <string name="voice_listen">Wuliriza</string>
 </resources>

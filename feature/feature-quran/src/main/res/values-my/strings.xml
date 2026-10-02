@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">ရွတ်ဆိုသူကို ရွေးပါ။</string>
     <string name="quran_reciter_search_hint">အမည်၊ စတိုင်၊ သို့မဟုတ် အရည်အသွေးဖြင့် ရွတ်ဆိုသူများကို ရှာပါ...</string>
     <string name="quran_reciter_no_results">ဤရှာဖွေမှုနှင့် တူညီသော ကျမ်းပြုဆရာမရှိပါ။</string>
+    <string name="quran_tab_bookmarks">ညှပ်</string>
 </resources>

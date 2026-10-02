@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Diskouez an holl voskeennoù</string>
     <string name="mosque_finder_share">Titouroù digor</string>
     <string name="offline_maps_use_my_location">Mont d\'am lec\'hiadur bremañ</string>
+    <string name="nearby_mosques_map_action">Kartenn</string>
+    <string name="nearby_mosques_more_actions">Muioc\'h a oberoù</string>
+    <string name="nearby_mosques_search_clear">Diverkañ ar c\'hlask</string>
 </resources>

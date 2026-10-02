@@ -106,4 +106,8 @@
     <string name="names_position">Nome %1$d di %2$d</string>
     <string name="names_search_hint">Cerca un nome...</string>
     <string name="names_title">I 99 nomi di Allah</string>
+    <string name="hajj_map_zoom_in">Ingrandisci</string>
+    <string name="hajj_map_zoom_out">Rimpicciolisci</string>
+    <string name="learn_search_clear">Cancella ricerca</string>
+    <string name="names_search_clear">Cancella ricerca</string>
 </resources>

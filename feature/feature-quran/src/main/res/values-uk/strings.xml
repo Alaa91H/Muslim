@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Виберіть декламатора</string>
     <string name="quran_reciter_search_hint">Шукайте читачів за назвою, стилем чи якістю…</string>
     <string name="quran_reciter_no_results">Немає читачів, які відповідають цьому запиту</string>
+    <string name="quran_tab_bookmarks">Закладки</string>
 </resources>

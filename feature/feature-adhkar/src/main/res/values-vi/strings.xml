@@ -72,4 +72,8 @@
     <string name="adhkar_copied">dhikr đã sao chép</string>
     <string name="adhkar_periodic_dhikr">dhikr cụ thể</string>
     <string name="adhkar_periodic_dhikr_random">Ngẫu nhiên (thay vì chọn thủ công)</string>
+    <string name="adhkar_more_actions">Thêm hành động</string>
+    <string name="adhkar_reader_next">Tiếp theo</string>
+    <string name="adhkar_reader_previous">trước đó</string>
+    <string name="adhkar_search_clear">Xóa tìm kiếm</string>
 </resources>

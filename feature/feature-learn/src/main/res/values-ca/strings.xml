@@ -106,4 +106,9 @@
     <string name="names_position">Nom %1$d de %2$d</string>
     <string name="names_search_hint">Cerca un nom...</string>
     <string name="names_title">Els 99 noms d\'Al·là</string>
+    <string name="funeral_will_cancel">Cancel·la</string>
+    <string name="hajj_map_zoom_in">Apropa</string>
+    <string name="hajj_map_zoom_out">Allunya el zoom</string>
+    <string name="learn_search_clear">Esborra la cerca</string>
+    <string name="names_search_clear">Esborra la cerca</string>
 </resources>

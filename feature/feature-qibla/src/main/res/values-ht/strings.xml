@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Montre tout moske yo</string>
     <string name="mosque_finder_share">Louvri direksyon yo</string>
     <string name="offline_maps_use_my_location">Ale nan kote mwen ye kounye a</string>
+    <string name="nearby_mosques_map_action">Kat jeyografik</string>
+    <string name="nearby_mosques_more_actions">Plis aksyon</string>
+    <string name="nearby_mosques_search_clear">Klè rechèch</string>
 </resources>

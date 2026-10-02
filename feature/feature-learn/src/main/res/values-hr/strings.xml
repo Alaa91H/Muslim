@@ -106,4 +106,9 @@
     <string name="names_position">Naziv %1$d od %2$d</string>
     <string name="names_search_hint">Potražite ime...</string>
     <string name="names_title">99 Allahovih imena</string>
+    <string name="hajj_map_zoom_in">Povećaj</string>
+    <string name="hajj_map_zoom_out">Smanji</string>
+    <string name="learn_search_clear">Očisti pretragu</string>
+    <string name="learn_topic_zakat_fitr">Zekatul-fitr</string>
+    <string name="names_search_clear">Očisti pretragu</string>
 </resources>

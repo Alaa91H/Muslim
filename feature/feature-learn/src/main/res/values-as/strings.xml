@@ -106,4 +106,10 @@
     <string name="names_position">%2$d ৰ %1$d নাম দিয়ক</string>
     <string name="names_search_hint">একটি নাম অনুসন্ধান...</string>
     <string name="names_title">আল্লাহৰ ৯৯ টা নাম</string>
+    <string name="funeral_will_cancel">বাতিল কৰক</string>
+    <string name="hajj_map_zoom_in">জুম ইন কৰক</string>
+    <string name="hajj_map_zoom_out">জুম আউট কৰক</string>
+    <string name="learn_search_clear">সন্ধান পৰিষ্কাৰ কৰক</string>
+    <string name="learn_topic_zakat_fitr">জাকাত আল-ফিতৰ</string>
+    <string name="names_search_clear">সন্ধান পৰিষ্কাৰ কৰক</string>
 </resources>

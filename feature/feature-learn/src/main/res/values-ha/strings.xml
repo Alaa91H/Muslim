@@ -106,4 +106,10 @@
     <string name="names_position">Sunan %1$d na %2$d</string>
     <string name="names_search_hint">Nemo suna…</string>
     <string name="names_title">Sunayen Allah 99</string>
+    <string name="funeral_will_cancel">Soke</string>
+    <string name="hajj_map_zoom_in">Zuƙowa</string>
+    <string name="hajj_map_zoom_out">Zuƙowa waje</string>
+    <string name="learn_search_clear">Share bincike</string>
+    <string name="learn_topic_zakat_fitr">Zakkaatul Fitr</string>
+    <string name="names_search_clear">Share bincike</string>
 </resources>

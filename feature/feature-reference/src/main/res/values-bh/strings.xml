@@ -7,4 +7,9 @@
     <string name="reference_topics_count">विषयन के बारे में बतावल गइल बा</string>
     <string name="reference_copy">कॉपी कइल जा सकेला</string>
     <string name="reference_share">शेयर करीं</string>
+    <string name="history_atlas_zoom_in">ज़ूम इन कर के देखल जाव</string>
+    <string name="history_atlas_zoom_out">ज़ूम आउट कर दीं</string>
+    <string name="history_language_arabic">العربية के बा</string>
+    <string name="history_language_english">अंग्रेजी के बा</string>
+    <string name="reference_search_clear">खोज के साफ कर दिहल जाव</string>
 </resources>

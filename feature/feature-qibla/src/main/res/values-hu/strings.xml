@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Az összes mecset megjelenítése</string>
     <string name="mosque_finder_share">Nyissa meg az irányokat</string>
     <string name="offline_maps_use_my_location">Menj a jelenlegi helyemre</string>
+    <string name="nearby_mosques_map_action">Térkép</string>
+    <string name="nearby_mosques_more_actions">További műveletek</string>
+    <string name="nearby_mosques_search_clear">Keresés törlése</string>
 </resources>

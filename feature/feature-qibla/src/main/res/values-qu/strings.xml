@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Llapan mezquitakunata qawachiy</string>
     <string name="mosque_finder_share">Kichasqa ñankuna</string>
     <string name="offline_maps_use_my_location">Kunan maypi kasqayman riy</string>
+    <string name="nearby_mosques_map_action">Mapa</string>
+    <string name="nearby_mosques_more_actions">Aswan ruwaykuna</string>
+    <string name="nearby_mosques_search_clear">Chuya maskay</string>
 </resources>

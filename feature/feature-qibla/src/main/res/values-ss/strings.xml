@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">Khombisa onkhe emamosque</string>
     <string name="mosque_finder_share">Vula ticondziso</string>
     <string name="offline_maps_use_my_location">Iya endzaweni lengikuyo nyalo</string>
+    <string name="nearby_mosques_map_action">Libalave</string>
+    <string name="nearby_mosques_more_actions">Tento letinyenti</string>
+    <string name="nearby_mosques_search_clear">Susa lokusesha</string>
+    <string name="qibla_tab_qibla">iQibla</string>
 </resources>

@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Dhikr ikkupjat</string>
     <string name="adhkar_periodic_dhikr">Dhikr speċifiku</string>
     <string name="adhkar_periodic_dhikr_random">Aleatorju (minflok għażla manwali)</string>
+    <string name="adhkar_more_actions">Aktar azzjonijiet</string>
+    <string name="adhkar_reader_next">Li jmiss</string>
+    <string name="adhkar_reader_previous">Preċedenti</string>
+    <string name="adhkar_search_clear">Tiftix ċar</string>
 </resources>

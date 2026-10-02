@@ -106,4 +106,9 @@
     <string name="names_position">Navn %1$d av %2$d</string>
     <string name="names_search_hint">Leita eftir einum navni...</string>
     <string name="names_title">Tey 99 nøvnini á Allah</string>
+    <string name="hajj_map_zoom_in">Zooma inn</string>
+    <string name="hajj_map_zoom_out">Zooma út</string>
+    <string name="learn_search_clear">Rudda leitingina</string>
+    <string name="learn_topic_zakat_fitr">Fitur-zekat</string>
+    <string name="names_search_clear">Rudda leitingina</string>
 </resources>

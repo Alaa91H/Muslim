@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Хонанда интихоб кунед</string>
     <string name="quran_reciter_search_hint">Ҷустуҷӯи хонандаҳоро аз рӯи ном, услуб ё сифат…</string>
     <string name="quran_reciter_no_results">Ягон хонанда ба ин ҷустуҷӯ мувофиқат намекунад</string>
+    <string name="quran_tab_bookmarks">Хатчӯбҳо</string>
 </resources>

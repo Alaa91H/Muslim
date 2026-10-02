@@ -106,4 +106,8 @@
     <string name="names_position">Naom %1$d van %2$d</string>
     <string name="names_search_hint">Zeuk nao un naom…</string>
     <string name="names_title">De 99 naome vaan Allah</string>
+    <string name="funeral_will_cancel">Annulere</string>
+    <string name="hajj_map_zoom_out">Zoom oet</string>
+    <string name="learn_search_clear">Zeuk wies</string>
+    <string name="names_search_clear">Zeuk wies</string>
 </resources>

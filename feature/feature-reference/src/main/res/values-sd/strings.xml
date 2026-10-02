@@ -7,4 +7,8 @@
     <string name="reference_topics_count">موضوع</string>
     <string name="reference_copy">ڪاپي</string>
     <string name="reference_share">حصيداري ڪريو</string>
+    <string name="history_atlas_zoom_in">وڏو ڪريو</string>
+    <string name="history_atlas_zoom_out">وڏو ڪريو</string>
+    <string name="history_language_english">انگريزي</string>
+    <string name="reference_search_clear">صاف ڳولا</string>
 </resources>

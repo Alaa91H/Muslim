@@ -106,4 +106,9 @@
     <string name="names_position">Igama elithi %1$d kwangu-%2$d</string>
     <string name="names_search_hint">Sesha igama...</string>
     <string name="names_title">Amagama angama-99 ka-Allah</string>
+    <string name="funeral_will_cancel">Khansela</string>
+    <string name="hajj_map_zoom_in">Sondeza isithombe</string>
+    <string name="hajj_map_zoom_out">Hlehlisa isithombe</string>
+    <string name="learn_search_clear">Sula ukusesha</string>
+    <string name="names_search_clear">Sula ukusesha</string>
 </resources>

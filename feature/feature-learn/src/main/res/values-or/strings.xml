@@ -106,4 +106,10 @@
     <string name="names_position">%2$d ର %1$d ନାମ ଦିଅ |</string>
     <string name="names_search_hint">ଏକ ନାମ ଖୋଜ…</string>
     <string name="names_title">ଆଲ୍ଲାଙ୍କର 99 ନାମ |</string>
+    <string name="funeral_will_cancel">ବାତିଲ୍ କରନ୍ତୁ |</string>
+    <string name="hajj_map_zoom_in">ଜୁମ୍ ଇନ୍ କରନ୍ତୁ |</string>
+    <string name="hajj_map_zoom_out">ଜୁମ୍ ଆଉଟ୍ କରନ୍ତୁ |</string>
+    <string name="learn_search_clear">ସନ୍ଧାନ ସଫା କରନ୍ତୁ |</string>
+    <string name="learn_topic_zakat_fitr">ଜାକତ ଅଲ-ଫିଟର |</string>
+    <string name="names_search_clear">ସନ୍ଧାନ ସଫା କରନ୍ତୁ |</string>
 </resources>

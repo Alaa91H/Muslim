@@ -72,4 +72,8 @@
     <string name="adhkar_copied">धिकर कॉपी केला</string>
     <string name="adhkar_periodic_dhikr">विशिष्ट धिक्कार</string>
     <string name="adhkar_periodic_dhikr_random">यादृच्छिक (मॅन्युअल निवडीऐवजी)</string>
+    <string name="adhkar_more_actions">अधिक क्रिया</string>
+    <string name="adhkar_reader_next">पुढे</string>
+    <string name="adhkar_reader_previous">मागील</string>
+    <string name="adhkar_search_clear">शोध साफ करा</string>
 </resources>

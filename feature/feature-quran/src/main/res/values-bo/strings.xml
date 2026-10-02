@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">ཀློག་པ་པོ་འདེམས།</string>
     <string name="quran_reciter_search_hint">མིང་དང་། བཟོ་ལྟ། ཡང་ན་སྤུས་ཚད་ཀྱི་ཐོག་ནས་ཀློག་མཁན་འཚོལ་ཞིབ།</string>
     <string name="quran_reciter_no_results">འཚོལ་བཤེར་འདི་དང་མཐུན་པའི་ཀློག་པ་པོ་མེད།</string>
+    <string name="quran_tab_bookmarks">དེབ་རྟགས།</string>
 </resources>

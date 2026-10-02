@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 імёнаў з поўным тлумачэннем</string>
     <string name="more_hajj">Хадж і Умра</string>
     <string name="more_hajj_desc">Падрабязнае кіраўніцтва па абрадах хадж і умра</string>
+    <string name="more_search_clear">Выразны пошук</string>
+    <string name="tab_ramadan">Рамадан</string>
+    <string name="voice_listen">Слухай</string>
 </resources>

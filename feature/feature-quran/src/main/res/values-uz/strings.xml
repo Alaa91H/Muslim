@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Qiroatchini tanlang</string>
     <string name="quran_reciter_search_hint">Qorilarni ism, uslub yoki sifat bo‘yicha qidiring…</string>
     <string name="quran_reciter_no_results">Bu qidiruvga hech qanday qo‘shiqchi mos kelmaydi</string>
+    <string name="quran_tab_bookmarks">Xatcho‘plar</string>
 </resources>

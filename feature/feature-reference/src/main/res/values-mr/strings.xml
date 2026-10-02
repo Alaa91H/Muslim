@@ -7,4 +7,8 @@
     <string name="reference_topics_count">विषय</string>
     <string name="reference_copy">कॉपी करा</string>
     <string name="reference_share">शेअर करा</string>
+    <string name="history_atlas_zoom_in">झूम वाढवा</string>
+    <string name="history_atlas_zoom_out">झूम कमी करा</string>
+    <string name="history_language_english">इंग्रजी</string>
+    <string name="reference_search_clear">शोध साफ करा</string>
 </resources>

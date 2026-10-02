@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Khetsa umfundzisi</string>
     <string name="quran_reciter_search_hint">Sesha labafundzako ngeligama, sitayela, noma lizinga...</string>
     <string name="quran_reciter_no_results">Kute labafundzako labahambisana naloluphenyo</string>
+    <string name="quran_tab_bookmarks">Emabhukmaki</string>
 </resources>

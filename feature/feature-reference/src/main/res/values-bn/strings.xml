@@ -7,4 +7,8 @@
     <string name="reference_topics_count">বিষয়</string>
     <string name="reference_copy">কপি</string>
     <string name="reference_share">শেয়ার করুন</string>
+    <string name="history_atlas_zoom_in">জুম ইন করুন</string>
+    <string name="history_atlas_zoom_out">জুম আউট করুন</string>
+    <string name="history_language_english">ইংরেজি</string>
+    <string name="reference_search_clear">সাফ অনুসন্ধান</string>
 </resources>

@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">هڪ تلاوت ڪندڙ چونڊيو</string>
     <string name="quran_reciter_search_hint">نالي، انداز، يا معيار جي ذريعي تلاوت ڪندڙن کي ڳولهيو ...</string>
     <string name="quran_reciter_no_results">هن ڳولها سان ڪوبه پڙهندڙ نه ملندو آهي</string>
+    <string name="quran_tab_bookmarks">بک مارڪ</string>
 </resources>

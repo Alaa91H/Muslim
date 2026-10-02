@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 jeneng kanthi panjelasan lengkap</string>
     <string name="more_hajj">Haji &amp; Umroh</string>
     <string name="more_hajj_desc">Pandhuan rinci babagan upacara Haji lan Umrah</string>
+    <string name="more_search_clear">Mbusak panelusuran</string>
+    <string name="tab_ramadan">Ramadhan</string>
+    <string name="voice_listen">Rungokno</string>
 </resources>

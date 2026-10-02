@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">Onetsani mizikiti yonse</string>
     <string name="mosque_finder_share">Tsegulani mayendedwe</string>
     <string name="offline_maps_use_my_location">Pitani komwe ndili pano</string>
+    <string name="nearby_mosques_map_action">Mapu</string>
+    <string name="nearby_mosques_more_actions">Zochita zambiri</string>
+    <string name="nearby_mosques_search_clear">Chotsani kufufuza</string>
+    <string name="qibla_tab_qibla">Chibela</string>
 </resources>

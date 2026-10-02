@@ -50,4 +50,6 @@
     <string name="more_names_desc">I 99 na na\'an siha yan todu i esplikasion-ñiha</string>
     <string name="more_hajj">Hajj yan Umrah</string>
     <string name="more_hajj_desc">Guiya i Hajj yan Umrah na rituat siha</string>
+    <string name="more_search_clear">Na\'suha i inaligao</string>
+    <string name="voice_listen">Ekungok</string>
 </resources>

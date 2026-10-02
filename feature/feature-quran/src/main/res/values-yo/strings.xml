@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Yan olukawe</string>
     <string name="quran_reciter_search_hint">Ṣewadii awọn oluka nipa orukọ, ara, tabi didara…</string>
     <string name="quran_reciter_no_results">Ko si awọn olukawe ti o baamu wiwa yii</string>
+    <string name="quran_tab_bookmarks">Awọn bukumaaki</string>
 </resources>

@@ -50,4 +50,7 @@
     <string name="more_names_desc">Edin 99 no a nkyerɛkyerɛmu a edi mũ wom</string>
     <string name="more_hajj">Hajj &amp; Umrah a ɛwɔ hɔ</string>
     <string name="more_hajj_desc">Akwankyerɛ a ɛkɔ akyiri a ɛfa Hajj ne Umrah amanne ahorow ho</string>
+    <string name="more_search_clear">Hwehwɛ nhwehwɛmu a emu da hɔ</string>
+    <string name="tab_ramadan">Ramadan a ɛwɔ hɔ</string>
+    <string name="voice_listen">Tie</string>
 </resources>

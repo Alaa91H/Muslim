@@ -106,4 +106,9 @@
     <string name="names_position">Ainm %1$d jeh %2$d</string>
     <string name="names_search_hint">Lhig da ennym...</string>
     <string name="names_title">Yn 99 ennym jeh Allah</string>
+    <string name="hajj_map_zoom_in">Zoom stiagh</string>
+    <string name="hajj_map_zoom_out">Zoom magh</string>
+    <string name="learn_search_clear">Soilshey y ronsaghey</string>
+    <string name="learn_topic_zakat_fitr">Zakat yn Fitr</string>
+    <string name="names_search_clear">Soilshey y ronsaghey</string>
 </resources>

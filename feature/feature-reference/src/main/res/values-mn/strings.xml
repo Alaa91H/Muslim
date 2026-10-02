@@ -7,4 +7,8 @@
     <string name="reference_topics_count">сэдвүүд</string>
     <string name="reference_copy">Хуулах</string>
     <string name="reference_share">Хуваалцах</string>
+    <string name="history_atlas_zoom_in">Томруулах</string>
+    <string name="history_atlas_zoom_out">Жижигрүүлэх</string>
+    <string name="history_language_english">Англи</string>
+    <string name="reference_search_clear">Хайлтыг арилгах</string>
 </resources>

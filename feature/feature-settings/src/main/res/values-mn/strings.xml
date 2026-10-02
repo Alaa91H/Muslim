@@ -198,4 +198,7 @@
     <string name="settings_ornament_arabesque">Arabesque</string>
     <string name="settings_ornament_stars">Stars</string>
     <string name="settings_ornament_minimal">Minimal</string>
+    <string name="settings_ornament_intensity_off">Унтраах</string>
+    <string name="settings_search_clear">Хайлтыг арилгах</string>
+    <string name="settings_updates_last_successful">Сүүлийн шалгалт: %1$s</string>
 </resources>

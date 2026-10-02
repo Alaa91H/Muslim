@@ -106,4 +106,9 @@
     <string name="names_position">Nom %1$d de %2$d</string>
     <string name="names_search_hint">Cercar un nom...</string>
     <string name="names_title">Los 99 noms d\'Allah</string>
+    <string name="funeral_will_cancel">Anullar</string>
+    <string name="hajj_map_zoom_in">Zoom</string>
+    <string name="hajj_map_zoom_out">Zoom fòra</string>
+    <string name="learn_search_clear">Suprimir la recèrca</string>
+    <string name="names_search_clear">Suprimir la recèrca</string>
 </resources>

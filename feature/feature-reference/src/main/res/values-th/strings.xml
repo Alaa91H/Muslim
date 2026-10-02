@@ -7,4 +7,8 @@
     <string name="reference_topics_count">หัวข้อ</string>
     <string name="reference_copy">คัดลอก</string>
     <string name="reference_share">แบ่งปัน</string>
+    <string name="history_atlas_zoom_in">ซูมเข้า</string>
+    <string name="history_atlas_zoom_out">ซูมออก</string>
+    <string name="history_language_english">อังกฤษ</string>
+    <string name="reference_search_clear">ล้างการค้นหา</string>
 </resources>

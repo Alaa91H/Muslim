@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Pona muntu ya ke tanga</string>
     <string name="quran_reciter_search_hint">Sosa bantu ya ke tanga na zina, mutindu, to kikalulu...</string>
     <string name="quran_reciter_no_results">Ata muntu mosi ve ke tanga ke wakana ti nsosa yai</string>
+    <string name="quran_tab_bookmarks">Ba marque-pages</string>
 </resources>

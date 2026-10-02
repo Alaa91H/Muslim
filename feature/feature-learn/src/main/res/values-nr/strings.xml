@@ -106,4 +106,9 @@
     <string name="names_position">Ibizo %1$d ka-%2$d</string>
     <string name="names_search_hint">Sesha ibizo...</string>
     <string name="names_title">Amagama ka-Allah angama-99</string>
+    <string name="hajj_map_zoom_in">Sondeza</string>
+    <string name="hajj_map_zoom_out">Sondeza</string>
+    <string name="learn_search_clear">Sula ukusesha</string>
+    <string name="learn_topic_zakat_fitr">I-Zakat al-Fitr</string>
+    <string name="names_search_clear">Sula ukusesha</string>
 </resources>

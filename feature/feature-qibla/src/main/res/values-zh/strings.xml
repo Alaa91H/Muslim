@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">显示所有清真寺</string>
     <string name="mosque_finder_share">开放路线</string>
     <string name="offline_maps_use_my_location">转到我当前的位置</string>
+    <string name="nearby_mosques_map_action">地图</string>
+    <string name="nearby_mosques_more_actions">更多行动</string>
+    <string name="nearby_mosques_search_clear">清除搜索</string>
+    <string name="qibla_tab_qibla">朝拜</string>
 </resources>

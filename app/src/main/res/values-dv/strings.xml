@@ -50,4 +50,7 @@
     <string name="more_names_desc">އެ 99 ނަން ފުރިހަމަ ތަފްސީލާއެކު</string>
     <string name="more_hajj">ހައްޖު އެންޑް ޢުމްރާއެވެ</string>
     <string name="more_hajj_desc">ހައްޖާއި ޢުމްރާގެ ރިވެތިތަކާބެހޭ ތަފްޞީލީ ގައިޑް</string>
+    <string name="more_search_clear">ސާފު ހޯދުން</string>
+    <string name="tab_ramadan">ރަމަޟާންމަހު</string>
+    <string name="voice_listen">އަޑުއަހާށެވެ</string>
 </resources>

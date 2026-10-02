@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Valitse lausuja</string>
     <string name="quran_reciter_search_hint">Hae puhujia nimen, tyylin tai laadun mukaan…</string>
     <string name="quran_reciter_no_results">Yksikään kirjoittaja ei vastaa tätä hakua</string>
+    <string name="quran_tab_bookmarks">Kirjanmerkit</string>
 </resources>

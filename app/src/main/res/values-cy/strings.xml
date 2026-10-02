@@ -50,4 +50,6 @@
     <string name="more_names_desc">Y 99 o enwau gydag esboniad llawn</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>
     <string name="more_hajj_desc">Canllaw manwl i ddefodau Hajj ac Umrah</string>
+    <string name="more_search_clear">Chwiliad clir</string>
+    <string name="voice_listen">Gwrandewch</string>
 </resources>

@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">朗読家を選ぶ</string>
     <string name="quran_reciter_search_hint">名前、スタイル、品質で朗読者を検索…</string>
     <string name="quran_reciter_no_results">この検索に一致する朗読家はありません</string>
+    <string name="quran_tab_bookmarks">ブックマーク</string>
 </resources>

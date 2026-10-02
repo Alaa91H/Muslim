@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Vel ein upplesara</string>
     <string name="quran_reciter_search_hint">Leita eftir lesarum eftir navni, stíli ella góðsku...</string>
     <string name="quran_reciter_no_results">Eingin upplesari passar til hesa leitingina</string>
+    <string name="quran_tab_bookmarks">Bókamerki</string>
 </resources>

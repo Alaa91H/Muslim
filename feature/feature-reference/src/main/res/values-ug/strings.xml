@@ -7,4 +7,8 @@
     <string name="reference_topics_count">تېما</string>
     <string name="reference_copy">كۆچۈرۈڭ</string>
     <string name="reference_share">ھەمبەھىرلەش</string>
+    <string name="history_atlas_zoom_in">چوڭايتىش</string>
+    <string name="history_atlas_zoom_out">چوڭايتىڭ</string>
+    <string name="history_language_english">ئىنگىلىزچە</string>
+    <string name="reference_search_clear">ئىزدەشنى تازىلاش</string>
 </resources>

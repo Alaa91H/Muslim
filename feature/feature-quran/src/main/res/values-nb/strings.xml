@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Velg en forleser</string>
     <string name="quran_reciter_search_hint">Søk forlesere etter navn, stil eller kvalitet...</string>
     <string name="quran_reciter_no_results">Ingen forlesere samsvarer med dette søket</string>
+    <string name="quran_tab_bookmarks">Bokmerker</string>
 </resources>

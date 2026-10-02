@@ -7,4 +7,9 @@
     <string name="reference_topics_count">cuspairean</string>
     <string name="reference_copy">Dèan lethbhreac</string>
     <string name="reference_share">Roinn</string>
+    <string name="history_atlas_zoom_in">Gluais a-steach</string>
+    <string name="history_atlas_zoom_out">Gluais a-mach</string>
+    <string name="history_language_arabic">adh</string>
+    <string name="history_language_english">Beurla</string>
+    <string name="reference_search_clear">Glan lorg</string>
 </resources>

@@ -7,4 +7,9 @@
     <string name="reference_topics_count">barokunw kan</string>
     <string name="reference_copy">Kopi kɛ</string>
     <string name="reference_share">Aw ka tila</string>
+    <string name="history_atlas_zoom_in">Zoom in (yɔrɔ caman) kɛ</string>
+    <string name="history_atlas_zoom_out">Zoom out (Dɔgɔtɔrɔso).</string>
+    <string name="history_language_arabic">العربية ye</string>
+    <string name="history_language_english">Bamanankan</string>
+    <string name="reference_search_clear">Ɲini jɛlen</string>
 </resources>

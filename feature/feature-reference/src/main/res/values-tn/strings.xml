@@ -7,4 +7,8 @@
     <string name="reference_topics_count">ditlhogo</string>
     <string name="reference_copy">Kopolola</string>
     <string name="reference_share">Abelana</string>
+    <string name="history_atlas_zoom_in">Go atolosetsa</string>
+    <string name="history_atlas_zoom_out">Zoom fokotsega</string>
+    <string name="history_language_english">Setswana</string>
+    <string name="reference_search_clear">Phimola patlo</string>
 </resources>

@@ -106,4 +106,9 @@
     <string name="names_position">ឈ្មោះ %1$d នៃ %2$d</string>
     <string name="names_search_hint">ស្វែងរកឈ្មោះ…</string>
     <string name="names_title">ឈ្មោះ ៩៩ របស់អល់ឡោះ</string>
+    <string name="funeral_will_cancel">បោះបង់</string>
+    <string name="hajj_map_zoom_in">ពង្រីក</string>
+    <string name="hajj_map_zoom_out">ពង្រីក</string>
+    <string name="learn_search_clear">ជម្រះការស្វែងរក</string>
+    <string name="names_search_clear">ជម្រះការស្វែងរក</string>
 </resources>

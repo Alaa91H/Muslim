@@ -106,4 +106,10 @@
     <string name="names_position">%2$d को %1$d नाम</string>
     <string name="names_search_hint">नाम खोज्नुहोस्...</string>
     <string name="names_title">अल्लाह को 99 नाम</string>
+    <string name="funeral_will_cancel">रद्द गर्नुहोस्</string>
+    <string name="hajj_map_zoom_in">जुम इन गर्नुहोस्</string>
+    <string name="hajj_map_zoom_out">जुम आउट गर्नुहोस्</string>
+    <string name="learn_search_clear">खोज खाली गर्नुहोस्</string>
+    <string name="learn_topic_zakat_fitr">जकात अल-फितर</string>
+    <string name="names_search_clear">खोज खाली गर्नुहोस्</string>
 </resources>

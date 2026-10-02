@@ -198,4 +198,7 @@
     <string name="settings_ornament_arabesque">Arabesque</string>
     <string name="settings_ornament_stars">Stars</string>
     <string name="settings_ornament_minimal">Minimal</string>
+    <string name="settings_ornament_intensity_off">ပိတ်သည်။</string>
+    <string name="settings_search_clear">ရှာဖွေမှုကို ရှင်းလင်းပါ။</string>
+    <string name="settings_updates_last_successful">နောက်ဆုံးစစ်ဆေးမှု- %1$s</string>
 </resources>

@@ -106,4 +106,10 @@
     <string name="names_position">Hingoa %1$d oe %2$d</string>
     <string name="names_search_hint">Fekumi ki ha hingoa...</string>
     <string name="names_title">Ko e ngaahi hingoa \'e 99 \'o Allah .</string>
+    <string name="funeral_will_cancel">Kaniseli</string>
+    <string name="hajj_map_zoom_in">Fakalahi</string>
+    <string name="hajj_map_zoom_out">Fakalahi</string>
+    <string name="learn_search_clear">Fakamaʻa ʻa e fekumi</string>
+    <string name="learn_topic_zakat_fitr">Zakat ʻo e Fiti</string>
+    <string name="names_search_clear">Fakamaʻa ʻa e fekumi</string>
 </resources>

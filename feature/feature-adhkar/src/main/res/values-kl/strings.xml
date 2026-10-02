@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Dhikr-ip kopierpaa</string>
     <string name="adhkar_periodic_dhikr">Immikkuualuttoq dhikr</string>
     <string name="adhkar_periodic_dhikr_random">Tilfældigt (manuelt toqqaanerup taarsiullugu)</string>
+    <string name="adhkar_more_actions">Suliniutit amerlanerusut</string>
+    <string name="adhkar_reader_next">Tullia</string>
+    <string name="adhkar_reader_previous">Siusinnerusukkut</string>
+    <string name="adhkar_search_clear">Ujaasineq erseqqissoq</string>
 </resources>

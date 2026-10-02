@@ -106,4 +106,9 @@
     <string name="names_position">Izena %1$d de %2$d</string>
     <string name="names_search_hint">Bilatu izen bat...</string>
     <string name="names_title">Ala-ren 99 izenak</string>
+    <string name="funeral_will_cancel">Utzi</string>
+    <string name="hajj_map_zoom_in">Handitu</string>
+    <string name="hajj_map_zoom_out">Txikiagotu</string>
+    <string name="learn_search_clear">Garbitu bilaketa</string>
+    <string name="names_search_clear">Garbitu bilaketa</string>
 </resources>

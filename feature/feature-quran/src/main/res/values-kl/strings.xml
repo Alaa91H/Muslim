@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Oqaluttuarisaasoq toqqaruk</string>
     <string name="quran_reciter_search_hint">Oqaluttuartartut aqqit, isikkoq, imaluunniit pitsaassusaat malillugit ujartukkit...</string>
     <string name="quran_reciter_no_results">Reciterit arlaannaalluunniit ujaasinermut tassunga naleqqutinngilaq</string>
+    <string name="quran_tab_bookmarks">Atuagassiat</string>
 </resources>

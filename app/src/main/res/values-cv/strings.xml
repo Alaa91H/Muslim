@@ -50,4 +50,7 @@
     <string name="more_names_desc">тулли ӑнлантарупа 99 ят</string>
     <string name="more_hajj">Хадж тата Умра</string>
     <string name="more_hajj_desc">Хадж тата Умра йӑли-йӗркисем ҫинчен тӗплӗн ҫырса кӑтартнӑ</string>
+    <string name="more_search_clear">Таса шырав</string>
+    <string name="tab_ramadan">Рамадан</string>
+    <string name="voice_listen">Итле</string>
 </resources>

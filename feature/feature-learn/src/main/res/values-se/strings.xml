@@ -106,4 +106,8 @@
     <string name="names_position">Namma %1$d %2$d:s</string>
     <string name="names_search_hint">Ohcat nama...</string>
     <string name="names_title">Allaha 99 nama</string>
+    <string name="hajj_map_zoom_in">Zoom sisa</string>
+    <string name="hajj_map_zoom_out">Zoom eret</string>
+    <string name="learn_search_clear">Buhtte ohcama</string>
+    <string name="names_search_clear">Buhtte ohcama</string>
 </resources>

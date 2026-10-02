@@ -50,4 +50,6 @@
     <string name="more_names_desc">Mabitso a 99 a nang le tlhaloso e felletseng</string>
     <string name="more_hajj">Hajj le Umrah</string>
     <string name="more_hajj_desc">Tataiso e qaqileng ea litšebeletso tsa Hajj le Umrah</string>
+    <string name="more_search_clear">Hlakola patlo</string>
+    <string name="voice_listen">Mamela</string>
 </resources>

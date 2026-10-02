@@ -106,4 +106,9 @@
     <string name="names_position">Nombre %1$d de %2$d</string>
     <string name="names_search_hint">Vakasaqara e dua na yaca...</string>
     <string name="names_title">Na 99 na yaca i Allah .</string>
+    <string name="hajj_map_zoom_in">Vakarabailevutaka</string>
+    <string name="hajj_map_zoom_out">Vakarabailevutaka</string>
+    <string name="learn_search_clear">Vakasavasavataka na vakasaqaqara</string>
+    <string name="learn_topic_zakat_fitr">Saka ni Fitiri</string>
+    <string name="names_search_clear">Vakasavasavataka na vakasaqaqara</string>
 </resources>

@@ -7,4 +7,8 @@
     <string name="reference_topics_count">темӑсем</string>
     <string name="reference_copy">Копи</string>
     <string name="reference_share">Пайла</string>
+    <string name="history_atlas_zoom_in">Пысӑклат</string>
+    <string name="history_atlas_zoom_out">Пысӑклатмалла</string>
+    <string name="history_language_english">Акӑлчанла</string>
+    <string name="reference_search_clear">Таса шырав</string>
 </resources>

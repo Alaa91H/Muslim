@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Masjiidota hunda agarsiisi</string>
     <string name="mosque_finder_share">Kallattii banaa</string>
     <string name="offline_maps_use_my_location">Bakka amma jirutti deemi</string>
+    <string name="nearby_mosques_map_action">Kaartaa</string>
+    <string name="nearby_mosques_more_actions">Gochaalee dabalataa</string>
+    <string name="nearby_mosques_search_clear">Barbaacha qulqulleessi</string>
 </resources>

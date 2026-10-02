@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Kǝratǝma karne</string>
     <string name="quran_reciter_search_hint">Su-a, zaye-a, au nəmngalwo-a lan kəratəwu kulasne...</string>
     <string name="quran_reciter_no_results">Kəratəma ndasoma kulashi adəga samənzənyi</string>
+    <string name="quran_tab_bookmarks">Alamawa kitawube</string>
 </resources>

@@ -7,4 +7,9 @@
     <string name="reference_topics_count">Атемақәа</string>
     <string name="reference_copy">Ақәҭыхра</string>
     <string name="reference_share">Аиҩшара</string>
+    <string name="history_atlas_zoom_in">Аизум арҭбаара</string>
+    <string name="history_atlas_zoom_out">Амҽхак армаҷра</string>
+    <string name="history_language_arabic">Аербтә</string>
+    <string name="history_language_english">Аингылыз</string>
+    <string name="reference_search_clear">Ирыцқьа аԥшаара</string>
 </resources>

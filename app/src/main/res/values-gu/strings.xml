@@ -50,4 +50,7 @@
     <string name="more_names_desc">સંપૂર્ણ સમજૂતી સાથે 99 નામો</string>
     <string name="more_hajj">હજ અને ઉમરાહ</string>
     <string name="more_hajj_desc">હજ અને ઉમરાહ સંસ્કારો માટે વિગતવાર માર્ગદર્શિકા</string>
+    <string name="more_search_clear">શોધ સાફ કરો</string>
+    <string name="tab_ramadan">રમઝાન</string>
+    <string name="voice_listen">સાંભળો</string>
 </resources>

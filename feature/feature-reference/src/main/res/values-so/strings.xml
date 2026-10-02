@@ -7,4 +7,8 @@
     <string name="reference_topics_count">mowduucyo</string>
     <string name="reference_copy">Nuqul</string>
     <string name="reference_share">La wadaag</string>
+    <string name="history_atlas_zoom_in">Soo dhawoow</string>
+    <string name="history_atlas_zoom_out">Soo dhawoow</string>
+    <string name="history_language_english">Ingiriis</string>
+    <string name="reference_search_clear">Nadiifi raadinta</string>
 </resources>

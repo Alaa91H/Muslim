@@ -78,4 +78,6 @@
     <string name="mosque_finder_show_all">Kwalok aolep mosque ko</string>
     <string name="mosque_finder_share">Kōpellok ial ko</string>
     <string name="offline_maps_use_my_location">Etal ñan jikin eo ij bed ie kiō</string>
+    <string name="nearby_mosques_more_actions">Elōñlok jerbal ko</string>
+    <string name="nearby_mosques_search_clear">Kōjepel pukōt</string>
 </resources>

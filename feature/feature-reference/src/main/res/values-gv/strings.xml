@@ -7,4 +7,8 @@
     <string name="reference_topics_count">currymyn;</string>
     <string name="reference_copy">Coip.</string>
     <string name="reference_share">Rheynn</string>
+    <string name="history_atlas_zoom_in">Zoom stiagh</string>
+    <string name="history_atlas_zoom_out">Zoom magh</string>
+    <string name="history_language_english">Gaelg</string>
+    <string name="reference_search_clear">Soilshey y ronsaghey</string>
 </resources>

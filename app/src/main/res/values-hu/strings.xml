@@ -50,4 +50,7 @@
     <string name="more_names_desc">A 99 név teljes magyarázattal</string>
     <string name="more_hajj">Hajj és Umrah</string>
     <string name="more_hajj_desc">Részletes útmutató a Hajj és Umrah rítusokhoz</string>
+    <string name="more_search_clear">Keresés törlése</string>
+    <string name="tab_ramadan">Ramadán</string>
+    <string name="voice_listen">Figyelj</string>
 </resources>

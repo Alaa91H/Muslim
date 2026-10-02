@@ -7,4 +7,8 @@
     <string name="reference_topics_count">موضوعات</string>
     <string name="reference_copy">کاپی</string>
     <string name="reference_share">شیئر کریں۔</string>
+    <string name="history_atlas_zoom_in">زوم ان کریں۔</string>
+    <string name="history_atlas_zoom_out">زوم آؤٹ کریں۔</string>
+    <string name="history_language_english">انگریزی</string>
+    <string name="reference_search_clear">تلاش صاف کریں۔</string>
 </resources>

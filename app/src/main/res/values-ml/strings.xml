@@ -50,4 +50,7 @@
     <string name="more_names_desc">പൂർണ്ണ വിശദീകരണത്തോടെ 99 പേരുകൾ</string>
     <string name="more_hajj">ഹജ്ജ് &amp; ഉംറ</string>
     <string name="more_hajj_desc">ഹജ്ജ്, ഉംറ ചടങ്ങുകളിലേക്കുള്ള വിശദമായ ഗൈഡ്</string>
+    <string name="more_search_clear">തിരയൽ മായ്‌ക്കുക</string>
+    <string name="tab_ramadan">റമദാൻ</string>
+    <string name="voice_listen">കേൾക്കുക</string>
 </resources>

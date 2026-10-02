@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">पाठकं चिनुत</string>
     <string name="quran_reciter_search_hint">पाठकान् नाम, शैली, गुणवत्ता वा अन्वेष्टुम्...</string>
     <string name="quran_reciter_no_results">न कोऽपि पाठकः अस्य अन्वेषणस्य सङ्गतिं करोति</string>
+    <string name="quran_tab_bookmarks">बुकमार्क्स</string>
 </resources>

@@ -106,4 +106,10 @@
     <string name="names_position">Magaca %1$d ee %2$d</string>
     <string name="names_search_hint">Raadi magac…</string>
     <string name="names_title">99ka magac ee Allaah</string>
+    <string name="funeral_will_cancel">Jooji</string>
+    <string name="hajj_map_zoom_in">Soo dhawoow</string>
+    <string name="hajj_map_zoom_out">Soo dhawoow</string>
+    <string name="learn_search_clear">Nadiifi raadinta</string>
+    <string name="learn_topic_zakat_fitr">Sakaatul Fitriga</string>
+    <string name="names_search_clear">Nadiifi raadinta</string>
 </resources>

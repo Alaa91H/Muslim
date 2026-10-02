@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Keze un reciter</string>
     <string name="quran_reciter_search_hint">Zeuk recitors op naam, stijl of kwaliteit…</string>
     <string name="quran_reciter_no_results">Gein reciters euvereinkomme mit deze zeuktoch</string>
+    <string name="quran_tab_bookmarks">Boekmerke</string>
 </resources>

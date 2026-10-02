@@ -106,4 +106,10 @@
     <string name="names_position">Maqaa %1$d kan %2$d</string>
     <string name="names_search_hint">Maqaa barbaadi...</string>
     <string name="names_title">Maqaawwan Rabbii 99</string>
+    <string name="funeral_will_cancel">Haquu</string>
+    <string name="hajj_map_zoom_in">Zoom in godhaa</string>
+    <string name="hajj_map_zoom_out">Xiqqeessaa</string>
+    <string name="learn_search_clear">Barbaacha qulqulleessi</string>
+    <string name="learn_topic_zakat_fitr">Zakaa Al-Fixrii</string>
+    <string name="names_search_clear">Barbaacha qulqulleessi</string>
 </resources>

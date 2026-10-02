@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Prikaži sve džamije</string>
     <string name="mosque_finder_share">Otvorene upute</string>
     <string name="offline_maps_use_my_location">Idi na moju trenutnu lokaciju</string>
+    <string name="nearby_mosques_map_action">Karta</string>
+    <string name="nearby_mosques_more_actions">Više akcija</string>
+    <string name="nearby_mosques_search_clear">Očisti pretragu</string>
 </resources>

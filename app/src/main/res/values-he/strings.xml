@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 השמות עם הסבר מלא</string>
     <string name="more_hajj">חג\'ג\' ואומרה</string>
     <string name="more_hajj_desc">מדריך מפורט לטקסי החאג\' והאומרה</string>
+    <string name="more_search_clear">נקה חיפוש</string>
+    <string name="tab_ramadan">רמדאן</string>
+    <string name="voice_listen">תקשיב</string>
 </resources>

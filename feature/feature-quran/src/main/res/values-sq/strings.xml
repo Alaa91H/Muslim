@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Zgjidhni një recitues</string>
     <string name="quran_reciter_search_hint">Kërkoni recituesit sipas emrit, stilit ose cilësisë…</string>
     <string name="quran_reciter_no_results">Asnjë recitues nuk përputhet me këtë kërkim</string>
+    <string name="quran_tab_bookmarks">Faqerojtësit</string>
 </resources>

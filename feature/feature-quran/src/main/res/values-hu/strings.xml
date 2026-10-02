@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Válassz egy szavalót</string>
     <string name="quran_reciter_search_hint">Keressen a szavalók között név, stílus vagy minőség alapján…</string>
     <string name="quran_reciter_no_results">Ennek a keresésnek egyetlen felolvasó sem felel meg</string>
+    <string name="quran_tab_bookmarks">Könyvjelzők</string>
 </resources>

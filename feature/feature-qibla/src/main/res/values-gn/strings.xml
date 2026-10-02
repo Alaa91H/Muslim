@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Ohechauka opaite mezquita</string>
     <string name="mosque_finder_share">Direcciones abierto</string>
     <string name="offline_maps_use_my_location">Tereho che reimehápe ko’áĝa</string>
+    <string name="nearby_mosques_map_action">Mapa</string>
+    <string name="nearby_mosques_more_actions">Hetave tembiapo</string>
+    <string name="nearby_mosques_search_clear">Ojeporeka hesakã porãva</string>
 </resources>

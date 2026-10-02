@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Sankhani wowerenga</string>
     <string name="quran_reciter_search_hint">Sakani owerenga ndi dzina, masitayelo, kapena mtundu…</string>
     <string name="quran_reciter_no_results">Palibe obwereza omwe akufanana ndikusakaku</string>
+    <string name="quran_tab_bookmarks">Zosungira</string>
 </resources>

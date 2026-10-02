@@ -7,4 +7,8 @@
     <string name="reference_topics_count">נושאים</string>
     <string name="reference_copy">העתק</string>
     <string name="reference_share">שתף</string>
+    <string name="history_atlas_zoom_in">התקרב</string>
+    <string name="history_atlas_zoom_out">זום החוצה</string>
+    <string name="history_language_english">אנגלית</string>
+    <string name="reference_search_clear">נקה חיפוש</string>
 </resources>

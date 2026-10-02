@@ -7,4 +7,8 @@
     <string name="reference_topics_count">efni</string>
     <string name="reference_copy">Afrita</string>
     <string name="reference_share">Deila</string>
+    <string name="history_atlas_zoom_in">Aðdráttur</string>
+    <string name="history_atlas_zoom_out">Aðdráttur út</string>
+    <string name="history_language_english">ensku</string>
+    <string name="reference_search_clear">Hreinsa leit</string>
 </resources>

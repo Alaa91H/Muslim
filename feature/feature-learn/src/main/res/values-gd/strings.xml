@@ -106,4 +106,9 @@
     <string name="names_position">Ainm %1$d de %2$d</string>
     <string name="names_search_hint">Lorg ainm…</string>
     <string name="names_title">Na 99 ainmean Allah</string>
+    <string name="funeral_will_cancel">Sguir dheth</string>
+    <string name="hajj_map_zoom_in">Gluais a-steach</string>
+    <string name="hajj_map_zoom_out">Gluais a-mach</string>
+    <string name="learn_search_clear">Glan lorg</string>
+    <string name="names_search_clear">Glan lorg</string>
 </resources>

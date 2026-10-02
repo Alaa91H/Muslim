@@ -7,4 +7,8 @@
     <string name="reference_topics_count">topik</string>
     <string name="reference_copy">Salin</string>
     <string name="reference_share">Bagikan</string>
+    <string name="history_atlas_zoom_in">Perbesar</string>
+    <string name="history_atlas_zoom_out">Perkecil</string>
+    <string name="history_language_english">bahasa Inggris</string>
+    <string name="reference_search_clear">Hapus pencarian</string>
 </resources>

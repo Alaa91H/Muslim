@@ -106,4 +106,8 @@
     <string name="names_position">Nazwa %1$d z %2$d</string>
     <string name="names_search_hint">Szukaj imienia…</string>
     <string name="names_title">99 imion Allaha</string>
+    <string name="hajj_map_zoom_in">Powiększ</string>
+    <string name="hajj_map_zoom_out">Pomniejsz</string>
+    <string name="learn_search_clear">Wyczyść wyszukiwanie</string>
+    <string name="names_search_clear">Wyczyść wyszukiwanie</string>
 </resources>

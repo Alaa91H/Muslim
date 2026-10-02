@@ -78,4 +78,6 @@
     <string name="mosque_finder_show_all">Dangoswch bob mosg</string>
     <string name="mosque_finder_share">Cyfarwyddiadau agored</string>
     <string name="offline_maps_use_my_location">Ewch i fy lleoliad presennol</string>
+    <string name="nearby_mosques_more_actions">Mwy o gamau gweithredu</string>
+    <string name="nearby_mosques_search_clear">Chwiliad clir</string>
 </resources>

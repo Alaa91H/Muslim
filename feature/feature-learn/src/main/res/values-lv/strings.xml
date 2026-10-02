@@ -106,4 +106,9 @@
     <string name="names_position">Nosaukums %1$d no %2$d</string>
     <string name="names_search_hint">Meklēt vārdu…</string>
     <string name="names_title">99 Allāha vārdi</string>
+    <string name="funeral_will_cancel">Atcelt</string>
+    <string name="hajj_map_zoom_in">Pietuvināt</string>
+    <string name="hajj_map_zoom_out">Tālināt</string>
+    <string name="learn_search_clear">Notīrīt meklēšanu</string>
+    <string name="names_search_clear">Notīrīt meklēšanu</string>
 </resources>

@@ -50,4 +50,7 @@
     <string name="more_names_desc">Maina a le 99 a a nang le tlhaloso e e feletseng</string>
     <string name="more_hajj">Hajji le Umra</string>
     <string name="more_hajj_desc">Kaelo e e feletseng ya dingwao tsa Hajj le Umrah</string>
+    <string name="more_search_clear">Phimola patlo</string>
+    <string name="tab_ramadan">Ramadane</string>
+    <string name="voice_listen">Reetsa</string>
 </resources>

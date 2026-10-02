@@ -7,4 +7,8 @@
     <string name="reference_topics_count">onderwerpe</string>
     <string name="reference_copy">Kopieer</string>
     <string name="reference_share">Deel</string>
+    <string name="history_atlas_zoom_in">Zoem in</string>
+    <string name="history_atlas_zoom_out">Zoem uit</string>
+    <string name="history_language_english">Engels</string>
+    <string name="reference_search_clear">Vee soektog uit</string>
 </resources>

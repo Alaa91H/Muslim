@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Bonisa wonke ama-mosque</string>
     <string name="mosque_finder_share">Vula izikhombisi-ndlela</string>
     <string name="offline_maps_use_my_location">Iya endaweni yami yamanje</string>
+    <string name="nearby_mosques_map_action">Imephu</string>
+    <string name="nearby_mosques_more_actions">Izenzo ezengeziwe</string>
+    <string name="nearby_mosques_search_clear">Sula ukusesha</string>
 </resources>

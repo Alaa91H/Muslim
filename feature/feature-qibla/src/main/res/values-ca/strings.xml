@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Mostra totes les mesquites</string>
     <string name="mosque_finder_share">Obriu les indicacions</string>
     <string name="offline_maps_use_my_location">Vés a la meva ubicació actual</string>
+    <string name="nearby_mosques_map_action">Mapa</string>
+    <string name="nearby_mosques_more_actions">Més accions</string>
+    <string name="nearby_mosques_search_clear">Esborra la cerca</string>
 </resources>

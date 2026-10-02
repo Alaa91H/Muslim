@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Һайлау һөйләүсе .</string>
     <string name="quran_reciter_search_hint">Һөйләүселәрҙе исем, стиль йәки сифат буйынса эҙләгеҙ...</string>
     <string name="quran_reciter_no_results">Был эҙләүгә бер ниндәй ҙә һөйләүселәр тап килмәй</string>
+    <string name="quran_tab_bookmarks">Закладкалар</string>
 </resources>

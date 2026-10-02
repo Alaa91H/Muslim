@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">سڀ مسجدون ڏيکاريو</string>
     <string name="mosque_finder_share">کليل هدايتون</string>
     <string name="offline_maps_use_my_location">منهنجي موجوده جڳھ ڏانھن وڃو</string>
+    <string name="nearby_mosques_map_action">نقشو</string>
+    <string name="nearby_mosques_more_actions">وڌيڪ عمل</string>
+    <string name="nearby_mosques_search_clear">صاف ڳولا</string>
+    <string name="qibla_tab_qibla">قبله</string>
 </resources>

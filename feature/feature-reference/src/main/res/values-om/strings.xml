@@ -7,4 +7,8 @@
     <string name="reference_topics_count">mata dureewwan</string>
     <string name="reference_copy">Koppii godhaa</string>
     <string name="reference_share">Share godhaa</string>
+    <string name="history_atlas_zoom_in">Zoom in godhaa</string>
+    <string name="history_atlas_zoom_out">Xiqqeessaa</string>
+    <string name="history_language_english">Afaan Oromoo</string>
+    <string name="reference_search_clear">Barbaacha qulqulleessi</string>
 </resources>

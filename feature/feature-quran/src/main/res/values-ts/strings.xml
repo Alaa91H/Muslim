@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Hlawula muhlayi</string>
     <string name="quran_reciter_search_hint">Lavisisa vahlayi hi mavito, xitayili, kumbe khwalithi...</string>
     <string name="quran_reciter_no_results">Ku hava vahlayi lava fambelanaka na ku lavisisa loku</string>
+    <string name="quran_tab_bookmarks">Swikombiso swa tibuku</string>
 </resources>

@@ -7,4 +7,8 @@
     <string name="reference_topics_count">темалар</string>
     <string name="reference_copy">Күчермә</string>
     <string name="reference_share">Бүлешү</string>
+    <string name="history_atlas_zoom_in">Зурайту</string>
+    <string name="history_atlas_zoom_out">Зурайту</string>
+    <string name="history_language_english">Инглиз</string>
+    <string name="reference_search_clear">Эзләү</string>
 </resources>

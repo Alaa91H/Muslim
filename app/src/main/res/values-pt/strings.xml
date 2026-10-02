@@ -50,4 +50,7 @@
     <string name="more_names_desc">Os 99 nomes com explicação completa</string>
     <string name="more_hajj">Hajj e Umrah</string>
     <string name="more_hajj_desc">Guia detalhado para os ritos Hajj e Umrah</string>
+    <string name="more_search_clear">Limpar pesquisa</string>
+    <string name="tab_ramadan">Ramadã</string>
+    <string name="voice_listen">Ouça</string>
 </resources>

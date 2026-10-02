@@ -106,4 +106,9 @@
     <string name="names_position">ಹೆಸರು %1$d ರಲ್ಲಿ %2$d</string>
     <string name="names_search_hint">ಹೆಸರಿಗಾಗಿ ಹುಡುಕಿ...</string>
     <string name="names_title">ಅಲ್ಲಾನ 99 ಹೆಸರುಗಳು</string>
+    <string name="hajj_map_zoom_in">ಜೂಮ್ ಇನ್ ಮಾಡಿ</string>
+    <string name="hajj_map_zoom_out">ಜೂಮ್ ಔಟ್</string>
+    <string name="learn_search_clear">ಹುಡುಕಾಟವನ್ನು ತೆರವುಗೊಳಿಸಿ</string>
+    <string name="learn_topic_zakat_fitr">ಝಕಾತ್ ಅಲ್-ಫಿತ್ರ್</string>
+    <string name="names_search_clear">ಹುಡುಕಾಟವನ್ನು ತೆರವುಗೊಳಿಸಿ</string>
 </resources>

@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Moskee-t tamarmik takutikkit</string>
     <string name="mosque_finder_share">Avammut suussutsit</string>
     <string name="offline_maps_use_my_location">Ullumikkut inissisimaffinnut ingerlagit</string>
+    <string name="nearby_mosques_map_action">Nunap assiga</string>
+    <string name="nearby_mosques_more_actions">Suliniutit amerlanerusut</string>
+    <string name="nearby_mosques_search_clear">Ujaasineq erseqqissoq</string>
 </resources>

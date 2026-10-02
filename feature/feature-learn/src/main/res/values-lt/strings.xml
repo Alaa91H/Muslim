@@ -106,4 +106,9 @@
     <string name="names_position">Pavadinimas %1$d iš %2$d</string>
     <string name="names_search_hint">Ieškokite vardo…</string>
     <string name="names_title">99 Alacho vardai</string>
+    <string name="funeral_will_cancel">Atšaukti</string>
+    <string name="hajj_map_zoom_in">Priartinti</string>
+    <string name="hajj_map_zoom_out">Nutolinti</string>
+    <string name="learn_search_clear">Išvalyti paiešką</string>
+    <string name="names_search_clear">Išvalyti paiešką</string>
 </resources>

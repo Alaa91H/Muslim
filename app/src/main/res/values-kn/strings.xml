@@ -50,4 +50,7 @@
     <string name="more_names_desc">ಸಂಪೂರ್ಣ ವಿವರಣೆಯೊಂದಿಗೆ 99 ಹೆಸರುಗಳು</string>
     <string name="more_hajj">ಹಜ್ ಮತ್ತು ಉಮ್ರಾ</string>
     <string name="more_hajj_desc">ಹಜ್ ಮತ್ತು ಉಮ್ರಾ ವಿಧಿಗಳಿಗೆ ವಿವರವಾದ ಮಾರ್ಗದರ್ಶಿ</string>
+    <string name="more_search_clear">ಹುಡುಕಾಟವನ್ನು ತೆರವುಗೊಳಿಸಿ</string>
+    <string name="tab_ramadan">ರಂಜಾನ್</string>
+    <string name="voice_listen">ಕೇಳು</string>
 </resources>

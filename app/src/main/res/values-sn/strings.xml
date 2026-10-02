@@ -50,4 +50,6 @@
     <string name="more_names_desc">Mazita 99 ane tsananguro izere</string>
     <string name="more_hajj">Hajj uye Umrah</string>
     <string name="more_hajj_desc">Yakadzama gwara kumitambo yeHajj neUmrah</string>
+    <string name="more_search_clear">Bvisa kutsvaga</string>
+    <string name="voice_listen">Teerera</string>
 </resources>

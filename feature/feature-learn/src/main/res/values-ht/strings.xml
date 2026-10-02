@@ -106,4 +106,9 @@
     <string name="names_position">Non %1$d nan %2$d</string>
     <string name="names_search_hint">Chèche yon non...</string>
     <string name="names_title">99 non Allah</string>
+    <string name="funeral_will_cancel">Anile</string>
+    <string name="hajj_map_zoom_in">Zoom nan</string>
+    <string name="hajj_map_zoom_out">Zoom deyò</string>
+    <string name="learn_search_clear">Klè rechèch</string>
+    <string name="names_search_clear">Klè rechèch</string>
 </resources>

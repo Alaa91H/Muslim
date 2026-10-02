@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Hitamwo umusomyi</string>
     <string name="quran_reciter_search_hint">Rondera abasomyi mw\'izina, uburyo, canke uburyo...</string>
     <string name="quran_reciter_no_results">Nta basomyi bahuye n\'ubu bushakashatsi</string>
+    <string name="quran_tab_bookmarks">Ibimenyetso</string>
 </resources>

@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Ma kopia si Dhikr</string>
     <string name="adhkar_periodic_dhikr">Dhikr espesiåt</string>
     <string name="adhkar_periodic_dhikr_random">Random (enlugåt di manual pick)</string>
+    <string name="adhkar_more_actions">Mas aksion</string>
+    <string name="adhkar_reader_next">Sigiente</string>
+    <string name="adhkar_reader_previous">Manmofo\'na</string>
+    <string name="adhkar_search_clear">Na\'suha i inaligao</string>
 </resources>

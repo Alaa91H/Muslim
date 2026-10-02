@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">একজন আবৃত্তিকারী বেছে নিন</string>
     <string name="quran_reciter_search_hint">নাম, শৈলী, বা গুণমান দ্বারা আবৃত্তিকারীদের অনুসন্ধান করুন...</string>
     <string name="quran_reciter_no_results">কোন আবৃত্তিকারী এই অনুসন্ধানের সাথে মেলে না</string>
+    <string name="quran_tab_bookmarks">বুকমার্ক</string>
 </resources>

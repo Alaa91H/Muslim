@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">Allhli metjitleri görkeziň</string>
     <string name="mosque_finder_share">Açyk ugurlar</string>
     <string name="offline_maps_use_my_location">Häzirki ýerleşýän ýerime git</string>
+    <string name="nearby_mosques_map_action">Karta</string>
+    <string name="nearby_mosques_more_actions">Has köp hereket</string>
+    <string name="nearby_mosques_search_clear">Gözleg arassala</string>
+    <string name="qibla_tab_qibla">Kibla</string>
 </resources>

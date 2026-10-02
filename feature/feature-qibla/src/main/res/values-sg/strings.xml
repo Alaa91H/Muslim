@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Fa amosquée kue .</string>
     <string name="mosque_finder_share">Zia lege</string>
     <string name="offline_maps_use_my_location">Gue na ndo so mo yeke dä fadeso .</string>
+    <string name="nearby_mosques_map_action">Carte</string>
+    <string name="nearby_mosques_more_actions">Asalango ye mingi</string>
+    <string name="nearby_mosques_search_clear">Zia gingo ye</string>
 </resources>

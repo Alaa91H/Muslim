@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Διαλέξτε έναν απαγγελητή</string>
     <string name="quran_reciter_search_hint">Αναζητήστε απαγγελείς με όνομα, στυλ ή ποιότητα…</string>
     <string name="quran_reciter_no_results">Δεν υπάρχουν αναγνώστες που να αντιστοιχούν σε αυτήν την αναζήτηση</string>
+    <string name="quran_tab_bookmarks">Σελιδοδείκτες</string>
 </resources>

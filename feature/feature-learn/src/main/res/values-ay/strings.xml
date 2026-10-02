@@ -106,4 +106,9 @@
     <string name="names_position">Suti %1$d ukat %2$d</string>
     <string name="names_search_hint">Mä suti thaqhapxam...</string>
     <string name="names_title">Uka 99 sutinakax Allah ukankiwa</string>
+    <string name="hajj_map_zoom_in">Ukax mä jach’a uñacht’äwiwa</string>
+    <string name="hajj_map_zoom_out">Ukax mä jach’a uñacht’äwiwa</string>
+    <string name="learn_search_clear">Qhana thaqhaña</string>
+    <string name="learn_topic_zakat_fitr">Zakat al-Fitr ukax mä juk’a pachanakanwa</string>
+    <string name="names_search_clear">Qhana thaqhaña</string>
 </resources>

@@ -106,4 +106,9 @@
     <string name="names_position">Ingoa %1$d o %2$d</string>
     <string name="names_search_hint">Rapua he ingoa…</string>
     <string name="names_title">Ko nga ingoa 99 o Allah</string>
+    <string name="funeral_will_cancel">Whakakore</string>
+    <string name="hajj_map_zoom_in">Topa mai</string>
+    <string name="hajj_map_zoom_out">Topa atu</string>
+    <string name="learn_search_clear">Maama te rapu</string>
+    <string name="names_search_clear">Maama te rapu</string>
 </resources>

@@ -106,4 +106,10 @@
     <string name="names_position">نام %1$d از %2$d</string>
     <string name="names_search_hint">جستجو برای نام…</string>
     <string name="names_title">99 اسم الله</string>
+    <string name="funeral_will_cancel">لغو کنید</string>
+    <string name="hajj_map_zoom_in">بزرگنمایی کنید</string>
+    <string name="hajj_map_zoom_out">بزرگنمایی کنید</string>
+    <string name="learn_search_clear">جستجو را پاک کنید</string>
+    <string name="learn_topic_zakat_fitr">زکات فطره</string>
+    <string name="names_search_clear">جستجو را پاک کنید</string>
 </resources>

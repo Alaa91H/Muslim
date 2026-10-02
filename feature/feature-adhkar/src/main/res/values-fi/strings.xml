@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Dhikr kopioitu</string>
     <string name="adhkar_periodic_dhikr">Erityinen dhikr</string>
     <string name="adhkar_periodic_dhikr_random">Satunnainen (manuaalisen valinnan sijaan)</string>
+    <string name="adhkar_more_actions">Lisää toimintoja</string>
+    <string name="adhkar_reader_next">Seuraavaksi</string>
+    <string name="adhkar_reader_previous">Edellinen</string>
+    <string name="adhkar_search_clear">Tyhjennä haku</string>
 </resources>

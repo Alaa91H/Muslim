@@ -72,4 +72,8 @@
     <string name="adhkar_copied">ধিকৰে কপি কৰিলে</string>
     <string name="adhkar_periodic_dhikr">নিৰ্দিষ্ট জিকিৰ</string>
     <string name="adhkar_periodic_dhikr_random">ৰেণ্ডম (মেনুৱেল পিক কৰাৰ পৰিৱৰ্তে)</string>
+    <string name="adhkar_more_actions">অধিক কাৰ্য্য</string>
+    <string name="adhkar_reader_next">ইয়াৰ পিছত</string>
+    <string name="adhkar_reader_previous">পূৰ্বৰ</string>
+    <string name="adhkar_search_clear">সন্ধান পৰিষ্কাৰ কৰক</string>
 </resources>

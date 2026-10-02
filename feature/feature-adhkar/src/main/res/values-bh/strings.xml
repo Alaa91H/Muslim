@@ -72,4 +72,8 @@
     <string name="adhkar_copied">ढिकर नकल कइले बाड़न</string>
     <string name="adhkar_periodic_dhikr">विशिष्ट ज़िकर के बारे में बतावल गइल बा</string>
     <string name="adhkar_periodic_dhikr_random">यादृच्छिक (मैनुअल पिक के बजाय)</string>
+    <string name="adhkar_more_actions">अउरी कार्रवाई कइल जाव</string>
+    <string name="adhkar_reader_next">आगे के बात बा</string>
+    <string name="adhkar_reader_previous">पिछला बा</string>
+    <string name="adhkar_search_clear">खोज के साफ कर दिहल जाव</string>
 </resources>

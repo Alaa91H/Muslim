@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">ټول جوماتونه ښکاره کړئ</string>
     <string name="mosque_finder_share">لارښوونې خلاصې کړئ</string>
     <string name="offline_maps_use_my_location">زما اوسني ځای ته لاړ شه</string>
+    <string name="nearby_mosques_map_action">نقشه</string>
+    <string name="nearby_mosques_more_actions">نور عملونه</string>
+    <string name="nearby_mosques_search_clear">پاک لټون</string>
+    <string name="qibla_tab_qibla">قبله</string>
 </resources>

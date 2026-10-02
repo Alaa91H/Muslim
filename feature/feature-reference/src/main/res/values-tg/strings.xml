@@ -7,4 +7,8 @@
     <string name="reference_topics_count">мавзӯъҳо</string>
     <string name="reference_copy">Нусхабардорӣ</string>
     <string name="reference_share">Мубодила</string>
+    <string name="history_atlas_zoom_in">Масштаб кардан</string>
+    <string name="history_atlas_zoom_out">Масоҳат кардан</string>
+    <string name="history_language_english">англисӣ</string>
+    <string name="reference_search_clear">Ҷустуҷӯро тоза кунед</string>
 </resources>

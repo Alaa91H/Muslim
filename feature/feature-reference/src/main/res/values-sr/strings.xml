@@ -7,4 +7,8 @@
     <string name="reference_topics_count">теме</string>
     <string name="reference_copy">Копирај</string>
     <string name="reference_share">Схаре</string>
+    <string name="history_atlas_zoom_in">Увећајте</string>
+    <string name="history_atlas_zoom_out">Умањите</string>
+    <string name="history_language_english">енглески</string>
+    <string name="reference_search_clear">Обриши претрагу</string>
 </resources>

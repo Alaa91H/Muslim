@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 izenak azalpen osoarekin</string>
     <string name="more_hajj">Hajj eta Umrah</string>
     <string name="more_hajj_desc">Hajj eta Umrah errituen gida zehatza</string>
+    <string name="more_search_clear">Garbitu bilaketa</string>
+    <string name="tab_ramadan">Ramadana</string>
+    <string name="voice_listen">Entzun</string>
 </resources>

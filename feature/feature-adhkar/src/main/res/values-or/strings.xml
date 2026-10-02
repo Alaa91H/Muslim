@@ -72,4 +72,8 @@
     <string name="adhkar_copied">ଧିକର କପି କରିଥିଲେ |</string>
     <string name="adhkar_periodic_dhikr">ନିର୍ଦ୍ଦିଷ୍ଟ ଧିକର |</string>
     <string name="adhkar_periodic_dhikr_random">ଅନିୟମିତ (ମାନୁଆଲ୍ ପିକ୍ ବଦଳରେ)</string>
+    <string name="adhkar_more_actions">ଅଧିକ କ୍ରିୟା</string>
+    <string name="adhkar_reader_next">ପରବର୍ତ୍ତୀ</string>
+    <string name="adhkar_reader_previous">ପୂର୍ବ</string>
+    <string name="adhkar_search_clear">ସନ୍ଧାନ ସଫା କରନ୍ତୁ |</string>
 </resources>

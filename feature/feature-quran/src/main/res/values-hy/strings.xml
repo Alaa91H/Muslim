@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Ընտրեք ասմունքող</string>
     <string name="quran_reciter_search_hint">Որոնեք ասմունքողներին անունով, ոճով կամ որակով…</string>
     <string name="quran_reciter_no_results">Ոչ մի ասմունքող չի համապատասխանում այս որոնմանը</string>
+    <string name="quran_tab_bookmarks">Էջանիշեր</string>
 </resources>

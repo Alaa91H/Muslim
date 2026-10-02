@@ -106,4 +106,10 @@
     <string name="names_position">Имя %1$d из %2$d</string>
     <string name="names_search_hint">Искать имя…</string>
     <string name="names_title">99 имен Аллаха</string>
+    <string name="funeral_will_cancel">Отмена</string>
+    <string name="hajj_map_zoom_in">Увеличить масштаб</string>
+    <string name="hajj_map_zoom_out">Уменьшить масштаб</string>
+    <string name="learn_search_clear">Очистить поиск</string>
+    <string name="learn_topic_zakat_fitr">Закят аль-Фитр</string>
+    <string name="names_search_clear">Очистить поиск</string>
 </resources>

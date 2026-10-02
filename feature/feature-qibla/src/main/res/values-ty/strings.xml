@@ -78,4 +78,6 @@
     <string name="mosque_finder_show_all">A faaite i te mau mosques atoa</string>
     <string name="mosque_finder_share">A tatara i te mau faaueraa</string>
     <string name="offline_maps_use_my_location">A haere i to\'u vahi i teie nei</string>
+    <string name="nearby_mosques_more_actions">Te tahi atu mau ohipa</string>
+    <string name="nearby_mosques_search_clear">A tatara i te imiraa</string>
 </resources>

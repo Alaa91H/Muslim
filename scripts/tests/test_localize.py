@@ -7,9 +7,59 @@ from pathlib import Path
 from unittest.mock import patch
 
 from scripts import localize
+from scripts import sync_duplicate_localizations
 
 
 class LocalizationQualityTests(unittest.TestCase):
+    def test_duplicate_translation_reuse_requires_one_exact_source_match(self) -> None:
+        index: dict[tuple[str, str], set[str]] = {}
+        sync_duplicate_localizations.add_candidate(index, "fr", "Open Quran", "Ouvrir le Coran")
+        self.assertEqual(
+            sync_duplicate_localizations.resolve_candidate(index, "fr", "Open Quran"),
+            "Ouvrir le Coran",
+        )
+
+        sync_duplicate_localizations.add_candidate(index, "fr", "Open Quran", "Ouvrir le livre")
+        self.assertIsNone(
+            sync_duplicate_localizations.resolve_candidate(index, "fr", "Open Quran"),
+        )
+
+    def test_duplicate_translation_reuse_rejects_source_and_placeholder_mismatches(self) -> None:
+        index: dict[tuple[str, str], set[str]] = {}
+        sync_duplicate_localizations.add_candidate(index, "de", "Open Quran", "Open Quran")
+        sync_duplicate_localizations.add_candidate(index, "de", "Page %1$d", "Seite %1$s")
+        self.assertIsNone(sync_duplicate_localizations.resolve_candidate(index, "de", "Open Quran"))
+        self.assertIsNone(sync_duplicate_localizations.resolve_candidate(index, "de", "Page %1$d"))
+
+    def test_duplicate_sync_fills_only_missing_unambiguous_values(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            donor = root / "donor"
+            target = root / "target"
+            for module in (donor, target):
+                (module / "values-en").mkdir(parents=True)
+                (module / "values-fr").mkdir()
+
+            (donor / "values-en/strings.xml").write_text(
+                '<resources><string name="source">Open Quran</string></resources>', encoding="utf-8",
+            )
+            (donor / "values-fr/strings.xml").write_text(
+                '<resources><string name="source">Ouvrir le Coran</string></resources>', encoding="utf-8",
+            )
+            (target / "values-en/strings.xml").write_text(
+                '<resources><string name="action">Open Quran</string>'
+                '<string name="existing">Save changes</string></resources>', encoding="utf-8",
+            )
+            (target / "values-fr/strings.xml").write_text(
+                '<resources><string name="existing">Enregistrer</string></resources>', encoding="utf-8",
+            )
+
+            sync_duplicate_localizations.synchronize([str(donor), str(target)])
+            translated = localize.read_locale_strings(str(target / "values-fr/strings.xml"))
+
+        self.assertEqual(translated["action"], "Ouvrir le Coran")
+        self.assertEqual(translated["existing"], "Enregistrer")
+
     def test_scholar_library_has_complete_english_source(self) -> None:
         resources = Path(localize.PROJECT_ROOT) / "feature/feature-scholar-library/src/main/res"
         arabic = localize.read_locale_strings(str(resources / "values/strings.xml"))

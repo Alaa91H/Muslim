@@ -198,4 +198,7 @@
     <string name="settings_ornament_arabesque">Arabesque</string>
     <string name="settings_ornament_stars">Stars</string>
     <string name="settings_ornament_minimal">Minimal</string>
+    <string name="settings_ornament_intensity_off">Æхгæд</string>
+    <string name="settings_search_clear">Сыгъдæг кæнут агурæн</string>
+    <string name="settings_updates_last_successful">Фæстаг сбæрæг кæнын: %1$s</string>
 </resources>

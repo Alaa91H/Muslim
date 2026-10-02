@@ -106,4 +106,9 @@
     <string name="names_position">Suti %1$d de %2$d</string>
     <string name="names_search_hint">Huk sutita maskay...</string>
     <string name="names_title">Allahpa 99 sutinkuna</string>
+    <string name="hajj_map_zoom_in">Hatunchay</string>
+    <string name="hajj_map_zoom_out">Huch’uyachiy</string>
+    <string name="learn_search_clear">Chuya maskay</string>
+    <string name="learn_topic_zakat_fitr">Zakat al-Fitr sutiyuq runa</string>
+    <string name="names_search_clear">Chuya maskay</string>
 </resources>

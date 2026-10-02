@@ -106,4 +106,10 @@
     <string name="names_position">ชื่อ %1$d จาก %2$d</string>
     <string name="names_search_hint">ค้นหาชื่อ...</string>
     <string name="names_title">99 รายชื่อของอัลลอฮ์</string>
+    <string name="funeral_will_cancel">ยกเลิก</string>
+    <string name="hajj_map_zoom_in">ซูมเข้า</string>
+    <string name="hajj_map_zoom_out">ซูมออก</string>
+    <string name="learn_search_clear">ล้างการค้นหา</string>
+    <string name="learn_topic_zakat_fitr">ซะกาต อัล-ฟิตริ</string>
+    <string name="names_search_clear">ล้างการค้นหา</string>
 </resources>

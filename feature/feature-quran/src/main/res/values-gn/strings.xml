@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Eiporavo peteĩ recitador</string>
     <string name="quran_reciter_search_hint">Eheka umi recitador héra, estilo térã calidad rupive...</string>
     <string name="quran_reciter_no_results">Ndaipóri recitador ojoajúva ko jeporeka rehe</string>
+    <string name="quran_tab_bookmarks">Marcadores rehegua</string>
 </resources>

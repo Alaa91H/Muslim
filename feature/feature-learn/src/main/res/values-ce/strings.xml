@@ -106,4 +106,9 @@
     <string name="names_position">ЦӀе %1$d из %2$d</string>
     <string name="names_search_hint">ЦӀе лаха...</string>
     <string name="names_title">АллахӀан 99 цӀе .</string>
+    <string name="hajj_map_zoom_in">Зум совъяккха</string>
+    <string name="hajj_map_zoom_out">Масштаб лахъяран</string>
+    <string name="learn_search_clear">ЦӀена лехамаш</string>
+    <string name="learn_topic_zakat_fitr">Закат аль-Фитру</string>
+    <string name="names_search_clear">ЦӀена лехамаш</string>
 </resources>

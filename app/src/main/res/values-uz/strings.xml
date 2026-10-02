@@ -50,4 +50,7 @@
     <string name="more_names_desc">To\'liq tushuntirish bilan 99 nom</string>
     <string name="more_hajj">Haj va Umra</string>
     <string name="more_hajj_desc">Haj va Umra marosimlari bo\'yicha batafsil qo\'llanma</string>
+    <string name="more_search_clear">Qidiruvni tozalash</string>
+    <string name="tab_ramadan">Ramazon</string>
+    <string name="voice_listen">Eshiting</string>
 </resources>

@@ -106,4 +106,9 @@
     <string name="names_position">Aqqa %1$d-imiit %2$d-imit</string>
     <string name="names_search_hint">Aqqanik ujarlerneq...</string>
     <string name="names_title">Allahip aqqi 99-it</string>
+    <string name="hajj_map_zoom_in">Zoom-erlugu</string>
+    <string name="hajj_map_zoom_out">Zoom-erlugu</string>
+    <string name="learn_search_clear">Ujaasineq erseqqissoq</string>
+    <string name="learn_topic_zakat_fitr">Zakat Fitri</string>
+    <string name="names_search_clear">Ujaasineq erseqqissoq</string>
 </resources>

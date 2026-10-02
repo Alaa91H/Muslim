@@ -106,4 +106,9 @@
     <string name="names_position">Anv %1$d eus %2$d</string>
     <string name="names_search_hint">Klask un anv...</string>
     <string name="names_title">An 99 anv Allah</string>
+    <string name="funeral_will_cancel">Nullañ</string>
+    <string name="hajj_map_zoom_in">Zoumañ</string>
+    <string name="hajj_map_zoom_out">Zoumañ</string>
+    <string name="learn_search_clear">Diverkañ ar c\'hlask</string>
+    <string name="names_search_clear">Diverkañ ar c\'hlask</string>
 </resources>

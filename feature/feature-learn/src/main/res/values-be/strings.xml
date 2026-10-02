@@ -106,4 +106,10 @@
     <string name="names_position">Назва %1$d з %2$d</string>
     <string name="names_search_hint">Пошук імя…</string>
     <string name="names_title">99 імёнаў алаха</string>
+    <string name="funeral_will_cancel">Адмяніць</string>
+    <string name="hajj_map_zoom_in">Павялічыць</string>
+    <string name="hajj_map_zoom_out">Паменшыць маштаб</string>
+    <string name="learn_search_clear">Выразны пошук</string>
+    <string name="learn_topic_zakat_fitr">Закят аль-Фітр</string>
+    <string name="names_search_clear">Выразны пошук</string>
 </resources>

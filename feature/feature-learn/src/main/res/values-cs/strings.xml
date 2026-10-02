@@ -106,4 +106,10 @@
     <string name="names_position">Název %1$d z %2$d</string>
     <string name="names_search_hint">Hledat jméno…</string>
     <string name="names_title">99 jmen Alláha</string>
+    <string name="funeral_will_cancel">Zrušit</string>
+    <string name="hajj_map_zoom_in">Přiblížit</string>
+    <string name="hajj_map_zoom_out">Oddálit</string>
+    <string name="learn_search_clear">Vymazat vyhledávání</string>
+    <string name="learn_topic_zakat_fitr">Zakát al-Fitr</string>
+    <string name="names_search_clear">Vymazat vyhledávání</string>
 </resources>

@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">Паказаць усе мячэці</string>
     <string name="mosque_finder_share">Адкрытыя напрамкі</string>
     <string name="offline_maps_use_my_location">Перайсці да майго бягучага месцазнаходжання</string>
+    <string name="nearby_mosques_map_action">Карта</string>
+    <string name="nearby_mosques_more_actions">Больш дзеянняў</string>
+    <string name="nearby_mosques_search_clear">Выразны пошук</string>
+    <string name="qibla_tab_qibla">Кібла</string>
 </resources>

@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">选择朗诵者</string>
     <string name="quran_reciter_search_hint">按姓名、风格或质量搜索朗诵者……</string>
     <string name="quran_reciter_no_results">没有朗诵者匹配此搜索</string>
+    <string name="quran_tab_bookmarks">书签</string>
 </resources>

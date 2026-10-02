@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Londa omusomi w’ebitabo</string>
     <string name="quran_reciter_search_hint">Noonya abasomesa amannya, sitayiro, oba omutindo...</string>
     <string name="quran_reciter_no_results">Tewali basoma bakwatagana na kunoonya kuno</string>
+    <string name="quran_tab_bookmarks">Ebiwandiiko ebiraga ebitabo</string>
 </resources>

@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">ഒരു വായനക്കാരനെ തിരഞ്ഞെടുക്കുക</string>
     <string name="quran_reciter_search_hint">പേര്, ശൈലി അല്ലെങ്കിൽ ഗുണമേന്മ പ്രകാരം വായനക്കാരെ തിരയുക...</string>
     <string name="quran_reciter_no_results">ഈ തിരയലുമായി പൊരുത്തപ്പെടുന്ന വായനക്കാരൊന്നും</string>
+    <string name="quran_tab_bookmarks">ബുക്ക്മാർക്കുകൾ</string>
 </resources>

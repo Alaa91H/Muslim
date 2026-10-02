@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Kyerɛ asɔredan ahorow nyinaa</string>
     <string name="mosque_finder_share">Bue akwankyerɛ ahorow</string>
     <string name="offline_maps_use_my_location">Kɔ beae a mewɔ mprempren no</string>
+    <string name="nearby_mosques_map_action">Asase mfonini</string>
+    <string name="nearby_mosques_more_actions">Nneyɛe pii</string>
+    <string name="nearby_mosques_search_clear">Hwehwɛ nhwehwɛmu a emu da hɔ</string>
 </resources>

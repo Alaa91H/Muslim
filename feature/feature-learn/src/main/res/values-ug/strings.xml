@@ -106,4 +106,10 @@
     <string name="names_position">%2$d نىڭ %1$d ئىسمى</string>
     <string name="names_search_hint">ئىسىم ئىزدە…</string>
     <string name="names_title">ئاللاھنىڭ 99 ئىسمى</string>
+    <string name="funeral_will_cancel">بىكار قىلىش</string>
+    <string name="hajj_map_zoom_in">چوڭايتىش</string>
+    <string name="hajj_map_zoom_out">چوڭايتىڭ</string>
+    <string name="learn_search_clear">ئىزدەشنى تازىلاش</string>
+    <string name="learn_topic_zakat_fitr">زاكات ئەل فىتىر</string>
+    <string name="names_search_clear">ئىزدەشنى تازىلاش</string>
 </resources>

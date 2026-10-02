@@ -7,4 +7,8 @@
     <string name="reference_topics_count">emner</string>
     <string name="reference_copy">Kopier</string>
     <string name="reference_share">Del</string>
+    <string name="history_atlas_zoom_in">Zoom inn</string>
+    <string name="history_atlas_zoom_out">Zoom ut</string>
+    <string name="history_language_english">engelsk</string>
+    <string name="reference_search_clear">Tøm søk</string>
 </resources>

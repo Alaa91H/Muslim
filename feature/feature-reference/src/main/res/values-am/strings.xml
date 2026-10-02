@@ -7,4 +7,8 @@
     <string name="reference_topics_count">ርዕሶች</string>
     <string name="reference_copy">ቅዳ</string>
     <string name="reference_share">አጋራ</string>
+    <string name="history_atlas_zoom_in">አሳንስ</string>
+    <string name="history_atlas_zoom_out">አሳንስ</string>
+    <string name="history_language_english">እንግሊዝኛ</string>
+    <string name="reference_search_clear">ፍለጋን አጽዳ</string>
 </resources>

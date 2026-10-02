@@ -50,4 +50,7 @@
     <string name="more_names_desc">Inɗe 99 ɗee e firo timmungo</string>
     <string name="more_hajj">Hajju e Umra</string>
     <string name="more_hajj_desc">Ardorde laaɓtunde e golle Hajj e Umra</string>
+    <string name="more_search_clear">Laɓɓin njiylawu</string>
+    <string name="tab_ramadan">Ramadaan</string>
+    <string name="voice_listen">Heɗto</string>
 </resources>

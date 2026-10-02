@@ -106,4 +106,8 @@
     <string name="names_position">Naam %1$d van %2$d</string>
     <string name="names_search_hint">Zoek een naam…</string>
     <string name="names_title">De 99 namen van Allah</string>
+    <string name="hajj_map_zoom_out">Uitzoomen</string>
+    <string name="learn_search_clear">Duidelijke zoekopdracht</string>
+    <string name="learn_topic_zakat_fitr">Zakaat al-Fitr</string>
+    <string name="names_search_clear">Duidelijke zoekopdracht</string>
 </resources>

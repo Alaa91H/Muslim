@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Укучыны сайлагыз</string>
     <string name="quran_reciter_search_hint">Укучыларны исем, стиль яки сыйфат буенча эзләгез…</string>
     <string name="quran_reciter_no_results">Бу эзләүгә бер укучы да туры килми</string>
+    <string name="quran_tab_bookmarks">Кыстармалар</string>
 </resources>

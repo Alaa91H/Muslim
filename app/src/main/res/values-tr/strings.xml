@@ -50,4 +50,7 @@
     <string name="more_names_desc">Tam açıklamasıyla 99 isim</string>
     <string name="more_hajj">Hac ve Umre</string>
     <string name="more_hajj_desc">Hac ve Umre ayinleri hakkında ayrıntılı rehber</string>
+    <string name="more_search_clear">Aramayı temizle</string>
+    <string name="tab_ramadan">Ramazan</string>
+    <string name="voice_listen">Dinle</string>
 </resources>

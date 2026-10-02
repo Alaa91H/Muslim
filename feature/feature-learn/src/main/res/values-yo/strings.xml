@@ -106,4 +106,9 @@
     <string name="names_position">Orukọ %1$d ti %2$d</string>
     <string name="names_search_hint">Wa orukọ kan…</string>
     <string name="names_title">Awọn orukọ 99 ti Allah</string>
+    <string name="funeral_will_cancel">Fagilee</string>
+    <string name="hajj_map_zoom_in">Sun-un sinu</string>
+    <string name="hajj_map_zoom_out">Sun-un jade</string>
+    <string name="learn_search_clear">Ko wiwa kuro</string>
+    <string name="names_search_clear">Ko wiwa kuro</string>
 </resources>

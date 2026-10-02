@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">모든 모스크 보기</string>
     <string name="mosque_finder_share">길찾기 열기</string>
     <string name="offline_maps_use_my_location">내 현재 위치로 이동</string>
+    <string name="nearby_mosques_map_action">지도</string>
+    <string name="nearby_mosques_more_actions">추가 작업</string>
+    <string name="nearby_mosques_search_clear">검색 지우기</string>
+    <string name="qibla_tab_qibla">키블라</string>
 </resources>

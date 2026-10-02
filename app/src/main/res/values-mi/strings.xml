@@ -50,4 +50,6 @@
     <string name="more_names_desc">Ko nga ingoa 99 me nga whakamarama katoa</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>
     <string name="more_hajj_desc">He aratohu taipitopito mo nga tikanga Hajj me Umrah</string>
+    <string name="more_search_clear">Maama te rapu</string>
+    <string name="voice_listen">Whakarongo mai</string>
 </resources>

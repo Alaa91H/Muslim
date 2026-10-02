@@ -50,4 +50,6 @@
     <string name="more_names_desc">Tey 99 nøvnini við fullari frágreiðing</string>
     <string name="more_hajj">Hajj og umra</string>
     <string name="more_hajj_desc">Nágreinilig vegleiðing til Hajj- og Umrah-ritualini</string>
+    <string name="more_search_clear">Rudda leitingina</string>
+    <string name="voice_listen">Lurta</string>
 </resources>

@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Vakaraitaka na valenilotu kece</string>
     <string name="mosque_finder_share">Dolava na veidusimaki</string>
     <string name="offline_maps_use_my_location">Lako ki na noqu vanua ena gauna oqo .</string>
+    <string name="nearby_mosques_map_action">Mape</string>
+    <string name="nearby_mosques_more_actions">E levu tale na cakacaka</string>
+    <string name="nearby_mosques_search_clear">Vakasavasavataka na vakasaqaqara</string>
 </resources>

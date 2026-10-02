@@ -50,4 +50,6 @@
     <string name="more_names_desc">99 nazw z pełnym wyjaśnieniem</string>
     <string name="more_hajj">Hadżdż i Umra</string>
     <string name="more_hajj_desc">Szczegółowy przewodnik po rytuałach Hadżdż i Umrah</string>
+    <string name="more_search_clear">Wyczyść wyszukiwanie</string>
+    <string name="voice_listen">Słuchaj</string>
 </resources>

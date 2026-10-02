@@ -50,4 +50,7 @@
     <string name="more_names_desc">གསལ་བཤད་ཆ་ཚང་ཡོད་པའི་མིང་ ༩༩ དེ།</string>
     <string name="more_hajj">ཧ་ཇ་དང་ཨུམ་ར།</string>
     <string name="more_hajj_desc">ཧ་ཇ་དང་ཨུམ་ར་ཆོ་གའི་ལམ་སྟོན་ཁ་གསལ།</string>
+    <string name="more_search_clear">འཚོལ་ཞིབ་བསལ།</string>
+    <string name="tab_ramadan">ར་མ་དཱན།</string>
+    <string name="voice_listen">ཉོན།</string>
 </resources>

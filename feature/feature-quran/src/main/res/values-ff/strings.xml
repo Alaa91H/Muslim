@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Suɓo janngoowo</string>
     <string name="quran_reciter_search_hint">Yiylo janngooɓe e innde, mbaadi, walla kalite...</string>
     <string name="quran_reciter_no_results">Alaa janngooɓe nannduɓe e ndee njiylawu</string>
+    <string name="quran_tab_bookmarks">Maandeeji defte</string>
 </resources>

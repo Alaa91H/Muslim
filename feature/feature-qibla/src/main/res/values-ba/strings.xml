@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">Бөтә мәсеттәрҙе күрһәтеү .</string>
     <string name="mosque_finder_share">Асыҡ йүнәлештәр .</string>
     <string name="offline_maps_use_my_location">Минең хәҙерге урыныма барығыҙ</string>
+    <string name="nearby_mosques_map_action">Карта</string>
+    <string name="nearby_mosques_more_actions">Тағы ла ғәмәлдәр</string>
+    <string name="nearby_mosques_search_clear">Эҙләүҙе таҙартыу</string>
+    <string name="qibla_tab_qibla">Ҡибла</string>
 </resources>

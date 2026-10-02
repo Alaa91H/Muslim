@@ -106,4 +106,9 @@
     <string name="names_position">Innde %1$d e nder %2$d</string>
     <string name="names_search_hint">Yiylo innde...</string>
     <string name="names_title">Inɗe Alla 99 ɗee</string>
+    <string name="hajj_map_zoom_in">Zoom nder</string>
+    <string name="hajj_map_zoom_out">Zoom les</string>
+    <string name="learn_search_clear">Laɓɓin njiylawu</string>
+    <string name="learn_topic_zakat_fitr">Zakkaa Fitri</string>
+    <string name="names_search_clear">Laɓɓin njiylawu</string>
 </resources>

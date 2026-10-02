@@ -7,4 +7,8 @@
     <string name="reference_topics_count">ኣርእስታት ዝሓዘ እዩ።</string>
     <string name="reference_copy">ቅዳሕ</string>
     <string name="reference_share">ሼር ምግባር</string>
+    <string name="history_atlas_zoom_in">ዙም ኢን</string>
+    <string name="history_atlas_zoom_out">ዙም ኣውት ግበር</string>
+    <string name="history_language_english">ትግርኛ</string>
+    <string name="reference_search_clear">ንጹር ምድላይ</string>
 </resources>

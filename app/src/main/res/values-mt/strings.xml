@@ -50,4 +50,6 @@
     <string name="more_names_desc">Id-99 isem bi spjegazzjoni sħiħa</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>
     <string name="more_hajj_desc">Gwida dettaljata għar-riti Hajj u Umrah</string>
+    <string name="more_search_clear">Tiftix ċar</string>
+    <string name="voice_listen">Isma’</string>
 </resources>

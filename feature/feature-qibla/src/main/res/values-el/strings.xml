@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Εμφάνιση όλων των τζαμιών</string>
     <string name="mosque_finder_share">Ανοιχτές οδηγίες</string>
     <string name="offline_maps_use_my_location">Μετάβαση στην τρέχουσα τοποθεσία μου</string>
+    <string name="nearby_mosques_map_action">Χάρτης</string>
+    <string name="nearby_mosques_more_actions">Περισσότερες ενέργειες</string>
+    <string name="nearby_mosques_search_clear">Εκκαθάριση αναζήτησης</string>
 </resources>

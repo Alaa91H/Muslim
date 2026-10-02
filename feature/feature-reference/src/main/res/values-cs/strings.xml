@@ -7,4 +7,8 @@
     <string name="reference_topics_count">témata</string>
     <string name="reference_copy">Kopírovat</string>
     <string name="reference_share">Sdílejte</string>
+    <string name="history_atlas_zoom_in">Přiblížit</string>
+    <string name="history_atlas_zoom_out">Oddálit</string>
+    <string name="history_language_english">anglicky</string>
+    <string name="reference_search_clear">Vymazat vyhledávání</string>
 </resources>

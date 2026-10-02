@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Bonisa zonke iimosque</string>
     <string name="mosque_finder_share">Vula izalathiso</string>
     <string name="offline_maps_use_my_location">Yiya kwindawo yam ngoku</string>
+    <string name="nearby_mosques_map_action">Imephu</string>
+    <string name="nearby_mosques_more_actions">Izenzo ezingakumbi</string>
+    <string name="nearby_mosques_search_clear">Cima uphendlo</string>
 </resources>

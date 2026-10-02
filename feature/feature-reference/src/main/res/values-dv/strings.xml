@@ -7,4 +7,9 @@
     <string name="reference_topics_count">މައުޟޫޢުތަކެވެ</string>
     <string name="reference_copy">ކޮޕީ</string>
     <string name="reference_share">ޝެއާ ކުރާށެވެ</string>
+    <string name="history_atlas_zoom_in">ޒޫމް އިން ކޮށްލާށެވެ</string>
+    <string name="history_atlas_zoom_out">ޒޫމް އައުޓް ކޮށްލާށެވެ</string>
+    <string name="history_language_arabic">العربية އެވެ</string>
+    <string name="history_language_english">އިނގިރޭސި ބަހުން</string>
+    <string name="reference_search_clear">ސާފު ހޯދުން</string>
 </resources>

@@ -72,4 +72,8 @@
     <string name="adhkar_copied">ذکر کاپي</string>
     <string name="adhkar_periodic_dhikr">ځانګړی ذکر</string>
     <string name="adhkar_periodic_dhikr_random">تصادفي (د لاسي انتخاب پرځای)</string>
+    <string name="adhkar_more_actions">نور عملونه</string>
+    <string name="adhkar_reader_next">بل</string>
+    <string name="adhkar_reader_previous">مخکینی</string>
+    <string name="adhkar_search_clear">پاک لټون</string>
 </resources>

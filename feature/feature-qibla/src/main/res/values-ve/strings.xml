@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Sumbedzani mimosike yothe</string>
     <string name="mosque_finder_share">Vula nḓila</string>
     <string name="offline_maps_use_my_location">Iyani hune nda vha hone zwino</string>
+    <string name="nearby_mosques_map_action">Mapa</string>
+    <string name="nearby_mosques_more_actions">Nyito nnzhi</string>
+    <string name="nearby_mosques_search_clear">Kha vha bvise ṱhoḓisiso</string>
 </resources>

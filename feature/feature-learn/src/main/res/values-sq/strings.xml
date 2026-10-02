@@ -106,4 +106,10 @@
     <string name="names_position">Emri %1$d nga %2$d</string>
     <string name="names_search_hint">Kërkoni për një emër…</string>
     <string name="names_title">99 emrat e Allahut</string>
+    <string name="funeral_will_cancel">Anulo</string>
+    <string name="hajj_map_zoom_in">Zmadhoni</string>
+    <string name="hajj_map_zoom_out">Zmadhoni</string>
+    <string name="learn_search_clear">Pastro kërkimin</string>
+    <string name="learn_topic_zakat_fitr">Zekatul-Fitr</string>
+    <string name="names_search_clear">Pastro kërkimin</string>
 </resources>

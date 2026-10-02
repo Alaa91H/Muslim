@@ -7,4 +7,9 @@
     <string name="reference_topics_count">주제</string>
     <string name="reference_copy">복사</string>
     <string name="reference_share">공유</string>
+    <string name="history_atlas_zoom_in">확대</string>
+    <string name="history_atlas_zoom_out">축소</string>
+    <string name="history_language_arabic">아랍어</string>
+    <string name="history_language_english">영어</string>
+    <string name="reference_search_clear">검색 지우기</string>
 </resources>

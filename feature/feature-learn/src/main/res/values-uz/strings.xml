@@ -106,4 +106,10 @@
     <string name="names_position">%2$d raqamidan %1$d nom</string>
     <string name="names_search_hint">Ism qidiring…</string>
     <string name="names_title">Allohning 99 ismlari</string>
+    <string name="funeral_will_cancel">Bekor qilish</string>
+    <string name="hajj_map_zoom_in">Kattalashtirish</string>
+    <string name="hajj_map_zoom_out">Kichraytirish</string>
+    <string name="learn_search_clear">Qidiruvni tozalash</string>
+    <string name="learn_topic_zakat_fitr">Fitr zakoti</string>
+    <string name="names_search_clear">Qidiruvni tozalash</string>
 </resources>

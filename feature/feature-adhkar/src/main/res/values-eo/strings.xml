@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Dhikr kopiis</string>
     <string name="adhkar_periodic_dhikr">Specifa dhikr</string>
     <string name="adhkar_periodic_dhikr_random">Hazarda (anstataŭ mana elekto)</string>
+    <string name="adhkar_more_actions">Pli da agoj</string>
+    <string name="adhkar_reader_next">Poste</string>
+    <string name="adhkar_reader_previous">Antaŭa</string>
+    <string name="adhkar_search_clear">Klara serĉo</string>
 </resources>

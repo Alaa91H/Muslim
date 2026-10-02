@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Зикр хуулсан</string>
     <string name="adhkar_periodic_dhikr">Тодорхой зикр</string>
     <string name="adhkar_periodic_dhikr_random">Санамсаргүй (гараар сонгохын оронд)</string>
+    <string name="adhkar_more_actions">Илүү олон үйлдэл</string>
+    <string name="adhkar_reader_next">Дараа нь</string>
+    <string name="adhkar_reader_previous">Өмнөх</string>
+    <string name="adhkar_search_clear">Хайлтыг арилгах</string>
 </resources>

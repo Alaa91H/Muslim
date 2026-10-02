@@ -7,4 +7,9 @@
     <string name="reference_topics_count">umi tema rehegua</string>
     <string name="reference_copy">Kopia rehegua</string>
     <string name="reference_share">Compartir</string>
+    <string name="history_atlas_zoom_in">Embotuichave</string>
+    <string name="history_atlas_zoom_out">Emboguejy michĩmi</string>
+    <string name="history_language_arabic">العربية rehegua</string>
+    <string name="history_language_english">Guarani guarani</string>
+    <string name="reference_search_clear">Ojeporeka hesakã porãva</string>
 </resources>

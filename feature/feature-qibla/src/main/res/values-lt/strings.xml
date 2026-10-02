@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Rodyti visas mečetes</string>
     <string name="mosque_finder_share">Atidaryti nuorodas</string>
     <string name="offline_maps_use_my_location">Eiti į mano dabartinę vietą</string>
+    <string name="nearby_mosques_map_action">Žemėlapis</string>
+    <string name="nearby_mosques_more_actions">Daugiau veiksmų</string>
+    <string name="nearby_mosques_search_clear">Išvalyti paiešką</string>
 </resources>

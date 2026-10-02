@@ -7,4 +7,8 @@
     <string name="reference_topics_count">pynciau</string>
     <string name="reference_copy">Copi</string>
     <string name="reference_share">Rhannu</string>
+    <string name="history_atlas_zoom_in">Chwyddo i mewn</string>
+    <string name="history_atlas_zoom_out">Chwyddo allan</string>
+    <string name="history_language_english">Saesneg</string>
+    <string name="reference_search_clear">Chwiliad clir</string>
 </resources>

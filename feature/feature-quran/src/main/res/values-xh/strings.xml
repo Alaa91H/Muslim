@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Khetha ireciter</string>
     <string name="quran_reciter_search_hint">Khangela abacebisi ngamagama, isimbo, okanye umgangatho...</string>
     <string name="quran_reciter_no_results">Akukho baphindaphindi bahambelana nolu phendlo</string>
+    <string name="quran_tab_bookmarks">Iibhukhimaksi</string>
 </resources>

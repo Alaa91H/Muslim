@@ -72,4 +72,8 @@
     <string name="adhkar_copied">迪克尔已复制</string>
     <string name="adhkar_periodic_dhikr">具体的迪克尔</string>
     <string name="adhkar_periodic_dhikr_random">随机（代替人工挑选）</string>
+    <string name="adhkar_more_actions">更多行动</string>
+    <string name="adhkar_reader_next">下一步</string>
+    <string name="adhkar_reader_previous">上一页</string>
+    <string name="adhkar_search_clear">清除搜索</string>
 </resources>

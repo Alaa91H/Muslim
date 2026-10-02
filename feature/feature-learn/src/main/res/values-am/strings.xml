@@ -106,4 +106,10 @@
     <string name="names_position">ስም %1$d ከ%2$d</string>
     <string name="names_search_hint">ስም ፈልግ…</string>
     <string name="names_title">99 የአላህ ስሞች</string>
+    <string name="funeral_will_cancel">ሰርዝ</string>
+    <string name="hajj_map_zoom_in">አሳንስ</string>
+    <string name="hajj_map_zoom_out">አሳንስ</string>
+    <string name="learn_search_clear">ፍለጋን አጽዳ</string>
+    <string name="learn_topic_zakat_fitr">ዘካተል ፊጥር</string>
+    <string name="names_search_clear">ፍለጋን አጽዳ</string>
 </resources>

@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Kombisa ti mosque hinkwato</string>
     <string name="mosque_finder_share">Vula swiletelo</string>
     <string name="offline_maps_use_my_location">Yana eka ndhawu ya mina ya sweswi</string>
+    <string name="nearby_mosques_map_action">Mepe</string>
+    <string name="nearby_mosques_more_actions">Swiendlo swo tala</string>
+    <string name="nearby_mosques_search_clear">Ku lavisisa loku nga erivaleni</string>
 </resources>

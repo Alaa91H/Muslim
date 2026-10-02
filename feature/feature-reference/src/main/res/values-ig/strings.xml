@@ -7,4 +7,9 @@
     <string name="reference_topics_count">isiokwu</string>
     <string name="reference_copy">Detuo</string>
     <string name="reference_share">Kekọrịta</string>
+    <string name="history_atlas_zoom_in">Bugharịa</string>
+    <string name="history_atlas_zoom_out">Wepụ ya</string>
+    <string name="history_language_arabic">عربية</string>
+    <string name="history_language_english">Bekee</string>
+    <string name="reference_search_clear">Kpochapụ ọchụchọ</string>
 </resources>

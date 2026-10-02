@@ -106,4 +106,9 @@
     <string name="names_position">Имя %1$d из %2$d</string>
     <string name="names_search_hint">ЦӀар балагье...</string>
     <string name="names_title">Аллагьасул 99 цӀар .</string>
+    <string name="hajj_map_zoom_in">Зум гьаби</string>
+    <string name="hajj_map_zoom_out">Масштаб дагьлъизабизе</string>
+    <string name="learn_search_clear">ЦӀех-рех бацӀцӀад гьабе</string>
+    <string name="learn_topic_zakat_fitr">Закатул-Фитр</string>
+    <string name="names_search_clear">ЦӀех-рех бацӀцӀад гьабе</string>
 </resources>

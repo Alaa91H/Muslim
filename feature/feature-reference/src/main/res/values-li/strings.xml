@@ -7,4 +7,7 @@
     <string name="reference_topics_count">oonderwerpe</string>
     <string name="reference_copy">Kopie</string>
     <string name="reference_share">Deile</string>
+    <string name="history_atlas_zoom_out">Zoom oet</string>
+    <string name="history_language_english">Ingels</string>
+    <string name="reference_search_clear">Zeuk wies</string>
 </resources>

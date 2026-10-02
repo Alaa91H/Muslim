@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 ном бо шарҳи пурра</string>
     <string name="more_hajj">Ҳаҷ ва Умра</string>
     <string name="more_hajj_desc">Дастури муфассал оид ба маросимҳои Ҳаҷ ва Умра</string>
+    <string name="more_search_clear">Ҷустуҷӯро тоза кунед</string>
+    <string name="tab_ramadan">Рамазон</string>
+    <string name="voice_listen">Гӯш кунед</string>
 </resources>

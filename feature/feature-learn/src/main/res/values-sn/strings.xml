@@ -106,4 +106,7 @@
     <string name="names_position">Zita %1$d pa%2$d</string>
     <string name="names_search_hint">Tsvaga zita...</string>
     <string name="names_title">Mazita makumi mapfumbamwe nemapfumbamwe aAllah</string>
+    <string name="funeral_will_back">رجوع</string>
+    <string name="learn_search_clear">Bvisa kutsvaga</string>
+    <string name="names_search_clear">Bvisa kutsvaga</string>
 </resources>

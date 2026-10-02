@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">Tampilkan semua masjid</string>
     <string name="mosque_finder_share">Buka petunjuk arah</string>
     <string name="offline_maps_use_my_location">Pergi ke lokasi saya saat ini</string>
+    <string name="nearby_mosques_map_action">Peta</string>
+    <string name="nearby_mosques_more_actions">Lebih banyak tindakan</string>
+    <string name="nearby_mosques_search_clear">Hapus pencarian</string>
+    <string name="qibla_tab_qibla">Kiblat</string>
 </resources>

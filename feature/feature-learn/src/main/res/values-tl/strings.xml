@@ -106,4 +106,9 @@
     <string name="names_position">Pangalan %1$d ng %2$d</string>
     <string name="names_search_hint">Maghanap ng pangalan…</string>
     <string name="names_title">Ang 99 na pangalan ng Allah</string>
+    <string name="funeral_will_cancel">Kanselahin</string>
+    <string name="hajj_map_zoom_in">Mag-zoom in</string>
+    <string name="hajj_map_zoom_out">Mag-zoom out</string>
+    <string name="learn_search_clear">I-clear ang paghahanap</string>
+    <string name="names_search_clear">I-clear ang paghahanap</string>
 </resources>

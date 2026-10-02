@@ -7,4 +7,8 @@
     <string name="reference_topics_count">මාතෘකා</string>
     <string name="reference_copy">පිටපත් කරන්න</string>
     <string name="reference_share">බෙදාගන්න</string>
+    <string name="history_atlas_zoom_in">විශාලනය කරන්න</string>
+    <string name="history_atlas_zoom_out">විශාලනය කරන්න</string>
+    <string name="history_language_english">ඉංග්රීසි</string>
+    <string name="reference_search_clear">සෙවීම පැහැදිලි කරන්න</string>
 </resources>

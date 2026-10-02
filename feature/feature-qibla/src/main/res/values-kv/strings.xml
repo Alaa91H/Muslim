@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">Петкӧдлы став мӧскъяссӧ .</string>
     <string name="mosque_finder_share">Восьса туйяс .</string>
     <string name="offline_maps_use_my_location">Мун менам ӧнія оланінӧ .</string>
+    <string name="nearby_mosques_map_action">Карта</string>
+    <string name="nearby_mosques_more_actions">Унджык действие .</string>
+    <string name="nearby_mosques_search_clear">Яснӧй корсьӧм .</string>
+    <string name="qibla_tab_qibla">Кибла</string>
 </resources>

@@ -106,4 +106,9 @@
     <string name="names_position">Migaq %1$d ak %2$d</string>
     <string name="names_search_hint">Migaq gorrisa...</string>
     <string name="names_title">Yallih 99 migaaqitte elle tan innal .</string>
+    <string name="hajj_map_zoom_in">zoom addat</string>
+    <string name="hajj_map_zoom_out">Zoom iroh</string>
+    <string name="learn_search_clear">Qado goranah</string>
+    <string name="learn_topic_zakat_fitr">Zakaatal Fitri</string>
+    <string name="names_search_clear">Qado goranah</string>
 </resources>

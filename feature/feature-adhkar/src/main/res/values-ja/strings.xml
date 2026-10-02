@@ -72,4 +72,8 @@
     <string name="adhkar_copied">ディクルがコピーされました</string>
     <string name="adhkar_periodic_dhikr">特定のディクル</string>
     <string name="adhkar_periodic_dhikr_random">ランダム (手動選択の代わりに)</string>
+    <string name="adhkar_more_actions">さらなるアクション</string>
+    <string name="adhkar_reader_next">次へ</string>
+    <string name="adhkar_reader_previous">前へ</string>
+    <string name="adhkar_search_clear">検索をクリア</string>
 </resources>

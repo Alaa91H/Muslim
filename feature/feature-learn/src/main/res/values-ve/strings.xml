@@ -106,4 +106,8 @@
     <string name="names_position">Dzina %1$d ya %2$d</string>
     <string name="names_search_hint">Kha vha setshe dzina...</string>
     <string name="names_title">Madzina a 99 a Allah .</string>
+    <string name="hajj_map_zoom_out">Zoom nnḓa</string>
+    <string name="learn_search_clear">Kha vha bvise ṱhoḓisiso</string>
+    <string name="learn_topic_zakat_fitr">Zakathi ya Fiṱiri</string>
+    <string name="names_search_clear">Kha vha bvise ṱhoḓisiso</string>
 </resources>

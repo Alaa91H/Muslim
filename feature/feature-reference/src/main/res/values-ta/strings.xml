@@ -7,4 +7,8 @@
     <string name="reference_topics_count">தலைப்புகள்</string>
     <string name="reference_copy">நகலெடுக்கவும்</string>
     <string name="reference_share">பகிரவும்</string>
+    <string name="history_atlas_zoom_in">பெரிதாக்கவும்</string>
+    <string name="history_atlas_zoom_out">பெரிதாக்கவும்</string>
+    <string name="history_language_english">ஆங்கிலம்</string>
+    <string name="reference_search_clear">தெளிவான தேடல்</string>
 </resources>

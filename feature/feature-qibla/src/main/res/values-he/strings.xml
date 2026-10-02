@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">הצג את כל המסגדים</string>
     <string name="mosque_finder_share">פתח כיוונים</string>
     <string name="offline_maps_use_my_location">עבור אל המיקום הנוכחי שלי</string>
+    <string name="nearby_mosques_map_action">מפה</string>
+    <string name="nearby_mosques_more_actions">עוד פעולות</string>
+    <string name="nearby_mosques_search_clear">נקה חיפוש</string>
+    <string name="qibla_tab_qibla">קיבלה</string>
 </resources>

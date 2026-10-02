@@ -7,4 +7,8 @@
     <string name="reference_topics_count">teme</string>
     <string name="reference_copy">Kopiraj</string>
     <string name="reference_share">Delite</string>
+    <string name="history_atlas_zoom_in">Povečaj</string>
+    <string name="history_atlas_zoom_out">Pomanjšaj</string>
+    <string name="history_language_english">angleščina</string>
+    <string name="reference_search_clear">Počisti iskanje</string>
 </resources>

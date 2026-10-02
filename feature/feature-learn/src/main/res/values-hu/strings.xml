@@ -106,4 +106,9 @@
     <string name="names_position">%1$d/%2$d név</string>
     <string name="names_search_hint">Név keresése…</string>
     <string name="names_title">Allah 99 neve</string>
+    <string name="funeral_will_cancel">Mégse</string>
+    <string name="hajj_map_zoom_in">Nagyítás</string>
+    <string name="hajj_map_zoom_out">Kicsinyítés</string>
+    <string name="learn_search_clear">Keresés törlése</string>
+    <string name="names_search_clear">Keresés törlése</string>
 </resources>

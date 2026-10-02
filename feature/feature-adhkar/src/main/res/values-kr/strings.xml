@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Dhikr ye bayanzəna</string>
     <string name="adhkar_periodic_dhikr">Dhikr taganasbe</string>
     <string name="adhkar_periodic_dhikr_random">Jilifi yayi (susu muskon gotǝro)</string>
+    <string name="adhkar_more_actions">Kundowa gade</string>
+    <string name="adhkar_reader_next">Fuwu</string>
+    <string name="adhkar_reader_previous">Ngawoye</string>
+    <string name="adhkar_search_clear">Kulashi cinne</string>
 </resources>

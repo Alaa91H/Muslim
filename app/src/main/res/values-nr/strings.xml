@@ -50,4 +50,7 @@
     <string name="more_names_desc">Amagama ama-99 anencazelo epheleleko</string>
     <string name="more_hajj">I-Hajj ne-Umrah</string>
     <string name="more_hajj_desc">Umhlahlandlela oneenkcukacha ze-Hajj ne-Umrah</string>
+    <string name="more_search_clear">Sula ukusesha</string>
+    <string name="tab_ramadan">I-Ramadan</string>
+    <string name="voice_listen">Lalela</string>
 </resources>

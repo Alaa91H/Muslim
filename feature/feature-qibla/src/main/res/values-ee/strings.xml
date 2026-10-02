@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">Fia mosquewo katã</string>
     <string name="mosque_finder_share">Ʋu mɔfiamewo</string>
     <string name="offline_maps_use_my_location">Yi afisi mele fifia</string>
+    <string name="nearby_mosques_map_action">Anyigbatata</string>
+    <string name="nearby_mosques_more_actions">Nuwɔna geɖe wu</string>
+    <string name="nearby_mosques_search_clear">Didi si me kɔ nyuie</string>
+    <string name="qibla_tab_qibla">Qibla ƒe ŋkɔ</string>
 </resources>

@@ -106,4 +106,9 @@
     <string name="names_position">Iri ti %1$d ti %2$d</string>
     <string name="names_search_hint">Gi mbeni iri...</string>
     <string name="names_title">A iri 99 ti Allah .</string>
+    <string name="hajj_map_zoom_in">Zoom na yâ ni</string>
+    <string name="hajj_map_zoom_out">Zoom na gbe ni</string>
+    <string name="learn_search_clear">Zia gingo ye</string>
+    <string name="learn_topic_zakat_fitr">Zakat ti kobe</string>
+    <string name="names_search_clear">Zia gingo ye</string>
 </resources>

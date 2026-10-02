@@ -106,4 +106,8 @@
     <string name="names_position">Numele %1$d din %2$d</string>
     <string name="names_search_hint">Caută un nume...</string>
     <string name="names_title">Cele 99 de nume ale lui Allah</string>
+    <string name="hajj_map_zoom_in">Măriți</string>
+    <string name="hajj_map_zoom_out">Micșorați</string>
+    <string name="learn_search_clear">Ștergeți căutarea</string>
+    <string name="names_search_clear">Ștergeți căutarea</string>
 </resources>

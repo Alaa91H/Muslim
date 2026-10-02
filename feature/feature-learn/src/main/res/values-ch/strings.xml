@@ -106,4 +106,9 @@
     <string name="names_position">Na\'an %1$d gi %2$d</string>
     <string name="names_search_hint">Fanli\'e\' un na\'an…</string>
     <string name="names_title">I 99 na na\'an Allah</string>
+    <string name="funeral_will_cancel">Kansela</string>
+    <string name="hajj_map_zoom_in">Na\'lå\'la\'</string>
+    <string name="hajj_map_zoom_out">Na\'ma\'lak</string>
+    <string name="learn_search_clear">Na\'suha i inaligao</string>
+    <string name="names_search_clear">Na\'suha i inaligao</string>
 </resources>

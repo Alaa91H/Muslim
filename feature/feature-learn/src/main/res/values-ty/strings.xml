@@ -106,4 +106,8 @@
     <string name="names_position">I\'oa %1$d o te %2$d</string>
     <string name="names_search_hint">A imi i te hoê i\'oa...</string>
     <string name="names_title">Te mau i\'oa e 99 o Allah</string>
+    <string name="hajj_map_zoom_in">Zoom i roto</string>
+    <string name="hajj_map_zoom_out">Zoom i rapae</string>
+    <string name="learn_search_clear">A tatara i te imiraa</string>
+    <string name="names_search_clear">A tatara i te imiraa</string>
 </resources>

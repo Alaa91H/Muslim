@@ -75,4 +75,12 @@
     <string name="settings_ornament_arabesque">Arabesque</string>
     <string name="settings_ornament_stars">Stars</string>
     <string name="settings_ornament_minimal">Minimal</string>
+    <string name="accessibility_back">رجوع</string>
+    <string name="back">رجوع</string>
+    <string name="notif_time_picker_cancel">באָטל מאַכן</string>
+    <string name="permissions_enable">געבן</string>
+    <string name="settings_about">וועגן מוסלים</string>
+    <string name="settings_back">رجوع</string>
+    <string name="settings_updates_last_successful">לעצטע טשעק: %1$s</string>
+    <string name="smart_devices_back">رجوع</string>
 </resources>

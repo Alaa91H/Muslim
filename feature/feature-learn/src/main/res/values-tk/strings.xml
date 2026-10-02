@@ -106,4 +106,10 @@
     <string name="names_position">%2$d belgisiniň %1$d adyny görkeziň</string>
     <string name="names_search_hint">Ady gözläň ...</string>
     <string name="names_title">Allanyň 99 ady</string>
+    <string name="funeral_will_cancel">Elatyr</string>
+    <string name="hajj_map_zoom_in">Ulaltmak</string>
+    <string name="hajj_map_zoom_out">Ulaltmak</string>
+    <string name="learn_search_clear">Gözleg arassala</string>
+    <string name="learn_topic_zakat_fitr">Zekat al-Fitr</string>
+    <string name="names_search_clear">Gözleg arassala</string>
 </resources>

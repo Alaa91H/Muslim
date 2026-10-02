@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Pilih seorang pembaca</string>
     <string name="quran_reciter_search_hint">Cari qari berdasarkan nama, gaya, atau kualitas…</string>
     <string name="quran_reciter_no_results">Tidak ada qari yang cocok dengan pencarian ini</string>
+    <string name="quran_tab_bookmarks">Bookmark</string>
 </resources>

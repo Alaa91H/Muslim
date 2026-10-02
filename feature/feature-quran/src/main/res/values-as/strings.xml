@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">এজন আবৃত্তিকাৰী বাছি লওক</string>
     <string name="quran_reciter_search_hint">নাম, শৈলী, বা মান দ্বারা আবৃত্তিকারী অনুসন্ধান...</string>
     <string name="quran_reciter_no_results">এই সন্ধানৰ সৈতে কোনো আবৃত্তিকাৰীৰ মিল নাই</string>
+    <string name="quran_tab_bookmarks">বুকমাৰ্ক</string>
 </resources>

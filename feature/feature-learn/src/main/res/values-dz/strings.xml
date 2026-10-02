@@ -106,4 +106,9 @@
     <string name="names_position">%2$d གི་མིང་ %1$d།</string>
     <string name="names_search_hint">མིང་ཅིག་འཚོལ་ཞིབ་འབད།</string>
     <string name="names_title">ཨ་ལཱ་ཧ་ཡི་མིང་༩༩།</string>
+    <string name="hajj_map_zoom_in">ཆེར་བསྐྱེད་འབད།</string>
+    <string name="hajj_map_zoom_out">རྒྱས་ཟུམ།</string>
+    <string name="learn_search_clear">འཚོལ་ཞིབ་བསལ།</string>
+    <string name="learn_topic_zakat_fitr">ཟ་ཀཏ་ཨཱལ་ཕིཊར།</string>
+    <string name="names_search_clear">འཚོལ་ཞིབ་བསལ།</string>
 </resources>

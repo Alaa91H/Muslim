@@ -7,4 +7,8 @@
     <string name="reference_topics_count">temomis</string>
     <string name="reference_copy">Kopijuoti</string>
     <string name="reference_share">Dalintis</string>
+    <string name="history_atlas_zoom_in">Priartinti</string>
+    <string name="history_atlas_zoom_out">Nutolinti</string>
+    <string name="history_language_english">anglų kalba</string>
+    <string name="reference_search_clear">Išvalyti paiešką</string>
 </resources>

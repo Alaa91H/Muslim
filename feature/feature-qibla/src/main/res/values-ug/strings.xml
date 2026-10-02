@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">بارلىق مەسچىتلەرنى كۆرسەت</string>
     <string name="mosque_finder_share">ئوچۇق يۆنىلىش</string>
     <string name="offline_maps_use_my_location">مېنىڭ ھازىرقى ئورنۇمغا بېرىڭ</string>
+    <string name="nearby_mosques_map_action">خەرىتە</string>
+    <string name="nearby_mosques_more_actions">تېخىمۇ كۆپ ھەرىكەت</string>
+    <string name="nearby_mosques_search_clear">ئىزدەشنى تازىلاش</string>
+    <string name="qibla_tab_qibla">قىبلە</string>
 </resources>

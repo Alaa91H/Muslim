@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Dhikr asara copie ti .</string>
     <string name="adhkar_periodic_dhikr">Mbeni mbilimbili dhikr</string>
     <string name="adhkar_periodic_dhikr_random">Random (ahon ti tene a soro ni na maboko)</string>
+    <string name="adhkar_more_actions">Asalango ye mingi</string>
+    <string name="adhkar_reader_next">Na pekoni</string>
+    <string name="adhkar_reader_previous">Kozoni</string>
+    <string name="adhkar_search_clear">Zia gingo ye</string>
 </resources>

@@ -106,4 +106,9 @@
     <string name="names_position">Ним %1$d %2$d .</string>
     <string name="names_search_hint">Корсь ним...</string>
     <string name="names_title">Аллахлӧн 99 ним .</string>
+    <string name="hajj_map_zoom_in">Зум .</string>
+    <string name="hajj_map_zoom_out">Зум .</string>
+    <string name="learn_search_clear">Яснӧй корсьӧм .</string>
+    <string name="learn_topic_zakat_fitr">Закат аль-Фитр</string>
+    <string name="names_search_clear">Яснӧй корсьӧм .</string>
 </resources>

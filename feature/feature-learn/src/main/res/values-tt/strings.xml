@@ -106,4 +106,10 @@
     <string name="names_position">%2$dнең %1$d исемен әйтегез</string>
     <string name="names_search_hint">Исем эзләгез…</string>
     <string name="names_title">Аллаһның 99 исеме</string>
+    <string name="funeral_will_cancel">Баш тарту</string>
+    <string name="hajj_map_zoom_in">Зурайту</string>
+    <string name="hajj_map_zoom_out">Зурайту</string>
+    <string name="learn_search_clear">Эзләү</string>
+    <string name="learn_topic_zakat_fitr">Зәкят-Фитр</string>
+    <string name="names_search_clear">Эзләү</string>
 </resources>

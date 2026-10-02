@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 անունները՝ ամբողջական բացատրությամբ</string>
     <string name="more_hajj">Հաջ և Ումրա</string>
     <string name="more_hajj_desc">Հաջի և Ումրայի ծեսերի մանրամասն ուղեցույց</string>
+    <string name="more_search_clear">Մաքրել որոնումը</string>
+    <string name="tab_ramadan">Ռամադան</string>
+    <string name="voice_listen">Լսիր</string>
 </resources>

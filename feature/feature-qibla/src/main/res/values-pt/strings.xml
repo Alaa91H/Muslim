@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Mostrar todas as mesquitas</string>
     <string name="mosque_finder_share">Rotas abertas</string>
     <string name="offline_maps_use_my_location">Ir para minha localização atual</string>
+    <string name="nearby_mosques_map_action">Mapa</string>
+    <string name="nearby_mosques_more_actions">Mais ações</string>
+    <string name="nearby_mosques_search_clear">Limpar pesquisa</string>
 </resources>

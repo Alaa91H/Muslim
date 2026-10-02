@@ -106,4 +106,8 @@
     <string name="names_position">Vito ra %1$d ra %2$d</string>
     <string name="names_search_hint">Ku lavisisa vito...</string>
     <string name="names_title">Mavito ya 99 ya Allah</string>
+    <string name="funeral_will_cancel">Khansela</string>
+    <string name="learn_search_clear">Ku lavisisa loku nga erivaleni</string>
+    <string name="learn_topic_zakat_fitr">Zakat al-Fitr u vula leswaku</string>
+    <string name="names_search_clear">Ku lavisisa loku nga erivaleni</string>
 </resources>

@@ -106,4 +106,9 @@
     <string name="names_position">%2$d\'in adı %1$d</string>
     <string name="names_search_hint">Bir isim arayın…</string>
     <string name="names_title">Allah\'ın 99 ismi</string>
+    <string name="hajj_map_zoom_in">Yakınlaştır</string>
+    <string name="hajj_map_zoom_out">Uzaklaştır</string>
+    <string name="learn_search_clear">Aramayı temizle</string>
+    <string name="learn_topic_zakat_fitr">Fitr Zekâtı</string>
+    <string name="names_search_clear">Aramayı temizle</string>
 </resources>

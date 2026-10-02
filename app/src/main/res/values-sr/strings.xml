@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 имена са пуним објашњењем</string>
     <string name="more_hajj">хаџ и умра</string>
     <string name="more_hajj_desc">Детаљан водич за обреде хаџа и умре</string>
+    <string name="more_search_clear">Обриши претрагу</string>
+    <string name="tab_ramadan">Рамазан</string>
+    <string name="voice_listen">Слушај</string>
 </resources>

@@ -7,4 +7,8 @@
     <string name="reference_topics_count">ulutaga</string>
     <string name="reference_copy">Kopi</string>
     <string name="reference_share">Wasea</string>
+    <string name="history_atlas_zoom_in">Vakarabailevutaka</string>
+    <string name="history_atlas_zoom_out">Vakarabailevutaka</string>
+    <string name="history_language_english">Vakavalagi</string>
+    <string name="reference_search_clear">Vakasavasavataka na vakasaqaqara</string>
 </resources>

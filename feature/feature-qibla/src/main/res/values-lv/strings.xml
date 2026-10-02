@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Rādīt visas mošejas</string>
     <string name="mosque_finder_share">Atvērt norādes</string>
     <string name="offline_maps_use_my_location">Dodieties uz manu pašreizējo atrašanās vietu</string>
+    <string name="nearby_mosques_map_action">Karte</string>
+    <string name="nearby_mosques_more_actions">Vairāk darbību</string>
+    <string name="nearby_mosques_search_clear">Notīrīt meklēšanu</string>
 </resources>

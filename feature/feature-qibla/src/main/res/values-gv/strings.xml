@@ -78,4 +78,6 @@
     <string name="mosque_finder_show_all">Show ooilley ny moskeeyn</string>
     <string name="mosque_finder_share">Foshlit stiurey</string>
     <string name="offline_maps_use_my_location">Gow my ynnyd nish</string>
+    <string name="nearby_mosques_more_actions">Mooar gniartaghyn</string>
+    <string name="nearby_mosques_search_clear">Soilshey y ronsaghey</string>
 </resources>

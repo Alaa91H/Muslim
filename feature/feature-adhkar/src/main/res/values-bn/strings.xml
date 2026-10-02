@@ -72,4 +72,8 @@
     <string name="adhkar_copied">ঝিকর কপি</string>
     <string name="adhkar_periodic_dhikr">নির্দিষ্ট জিকির</string>
     <string name="adhkar_periodic_dhikr_random">এলোমেলো (ম্যানুয়াল বাছাইয়ের পরিবর্তে)</string>
+    <string name="adhkar_more_actions">আরো কর্ম</string>
+    <string name="adhkar_reader_next">পরবর্তী</string>
+    <string name="adhkar_reader_previous">আগের</string>
+    <string name="adhkar_search_clear">সাফ অনুসন্ধান</string>
 </resources>

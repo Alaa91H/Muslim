@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">Бүх сүмийг харуул</string>
     <string name="mosque_finder_share">Нээлттэй чиглэл</string>
     <string name="offline_maps_use_my_location">Миний одоогийн байршил руу оч</string>
+    <string name="nearby_mosques_map_action">Газрын зураг</string>
+    <string name="nearby_mosques_more_actions">Илүү олон үйлдэл</string>
+    <string name="nearby_mosques_search_clear">Хайлтыг арилгах</string>
+    <string name="qibla_tab_qibla">Кибла</string>
 </resources>

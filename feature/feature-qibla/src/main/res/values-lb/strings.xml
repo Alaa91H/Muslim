@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Show all Moscheeën</string>
     <string name="mosque_finder_share">Opzemaachen Richtungen</string>
     <string name="offline_maps_use_my_location">Gitt op meng aktuell Positioun</string>
+    <string name="nearby_mosques_map_action">Kaart</string>
+    <string name="nearby_mosques_more_actions">Méi Aktiounen</string>
+    <string name="nearby_mosques_search_clear">Kloer Sich</string>
 </resources>

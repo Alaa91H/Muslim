@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Dhikr បានចម្លង</string>
     <string name="adhkar_periodic_dhikr">dhikr ជាក់លាក់</string>
     <string name="adhkar_periodic_dhikr_random">ចៃដន្យ (ជំនួសឱ្យការជ្រើសរើសដោយដៃ)</string>
+    <string name="adhkar_more_actions">សកម្មភាពច្រើនទៀត</string>
+    <string name="adhkar_reader_next">បន្ទាប់</string>
+    <string name="adhkar_reader_previous">មុន</string>
+    <string name="adhkar_search_clear">ជម្រះការស្វែងរក</string>
 </resources>

@@ -106,4 +106,10 @@
     <string name="names_position">නම %1$d හි %2$d</string>
     <string name="names_search_hint">නමක් සොයන්න...</string>
     <string name="names_title">අල්ලාහ්ගේ නම් 99</string>
+    <string name="funeral_will_cancel">අවලංගු කරන්න</string>
+    <string name="hajj_map_zoom_in">විශාලනය කරන්න</string>
+    <string name="hajj_map_zoom_out">විශාලනය කරන්න</string>
+    <string name="learn_search_clear">සෙවීම පැහැදිලි කරන්න</string>
+    <string name="learn_topic_zakat_fitr">සකාත් අල්-ෆිතර්</string>
+    <string name="names_search_clear">සෙවීම පැහැදිලි කරන්න</string>
 </resources>

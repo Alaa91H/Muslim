@@ -106,4 +106,10 @@
     <string name="names_position">%2$d ਵਿੱਚੋਂ %1$d ਦਾ ਨਾਮ</string>
     <string name="names_search_hint">ਨਾਮ ਦੀ ਖੋਜ ਕਰੋ...</string>
     <string name="names_title">ਅੱਲ੍ਹਾ ਦੇ 99 ਨਾਮ</string>
+    <string name="funeral_will_cancel">ਰੱਦ ਕਰੋ</string>
+    <string name="hajj_map_zoom_in">ਜ਼ੂਮ ਇਨ ਕਰੋ</string>
+    <string name="hajj_map_zoom_out">ਜ਼ੂਮ ਘਟਾਓ</string>
+    <string name="learn_search_clear">ਖੋਜ ਸਾਫ਼ ਕਰੋ</string>
+    <string name="learn_topic_zakat_fitr">ਜ਼ਕਤ ਅਲ-ਫਿਤਰ</string>
+    <string name="names_search_clear">ਖੋਜ ਸਾਫ਼ ਕਰੋ</string>
 </resources>

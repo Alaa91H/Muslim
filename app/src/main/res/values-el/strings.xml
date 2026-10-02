@@ -50,4 +50,7 @@
     <string name="more_names_desc">Τα 99 ονόματα με πλήρη εξήγηση</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>
     <string name="more_hajj_desc">Λεπτομερής οδηγός για τις τελετές του Χατζ και της Ούμρα</string>
+    <string name="more_search_clear">Εκκαθάριση αναζήτησης</string>
+    <string name="tab_ramadan">Ραμαζάνι</string>
+    <string name="voice_listen">Ακούστε</string>
 </resources>

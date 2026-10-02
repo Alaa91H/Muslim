@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Dhikr kopéiert</string>
     <string name="adhkar_periodic_dhikr">Spezifesch dhikr</string>
     <string name="adhkar_periodic_dhikr_random">Zoufälleg (amplaz vun enger manueller Wiel)</string>
+    <string name="adhkar_more_actions">Méi Aktiounen</string>
+    <string name="adhkar_reader_next">Nächst</string>
+    <string name="adhkar_reader_previous">Virdrun</string>
+    <string name="adhkar_search_clear">Kloer Sich</string>
 </resources>

@@ -106,4 +106,9 @@
     <string name="names_position">Tɔgɔ %1$d ka bɔ %2$d la</string>
     <string name="names_search_hint">Tɔgɔ dɔ ɲini...</string>
     <string name="names_title">Allah tɔgɔ 99</string>
+    <string name="hajj_map_zoom_in">Zoom in (yɔrɔ caman) kɛ</string>
+    <string name="hajj_map_zoom_out">Zoom out (Dɔgɔtɔrɔso).</string>
+    <string name="learn_search_clear">Ɲini jɛlen</string>
+    <string name="learn_topic_zakat_fitr">Zakati al-Fitiri ye</string>
+    <string name="names_search_clear">Ɲini jɛlen</string>
 </resources>

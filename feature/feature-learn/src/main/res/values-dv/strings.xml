@@ -106,4 +106,9 @@
     <string name="names_position">ނަން %2$d ގެ ތެރެއިން %1$d އެވެ</string>
     <string name="names_search_hint">ނަމެއް ހޯދުމަށް...</string>
     <string name="names_title">الله ގެ 99 ނަންފުޅެވެ</string>
+    <string name="hajj_map_zoom_in">ޒޫމް އިން ކޮށްލާށެވެ</string>
+    <string name="hajj_map_zoom_out">ޒޫމް އައުޓް ކޮށްލާށެވެ</string>
+    <string name="learn_search_clear">ސާފު ހޯދުން</string>
+    <string name="learn_topic_zakat_fitr">ޒަކާތުލް ފިތުރު އެވެ</string>
+    <string name="names_search_clear">ސާފު ހޯދުން</string>
 </resources>

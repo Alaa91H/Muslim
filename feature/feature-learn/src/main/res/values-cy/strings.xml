@@ -106,4 +106,9 @@
     <string name="names_position">Enw %1$d o %2$d</string>
     <string name="names_search_hint">Chwilio am enw…</string>
     <string name="names_title">Y 99 enw Allah</string>
+    <string name="funeral_will_cancel">Canslo</string>
+    <string name="hajj_map_zoom_in">Chwyddo i mewn</string>
+    <string name="hajj_map_zoom_out">Chwyddo allan</string>
+    <string name="learn_search_clear">Chwiliad clir</string>
+    <string name="names_search_clear">Chwiliad clir</string>
 </resources>

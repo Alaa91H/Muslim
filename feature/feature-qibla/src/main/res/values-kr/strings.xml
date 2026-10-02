@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Mashidiwa samma fǝlene</string>
     <string name="mosque_finder_share">Zawalla katə</string>
     <string name="offline_maps_use_my_location">Na kərmaaro dagənadəro lenəmin</string>
+    <string name="nearby_mosques_map_action">Taswira</string>
+    <string name="nearby_mosques_more_actions">Kundowa gade</string>
+    <string name="nearby_mosques_search_clear">Kulashi cinne</string>
 </resources>

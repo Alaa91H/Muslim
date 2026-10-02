@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">암송자를 선택하세요</string>
     <string name="quran_reciter_search_hint">이름, 스타일 또는 품질로 암송자를 검색하세요…</string>
     <string name="quran_reciter_no_results">이 검색과 일치하는 암송자가 없습니다.</string>
+    <string name="quran_tab_bookmarks">북마크</string>
 </resources>

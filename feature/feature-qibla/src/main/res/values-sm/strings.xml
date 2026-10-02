@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Faaali atu faletapuai uma</string>
     <string name="mosque_finder_share">Tatala faatonuga</string>
     <string name="offline_maps_use_my_location">Alu i lo\'u nofoaga o iai nei</string>
+    <string name="nearby_mosques_map_action">Fa\'afanua</string>
+    <string name="nearby_mosques_more_actions">Tele gaioiga</string>
+    <string name="nearby_mosques_search_clear">Fa\'amama su\'esu\'ega</string>
 </resources>

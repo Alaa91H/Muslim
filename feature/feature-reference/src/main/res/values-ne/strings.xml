@@ -7,4 +7,8 @@
     <string name="reference_topics_count">विषयहरू</string>
     <string name="reference_copy">प्रतिलिपि गर्नुहोस्</string>
     <string name="reference_share">सेयर गर्नुहोस्</string>
+    <string name="history_atlas_zoom_in">जुम इन गर्नुहोस्</string>
+    <string name="history_atlas_zoom_out">जुम आउट गर्नुहोस्</string>
+    <string name="history_language_english">अंग्रेजी</string>
+    <string name="reference_search_clear">खोज खाली गर्नुहोस्</string>
 </resources>

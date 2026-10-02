@@ -106,4 +106,8 @@
     <string name="names_position">Navn %1$d av %2$d</string>
     <string name="names_search_hint">Søk etter et navn...</string>
     <string name="names_title">De 99 navnene til Allah</string>
+    <string name="hajj_map_zoom_in">Zoom inn</string>
+    <string name="hajj_map_zoom_out">Zoom ut</string>
+    <string name="learn_search_clear">Tøm søk</string>
+    <string name="names_search_clear">Tøm søk</string>
 </resources>

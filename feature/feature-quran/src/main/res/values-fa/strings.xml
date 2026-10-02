@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">یک قاری انتخاب کنید</string>
     <string name="quran_reciter_search_hint">قاریان را بر اساس نام، سبک یا کیفیت جستجو کنید…</string>
     <string name="quran_reciter_no_results">هیچ قاری با این جستجو مطابقت ندارد</string>
+    <string name="quran_tab_bookmarks">نشانک ها</string>
 </resources>

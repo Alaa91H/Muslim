@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Pokaż wszystkie meczety</string>
     <string name="mosque_finder_share">Otwórz kierunki</string>
     <string name="offline_maps_use_my_location">Przejdź do mojej obecnej lokalizacji</string>
+    <string name="nearby_mosques_map_action">Mapa</string>
+    <string name="nearby_mosques_more_actions">Więcej akcji</string>
+    <string name="nearby_mosques_search_clear">Wyczyść wyszukiwanie</string>
 </resources>

@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 nama beserta penjelasan lengkapnya</string>
     <string name="more_hajj">Haji &amp; Umroh</string>
     <string name="more_hajj_desc">Panduan lengkap tentang ibadah haji dan umroh</string>
+    <string name="more_search_clear">Hapus pencarian</string>
+    <string name="tab_ramadan">Ramadhan</string>
+    <string name="voice_listen">Dengar</string>
 </resources>

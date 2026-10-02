@@ -106,4 +106,10 @@
     <string name="names_position">പേര് %1$d of %2$d</string>
     <string name="names_search_hint">ഒരു പേരിനായി തിരയുക...</string>
     <string name="names_title">അല്ലാഹുവിൻ്റെ 99 നാമങ്ങൾ</string>
+    <string name="funeral_will_cancel">റദ്ദാക്കുക</string>
+    <string name="hajj_map_zoom_in">സൂം ഇൻ ചെയ്യുക</string>
+    <string name="hajj_map_zoom_out">സൂം ഔട്ട് ചെയ്യുക</string>
+    <string name="learn_search_clear">തിരയൽ മായ്‌ക്കുക</string>
+    <string name="learn_topic_zakat_fitr">സകാത്തുൽ ഫിത്തർ</string>
+    <string name="names_search_clear">തിരയൽ മായ്‌ക്കുക</string>
 </resources>

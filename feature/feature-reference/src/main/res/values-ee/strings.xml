@@ -7,4 +7,9 @@
     <string name="reference_topics_count">nyatiwo</string>
     <string name="reference_copy">Kpɔ eƒe kɔpi</string>
     <string name="reference_share">Mamã</string>
+    <string name="history_atlas_zoom_in">Zoom ɖe edzi</string>
+    <string name="history_atlas_zoom_out">Zãe ɖe edzi</string>
+    <string name="history_language_arabic">العربية ƒe nya</string>
+    <string name="history_language_english">Eŋlisigbe me</string>
+    <string name="reference_search_clear">Didi si me kɔ nyuie</string>
 </resources>

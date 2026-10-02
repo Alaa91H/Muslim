@@ -106,4 +106,9 @@
     <string name="names_position">ᐊᑎᖓ %1$d ᑕᕝᕙᙵᑦ %2$d</string>
     <string name="names_search_hint">ᕿᓂᕐᓗᑎᑦ ᐊᑎᕐᒥᒃ...</string>
     <string name="names_title">99-ᖑᔪᑦ ᐊᑎᖏᑦ ᐋᓚ</string>
+    <string name="hajj_map_zoom_in">ᐊᖏᒡᓕᒋᐊᕐᓗᒍ</string>
+    <string name="hajj_map_zoom_out">ᐊᖏᓪᓕᒋᐊᕐᓗᒍ</string>
+    <string name="learn_search_clear">ᐲᔭᕐᓗᒍ ᕿᓂᕐᓂᖅ</string>
+    <string name="learn_topic_zakat_fitr">ᔭᑲᑦ ᐋᓪ-ᕕᑐ</string>
+    <string name="names_search_clear">ᐲᔭᕐᓗᒍ ᕿᓂᕐᓂᖅ</string>
 </resources>

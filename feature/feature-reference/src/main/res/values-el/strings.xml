@@ -7,4 +7,8 @@
     <string name="reference_topics_count">θέματα</string>
     <string name="reference_copy">Αντιγραφή</string>
     <string name="reference_share">Κοινή χρήση</string>
+    <string name="history_atlas_zoom_in">Μεγέθυνση</string>
+    <string name="history_atlas_zoom_out">Σμίκρυνση</string>
+    <string name="history_language_english">Αγγλικά</string>
+    <string name="reference_search_clear">Εκκαθάριση αναζήτησης</string>
 </resources>

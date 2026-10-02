@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">ᓂᕈᐊᕐᓗᑎᑦ ᐅᖃᓕᒫᖅᑎᒥᒃ</string>
     <string name="quran_reciter_search_hint">ᕿᓂᕐᓗᒋᑦ ᐅᖃᓪᓚᒃᑎᐅᔪᑦ ᐊᑎᖏᑦ, ᐋᖅᑭᒃᓯᒪᓂᖏᑦ, ᐅᕝᕙᓘᓐᓃᑦ ᐱᐅᓂᖏᑦ...</string>
     <string name="quran_reciter_no_results">ᐅᖃᓕᒫᖅᑎᑕᖃᙱᓚᖅ ᑖᔅᓱᒥᖓ ᕿᓂᕐᓂᐅᔪᒥᒃ</string>
+    <string name="quran_tab_bookmarks">ᐅᖃᓕᒫᒐᕐᓄᑦ ᓇᓗᓇᐃᒃᑯᑕᐃᑦ</string>
 </resources>

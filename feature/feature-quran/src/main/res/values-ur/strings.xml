@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">ایک قاری کا انتخاب کریں۔</string>
     <string name="quran_reciter_search_hint">نام، انداز، یا معیار کے لحاظ سے تلاوت کرنے والوں کو تلاش کریں…</string>
     <string name="quran_reciter_no_results">کوئی تلاوت کرنے والا اس تلاش سے مماثل نہیں ہے۔</string>
+    <string name="quran_tab_bookmarks">بک مارکس</string>
 </resources>

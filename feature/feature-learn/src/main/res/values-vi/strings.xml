@@ -106,4 +106,9 @@
     <string name="names_position">Tên %1$d của %2$d</string>
     <string name="names_search_hint">Tìm kiếm một cái tên…</string>
     <string name="names_title">99 tên của Allah</string>
+    <string name="funeral_will_cancel">Hủy bỏ</string>
+    <string name="hajj_map_zoom_in">Phóng to</string>
+    <string name="hajj_map_zoom_out">Thu nhỏ</string>
+    <string name="learn_search_clear">Xóa tìm kiếm</string>
+    <string name="names_search_clear">Xóa tìm kiếm</string>
 </resources>

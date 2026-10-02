@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 نالا مڪمل وضاحت سان</string>
     <string name="more_hajj">حج ۽ عمره</string>
     <string name="more_hajj_desc">حج ۽ عمري جي رسمن جي تفصيلي رهنمائي</string>
+    <string name="more_search_clear">صاف ڳولا</string>
+    <string name="tab_ramadan">رمضان</string>
+    <string name="voice_listen">ٻڌو</string>
 </resources>

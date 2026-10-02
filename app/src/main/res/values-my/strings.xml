@@ -50,4 +50,7 @@
     <string name="more_names_desc">99 အမည်များကို အပြည့်အစုံ ရှင်းပြထားပါသည်။</string>
     <string name="more_hajj">ဟဂ်ျနှင့် အွမ်ရဟ်</string>
     <string name="more_hajj_desc">Hajj နှင့် Umrah ထုံးတမ်းများဆိုင်ရာ အသေးစိတ်လမ်းညွှန်</string>
+    <string name="more_search_clear">ရှာဖွေမှုကို ရှင်းလင်းပါ။</string>
+    <string name="tab_ramadan">ရမ်ဇာန်</string>
+    <string name="voice_listen">နားထောင်ပါ။</string>
 </resources>

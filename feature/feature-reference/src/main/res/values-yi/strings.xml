@@ -7,4 +7,8 @@
     <string name="reference_topics_count">טעמעס</string>
     <string name="reference_copy">קאָפּי</string>
     <string name="reference_share">ייַנטיילן</string>
+    <string name="history_atlas_zoom_in">פארגרעסער אין</string>
+    <string name="history_atlas_zoom_out">פארגרעסער אויס</string>
+    <string name="history_language_english">ענגליש</string>
+    <string name="reference_search_clear">קלאָר זוכן</string>
 </resources>

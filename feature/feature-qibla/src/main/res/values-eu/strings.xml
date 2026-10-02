@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Erakutsi meskita guztiak</string>
     <string name="mosque_finder_share">Ireki jarraibideak</string>
     <string name="offline_maps_use_my_location">Joan nire uneko kokapenera</string>
+    <string name="nearby_mosques_map_action">Mapa</string>
+    <string name="nearby_mosques_more_actions">Ekintza gehiago</string>
+    <string name="nearby_mosques_search_clear">Garbitu bilaketa</string>
 </resources>

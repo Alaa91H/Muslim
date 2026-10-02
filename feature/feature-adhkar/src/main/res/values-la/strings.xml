@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Dhikr copied</string>
     <string name="adhkar_periodic_dhikr">Imprimis dhikr</string>
     <string name="adhkar_periodic_dhikr_random">Random (pro manibus robur)</string>
+    <string name="adhkar_more_actions">Plures actiones</string>
+    <string name="adhkar_reader_next">Proximum</string>
+    <string name="adhkar_reader_previous">Antecedens</string>
+    <string name="adhkar_search_clear">Patet quaerere</string>
 </resources>

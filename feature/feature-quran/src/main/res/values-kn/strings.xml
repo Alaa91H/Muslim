@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">ವಾಚನಕಾರನನ್ನು ಆರಿಸಿ</string>
     <string name="quran_reciter_search_hint">ಹೆಸರು, ಶೈಲಿ ಅಥವಾ ಗುಣಮಟ್ಟದ ಮೂಲಕ ವಾಚನಕಾರರನ್ನು ಹುಡುಕಿ...</string>
     <string name="quran_reciter_no_results">ಈ ಹುಡುಕಾಟಕ್ಕೆ ಯಾವುದೇ ವಾಚನಕಾರರು ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ</string>
+    <string name="quran_tab_bookmarks">ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು</string>
 </resources>

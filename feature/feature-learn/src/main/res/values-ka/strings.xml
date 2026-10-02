@@ -106,4 +106,10 @@
     <string name="names_position">სახელი %1$d %2$d-დან</string>
     <string name="names_search_hint">სახელის ძიება…</string>
     <string name="names_title">ალაჰის 99 სახელი</string>
+    <string name="funeral_will_cancel">გაუქმება</string>
+    <string name="hajj_map_zoom_in">მასშტაბირება</string>
+    <string name="hajj_map_zoom_out">მასშტაბირება</string>
+    <string name="learn_search_clear">ძიების გასუფთავება</string>
+    <string name="learn_topic_zakat_fitr">ზაქათ ალ-ფიტრი</string>
+    <string name="names_search_clear">ძიების გასუფთავება</string>
 </resources>

@@ -106,4 +106,9 @@
     <string name="names_position">Numm %1$d vun %2$d</string>
     <string name="names_search_hint">Sich no engem Numm ...</string>
     <string name="names_title">Déi 99 Nimm vum Allah</string>
+    <string name="funeral_will_cancel">Ofbriechen</string>
+    <string name="hajj_map_zoom_in">Zoom an</string>
+    <string name="hajj_map_zoom_out">Auszoomen</string>
+    <string name="learn_search_clear">Kloer Sich</string>
+    <string name="names_search_clear">Kloer Sich</string>
 </resources>

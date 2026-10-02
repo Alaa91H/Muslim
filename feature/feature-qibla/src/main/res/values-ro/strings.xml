@@ -78,4 +78,7 @@
     <string name="mosque_finder_show_all">Arată toate moscheile</string>
     <string name="mosque_finder_share">Deschideți direcții</string>
     <string name="offline_maps_use_my_location">Mergeți la locația mea actuală</string>
+    <string name="nearby_mosques_map_action">Harta</string>
+    <string name="nearby_mosques_more_actions">Mai multe acțiuni</string>
+    <string name="nearby_mosques_search_clear">Ștergeți căutarea</string>
 </resources>

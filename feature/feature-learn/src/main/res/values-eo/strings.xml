@@ -106,4 +106,9 @@
     <string name="names_position">Nomo %1$d de %2$d</string>
     <string name="names_search_hint">Serĉu nomon...</string>
     <string name="names_title">La 99 nomoj de Alaho</string>
+    <string name="funeral_will_cancel">Nuligi</string>
+    <string name="hajj_map_zoom_in">Zoom en</string>
+    <string name="hajj_map_zoom_out">Zomi malproksimigi</string>
+    <string name="learn_search_clear">Klara serĉo</string>
+    <string name="names_search_clear">Klara serĉo</string>
 </resources>

@@ -78,4 +78,8 @@
     <string name="mosque_finder_show_all">Bütün məscidləri göstərin</string>
     <string name="mosque_finder_share">Açıq istiqamətlər</string>
     <string name="offline_maps_use_my_location">Cari yerimə gedin</string>
+    <string name="nearby_mosques_map_action">Xəritə</string>
+    <string name="nearby_mosques_more_actions">Daha çox hərəkət</string>
+    <string name="nearby_mosques_search_clear">Axtarışı təmizləyin</string>
+    <string name="qibla_tab_qibla">qiblə</string>
 </resources>

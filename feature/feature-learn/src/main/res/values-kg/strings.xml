@@ -106,4 +106,9 @@
     <string name="names_position">Zina %1$d ya %2$d</string>
     <string name="names_search_hint">Sosa zina...</string>
     <string name="names_title">Bazina 99 ya Allah .</string>
+    <string name="hajj_map_zoom_in">Kumisa nene</string>
+    <string name="hajj_map_zoom_out">Zoom fioti</string>
+    <string name="learn_search_clear">Katula nsosa</string>
+    <string name="learn_topic_zakat_fitr">Zaka ya kimenga</string>
+    <string name="names_search_clear">Katula nsosa</string>
 </resources>

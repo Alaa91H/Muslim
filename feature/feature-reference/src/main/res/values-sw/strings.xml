@@ -7,4 +7,8 @@
     <string name="reference_topics_count">mada</string>
     <string name="reference_copy">Nakili</string>
     <string name="reference_share">Shiriki</string>
+    <string name="history_atlas_zoom_in">Vuta karibu</string>
+    <string name="history_atlas_zoom_out">Kuza nje</string>
+    <string name="history_language_english">Kiingereza</string>
+    <string name="reference_search_clear">Futa utafutaji</string>
 </resources>

@@ -106,4 +106,10 @@
     <string name="names_position">名前 %1$d/%2$d</string>
     <string name="names_search_hint">名前を検索してください…</string>
     <string name="names_title">アッラーの99の御名</string>
+    <string name="funeral_will_cancel">キャンセル</string>
+    <string name="hajj_map_zoom_in">ズームイン</string>
+    <string name="hajj_map_zoom_out">ズームアウト</string>
+    <string name="learn_search_clear">検索をクリア</string>
+    <string name="learn_topic_zakat_fitr">ザカート・アル・フィトル</string>
+    <string name="names_search_clear">検索をクリア</string>
 </resources>

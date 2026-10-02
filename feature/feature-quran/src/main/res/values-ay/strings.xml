@@ -143,4 +143,5 @@
     <string name="quran_reciter_picker_title">Mä recitador ukar ajlliñamawa</string>
     <string name="quran_reciter_search_hint">Recitadores ukanakar sutiparjama, estiloparjama, jan ukax calidad ukarjam thaqhapxam...</string>
     <string name="quran_reciter_no_results">Janiw khiti recitores ukas uka thakhimp kikipäkiti</string>
+    <string name="quran_tab_bookmarks">Markachirinaka</string>
 </resources>

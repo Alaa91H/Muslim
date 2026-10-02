@@ -72,4 +72,8 @@
     <string name="adhkar_copied">Dhikr avritað</string>
     <string name="adhkar_periodic_dhikr">Ávíst dhikr</string>
     <string name="adhkar_periodic_dhikr_random">Tilvildarligt (ístaðin fyri manuelt val)</string>
+    <string name="adhkar_more_actions">Fleiri tiltøk</string>
+    <string name="adhkar_reader_next">Næsta</string>
+    <string name="adhkar_reader_previous">Fyrra</string>
+    <string name="adhkar_search_clear">Rudda leitingina</string>
 </resources>

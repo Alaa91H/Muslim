@@ -106,4 +106,9 @@
     <string name="names_position">Igoa %1$d o le %2$d</string>
     <string name="names_search_hint">Su\'e se igoa...</string>
     <string name="names_title">O le 99 suafa o Allah</string>
+    <string name="funeral_will_cancel">Fa\'aleaogaina</string>
+    <string name="hajj_map_zoom_in">Sa\'o i totonu</string>
+    <string name="hajj_map_zoom_out">Fa\'ate\'a ese</string>
+    <string name="learn_search_clear">Fa\'amama su\'esu\'ega</string>
+    <string name="names_search_clear">Fa\'amama su\'esu\'ega</string>
 </resources>

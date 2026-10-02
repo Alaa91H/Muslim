@@ -7,4 +7,8 @@
     <string name="reference_topics_count">izihloko</string>
     <string name="reference_copy">Kopisha</string>
     <string name="reference_share">Yabelana</string>
+    <string name="history_atlas_zoom_in">Sondeza isithombe</string>
+    <string name="history_atlas_zoom_out">Hlehlisa isithombe</string>
+    <string name="history_language_english">IsiNgisi</string>
+    <string name="reference_search_clear">Sula ukusesha</string>
 </resources>
