@@ -100,7 +100,7 @@
     <string name="settings_adhan_check_alarm_volume">Device alarm volume is audible</string>
     <string name="settings_adhan_check_passed">Ready</string>
     <string name="settings_adhan_check_failed">Needs attention</string>
-    <string name="settings_adhan_verify_action">Check now</string>
+    <string name="settings_adhan_verify_action">اوس وګورئ</string>
     <string name="settings_adhan_sound">په هر لمانځه کې د اذان غږ</string>
     <string name="settings_adhan_sound_choice">غږ غوره کړئ</string>
     <string name="settings_adhan_sound_summary">%1$s · %2$s</string>

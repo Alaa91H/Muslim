@@ -28,7 +28,7 @@
     <string name="qibla_title">Nḓila ya Qibla</string>
     <string name="qibla_turn_left">Rembuluwani kha tsha monde %1$.1f°</string>
     <string name="qibla_turn_right">Rembuluwani kha tshauḽa %1$.1f°</string>
-    <string name="offline_maps_title">Offline maps</string>
+    <string name="offline_maps_title">خرائط بدون إنترنت</string>
     <string name="offline_maps_back">Vhuya</string>
     <string name="offline_maps_add">Add area to download</string>
     <string name="offline_maps_empty">No areas downloaded yet. Kha vha dawuniḽoude ḓorobo, shango, kana fhethu ho khetheaho uri mimapa i shume hu si na inthanethe.</string>
@@ -38,7 +38,7 @@
     <string name="offline_maps_delete_all_confirm_title">U phumula mimapa yothe yo dawuniḽoudiwaho?</string>
     <string name="offline_maps_delete_all_confirm_body">Fhethu hoṱhe ho ṱalutshedzelwaho hu ḓo bviswa kha tshishumiswa itshi nahone mimapa a i nga tsha shuma musi i si kha inthanethe.</string>
     <string name="offline_maps_cancel">Khansela</string>
-    <string name="offline_maps_summary_title">Offline maps</string>
+    <string name="offline_maps_summary_title">خرائط بدون إنترنت</string>
     <string name="offline_maps_region_ready">Ready — works offline</string>
     <string name="offline_maps_tab_city">City</string>
     <string name="offline_maps_tab_country">Shango</string>

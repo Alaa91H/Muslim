@@ -100,10 +100,10 @@
     <string name="settings_adhan_check_alarm_volume">Device alarm volume is audible</string>
     <string name="settings_adhan_check_passed">Ready</string>
     <string name="settings_adhan_check_failed">Needs attention</string>
-    <string name="settings_adhan_verify_action">Check now</string>
+    <string name="settings_adhan_verify_action">Ejesareko ko’áĝa</string>
     <string name="settings_adhan_sound">Adhan sonido peteĩ ñembo’épe</string>
     <string name="settings_adhan_sound_choice">Eiporavo tyapu</string>
-    <string name="settings_adhan_sound_summary">%1$s · %2$s</string>
+    <string name="settings_adhan_sound_summary">%1$s · %2$s Ñe\'ẽpoty ha ñe\'ẽpoty ñemohenda.</string>
     <string name="settings_adjustments">Umi ajuste manual rehegua (minuto) .</string>
     <string name="settings_asr">Asr cálculo rehegua</string>
     <string name="settings_asr_hanafi">Hanafi rehegua</string>

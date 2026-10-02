@@ -100,7 +100,7 @@
     <string name="settings_adhan_check_alarm_volume">Device alarm volume is audible</string>
     <string name="settings_adhan_check_passed">Ready</string>
     <string name="settings_adhan_check_failed">Needs attention</string>
-    <string name="settings_adhan_verify_action">Check now</string>
+    <string name="settings_adhan_verify_action">Tarkista nyt</string>
     <string name="settings_adhan_sound">Adhan-ääni rukousta kohti</string>
     <string name="settings_adhan_sound_choice">Valitse ääni</string>
     <string name="settings_adhan_sound_summary">%1$s · %2$s</string>

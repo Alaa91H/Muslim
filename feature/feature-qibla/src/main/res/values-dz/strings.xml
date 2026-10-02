@@ -50,7 +50,7 @@
     <string name="offline_maps_custom_default_name">རང་ལུགས་ས་ཁོངས།</string>
     <string name="offline_maps_summary_body">%1$d གི་ %2$d ས་ཁོངས་ཡོངས་རྫོགས་ · %3$s ཕབ་ལེན་བྱས།</string>
     <string name="offline_maps_downloading">%1$s... %2$d%% ཕབ་ལེན་འབད་དོ།</string>
-    <string name="offline_maps_region_meta">%1$s · %2$s</string>
+    <string name="offline_maps_region_meta">%1$s · %2$s དང་།</string>
     <string name="offline_maps_region_progress">ཕབ་ལེན་འབད་དོ... %1$d%%</string>
     <string name="offline_maps_size_estimate">ཚོད་དཔག་ཚད་: %1$s</string>
     <string name="offline_maps_custom_selected">སེལ་འཐུ་འབད་ཡོད་པའི་ལྟེ་བ་: %1$.2f, %2$.2f</string>

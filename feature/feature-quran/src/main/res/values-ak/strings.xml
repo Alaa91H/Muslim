@@ -77,7 +77,7 @@
     <string name="quran_previous_ayah">Ayah a atwam no</string>
     <string name="quran_range_single_ayah">Single ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">To the end of the Mushaf</string>
+    <string name="quran_range_to_end">Sɛnea ɛbɛyɛ a ɛbɛba awiei</string>
     <string name="quran_range_to_end_short">Sɛnea ɛbɛyɛ a ɛbɛba awiei</string>
     <string name="quran_range_whole_surah">Surah mũ no nyinaa</string>
     <string name="quran_range_whole_surah_short">Surah a ɛwɔ hɔ</string>
@@ -130,7 +130,7 @@
     <string name="quran_tafsir_installed">Ato so</string>
     <string name="quran_tafsir_download_failed">Entumi antɔ tafsir no: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
-    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d Ɔde ne nsa kyerɛɛ ne so.</string>
     <string name="quran_tafsir_follow_playback">Di ayah a wɔakenkan no akyi wɔ tafsir mu</string>
     <string name="quran_tafsir_follow_playback_description">Move nteaseɛ ne tafsir ne akenkan. Dum na kenkan nkyerɛkyerɛmu foforo bere a ɔdio kɔ so no.</string>
     <string name="quran_search_hint">Hwehwɛ Quran nkyekyem ahorow...</string>

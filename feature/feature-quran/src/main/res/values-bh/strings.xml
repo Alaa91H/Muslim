@@ -130,7 +130,7 @@
     <string name="quran_tafsir_installed">इंस्टॉल भइल</string>
     <string name="quran_tafsir_download_failed">तफ़सीर डाउनलोड ना भइल: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
-    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d के बा।</string>
     <string name="quran_tafsir_follow_playback">तफसीर में पढ़ल आयत के पालन करीं</string>
     <string name="quran_tafsir_follow_playback_description">पाठ के साथे अर्थ आ तफसीर के हिलाईं। जबले ऑडियो जारी रही तबले एगो अउरी सफाई पढ़े खातिर बंद कर दीं.</string>
     <string name="quran_search_hint">कुरान के आयत खोजीं...</string>

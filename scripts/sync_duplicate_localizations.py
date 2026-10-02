@@ -53,6 +53,15 @@ def resolve_candidate(
     return next(iter(candidates))
 
 
+def is_copied_source_phrase(source: str, translation: str) -> bool:
+    """Match the quality gate rule for unchanged multiword interface copy."""
+    return (
+        len(source.split()) >= 2
+        and any(character.isalpha() for character in source)
+        and source.strip() == translation.strip()
+    )
+
+
 def existing_locale_files(res_dir: str) -> list[tuple[str, str]]:
     """Return (language, path) pairs, excluding Arabic and the English source."""
     result: list[tuple[str, str]] = []
@@ -96,22 +105,40 @@ def synchronize(
         if res_dir not in targets:
             continue
         module_count = 0
+        module_replacements = 0
         for language, path in locales:
             translations = localize.read_locale_strings(path)
             additions: dict[str, str] = {}
+            replacements: dict[str, str] = {}
             for key, source_text in source.items():
-                if key in translations or not source_text.strip():
+                if not source_text.strip():
                     continue
                 candidate = resolve_candidate(index, language, source_text)
-                if candidate is not None:
+                if key not in translations and candidate is not None:
                     additions[key] = candidate
+                elif (
+                    key in translations
+                    and candidate is not None
+                    and is_copied_source_phrase(source_text, translations[key])
+                ):
+                    replacements[key] = candidate
             if additions:
                 if not dry_run:
                     localize.append_locale_strings(path, additions)
                 module_count += len(additions)
+            if replacements:
+                if not dry_run:
+                    localize.replace_locale_strings(path, replacements)
+                module_replacements += len(replacements)
         total += module_count
         action = "Would reuse" if dry_run else "Reused"
-        print(f"{action} {module_count} duplicate translations: {res_dir}", flush=True)
+        correction = "Would replace" if dry_run else "Replaced"
+        print(
+            f"{action} {module_count} missing values; {correction} "
+            f"{module_replacements} copied English values: {res_dir}",
+            flush=True,
+        )
+        total += module_replacements
     print(f"{('Would reuse' if dry_run else 'Reused')} {total} translations in total.")
     return total
 

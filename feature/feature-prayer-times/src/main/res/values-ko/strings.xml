@@ -100,7 +100,7 @@
     <string name="settings_adhan_check_alarm_volume">Device alarm volume is audible</string>
     <string name="settings_adhan_check_passed">Ready</string>
     <string name="settings_adhan_check_failed">Needs attention</string>
-    <string name="settings_adhan_verify_action">Check now</string>
+    <string name="settings_adhan_verify_action">지금 확인하세요</string>
     <string name="settings_adhan_sound">기도 당 아단 소리</string>
     <string name="settings_adhan_sound_choice">소리 선택</string>
     <string name="settings_adhan_sound_summary">%1$s · %2$s</string>

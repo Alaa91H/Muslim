@@ -28,7 +28,7 @@
     <string name="qibla_title">Քիբլայի ուղղություն</string>
     <string name="qibla_turn_left">Թեքվեք ձախ %1$.1f°</string>
     <string name="qibla_turn_right">Թեքվեք աջ %1$.1f°</string>
-    <string name="offline_maps_title">Offline maps</string>
+    <string name="offline_maps_title">خرائط առանց ինտերնետի</string>
     <string name="offline_maps_back">Ետ</string>
     <string name="offline_maps_add">Add area to download</string>
     <string name="offline_maps_empty">No areas downloaded yet. Ներբեռնեք քաղաք, երկիր կամ հատուկ տարածք, որպեսզի քարտեզներն աշխատեն առանց ինտերնետի:</string>
@@ -38,7 +38,7 @@
     <string name="offline_maps_delete_all_confirm_title">Ջնջե՞լ բոլոր ներբեռնված քարտեզները:</string>
     <string name="offline_maps_delete_all_confirm_body">Բոլոր ներբեռնված տարածքները կհեռացվեն այս սարքից, և քարտեզներն այլևս չեն աշխատի անցանց:</string>
     <string name="offline_maps_cancel">Չեղարկել</string>
-    <string name="offline_maps_summary_title">Offline maps</string>
+    <string name="offline_maps_summary_title">خرائط առանց ինտերնետի</string>
     <string name="offline_maps_region_ready">Պատրաստ - աշխատում է անցանց</string>
     <string name="offline_maps_tab_city">Քաղաք</string>
     <string name="offline_maps_tab_country">Երկիր</string>

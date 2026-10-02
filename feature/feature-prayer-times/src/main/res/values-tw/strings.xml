@@ -100,10 +100,10 @@
     <string name="settings_adhan_check_alarm_volume">Device alarm volume is audible</string>
     <string name="settings_adhan_check_passed">Ready</string>
     <string name="settings_adhan_check_failed">Needs attention</string>
-    <string name="settings_adhan_verify_action">Check now</string>
+    <string name="settings_adhan_verify_action">Hwɛ mprempren</string>
     <string name="settings_adhan_sound">Adhan nnyigyei wɔ mpaebɔ biara mu</string>
     <string name="settings_adhan_sound_choice">Paw nnyigyei</string>
-    <string name="settings_adhan_sound_summary">%1$s · %2$s</string>
+    <string name="settings_adhan_sound_summary">%1$s · %2$s Ɔde ne nsa kyerɛɛ ne so.</string>
     <string name="settings_adjustments">Nsakrae a wɔde nsa yɛ (simma) .</string>
     <string name="settings_asr">Asr akontabuo</string>
     <string name="settings_asr_hanafi">Hanafi</string>

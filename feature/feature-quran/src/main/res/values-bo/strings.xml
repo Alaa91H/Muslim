@@ -130,7 +130,7 @@
     <string name="quran_tafsir_installed">སྒྲིག་བཀོད་ཡོད།</string>
     <string name="quran_tafsir_download_failed">Tafsir ཕོགས་གཏང་མི་ཚུགས།: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
-    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d །</string>
     <string name="quran_tafsir_follow_playback">ཏཕ་སིར་ནང་དུ་བཀླགས་པའི་ཨ་ཡ་ཡི་རྗེས་སུ་འབྲངས།</string>
     <string name="quran_tafsir_follow_playback_description">དོན་དག་དང་ཏཕ་སིར་བཀླགས་པ་དང་མཉམ་དུ་སྤོ་བ། སྒྲ་མུ་མཐུད་དུ་འགྲོ་བཞིན་པའི་སྐབས་འགྲེལ་བཤད་གཞན་ཞིག་ཀློག་ཆེད་ཁ་བརྒྱབ་དགོས།</string>
     <string name="quran_search_hint">ཁ་ཆེའི་དཔེ་ཆ་འཚོལ་ཞིབ།</string>

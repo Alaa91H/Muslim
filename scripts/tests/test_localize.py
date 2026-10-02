@@ -48,16 +48,20 @@ class LocalizationQualityTests(unittest.TestCase):
             )
             (target / "values-en/strings.xml").write_text(
                 '<resources><string name="action">Open Quran</string>'
+                '<string name="copy">Open Quran</string>'
                 '<string name="existing">Save changes</string></resources>', encoding="utf-8",
             )
             (target / "values-fr/strings.xml").write_text(
-                '<resources><string name="existing">Enregistrer</string></resources>', encoding="utf-8",
+                '<resources><string name="action">Open Quran</string>'
+                '<string name="existing">Enregistrer</string></resources>', encoding="utf-8",
             )
 
-            sync_duplicate_localizations.synchronize([str(donor), str(target)])
+            with patch("builtins.print"):
+                sync_duplicate_localizations.synchronize([str(donor), str(target)])
             translated = localize.read_locale_strings(str(target / "values-fr/strings.xml"))
 
         self.assertEqual(translated["action"], "Ouvrir le Coran")
+        self.assertEqual(translated["copy"], "Ouvrir le Coran")
         self.assertEqual(translated["existing"], "Enregistrer")
 
     def test_scholar_library_has_complete_english_source(self) -> None:
@@ -88,9 +92,12 @@ class LocalizationQualityTests(unittest.TestCase):
 
     def test_provider_rate_limit_fails_without_returning_source_as_translation(self) -> None:
         error = urllib.error.HTTPError("https://translate.invalid", 429, "rate limited", {}, None)
-        with patch.object(localize.urllib.request, "urlopen", side_effect=error), patch.object(localize.time, "sleep"):
-            with self.assertRaisesRegex(RuntimeError, "no source fallback"):
-                localize.translate_batch(["Start playback"], "fr")
+        try:
+            with patch.object(localize.urllib.request, "urlopen", side_effect=error), patch.object(localize.time, "sleep"):
+                with self.assertRaisesRegex(RuntimeError, "no source fallback"):
+                    localize.translate_batch(["Start playback"], "fr")
+        finally:
+            error.close()
 
     def test_cached_source_fallback_is_rejected(self) -> None:
         source = "Start Quran playback"

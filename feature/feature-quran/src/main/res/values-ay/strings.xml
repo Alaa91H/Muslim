@@ -130,7 +130,7 @@
     <string name="quran_tafsir_installed">Instalado</string>
     <string name="quran_tafsir_download_failed">No se pudo descargar el tafsir: %1$s</string>
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
-    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d Ukax mä juk’a pachanakanwa.</string>
     <string name="quran_tafsir_follow_playback">Tafsir ukan ayah recitado ukar arktañamawa</string>
     <string name="quran_tafsir_follow_playback_description">Significados ukat tafsir ukanak recitación ukamp sarantayaña. Yaqha qhanañchäwi liytʼañatakejj jistʼantañamawa, kunapachatï audiojj sarantaski ukhakama.</string>
     <string name="quran_search_hint">Quran ukan jisk’a t’aqanakapat thaqhapxam...</string>

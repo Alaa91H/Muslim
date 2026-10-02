@@ -100,10 +100,10 @@
     <string name="settings_adhan_check_alarm_volume">Device alarm volume is audible</string>
     <string name="settings_adhan_check_passed">Ready</string>
     <string name="settings_adhan_check_failed">Needs attention</string>
-    <string name="settings_adhan_verify_action">Check now</string>
+    <string name="settings_adhan_verify_action">Jichhax uñakipt’añäni</string>
     <string name="settings_adhan_sound">Adhan sonido sapa mayisiña</string>
     <string name="settings_adhan_sound_choice">Sonido ajlliñani</string>
-    <string name="settings_adhan_sound_summary">%1$s · %2$s</string>
+    <string name="settings_adhan_sound_summary">%1$s · %2$s Ukax mä juk’a pachanakanwa.</string>
     <string name="settings_adjustments">Manual ukan chiqañchäwinakapa (minutos) .</string>
     <string name="settings_asr">Asr ukax jakthapitawa</string>
     <string name="settings_asr_hanafi">Hanafi</string>
