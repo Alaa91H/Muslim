@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Fraz egzak</string>
     <string name="quran_search_ayah_summary">%1$d ensidans nan vèsè %2$d</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · evènman mo %3$d</string>
+    <string name="quran_reciter_picker_title">Chwazi yon reciter</string>
+    <string name="quran_reciter_search_hint">Chèche rezitè pa non, style, oswa kalite...</string>
+    <string name="quran_reciter_no_results">Pa gen moun ki rezite ki matche rechèch sa a</string>
 </resources>

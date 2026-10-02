@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Kasasin pɔtee</string>
     <string name="quran_search_ayah_summary">%1$d nsɛm a esisi wɔ %2$d nkyekyem ahorow mu</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · nsɛmfua a ɛba %3$d</string>
+    <string name="quran_reciter_picker_title">Paw obi a ɔkenkan ade</string>
+    <string name="quran_reciter_search_hint">Hwehwɛ reciters din, ɔkwan, anaa su...</string>
+    <string name="quran_reciter_no_results">Akenkanfo biara nni hɔ a ɛne saa hwehwɛ yi hyia</string>
 </resources>

@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Genau Ausdrock</string>
     <string name="quran_search_ayah_summary">%1$d Optriede an %2$d Verse</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · Wuert Optriede %3$d</string>
+    <string name="quran_reciter_picker_title">Wielt e Reciter</string>
+    <string name="quran_reciter_search_hint">Sicht Reciteren nom Numm, Stil oder Qualitéit ...</string>
+    <string name="quran_reciter_no_results">Keng Reciteren passen dës Sich</string>
 </resources>

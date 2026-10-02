@@ -30,8 +30,9 @@ Files: QuranReaderViewModel.kt, QuranReaderScreen.kt, a focused Mushaf page help
 Files: Reciter.kt, provider catalogue/quality metadata, reciter/download selection, source validation tests/scripts.
 - [x] Compare historic and live catalogues; preserve old IDs and restore missing valid recordings.
 - [x] Inspect EveryAyah, MP3Quran and Quran Foundation primary sources; distinguish per-ayah files from full-surah audio/timing.
-- [ ] Offer broad searchable localized reciter selection, styles, available scope and highest verified source quality.
-- [ ] Validate URLs/content type/audio bitrate with provenance rather than label-only quality claims; preserve resumable/offline download behavior.
+- [x] Add a localized searchable picker for the current per-ayah reciter catalogue; keep a stable ID for users with saved selections.
+- [ ] Add other verified sources and playback scopes; do not treat full-surah streams as per-ayah audio.
+- [ ] Validate every URL/content type/audio bitrate with provenance rather than label-only quality claims; preserve resumable/offline download behavior.
 
 ## Task 3: Tafsir follow, Quran search and content languages
 
@@ -79,3 +80,5 @@ Files: scripts/localize.py/resource audit, language settings, Gradle versioning,
 - Quran search local verification: `:feature:feature-quran:testDebugUnitTest` and `:feature:feature-quran:lintDebug` passed; the new search suite reports 5 tests, 0 failures. `:wear:assembleDebug` passed with the independent Wear icon resource.
 - Direct local Detekt analyzed 609 Kotlin files with zero findings. Quran/prayer static contracts and three visual-comparison policy tests passed. The global `scripts/localize.py --check` reports extensive pre-existing missing-resource and placeholder problems across unrelated modules; do not present it as a Quran-only check.
 - No physical Android phone is available (user confirmed). Physical TalkBack/performance/fold/car/watch/Cast evidence remains an explicit acceptance gate.
+- Live reciter-source audit on 2026-09-30: the app has 46 EveryAyah per-ayah choices. Its upstream `recitations.js` lists 79 entries, with the unused entries appearing to be lower-bitrate copies or alternate upload labels, so they are not added as duplicate reciters. The live EveryAyah folder test exposed a dead Ibrahim Akhdar 64kbps folder; the 32kbps folder returns MP3 for 001001, 002286 and 114006, and the saved catalogue ID is preserved when updating its source.
+- MP3Quran's live API returned 241 reciters, including 154 complete Hafs moshafs; these are full-surah streams and cannot be placed in the existing ayah queue without breaking ayah sync. Treat them as a separate provider/playback-scope project. `QuranLiveStream` is a standalone broadcast server; the inspected repository does not itself supply a ready-made Android Cast receiver.

@@ -13,6 +13,31 @@ class AdhkarPrefsTest {
     }
 
     @Test
+    fun `periodic reminder quiet window defaults to overnight and stays opt in`() {
+        val prefs = AdhkarPrefs()
+        assertThat(prefs.periodicReminderWindowStartHour).isEqualTo(22)
+        assertThat(prefs.periodicReminderWindowStartMinute).isEqualTo(0)
+        assertThat(prefs.periodicReminderWindowEndHour).isEqualTo(6)
+        assertThat(prefs.periodicReminderWindowEndMinute).isEqualTo(0)
+        assertThat(prefs.periodicReminderWindowEnabled).isFalse()
+    }
+
+    @Test
+    fun `periodic reminder quiet window retains explicit user times`() {
+        val prefs = AdhkarPrefs(
+            periodicReminderWindowEnabled = true,
+            periodicReminderWindowStartHour = 23,
+            periodicReminderWindowStartMinute = 30,
+            periodicReminderWindowEndHour = 7,
+            periodicReminderWindowEndMinute = 15,
+        )
+        assertThat(prefs.periodicReminderWindowStartHour).isEqualTo(23)
+        assertThat(prefs.periodicReminderWindowStartMinute).isEqualTo(30)
+        assertThat(prefs.periodicReminderWindowEndHour).isEqualTo(7)
+        assertThat(prefs.periodicReminderWindowEndMinute).isEqualTo(15)
+    }
+
+    @Test
     fun `master switch is on when only the morning reminder is enabled`() {
         val prefs = AdhkarPrefs(morningReminderEnabled = true)
         assertThat(prefs.morningEveningReminderEnabled).isTrue()

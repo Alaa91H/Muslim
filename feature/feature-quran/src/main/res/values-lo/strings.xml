@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">ປະໂຫຍກທີ່ແນ່ນອນ</string>
     <string name="quran_search_ayah_summary">%1$d ເກີດຂຶ້ນໃນຂໍ້ %2$d</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · ຄໍາປະກົດ %3$d</string>
+    <string name="quran_reciter_picker_title">ເລືອກນັກຂຽນ</string>
+    <string name="quran_reciter_search_hint">ຊອກຫານັກຂຽນຕາມຊື່, ຮູບແບບ, ຫຼືຄຸນນະພາບ...</string>
+    <string name="quran_reciter_no_results">ບໍ່ມີນັກຂຽນທີ່ກົງກັບການຄົ້ນຫານີ້</string>
 </resources>

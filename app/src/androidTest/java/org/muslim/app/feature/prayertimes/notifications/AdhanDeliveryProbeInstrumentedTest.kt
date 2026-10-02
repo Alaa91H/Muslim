@@ -5,7 +5,9 @@ import android.app.AlarmManager
 import android.app.NotificationManager
 import android.content.Intent
 import android.os.Build
+import android.os.ParcelFileDescriptor
 import android.os.SystemClock
+import android.util.Log
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import dagger.hilt.android.EntryPointAccessors
@@ -41,15 +43,16 @@ class AdhanDeliveryProbeInstrumentedTest {
     fun grantRequiredSystemAccessAndSaveAudibleSettings() = runBlocking {
         val automation = InstrumentationRegistry.getInstrumentation().uiAutomation
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            automation.executeShellCommand(
+            runShell(automation.executeShellCommand(
                 "pm grant ${context.packageName} ${Manifest.permission.POST_NOTIFICATIONS}",
-            ).close()
+            ))
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            automation.executeShellCommand(
+            runShell(automation.executeShellCommand(
                 "appops set ${context.packageName} SCHEDULE_EXACT_ALARM allow",
-            ).close()
+            ))
         }
+        runShell(automation.executeShellCommand("cmd deviceidle whitelist +${context.packageName}"))
         NotificationChannels.create(context)
         entryPoint.settingsRepository().save(
             PrayerSettings(
@@ -70,24 +73,52 @@ class AdhanDeliveryProbeInstrumentedTest {
         context.stopService(Intent(context, AdhanPlaybackService::class.java))
         context.stopService(Intent(context, NextAdhanService::class.java))
         notificationManager.cancel(AdhanNotifications.ADHAN_NOTIFICATION_ID)
+        runShell(
+            InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(
+                "cmd deviceidle whitelist -${context.packageName}",
+            ),
+        )
     }
 
     @Test
     fun scheduledProbe_reachesReceiver_postsActiveAdhanAndStartsAudio() {
         val alarmManager = context.getSystemService(AlarmManager::class.java)
+        val appOps = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            runShell(
+                InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(
+                    "appops get ${context.packageName} SCHEDULE_EXACT_ALARM",
+                ),
+            )
+        } else {
+            "not required"
+        }
+        val exactAlarmAccess = Build.VERSION.SDK_INT < Build.VERSION_CODES.S || alarmManager.canScheduleExactAlarms()
         assertTrue(
-            "The test emulator must grant exact-alarm access before exercising the real probe",
-            Build.VERSION.SDK_INT < Build.VERSION_CODES.S || alarmManager.canScheduleExactAlarms(),
+            "The test emulator must grant exact-alarm access before exercising the real probe; appops=$appOps",
+            exactAlarmAccess,
         )
+        Log.i(TAG, "Exact alarm access=$exactAlarmAccess appops=$appOps")
 
         val settings = runBlocking { entryPoint.settingsRepository().settings.first() }
         assertEquals(USER_SELECTED_VOLUME_PERCENT, settings.adhanVolume)
         assertTrue(entryPoint.scheduler().scheduleDeliveryProbe(settings, Prayer.Fajr))
         // A concurrent settings observer must not cancel the user-triggered probe.
         entryPoint.scheduler().schedule(settings)
+        val alarmDump = runShell(
+            InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand("dumpsys alarm"),
+        )
+        val scheduledProbe = alarmDump.lineSequence()
+            .filter { context.packageName in it || "AdhanAlarmReceiver" in it }
+            .joinToString(" ")
+            .take(MAX_ALARM_DIAGNOSTICS_CHARS)
+        Log.i(TAG, "Scheduled probe alarm=$scheduledProbe")
 
         val result = waitForProbeTerminalState()
-        assertNotNull("Probe did not reach a terminal state: ${entryPoint.deliveryJournal().lastProbe.value}", result)
+        assertNotNull(
+            "Probe did not reach a terminal state: ${entryPoint.deliveryJournal().lastProbe.value}; " +
+                "appops=$appOps; alarm=$scheduledProbe",
+            result,
+        )
         assertEquals(Prayer.Fajr, result!!.prayer)
         assertTrue(
             "Active Adhan notification was not retained: ${result.detail}",
@@ -112,7 +143,12 @@ class AdhanDeliveryProbeInstrumentedTest {
         return null
     }
 
+    private fun runShell(descriptor: ParcelFileDescriptor): String =
+        ParcelFileDescriptor.AutoCloseInputStream(descriptor).use { it.readBytes().toString(Charsets.UTF_8) }
+
     private companion object {
+        const val TAG = "AdhanDeliveryProbeTest"
+        const val MAX_ALARM_DIAGNOSTICS_CHARS = 2_000
         const val USER_SELECTED_VOLUME_PERCENT = 17
         const val PROBE_TIMEOUT_MS = 35_000L
         const val POLL_INTERVAL_MS = 200L

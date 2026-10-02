@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">ఖచ్చితమైన పదబంధం</string>
     <string name="quran_search_ayah_summary">%1$d పద్యాలలో %2$d సంఘటనలు</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · పద సంఘటనలు %3$d</string>
+    <string name="quran_reciter_picker_title">పారాయణకర్తను ఎంచుకోండి</string>
+    <string name="quran_reciter_search_hint">పేరు, శైలి లేదా నాణ్యత ద్వారా పారాయణాలను శోధించండి...</string>
+    <string name="quran_reciter_no_results">ఈ శోధనకు సరిపోలిన పారాయణాలు లేవు</string>
 </resources>

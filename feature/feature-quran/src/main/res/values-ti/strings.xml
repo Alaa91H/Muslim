@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">ልክዕ ሓረግ</string>
     <string name="quran_search_ayah_summary">%1$d ኣብ %2$d ጥቕስታት ዝረአ እዩ።</string>
     <string name="quran_search_result_location">%1$s · ኣያህ %2$d · ቃላት ምጥቃዕ %3$d</string>
+    <string name="quran_reciter_picker_title">ሓደ ኣንባቢ ምረጽ</string>
+    <string name="quran_reciter_search_hint">ንኣንበብቲ ብስሞም፡ ቅዲ፡ ወይ ብጽሬት ድለዩ...</string>
+    <string name="quran_reciter_no_results">ምስዚ ምድላይ ዝሰማማዕ ኣንባቢ የለን</string>
 </resources>

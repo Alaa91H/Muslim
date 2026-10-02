@@ -2,6 +2,7 @@ package org.muslim.app
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -9,6 +10,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.EntryPoint
@@ -33,6 +36,18 @@ import org.muslim.app.feature.prayertimes.widget.refreshPrayerTimesWidgets
 import org.muslim.app.feature.settings.locale.withAppLocale
 import org.muslim.app.feature.settings.update.UpdateCheckScheduler
 import org.muslim.app.ui.MuslimApp
+import org.muslim.app.cast.QuranCastPlayback
+import org.muslim.app.cast.QuranCastPlaybackCallbacks
+import org.muslim.app.cast.CastReceiverConfig
+import org.muslim.app.feature.quran.domain.QuranCastPayload
+import org.muslim.app.feature.quran.ui.LocalQuranCastPayloadSink
+import org.muslim.app.feature.quran.ui.LocalQuranCastPlaybackSink
+import org.muslim.app.feature.quran.ui.LocalQuranCastConnected
+import org.muslim.app.feature.quran.ui.LocalQuranCastDeviceName
+import org.muslim.app.feature.quran.ui.LocalQuranCastError
+import org.muslim.app.feature.quran.ui.LocalQuranCastStartSink
+import org.muslim.app.feature.quran.ui.QuranCastHandoffManager
+import android.util.Log
 import java.util.ArrayDeque
 import javax.inject.Inject
 
@@ -45,6 +60,12 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : FragmentActivity() {
 
+    private var castPlayback: QuranCastPlayback? = null
+    private var pendingCastPayload: QuranCastPayload? = null
+    private val castConnected = mutableStateOf(false)
+    private val castDeviceName = mutableStateOf<String?>(null)
+    private val castError = mutableStateOf<String?>(null)
+
     @Inject
     lateinit var settingsRepository: PrayerSettingsRepository
 
@@ -56,6 +77,9 @@ class MainActivity : FragmentActivity() {
 
     @Inject
     lateinit var permissionManager: PermissionManager
+
+    @Inject
+    lateinit var quranCastHandoffManager: QuranCastHandoffManager
 
     /** Tab requested by an App Shortcut (`muslim://times` etc.), else home. */
     private val targetRoute = MutableStateFlow(ROUTE_HOME)
@@ -83,12 +107,30 @@ class MainActivity : FragmentActivity() {
         val repository = EntryPointAccessors
             .fromApplication(newBase.applicationContext, LocaleEntryPoint::class.java)
             .appPreferencesRepository()
-        super.attachBaseContext(newBase.withAppLocale(repository.readLanguageSync()))
+        val localizedBase = newBase.withAppLocale(repository.readLanguageSync())
+        // The CI screenshot matrix needs deterministic large-font renders on
+        // emulator images that do not honor `settings put system font_scale`.
+        // This hook is debug-only; production always follows Android's setting.
+        val qaFontScale = if (BuildConfig.DEBUG) {
+            newBase.getSharedPreferences(QA_OVERRIDE_PREFERENCES, Context.MODE_PRIVATE)
+                .getFloat(QA_FONT_SCALE_KEY, 0f)
+        } else {
+            0f
+        }
+        val baseContext = if (qaFontScale in QA_FONT_SCALE_MIN..QA_FONT_SCALE_MAX) {
+            localizedBase.createConfigurationContext(
+                Configuration(localizedBase.resources.configuration).apply { fontScale = qaFontScale },
+            )
+        } else {
+            localizedBase
+        }
+        super.attachBaseContext(baseContext)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        castPlayback = createCastPlayback()
 
         // Surface the persisted fatal crash (from the auto-relaunch) once.
         showPreviousCrashIfAny()
@@ -117,20 +159,83 @@ class MainActivity : FragmentActivity() {
             refreshPrayerTimesWidgets(applicationContext)
         }
         targetRoute.value = routeFromIntent(intent)
+        val castPayloadSink: (QuranCastPayload?) -> Unit = { payload ->
+            pendingCastPayload = payload
+        }
+        val castPlaybackSink: (Boolean?) -> Unit = { shouldPlay ->
+            if (shouldPlay != null && castPlayback?.isConnected() == true) {
+                castPlayback?.syncPlayback(shouldPlay)
+            }
+        }
+        val castStartSink: (QuranCastPayload, org.muslim.app.feature.quran.data.RecitationPlaybackSnapshot) -> Unit = { payload, snapshot ->
+            if (castPlayback?.isConnected() == true) {
+                castPlayback?.loadSnapshot(payload, snapshot)
+            }
+        }
         setContent {
-            val route by targetRoute.collectAsStateWithLifecycle()
-            MuslimApp(
-                initialRoute = route,
-                // Read once per process: changing the start tab in Settings only
-                // persists the choice; it takes effect on the next cold start.
-                initialStartTab = appPreferencesRepository.readStartTabSync(),
-                onLanguageChanged = ::recreate,
-            )
+            CompositionLocalProvider(
+                LocalQuranCastPayloadSink provides castPayloadSink,
+                LocalQuranCastPlaybackSink provides castPlaybackSink,
+                LocalQuranCastConnected provides castConnected.value,
+                LocalQuranCastDeviceName provides castDeviceName.value,
+                LocalQuranCastError provides castError.value,
+                LocalQuranCastStartSink provides castStartSink,
+            ) {
+                val route by targetRoute.collectAsStateWithLifecycle()
+                MuslimApp(
+                    initialRoute = route,
+                    // Read once per process: changing the start tab in Settings only
+                    // persists the choice; it takes effect on the next cold start.
+                    initialStartTab = appPreferencesRepository.readStartTabSync(),
+                    onLanguageChanged = ::recreate,
+                )
+            }
         }
     }
 
+    private fun createCastPlayback(): QuranCastPlayback? = runCatching {
+        QuranCastPlayback(this, QuranCastPlaybackCallbacks(
+            onSessionChanged = { connected ->
+                castConnected.value = connected
+                castDeviceName.value = if (connected) castPlayback?.deviceName() else null
+                if (connected) castError.value = null
+                if (connected) {
+                    pendingCastPayload?.let { castPlayback?.sendCurrentState(it) }
+                }
+            },
+            onError = { message ->
+                castError.value = message
+                Log.w("MuslimCast", message)
+            },
+            mediaUrlFor = { payload ->
+                quranCastHandoffManager.mediaUrl(payload)
+            },
+            onRemoteEnded = {
+                val (position, playing) = castPlayback?.lastRemotePosition ?: (0L to false)
+                quranCastHandoffManager.handoffToLocal(position, playing)
+                quranCastHandoffManager.endSession()
+                castConnected.value = false
+                castDeviceName.value = null
+            },
+            onRemoteAccepted = { position ->
+                quranCastHandoffManager.handoffToRemote(position)
+            },
+            onRemoteProgress = { position, duration, playing ->
+                quranCastHandoffManager.acceptRemotePosition(position, duration, playing)
+            },
+            onRemoteItemEnded = quranCastHandoffManager::onRemoteMediaEnded,
+            customReceiverEnabled = CastReceiverConfig.applicationId(this) != null,
+        ))
+        }.onFailure { Log.w("MuslimCast", "Cast services are unavailable on this device.", it) }
+            .getOrNull()
+            ?.also {
+                quranCastHandoffManager.onRemoteCommand = it::execute
+                it.start()
+            }
+
     override fun onResume() {
         super.onResume()
+        runCatching { castPlayback?.start() }
         // Exact-alarm access is granted in a system settings screen. The first
         // launch may have scheduled a degraded inexact alarm before the user
         // returned from that screen, so always replace it with the correct
@@ -138,6 +243,13 @@ class MainActivity : FragmentActivity() {
         lifecycleScope.launch {
             adhanScheduler.schedule(settingsRepository.settings.first())
         }
+    }
+
+    override fun onDestroy() {
+        castPlayback?.release()
+        quranCastHandoffManager.onRemoteCommand = null
+        castPlayback = null
+        super.onDestroy()
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -244,6 +356,10 @@ class MainActivity : FragmentActivity() {
     }
 
     private companion object {
+        private const val QA_OVERRIDE_PREFERENCES = "uiux-qa-overrides"
+        private const val QA_FONT_SCALE_KEY = "font-scale"
+        private const val QA_FONT_SCALE_MIN = 0.8f
+        private const val QA_FONT_SCALE_MAX = 3f
         const val ROUTE_HOME = "home"
         const val ROUTE_QIBLA = "qibla"
         const val ROUTE_SETTINGS = "settings"

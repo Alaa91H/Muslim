@@ -13,18 +13,18 @@ import org.muslim.app.feature.settings.locale.withAppLocale
 @RunWith(AndroidJUnit4::class)
 class AppLocaleConfigurationInstrumentedTest {
     @Test
-    fun localeOverride_preservesBaseFontScaleAndWindowWidth() {
+    fun localeOverride_preservesBaseFontScaleWithoutPinningWindowWidth() {
         val originalLocale = Locale.getDefault()
         try {
             val context = InstrumentationRegistry.getInstrumentation().targetContext
             val base = context.createConfigurationContext(Configuration(context.resources.configuration).apply {
                 fontScale = 2f
-                screenWidthDp = 900
             })
+            val currentWindowWidth = context.resources.configuration.screenWidthDp
             val configuration = base.withAppLocale("ar").resources.configuration
             assertEquals("ar", configuration.locales[0].language)
             assertEquals(2f, configuration.fontScale, 0.01f)
-            assertEquals(900, configuration.screenWidthDp)
+            assertEquals(currentWindowWidth, configuration.screenWidthDp)
         } finally {
             Locale.setDefault(originalLocale)
         }

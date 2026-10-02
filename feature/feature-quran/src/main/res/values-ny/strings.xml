@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Mawu enieni</string>
     <string name="quran_search_ayah_summary">%1$d kupezeka m\'mavesi %2$d</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · mawu omwe amapezeka %3$d</string>
+    <string name="quran_reciter_picker_title">Sankhani wowerenga</string>
+    <string name="quran_reciter_search_hint">Sakani owerenga ndi dzina, masitayelo, kapena mtundu…</string>
+    <string name="quran_reciter_no_results">Palibe obwereza omwe akufanana ndikusakaku</string>
 </resources>

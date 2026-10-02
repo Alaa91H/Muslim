@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Pontos kifejezés</string>
     <string name="quran_search_ayah_summary">%1$d előfordulások a %2$d versekben</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · szóelőfordulások %3$d</string>
+    <string name="quran_reciter_picker_title">Válassz egy szavalót</string>
+    <string name="quran_reciter_search_hint">Keressen a szavalók között név, stílus vagy minőség alapján…</string>
+    <string name="quran_reciter_no_results">Ennek a keresésnek egyetlen felolvasó sem felel meg</string>
 </resources>

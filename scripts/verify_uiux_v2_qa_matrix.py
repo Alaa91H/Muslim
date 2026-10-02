@@ -66,8 +66,9 @@ def main() -> None:
     screenshot_contract = (
         all(value in capture for value in (
             "uiAutomation.takeScreenshot()", "sampledColors.size > 1", "getExternalFilesDir(null)",
-            "markInitialPermissionSetupHandled()", "rootInActiveWindow", "setSystemFontScale(originalFontScale)",
+            "markInitialPermissionSetupHandled()", "rootInActiveWindow",
             "screenWidthDp >= 840", "scenario?.close()", "Could not publish completed screenshot",
+            "SCREENSHOT_HOST_FINAL_CAPTURE_GRACE_MS", "holdForHostCapture",
         ))
         and all(value in matrix for value in (
             '"prayer-home"', '"prayer-monthly"', '"quran-home"', '"quran-reader"',

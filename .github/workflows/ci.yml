@@ -59,6 +59,11 @@ jobs:
           python3 -m pip install -r scripts/requirements-uiux-visual.txt
           python3 -m unittest discover -s scripts/tests -p test_uiux_v2_visual_comparison.py -v
 
+      - name: Verify localization completeness and formatting
+        run: |
+          python3 -m unittest discover -s scripts/tests -p test_localize.py -v
+          python3 scripts/localize.py --check
+
       - name: Verify feature module boundaries
         run: python3 scripts/verify_module_boundaries.py
 

@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -26,6 +27,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.material.icons.Icons
@@ -55,6 +58,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Snackbar
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
@@ -143,9 +147,13 @@ import org.muslim.app.feature.quran.data.PlaybackState
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.ReaderTheme
+import org.muslim.app.feature.quran.domain.ReciterSearch
 import org.muslim.app.feature.quran.domain.Reciter
 import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.SurahRevelationData
+import org.muslim.app.feature.quran.domain.CastText
+import org.muslim.app.feature.quran.domain.QuranCastPayload
+import org.muslim.app.feature.quran.domain.CastPlaybackState
 
 private const val DEFAULT_FONT_SP = 26f
 private val REPEAT_OPTIONS = listOf(1, 3, 5, 10, -1) // -1 = continuous ("بدون توقف")
@@ -249,6 +257,16 @@ fun QuranReaderScreen(
     val theme by viewModel.readerTheme.collectAsStateWithLifecycle()
     val persistedFont by viewModel.readerFontSize.collectAsStateWithLifecycle()
     val supplements by viewModel.supplements.collectAsStateWithLifecycle()
+    val castPrayerViewModel: QuranCastPrayerViewModel = hiltViewModel()
+    val castPrayerSnapshot by castPrayerViewModel.snapshot.collectAsStateWithLifecycle()
+    val positionMs by viewModel.positionMs.collectAsStateWithLifecycle()
+    val durationMs by viewModel.durationMs.collectAsStateWithLifecycle()
+    val castPayloadSink = LocalQuranCastPayloadSink.current
+    val castPlaybackSink = LocalQuranCastPlaybackSink.current
+    val castConnected = LocalQuranCastConnected.current
+    val castDeviceName = LocalQuranCastDeviceName.current
+    val castError = LocalQuranCastError.current
+    val castStartSink = LocalQuranCastStartSink.current
     val supplementAyah by viewModel.supplementAyah.collectAsStateWithLifecycle()
     val supplementFollowPlayback by viewModel.supplementFollowPlayback.collectAsStateWithLifecycle()
     val supplementEnabled by viewModel.supplementEnabled.collectAsStateWithLifecycle()
@@ -266,8 +284,6 @@ fun QuranReaderScreen(
     val hasPreviousAyah by viewModel.hasPreviousAyah.collectAsStateWithLifecycle()
     val recitationFailure by viewModel.recitationFailure.collectAsStateWithLifecycle()
     val restorableSession by viewModel.restorableSession.collectAsStateWithLifecycle()
-    val positionMs by viewModel.positionMs.collectAsStateWithLifecycle()
-    val durationMs by viewModel.durationMs.collectAsStateWithLifecycle()
     val selectedReciter by viewModel.selectedReciter.collectAsStateWithLifecycle()
     val downloading by viewModel.downloading.collectAsStateWithLifecycle()
     val downloadProgress by viewModel.downloadProgress.collectAsStateWithLifecycle()
@@ -366,6 +382,82 @@ fun QuranReaderScreen(
 
     // The ayah currently playing (if any) — drives the mini now-playing bar.
     val playingAyah = currentAudioAyah?.let { global -> mushafAyahs.firstOrNull { it.globalNumber == global } }
+    val recitationSnapshot = viewModel.recitationPlaybackSnapshot
+    val castAyah = playingAyah.takeIf { playbackState == PlaybackState.Playing || playbackState == PlaybackState.Paused }
+    val castSessionId = rememberCastSessionId(context)
+    val castSequence = rememberCastSequence(castSessionId, castAyah?.globalNumber, positionMs, playbackState)
+    val castPayload = remember(
+        castAyah, selectedReciter, durationMs, supplements, supplementLanguage,
+        castPrayerSnapshot, context, castSequence, positionMs, playbackState,
+        recitationSnapshot, state.surah,
+    ) {
+        castAyah?.let { ayah ->
+            val translation = supplements.translations.firstOrNull {
+                it.language.equals(supplementLanguage, ignoreCase = true)
+            } ?: supplements.translations.firstOrNull()
+            QuranCastPayload(
+                sessionId = castSessionId,
+                sequence = castSequence,
+                timestampEpochMs = System.currentTimeMillis(),
+                languageTag = translation?.language ?: "und",
+                surahNumber = ayah.surahNumber,
+                surahArabicName = state.surah?.arabicName ?: "سورة ${ayah.surahNumber}",
+                surahLocalizedName = state.surah?.englishName ?: "Surah ${ayah.surahNumber}",
+                totalAyahs = state.surah?.ayahCount ?: ayah.numberInSurah,
+                revelationType = state.surah?.revelationType,
+                ayahNumber = ayah.numberInSurah,
+                globalAyahNumber = ayah.globalNumber,
+                reciterName = selectedReciter.name,
+                reciterId = selectedReciter.id,
+                audioUrl = selectedReciter.urlFor(ayah.surahNumber, ayah.numberInSurah),
+                durationMs = durationMs.takeIf { playingAyah?.globalNumber == ayah.globalNumber },
+                positionMs = positionMs,
+                playbackState = when (playbackState) {
+                    PlaybackState.Playing -> CastPlaybackState.PLAYING
+                    PlaybackState.Paused -> CastPlaybackState.PAUSED
+                    PlaybackState.Idle -> CastPlaybackState.IDLE
+                },
+                repeatCount = recitationSnapshot?.repeatCount ?: 1,
+                remainingRepeats = recitationSnapshot?.remainingRepeats ?: 1,
+                queueGlobalNumbers = recitationSnapshot?.queue?.map { it.globalNumber } ?: listOf(ayah.globalNumber),
+                queueIndex = recitationSnapshot?.queueIndex ?: 0,
+                arabicAyah = ayah.text,
+                translation = translation?.let {
+                    CastText(text = it.text, source = it.language, languageTag = it.language)
+                },
+                tafsir = supplements.tafsir.map { entry ->
+                    CastText(entry.text, entry.source, if (entry.source.contains("english", true)) "en" else "ar")
+                },
+                prayerLocation = castPrayerSnapshot?.location,
+                prayerTimes = castPrayerSnapshot?.times.orEmpty(),
+            )
+        }
+    }
+    LaunchedEffect(castPayload) { castPayloadSink(castPayload) }
+    val castPlayablePayload = remember(castPayload, playbackState, castConnected) {
+        castPayload?.takeIf { payload ->
+            payload.audioUrl.startsWith("https://") ||
+                viewModel.isRecitationDownloaded(selectedReciter, payload.surahNumber, payload.globalAyahNumber)
+        }
+    }
+    LaunchedEffect(castConnected, castPayload, recitationSnapshot) {
+        if (castConnected && castPlayablePayload != null && recitationSnapshot != null) castStartSink(castPlayablePayload, recitationSnapshot)
+    }
+    LaunchedEffect(playbackState) {
+        castPlaybackSink(
+            when (playbackState) {
+                PlaybackState.Playing -> true
+                PlaybackState.Paused -> false
+                PlaybackState.Idle -> null
+            },
+        )
+    }
+    DisposableEffect(Unit) {
+        onDispose {
+            castPayloadSink(null)
+            castPlaybackSink(null)
+        }
+    }
 
     // Auto-scroll state so the selected / recited ayah stays fully visible.
     var scrollTargetAyah by remember { mutableStateOf<Int?>(null) }
@@ -619,6 +711,13 @@ fun QuranReaderScreen(
                     }
                 },
                 actions = {
+                    QuranCastButton()
+                    castDeviceName?.let { name ->
+                        Text(name, style = MaterialTheme.typography.labelSmall, maxLines = 1)
+                    }
+                    castError?.let { message ->
+                        Text(message, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.error, maxLines = 1)
+                    }
                     // While recitation audio is being downloaded (before
                     // playback starts) show a compact download icon + the
                     // live percentage in the top bar; it disappears on its
@@ -1322,28 +1421,104 @@ private fun ReciterSelectionSection(
     reciters: List<Reciter>,
     onReciterSelected: (Reciter) -> Unit,
 ) {
+    var pickerOpen by rememberSaveable { mutableStateOf(false) }
+    var query by rememberSaveable { mutableStateOf("") }
+    val filteredReciters = remember(reciters, query) { ReciterSearch.filter(reciters, query) }
     Text(
         text = stringResource(R.string.quran_reciter),
         style = MaterialTheme.typography.titleMedium,
         color = MaterialTheme.colorScheme.primary,
     )
-    reciters.forEach { option ->
-        val selected = option.id == selectedReciter.id
-        IslamicSelectableCard(
-            selected = selected,
-            onClick = { onReciterSelected(option) },
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(IslamicRadius.AyahMarker),
-            contentPadding = PaddingValues(IslamicSpacing.Compact),
-            containerColor = if (selected) {
-                MaterialTheme.colorScheme.primaryContainer
-            } else {
-                MaterialTheme.colorScheme.surfaceContainerHigh
-            },
-        ) {
-            ReciterSelectionRow(option = option, selected = selected)
-        }
+
+    IslamicSelectableCard(
+        selected = true,
+        onClick = {
+            query = ""
+            pickerOpen = true
+        },
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(IslamicRadius.AyahMarker),
+        contentPadding = PaddingValues(IslamicSpacing.Compact),
+    ) {
+        ReciterSelectionRow(option = selectedReciter, selected = true)
     }
+
+    if (pickerOpen) ReciterPickerDialog(
+        query = query,
+        reciters = filteredReciters,
+        selectedReciter = selectedReciter,
+        onQueryChanged = { query = it },
+        onReciterSelected = {
+            onReciterSelected(it)
+            pickerOpen = false
+        },
+        onDismiss = { pickerOpen = false },
+    )
+}
+
+@Composable
+private fun ReciterPickerDialog(
+    query: String,
+    reciters: List<Reciter>,
+    selectedReciter: Reciter,
+    onQueryChanged: (String) -> Unit,
+    onReciterSelected: (Reciter) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.quran_reciter_picker_title)) },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small)) {
+                OutlinedTextField(
+                    value = query,
+                    onValueChange = onQueryChanged,
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
+                    placeholder = {
+                        Text(stringResource(R.string.quran_reciter_search_hint))
+                    },
+                )
+                if (reciters.isEmpty()) {
+                    Text(
+                        text = stringResource(R.string.quran_reciter_no_results),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                } else {
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .heightIn(max = 420.dp),
+                        verticalArrangement = Arrangement.spacedBy(IslamicSpacing.XSmall),
+                    ) {
+                        items(reciters, key = Reciter::id) { option ->
+                            val selected = option.id == selectedReciter.id
+                            IslamicSelectableCard(
+                                selected = selected,
+                                onClick = { onReciterSelected(option) },
+                                modifier = Modifier.fillMaxWidth(),
+                                shape = RoundedCornerShape(IslamicRadius.AyahMarker),
+                                contentPadding = PaddingValues(IslamicSpacing.Compact),
+                                containerColor = if (selected) {
+                                    MaterialTheme.colorScheme.primaryContainer
+                                } else {
+                                    MaterialTheme.colorScheme.surfaceContainerHigh
+                                },
+                            ) {
+                                ReciterSelectionRow(option = option, selected = selected)
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(R.string.quran_details_close))
+            }
+        },
+    )
 }
 
 @Composable

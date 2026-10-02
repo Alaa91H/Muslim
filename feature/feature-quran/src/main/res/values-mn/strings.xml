@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Яг тодорхой хэллэг</string>
     <string name="quran_search_ayah_summary">%1$d %2$d шүлгүүд дэх тохиолдлууд</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · үгийн илрэл %3$d</string>
+    <string name="quran_reciter_picker_title">Уншигчийг сонго</string>
+    <string name="quran_reciter_search_hint">Уншигчдыг нэр, хэв маяг, чанараар нь хайх...</string>
+    <string name="quran_reciter_no_results">Энэ хайлтад тохирох уншагч байхгүй байна</string>
 </resources>

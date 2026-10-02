@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Eksaktong parirala</string>
     <string name="quran_search_ayah_summary">%1$d na mga pangyayari sa %2$d na mga talata</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · mga paglitaw ng salita %3$d</string>
+    <string name="quran_reciter_picker_title">Pumili ng reciter</string>
+    <string name="quran_reciter_search_hint">Maghanap ng mga reciter ayon sa pangalan, istilo, o kalidad...</string>
+    <string name="quran_reciter_no_results">Walang reciter ang tumugma sa paghahanap na ito</string>
 </resources>

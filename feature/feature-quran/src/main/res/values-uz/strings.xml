@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Aniq ibora</string>
     <string name="quran_search_ayah_summary">%1$d %2$d oyatlardagi voqeliklar</string>
     <string name="quran_search_result_location">%1$s · oyat %2$d · so\'zlarning paydo bo\'lishi %3$d</string>
+    <string name="quran_reciter_picker_title">Qiroatchini tanlang</string>
+    <string name="quran_reciter_search_hint">Qorilarni ism, uslub yoki sifat bo‘yicha qidiring…</string>
+    <string name="quran_reciter_no_results">Bu qidiruvga hech qanday qo‘shiqchi mos kelmaydi</string>
 </resources>

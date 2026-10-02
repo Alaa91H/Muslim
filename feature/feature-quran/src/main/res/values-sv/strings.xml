@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Exakt fras</string>
     <string name="quran_search_ayah_summary">%1$d förekomster i %2$d verser</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · ordförekomster %3$d</string>
+    <string name="quran_reciter_picker_title">Välj en reciter</string>
+    <string name="quran_reciter_search_hint">Sök reciterare efter namn, stil eller kvalitet...</string>
+    <string name="quran_reciter_no_results">Inga reciterare matchar denna sökning</string>
 </resources>

@@ -32,4 +32,5 @@ class MainViewModel @Inject constructor(
     /** Drives the app theme (light/dark/system + dynamic color). */
     val appPreferences: StateFlow<AppPreferences> = appPreferencesRepository.preferences
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), AppPreferences())
+
 }

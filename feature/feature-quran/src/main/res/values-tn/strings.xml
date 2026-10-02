@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Polelwana e e tlhomameng</string>
     <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
+    <string name="quran_reciter_picker_title">Tlhopha mmuisi</string>
+    <string name="quran_reciter_search_hint">Batla babadi ka leina, setaele, kgotsa boleng...</string>
+    <string name="quran_reciter_no_results">Ga go na babadi ba ba tshwanang le patlo eno</string>
 </resources>

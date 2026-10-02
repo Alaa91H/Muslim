@@ -127,6 +127,38 @@ class QuranAudioPlayerTest {
     }
 
     @Test
+    fun `snapshot retains queue index repeat state and position for handoff`() {
+        val player = player(FakeFactory())
+        player.playQueue(listOf(item(1), item(2), item(3)), startIndex = 1, repeatCount = 3, startPositionMs = 875L, remainingRepeatsForCurrent = 2)
+        val snapshot = player.snapshot()
+        assertThat(snapshot?.queue?.map { it.globalNumber }).containsExactly(1, 2, 3).inOrder()
+        assertThat(snapshot?.queueIndex).isEqualTo(1)
+        assertThat(snapshot?.repeatCount).isEqualTo(3)
+        assertThat(snapshot?.remainingRepeats).isEqualTo(2)
+        assertThat(snapshot?.positionMs).isEqualTo(875L)
+    }
+
+    @Test
+    fun `remote completion repeats current item before advancing`() {
+        val player = player(FakeFactory())
+        val commands = mutableListOf<RemotePlaybackCommand>()
+        player.playQueue(listOf(item(1), item(2)), startIndex = 0, repeatCount = 2)
+        player.handoffToRemote(420L)
+        player.onRemoteCommand = commands::add
+
+        player.onRemoteMediaEnded()
+
+        assertThat(player.currentAyah.value).isEqualTo(1)
+        assertThat(player.remainingRepeats.value).isEqualTo(1)
+        assertThat(commands).containsExactly(RemotePlaybackCommand.Seek(0L), RemotePlaybackCommand.Play).inOrder()
+
+        player.onRemoteMediaEnded()
+
+        assertThat(player.currentAyah.value).isEqualTo(2)
+        assertThat(commands.last()).isEqualTo(RemotePlaybackCommand.Next)
+    }
+
+    @Test
     fun `playQueue starts at the requested index`() {
         val factory = FakeFactory()
         val player = player(factory)

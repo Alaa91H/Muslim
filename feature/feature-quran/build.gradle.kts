@@ -47,6 +47,7 @@ dependencies {
     implementation(project(":core:core-ui"))
     implementation(project(":core:core-design-system"))
     implementation(project(":core:core-common"))
+    implementation(project(":core:core-cast"))
     implementation(project(":core:core-database"))
     implementation(project(":core:core-datastore"))
     implementation(project(":core:core-network"))
@@ -66,6 +67,7 @@ dependencies {
     ksp(libs.hilt.compiler)
 
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.google.play.services.cast)
 
     // Circular reciter portraits in the recitation picker. Coil provides
     // memory/disk caching and reuses the app's OkHttp stack for HTTPS images.

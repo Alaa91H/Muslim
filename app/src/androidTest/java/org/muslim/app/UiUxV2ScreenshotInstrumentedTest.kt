@@ -2,11 +2,15 @@ package org.muslim.app
 
 import android.graphics.Bitmap
 import android.content.Intent
+import android.content.res.Configuration
 import android.accessibilityservice.AccessibilityServiceInfo
-import android.os.SystemClock
+import android.os.Handler
+import android.os.HandlerThread
 import android.os.Build
 import android.os.ParcelFileDescriptor
-import android.provider.Settings
+import android.os.SystemClock
+import android.view.Window
+import android.view.PixelCopy
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.core.app.ActivityScenario
@@ -17,6 +21,8 @@ import java.time.Instant
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.util.Locale
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.flow.first
 import org.junit.Test
@@ -26,6 +32,9 @@ import org.muslim.app.core.datastore.AppThemeMode
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.SelectedLocation
+import org.muslim.app.feature.settings.locale.withAppLocale
+
+private const val SCREENSHOT_HOST_FINAL_CAPTURE_GRACE_MS = 5_000L
 
 /** Captures the actual Hilt-backed Prayer Home screen on the CI emulator. */
 @RunWith(AndroidJUnit4::class)
@@ -68,9 +77,17 @@ class UiUxV2ScreenshotInstrumentedTest {
         screenName: String = "prayer-home",
         expanded: Boolean = false,
         afterReady: ((android.app.Instrumentation) -> Unit)? = null,
+        holdForHostCapture: Boolean = false,
     ) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
+        val qaOverrides = context.getSharedPreferences("uiux-qa-overrides", android.content.Context.MODE_PRIVATE)
+        val hadOriginalQaFontScale = qaOverrides.contains("font-scale")
+        val originalQaFontScale = qaOverrides.getFloat("font-scale", 0f)
+        qaOverrides.edit().putFloat("font-scale", fontScale).commit()
+        val scaledContext = context.createConfigurationContext(
+            Configuration(context.resources.configuration).apply { this.fontScale = fontScale },
+        )
         val originalAccessibilityFlags = instrumentation.uiAutomation.serviceInfo.flags
         instrumentation.uiAutomation.serviceInfo = instrumentation.uiAutomation.serviceInfo.apply {
             flags = flags or AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS or
@@ -80,10 +97,13 @@ class UiUxV2ScreenshotInstrumentedTest {
         val prayerRepository = PrayerSettingsRepository(context)
         val originalPreferences = runBlocking { preferencesRepository.preferences.first() }
         val originalPrayerSettings = runBlocking { prayerRepository.settings.first() }
-        val originalFontScale = Settings.System.getFloat(context.contentResolver, Settings.System.FONT_SCALE, 1f)
         val fixedClock = InstrumentationRegistry.getArguments().getString("uiux.fixedClock") == "true"
+        val fixedClockManaged = InstrumentationRegistry.getArguments()
+            .getString("uiux.fixedClockManaged") == "true"
+        val manageScreenshotClock = fixedClock && !fixedClockManaged
         val originalWallTime = System.currentTimeMillis()
         val originalElapsedTime = SystemClock.elapsedRealtime()
+        var expandedDisplayDiagnostics = "not requested"
         runBlocking {
             // Screen QA starts after onboarding; system permission dialogs can
             // otherwise dim or replace the screen while still producing a PNG.
@@ -111,22 +131,38 @@ class UiUxV2ScreenshotInstrumentedTest {
                 // capturable by UiAutomation.
                 shell("wm size 1600x1000")
                 shell("wm density 120")
+                val appliedSize = shell("wm size")
+                val appliedDensity = shell("wm density")
+                expandedDisplayDiagnostics =
+                    "appliedSize=$appliedSize appliedDensity=$appliedDensity"
                 val widthDeadline = SystemClock.uptimeMillis() + 10_000
                 while (context.resources.configuration.screenWidthDp < 840 && SystemClock.uptimeMillis() < widthDeadline) {
                     SystemClock.sleep(100)
                 }
             }
-            setSystemFontScale(fontScale)
             if (fixedClock) {
-                val result = shell("su 0 date -u 093015002026.00")
+                val result = if (manageScreenshotClock) {
+                    shell("su 0 date -u 093015002026.00")
+                } else {
+                    "The screenshot batch manages the clock"
+                }
                 val expectedEpoch = Instant.parse("2026-09-30T15:00:00Z").toEpochMilli()
-                check(kotlin.math.abs(System.currentTimeMillis() - expectedEpoch) < 5_000L) {
+                val actualEpoch = System.currentTimeMillis()
+                val clockIsExpected = if (manageScreenshotClock) {
+                    kotlin.math.abs(actualEpoch - expectedEpoch) < 5_000L
+                } else {
+                    actualEpoch in expectedEpoch until (expectedEpoch + 24 * 60 * 60 * 1_000L)
+                }
+                check(clockIsExpected) {
                     "CI screenshot clock could not be fixed: $result"
                 }
             }
             scenario = ActivityScenario.launch<MainActivity>(
                 Intent(context, MainActivity::class.java).putExtra("org.muslim.app.extra.ROUTE", route),
             )
+            check(kotlin.math.abs(scaledContext.withAppLocale(languageCode).resources.configuration.fontScale - fontScale) < 0.01f) {
+                "App locale did not preserve the requested font scale"
+            }
             instrumentation.waitForIdleSync()
             val deadline = SystemClock.uptimeMillis() + 15_000
             var homeVisible = false
@@ -143,12 +179,19 @@ class UiUxV2ScreenshotInstrumentedTest {
                 val dataReady = when (route) {
                     "quran" -> "uiux-quran-content-loaded" in activeWindowDescription
                     "quran/reader/1" -> "بسم الله" in normalizedContent
+                    "quran/reader/3" -> {
+                        val page50Label = if (languageCode == "ar") "صفحة 50" else "Page 50"
+                        page50Label in normalizedContent
+                    }
                     else -> true
                 }
                 homeVisible = root != null && root.packageName?.toString() == context.packageName &&
                     expectedContent in activeWindowDescription && dataReady
                 if (homeVisible) break
                 SystemClock.sleep(100)
+            }
+            check(homeVisible) {
+                "Requested screen $route is not ready for interaction: $activeWindowDescription"
             }
             afterReady?.invoke(instrumentation)
             SystemClock.sleep(500)
@@ -161,7 +204,8 @@ class UiUxV2ScreenshotInstrumentedTest {
                     "Activity font scale does not match the requested screenshot variant"
                 }
                 if (expanded) check(activity.resources.configuration.screenWidthDp >= 840) {
-                    "Expanded capture did not reach the expanded window breakpoint: ${activity.resources.configuration}"
+                    "Expanded capture did not reach the expanded window breakpoint: " +
+                        "${activity.resources.configuration}; $expandedDisplayDiagnostics"
                 }
                 val bars = WindowCompat.getInsetsController(activity.window, activity.window.decorView)
                 val lightTheme = themeMode == AppThemeMode.Light
@@ -173,6 +217,7 @@ class UiUxV2ScreenshotInstrumentedTest {
                 }
             }
             val bitmap = instrumentation.uiAutomation.takeScreenshot()
+                ?: captureActivityWindowBitmap(checkNotNull(scenario))
             check(bitmap.width > 0 && bitmap.height > 0) { "Screenshot has invalid dimensions" }
             val sampledColors = buildSet {
                 for (x in 0 until bitmap.width step 32) {
@@ -200,24 +245,24 @@ class UiUxV2ScreenshotInstrumentedTest {
             check(pendingScreenshot.renameTo(File(outputDirectory, screenshotName))) {
                 "Could not publish completed screenshot"
             }
+            if (fixedClock && holdForHostCapture) SystemClock.sleep(SCREENSHOT_HOST_FINAL_CAPTURE_GRACE_MS)
             check(homeVisible) {
                 "Requested screen $route is obscured or has not rendered: $activeWindowDescription"
             }
         } finally {
             try {
                 scenario?.close()
-                if (expanded) {
-                    shell("wm size reset")
-                    shell("wm density reset")
-                }
-                setSystemFontScale(originalFontScale)
-                if (fixedClock) {
+                if (manageScreenshotClock) {
                     val restoredTime = originalWallTime + SystemClock.elapsedRealtime() - originalElapsedTime
                     val date = DateTimeFormatter.ofPattern("MMddHHmmyyyy.ss", Locale.US)
                         .withZone(ZoneOffset.UTC).format(Instant.ofEpochMilli(restoredTime))
                     shell("su 0 date -u $date")
                 }
             } finally { runBlocking {
+                qaOverrides.edit().apply {
+                    if (hadOriginalQaFontScale) putFloat("font-scale", originalQaFontScale)
+                    else remove("font-scale")
+                }.commit()
                 preferencesRepository.setThemeMode(originalPreferences.themeMode)
                 preferencesRepository.setDynamicColor(originalPreferences.dynamicColor)
                 preferencesRepository.setLanguage(originalPreferences.languageCode)
@@ -229,25 +274,45 @@ class UiUxV2ScreenshotInstrumentedTest {
         }
     }
 
-    private fun setSystemFontScale(scale: Float) {
-        val instrumentation = InstrumentationRegistry.getInstrumentation()
-        shell("settings put system font_scale $scale")
-        val deadline = SystemClock.uptimeMillis() + 10_000
-        while (SystemClock.uptimeMillis() < deadline) {
-            if (kotlin.math.abs(instrumentation.targetContext.resources.configuration.fontScale - scale) < 0.01f) {
-                return
-            }
-            SystemClock.sleep(100)
-        }
-        error("System font scale did not update to $scale")
-    }
-
     private fun AccessibilityNodeInfo.describeTree(): String = buildString {
         append("package=").append(packageName).append(" text=").append(text)
         append(" id=").append(viewIdResourceName)
         append(" description=").append(contentDescription).append('\n')
         for (index in 0 until childCount) {
             getChild(index)?.let { append(it.describeTree()) }
+        }
+    }
+
+    private fun captureActivityWindowBitmap(scenario: ActivityScenario<MainActivity>): Bitmap {
+        var window: Window? = null
+        var width = 0
+        var height = 0
+        scenario.onActivity { activity ->
+            window = activity.window
+            width = activity.window.decorView.width
+            height = activity.window.decorView.height
+        }
+        val sourceWindow = checkNotNull(window) { "Could not obtain the Activity window for screenshot fallback" }
+        check(width > 0 && height > 0) { "Activity window has invalid screenshot dimensions: ${width}x$height" }
+        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val handlerThread = HandlerThread("UiUxScreenshotCapture").apply { start() }
+        try {
+            val copyFinished = CountDownLatch(1)
+            var copyStatus = PixelCopy.ERROR_UNKNOWN
+            PixelCopy.request(sourceWindow, bitmap, { status ->
+                copyStatus = status
+                copyFinished.countDown()
+            }, Handler(handlerThread.looper))
+            check(copyFinished.await(10, TimeUnit.SECONDS)) {
+                "Timed out while copying the expanded Activity window"
+            }
+            check(copyStatus == PixelCopy.SUCCESS) { "Activity window screenshot failed with status $copyStatus" }
+            return bitmap
+        } catch (failure: Throwable) {
+            bitmap.recycle()
+            throw failure
+        } finally {
+            handlerThread.quitSafely()
         }
     }
 
@@ -283,7 +348,7 @@ class UiUxV2ScreenshotInstrumentedTest {
     private fun activeRoot(): AccessibilityNodeInfo? {
         val automation = InstrumentationRegistry.getInstrumentation().uiAutomation
         if (Build.VERSION.SDK_INT >= 33) automation.clearCache()
-        return automation.rootInActiveWindow
+        return automation.rootInActiveWindow?.also { it.refresh() }
     }
 
     private fun routePattern(route: String): String =

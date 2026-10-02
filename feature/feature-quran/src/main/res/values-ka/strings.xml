@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">ზუსტი ფრაზა</string>
     <string name="quran_search_ayah_summary">%1$d შემთხვევები %2$d ლექსებში</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · სიტყვების გაჩენა %3$d</string>
+    <string name="quran_reciter_picker_title">ამოირჩიე რეპეტიტორი</string>
+    <string name="quran_reciter_search_hint">მოძებნეთ მომღერლები სახელის, სტილის ან ხარისხის მიხედვით…</string>
+    <string name="quran_reciter_no_results">ამ ძიებას არც ერთი მომღერალი არ ემთხვევა</string>
 </resources>

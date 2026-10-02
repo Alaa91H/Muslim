@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Точна фраза</string>
     <string name="quran_search_ayah_summary">%1$d појави во %2$d стихови</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · појавувања на зборови %3$d</string>
+    <string name="quran_reciter_picker_title">Изберете рецитатор</string>
+    <string name="quran_reciter_search_hint">Пребарувајте ги рецитаторите по име, стил или квалитет…</string>
+    <string name="quran_reciter_no_results">Нема рецитатори кои одговараат на ова пребарување</string>
 </resources>

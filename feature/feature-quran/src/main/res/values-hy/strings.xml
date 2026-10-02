@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Ճշգրիտ արտահայտություն</string>
     <string name="quran_search_ayah_summary">%1$d երևույթներ %2$d հատվածներում</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · բառի առաջացում %3$d</string>
+    <string name="quran_reciter_picker_title">Ընտրեք ասմունքող</string>
+    <string name="quran_reciter_search_hint">Որոնեք ասմունքողներին անունով, ոճով կամ որակով…</string>
+    <string name="quran_reciter_no_results">Ոչ մի ասմունքող չի համապատասխանում այս որոնմանը</string>
 </resources>

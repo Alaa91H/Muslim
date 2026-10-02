@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Ekigambo ekituufu</string>
     <string name="quran_search_ayah_summary">%1$d ebibeerawo mu nnyiriri %2$d</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · ebigambo ebibeerawo %3$d</string>
+    <string name="quran_reciter_picker_title">Londa omusomi w’ebitabo</string>
+    <string name="quran_reciter_search_hint">Noonya abasomesa amannya, sitayiro, oba omutindo...</string>
+    <string name="quran_reciter_no_results">Tewali basoma bakwatagana na kunoonya kuno</string>
 </resources>

@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">সঠিক বাক্যাংশ</string>
     <string name="quran_search_ayah_summary">%1$d ৰ সংঘটন %2$d পদত</string>
     <string name="quran_search_result_location">%1$s · আয়াহ %2$d · শব্দৰ উপস্থিতি %3$d</string>
+    <string name="quran_reciter_picker_title">এজন আবৃত্তিকাৰী বাছি লওক</string>
+    <string name="quran_reciter_search_hint">নাম, শৈলী, বা মান দ্বারা আবৃত্তিকারী অনুসন্ধান...</string>
+    <string name="quran_reciter_no_results">এই সন্ধানৰ সৈতে কোনো আবৃত্তিকাৰীৰ মিল নাই</string>
 </resources>

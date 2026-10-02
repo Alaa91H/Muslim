@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">නියම වාක්‍ය ඛණ්ඩය</string>
     <string name="quran_search_ayah_summary">%1$d %2$d පදවල සිදුවීම්</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · වචන සිදුවීම %3$d</string>
+    <string name="quran_reciter_picker_title">කියවන්නෙකු තෝරන්න</string>
+    <string name="quran_reciter_search_hint">නම, විලාසය, හෝ ගුණාත්මකභාවය අනුව පාඨකයන් සොයන්න...</string>
+    <string name="quran_reciter_no_results">මෙම සෙවුමට ගැළපෙන්නන් නැත</string>
 </resources>

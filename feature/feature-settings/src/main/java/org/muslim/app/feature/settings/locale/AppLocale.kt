@@ -29,9 +29,10 @@ fun Context.withAppLocale(languageCode: String): Context {
     // leak through the default-locale number formatting paths.
     Locale.setDefault(locale)
 
-    // Override only locale. Copying the full display configuration also pins
-    // width/density/font scale and can prevent window-resize updates on old APIs.
-    val config = Configuration().apply { fontScale = 0f }
+    // Carry the caller's font scale into the locale context. A zero scale is
+    // treated as the default (1.0) on some platform versions rather than as an
+    // instruction to inherit the caller's accessibility font setting.
+    val config = Configuration(resources.configuration)
     config.setLocale(locale)
     return createConfigurationContext(config)
 }

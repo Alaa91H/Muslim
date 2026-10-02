@@ -8,6 +8,7 @@ import javax.inject.Singleton
 enum class PlaybackDeactivationReason {
     Completed,
     Stopped,
+    CastHandoff,
     Failed,
 }
 
@@ -38,7 +39,7 @@ class RecitationPlaybackServiceBridge @Inject constructor(
             return
         }
 
-        if (reason != PlaybackDeactivationReason.Failed) {
+        if (reason != PlaybackDeactivationReason.Failed && reason != PlaybackDeactivationReason.CastHandoff) {
             sessionRuntime.clear()
         }
         RecitationPlaybackService.stop(context)

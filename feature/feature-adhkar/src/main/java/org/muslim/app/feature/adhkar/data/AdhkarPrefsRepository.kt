@@ -69,11 +69,16 @@ data class AdhkarPrefs(
     val shortDhikrOnly: Boolean = true,
     /** Restrict the periodic reminder to a daily time window (e.g. work hours). */
     val periodicReminderWindowEnabled: Boolean = false,
-    val periodicReminderWindowStartHour: Int = 9,
+    val periodicReminderWindowStartHour: Int = DEFAULT_PERIODIC_WINDOW_START_HOUR,
     val periodicReminderWindowStartMinute: Int = 0,
-    val periodicReminderWindowEndHour: Int = 17,
+    val periodicReminderWindowEndHour: Int = DEFAULT_PERIODIC_WINDOW_END_HOUR,
     val periodicReminderWindowEndMinute: Int = 0,
 ) {
+    companion object {
+        const val DEFAULT_PERIODIC_WINDOW_START_HOUR = 22
+        const val DEFAULT_PERIODIC_WINDOW_END_HOUR = 6
+    }
+
     fun isDhikrEnabled(id: Long): Boolean = id !in disabledDhikrIds
 
     fun isDhikrFavorite(id: Long): Boolean = id in favoriteDhikrIds
@@ -130,9 +135,9 @@ class AdhkarPrefsRepository @Inject constructor(
             periodicReminderDhikrId = p[Keys.PERIODIC_DHIKR_ID],
             shortDhikrOnly = p[Keys.SHORT_DHIKR_ONLY] ?: true,
             periodicReminderWindowEnabled = p[Keys.PERIODIC_WINDOW_ENABLED] ?: false,
-            periodicReminderWindowStartHour = (p[Keys.PERIODIC_WINDOW_START_HOUR] ?: 9).coerceIn(0, 23),
+            periodicReminderWindowStartHour = (p[Keys.PERIODIC_WINDOW_START_HOUR] ?: AdhkarPrefs.DEFAULT_PERIODIC_WINDOW_START_HOUR).coerceIn(0, 23),
             periodicReminderWindowStartMinute = (p[Keys.PERIODIC_WINDOW_START_MINUTE] ?: 0).coerceIn(0, 59),
-            periodicReminderWindowEndHour = (p[Keys.PERIODIC_WINDOW_END_HOUR] ?: 17).coerceIn(0, 23),
+            periodicReminderWindowEndHour = (p[Keys.PERIODIC_WINDOW_END_HOUR] ?: AdhkarPrefs.DEFAULT_PERIODIC_WINDOW_END_HOUR).coerceIn(0, 23),
             periodicReminderWindowEndMinute = (p[Keys.PERIODIC_WINDOW_END_MINUTE] ?: 0).coerceIn(0, 59),
         )
         }

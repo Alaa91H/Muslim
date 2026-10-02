@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">ପ୍ରକୃତ ବାକ୍ୟାଂଶ |</string>
     <string name="quran_search_ayah_summary">%1$d %2$d ପଦଗୁଡ଼ିକରେ ଘଟଣା |</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · ଶବ୍ଦ ଘଟଣା %3$d</string>
+    <string name="quran_reciter_picker_title">ଏକ ପାଠକ ବାଛନ୍ତୁ |</string>
+    <string name="quran_reciter_search_hint">ନାମ, ଶ style ଳୀ, କିମ୍ବା ଗୁଣବତ୍ତା ଅନୁଯାୟୀ ପାଠକମାନଙ୍କୁ ଖୋଜ…</string>
+    <string name="quran_reciter_no_results">କ search ଣସି ପାଠକ ଏହି ସନ୍ଧାନ ସହିତ ମେଳ ଖାଉ ନାହାଁନ୍ତି |</string>
 </resources>

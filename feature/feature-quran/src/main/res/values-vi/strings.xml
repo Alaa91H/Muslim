@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Cụm từ chính xác</string>
     <string name="quran_search_ayah_summary">%1$d xuất hiện trong các câu thơ %2$d</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · lần xuất hiện từ %3$d</string>
+    <string name="quran_reciter_picker_title">Chọn người đọc thuộc lòng</string>
+    <string name="quran_reciter_search_hint">Tìm kiếm người đọc theo tên, phong cách hoặc chất lượng…</string>
+    <string name="quran_reciter_no_results">Không có người đọc nào phù hợp với tìm kiếm này</string>
 </resources>

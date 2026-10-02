@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- CAST_RECEIVER_APP_ID is injected at build time after receiver registration. -->
+</resources>

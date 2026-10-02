@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Frase exacta nisqa</string>
     <string name="quran_search_ayah_summary">%1$d rikurimuykuna %2$d versiculokunapi</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · simipa rikurimuynin %3$d</string>
+    <string name="quran_reciter_picker_title">Huk rimaqta akllay</string>
+    <string name="quran_reciter_search_hint">Maskay recitadores sutiwan, estilowan utaq calidadwan...</string>
+    <string name="quran_reciter_no_results">Mana ima rimaqkunapas kay maskaywan tupanchu</string>
 </resources>

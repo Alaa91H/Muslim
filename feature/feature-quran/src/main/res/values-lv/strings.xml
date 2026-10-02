@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Precīza frāze</string>
     <string name="quran_search_ayah_summary">%1$d atkārtojumi %2$d pantos</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · vārdu atkārtojumi %3$d</string>
+    <string name="quran_reciter_picker_title">Izvēlieties deklamētāju</string>
+    <string name="quran_reciter_search_hint">Meklēt deklamētājus pēc nosaukuma, stila vai kvalitātes...</string>
+    <string name="quran_reciter_no_results">Šim meklējumam neatbilst neviens deklamētājs</string>
 </resources>

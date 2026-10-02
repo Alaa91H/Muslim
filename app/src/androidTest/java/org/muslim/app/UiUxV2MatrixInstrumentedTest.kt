@@ -18,6 +18,15 @@ class UiUxV2MatrixInstrumentedTest(
 ) {
     @Test
     fun capturesRequestedScreenVariant() {
+        val arguments = InstrumentationRegistry.getArguments()
+        val requestedScreens = arguments.getString("uiux.screens")?.split(",").orEmpty()
+        val finalRequestedScreen = requestedScreens.lastOrNull()
+        val requestedExpanded = arguments.getString("uiux.expanded")?.toBooleanStrictOrNull()
+        val holdForHostCapture = screenName == finalRequestedScreen &&
+            language == "en" &&
+            theme == AppThemeMode.Dark &&
+            fontScale == 2f &&
+            (requestedExpanded == null || expanded == requestedExpanded)
         UiUxV2ScreenshotInstrumentedTest().capturePrayerHomeScreenshot(
             languageCode = language,
             themeMode = theme,
@@ -25,6 +34,7 @@ class UiUxV2MatrixInstrumentedTest(
             route = route,
             screenName = screenName,
             expanded = expanded,
+            holdForHostCapture = holdForHostCapture,
         )
     }
 
@@ -44,12 +54,15 @@ class UiUxV2MatrixInstrumentedTest(
             )
             val requestedScreens = InstrumentationRegistry.getArguments().getString("uiux.screens")
                 ?.split(",")?.toSet()
+            val requestedExpanded = InstrumentationRegistry.getArguments().getString("uiux.expanded")
+                ?.toBooleanStrictOrNull()
             for ((name, route) in screens) {
                 if (requestedScreens != null && name !in requestedScreens) continue
                 for (language in listOf("ar", "en")) {
                     for (theme in listOf(AppThemeMode.Light, AppThemeMode.Dark)) {
                         for (fontScale in listOf(1f, 1.5f, 2f)) {
                             for (expanded in listOf(false, true)) {
+                                if (requestedExpanded != null && expanded != requestedExpanded) continue
                                 add(arrayOf(name, route, language, theme, fontScale, expanded))
                             }
                         }

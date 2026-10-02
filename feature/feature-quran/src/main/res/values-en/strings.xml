@@ -44,6 +44,9 @@
 
     <!-- Recitation -->
     <string name="quran_reciter">Reciter</string>
+    <string name="quran_reciter_picker_title">Choose a reciter</string>
+    <string name="quran_reciter_search_hint">Search reciters by name, style, or quality…</string>
+    <string name="quran_reciter_no_results">No reciters match this search</string>
     <string name="quran_play_ayah">Play ayah</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
     <string name="quran_repeat">Repeat</string>

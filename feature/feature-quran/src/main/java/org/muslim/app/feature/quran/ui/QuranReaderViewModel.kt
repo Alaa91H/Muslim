@@ -110,7 +110,8 @@ data class QuranReaderSupplementUi(
 
 private const val TAFSIR_SURAH_TOTAL = 114
 
-private fun publishDownloadProgress(
+private object RecitationDownloadProgressPublisher {
+fun publish(
     notifier: RecitationDownloadNotifier,
     surahName: String,
     progress: Float,
@@ -133,6 +134,16 @@ private fun publishDownloadProgress(
         remainingSeconds = remainingSec,
         bytesPerSecond = (ayahsPerSec * reciter.estimatedBytesPerAyah()).toLong(),
     )
+}
+}
+
+private fun publishRecitationFailure(
+    flow: MutableStateFlow<RecitationFailureEvent?>,
+    previousSequence: Long,
+    reason: RecitationFailureReason,
+    globalNumber: Int?,
+): Long = (previousSequence + 1).also { sequence ->
+    flow.value = RecitationFailureEvent(sequence, reason, globalNumber)
 }
 
 @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
@@ -207,8 +218,6 @@ class QuranReaderViewModel @Inject constructor(
     ) { ayah, bookmarks ->
         ayah != null && bookmarks.any { it.ayah.globalNumber == ayah.globalNumber
 }
-
-
 }
 .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
@@ -471,7 +480,9 @@ class QuranReaderViewModel @Inject constructor(
         viewModelScope.launch {
             audioPlayer.lastFailure.collect { failure ->
                 if (failure != null) {
-                    reportRecitationFailure(failure.reason, failure.globalNumber)
+                    recitationFailureSequence = publishRecitationFailure(
+                        _recitationFailure, recitationFailureSequence, failure.reason, failure.globalNumber,
+                    )
                 }
             }
         }
@@ -705,7 +716,7 @@ class QuranReaderViewModel @Inject constructor(
                 val percent = (progress * 100).toInt()
                 if (progress < 1f && percent != lastNotifiedPercent) {
                     lastNotifiedPercent = percent
-                    publishDownloadProgress(
+                    RecitationDownloadProgressPublisher.publish(
                         notifier = downloadNotifier,
                         surahName = uiState.value.surah?.arabicName.orEmpty(),
                         progress = progress,
@@ -717,9 +728,9 @@ class QuranReaderViewModel @Inject constructor(
             }
 
             if (result !is org.muslim.app.core.network.FileDownloader.Result.Success) {
-                reportRecitationFailure(
-                    RecitationFailureReason.DownloadFailed,
-                    globalNumbers.firstOrNull(),
+                recitationFailureSequence = publishRecitationFailure(
+                    _recitationFailure, recitationFailureSequence,
+                    RecitationFailureReason.DownloadFailed, globalNumbers.firstOrNull(),
                 )
                 null
             } else {
@@ -728,9 +739,9 @@ class QuranReaderViewModel @Inject constructor(
                     surahNumber = queueSurahNumber,
                     globalNumbers = globalNumbers,
                 ) ?: run {
-                    reportRecitationFailure(
-                        RecitationFailureReason.AudioFileUnavailable,
-                        globalNumbers.firstOrNull(),
+                    recitationFailureSequence = publishRecitationFailure(
+                        _recitationFailure, recitationFailureSequence,
+                        RecitationFailureReason.AudioFileUnavailable, globalNumbers.firstOrNull(),
                     )
                     null
                 }
@@ -773,18 +784,6 @@ class QuranReaderViewModel @Inject constructor(
         )
     }
 
-    private fun reportRecitationFailure(
-        reason: RecitationFailureReason,
-        globalNumber: Int?,
-    ) {
-        recitationFailureSequence += 1
-        _recitationFailure.value = RecitationFailureEvent(
-            sequence = recitationFailureSequence,
-            reason = reason,
-            globalNumber = globalNumber,
-        )
-    }
-
     fun resumeRestorableSession() {
         val session = _restorableSession.value ?: return
         val reciter = Reciter.Bundled.firstOrNull {
@@ -807,9 +806,9 @@ class QuranReaderViewModel @Inject constructor(
             val restoreAyahs = remainingGlobals.mapNotNull(byGlobal::get)
             if (restoreAyahs.size != remainingGlobals.size) {
                 sessionRuntime.clear()
-                reportRecitationFailure(
-                    RecitationFailureReason.AudioFileUnavailable,
-                    remainingGlobals.firstOrNull(),
+                recitationFailureSequence = publishRecitationFailure(
+                    _recitationFailure, recitationFailureSequence,
+                    RecitationFailureReason.AudioFileUnavailable, remainingGlobals.firstOrNull(),
                 )
                 return@launch
             }
@@ -847,9 +846,9 @@ class QuranReaderViewModel @Inject constructor(
             val byGlobal = surahAyahs.associateBy { it.globalNumber }
             val retryAyahs = retryGlobals.mapNotNull(byGlobal::get)
             if (retryAyahs.size != retryGlobals.size) {
-                reportRecitationFailure(
-                    RecitationFailureReason.AudioFileUnavailable,
-                    retryGlobals.firstOrNull(),
+                recitationFailureSequence = publishRecitationFailure(
+                    _recitationFailure, recitationFailureSequence,
+                    RecitationFailureReason.AudioFileUnavailable, retryGlobals.firstOrNull(),
                 )
                 return@launch
             }
@@ -960,6 +959,9 @@ class QuranReaderViewModel @Inject constructor(
 
     fun pausePlayback() = audioPlayer.pause()
     fun resumePlayback() = audioPlayer.resume()
+    val recitationPlaybackSnapshot get() = audioPlayer.snapshot()
+    fun isRecitationDownloaded(reciter: Reciter, surahNumber: Int, globalNumber: Int) =
+        recitationRepository.fileFor(reciter.id, surahNumber, globalNumber).let { it.isFile && it.length() > 0L }
     fun stopPlayback() {
         _restorableSession.value = null
         audioPlayer.stop()

@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Gotina rast</string>
     <string name="quran_search_ayah_summary">%1$d di ayetên %2$d de rûdan</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · rûdanên peyvan %3$d</string>
+    <string name="quran_reciter_picker_title">Xwendevanek hilbijêre</string>
+    <string name="quran_reciter_search_hint">Li gorî nav, şêwaz, an kalîteyê li xwendewanan bigerin…</string>
+    <string name="quran_reciter_no_results">Tu dengbêj bi vê lêgerînê re hev nagirin</string>
 </resources>

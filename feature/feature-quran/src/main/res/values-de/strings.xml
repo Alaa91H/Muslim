@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Genauer Satz</string>
     <string name="quran_search_ayah_summary">%1$d Vorkommen in %2$d Versen</string>
     <string name="quran_search_result_location">%1$s · Ayah %2$d · Wortvorkommen %3$d</string>
+    <string name="quran_reciter_picker_title">Wählen Sie einen Rezitator</string>
+    <string name="quran_reciter_search_hint">Rezitatoren nach Name, Stil oder Qualität suchen …</string>
+    <string name="quran_reciter_no_results">Zu dieser Suche passen keine Rezitatoren</string>
 </resources>

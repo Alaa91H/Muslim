@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Chiqapa arunaka</string>
     <string name="quran_search_ayah_summary">%1$d uñstawinakax %2$d jisk’a t’aqanakanwa</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · arunaka uñstawi %3$d</string>
+    <string name="quran_reciter_picker_title">Mä recitador ukar ajlliñamawa</string>
+    <string name="quran_reciter_search_hint">Recitadores ukanakar sutiparjama, estiloparjama, jan ukax calidad ukarjam thaqhapxam...</string>
+    <string name="quran_reciter_no_results">Janiw khiti recitores ukas uka thakhimp kikipäkiti</string>
 </resources>

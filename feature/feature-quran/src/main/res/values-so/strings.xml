@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Weedho sax ah</string>
     <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · kalmado dhacdo %3$d</string>
+    <string name="quran_reciter_picker_title">Dooro akhriye</string>
+    <string name="quran_reciter_search_hint">Ku raadi akhristayaasha magaca, qaabka, ama tayada...</string>
+    <string name="quran_reciter_no_results">Ma jiro akhriye u dhigma raadintan</string>
 </resources>

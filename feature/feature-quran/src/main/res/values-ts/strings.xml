@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Xivulwa lexi kongomeke</string>
     <string name="quran_search_ayah_summary">%1$d swiendlakalo eka tindzimana ta %2$d</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · ku humelela ka marito %3$d</string>
+    <string name="quran_reciter_picker_title">Hlawula muhlayi</string>
+    <string name="quran_reciter_search_hint">Lavisisa vahlayi hi mavito, xitayili, kumbe khwalithi...</string>
+    <string name="quran_reciter_no_results">Ku hava vahlayi lava fambelanaka na ku lavisisa loku</string>
 </resources>

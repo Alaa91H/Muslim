@@ -20,6 +20,7 @@ biometric = "1.1.0"
 media = "1.7.0"
 wearCompose = "1.6.2"
 playServicesWearable = "20.0.1"
+playServicesCast = "22.2.0"
 
 # Compose (BOM pins all androidx.compose.* modules together)
 composeBom = "2026.08.00"
@@ -74,6 +75,7 @@ androidx-window = { group = "androidx.window", name = "window", version.ref = "w
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
 androidx-biometric = { group = "androidx.biometric", name = "biometric", version.ref = "biometric" }
 google-play-services-wearable = { group = "com.google.android.gms", name = "play-services-wearable", version.ref = "playServicesWearable" }
+google-play-services-cast = { group = "com.google.android.gms", name = "play-services-cast-framework", version.ref = "playServicesCast" }
 
 # --- Compose (versions come from the BOM) ---
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }

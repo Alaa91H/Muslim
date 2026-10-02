@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">सटीक वाक्यांश</string>
     <string name="quran_search_ayah_summary">%1$d घटनाहरू %2$d पदहरूमा</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · शब्द घटनाहरू %3$d</string>
+    <string name="quran_reciter_picker_title">पाठक छान्नुहोस्</string>
+    <string name="quran_reciter_search_hint">नाम, शैली, वा गुणस्तर द्वारा पाठकहरू खोज्नुहोस्...</string>
+    <string name="quran_reciter_no_results">कुनै पनि पाठकहरू यो खोजसँग मेल खाँदैनन्</string>
 </resources>

@@ -132,6 +132,14 @@ android {
         buildConfig = true
     }
 
+    defaultConfig {
+        buildConfigField(
+            "String",
+            "CAST_RECEIVER_APP_ID",
+            "\"${providers.gradleProperty("CAST_RECEIVER_APP_ID").orElse(providers.environmentVariable("CAST_RECEIVER_APP_ID")).getOrElse("")}\"",
+        )
+    }
+
     lint {
         // False positive: AAPT2 only accepts <adaptive-icon> resources inside a
         // version-qualified `mipmap-anydpi-v26` folder even though minSdk is 26
@@ -239,6 +247,9 @@ dependencies {
     implementation(libs.androidx.window)
     implementation(libs.androidx.media)
     implementation(libs.google.play.services.wearable)
+    implementation(libs.google.play.services.cast)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.coroutines.play.services)
     implementation(libs.kotlinx.coroutines.play.services)
 
     // Compose (versions from BOM)

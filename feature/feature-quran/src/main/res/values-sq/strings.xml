@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Fraza e saktë</string>
     <string name="quran_search_ayah_summary">dukuri %1$d në vargjet %2$d</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · dukuri fjalësh %3$d</string>
+    <string name="quran_reciter_picker_title">Zgjidhni një recitues</string>
+    <string name="quran_reciter_search_hint">Kërkoni recituesit sipas emrit, stilit ose cilësisë…</string>
+    <string name="quran_reciter_no_results">Asnjë recitues nuk përputhet me këtë kërkim</string>
 </resources>

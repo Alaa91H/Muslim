@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">सटीक मुहावरा बा</string>
     <string name="quran_search_ayah_summary">%1$d श्लोक में %2$d के घटना</string>
     <string name="quran_search_result_location">%1$s · आयाह %2$d · शब्द के घटना %3$d</string>
+    <string name="quran_reciter_picker_title">कवनो पाठक के चुनीं</string>
+    <string name="quran_reciter_search_hint">पाठक लोग के नाम, शैली, या गुणवत्ता के आधार पर खोजीं...</string>
+    <string name="quran_reciter_no_results">कवनो पाठक एह खोज से मेल ना खात बाड़े</string>
 </resources>

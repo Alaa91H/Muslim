@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Kumasen tigitigi</string>
     <string name="quran_search_ayah_summary">%1$d sɔrɔlenw %2$d tɛmɛsiraw kɔnɔ</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · daɲɛw sɔrɔcogo %3$d</string>
+    <string name="quran_reciter_picker_title">Karamɔgɔ dɔ sugandi</string>
+    <string name="quran_reciter_search_hint">Aw ye kalanbagaw ɲini u tɔgɔ fɛ, u kɛcogo fɛ, walima u jogo fɛ...</string>
+    <string name="quran_reciter_no_results">Karamɔgɔ si tɛ Bɛn ni ɲinini in ye</string>
 </resources>

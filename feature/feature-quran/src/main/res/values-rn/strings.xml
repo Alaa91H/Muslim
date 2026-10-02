@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Invugo nyayo</string>
     <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · word occurrences %3$d</string>
+    <string name="quran_reciter_picker_title">Hitamwo umusomyi</string>
+    <string name="quran_reciter_search_hint">Rondera abasomyi mw\'izina, uburyo, canke uburyo...</string>
+    <string name="quran_reciter_no_results">Nta basomyi bahuye n\'ubu bushakashatsi</string>
 </resources>

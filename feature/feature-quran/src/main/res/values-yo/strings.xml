@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Ọrọ gangan</string>
     <string name="quran_search_ayah_summary">%1$d occurrences in %2$d verses</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · awọn iṣẹlẹ iṣẹlẹ %3$d</string>
+    <string name="quran_reciter_picker_title">Yan olukawe</string>
+    <string name="quran_reciter_search_hint">Ṣewadii awọn oluka nipa orukọ, ara, tabi didara…</string>
+    <string name="quran_reciter_no_results">Ko si awọn olukawe ti o baamu wiwa yii</string>
 </resources>

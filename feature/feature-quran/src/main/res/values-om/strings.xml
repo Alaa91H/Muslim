@@ -140,4 +140,7 @@
     <string name="quran_search_phrase">Gaalee sirrii</string>
     <string name="quran_search_ayah_summary">%1$d keeyyata %2$d keessatti mul’achuu</string>
     <string name="quran_search_result_location">%1$s · ayah %2$d · jechoota mul’atan %3$d</string>
+    <string name="quran_reciter_picker_title">Nama qara\'u filadhu</string>
+    <string name="quran_reciter_search_hint">Maqaa, akkaataa, ykn qulqullina dubbistoota barbaadi...</string>
+    <string name="quran_reciter_no_results">Dubbisaan kamiyyuu barbaacha kanaan wal hin simne</string>
 </resources>
