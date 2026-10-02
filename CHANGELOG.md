@@ -1,5 +1,34 @@
 # Changelog
 
+## Muslim v1.25.38
+
+This release advances Quran reading and recitation, adds a configurable Google Cast sender path, improves prayer and reminder controls, and strengthens localization and release verification.
+
+### Quran Reading and Recitation
+
+- Corrected book-style page navigation across surah boundaries and mirrored page-turn gestures for right-to-left and left-to-right reading.
+- Improved reciter discovery and search, and added controls for following the recited ayah in the tafsir panel.
+- Preserved the active recitation position and queue while coordinating local playback with remote Cast playback.
+- Added a token-protected local media bridge for downloaded recitations during a Cast session; audio remains on the local network.
+- Added a versioned Quran display protocol for ayah text, translation, tafsir, reciter details, and prayer information on a custom receiver.
+
+### Prayer, Adhan, and Reminders
+
+- Set the default adhkar quiet period to 10:00 p.m.–6:00 a.m.
+- Replaced the long Adhan sound list with a compact selection dialog and enabled the shared Adhan volume control by default.
+- Suppressed Muslim alerts and Adhan playback while Android reports an active call or communication session, without changing call audio routing or volume.
+
+### Localization and Quality
+
+- Expanded Quran interface translations and added automated checks for missing strings, untranslated values, malformed XML, and Android format placeholders.
+- Added localization guidance that separates interface text from Quran translations, tafsir, and hadith editions, with source and review requirements for religious content.
+- Expanded automated verification for Quran navigation, Cast payloads, local media ranges, and emulator screenshots.
+
+### Google Cast Setup
+
+- Cast receiver display requires a real Custom Web Receiver ID from Google Cast Console and HTTPS hosting. Configure `CAST_RECEIVER_APP_ID` as documented in `receiver/README.md`.
+- Online recitations are loaded directly by the Cast device. Downloaded recitations are served from the phone through a temporary, tokenized local URL.
+
 ## Muslim v1.25.36
 
 This release expands Muslim's learning and family experiences, strengthens daily worship workflows, improves update safety and Wear OS integration, and closes the remaining CI/build issues before publication.

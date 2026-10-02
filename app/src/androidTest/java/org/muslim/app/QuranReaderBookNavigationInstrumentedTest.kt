@@ -136,7 +136,8 @@ class QuranReaderBookNavigationInstrumentedTest {
                 check(completed) {
                     "Expected $languageCode page turns to move between Baqarah page 49 and Aal Imran page 50 " +
                         "(phase=$phase, sharedSpread=$sharedSpreadVerified, window=$windowBounds, " +
-                        "page49=$page49Diagnostics, page50=$page50Diagnostics, headers=$pageHeaders)"
+                        "page49=$page49Diagnostics, page50=$page50Diagnostics, " +
+                        "forwardRetries=$forwardSwipeRetries, headers=$pageHeaders)"
                 }
             },
         )
@@ -206,7 +207,10 @@ class QuranReaderBookNavigationInstrumentedTest {
         const val WAITING_FOR_PAGE_50_AGAIN = 2
         const val WAITING_FOR_PREVIOUS_SPREAD = 3
         const val STABLE_PAGE_SAMPLES = 3
-        const val FORWARD_SWIPE_RETRY_SAMPLES = 8
+        // Wait 3.6s before retrying: on slower emulator frames the pager can
+        // finish its first fling after the accessibility tree still reports
+        // page 49. Retrying at 1.2s can then advance twice and land on page 51.
+        const val FORWARD_SWIPE_RETRY_SAMPLES = 24
         const val MAX_FORWARD_SWIPE_RETRIES = 1
         const val MIN_VISIBLE_FRACTION = 0.35f
     }
