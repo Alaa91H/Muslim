@@ -28,9 +28,6 @@ class QuranReaderBookNavigationInstrumentedTest {
         var lastForwardPage49Bounds: Rect? = null
         var stableForwardPage49Samples = 0
         var forwardSwipeRetries = 0
-        var lastPreviousPage50Bounds: Rect? = null
-        var stablePreviousPage50Samples = 0
-        var previousSwipeRetries = 0
         var page49Diagnostics = "not found"
         var page50Diagnostics = "not found"
         var pageHeaders = "none"
@@ -75,29 +72,6 @@ class QuranReaderBookNavigationInstrumentedTest {
                     } else if (phase == WAITING_FOR_PAGE_50_AGAIN && sharedSpreadVerified) {
                         completed = page49Bounds != null && page50Bounds != null
                     } else {
-                        if (phase == WAITING_FOR_PAGE_49 && page50Bounds != null) {
-                            if (page50Bounds == lastPreviousPage50Bounds) {
-                                stablePreviousPage50Samples += 1
-                            } else {
-                                lastPreviousPage50Bounds = Rect(page50Bounds)
-                                stablePreviousPage50Samples = 0
-                            }
-                            if (
-                                stablePreviousPage50Samples >= RETRY_STABLE_PAGE_SAMPLES &&
-                                previousSwipeRetries < MAX_PAGE_TURN_RETRIES
-                            ) {
-                                // Retry a dropped page-back swipe only after the
-                                // original page has remained settled for 3.6s.
-                                swipePage(instrumentation, isRtl = isRtl, towardNext = false)
-                                previousSwipeRetries += 1
-                                stablePreviousPage50Samples = 0
-                                lastPreviousPage50Bounds = null
-                            }
-                        } else {
-                            lastPreviousPage50Bounds = null
-                            stablePreviousPage50Samples = 0
-                        }
-
                         if (
                             phase == WAITING_FOR_PAGE_50_AGAIN &&
                             page49Bounds != null &&
@@ -110,12 +84,12 @@ class QuranReaderBookNavigationInstrumentedTest {
                                 stableForwardPage49Samples = 0
                             }
                             if (
-                                stableForwardPage49Samples >= RETRY_STABLE_PAGE_SAMPLES &&
-                                forwardSwipeRetries < MAX_PAGE_TURN_RETRIES
+                                stableForwardPage49Samples >= FORWARD_SWIPE_RETRY_SAMPLES &&
+                                forwardSwipeRetries < MAX_FORWARD_SWIPE_RETRIES
                             ) {
-                                // The emulator can occasionally drop a shell-injected
-                                // swipe. Retry only after the wrong page has remained
-                                // stationary long enough to prove it settled.
+                                // Emulator input injection can occasionally drop a
+                                // completed fling. Retry only after the wrong page has
+                                // remained stationary long enough to prove it settled.
                                 swipePage(instrumentation, isRtl = isRtl, towardNext = true)
                                 forwardSwipeRetries += 1
                                 stableForwardPage49Samples = 0
@@ -169,7 +143,7 @@ class QuranReaderBookNavigationInstrumentedTest {
                     "Expected $languageCode page turns to move between Baqarah page 49 and Aal Imran page 50 " +
                         "(phase=$phase, sharedSpread=$sharedSpreadVerified, window=$windowBounds, " +
                         "page49=$page49Diagnostics, page50=$page50Diagnostics, " +
-                        "previousRetries=$previousSwipeRetries, forwardRetries=$forwardSwipeRetries, headers=$pageHeaders)"
+                        "forwardRetries=$forwardSwipeRetries, headers=$pageHeaders)"
                 }
             },
         )
@@ -178,9 +152,9 @@ class QuranReaderBookNavigationInstrumentedTest {
     private fun swipePage(instrumentation: Instrumentation, isRtl: Boolean, towardNext: Boolean) {
         val metrics = instrumentation.targetContext.resources.displayMetrics
         val y = (metrics.heightPixels * 0.4f).toInt()
-        // Logical forward is rightward in RTL and leftward in LTR. Stay 20%
-        // in from both edges: Android's back-gesture region can consume a
-        // rightward page turn that starts too close to the screen edge.
+        // Logical forward is rightward in RTL and leftward in LTR. Stay 22%
+        // in from both edges: 15% began only 48 px from the left edge on CI,
+        // where Android could consume rightward swipes as system-back gestures.
         val movesRight = if (isRtl) towardNext else !towardNext
         val startX = (metrics.widthPixels * if (movesRight) 0.22f else 0.78f).toInt()
         val endX = (metrics.widthPixels * if (movesRight) 0.78f else 0.22f).toInt()
@@ -263,10 +237,14 @@ class QuranReaderBookNavigationInstrumentedTest {
         const val WAITING_FOR_PAGE_50_AGAIN = 2
         const val WAITING_FOR_PREVIOUS_SPREAD = 3
         const val STABLE_PAGE_SAMPLES = 3
-        // Retry only after the wrong page stays unchanged for 3.6s. This
-        // gives slow emulator flings time to finish before another gesture.
-        const val RETRY_STABLE_PAGE_SAMPLES = 24
-        const val MAX_PAGE_TURN_RETRIES = 3
+        // Wait 3.6s before retrying: on slower emulator frames the pager can
+        // finish its first fling after the accessibility tree still reports
+        // page 49. Retrying at 1.2s can then advance twice and land on page 51.
+        const val FORWARD_SWIPE_RETRY_SAMPLES = 24
+        // ADB can drop more than one swipe on API 36 under instrumentation
+        // load. Each retry is gated by a 3.6s stable-page window, so a late
+        // fling is observed before another gesture can advance past page 50.
+        const val MAX_FORWARD_SWIPE_RETRIES = 3
         const val MIN_VISIBLE_FRACTION = 0.35f
     }
 }
