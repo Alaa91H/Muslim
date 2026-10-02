@@ -10,6 +10,17 @@ from scripts import localize
 
 
 class LocalizationQualityTests(unittest.TestCase):
+    def test_scholar_library_has_complete_english_source(self) -> None:
+        resources = Path(localize.PROJECT_ROOT) / "feature/feature-scholar-library/src/main/res"
+        arabic = localize.read_locale_strings(str(resources / "values/strings.xml"))
+        english_path = resources / "values-en/strings.xml"
+
+        self.assertTrue(english_path.is_file(), "Scholar Library needs an English UI source")
+        english = localize.read_locale_strings(str(english_path))
+        self.assertEqual(set(english), set(arabic))
+        for key, source in arabic.items():
+            self.assertEqual(localize.format_signature(source), localize.format_signature(english[key]), key)
+
     def test_android_format_tokens_are_counted_without_treating_quotes_as_tokens(self) -> None:
         source = r"Don't remove %1$s, %2$d, 100%%, or the line break\n"
         self.assertEqual(
