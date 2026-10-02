@@ -6,7 +6,7 @@
 
 ## Display assets and runtime boundary
 
-The CAF receiver lives in `web/cast/`. It reuses QuranLiveStream's local Arabic font stylesheet and WOFF2 files plus a responsive split-stage composition inspired by its TV layout. It does not import the Node broadcast worker, FFmpeg, RTMP targets, benchmark or watchdog logic.
+The CAF receiver source of truth lives in QuranLiveStream at `web/cast/`. It reuses QuranLiveStream's local Arabic font stylesheet and WOFF2 files plus a responsive split-stage composition inspired by its TV layout. Muslim intentionally keeps only integration documentation here; it does not mirror or package the receiver. The receiver does not import the Node broadcast worker, FFmpeg, RTMP targets, benchmark or watchdog logic.
 
 ## Receiver registration
 
