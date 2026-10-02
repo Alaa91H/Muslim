@@ -2,8 +2,9 @@ package org.muslim.app
 
 import android.app.Instrumentation
 import android.graphics.Rect
-import android.os.ParcelFileDescriptor
 import android.os.SystemClock
+import android.view.InputDevice
+import android.view.MotionEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Test
@@ -158,12 +159,36 @@ class QuranReaderBookNavigationInstrumentedTest {
         val movesRight = if (isRtl) towardNext else !towardNext
         val startX = (metrics.widthPixels * if (movesRight) 0.20f else 0.80f).toInt()
         val endX = (metrics.widthPixels * if (movesRight) 0.80f else 0.20f).toInt()
-        instrumentationShell(instrumentation, "input swipe $startX $y $endX $y 400")
-    }
+        val automation = instrumentation.uiAutomation
+        val downTime = SystemClock.uptimeMillis()
+        fun inject(action: Int, x: Float, eventTime: Long) {
+            val event = MotionEvent.obtain(
+                downTime,
+                eventTime,
+                action,
+                x,
+                y.toFloat(),
+                0,
+            ).apply { source = InputDevice.SOURCE_TOUCHSCREEN }
+            try {
+                check(automation.injectInputEvent(event, true)) {
+                    "Could not inject Quran page-turn touch event ($action at x=$x)"
+                }
+            } finally {
+                event.recycle()
+            }
+        }
 
-    private fun instrumentationShell(instrumentation: Instrumentation, command: String) {
-        val descriptor = instrumentation.uiAutomation.executeShellCommand(command)
-        ParcelFileDescriptor.AutoCloseInputStream(descriptor).use { it.readBytes() }
+        inject(MotionEvent.ACTION_DOWN, startX.toFloat(), downTime)
+        repeat(SWIPE_STEPS) { step ->
+            val fraction = (step + 1).toFloat() / SWIPE_STEPS
+            val x = startX + (endX - startX) * fraction
+            val eventTime = downTime + SWIPE_DURATION_MS * (step + 1) / SWIPE_STEPS
+            inject(MotionEvent.ACTION_MOVE, x, eventTime)
+            SystemClock.sleep(SWIPE_STEP_DELAY_MS)
+        }
+        inject(MotionEvent.ACTION_UP, endX.toFloat(), downTime + SWIPE_DURATION_MS)
+        automation.waitForIdle(500, 1_000)
     }
 
     private fun visiblePageHeaderBounds(
@@ -245,6 +270,9 @@ class QuranReaderBookNavigationInstrumentedTest {
         // load. Each retry is gated by a 3.6s stable-page window, so a late
         // fling is observed before another gesture can advance past page 50.
         const val MAX_FORWARD_SWIPE_RETRIES = 3
+        const val SWIPE_STEPS = 18
+        const val SWIPE_DURATION_MS = 360L
+        const val SWIPE_STEP_DELAY_MS = SWIPE_DURATION_MS / SWIPE_STEPS
         const val MIN_VISIBLE_FRACTION = 0.35f
     }
 }
