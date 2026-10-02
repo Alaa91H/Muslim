@@ -241,7 +241,10 @@ class QuranReaderBookNavigationInstrumentedTest {
         // finish its first fling after the accessibility tree still reports
         // page 49. Retrying at 1.2s can then advance twice and land on page 51.
         const val FORWARD_SWIPE_RETRY_SAMPLES = 24
-        const val MAX_FORWARD_SWIPE_RETRIES = 1
+        // ADB can drop more than one swipe on API 36 under instrumentation
+        // load. Each retry is gated by a 3.6s stable-page window, so a late
+        // fling is observed before another gesture can advance past page 50.
+        const val MAX_FORWARD_SWIPE_RETRIES = 3
         const val MIN_VISIBLE_FRACTION = 0.35f
     }
 }
