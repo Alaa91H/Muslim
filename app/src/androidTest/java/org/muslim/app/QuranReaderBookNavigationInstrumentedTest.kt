@@ -25,6 +25,9 @@ class QuranReaderBookNavigationInstrumentedTest {
         var phase = WAITING_FOR_PAGE_50
         var lastTargetBounds: Rect? = null
         var stableTargetSamples = 0
+        var lastForwardPage49Bounds: Rect? = null
+        var stableForwardPage49Samples = 0
+        var forwardSwipeRetries = 0
         var page49Diagnostics = "not found"
         var page50Diagnostics = "not found"
         var pageHeaders = "none"
@@ -63,6 +66,34 @@ class QuranReaderBookNavigationInstrumentedTest {
                     } else if (phase == WAITING_FOR_PAGE_50_AGAIN && sharedSpreadVerified) {
                         completed = page49Bounds != null && page50Bounds != null
                     } else {
+                        if (
+                            phase == WAITING_FOR_PAGE_50_AGAIN &&
+                            page49Bounds != null &&
+                            page50Bounds == null
+                        ) {
+                            if (page49Bounds == lastForwardPage49Bounds) {
+                                stableForwardPage49Samples += 1
+                            } else {
+                                lastForwardPage49Bounds = Rect(page49Bounds)
+                                stableForwardPage49Samples = 0
+                            }
+                            if (
+                                stableForwardPage49Samples >= FORWARD_SWIPE_RETRY_SAMPLES &&
+                                forwardSwipeRetries < MAX_FORWARD_SWIPE_RETRIES
+                            ) {
+                                // Emulator input injection can occasionally drop a
+                                // completed fling. Retry only after the wrong page has
+                                // remained stationary long enough to prove it settled.
+                                swipePage(instrumentation, isRtl = isRtl, towardNext = true)
+                                forwardSwipeRetries += 1
+                                stableForwardPage49Samples = 0
+                                lastForwardPage49Bounds = null
+                            }
+                        } else {
+                            lastForwardPage49Bounds = null
+                            stableForwardPage49Samples = 0
+                        }
+
                         val targetPage = if (phase == WAITING_FOR_PAGE_49) 49 else 50
                         val targetBounds = if (targetPage == 49) page49Bounds else page50Bounds
                         if (targetBounds == null) {
@@ -175,6 +206,8 @@ class QuranReaderBookNavigationInstrumentedTest {
         const val WAITING_FOR_PAGE_50_AGAIN = 2
         const val WAITING_FOR_PREVIOUS_SPREAD = 3
         const val STABLE_PAGE_SAMPLES = 3
+        const val FORWARD_SWIPE_RETRY_SAMPLES = 8
+        const val MAX_FORWARD_SWIPE_RETRIES = 1
         const val MIN_VISIBLE_FRACTION = 0.35f
     }
 }
