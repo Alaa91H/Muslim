@@ -71,7 +71,7 @@ SOURCE_LANG = "en"
 BASE_LANG = "ar"
 
 CACHE_PATH = os.path.join(PROJECT_ROOT, "app", "build", "localize_cache.json")
-WORKERS = 8
+WORKERS = 3
 TIMEOUT = 30
 MAX_RETRIES = 3
 
@@ -188,6 +188,7 @@ def translate_batch(texts: list[str], lang: str, source_lang: str = SOURCE_LANG)
         "https://translate.googleapis.com/translate_a/single?client=gtx"
         f"&sl={source_lang}&tl={tl}&dt=t&q=" + urllib.parse.quote(payload)
     )
+    last_error = "unknown provider error"
     for attempt in range(MAX_RETRIES):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -206,14 +207,23 @@ def translate_batch(texts: list[str], lang: str, source_lang: str = SOURCE_LANG)
         except urllib.error.HTTPError as e:
             if e.code == 400:
                 raise RuntimeError(f"Translation provider does not support language {lang}") from e
+            last_error = f"HTTP {e.code} {e.reason}"
             if attempt < MAX_RETRIES - 1:
-                time.sleep(1.5 * (attempt + 1))
+                retry_after = e.headers.get("Retry-After") if e.headers else None
+                try:
+                    delay = float(retry_after) if retry_after else 10 * (2 ** attempt)
+                except (TypeError, ValueError):
+                    delay = 10 * (2 ** attempt)
+                time.sleep(min(max(delay, 1.0), 120.0))
         except Exception as e:
             if isinstance(e, RuntimeError):
                 raise
+            last_error = f"{type(e).__name__}: {e}"
             if attempt < MAX_RETRIES - 1:
-                time.sleep(1.5 * (attempt + 1))
-    raise RuntimeError(f"Translation provider failed for language {lang}; no source fallback was written")
+                time.sleep(10 * (2 ** attempt))
+    raise RuntimeError(
+        f"Translation provider failed for language {lang} ({last_error}); no source fallback was written",
+    )
 
 
 # ---------------------------------------------------------------------------

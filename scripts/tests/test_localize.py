@@ -93,9 +93,22 @@ class LocalizationQualityTests(unittest.TestCase):
     def test_provider_rate_limit_fails_without_returning_source_as_translation(self) -> None:
         error = urllib.error.HTTPError("https://translate.invalid", 429, "rate limited", {}, None)
         try:
-            with patch.object(localize.urllib.request, "urlopen", side_effect=error), patch.object(localize.time, "sleep"):
-                with self.assertRaisesRegex(RuntimeError, "no source fallback"):
+            with patch.object(localize.urllib.request, "urlopen", side_effect=error), patch.object(localize.time, "sleep") as sleep:
+                with self.assertRaisesRegex(RuntimeError, "HTTP 429 rate limited.*no source fallback"):
                     localize.translate_batch(["Start playback"], "fr")
+                self.assertEqual([call.args[0] for call in sleep.call_args_list], [10, 20])
+        finally:
+            error.close()
+
+    def test_provider_retry_after_header_is_respected(self) -> None:
+        error = urllib.error.HTTPError(
+            "https://translate.invalid", 429, "rate limited", {"Retry-After": "7"}, None,
+        )
+        try:
+            with patch.object(localize.urllib.request, "urlopen", side_effect=error), patch.object(localize.time, "sleep") as sleep:
+                with self.assertRaisesRegex(RuntimeError, "HTTP 429 rate limited"):
+                    localize.translate_batch(["Start playback"], "fr")
+                self.assertEqual([call.args[0] for call in sleep.call_args_list], [7.0, 7.0])
         finally:
             error.close()
 
