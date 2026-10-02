@@ -794,11 +794,6 @@ fun QuranReaderScreen(
                     )
                     HorizontalPager(
                         state = pagerState,
-                        // Page order in a printed Arabic mushaf advances from
-                        // right to left. Compose's pager must reverse its
-                        // physical drag mapping for RTL while keeping page
-                        // indices in canonical Quran order.
-                        reverseLayout = mushafPagerReverseLayout(LocalLayoutDirection.current),
                         modifier = Modifier
                             .fillMaxSize()
                             .weight(1f)
@@ -1725,9 +1720,6 @@ internal fun calculateAyahFollowScrollDelta(
 
 /** Maps a real mushaf content index to the pager index after the leading edge page. */
 internal fun contentIndexToReaderPagerPage(contentIndex: Int): Int = contentIndex + 1
-
-internal fun mushafPagerReverseLayout(direction: LayoutDirection): Boolean =
-    direction == LayoutDirection.Rtl
 
 /** Shared visual state for one or two rendered mushaf pages. */
 private data class MushafPagePresentation(

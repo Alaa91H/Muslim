@@ -35,8 +35,10 @@ class QuranPagerDirectionComposeInstrumentedTest {
         setReaderPager(LayoutDirection.Rtl, pager)
 
         composeRule.onNodeWithTag(PAGER_TAG).performTouchInput { swipeRight() }
-        composeRule.waitUntil(PAGER_TIMEOUT_MS) { pager.get()?.currentPage == TARGET_PAGE }
-        composeRule.runOnIdle { assertEquals(TARGET_PAGE, pager.get()?.currentPage) }
+        composeRule.waitUntil(PAGER_TIMEOUT_MS) { pager.get()?.currentPage != INITIAL_PAGE }
+        composeRule.runOnIdle {
+            assertEquals("Arabic rightward book turn", TARGET_PAGE, pager.get()?.currentPage)
+        }
     }
 
     @Test
@@ -45,8 +47,10 @@ class QuranPagerDirectionComposeInstrumentedTest {
         setReaderPager(LayoutDirection.Ltr, pager)
 
         composeRule.onNodeWithTag(PAGER_TAG).performTouchInput { swipeLeft() }
-        composeRule.waitUntil(PAGER_TIMEOUT_MS) { pager.get()?.currentPage == TARGET_PAGE }
-        composeRule.runOnIdle { assertEquals(TARGET_PAGE, pager.get()?.currentPage) }
+        composeRule.waitUntil(PAGER_TIMEOUT_MS) { pager.get()?.currentPage != INITIAL_PAGE }
+        composeRule.runOnIdle {
+            assertEquals("English leftward book turn", TARGET_PAGE, pager.get()?.currentPage)
+        }
     }
 
     @OptIn(ExperimentalFoundationApi::class)
@@ -57,7 +61,6 @@ class QuranPagerDirectionComposeInstrumentedTest {
                 pager.set(state)
                 HorizontalPager(
                     state = state,
-                    reverseLayout = direction == LayoutDirection.Rtl,
                     modifier = Modifier.fillMaxSize().testTag(PAGER_TAG),
                 ) { page ->
                     Box(Modifier.fillMaxSize().testTag("mushaf-test-page-$page"))

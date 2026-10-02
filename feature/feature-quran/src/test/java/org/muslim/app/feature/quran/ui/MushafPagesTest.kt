@@ -1,6 +1,5 @@
 package org.muslim.app.feature.quran.ui
 
-import androidx.compose.ui.unit.LayoutDirection
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 import org.muslim.app.feature.quran.domain.Ayah
@@ -8,12 +7,6 @@ import org.muslim.app.feature.quran.domain.Ayah
 class MushafPagesTest {
     private fun ayah(global: Int, surah: Int, number: Int, page: Int) =
         Ayah(global, surah, number, 3, page, "ayah $global")
-
-    @Test
-    fun `mushaf page order follows reading direction`() {
-        assertThat(mushafPagerReverseLayout(LayoutDirection.Rtl)).isTrue()
-        assertThat(mushafPagerReverseLayout(LayoutDirection.Ltr)).isFalse()
-    }
 
     @Test
     fun `opening Aal Imran then moving back reaches Baqarah ending instead of Fatiha`() {
