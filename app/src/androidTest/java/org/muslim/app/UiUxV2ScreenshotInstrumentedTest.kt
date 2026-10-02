@@ -105,10 +105,9 @@ class UiUxV2ScreenshotInstrumentedTest {
         var scenario: ActivityScenario<MainActivity>? = null
         try {
             if (expanded) {
-                shell("wm size 1600x1000")
-                // The CI emulator caps its effective surface near 1024 px.
-                // At 160 dpi that is only 640 dp, below the 840 dp breakpoint;
-                // 120 dpi makes the capped surface wide enough to exercise it.
+                // Keep the emulator's native surface so UiAutomation can
+                // capture it; lower density makes its available width exceed
+                // the 840 dp expanded breakpoint without resizing the display.
                 shell("wm density 120")
                 val widthDeadline = SystemClock.uptimeMillis() + 10_000
                 while (context.resources.configuration.screenWidthDp < 840 && SystemClock.uptimeMillis() < widthDeadline) {
