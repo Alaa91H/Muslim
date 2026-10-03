@@ -93,10 +93,15 @@ class LocalizationQualityTests(unittest.TestCase):
     def test_provider_rate_limit_fails_without_returning_source_as_translation(self) -> None:
         error = urllib.error.HTTPError("https://translate.invalid", 429, "rate limited", {}, None)
         try:
-            with patch.object(localize.urllib.request, "urlopen", side_effect=error), patch.object(localize.time, "sleep") as sleep:
+            localize._TRANSLATION_THROTTLE._next_request_at = 0.0
+            with patch.object(localize.urllib.request, "urlopen", side_effect=error), patch.object(
+                localize._TRANSLATION_THROTTLE, "_sleep",
+            ) as sleep:
                 with self.assertRaisesRegex(RuntimeError, "HTTP 429 rate limited.*no source fallback"):
                     localize.translate_batch(["Start playback"], "fr")
-                self.assertEqual([call.args[0] for call in sleep.call_args_list], [10, 20])
+                self.assertEqual(len(sleep.call_args_list), 2)
+                self.assertAlmostEqual(sleep.call_args_list[0].args[0], 10, delta=0.01)
+                self.assertAlmostEqual(sleep.call_args_list[1].args[0], 20, delta=0.01)
         finally:
             error.close()
 
@@ -105,10 +110,15 @@ class LocalizationQualityTests(unittest.TestCase):
             "https://translate.invalid", 429, "rate limited", {"Retry-After": "7"}, None,
         )
         try:
-            with patch.object(localize.urllib.request, "urlopen", side_effect=error), patch.object(localize.time, "sleep") as sleep:
+            localize._TRANSLATION_THROTTLE._next_request_at = 0.0
+            with patch.object(localize.urllib.request, "urlopen", side_effect=error), patch.object(
+                localize._TRANSLATION_THROTTLE, "_sleep",
+            ) as sleep:
                 with self.assertRaisesRegex(RuntimeError, "HTTP 429 rate limited"):
                     localize.translate_batch(["Start playback"], "fr")
-                self.assertEqual([call.args[0] for call in sleep.call_args_list], [7.0, 7.0])
+                self.assertEqual(len(sleep.call_args_list), 2)
+                for call in sleep.call_args_list:
+                    self.assertAlmostEqual(call.args[0], 7.0, delta=0.01)
         finally:
             error.close()
 
@@ -132,6 +142,25 @@ class LocalizationQualityTests(unittest.TestCase):
 
         self.assertEqual(calls, ["first", "second"])
         self.assertEqual(sleeps, [0.5])
+
+    def test_provider_cooldown_is_shared_with_following_locale_requests(self) -> None:
+        clock = [0.0]
+        sleeps: list[float] = []
+
+        def sleep(seconds: float) -> None:
+            sleeps.append(seconds)
+            clock[0] += seconds
+
+        limiter = localize.TranslationRequestThrottle(
+            interval_seconds=0.5,
+            monotonic=lambda: clock[0],
+            sleep=sleep,
+        )
+        limiter.cooldown(7.0)
+        limiter.call(lambda: "next locale")
+        limiter.call(lambda: "later locale")
+
+        self.assertEqual(sleeps, [7.0, 0.5])
 
     def test_cached_source_fallback_is_rejected(self) -> None:
         source = "Start Quran playback"

@@ -225,6 +225,14 @@ class TranslationRequestThrottle:
             self._next_request_at = self._monotonic() + self._interval_seconds
             return operation()
 
+    def cooldown(self, seconds: float) -> None:
+        """Share a provider-directed or exponential backoff across all locale workers."""
+        with self._lock:
+            self._next_request_at = max(
+                self._next_request_at,
+                self._monotonic() + max(0.0, seconds),
+            )
+
 
 _TRANSLATION_THROTTLE = TranslationRequestThrottle(interval_seconds=0.8)
 
@@ -265,13 +273,13 @@ def translate_batch(texts: list[str], lang: str, source_lang: str = SOURCE_LANG)
                     delay = float(retry_after) if retry_after else 10 * (2 ** attempt)
                 except (TypeError, ValueError):
                     delay = 10 * (2 ** attempt)
-                time.sleep(min(max(delay, 1.0), 120.0))
+                _TRANSLATION_THROTTLE.cooldown(min(max(delay, 1.0), 120.0))
         except Exception as e:
             if isinstance(e, RuntimeError):
                 raise
             last_error = f"{type(e).__name__}: {e}"
             if attempt < MAX_RETRIES - 1:
-                time.sleep(10 * (2 ** attempt))
+                _TRANSLATION_THROTTLE.cooldown(10 * (2 ** attempt))
     raise RuntimeError(
         f"Translation provider failed for language {lang} ({last_error}); no source fallback was written",
     )
