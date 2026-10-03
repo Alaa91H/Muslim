@@ -35,6 +35,24 @@ class MushafPagesTest {
         assertThat(initialMushafPageIndex(pages, 114, 9999)).isEqualTo(0)
         assertThat(mushafPages(emptyList())).isEmpty()
     }
+
+    @Test
+    fun `wide spreads preserve printed odd-right even-left order and edge pages`() {
+        val pages = mushafPages(listOf(
+            ayah(1, 1, 1, 1), ayah(2, 1, 2, 2), ayah(3, 1, 3, 3),
+            ayah(4, 1, 4, 4), ayah(5, 1, 5, 5),
+        ))
+        val spreads = mushafSpreads(pages)
+
+        assertThat(spreads.map { spread -> spread.map { it.key } })
+            .containsExactly(listOf(1, 2), listOf(3, 4), listOf(5)).inOrder()
+        assertThat(spreads.first().flatMap { it.value }.map { it.globalNumber })
+            .containsExactly(1, 2).inOrder()
+        assertThat(spreads.last().single().key).isEqualTo(5)
+        assertThat(contentIndexToReaderPagerPage(0)).isEqualTo(1)
+        assertThat(contentIndexToReaderPagerPage(spreads.lastIndex)).isEqualTo(spreads.size)
+    }
+
     @Test
     fun `tafsir follows audio only while the explicit follow switch is on`() {
         assertThat(supplementTargetGlobal(293, 294, true)).isEqualTo(294)

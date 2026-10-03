@@ -487,13 +487,7 @@ fun QuranReaderScreen(
     val isWide = with(LocalDensity.current) {
         LocalWindowInfo.current.containerSize.width.toDp() >= 600.dp
     }
-    val spreads = remember(pageEntries) {
-        pageEntries
-            .groupBy { (page, _) -> (page - 1) / 2 }
-            .toSortedMap()
-            .values
-            .map { spread -> spread.sortedBy { it.key } }
-    }
+    val spreads = remember(pageEntries) { mushafSpreads(pageEntries) }
     val firstSpreadKey = spreads.firstOrNull()?.let { (it.first().key - 1) / 2 } ?: 0
     val spreadIndexOfPage: (Int) -> Int = { page -> ((page - 1) / 2) - firstSpreadKey }
 
@@ -1720,6 +1714,15 @@ internal fun calculateAyahFollowScrollDelta(
 
 /** Maps a real mushaf content index to the pager index after the leading edge page. */
 internal fun contentIndexToReaderPagerPage(contentIndex: Int): Int = contentIndex + 1
+
+/** Groups canonical page numbers into printed facing-page spreads for wide layouts. */
+internal fun mushafSpreads(
+    pageEntries: List<Map.Entry<Int, List<Ayah>>>,
+): List<List<Map.Entry<Int, List<Ayah>>>> = pageEntries
+    .groupBy { (page, _) -> (page - 1) / 2 }
+    .toSortedMap()
+    .values
+    .map { spread -> spread.sortedBy { it.key } }
 
 /** Shared visual state for one or two rendered mushaf pages. */
 private data class MushafPagePresentation(
