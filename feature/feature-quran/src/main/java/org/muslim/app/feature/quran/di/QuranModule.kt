@@ -47,8 +47,8 @@ object QuranModule {
 
     @Provides
     @Singleton
-    fun provideRecitationEngineFactory(): RecitationEngineFactory =
-        MediaPlayerAudioEngine.Factory()
+    fun provideRecitationEngineFactory(@ApplicationContext context: Context): RecitationEngineFactory =
+        MediaPlayerAudioEngine.Factory(context)
 
     @Provides
     @Singleton

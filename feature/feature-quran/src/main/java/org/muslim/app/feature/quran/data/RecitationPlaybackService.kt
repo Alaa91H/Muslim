@@ -434,30 +434,18 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
             ))
         }
 
-        RECITATIONS_FOLDER_ID -> downloadedReciters().map(::reciterFolder)
+        RECITATIONS_FOLDER_ID -> availableReciters().map(::reciterFolder)
         BOOKMARKS_FOLDER_ID -> bookmarkedAyahItems()
         else -> if (parentId.startsWith(RECITER_MEDIA_PREFIX)) {
             val reciterId = parentId.removePrefix(RECITER_MEDIA_PREFIX)
-            downloadedSurahs(reciterId).map { surah -> surahItem(surah, reciterId) }
+            availableSurahs().map { surah -> surahItem(surah, reciterId) }
         } else emptyList()
     }
 
-    private suspend fun downloadedReciters() = with(quranRepository.observeSurahs().first().associateBy { it.number }) {
-        Reciter.Bundled.mapNotNull { reciter ->
-            val hasCompleteSurah = recitationRepository.downloadState(reciter.id).surahCounts.any { (number, count) ->
-                val expectedAyahs = this[number]?.ayahCount
-                expectedAyahs != null && count >= expectedAyahs
-            }
-            reciter.takeIf { hasCompleteSurah }
-        }
-    }
+    /** Android Auto can stream every curated reader; offline files remain preferred when complete. */
+    private fun availableReciters(): List<Reciter> = Reciter.Bundled
 
-    private suspend fun downloadedSurahs(reciterId: String): List<Surah> {
-        val downloadedCounts = recitationRepository.downloadState(reciterId).surahCounts
-        return quranRepository.observeSurahs().first().filter { surah ->
-            (downloadedCounts[surah.number] ?: 0) >= surah.ayahCount
-        }
-    }
+    private suspend fun availableSurahs(): List<Surah> = quranRepository.observeSurahs().first()
 
     private fun browseFolder(
         id: String,
@@ -492,18 +480,11 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
             MediaBrowserCompat.MediaItem.FLAG_PLAYABLE,
         )
 
-    /** Surface saved ayah bookmarks only when the selected reader's audio is already local. */
+    /** Bookmarks use offline audio when available and the selected reader's HTTPS stream otherwise. */
     private suspend fun bookmarkedAyahItems(): List<MediaBrowserCompat.MediaItem> {
         val reciter = recitationRepository.selectedReciter()
         val bookmarks = quranRepository.observeBookmarks().first()
-        val playable = withContext(Dispatchers.IO) {
-            bookmarks.filter { bookmark ->
-                val ayah = bookmark.ayah
-                val file = recitationRepository.fileFor(reciter.id, ayah.surahNumber, ayah.globalNumber)
-                file.isFile && file.length() > 0L
-            }
-        }
-        return playable.map { bookmark ->
+        return bookmarks.map { bookmark ->
             playableItem(
                 id = "muslim_ayah_${bookmark.ayah.globalNumber}",
                 title = getString(
@@ -516,17 +497,15 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         }
     }
 
-    /** Only expose resume in the car when the rest of its queue is already offline-ready. */
+    /** Resume the saved queue from offline audio when possible, otherwise use its reader's HTTPS source. */
     private suspend fun androidAutoResumePlan(): AndroidAutoResumePlan? {
         val saved = sessionStore.session.first() ?: return null
         val byGlobal = quranRepository.allAyahs().associateBy { it.globalNumber }
         val knownReciters = Reciter.Bundled.mapTo(mutableSetOf()) { it.id }
-        return withContext(Dispatchers.IO) {
-            buildAndroidAutoResumePlan(saved, knownReciters) { global ->
-                val ayah = byGlobal[global] ?: return@buildAndroidAutoResumePlan false
-                val file = recitationRepository.fileFor(saved.intent.reciterId, ayah.surahNumber, global)
-                file.isFile && file.length() > 0L
-            }
+        val reciter = Reciter.Bundled.firstOrNull { it.id == saved.intent.reciterId } ?: return null
+        return buildAndroidAutoResumePlan(saved, knownReciters) { global ->
+            val ayah = byGlobal[global] ?: return@buildAndroidAutoResumePlan false
+            reciter.urlFor(ayah.surahNumber, ayah.numberInSurah).startsWith("https://everyayah.com/")
         }
     }
 
@@ -540,12 +519,8 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         val ayahs = globals.mapNotNull(byGlobal::get)
         if (ayahs.size != globals.size) return
         val intent = plan.intent
-        val queue = ayahs.map { ayah ->
-            RecitationQueueItem(
-                file = recitationRepository.fileFor(intent.reciterId, ayah.surahNumber, ayah.globalNumber),
-                globalNumber = ayah.globalNumber,
-            )
-        }
+        val reciter = Reciter.Bundled.firstOrNull { it.id == intent.reciterId } ?: return
+        val queue = ayahs.map { ayah -> queueItem(reciter, ayah.surahNumber, ayah.numberInSurah, ayah.globalNumber) }
         requestAudioFocus()
         sessionRuntime.begin(intent, plan.positionMs, plan.remainingRepeats)
         player.playQueue(
@@ -574,16 +549,11 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
     private suspend fun playBookmarkedAyah(globalNumber: Int) {
         val ayah = quranRepository.ayahByGlobal(globalNumber) ?: return
         val reciter = recitationRepository.selectedReciter()
-        val file = recitationRepository.fileFor(reciter.id, ayah.surahNumber, globalNumber)
-        if (!file.isFile || file.length() <= 0L) {
-            publishPlaybackError(getString(R.string.quran_car_not_downloaded))
-            return
-        }
         val intent = newAndroidAutoSessionIntent(reciter.id, ayah.surahNumber, listOf(globalNumber)) ?: return
         requestAudioFocus()
         sessionRuntime.begin(intent)
         player.playQueue(
-            items = listOf(RecitationQueueItem(file, globalNumber)),
+            items = listOf(queueItem(reciter, ayah.surahNumber, ayah.numberInSurah, globalNumber)),
             startIndex = 0,
             repeatCount = 1,
         )
@@ -597,18 +567,9 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         val surah = quranRepository.observeSurahs().first().firstOrNull { it.number == surahNumber } ?: return
         val reciter = requestedReciterId?.let { id -> Reciter.Bundled.firstOrNull { it.id == id } }
             ?: recitationRepository.selectedReciter()
-        if (!recitationRepository.isSurahComplete(reciter.id, surah.number, surah.ayahCount)) {
-            publishPlaybackError(getString(R.string.quran_car_not_downloaded))
-            return
-        }
         val queue = quranRepository.observeSurah(surah.number).first()
             .filter { ayah -> startGlobalNumber == null || ayah.globalNumber >= startGlobalNumber }
-            .map { ayah ->
-                RecitationQueueItem(
-                    file = recitationRepository.fileFor(reciter.id, surah.number, ayah.globalNumber),
-                    globalNumber = ayah.globalNumber,
-                )
-            }
+            .map { ayah -> queueItem(reciter, surah.number, ayah.numberInSurah, ayah.globalNumber) }
         if (queue.isEmpty()) return
         val intent = newAndroidAutoSessionIntent(
             reciterId = reciter.id,
@@ -631,7 +592,7 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
                 val reciterId = if (recitationRepository.isSurahComplete(selectedReciter.id, surah.number, surah.ayahCount)) {
                     selectedReciter.id
                 } else {
-                    findDownloadedReciter(surah)
+                    findPlayableReciter(surah)
                 }
                 if (reciterId == null) {
                     publishPlaybackError(getString(R.string.quran_car_search_unavailable))
@@ -644,11 +605,20 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         }
     }
 
-    private suspend fun findDownloadedReciter(surah: Surah): String? {
-        for (reciter in downloadedReciters()) {
+    private suspend fun findPlayableReciter(surah: Surah): String? {
+        for (reciter in availableReciters()) {
             if (recitationRepository.isSurahComplete(reciter.id, surah.number, surah.ayahCount)) return reciter.id
         }
-        return null
+        return Reciter.Bundled.firstOrNull()?.id
+    }
+
+    private fun queueItem(reciter: Reciter, surahNumber: Int, ayahNumber: Int, globalNumber: Int): RecitationQueueItem {
+        val file = recitationRepository.fileFor(reciter.id, surahNumber, globalNumber)
+        return RecitationQueueItem(
+            file = file,
+            globalNumber = globalNumber,
+            streamUrl = reciter.urlFor(surahNumber, ayahNumber).takeUnless { file.isFile && file.length() > 0L },
+        )
     }
 
     private fun publishPlaybackError(message: String) {

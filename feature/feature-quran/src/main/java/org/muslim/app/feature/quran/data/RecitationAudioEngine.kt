@@ -2,7 +2,11 @@ package org.muslim.app.feature.quran.data
 
 import android.media.AudioAttributes
 import android.media.MediaPlayer
+import android.net.Uri
+import android.content.Context
+import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.File
+import javax.inject.Inject
 
 /**
  * Abstraction over the Android [MediaPlayer] used by [QuranAudioPlayer].
@@ -28,6 +32,9 @@ interface RecitationAudioEngine {
 /** Creates an engine for one audio file; returns null when the file can't open. */
 fun interface RecitationEngineFactory {
     fun create(file: File): RecitationAudioEngine?
+
+    /** Keeps file-backed callers compatible while allowing network-backed queue entries. */
+    fun create(item: RecitationQueueItem): RecitationAudioEngine? = create(item.file)
 }
 
 /** Real [RecitationAudioEngine] backed by a [MediaPlayer]. */
@@ -60,19 +67,30 @@ class MediaPlayerAudioEngine private constructor(
         }
     }
 
-    class Factory : RecitationEngineFactory {
+    class Factory @Inject constructor(
+        @ApplicationContext private val context: Context,
+    ) : RecitationEngineFactory {
         override fun create(file: File): RecitationAudioEngine? = runCatching {
-            MediaPlayerAudioEngine(
-                MediaPlayer().apply {
-                    setAudioAttributes(
-                        AudioAttributes.Builder()
-                            .setUsage(AudioAttributes.USAGE_MEDIA)
-                            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                            .build(),
-                    )
-                    setDataSource(file.absolutePath)
-                },
-            )
+            createPlayer { setDataSource(file.absolutePath) }
         }.getOrNull()
+
+        override fun create(item: RecitationQueueItem): RecitationAudioEngine? = runCatching {
+            val url = item.streamUrl
+            if (url.isNullOrBlank()) return@runCatching create(item.file)
+            val uri = Uri.parse(url)
+            require(uri.scheme == "https" && uri.host == "everyayah.com")
+            createPlayer { setDataSource(context, uri) }
+        }.getOrNull()
+
+        private fun createPlayer(setDataSource: MediaPlayer.() -> Unit): MediaPlayerAudioEngine =
+            MediaPlayer().apply {
+                setAudioAttributes(
+                    AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_MEDIA)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                        .build(),
+                )
+                setDataSource()
+            }.let(::MediaPlayerAudioEngine)
     }
 }

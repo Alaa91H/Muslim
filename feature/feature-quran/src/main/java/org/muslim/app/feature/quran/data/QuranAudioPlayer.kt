@@ -31,6 +31,8 @@ data class RecitationFailureEvent(
 data class RecitationQueueItem(
     val file: File,
     val globalNumber: Int,
+    /** Optional provider URL used when this ayah is not available offline. */
+    val streamUrl: String? = null,
 )
 
 data class RecitationPlaybackSnapshot(
@@ -289,7 +291,7 @@ class QuranAudioPlayer @Inject constructor(
         resetProgress()
         updateNavState()
 
-        val engine = engineFactory.create(item.file)
+        val engine = engineFactory.create(item)
         if (engine == null) {
             fail(RecitationFailureReason.EngineUnavailable)
             return

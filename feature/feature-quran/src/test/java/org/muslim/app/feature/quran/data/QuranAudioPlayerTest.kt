@@ -81,12 +81,18 @@ class QuranAudioPlayerTest {
         private val configure: (FakeEngine) -> Unit = {},
     ) : RecitationEngineFactory {
         val engines = mutableListOf<FakeEngine>()
+        val sources = mutableListOf<RecitationQueueItem>()
         override fun create(file: File): RecitationAudioEngine? {
             if (returnNull) return null
             return FakeEngine().also {
                 configure(it)
                 engines.add(it)
             }
+        }
+
+        override fun create(item: RecitationQueueItem): RecitationAudioEngine? {
+            sources += item
+            return create(item.file)
         }
     }
 
@@ -124,6 +130,22 @@ class QuranAudioPlayerTest {
         assertThat(player.hasNext.value).isFalse()
         assertThat(player.hasPrevious.value).isFalse()
         assertThat(factory.engines).isEmpty()
+    }
+
+    @Test
+    fun `stream source stays attached to the shared Quran queue`() {
+        val factory = FakeFactory()
+        val player = player(factory)
+        val stream = "https://everyayah.com/data/Alafasy_128kbps/002286.mp3"
+
+        player.playQueue(
+            items = listOf(RecitationQueueItem(File("not-downloaded.mp3"), 286, stream)),
+            startIndex = 0,
+            repeatCount = 1,
+        )
+
+        assertThat(factory.sources.single().streamUrl).isEqualTo(stream)
+        assertThat(player.currentAyah.value).isEqualTo(286)
     }
 
     @Test
