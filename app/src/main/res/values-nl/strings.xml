@@ -19,7 +19,7 @@
     <string name="more_tasbih_desc">Digitale misbaha met dagelijkse geschiedenis</string>
     <string name="more_zakat">Zakaat</string>
     <string name="more_zakat_desc">Zakat op rijkdom en Fitr-calculator</string>
-    <string name="scaffold_message">Het uit meerdere modules bestaande projectskelet is klaar. Fase 1 – Adhan, gebedstijden, Qibla en de Hijri-kalender – begint hier.</string>
+    <string name="scaffold_message">Het uit meerdere modules bestaande projectskelet is klaar.\nFase 1 – Adhan, gebedstijden, Qibla en de Hijri-kalender – begint hier.</string>
     <string name="shortcut_qibla">Qibla</string>
     <string name="shortcut_qibla_long">Qibla-richting</string>
     <string name="shortcut_settings">Instellingen</string>
