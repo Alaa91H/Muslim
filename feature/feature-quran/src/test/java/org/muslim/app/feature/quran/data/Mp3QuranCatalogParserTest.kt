@@ -86,4 +86,25 @@ class Mp3QuranCatalogParserTest {
         assertThat(Mp3QuranAudioProbe.inspect(200, "audio/mpeg", null, "bytes")).isNull()
         assertThat(Mp3QuranAudioProbe.inspect(200, "audio/mpeg", 0L, "bytes")).isNull()
     }
+
+    @Test
+    fun rangeProbeRequiresOneBytePartialAudioAndReportsTotalSize() {
+        val verified = Mp3QuranAudioProbe.inspectRange(
+            statusCode = 206,
+            contentType = "audio/mpeg; charset=binary",
+            contentRange = "bytes 0-0/375643",
+        )
+
+        assertThat(verified?.contentLengthBytes).isEqualTo(375_643)
+        assertThat(verified?.supportsRangeRequests).isTrue()
+    }
+
+    @Test
+    fun rangeProbeRejectsFullResponsesMalformedRangesAndNonAudioContent() {
+        assertThat(Mp3QuranAudioProbe.inspectRange(200, "audio/mpeg", "bytes 0-0/100")).isNull()
+        assertThat(Mp3QuranAudioProbe.inspectRange(206, "text/html", "bytes 0-0/100")).isNull()
+        assertThat(Mp3QuranAudioProbe.inspectRange(206, "audio/mpeg", "bytes 0-1/100")).isNull()
+        assertThat(Mp3QuranAudioProbe.inspectRange(206, "audio/mpeg", "bytes 0-0/*")).isNull()
+        assertThat(Mp3QuranAudioProbe.inspectRange(206, "audio/mpeg", "bytes 0-0/0")).isNull()
+    }
 }

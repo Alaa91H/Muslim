@@ -45,7 +45,8 @@ class Mp3QuranCatalogClient @Inject constructor(
     ): VerifiedMp3QuranAudio? = withContext(Dispatchers.IO) {
         val audioUrl = recording.audioUrl(surahNumber) ?: return@withContext null
         val request = Request.Builder().url(audioUrl).head().build()
-        httpClient.newCall(request).execute().use { response ->
+        val headProbe = httpClient.newCall(request).execute().use { response ->
+            if (response.code == 404 || response.code == 410) return@withContext null
             Mp3QuranAudioProbe.inspect(
                 statusCode = response.code,
                 contentType = response.header("Content-Type"),
@@ -53,6 +54,23 @@ class Mp3QuranCatalogClient @Inject constructor(
                 acceptRanges = response.header("Accept-Ranges"),
             )
         }
+        if (headProbe?.supportsRangeRequests == true) return@withContext headProbe
+
+        // Some audio origins reject HEAD. Request only the first byte so the
+        // provider can still prove both the media type and complete file size.
+        val rangeRequest = Request.Builder()
+            .url(audioUrl)
+            .header("Range", "bytes=0-0")
+            .get()
+            .build()
+        val rangeProbe = httpClient.newCall(rangeRequest).execute().use { response ->
+            Mp3QuranAudioProbe.inspectRange(
+                statusCode = response.code,
+                contentType = response.header("Content-Type"),
+                contentRange = response.header("Content-Range"),
+            )
+        }
+        rangeProbe ?: headProbe
     }
 
     private companion object {
