@@ -111,4 +111,5 @@
     <string name="hajj_map_zoom_out">Allunya el zoom</string>
     <string name="learn_search_clear">Esborra la cerca</string>
     <string name="names_search_clear">Esborra la cerca</string>
+    <string name="hajj_counter_progress">%1$d de %2$d</string>
 </resources>

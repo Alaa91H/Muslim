@@ -112,4 +112,5 @@
     <string name="learn_search_clear">Effacer la recherche</string>
     <string name="learn_topic_zakat_fitr">Zakât al-Fitr</string>
     <string name="names_search_clear">Effacer la recherche</string>
+    <string name="hajj_counter_progress">%1$d de %2$d</string>
 </resources>

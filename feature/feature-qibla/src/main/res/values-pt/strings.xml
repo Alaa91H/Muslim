@@ -81,4 +81,5 @@
     <string name="nearby_mosques_map_action">Mapa</string>
     <string name="nearby_mosques_more_actions">Mais ações</string>
     <string name="nearby_mosques_search_clear">Limpar pesquisa</string>
+    <string name="nearby_mosques_unnamed">Mesquita</string>
 </resources>

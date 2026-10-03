@@ -82,4 +82,5 @@
     <string name="nearby_mosques_more_actions">Langkung lampah</string>
     <string name="nearby_mosques_search_clear">Hapus pilarian</string>
     <string name="qibla_tab_qibla">Kiblat</string>
+    <string name="nearby_mosques_unnamed">masjid</string>
 </resources>

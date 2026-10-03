@@ -81,4 +81,5 @@
     <string name="nearby_mosques_map_action">Χάρτης</string>
     <string name="nearby_mosques_more_actions">Περισσότερες ενέργειες</string>
     <string name="nearby_mosques_search_clear">Εκκαθάριση αναζήτησης</string>
+    <string name="nearby_mosques_unnamed">Τζαμί</string>
 </resources>

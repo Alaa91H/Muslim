@@ -81,4 +81,5 @@
     <string name="nearby_mosques_map_action">Karte</string>
     <string name="nearby_mosques_more_actions">Misala mingi</string>
     <string name="nearby_mosques_search_clear">Boluki ya polele</string>
+    <string name="nearby_mosques_unnamed">Mosquée</string>
 </resources>

@@ -112,4 +112,7 @@
     <string name="learn_search_clear">Qidiruvni tozalash</string>
     <string name="learn_topic_zakat_fitr">Fitr zakoti</string>
     <string name="names_search_clear">Qidiruvni tozalash</string>
+    <string name="funeral_will_title">Janozalar va Islomiy vasiyat</string>
+    <string name="noorani_title">Nurani Qoida va birinchi qadamlar</string>
+    <string name="traveler_title">Sayohatchilar va muhojirlar burchagi</string>
 </resources>

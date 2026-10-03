@@ -93,10 +93,15 @@ class LocalizationQualityTests(unittest.TestCase):
     def test_provider_rate_limit_fails_without_returning_source_as_translation(self) -> None:
         error = urllib.error.HTTPError("https://translate.invalid", 429, "rate limited", {}, None)
         try:
-            with patch.object(localize.urllib.request, "urlopen", side_effect=error), patch.object(localize.time, "sleep") as sleep:
+            localize._TRANSLATION_THROTTLE._next_request_at = 0.0
+            with patch.object(localize.urllib.request, "urlopen", side_effect=error), patch.object(
+                localize._TRANSLATION_THROTTLE, "_sleep",
+            ) as sleep:
                 with self.assertRaisesRegex(RuntimeError, "HTTP 429 rate limited.*no source fallback"):
                     localize.translate_batch(["Start playback"], "fr")
-                self.assertEqual([call.args[0] for call in sleep.call_args_list], [10, 20])
+                self.assertEqual(len(sleep.call_args_list), 2)
+                self.assertAlmostEqual(sleep.call_args_list[0].args[0], 10, delta=0.01)
+                self.assertAlmostEqual(sleep.call_args_list[1].args[0], 20, delta=0.01)
         finally:
             error.close()
 
@@ -105,12 +110,57 @@ class LocalizationQualityTests(unittest.TestCase):
             "https://translate.invalid", 429, "rate limited", {"Retry-After": "7"}, None,
         )
         try:
-            with patch.object(localize.urllib.request, "urlopen", side_effect=error), patch.object(localize.time, "sleep") as sleep:
+            localize._TRANSLATION_THROTTLE._next_request_at = 0.0
+            with patch.object(localize.urllib.request, "urlopen", side_effect=error), patch.object(
+                localize._TRANSLATION_THROTTLE, "_sleep",
+            ) as sleep:
                 with self.assertRaisesRegex(RuntimeError, "HTTP 429 rate limited"):
                     localize.translate_batch(["Start playback"], "fr")
-                self.assertEqual([call.args[0] for call in sleep.call_args_list], [7.0, 7.0])
+                self.assertEqual(len(sleep.call_args_list), 2)
+                for call in sleep.call_args_list:
+                    self.assertAlmostEqual(call.args[0], 7.0, delta=0.01)
         finally:
             error.close()
+
+    def test_translation_provider_requests_are_spaced_by_shared_limiter(self) -> None:
+        clock = [0.0]
+        sleeps: list[float] = []
+
+        def sleep(seconds: float) -> None:
+            sleeps.append(seconds)
+            clock[0] += seconds
+
+        limiter = localize.TranslationRequestThrottle(
+            interval_seconds=0.5,
+            monotonic=lambda: clock[0],
+            sleep=sleep,
+        )
+        calls: list[str] = []
+
+        self.assertEqual(limiter.call(lambda: calls.append("first") or "one"), "one")
+        self.assertEqual(limiter.call(lambda: calls.append("second") or "two"), "two")
+
+        self.assertEqual(calls, ["first", "second"])
+        self.assertEqual(sleeps, [0.5])
+
+    def test_provider_cooldown_is_shared_with_following_locale_requests(self) -> None:
+        clock = [0.0]
+        sleeps: list[float] = []
+
+        def sleep(seconds: float) -> None:
+            sleeps.append(seconds)
+            clock[0] += seconds
+
+        limiter = localize.TranslationRequestThrottle(
+            interval_seconds=0.5,
+            monotonic=lambda: clock[0],
+            sleep=sleep,
+        )
+        limiter.cooldown(7.0)
+        limiter.call(lambda: "next locale")
+        limiter.call(lambda: "later locale")
+
+        self.assertEqual(sleeps, [7.0, 0.5])
 
     def test_cached_source_fallback_is_rejected(self) -> None:
         source = "Start Quran playback"
@@ -124,6 +174,16 @@ class LocalizationQualityTests(unittest.TestCase):
         with patch.object(localize, "translate_batch", return_value=[protected]):
             with self.assertRaisesRegex(RuntimeError, "untranslated source"):
                 localize.process_lang("res", "fr", {"play": source}, {}, None)
+
+    def test_fill_mode_rejects_source_copy_with_only_punctuation_changed(self) -> None:
+        source = "القرآن الكريم — تلاوة مباركة"
+        punctuation_variant = "القرآن الكريم – تلاوة مباركة"
+        with patch.object(localize, "translate_batch", return_value=[punctuation_variant]):
+            translated = localize.process_lang(
+                "res", "de", {"notification": source}, {}, None, allow_incomplete=True,
+            )
+
+        self.assertEqual(translated, {})
 
     def test_fill_mode_keeps_safe_values_when_one_translation_is_rejected(self) -> None:
         first = "Start Quran playback"
@@ -150,6 +210,35 @@ class LocalizationQualityTests(unittest.TestCase):
 
         self.assertGreater(problems, 0)
         self.assertTrue(any("UNTRANSLATED" in str(call) for call in output.call_args_list))
+
+    def test_quality_gate_rejects_source_copy_with_punctuation_changes(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            res = Path(temporary_directory)
+            (res / "values").mkdir()
+            (res / "values-en").mkdir()
+            (res / "values-de").mkdir()
+            source = "القرآن الكريم — تلاوة مباركة"
+            (res / "values/strings.xml").write_text(
+                f'<resources><string name="notification">{source}</string></resources>', encoding="utf-8",
+            )
+            (res / "values-en/strings.xml").write_text(
+                '<resources><string name="notification">Blessed Quran recitation</string></resources>',
+                encoding="utf-8",
+            )
+            (res / "values-de/strings.xml").write_text(
+                '<resources><string name="notification">القرآن الكريم – تلاوة مباركة</string></resources>',
+                encoding="utf-8",
+            )
+
+            with patch("builtins.print") as output:
+                problems = localize.check_locales([str(res)])
+
+        self.assertGreater(problems, 0)
+        self.assertTrue(any("UNTRANSLATED" in str(call) for call in output.call_args_list))
+
+    def test_source_copy_detection_ignores_format_tokens_and_percent_symbols(self) -> None:
+        self.assertFalse(localize.is_source_copy("%1$d٪", "%1$d%%"))
+        self.assertTrue(localize.is_source_copy("%1$d%%", "%1$d%%"))
 
     def test_mixed_language_detector_finds_a_copied_source_phrase(self) -> None:
         source = "Coordinates are never sent to any external server that stores user data."

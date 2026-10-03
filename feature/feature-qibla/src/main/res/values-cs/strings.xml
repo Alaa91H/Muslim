@@ -81,4 +81,5 @@
     <string name="nearby_mosques_map_action">Mapa</string>
     <string name="nearby_mosques_more_actions">Více akcí</string>
     <string name="nearby_mosques_search_clear">Vymazat vyhledávání</string>
+    <string name="nearby_mosques_unnamed">mešita</string>
 </resources>

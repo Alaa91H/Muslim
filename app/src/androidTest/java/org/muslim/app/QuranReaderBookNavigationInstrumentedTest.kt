@@ -126,8 +126,11 @@ class QuranReaderBookNavigationInstrumentedTest {
         // gesture away from Android's edge-back region while crossing the
         // pager's half-page drag threshold.
         val movesRight = if (isRtl) towardNext else !towardNext
-        val startX = (metrics.widthPixels * if (movesRight) 0.22f else 0.78f).toInt()
-        val endX = (metrics.widthPixels * if (movesRight) 0.78f else 0.22f).toInt()
+        // Use a decisive drag distance: API 36's pager needed a larger margin
+        // beyond the snap threshold than the compact API 26 emulator. Keep
+        // both endpoints outside the system-back edge zones.
+        val startX = (metrics.widthPixels * if (movesRight) 0.18f else 0.82f).toInt()
+        val endX = (metrics.widthPixels * if (movesRight) 0.82f else 0.18f).toInt()
         val automation = instrumentation.uiAutomation
         val downTime = SystemClock.uptimeMillis()
         injectTouch(automation, downTime, downTime, MotionEvent.ACTION_DOWN, startX.toFloat(), y.toFloat())

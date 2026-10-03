@@ -81,4 +81,5 @@
     <string name="nearby_mosques_map_action">Térkép</string>
     <string name="nearby_mosques_more_actions">További műveletek</string>
     <string name="nearby_mosques_search_clear">Keresés törlése</string>
+    <string name="nearby_mosques_unnamed">Mecset</string>
 </resources>

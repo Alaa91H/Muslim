@@ -67,6 +67,7 @@ dependencies {
     ksp(libs.hilt.compiler)
 
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.okhttp)
     implementation(libs.google.play.services.cast)
 
     // Circular reciter portraits in the recitation picker. Coil provides

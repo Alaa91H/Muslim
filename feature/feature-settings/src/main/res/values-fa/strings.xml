@@ -201,4 +201,8 @@
     <string name="settings_ornament_intensity_off">خاموش</string>
     <string name="settings_search_clear">جستجو را پاک کنید</string>
     <string name="settings_updates_last_successful">آخرین بررسی: %1$s</string>
+    <string name="accessibility_title">مرکز دسترسی</string>
+    <string name="notif_category_family">زندگی خانوادگی</string>
+    <string name="voice_listening">گوش دادن…</string>
+    <string name="voice_service_unavailable">تشخیص گفتار در این دستگاه در دسترس نیست.</string>
 </resources>

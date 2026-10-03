@@ -82,4 +82,5 @@
     <string name="nearby_mosques_more_actions">更多行动</string>
     <string name="nearby_mosques_search_clear">清除搜索</string>
     <string name="qibla_tab_qibla">朝拜</string>
+    <string name="nearby_mosques_unnamed">清真寺</string>
 </resources>

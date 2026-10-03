@@ -111,4 +111,5 @@
     <string name="hajj_map_zoom_out">Nutolinti</string>
     <string name="learn_search_clear">Išvalyti paiešką</string>
     <string name="names_search_clear">Išvalyti paiešką</string>
+    <string name="hajj_counter_progress">%1$d iš %2$d</string>
 </resources>
