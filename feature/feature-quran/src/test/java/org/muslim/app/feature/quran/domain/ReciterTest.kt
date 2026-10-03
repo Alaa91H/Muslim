@@ -101,6 +101,25 @@ class ReciterTest {
     }
 
     @Test
+    fun warshReciters_useCompleteVerifiedAyahFolders() {
+        val ibrahim = Reciter.Bundled.single { it.id == "warsh_ibrahim_aldosary_128kbps" }
+        val yassin = Reciter.Bundled.single { it.id == "warsh_yassin_al_jazaery_64kbps" }
+
+        assertThat(ibrahim.name).isEqualTo("إبراهيم الدوسري")
+        assertThat(ibrahim.bitrateKbps).isEqualTo(128)
+        assertThat(ibrahim.style).contains("ورش")
+        assertThat(ibrahim.urlFor(2, 286)).isEqualTo(
+            "https://everyayah.com/data/warsh/warsh_ibrahim_aldosary_128kbps/002286.mp3",
+        )
+        assertThat(yassin.name).isEqualTo("ياسين الجزائري")
+        assertThat(yassin.bitrateKbps).isEqualTo(64)
+        assertThat(yassin.style).contains("ورش")
+        assertThat(yassin.urlFor(114, 6)).isEqualTo(
+            "https://everyayah.com/data/warsh/warsh_yassin_al_jazaery_64kbps/114006.mp3",
+        )
+    }
+
+    @Test
     fun bundledReciters_folderNamesFollowServerSpelling() {
         // Every bundled folder must follow the live server's naming; a typo
         // yields HTTP 404 and silently broken downloads. Guards known bad

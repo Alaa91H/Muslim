@@ -24,6 +24,15 @@ import java.net.URL
 class EveryAyahFolderCheckTest {
 
     @Test
+    fun everyAyahFolderParserPreservesNestedRecitationPaths() {
+        assertThat(
+            everyAyahFolderOf(
+                "https://everyayah.com/data/warsh/warsh_ibrahim_aldosary_128kbps/{surah}{ayah}.mp3",
+            ),
+        ).isEqualTo("warsh/warsh_ibrahim_aldosary_128kbps")
+    }
+
+    @Test
     fun everyBundledReciterFolderExistsOnEveryAyah() {
         assumeTrue(
             "Skipped: run with -DnetworkTests=true to hit the live server",
@@ -31,7 +40,7 @@ class EveryAyahFolderCheckTest {
         )
 
         val missing = Reciter.Bundled.mapNotNull { reciter ->
-            val folder = folderOf(reciter.urlTemplate)
+            val folder = everyAyahFolderOf(reciter.urlTemplate)
             if (folder == null) {
                 "reciter ${reciter.id}: cannot parse folder from template"
             } else {
@@ -41,15 +50,6 @@ class EveryAyahFolderCheckTest {
         }
 
         assertThat(missing).isEmpty()
-    }
-
-    private fun folderOf(template: String): String? {
-        val marker = "/data/"
-        val start = template.indexOf(marker)
-        if (start < 0) return null
-        val end = template.indexOf('/', start + marker.length)
-        if (end < 0) return null
-        return template.substring(start + marker.length, end)
     }
 
     private fun headStatus(url: String): Int {
@@ -64,4 +64,13 @@ class EveryAyahFolderCheckTest {
             connection.disconnect()
         }
     }
+}
+
+internal fun everyAyahFolderOf(template: String): String? {
+    val prefix = "https://everyayah.com/data/"
+    if (!template.startsWith(prefix)) return null
+    val suffix = "/{surah}{ayah}.mp3"
+    return template.removePrefix(prefix)
+        .removeSuffix(suffix)
+        .takeIf { it.isNotBlank() && it != template.removePrefix(prefix) }
 }

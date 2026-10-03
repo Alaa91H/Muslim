@@ -95,6 +95,21 @@ data class Reciter(
             // Restored missing validated catalogue entries while retaining the stable folder-derived IDs.
             entry("Abdullah_Matroud_128kbps", "عبد الله المطرود", "مرتّل · 128k", 128),
             entry("Parhizgar_48kbps", "شهريار پرهيزگار", "مرتّل · 48k", 48),
+            // Complete Warsh recitations; the alternate riwaya is explicit in the picker label.
+            entry(
+                "warsh/warsh_ibrahim_aldosary_128kbps",
+                "إبراهيم الدوسري",
+                "رواية ورش · مرتّل · 128k",
+                128,
+                stableId = "warsh_ibrahim_aldosary_128kbps",
+            ),
+            entry(
+                "warsh/warsh_yassin_al_jazaery_64kbps",
+                "ياسين الجزائري",
+                "رواية ورش · مرتّل · 64k",
+                64,
+                stableId = "warsh_yassin_al_jazaery_64kbps",
+            ),
             // --- More well-known reciters from the same licensed source ---
             entry("Abdullah_Basfar_192kbps", "عبد الله بصفر", "مرتّل · 192k", 192),
             entry("Abdullaah_3awwaad_Al-Juhaynee_128kbps", "عواد الجهني", "مرتّل · 128k", 128),
