@@ -182,7 +182,7 @@
     <string name="settings_method_automatic">Автоматияб (бакӀалда рекъон)</string>
     <string name="settings_method_automatic_desc">Приложениялъ автоматически тӀаса бищула бищунго данде кколеб къагӀида, дур улкаялъул ва бакӀалъул кьучӀалда; нужеца жеги бокьараб мехалъ квералъ къагӀида тӀаса бищизе бегьула.</string>
     <string name="settings_preview_for_prayer">Test %1$s adhan</string>
-    <string name="settings_method_automatic_picked">Автомат гьабсагӀаталда тӀаса бищараб: %1$s — %2$s.</string>
+    <string name="settings_method_automatic_picked">Автомат гьабсагӀаталда тӀаса бищараб: %1$s</string>
     <string name="settings_adhan_global_volume">Глобалияб азаналъул къадар</string>
     <string name="settings_adhan_global_volume_desc">Щибаб какде цо даража хӀалтӀизабе ва какалъухъ кьолел ползунокал хӀалтӀизаричӀого те</string>
     <string name="settings_adhan_follows_global">Глобалияб къадаралда хадуб (%1$s) .</string>
