@@ -24,4 +24,13 @@ class RecitationMediaIdTest {
         assertThat(RecitationMediaId.parse("muslim_surah_3_unknown_reader", knownReciters)).isNull()
         assertThat(RecitationMediaId.parse("other_3", knownReciters)).isNull()
     }
+
+    @Test
+    fun `parses only valid bookmarked ayah identifiers`() {
+        assertThat(RecitationMediaId.parseBookmarkedAyah("muslim_ayah_6236")).isEqualTo(6236)
+        assertThat(RecitationMediaId.parseBookmarkedAyah("muslim_ayah_0")).isNull()
+        assertThat(RecitationMediaId.parseBookmarkedAyah("muslim_ayah_6237")).isNull()
+        assertThat(RecitationMediaId.parseBookmarkedAyah("muslim_ayah_2_extra")).isNull()
+        assertThat(RecitationMediaId.parseBookmarkedAyah("other_2")).isNull()
+    }
 }

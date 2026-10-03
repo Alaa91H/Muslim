@@ -418,6 +418,15 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
                     )
                 }
             }
+            if (bookmarkedAyahItems().isNotEmpty()) {
+                add(
+                    browseFolder(
+                        id = BOOKMARKS_FOLDER_ID,
+                        title = getString(R.string.quran_bookmarks),
+                        subtitle = null,
+                    ),
+                )
+            }
             add(browseFolder(
                 id = RECITATIONS_FOLDER_ID,
                 title = getString(R.string.quran_car_recitations),
@@ -426,6 +435,7 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         }
 
         RECITATIONS_FOLDER_ID -> downloadedReciters().map(::reciterFolder)
+        BOOKMARKS_FOLDER_ID -> bookmarkedAyahItems()
         else -> if (parentId.startsWith(RECITER_MEDIA_PREFIX)) {
             val reciterId = parentId.removePrefix(RECITER_MEDIA_PREFIX)
             downloadedSurahs(reciterId).map { surah -> surahItem(surah, reciterId) }
@@ -452,15 +462,14 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
     private fun browseFolder(
         id: String,
         title: String,
-        subtitle: String,
-    ): MediaBrowserCompat.MediaItem = MediaBrowserCompat.MediaItem(
-        MediaDescriptionCompat.Builder()
+        subtitle: String?,
+    ): MediaBrowserCompat.MediaItem {
+        val description = MediaDescriptionCompat.Builder()
             .setMediaId(id)
             .setTitle(title)
-            .setSubtitle(subtitle)
-            .build(),
-        MediaBrowserCompat.MediaItem.FLAG_BROWSABLE,
-    )
+        subtitle?.let(description::setSubtitle)
+        return MediaBrowserCompat.MediaItem(description.build(), MediaBrowserCompat.MediaItem.FLAG_BROWSABLE)
+    }
 
     private fun reciterFolder(reciter: Reciter): MediaBrowserCompat.MediaItem = browseFolder(
         id = "$RECITER_MEDIA_PREFIX${reciter.id}",
@@ -482,6 +491,30 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
             MediaDescriptionCompat.Builder().setMediaId(id).setTitle(title).setSubtitle(subtitle).build(),
             MediaBrowserCompat.MediaItem.FLAG_PLAYABLE,
         )
+
+    /** Surface saved ayah bookmarks only when the selected reader's audio is already local. */
+    private suspend fun bookmarkedAyahItems(): List<MediaBrowserCompat.MediaItem> {
+        val reciter = recitationRepository.selectedReciter()
+        val bookmarks = quranRepository.observeBookmarks().first()
+        val playable = withContext(Dispatchers.IO) {
+            bookmarks.filter { bookmark ->
+                val ayah = bookmark.ayah
+                val file = recitationRepository.fileFor(reciter.id, ayah.surahNumber, ayah.globalNumber)
+                file.isFile && file.length() > 0L
+            }
+        }
+        return playable.map { bookmark ->
+            playableItem(
+                id = "muslim_ayah_${bookmark.ayah.globalNumber}",
+                title = getString(
+                    R.string.quran_bookmark_ref,
+                    bookmark.surahName,
+                    bookmark.ayah.numberInSurah.toString(),
+                ),
+                subtitle = reciter.name,
+            )
+        }
+    }
 
     /** Only expose resume in the car when the rest of its queue is already offline-ready. */
     private suspend fun androidAutoResumePlan(): AndroidAutoResumePlan? {
@@ -530,8 +563,28 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
             scope.launch { resumeSavedSession() }
             return
         }
+        RecitationMediaId.parseBookmarkedAyah(mediaId)?.let { globalNumber ->
+            scope.launch { playBookmarkedAyah(globalNumber) }
+            return
+        }
         val target = RecitationMediaId.parse(mediaId, Reciter.Bundled.mapTo(mutableSetOf()) { it.id }) ?: return
         scope.launch { playDownloadedSurah(target.first, target.second) }
+    }
+
+    private suspend fun playBookmarkedAyah(globalNumber: Int) {
+        val ayah = quranRepository.ayahByGlobal(globalNumber) ?: return
+        val reciter = recitationRepository.selectedReciter()
+        val file = recitationRepository.fileFor(reciter.id, ayah.surahNumber, globalNumber)
+        if (!file.isFile || file.length() <= 0L) {
+            publishPlaybackError(getString(R.string.quran_car_not_downloaded))
+            return
+        }
+        requestAudioFocus()
+        player.playQueue(
+            items = listOf(RecitationQueueItem(file, globalNumber)),
+            startIndex = 0,
+            repeatCount = 1,
+        )
     }
 
     private suspend fun playDownloadedSurah(
@@ -648,6 +701,7 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         private const val MEDIA_SESSION_TAG = "org.muslim.app.quran.RecitationPlayback"
         private const val MEDIA_ROOT_ID = "muslim_recitation_root"
         private const val RECITATIONS_FOLDER_ID = "muslim_recitations"
+        private const val BOOKMARKS_FOLDER_ID = "muslim_bookmarks"
         private const val RESUME_MEDIA_ID = "muslim_resume_recitation"
         private const val RECITER_MEDIA_PREFIX = "muslim_reciter_"
         private const val SURAH_MEDIA_PREFIX = "muslim_surah_"
