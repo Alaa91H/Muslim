@@ -29,10 +29,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.withContext
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.QuranAyahIndex
@@ -534,7 +534,11 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         scope.launch { playDownloadedSurah(target.first, target.second) }
     }
 
-    private suspend fun playDownloadedSurah(surahNumber: Int, requestedReciterId: String? = null) {
+    private suspend fun playDownloadedSurah(
+        surahNumber: Int,
+        requestedReciterId: String? = null,
+        startGlobalNumber: Int? = null,
+    ) {
         val surah = quranRepository.observeSurahs().first().firstOrNull { it.number == surahNumber } ?: return
         val reciter = requestedReciterId?.let { id -> Reciter.Bundled.firstOrNull { it.id == id } }
             ?: recitationRepository.selectedReciter()
@@ -542,37 +546,40 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
             publishPlaybackError(getString(R.string.quran_car_not_downloaded))
             return
         }
-        val queue = quranRepository.observeSurah(surah.number).first().map { ayah ->
-            RecitationQueueItem(
-                file = recitationRepository.fileFor(reciter.id, surah.number, ayah.globalNumber),
-                globalNumber = ayah.globalNumber,
-            )
-        }
+        val queue = quranRepository.observeSurah(surah.number).first()
+            .filter { ayah -> startGlobalNumber == null || ayah.globalNumber >= startGlobalNumber }
+            .map { ayah ->
+                RecitationQueueItem(
+                    file = recitationRepository.fileFor(reciter.id, surah.number, ayah.globalNumber),
+                    globalNumber = ayah.globalNumber,
+                )
+            }
         if (queue.isEmpty()) return
         requestAudioFocus()
         player.playQueue(queue, startIndex = 0, repeatCount = 1)
     }
 
     private fun playSearch(query: String?) {
-        val normalized = query.orEmpty().trim().lowercase()
-        if (normalized.isEmpty()) return
         scope.launch {
-            val matched = quranRepository.observeSurahs().first().firstOrNull { surah ->
-                normalized.contains(surah.arabicName.lowercase()) ||
-                    normalized.contains(surah.englishName.lowercase()) ||
-                    normalized == surah.number.toString()
-            }
-            matched?.let { surah ->
+            val surahs = quranRepository.observeSurahs().first()
+            val ayahs = quranRepository.allAyahs()
+            val target = resolveAndroidAutoSearchTarget(surahs, ayahs, query)
+            val surah = target?.let { value -> surahs.firstOrNull { it.number == value.surahNumber } }
+            if (target != null && surah != null) {
                 val selectedReciter = recitationRepository.selectedReciter()
                 val reciterId = if (recitationRepository.isSurahComplete(selectedReciter.id, surah.number, surah.ayahCount)) {
                     selectedReciter.id
                 } else {
                     findDownloadedReciter(surah)
                 }
-                if (reciterId == null) publishPlaybackError(getString(R.string.quran_car_search_unavailable))
-                else playDownloadedSurah(surah.number, reciterId)
+                if (reciterId == null) {
+                    publishPlaybackError(getString(R.string.quran_car_search_unavailable))
+                } else {
+                    playDownloadedSurah(surah.number, reciterId, target.startGlobalNumber)
+                }
+            } else {
+                publishPlaybackError(getString(R.string.quran_car_search_unavailable))
             }
-                ?: publishPlaybackError(getString(R.string.quran_car_search_unavailable))
         }
     }
 
