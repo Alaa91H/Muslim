@@ -23,7 +23,7 @@ Files: QuranReaderViewModel.kt, QuranReaderScreen.kt, a focused Mushaf page help
 - [x] Load the complete offline Mushaf once and group all ayahs by canonical page.
 - [x] Initialize at the requested surah/ayah, preserve page order across surahs and complete shared pages.
 - [x] Remove asynchronous previous-surah edge chaining; make metadata/ayah loading atomic.
-- [ ] Cover Aal Imran → previous page, first/last page and wide spreads; verify in CI (instrumentation is running in CI).
+- [x] Cover Aal Imran → previous page, first/last page and wide spreads; verify in unit tests, Compose swipe-direction instrumentation, and the book-navigation instrumentation on both CI API levels (run `37105383786`).
 
 ## Task 2: Reciters and verified quality
 
@@ -44,18 +44,18 @@ Files: QuranPrefsRepository.kt, QuranReaderViewModel.kt, QuranReaderSettingsShee
 ## Task 4: Prayer preferences, notifications and monthly screen
 
 Files: PrayerSettings.kt/repository, PrayerSettingsScreen.kt, quiet-hours prefs, Adhan/NextAdhan notifications/receiver, HomeScreen/navigation.
-- [ ] Verify quiet hours default 22:00–06:00 at feature activation without replacing saved times.
-- [ ] Default global Adhan volume on for unset preferences; preserve explicit per-prayer overrides.
+- [x] Verify quiet hours default 22:00–06:00 at feature activation without replacing saved times (`NotificationPrefsRepositoryTest`).
+- [x] Default global Adhan volume on for unset preferences; preserve explicit per-prayer overrides (`PrayerSettingsVolumeTest`).
 - [x] Replace exposed long sound list with a compact popup selector and previews.
-- [ ] Cancel approaching-Adhan reminder on every actual Adhan dispatch path, including silent/fallback paths.
-- [ ] Keep prayer-times notification ongoing with an expanded custom layout; document OS-controlled dismissal/expansion behavior accurately.
+- [x] Cancel approaching-Adhan reminder on actual Adhan dispatch and playback-service start, including recovery/fallback paths (`AdhanAlarmReceiver`, `AdhanPlaybackService`, lifecycle tests).
+- [x] Keep prayer-times notification ongoing with a custom expanded layout. Android System UI still controls user-forced collapse and channel-level notification permissions.
 - [x] Move monthly timetable to an independent destination with complete chronological table and RTL/sticky header.
 - [x] Remove duplicated lower compass Kaaba emoji.
 
 ## Task 5: Car, Cast and watch integration
 
 Files: existing media browser/session, automotive preference/screen metadata, Cast sender and receiver, Wear resource icons.
-- [x] Extend Android Auto browsing with downloaded reciter folders, complete-surah lists per reciter, direct per-reciter playback, legacy media-ID compatibility, and search fallback to a downloaded reciter. Streaming/favorites/resume controls remain open.
+- [x] Extend Android Auto browsing with downloaded reciter folders, complete-surah lists per reciter, direct per-reciter playback, legacy media-ID compatibility, Arabic Quran text search, saved bookmarks, and offline session resume while preserving queue/repeat state. Streaming and translation-language search remain open.
 - [ ] Inspect Alaa91H/QuranLiveStream display/source contracts and reuse with attribution/license compatibility.
 - [ ] Add Cast playback payload with ayah, selected translation, Arabic/English tafsir and configurable world prayer locations; synchronize playback and settings.
 - [ ] Build custom receiver; expose registered receiver ID configuration where external registration is required, never invent credentials/IDs.
@@ -80,5 +80,7 @@ Files: scripts/localize.py/resource audit, language settings, Gradle versioning,
 - Quran search local verification: `:feature:feature-quran:testDebugUnitTest` and `:feature:feature-quran:lintDebug` passed; the new search suite reports 5 tests, 0 failures. `:wear:assembleDebug` passed with the independent Wear icon resource.
 - Direct local Detekt analyzed 609 Kotlin files with zero findings. Quran/prayer static contracts and three visual-comparison policy tests passed. The global `scripts/localize.py --check` reports extensive pre-existing missing-resource and placeholder problems across unrelated modules; do not present it as a Quran-only check.
 - No physical Android phone is available (user confirmed). Physical TalkBack/performance/fold/car/watch/Cast evidence remains an explicit acceptance gate.
+- Local verification on `ed2da577`: Quran, notifications, datastore, core Cast, and app unit-test suites plus `:app:compileDebugKotlin` passed (`BUILD SUCCESSFUL`, 486 actionable tasks; Android SDK configured locally).
+- CI run `37105383786` on `ed2da577`: Family Life emulator tests passed on API 26 and 36; prayer/Qibla emulator tests passed on API 26 and 36, including the Arabic/English pager and book-page instrumentation. Quality stopped at the existing strict localization completeness gate before build/unit/lint/Detekt. API 36 ADB briefly reported offline, recovered, and completed its emulator job successfully.
 - Live reciter-source audit on 2026-09-30: the app has 46 EveryAyah per-ayah choices. Its upstream `recitations.js` lists 79 entries, with the unused entries appearing to be lower-bitrate copies or alternate upload labels, so they are not added as duplicate reciters. The live EveryAyah folder test exposed a dead Ibrahim Akhdar 64kbps folder; the 32kbps folder returns MP3 for 001001, 002286 and 114006, and the saved catalogue ID is preserved when updating its source.
 - MP3Quran's live API returned 241 reciters, including 154 complete Hafs moshafs; these are full-surah streams and cannot be placed in the existing ayah queue without breaking ayah sync. Treat them as a separate provider/playback-scope project. `QuranLiveStream` is a standalone broadcast server; the inspected repository does not itself supply a ready-made Android Cast receiver.
