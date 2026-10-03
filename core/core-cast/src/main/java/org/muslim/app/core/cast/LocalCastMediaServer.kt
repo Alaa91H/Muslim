@@ -46,7 +46,7 @@ class LocalCastMediaServer(
     private fun serve(client: Socket) = client.use { peer ->
         peer.soTimeout = 5_000
         val request = readRequest(peer) ?: return@use
-        if (nowMs() - startedAt > ttlMs || request.path != "/$token/audio.mp3") {
+        if (nowMs() - startedAt >= ttlMs || request.path != "/$token/audio.mp3") {
             respond(peer, "404 Not Found", "Content-Length: 0\r\n")
             return@use
         }

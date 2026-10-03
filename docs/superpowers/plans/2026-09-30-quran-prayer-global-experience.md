@@ -56,9 +56,9 @@ Files: PrayerSettings.kt/repository, PrayerSettingsScreen.kt, quiet-hours prefs,
 
 Files: existing media browser/session, automotive preference/screen metadata, Cast sender and receiver, Wear resource icons.
 - [x] Extend Android Auto browsing with downloaded reciter folders, complete-surah lists per reciter, direct per-reciter playback, legacy media-ID compatibility, Arabic Quran text search, saved bookmarks, and offline session resume while preserving queue/repeat state. Streaming and translation-language search remain open.
-- [ ] Inspect Alaa91H/QuranLiveStream display/source contracts and reuse with attribution/license compatibility.
+- [x] Inspect Alaa91H/QuranLiveStream receiver/layout contracts; its Amiri and Cairo font subsets now include their SIL OFL 1.1 notices and source attribution (`QuranLiveStream` commit `6802aeb`).
 - [ ] Add Cast playback payload with ayah, selected translation, Arabic/English tafsir and configurable world prayer locations; synchronize playback and settings.
-- [ ] Build custom receiver; expose registered receiver ID configuration where external registration is required, never invent credentials/IDs.
+- [x] Build the custom CAF receiver and configurable real receiver ID path; actual Console registration and HTTPS deployment remain external setup.
 - [x] Match the Wear launcher artwork to the phone launcher using a size-optimized copy of the phone foreground asset. A Wear notification icon path is not present in the current module.
 - [ ] Separate tested sender/receiver contracts from unverified real car/watch/Cast behavior.
 
@@ -82,5 +82,7 @@ Files: scripts/localize.py/resource audit, language settings, Gradle versioning,
 - No physical Android phone is available (user confirmed). Physical TalkBack/performance/fold/car/watch/Cast evidence remains an explicit acceptance gate.
 - Local verification on `ed2da577`: Quran, notifications, datastore, core Cast, and app unit-test suites plus `:app:compileDebugKotlin` passed (`BUILD SUCCESSFUL`, 486 actionable tasks; Android SDK configured locally).
 - CI run `37105383786` on `ed2da577`: Family Life emulator tests passed on API 26 and 36; prayer/Qibla emulator tests passed on API 26 and 36, including the Arabic/English pager and book-page instrumentation. Quality stopped at the existing strict localization completeness gate before build/unit/lint/Detekt. API 36 ADB briefly reported offline, recovered, and completed its emulator job successfully.
+- Cast provenance and licensing follow-up: QuranLiveStream `npm test` passed all five repository quality gates and receiver protocol/state tests; commit `6802aeb` adds the Amiri/Cairo SIL OFL 1.1 texts and attribution alongside the bundled subsets.
+- Offline Cast security regression: a new `LocalCastMediaServerTest` failed at the exact TTL boundary, exposing an inclusive-expiry bug. Expiry now rejects requests at `elapsed >= ttl`; the focused Cast server tests pass after the fix.
 - Live reciter-source audit on 2026-09-30: the app has 46 EveryAyah per-ayah choices. Its upstream `recitations.js` lists 79 entries, with the unused entries appearing to be lower-bitrate copies or alternate upload labels, so they are not added as duplicate reciters. The live EveryAyah folder test exposed a dead Ibrahim Akhdar 64kbps folder; the 32kbps folder returns MP3 for 001001, 002286 and 114006, and the saved catalogue ID is preserved when updating its source.
 - MP3Quran's live API returned 241 reciters, including 154 complete Hafs moshafs; these are full-surah streams and cannot be placed in the existing ayah queue without breaking ayah sync. Treat them as a separate provider/playback-scope project. `QuranLiveStream` is a standalone broadcast server; the inspected repository does not itself supply a ready-made Android Cast receiver.

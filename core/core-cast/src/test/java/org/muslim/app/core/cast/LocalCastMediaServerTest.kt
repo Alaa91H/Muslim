@@ -30,4 +30,21 @@ class LocalCastMediaServerTest {
             file.delete()
         }
     }
+
+    @Test fun `media token expires at the exact session ttl boundary`() {
+        val file = File.createTempFile("cast-expiry-test", ".mp3")
+        file.writeBytes("audio".toByteArray())
+        var nowMs = 1_000L
+        val server = LocalCastMediaServer(file, ttlMs = 5_000L, nowMs = { nowMs })
+        try {
+            val uri = URL(server.start())
+            nowMs += 5_000L
+
+            val expired = uri.openConnection() as HttpURLConnection
+            assertThat(expired.responseCode).isEqualTo(404)
+        } finally {
+            server.close()
+            file.delete()
+        }
+    }
 }
