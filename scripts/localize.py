@@ -137,11 +137,38 @@ TOKEN_RE = re.compile(
     r"(%(?:\d+\$)?[-#+ 0,(<]*\d*(?:\.\d+)?[tT]?[a-zA-Z%]|\\n)",
 )
 TOKEN_MARKER_RE = re.compile(r"zxqmuslimfmt(\d+)zxq")
+BORROWED_TERMS = frozenset({
+    "adhkar", "allah", "android", "adhan", "api", "apk", "bluetooth", "hadith",
+    "app", "background", "forever", "in", "material", "mp3", "muslim", "open",
+    "pause", "play", "privacy", "qibla", "quran", "repository", "source", "first", "the", "a", "an",
+    "sdk", "stop", "tasbih", "tanzil", "uthmani", "wifi", "you", "zakat",
+})
 
 
 def format_signature(text: str) -> collections.Counter[str]:
     """Return exact counts for Android formatting and escaped-newline tokens."""
     return collections.Counter(TOKEN_RE.findall(text))
+
+
+def untranslated_source_phrase(source: str, translated: str) -> str | None:
+    """Find a copied English phrase outside familiar borrowed/product terms."""
+    source_words = [
+        word for word in re.findall(r"[a-z]{3,}", source.lower())
+        if word not in BORROWED_TERMS
+    ]
+    translated_words = [
+        word for word in re.findall(r"[a-z]{3,}", translated.lower())
+        if word not in BORROWED_TERMS
+    ]
+    translated_windows = {
+        tuple(translated_words[index:index + 5])
+        for index in range(max(0, len(translated_words) - 4))
+    }
+    for index in range(max(0, len(source_words) - 4)):
+        phrase = tuple(source_words[index:index + 5])
+        if phrase in translated_windows:
+            return " ".join(phrase)
+    return None
 
 
 def protect(text: str) -> tuple[str, list[str]]:
@@ -450,6 +477,10 @@ def check_locales(res_dirs: list[str] | None = None) -> int:
                     and got[name].strip() == src.strip()
                 ):
                     problem(f"UNTRANSLATED {res_dir}/{lang}/{name}")
+                if not is_english and got[name].strip() != src.strip():
+                    copied_phrase = untranslated_source_phrase(src, got[name])
+                    if copied_phrase is not None:
+                        problem(f"MIXED_LANGUAGE {res_dir}/{lang}/{name}: copied English phrase '{copied_phrase}'")
                 src_tokens = format_signature(src)
                 out_tokens = format_signature(got[name])
                 if src_tokens != out_tokens:

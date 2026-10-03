@@ -151,6 +151,94 @@ class LocalizationQualityTests(unittest.TestCase):
         self.assertGreater(problems, 0)
         self.assertTrue(any("UNTRANSLATED" in str(call) for call in output.call_args_list))
 
+    def test_mixed_language_detector_finds_a_copied_source_phrase(self) -> None:
+        source = "Coordinates are never sent to any external server that stores user data."
+        translated = "[translated sentence] external server that stores user data [translated ending]"
+
+        self.assertEqual(localize.untranslated_source_phrase(source, translated), "external server that stores user")
+
+    def test_mixed_language_detector_ignores_a_single_borrowed_technical_term(self) -> None:
+        self.assertIsNone(
+            localize.untranslated_source_phrase("Use an external server", "Traduction: server"),
+        )
+
+    def test_mixed_language_detector_ignores_official_product_name(self) -> None:
+        self.assertIsNone(
+            localize.untranslated_source_phrase(
+                "Use your wallpaper colors (Material You) on Android",
+                "Utilisez les couleurs du fond d'écran (Material You) sur Android",
+            ),
+        )
+
+    def test_mixed_language_detector_ignores_islamic_terms_and_media_control_labels(self) -> None:
+        self.assertIsNone(
+            localize.untranslated_source_phrase(
+                "Adhkar, tasbih, Ramadan and Zakat with reminders",
+                "Adhkar, tasbih, Ramadan en Zakat met aanmaningen",
+            ),
+        )
+
+    def test_mixed_language_detector_matches_adjacent_words_not_gapped_words(self) -> None:
+        self.assertIsNone(
+            localize.untranslated_source_phrase(
+                "Free forever · Privacy first · Open source app",
+                "Gratis para siempre · Privacy first · Aplicacion de codigo abierto",
+            ),
+        )
+
+    def test_mixed_language_detector_still_finds_a_real_copied_clause(self) -> None:
+        self.assertEqual(
+            localize.untranslated_source_phrase(
+                "New releases require confirmation before silent installation",
+                "Nuevas versiones require confirmation before silent installation",
+            ),
+            "require confirmation before silent installation",
+        )
+        self.assertIsNone(
+            localize.untranslated_source_phrase(
+                "Play pause stop controls while reciting Quran",
+                "Afspeel pauze stop bediening tijdens recitatie van Quran",
+            ),
+        )
+
+    def test_quality_gate_reports_an_untranslated_source_phrase(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            res = Path(temporary_directory)
+            (res / "values").mkdir()
+            for locale in ("values-en", "values-fr"):
+                (res / locale).mkdir()
+            (res / "values-en/strings.xml").write_text(
+                '<resources><string name="privacy">Coordinates are never sent to any external server that stores user data.</string></resources>',
+                encoding="utf-8",
+            )
+            (res / "values-fr/strings.xml").write_text(
+                '<resources><string name="privacy">[translated] external server that stores user data [translated]</string></resources>',
+                encoding="utf-8",
+            )
+
+            with patch("builtins.print") as output:
+                problems = localize.check_locales([str(res)])
+
+        self.assertEqual(problems, 1)
+        self.assertTrue(any("MIXED_LANGUAGE" in str(call) for call in output.call_args_list))
+
+    def test_quality_gate_does_not_double_report_a_wholly_untranslated_value(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            res = Path(temporary_directory)
+            (res / "values").mkdir()
+            for locale in ("values-en", "values-fr"):
+                (res / locale).mkdir()
+            shared = '<resources><string name="label">Card corner softness</string></resources>'
+            (res / "values-en/strings.xml").write_text(shared, encoding="utf-8")
+            (res / "values-fr/strings.xml").write_text(shared, encoding="utf-8")
+
+            with patch("builtins.print") as output:
+                problems = localize.check_locales([str(res)])
+
+        self.assertEqual(problems, 1)
+        self.assertTrue(any("UNTRANSLATED" in str(call) for call in output.call_args_list))
+        self.assertFalse(any("MIXED_LANGUAGE" in str(call) for call in output.call_args_list))
+
     def test_appending_resources_preserves_existing_translations_and_escapes_xml(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             path = Path(temporary_directory) / "strings.xml"
