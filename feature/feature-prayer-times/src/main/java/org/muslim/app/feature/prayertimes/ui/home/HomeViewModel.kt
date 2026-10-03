@@ -101,18 +101,32 @@ class HomeViewModel @Inject constructor(
 
     private val selectedDate = MutableStateFlow(LocalDate.now())
     private val monthly = MutableStateFlow(false)
+    private val monthlyGrid = monthlyPeriodFlow(settingsRepository.settings, selectedDate) { settings, month ->
+        val location = settings.location ?: return@monthlyPeriodFlow emptyList()
+        val zone = ZoneId.of(location.timeZone)
+        monthGrid(
+            month = month,
+            coordinates = Coordinates(location.latitude, location.longitude, location.elevation),
+            profile = settings.toPrayerCalculationProfile(),
+            zone = zone,
+            settings = settings,
+        )
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+    private val settingsWithMonthlyGrid = combine(settingsRepository.settings, monthlyGrid) { settings, days ->
+        settings to days
+    }
     @OptIn(ExperimentalCoroutinesApi::class)
     private val completionsForSelectedDate = selectedDate.flatMapLatest(completionRepository::completedPrayers)
 
     val uiState: StateFlow<UiState> =
         combine(
-            settingsRepository.settings,
+            settingsWithMonthlyGrid,
             clock,
             selectedDate,
             monthly,
             completionsForSelectedDate,
-        ) { settings, now, date, isMonthly, completedPrayers ->
-            compute(settings, now, date, isMonthly, completedPrayers)
+        ) { settingsAndDays, now, date, isMonthly, completedPrayers ->
+            compute(settingsAndDays.first, now, date, isMonthly, completedPrayers, settingsAndDays.second)
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), UiState())
 
     private fun compute(
@@ -121,6 +135,7 @@ class HomeViewModel @Inject constructor(
         date: LocalDate,
         isMonthly: Boolean,
         completedPrayers: Set<Prayer>,
+        monthlyGrid: List<DayTimes>,
     ): UiState {
         val location = settings.location ?: return UiState(selectedDate = date, monthly = isMonthly, month = YearMonth.from(date))
         val zone = ZoneId.of(location.timeZone)
@@ -172,11 +187,7 @@ class HomeViewModel @Inject constructor(
             selectedDate = date,
             monthly = isMonthly,
             month = YearMonth.from(date),
-            monthDays = if (isMonthly) {
-                monthGrid(YearMonth.from(date), coordinates, profile, zone, settings)
-            } else {
-                emptyList()
-            },
+            monthDays = if (isMonthly) monthlyGrid else emptyList(),
             completedPrayers = completedPrayers,
             prayerAlerts = Prayer.entries.associateWith { prayer ->
                 PrayerAlert(
