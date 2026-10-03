@@ -5,9 +5,8 @@ import org.gradle.api.tasks.Exec
 val muslimApplicationId = providers.gradleProperty("muslim.applicationId").get()
 
 // Derives versionCode/versionName from the nearest `v*` git tag so the release
-// version is never hardcoded (PROJECT_PROMPT.md §8). scripts/release.sh pushes
-// the tag before building, so `git describe` returns e.g. "v1.3.0"; VERSION_TAG
-// is an explicit override for CI where tags are not reachable from HEAD.
+// version is never hardcoded (PROJECT_PROMPT.md §8). The tag-only CI job passes
+// VERSION_TAG explicitly so the installed version exactly matches vMAJOR.MINOR.PATCH.
 val gitVersionTag = providers.exec {
     commandLine("git", "describe", "--tags", "--match", "v*", "--always")
     workingDir = rootProject.projectDir
@@ -15,7 +14,13 @@ val gitVersionTag = providers.exec {
 }.standardOutput.asText.map { it.trim() }
 
 fun deriveVersion(describe: String, envTag: String): Pair<Int, String> {
-    val match = Regex("v?(\\d+)\\.(\\d+)\\.(\\d+)").find(envTag.ifBlank { describe })
+    val versionSource = envTag.ifBlank { describe }
+    val versionPattern = if (envTag.isNotBlank()) {
+        Regex("^v?(\\d+)\\.(\\d+)\\.(\\d+)$")
+    } else {
+        Regex("^v?(\\d+)\\.(\\d+)\\.(\\d+)(?:-\\d+-g[0-9a-fA-F]+)?$")
+    }
+    val match = versionPattern.matchEntire(versionSource)
     val major = match?.groupValues?.get(1)?.toIntOrNull() ?: 1
     val minor = match?.groupValues?.get(2)?.toIntOrNull() ?: 0
     val patch = match?.groupValues?.get(3)?.toIntOrNull() ?: 0
@@ -109,17 +114,6 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.getByName("release")
         }
-        create("beta") {
-            // Beta deliberately keeps the production application ID and display
-            // name. With a higher versionCode and the stable signing key it
-            // upgrades the installed Muslim app without clearing user data.
-            initWith(getByName("debug"))
-            versionNameSuffix = "-beta"
-            matchingFallbacks += listOf("debug")
-            if (productionSigningConfigured.get()) {
-                signingConfig = signingConfigs.getByName("release")
-            }
-        }
     }
 
     compileOptions {
@@ -159,22 +153,6 @@ android {
         // pulls it onto the classpath.
         disable += "LogNotTimber"
     }
-}
-
-tasks.register("verifyClosedBetaSigning") {
-    group = "verification"
-    description = "Fails unless a stable signing identity is configured for the updatable closed beta."
-    doLast {
-        check(productionSigningConfigured.get()) {
-            "Closed beta signing is not configured. Set keystore.properties or all SIGNING_* variables."
-        }
-    }
-}
-
-tasks.register("assembleClosedBeta") {
-    group = "build"
-    description = "Builds the signed beta update APK for invited testers of the main Muslim package."
-    dependsOn("verifyClosedBetaSigning", "assembleBeta")
 }
 
 tasks.register("verifyProductionSigning") {

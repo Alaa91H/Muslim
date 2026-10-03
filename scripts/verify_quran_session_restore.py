@@ -8,6 +8,7 @@ STORE = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/quran
 PLAYER = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/data/QuranAudioPlayer.kt"
 SERVICE = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/data/RecitationPlaybackService.kt"
 BRIDGE = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/data/RecitationPlaybackBridge.kt"
+COORDINATOR = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/data/FullSurahPlaybackCoordinator.kt"
 VIEW_MODEL = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/QuranReaderViewModel.kt"
 READER = ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/QuranReaderScreen.kt"
 
@@ -22,6 +23,7 @@ def main() -> None:
     player = PLAYER.read_text(encoding="utf-8")
     service = SERVICE.read_text(encoding="utf-8")
     bridge = BRIDGE.read_text(encoding="utf-8")
+    coordinator = COORDINATOR.read_text(encoding="utf-8")
     view_model = VIEW_MODEL.read_text(encoding="utf-8")
     reader = READER.read_text(encoding="utf-8")
 
@@ -55,15 +57,17 @@ def main() -> None:
     require("fun resumeRestorableSession()" in view_model, "session restore must be an explicit user action")
     require("fun discardRestorableSession()" in view_model, "restore candidate must be dismissible")
     require("startPositionMs = session.positionMs" in view_model, "restore must pass the persisted media position")
-    require("remainingRepeatsForCurrent = session.remainingRepeats" in view_model, "restore must preserve repeat remainder")
-    require("sessionRuntime.begin(" in view_model, "new playback must establish durable session ownership")
+    require("remainingRepeats = session.remainingRepeats" in view_model, "restore must pass the repeat remainder to the playback coordinator")
+    require("remainingRepeatsForCurrent = remainingRepeats" in (ROOT / "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/data/FullSurahPlaybackCoordinator.kt").read_text(encoding="utf-8"), "playback coordinator must restore the repeat remainder")
+    require("sessionRuntime.begin(intent, startPositionMs, remainingRepeats)" in coordinator,
+            "playback coordinator must establish durable session ownership with the restored snapshot")
     require(
-        "positionMs = startPositionMs" in view_model,
+        "startPositionMs = startPositionMs" in coordinator,
         "restored position must be retained when durable session ownership begins",
     )
     require(
-        "initialRemainingRepeats = remainingRepeatsForCurrent" in view_model,
-        "restored repeat remainder must be retained when durable session ownership begins",
+        "remainingRepeatsForCurrent = remainingRepeats" in coordinator,
+        "restored repeat remainder must be retained by the player",
     )
     require(
         "positionMs: Long = 0L" in store and "initialRemainingRepeats: Int? = null" in store,

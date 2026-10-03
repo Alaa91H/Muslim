@@ -108,10 +108,13 @@ REQUIRED_SNIPPETS = {
     ],
     "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/data/RecitationPlaybackService.kt": [
         "MediaBrowserServiceCompat",
-        "downloadedSurahs",
         "isSurahComplete",
         "onPlayFromMediaId",
         "onPlayFromSearch",
+    ],
+    "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/data/RecitationRepository.kt": [
+        "downloadedSurahs",
+        "isSurahComplete",
     ],
     "feature/feature-quran/src/main/AndroidManifest.xml": [
         "android.media.browse.MediaBrowserService",

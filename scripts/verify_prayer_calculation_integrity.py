@@ -49,7 +49,13 @@ REQUIRED_SNIPPETS = {
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeViewModel.kt": [
         "val profile = settings.toPrayerCalculationProfile()",
-        "monthGrid(YearMonth.from(date), coordinates, profile, zone, settings)",
+        "private val monthlyGrid = monthlyPeriodFlow(settingsRepository.settings, selectedDate)",
+        "monthGrid(",
+        "month = month,",
+        "coordinates = Coordinates(location.latitude, location.longitude, location.elevation)",
+        "profile = settings.toPrayerCalculationProfile(),",
+        "zone = zone,",
+        "settings = settings,",
     ],
     "feature/feature-prayer-times/src/test/java/org/muslim/app/feature/prayertimes/domain/PrayerTimesCalculatorTest.kt": [
         "global default MWL profile matches Adhan Berlin across seasons",

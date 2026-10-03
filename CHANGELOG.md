@@ -31,6 +31,15 @@ This release advances Quran reading and recitation, adds a configurable Google C
 - Cast receiver display requires a real Custom Web Receiver ID from Google Cast Console and HTTPS hosting. Configure `CAST_RECEIVER_APP_ID` as documented in `receiver/README.md`.
 - Online recitations are loaded directly by the Cast device. Downloaded recitations are served from the phone through a temporary, tokenized local URL.
 
+### CI and Release Delivery
+
+- Consolidated Android verification, emulator coverage, APK builds, signing checks, and tag publication into the single `.github/workflows/ci.yml` workflow.
+- Pull request, `main`, and manual CI runs build signed phone and Wear OS APKs and retain only those APK files as short-lived workflow artifacts. They do not create or update a public release.
+- Release tags must use `vMAJOR.MINOR.PATCH`, point to a commit already merged into `main`, and pass localization-diff, build, unit, lint, Detekt, content, and emulator gates before production APKs are built.
+- The APK version is derived from the release tag. Production APK signatures are verified, and the release is published only after the remote asset list and uploaded file sizes match the two staged APKs.
+- GitHub Releases contain only `Muslim-vX.Y.Z.apk` and `Muslim-Wear-vX.Y.Z.apk`; App Bundles, manifests, checksums, and build metadata are not attached.
+- Replaced the repository-wide localization failure (123,586 historical findings on the existing 188 locale folders) with a strict change gate for edited strings: malformed XML, duplicate keys, missing/empty changed translations, copied source text, Arabic fallback copies, mixed English, and mismatched placeholders block CI. English or Arabic source edits also require the affected existing locale entries to be refreshed. The full localization audit remains available with `python scripts/localize.py --check` for backlog reporting.
+
 ## Muslim v1.25.36
 
 This release expands Muslim's learning and family experiences, strengthens daily worship workflows, improves update safety and Wear OS integration, and closes the remaining CI/build issues before publication.
@@ -92,12 +101,12 @@ This release expands Muslim's learning and family experiences, strengthens daily
 
 ### Release Assets
 
-The production tag workflow publishes signed artifacts after all release gates pass:
+The production tag workflow publishes only these signed APK assets after all release gates pass:
 
-- `app-release.apk` — Android phone/tablet APK
-- `app-release.aab` — Android App Bundle
-- `wear-release.apk` — Wear OS APK
-- `update-manifest.json` — integrity metadata used by the in-app update flow
+- `Muslim-vX.Y.Z.apk` — Android phone/tablet APK
+- `Muslim-Wear-vX.Y.Z.apk` — Wear OS APK
+
+Pull request, `main`, and manual runs keep their signed phone and Wear APKs in a seven-day GitHub Actions workflow artifact. They do not publish a GitHub Release.
 
 ## Muslim v1.25.34
 

@@ -138,7 +138,6 @@ GitHub Actions runs debug builds, unit tests, Android Lint, Detekt, and emulator
 | [`release/claim_register.md`](release/claim_register.md) | Approved product claims and the evidence required before store or UI use. |
 | [`release/release_governance.md`](release/release_governance.md) | Approval roles, release-branch rules, and P0/P1/P2 release decisions. |
 | [`release/play_console_checklist.md`](release/play_console_checklist.md) | Play Console, signing, AAB, listing, and staged-rollout readiness checklist. |
-| [`release/release_runbook.md`](release/release_runbook.md) | Production artifact, closed-test, rollout, rollback, and secret-management workflow. |
 | [`release/operations_support.md`](release/operations_support.md) | Support triage, hotfix, and post-release operating model. |
 | [`content/README.md`](content/README.md) | Content source, licence, hash, and independent-review approval workflow. |
 | [`content/hadith_cover_source_candidates.md`](content/hadith_cover_source_candidates.md) | Provenance and representation boundaries for the public-domain Hadith catalogue imagery. |
@@ -152,7 +151,7 @@ GitHub Actions runs debug builds, unit tests, Android Lint, Detekt, and emulator
 | [`qa/prayer_time_calculation_integrity.md`](qa/prayer_time_calculation_integrity.md) | Prayer calculation audit, reference vectors, profile contract, IANA resolution and verification limits. |
 | [`qa/lazy_hadith_location_notification_audit.md`](qa/lazy_hadith_location_notification_audit.md) | Lazy per-book Hadith loading, GPS/IANA recovery, Isha baseline, Ramadan navigation, notification semantics, responsive customisation, lock-screen Adhan control, size audit and verification boundaries. |
 | [`release/beta_test_charter.md`](release/beta_test_charter.md) | Scope, limits, and acceptance criteria for the invited closed beta. |
-| [`release/closed_beta_distribution.md`](release/closed_beta_distribution.md) | Stable-signing, CI artifact, and invited-tester distribution workflow. |
+| [`release/release_runbook.md`](release/release_runbook.md) | Single-workflow CI, tag-only APK publication, signing, and release verification. |
 | [`qa/beta_tester_guide.md`](qa/beta_tester_guide.md) | Tester installation, adhan verification, and privacy-preserving feedback guide. |
 
 ## What this project does not claim

@@ -8,9 +8,9 @@
 
 ## 0. Executive summary
 
-**Muslim** is a multi-module Islamic app (22 Gradle modules) built with Clean Architecture + Hilt + Compose. The build is **green** (Debug and Release with R8), **all unit tests pass**, and **lint is clean (0 issues)**. All feature modules are implemented, wired into the UI, and localized into 190+ languages. Releases are tag-driven, signed with a stable key, and published automatically by `scripts/release.sh`.
+**Muslim** is a multi-module Islamic app (22 Gradle modules) built with Clean Architecture + Hilt + Compose. Build, unit-test, lint, Detekt, and emulator results must be confirmed from the current CI run before describing a commit as green. Interface translations are available across many locale catalogs; the full localization audit reports an existing coverage backlog. Production APK releases are tag-driven and signed with the repository's stable key.
 
-**Bottom line:** the project is ready to install — `./gradlew :app:assembleRelease` produces a signed, shrunk APK; `./scripts/release.sh` takes it from commit to a published GitHub Release with no manual steps.
+The single `.github/workflows/ci.yml` workflow builds signed phone and Wear APKs on ordinary runs. Only a `vMAJOR.MINOR.PATCH` tag that passes all required gates publishes versioned APK assets to a GitHub Release.
 
 ---
 
@@ -24,7 +24,7 @@
 | `./gradlew :app:assembleRelease` (R8 + signing) | ✅ Signed APK (`app/build/outputs/apk/release/app-release.apk`, CN=Muslim) |
 | `./gradlew testDebugUnitTest` | ✅ All unit tests green |
 | `./gradlew lintDebug` (whole app) | ✅ 0 issues |
-| CI (GitHub Actions) | ✅ assemble + unit tests + lint per push; release-apk job builds the signed APK per tag |
+| CI (GitHub Actions) | Single workflow builds signed APKs on each run and publishes only versioned APKs for validated tags |
 
 ### 1.2 Module map
 
@@ -46,12 +46,12 @@
 ### 1.3 Recently completed items (this session)
 
 1. **Offline maps, interactive custom picker & storage management** — download cities/countries/custom areas; interactive pan/zoom picker with a live bounds rectangle, width slider, and real-time size estimate; StatFs-based low-storage warning with a delete-largest-region action.
-2. **Fully automatic release script** (`scripts/release.sh`) — auto-commit → changelog → tag → push → wait for the exact tag-triggered CI run → APK signature verification → GitHub Release. No manual steps.
+2. **Tag-gated APK delivery** — `.github/workflows/ci.yml` runs verification and signed APK builds; validated version tags publish only the phone and Wear APK files after remote asset verification.
 3. **Interactive qibla compass + GPS + mosque finder on MapLibre** — Kaaba marker 🕋, live degrees, haptic/sound alignment feedback, mosque markers with info windows, and find-nearest expansion.
 4. **Recitation playback as system media** — MediaSession, media notification (play/pause/next), audio-focus handling, pause-on-notifications, and continuous surah-to-surah playback to the end of the Quran.
 5. **Unified notification manager & permission manager** — per-category toggles, quiet hours, live previews, channel status; one-tap permission onboarding.
 6. **In-app update checker** — daily/weekly/monthly check against GitHub Releases, changelog + size, download via DownloadManager, install via the system installer.
-7. **World localization** — every module translated into 190+ languages with format-specifier-safe machine translation (`scripts/localize.py`).
+7. **World localization** — locale catalogs are generated with format-specifier-safe translation tooling (`scripts/localize.py`); coverage and translation-review gaps remain visible in the full localization audit.
 
 ---
 

@@ -179,17 +179,15 @@ def main() -> None:
     require_in(
         ci,
         [
-            "development-apk:",
-            "name: Development APK (PR/testing)",
+            "build-apks:",
+            "publish-release:",
             "needs: [quality, emulator-tests, family-life-emulator-tests]",
-            "github.event_name == 'pull_request'",
-            "python3 scripts/verify_development_apk_ci.py",
-            "name: muslim-development-apk",
+            "python3 scripts/verify_ci_apk_release.py",
             "Muslim-development.apk",
             "Muslim-Wear-development.apk",
-            "retention-days: 30",
+            "scripts/check_localization_diff.py",
         ],
-        "development APK CI",
+        "APK build and release CI",
     )
 
     print("UI/UX V2 feature-parity contracts verified.")

@@ -36,7 +36,13 @@ val gitVersionTag = providers.exec {
 }.standardOutput.asText.map { it.trim() }
 
 fun deriveVersion(describe: String, envTag: String): Pair<Int, String> {
-    val match = Regex("v?(\\d+)\\.(\\d+)\\.(\\d+)").find(envTag.ifBlank { describe })
+    val versionSource = envTag.ifBlank { describe }
+    val versionPattern = if (envTag.isNotBlank()) {
+        Regex("^v?(\\d+)\\.(\\d+)\\.(\\d+)$")
+    } else {
+        Regex("^v?(\\d+)\\.(\\d+)\\.(\\d+)(?:-\\d+-g[0-9a-fA-F]+)?$")
+    }
+    val match = versionPattern.matchEntire(versionSource)
     val major = match?.groupValues?.get(1)?.toIntOrNull() ?: 1
     val minor = match?.groupValues?.get(2)?.toIntOrNull() ?: 0
     val patch = match?.groupValues?.get(3)?.toIntOrNull() ?: 0
