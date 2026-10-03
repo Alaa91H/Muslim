@@ -81,6 +81,24 @@ class RecitationSessionModelTest {
     }
 
     @Test
+    fun `android auto playback snapshot stores the exact playable queue`() {
+        val intent = newAndroidAutoSessionIntent("reader", 2, listOf(11, 12))
+
+        assertThat(intent).isNotNull()
+        assertThat(intent!!.reciterId).isEqualTo("reader")
+        assertThat(intent.surahNumber).isEqualTo(2)
+        assertThat(intent.globalNumbers).containsExactly(11, 12).inOrder()
+        assertThat(intent.repeatCount).isEqualTo(1)
+        assertThat(intent.continuous).isFalse()
+        assertThat(intent.advanceToNext).isFalse()
+        assertThat(intent.toEndOfQuran).isFalse()
+
+        assertThat(newAndroidAutoSessionIntent("reader", 2, listOf(7, 8))).isNull()
+        assertThat(newAndroidAutoSessionIntent("reader", 2, listOf(12, 11))).isNull()
+        assertThat(newAndroidAutoSessionIntent("", 2, listOf(11))).isNull()
+    }
+
+    @Test
     fun `persisted session round trips through json`() {
         val json = Json { encodeDefaults = true }
         val original = session()

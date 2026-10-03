@@ -579,7 +579,9 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
             publishPlaybackError(getString(R.string.quran_car_not_downloaded))
             return
         }
+        val intent = newAndroidAutoSessionIntent(reciter.id, ayah.surahNumber, listOf(globalNumber)) ?: return
         requestAudioFocus()
+        sessionRuntime.begin(intent)
         player.playQueue(
             items = listOf(RecitationQueueItem(file, globalNumber)),
             startIndex = 0,
@@ -608,7 +610,13 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
                 )
             }
         if (queue.isEmpty()) return
+        val intent = newAndroidAutoSessionIntent(
+            reciterId = reciter.id,
+            surahNumber = surah.number,
+            globalNumbers = queue.map { it.globalNumber },
+        ) ?: return
         requestAudioFocus()
+        sessionRuntime.begin(intent)
         player.playQueue(queue, startIndex = 0, repeatCount = 1)
     }
 
