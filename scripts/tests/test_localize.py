@@ -175,6 +175,16 @@ class LocalizationQualityTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "untranslated source"):
                 localize.process_lang("res", "fr", {"play": source}, {}, None)
 
+    def test_fill_mode_rejects_source_copy_with_only_punctuation_changed(self) -> None:
+        source = "القرآن الكريم — تلاوة مباركة"
+        punctuation_variant = "القرآن الكريم – تلاوة مباركة"
+        with patch.object(localize, "translate_batch", return_value=[punctuation_variant]):
+            translated = localize.process_lang(
+                "res", "de", {"notification": source}, {}, None, allow_incomplete=True,
+            )
+
+        self.assertEqual(translated, {})
+
     def test_fill_mode_keeps_safe_values_when_one_translation_is_rejected(self) -> None:
         first = "Start Quran playback"
         second = "Open prayer settings"
@@ -200,6 +210,34 @@ class LocalizationQualityTests(unittest.TestCase):
 
         self.assertGreater(problems, 0)
         self.assertTrue(any("UNTRANSLATED" in str(call) for call in output.call_args_list))
+
+    def test_quality_gate_rejects_source_copy_with_punctuation_changes(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            res = Path(temporary_directory)
+            (res / "values").mkdir()
+            (res / "values-en").mkdir()
+            (res / "values-de").mkdir()
+            source = "القرآن الكريم — تلاوة مباركة"
+            (res / "values/strings.xml").write_text(
+                f'<resources><string name="notification">{source}</string></resources>', encoding="utf-8",
+            )
+            (res / "values-en/strings.xml").write_text(
+                '<resources><string name="notification">Blessed Quran recitation</string></resources>',
+                encoding="utf-8",
+            )
+            (res / "values-de/strings.xml").write_text(
+                '<resources><string name="notification">القرآن الكريم – تلاوة مباركة</string></resources>',
+                encoding="utf-8",
+            )
+
+            with patch("builtins.print") as output:
+                problems = localize.check_locales([str(res)])
+
+        self.assertGreater(problems, 0)
+        self.assertTrue(any("UNTRANSLATED" in str(call) for call in output.call_args_list))
+
+    def test_source_copy_detection_ignores_format_tokens_and_percent_symbols(self) -> None:
+        self.assertFalse(localize.is_source_copy("%1$d٪", "%1$d%%"))
 
     def test_mixed_language_detector_finds_a_copied_source_phrase(self) -> None:
         source = "Coordinates are never sent to any external server that stores user data."

@@ -34,6 +34,7 @@ import re
 import sys
 import threading
 import time
+import unicodedata
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -148,6 +149,22 @@ BORROWED_TERMS = frozenset({
 def format_signature(text: str) -> collections.Counter[str]:
     """Return exact counts for Android formatting and escaped-newline tokens."""
     return collections.Counter(TOKEN_RE.findall(text))
+
+
+def normalize_translation_comparison(text: str) -> str:
+    """Ignore punctuation/diacritics so a copied source cannot pass as translated."""
+    normalized = unicodedata.normalize("NFKC", TOKEN_RE.sub("", text)).casefold()
+    characters = []
+    for character in normalized:
+        if unicodedata.category(character).startswith("M"):
+            continue
+        characters.append(character if character.isalnum() else " ")
+    return " ".join("".join(characters).split())
+
+
+def is_source_copy(source: str, translated: str) -> bool:
+    normalized_source = normalize_translation_comparison(source)
+    return bool(normalized_source) and normalized_source == normalize_translation_comparison(translated)
 
 
 def untranslated_source_phrase(source: str, translated: str) -> str | None:
@@ -368,7 +385,7 @@ def process_lang(res_dir: str, lang: str, strings: dict[str, str], cache: dict[s
         key = f"{lang}|{protected}"
         if key in cache:
             cached = cache[key]
-            if cached.strip() == text.strip() and text.strip():
+            if is_source_copy(text, cached):
                 raise RuntimeError(f"Untranslated source found in cache for {res_dir}/{lang}/{name}")
             out[name] = cached
             continue
@@ -393,7 +410,7 @@ def process_lang(res_dir: str, lang: str, strings: dict[str, str], cache: dict[s
                 continue
             raise RuntimeError(f"Unsafe placeholder translation for {res_dir}/{lang}/{name}")
         restored = restore(tr, tokens)
-        if restored.strip() == strings[name].strip() and strings[name].strip():
+        if is_source_copy(strings[name], restored):
             if allow_incomplete:
                 print(f"Skipped untranslated source value: {res_dir}/{lang}/{name}", flush=True)
                 continue
@@ -502,13 +519,20 @@ def check_locales(res_dirs: list[str] | None = None) -> int:
                     problem(f"EMPTY {res_dir}/{lang}/{name}")
                     continue
                 is_english = lang == f"values-{SOURCE_LANG}"
+                arabic_baseline_copy = (
+                    lang != "values-ar"
+                    and name in strings_ar
+                    and is_source_copy(strings_ar[name], got[name])
+                )
                 if (
                     not is_english
                     and len(src.split()) >= 2
                     and any(character.isalpha() for character in src)
-                    and got[name].strip() == src.strip()
+                    and is_source_copy(src, got[name])
                 ):
                     problem(f"UNTRANSLATED {res_dir}/{lang}/{name}")
+                if arabic_baseline_copy:
+                    problem(f"UNTRANSLATED_BASE {res_dir}/{lang}/{name}")
                 if not is_english and got[name].strip() != src.strip():
                     copied_phrase = untranslated_source_phrase(src, got[name])
                     if copied_phrase is not None:
