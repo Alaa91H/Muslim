@@ -112,4 +112,5 @@
     <string name="learn_search_clear">Hapus pilarian</string>
     <string name="learn_topic_zakat_fitr">Zakat fitrah</string>
     <string name="names_search_clear">Hapus pilarian</string>
+    <string name="hajj_counter_progress">%1$d tina %2$d</string>
 </resources>

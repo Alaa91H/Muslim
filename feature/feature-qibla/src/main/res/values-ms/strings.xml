@@ -82,4 +82,5 @@
     <string name="nearby_mosques_more_actions">Lebih banyak tindakan</string>
     <string name="nearby_mosques_search_clear">Kosongkan carian</string>
     <string name="qibla_tab_qibla">kiblat</string>
+    <string name="nearby_mosques_unnamed">masjid</string>
 </resources>

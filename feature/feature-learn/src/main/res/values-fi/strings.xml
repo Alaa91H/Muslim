@@ -110,4 +110,5 @@
     <string name="hajj_map_zoom_out">Loitonna</string>
     <string name="learn_search_clear">Tyhjennä haku</string>
     <string name="names_search_clear">Tyhjennä haku</string>
+    <string name="hajj_counter_progress">%1$d / %2$d</string>
 </resources>

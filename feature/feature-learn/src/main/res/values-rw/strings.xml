@@ -111,4 +111,5 @@
     <string name="hajj_map_zoom_out">Kwegera</string>
     <string name="learn_search_clear">Gushakisha neza</string>
     <string name="names_search_clear">Gushakisha neza</string>
+    <string name="hajj_counter_progress">%1$d ya %2$d</string>
 </resources>

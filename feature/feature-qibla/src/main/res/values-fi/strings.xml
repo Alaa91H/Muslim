@@ -81,4 +81,5 @@
     <string name="nearby_mosques_map_action">Kartta</string>
     <string name="nearby_mosques_more_actions">Lisää toimintoja</string>
     <string name="nearby_mosques_search_clear">Tyhjennä haku</string>
+    <string name="nearby_mosques_unnamed">Moskeija</string>
 </resources>

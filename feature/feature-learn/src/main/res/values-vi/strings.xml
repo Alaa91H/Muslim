@@ -111,4 +111,5 @@
     <string name="hajj_map_zoom_out">Thu nhỏ</string>
     <string name="learn_search_clear">Xóa tìm kiếm</string>
     <string name="names_search_clear">Xóa tìm kiếm</string>
+    <string name="hajj_counter_progress">%1$d của %2$d</string>
 </resources>

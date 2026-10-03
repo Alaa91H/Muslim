@@ -201,4 +201,8 @@
     <string name="settings_ornament_intensity_off">Tima</string>
     <string name="settings_search_clear">Phimola patlo</string>
     <string name="settings_updates_last_successful">Tlhotlhomiso ya bofelo: %1$s.</string>
+    <string name="accessibility_title">Lefelo la Phitlhelelo</string>
+    <string name="notif_category_family">Botshelo jwa lelapa</string>
+    <string name="voice_listening">Go reetsa...</string>
+    <string name="voice_service_unavailable">Temogo ya puo ga e yo mo sedirisweng seno.</string>
 </resources>

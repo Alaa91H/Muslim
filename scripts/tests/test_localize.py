@@ -112,6 +112,27 @@ class LocalizationQualityTests(unittest.TestCase):
         finally:
             error.close()
 
+    def test_translation_provider_requests_are_spaced_by_shared_limiter(self) -> None:
+        clock = [0.0]
+        sleeps: list[float] = []
+
+        def sleep(seconds: float) -> None:
+            sleeps.append(seconds)
+            clock[0] += seconds
+
+        limiter = localize.TranslationRequestThrottle(
+            interval_seconds=0.5,
+            monotonic=lambda: clock[0],
+            sleep=sleep,
+        )
+        calls: list[str] = []
+
+        self.assertEqual(limiter.call(lambda: calls.append("first") or "one"), "one")
+        self.assertEqual(limiter.call(lambda: calls.append("second") or "two"), "two")
+
+        self.assertEqual(calls, ["first", "second"])
+        self.assertEqual(sleeps, [0.5])
+
     def test_cached_source_fallback_is_rejected(self) -> None:
         source = "Start Quran playback"
         protected, _ = localize.protect(source)

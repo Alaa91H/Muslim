@@ -112,4 +112,8 @@
     <string name="learn_search_clear">Исчистете го пребарувањето</string>
     <string name="learn_topic_zakat_fitr">Зекат ал-фитр</string>
     <string name="names_search_clear">Исчистете го пребарувањето</string>
+    <string name="funeral_will_title">Погреби и исламска волја</string>
+    <string name="hajj_counter_progress">%1$d на %2$d</string>
+    <string name="noorani_title">Норани Каида и Први чекори</string>
+    <string name="traveler_title">Катче за патници и иселеници</string>
 </resources>

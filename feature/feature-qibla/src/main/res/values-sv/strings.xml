@@ -81,4 +81,5 @@
     <string name="nearby_mosques_map_action">Karta</string>
     <string name="nearby_mosques_more_actions">Fler åtgärder</string>
     <string name="nearby_mosques_search_clear">Rensa sökning</string>
+    <string name="nearby_mosques_unnamed">Moské</string>
 </resources>

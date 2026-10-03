@@ -201,4 +201,8 @@
     <string name="settings_ornament_intensity_off">ปิด</string>
     <string name="settings_search_clear">ล้างการค้นหา</string>
     <string name="settings_updates_last_successful">ตรวจสอบครั้งล่าสุด: %1$s</string>
+    <string name="accessibility_title">ศูนย์การเข้าถึง</string>
+    <string name="notif_category_family">ชีวิตครอบครัว</string>
+    <string name="voice_listening">กำลังฟัง...</string>
+    <string name="voice_service_unavailable">การรู้จำเสียงไม่พร้อมใช้งานบนอุปกรณ์นี้</string>
 </resources>

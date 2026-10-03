@@ -201,4 +201,8 @@
     <string name="settings_ornament_intensity_off">关闭</string>
     <string name="settings_search_clear">清除搜索</string>
     <string name="settings_updates_last_successful">最后检查：%1$s</string>
+    <string name="accessibility_title">无障碍中心</string>
+    <string name="notif_category_family">家庭生活</string>
+    <string name="voice_listening">正在听……</string>
+    <string name="voice_service_unavailable">此设备上无法进行语音识别。</string>
 </resources>

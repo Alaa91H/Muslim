@@ -82,4 +82,5 @@
     <string name="nearby_mosques_more_actions">さらなるアクション</string>
     <string name="nearby_mosques_search_clear">検索をクリア</string>
     <string name="qibla_tab_qibla">キブラ</string>
+    <string name="nearby_mosques_unnamed">モスク</string>
 </resources>

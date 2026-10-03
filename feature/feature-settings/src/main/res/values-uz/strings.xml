@@ -201,4 +201,8 @@
     <string name="settings_ornament_intensity_off">Oʻchirilgan</string>
     <string name="settings_search_clear">Qidiruvni tozalash</string>
     <string name="settings_updates_last_successful">Oxirgi tekshirish: %1$s</string>
+    <string name="accessibility_title">Foydalanish imkoniyati markazi</string>
+    <string name="notif_category_family">Oilaviy hayot</string>
+    <string name="voice_listening">Tinglanmoqda…</string>
+    <string name="voice_service_unavailable">Bu qurilmada nutqni aniqlash funksiyasi mavjud emas.</string>
 </resources>

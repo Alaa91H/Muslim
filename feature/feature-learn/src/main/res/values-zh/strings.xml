@@ -112,4 +112,8 @@
     <string name="learn_search_clear">清除搜索</string>
     <string name="learn_topic_zakat_fitr">开斋捐</string>
     <string name="names_search_clear">清除搜索</string>
+    <string name="funeral_will_title">葬礼和伊斯兰遗嘱</string>
+    <string name="hajj_counter_progress">%1$d 的 %2$d</string>
+    <string name="noorani_title">努拉尼基地组织和第一步</string>
+    <string name="traveler_title">旅行者和外籍人士角</string>
 </resources>

@@ -207,6 +207,28 @@ def restore(text: str, tokens: list[str]) -> str:
 # ---------------------------------------------------------------------------
 
 
+class TranslationRequestThrottle:
+    """Space provider calls globally so locale workers do not amplify HTTP 429s."""
+
+    def __init__(self, interval_seconds: float, monotonic=time.monotonic, sleep=time.sleep) -> None:
+        self._interval_seconds = max(0.0, interval_seconds)
+        self._monotonic = monotonic
+        self._sleep = sleep
+        self._lock = threading.Lock()
+        self._next_request_at = 0.0
+
+    def call(self, operation):
+        with self._lock:
+            delay = self._next_request_at - self._monotonic()
+            if delay > 0:
+                self._sleep(delay)
+            self._next_request_at = self._monotonic() + self._interval_seconds
+            return operation()
+
+
+_TRANSLATION_THROTTLE = TranslationRequestThrottle(interval_seconds=0.8)
+
+
 def translate_batch(texts: list[str], lang: str, source_lang: str = SOURCE_LANG) -> list[str]:
     """Translate a batch or fail closed; never return source text as a translation."""
     tl = LANG_ALIASES.get(lang, lang)
@@ -219,7 +241,9 @@ def translate_batch(texts: list[str], lang: str, source_lang: str = SOURCE_LANG)
     for attempt in range(MAX_RETRIES):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-            raw = urllib.request.urlopen(req, timeout=TIMEOUT).read().decode("utf-8")
+            raw = _TRANSLATION_THROTTLE.call(
+                lambda: urllib.request.urlopen(req, timeout=TIMEOUT).read().decode("utf-8"),
+            )
             data = json.loads(raw)
             joined = "".join(seg[0] for seg in data[0] if seg[0])
             parts = joined.split("\n")
