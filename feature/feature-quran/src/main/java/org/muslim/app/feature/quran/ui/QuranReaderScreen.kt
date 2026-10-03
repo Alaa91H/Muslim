@@ -144,6 +144,8 @@ import org.muslim.app.core.ui.theme.IslamicReadingHeaderDecoration
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.TajweedMarkup
 import org.muslim.app.feature.quran.data.PlaybackState
+import org.muslim.app.feature.quran.data.QuranCastMapper
+import org.muslim.app.feature.quran.data.QuranCastMappingInput
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.ReaderTheme
@@ -151,9 +153,6 @@ import org.muslim.app.feature.quran.domain.ReciterSearch
 import org.muslim.app.feature.quran.domain.Reciter
 import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.SurahRevelationData
-import org.muslim.app.feature.quran.domain.CastText
-import org.muslim.app.feature.quran.domain.QuranCastPayload
-import org.muslim.app.feature.quran.domain.CastPlaybackState
 
 private const val DEFAULT_FONT_SP = 26f
 private val REPEAT_OPTIONS = listOf(1, 3, 5, 10, -1) // -1 = continuous ("بدون توقف")
@@ -388,50 +387,27 @@ fun QuranReaderScreen(
     val castSequence = rememberCastSequence(castSessionId, castAyah?.globalNumber, positionMs, playbackState)
     val castPayload = remember(
         castAyah, selectedReciter, durationMs, supplements, supplementLanguage,
-        castPrayerSnapshot, context, castSequence, positionMs, playbackState,
+        castPrayerSnapshot, castSequence, positionMs, playbackState,
         recitationSnapshot, state.surah,
     ) {
-        castAyah?.let { ayah ->
-            val translation = supplements.translations.firstOrNull {
-                it.language.equals(supplementLanguage, ignoreCase = true)
-            } ?: supplements.translations.firstOrNull()
-            QuranCastPayload(
-                sessionId = castSessionId,
-                sequence = castSequence,
-                timestampEpochMs = System.currentTimeMillis(),
-                languageTag = translation?.language ?: "und",
-                surahNumber = ayah.surahNumber,
-                surahArabicName = state.surah?.arabicName ?: "سورة ${ayah.surahNumber}",
-                surahLocalizedName = state.surah?.englishName ?: "Surah ${ayah.surahNumber}",
-                totalAyahs = state.surah?.ayahCount ?: ayah.numberInSurah,
-                revelationType = state.surah?.revelationType,
-                ayahNumber = ayah.numberInSurah,
-                globalAyahNumber = ayah.globalNumber,
-                reciterName = selectedReciter.name,
-                reciterId = selectedReciter.id,
-                audioUrl = selectedReciter.urlFor(ayah.surahNumber, ayah.numberInSurah),
-                durationMs = durationMs.takeIf { playingAyah?.globalNumber == ayah.globalNumber },
-                positionMs = positionMs,
-                playbackState = when (playbackState) {
-                    PlaybackState.Playing -> CastPlaybackState.PLAYING
-                    PlaybackState.Paused -> CastPlaybackState.PAUSED
-                    PlaybackState.Idle -> CastPlaybackState.IDLE
-                },
-                repeatCount = recitationSnapshot?.repeatCount ?: 1,
-                remainingRepeats = recitationSnapshot?.remainingRepeats ?: 1,
-                queueGlobalNumbers = recitationSnapshot?.queue?.map { it.globalNumber } ?: listOf(ayah.globalNumber),
-                queueIndex = recitationSnapshot?.queueIndex ?: 0,
-                arabicAyah = ayah.text,
-                translation = translation?.let {
-                    CastText(text = it.text, source = it.language, languageTag = it.language)
-                },
-                tafsir = supplements.tafsir.map { entry ->
-                    CastText(entry.text, entry.source, if (entry.source.contains("english", true)) "en" else "ar")
-                },
-                prayerLocation = castPrayerSnapshot?.location,
-                prayerTimes = castPrayerSnapshot?.times.orEmpty(),
-            )
-        }
+        QuranCastMapper.map(QuranCastMappingInput(
+            ayah = castAyah,
+            surah = state.surah,
+            localizedSurahName = state.surah?.englishName ?: state.surah?.let { "Surah ${it.number}" },
+            reciter = selectedReciter,
+            sessionId = castSessionId,
+            sequence = castSequence,
+            timestampEpochMs = System.currentTimeMillis(),
+            positionMs = positionMs,
+            playbackState = playbackState,
+            durationMs = durationMs.takeIf { playingAyah?.globalNumber == castAyah?.globalNumber } ?: 0L,
+            snapshot = recitationSnapshot,
+            translations = supplements.translations,
+            selectedLanguage = supplementLanguage,
+            tafsir = supplements.tafsir,
+            prayerLocation = castPrayerSnapshot?.location,
+            prayerTimes = castPrayerSnapshot?.times.orEmpty(),
+        ))
     }
     LaunchedEffect(castPayload) { castPayloadSink(castPayload) }
     val castPlayablePayload = remember(castPayload, playbackState, castConnected) {
