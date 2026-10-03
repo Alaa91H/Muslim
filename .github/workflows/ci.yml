@@ -411,6 +411,9 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
 
+      - name: Set up Android SDK for release signature verification
+        uses: android-actions/setup-android@v4
+
       - name: Download signed APKs
         uses: actions/download-artifact@v7
         with:

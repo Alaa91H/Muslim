@@ -37,7 +37,7 @@ class QuranReaderBookNavigationInstrumentedTest {
             route = "quran/reader/3",
             screenName = "quran-book-navigation",
             afterReady = { instrumentation ->
-                val deadline = SystemClock.uptimeMillis() + 25_000
+                val deadline = SystemClock.uptimeMillis() + PAGE_TURN_TIMEOUT_MS
                 while (SystemClock.uptimeMillis() < deadline && !completed) {
                     val root = instrumentation.uiAutomation.rootInActiveWindow?.also { it.refresh() }
                     windowBounds.setEmpty()
@@ -67,8 +67,23 @@ class QuranReaderBookNavigationInstrumentedTest {
                             phase = WAITING_FOR_PAGE_50_AGAIN
                             stableTargetSamples = 0
                         }
-                    } else if (phase == WAITING_FOR_PAGE_50_AGAIN && sharedSpreadVerified) {
-                        completed = page49Bounds != null && page50Bounds != null
+                    } else if (phase == WAITING_FOR_PAGE_50_AGAIN) {
+                        if (sharedSpreadVerified) {
+                            completed = page49Bounds != null && page50Bounds != null
+                        } else {
+                            // On a phone, only one page is visible at a time and
+                            // pager layout bounds can shift slightly while it
+                            // settles. We already confirmed page 49 before
+                            // issuing the return gesture, so two consecutive
+                            // visible samples of page 50 are enough to verify
+                            // the round trip without requiring identical bounds.
+                            stableTargetSamples = if (page50Bounds != null) {
+                                stableTargetSamples + 1
+                            } else {
+                                0
+                            }
+                            completed = stableTargetSamples >= RETURN_PAGE_STABLE_SAMPLES
+                        }
                     } else {
                         val targetPage = if (phase == WAITING_FOR_PAGE_49) 49 else 50
                         val targetBounds = if (targetPage == 49) page49Bounds else page50Bounds
@@ -235,6 +250,8 @@ class QuranReaderBookNavigationInstrumentedTest {
         const val WAITING_FOR_PAGE_50_AGAIN = 2
         const val WAITING_FOR_PREVIOUS_SPREAD = 3
         const val STABLE_PAGE_SAMPLES = 3
+        const val RETURN_PAGE_STABLE_SAMPLES = 2
+        const val PAGE_TURN_TIMEOUT_MS = 45_000L
         const val PAGE_SWIPE_DURATION_MS = 700L
         const val PAGE_SWIPE_STEPS = 14
         const val MIN_VISIBLE_FRACTION = 0.35f

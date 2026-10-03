@@ -48,6 +48,10 @@ def main() -> None:
         "CI build artifacts must contain APK files only",
     )
     release_job = workflow.split("  publish-release:", 1)[1]
+    require(
+        "Set up Android SDK for release signature verification" in release_job,
+        "Release signature checks must configure the Android SDK explicitly",
+    )
     require(".aab" not in release_job, "Release job must not publish App Bundles")
     require("update-manifest.json" not in release_job, "Release job must not publish manifest sidecars")
     require("beta-apk:" not in workflow and "development-apk:" not in workflow,
