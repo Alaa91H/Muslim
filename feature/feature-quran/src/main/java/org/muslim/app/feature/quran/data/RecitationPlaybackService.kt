@@ -14,6 +14,7 @@ import android.media.AudioManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.ServiceCompat
+import androidx.core.graphics.createBitmap
 import androidx.media.MediaBrowserServiceCompat
 import androidx.media.app.NotificationCompat.MediaStyle
 import androidx.media.session.MediaButtonReceiver
@@ -28,6 +29,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -62,6 +64,7 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
     @Inject lateinit var quranRepository: QuranRepository
     @Inject lateinit var recitationRepository: RecitationRepository
     @Inject lateinit var sessionRuntime: RecitationSessionRuntime
+    @Inject lateinit var sessionStore: RecitationSessionStore
 
     private var session: MediaSessionCompat? = null
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
@@ -357,7 +360,7 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         if (drawable is BitmapDrawable && drawable.bitmap != null) return drawable.bitmap
         val width = drawable.intrinsicWidth.takeIf { it > 0 } ?: 256
         val height = drawable.intrinsicHeight.takeIf { it > 0 } ?: 256
-        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val bitmap = createBitmap(width, height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
         drawable.setBounds(0, 0, canvas.width, canvas.height)
         drawable.draw(canvas)
@@ -401,13 +404,26 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
     private var lastGlobalAyah: Int? = null
 
     private suspend fun buildBrowseChildren(parentId: String): List<MediaBrowserCompat.MediaItem> = when (parentId) {
-        MEDIA_ROOT_ID -> listOf(
-            browseFolder(
+        MEDIA_ROOT_ID -> buildList {
+            androidAutoResumePlan()?.let { plan ->
+                val ayah = quranRepository.ayahByGlobal(plan.intent.globalNumbers.first())
+                val surah = ayah?.let { quranRepository.observeSurahMetadata(it.surahNumber).first() }
+                if (ayah != null && surah != null) {
+                    add(
+                        playableItem(
+                            id = RESUME_MEDIA_ID,
+                            title = getString(R.string.quran_resume, surah.englishName, ayah.numberInSurah.toString()),
+                            subtitle = Reciter.Bundled.first { it.id == plan.intent.reciterId }.name,
+                        ),
+                    )
+                }
+            }
+            add(browseFolder(
                 id = RECITATIONS_FOLDER_ID,
                 title = getString(R.string.quran_car_recitations),
                 subtitle = getString(R.string.quran_car_recitations_subtitle),
-            ),
-        )
+            ))
+        }
 
         RECITATIONS_FOLDER_ID -> downloadedReciters().map(::reciterFolder)
         else -> if (parentId.startsWith(RECITER_MEDIA_PREFIX)) {
@@ -461,7 +477,59 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         MediaBrowserCompat.MediaItem.FLAG_PLAYABLE,
     )
 
+    private fun playableItem(id: String, title: String, subtitle: String): MediaBrowserCompat.MediaItem =
+        MediaBrowserCompat.MediaItem(
+            MediaDescriptionCompat.Builder().setMediaId(id).setTitle(title).setSubtitle(subtitle).build(),
+            MediaBrowserCompat.MediaItem.FLAG_PLAYABLE,
+        )
+
+    /** Only expose resume in the car when the rest of its queue is already offline-ready. */
+    private suspend fun androidAutoResumePlan(): AndroidAutoResumePlan? {
+        val saved = sessionStore.session.first() ?: return null
+        val byGlobal = quranRepository.allAyahs().associateBy { it.globalNumber }
+        val knownReciters = Reciter.Bundled.mapTo(mutableSetOf()) { it.id }
+        return withContext(Dispatchers.IO) {
+            buildAndroidAutoResumePlan(saved, knownReciters) { global ->
+                val ayah = byGlobal[global] ?: return@buildAndroidAutoResumePlan false
+                val file = recitationRepository.fileFor(saved.intent.reciterId, ayah.surahNumber, global)
+                file.isFile && file.length() > 0L
+            }
+        }
+    }
+
+    private suspend fun resumeSavedSession() {
+        val plan = androidAutoResumePlan() ?: run {
+            publishPlaybackError(getString(R.string.quran_car_not_downloaded))
+            return
+        }
+        val globals = plan.intent.globalNumbers
+        val byGlobal = quranRepository.allAyahs().associateBy { it.globalNumber }
+        val ayahs = globals.mapNotNull(byGlobal::get)
+        if (ayahs.size != globals.size) return
+        val intent = plan.intent
+        val queue = ayahs.map { ayah ->
+            RecitationQueueItem(
+                file = recitationRepository.fileFor(intent.reciterId, ayah.surahNumber, ayah.globalNumber),
+                globalNumber = ayah.globalNumber,
+            )
+        }
+        requestAudioFocus()
+        sessionRuntime.begin(intent, plan.positionMs, plan.remainingRepeats)
+        player.playQueue(
+            items = queue,
+            startIndex = 0,
+            repeatCount = intent.repeatCount.coerceAtLeast(1),
+            continuous = intent.continuous,
+            startPositionMs = plan.positionMs,
+            remainingRepeatsForCurrent = plan.remainingRepeats,
+        )
+    }
+
     private fun playMediaId(mediaId: String) {
+        if (mediaId == RESUME_MEDIA_ID) {
+            scope.launch { resumeSavedSession() }
+            return
+        }
         val target = RecitationMediaId.parse(mediaId, Reciter.Bundled.mapTo(mutableSetOf()) { it.id }) ?: return
         scope.launch { playDownloadedSurah(target.first, target.second) }
     }
@@ -573,6 +641,7 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         private const val MEDIA_SESSION_TAG = "org.muslim.app.quran.RecitationPlayback"
         private const val MEDIA_ROOT_ID = "muslim_recitation_root"
         private const val RECITATIONS_FOLDER_ID = "muslim_recitations"
+        private const val RESUME_MEDIA_ID = "muslim_resume_recitation"
         private const val RECITER_MEDIA_PREFIX = "muslim_reciter_"
         private const val SURAH_MEDIA_PREFIX = "muslim_surah_"
 

@@ -23,6 +23,7 @@
              Android Auto. The service exposes only downloaded Quran audio. -->
         <service
             android:name=".data.RecitationPlaybackService"
+            android:permission="android.permission.BIND_MEDIA_BROWSER_SERVICE"
             android:exported="true"
             android:foregroundServiceType="mediaPlayback">
             <intent-filter>

@@ -55,6 +55,32 @@ class RecitationSessionModelTest {
     }
 
     @Test
+    fun `android auto resume preserves remaining queue position repeat and reciter`() {
+        val saved = session().copy(
+            intent = session().intent.copy(reciterId = "reader"),
+            positionMs = 4_200L,
+            remainingRepeats = 1,
+        )
+
+        val plan = buildAndroidAutoResumePlan(saved, setOf("reader")) { it in setOf(11, 12) }
+
+        assertThat(plan).isNotNull()
+        assertThat(plan!!.intent.globalNumbers).containsExactly(11, 12).inOrder()
+        assertThat(plan.intent.reciterId).isEqualTo("reader")
+        assertThat(plan.positionMs).isEqualTo(4_200L)
+        assertThat(plan.remainingRepeats).isEqualTo(1)
+    }
+
+    @Test
+    fun `android auto resume is hidden for unknown reciter or missing offline ayah`() {
+        val saved = session()
+
+        assertThat(buildAndroidAutoResumePlan(saved, setOf("another")) { true }).isNull()
+        assertThat(buildAndroidAutoResumePlan(saved, setOf("reciter")) { it == 11 }).isNull()
+        assertThat(buildAndroidAutoResumePlan(saved, setOf("reciter")) { true }).isNotNull()
+    }
+
+    @Test
     fun `persisted session round trips through json`() {
         val json = Json { encodeDefaults = true }
         val original = session()
