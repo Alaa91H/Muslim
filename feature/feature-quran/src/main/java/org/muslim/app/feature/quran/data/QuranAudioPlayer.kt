@@ -10,6 +10,9 @@ import javax.inject.Singleton
 /** Simple playback state shared with the reader UI. */
 enum class PlaybackState { Idle, Playing, Paused }
 
+/** Distinguishes ayah-timed clips from recordings that contain an entire surah. */
+enum class RecitationPlaybackScope { Ayah, FullSurah }
+
 /** Stable failure reasons surfaced to the reader for recovery. */
 enum class RecitationFailureReason {
     DownloadFailed,
@@ -33,6 +36,7 @@ data class RecitationQueueItem(
     val globalNumber: Int,
     /** Optional provider URL used when this ayah is not available offline. */
     val streamUrl: String? = null,
+    val playbackScope: RecitationPlaybackScope = RecitationPlaybackScope.Ayah,
 )
 
 data class RecitationPlaybackSnapshot(
@@ -78,6 +82,9 @@ class QuranAudioPlayer @Inject constructor(
     private val _currentAyah = MutableStateFlow<Int?>(null)
     val currentAyah: StateFlow<Int?> = _currentAyah.asStateFlow()
 
+    private val _playbackScope = MutableStateFlow(RecitationPlaybackScope.Ayah)
+    val playbackScope: StateFlow<RecitationPlaybackScope> = _playbackScope.asStateFlow()
+
     private var failureSequence = 0L
     private val _lastFailure = MutableStateFlow<RecitationFailureEvent?>(null)
     val lastFailure: StateFlow<RecitationFailureEvent?> = _lastFailure.asStateFlow()
@@ -104,6 +111,7 @@ class QuranAudioPlayer @Inject constructor(
     var onQueueCompleted: (() -> Unit)? = null
     private var continuous = false
     private var remotelyControlled = false
+    val isRemotelyControlled: Boolean get() = remotelyControlled
 
     /** True while the loaded ayah is playing its configured repeats. */
     val isPlaying: Boolean get() = _playbackState.value == PlaybackState.Playing
@@ -198,7 +206,7 @@ class QuranAudioPlayer @Inject constructor(
         if (queueIndex < 0 || queueIndex >= queue.lastIndex) return
         queueIndex++
         if (remotelyControlled) {
-            _currentAyah.value = queue[queueIndex].globalNumber
+            publishCurrentItem()
             _remainingRepeats.value = repeatPerAyah
             _positionMs.value = 0L
             _durationMs.value = 0L
@@ -211,7 +219,7 @@ class QuranAudioPlayer @Inject constructor(
         if (queueIndex <= 0) return
         queueIndex--
         if (remotelyControlled) {
-            _currentAyah.value = queue[queueIndex].globalNumber
+            publishCurrentItem()
             _positionMs.value = 0L
             _durationMs.value = 0L
             updateNavState()
@@ -261,6 +269,7 @@ class QuranAudioPlayer @Inject constructor(
         releaseEngine()
         queue = emptyList()
         queueIndex = -1
+        _playbackScope.value = RecitationPlaybackScope.Ayah
         continuous = false
         onQueueCompleted = null
         pendingStartPositionMs = 0L
@@ -285,7 +294,7 @@ class QuranAudioPlayer @Inject constructor(
             return
         }
         releaseEngine()
-        _currentAyah.value = item.globalNumber
+        publishCurrentItem()
         _remainingRepeats.value = pendingRemainingRepeats ?: repeatPerAyah
         pendingRemainingRepeats = null
         resetProgress()
@@ -362,6 +371,7 @@ class QuranAudioPlayer @Inject constructor(
             queueIndex = -1
             _playbackState.value = PlaybackState.Idle
             _currentAyah.value = null
+            _playbackScope.value = RecitationPlaybackScope.Ayah
             resetProgress()
             updateNavState()
             playbackBridge.onPlaybackActiveChanged(false, PlaybackDeactivationReason.Completed)
@@ -370,6 +380,7 @@ class QuranAudioPlayer @Inject constructor(
         }
         _playbackState.value = PlaybackState.Idle
         _currentAyah.value = null
+        _playbackScope.value = RecitationPlaybackScope.Ayah
         resetProgress()
         updateNavState()
         playbackBridge.onPlaybackActiveChanged(false, PlaybackDeactivationReason.Completed)
@@ -408,6 +419,14 @@ class QuranAudioPlayer @Inject constructor(
     private fun updateNavState() {
         _hasNext.value = queueIndex in 0 until queue.lastIndex
         _hasPrevious.value = queueIndex > 0
+    }
+
+    private fun publishCurrentItem() {
+        val item = queue.getOrNull(queueIndex)
+        _playbackScope.value = item?.playbackScope ?: RecitationPlaybackScope.Ayah
+        _currentAyah.value = item
+            ?.takeIf { it.playbackScope == RecitationPlaybackScope.Ayah }
+            ?.globalNumber
     }
 
     fun acceptRemotePosition(positionMs: Long, durationMs: Long, playing: Boolean) {

@@ -151,6 +151,7 @@ import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.ReaderTheme
 import org.muslim.app.feature.quran.domain.ReciterSearch
 import org.muslim.app.feature.quran.domain.Reciter
+import org.muslim.app.feature.quran.domain.FullSurahRecitation
 import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.SurahRevelationData
 
@@ -284,9 +285,17 @@ fun QuranReaderScreen(
     val recitationFailure by viewModel.recitationFailure.collectAsStateWithLifecycle()
     val restorableSession by viewModel.restorableSession.collectAsStateWithLifecycle()
     val selectedReciter by viewModel.selectedReciter.collectAsStateWithLifecycle()
+    val fullSurahRecordings by viewModel.fullSurahRecordings.collectAsStateWithLifecycle()
+    val fullSurahCatalogLoading by viewModel.fullSurahCatalogLoading.collectAsStateWithLifecycle()
+    val fullSurahCatalogError by viewModel.fullSurahCatalogError.collectAsStateWithLifecycle()
+    var fullSurahCatalogRequested by rememberSaveable { mutableStateOf(false) }
     val downloading by viewModel.downloading.collectAsStateWithLifecycle()
     val downloadProgress by viewModel.downloadProgress.collectAsStateWithLifecycle()
     val keepScreenOn by viewModel.keepScreenOn.collectAsStateWithLifecycle()
+
+    LaunchedEffect(state.surah?.number, fullSurahCatalogRequested) {
+        if (fullSurahCatalogRequested && state.surah != null) viewModel.loadFullSurahRecordings()
+    }
 
     // Keep the screen lit while the mushaf reader is open (and therefore
     // during recitation) when the user enabled the keep-screen-on option;
@@ -843,6 +852,9 @@ fun QuranReaderScreen(
                         reciter = selectedReciter,
                         reciters = Reciter.Bundled,
                         range = playRange,
+                        fullSurahRecordings = fullSurahRecordings,
+                        fullSurahCatalogLoading = fullSurahCatalogLoading,
+                        fullSurahCatalogError = fullSurahCatalogError,
                     ),
                     selectedAyahNumber = selectedStart?.numberInSurah,
                 ),
@@ -858,6 +870,8 @@ fun QuranReaderScreen(
                         onRepeatChanged = { repeatCount = it },
                         onStopAtEndChanged = viewModel::setContinuousStopAtEnd,
                         onReciterSelected = viewModel::selectReciter,
+                        onLoadFullSurahRecordings = { fullSurahCatalogRequested = true },
+                        onFullSurahSelected = viewModel::playFullSurah,
                         onRangeChanged = { playRange = it },
                     ),
                 ),
@@ -1145,6 +1159,9 @@ private data class RecitationSettingsState(
     val reciter: Reciter,
     val reciters: List<Reciter>,
     val range: RecitationRange,
+    val fullSurahRecordings: List<FullSurahRecitation>,
+    val fullSurahCatalogLoading: Boolean,
+    val fullSurahCatalogError: Boolean,
 )
 
 private data class RecitationBarState(
@@ -1160,6 +1177,8 @@ private data class RecitationSettingsActions(
     val onRepeatChanged: (Int) -> Unit,
     val onStopAtEndChanged: (Boolean) -> Unit,
     val onReciterSelected: (Reciter) -> Unit,
+    val onLoadFullSurahRecordings: () -> Unit,
+    val onFullSurahSelected: (FullSurahRecitation) -> Unit,
     val onRangeChanged: (RecitationRange) -> Unit,
 )
 
@@ -1371,6 +1390,9 @@ private fun RecitationSettingsSheet(
             selectedReciter = state.reciter,
             reciters = state.reciters,
             onReciterSelected = actions.onReciterSelected,
+            state = state,
+            onLoadFullSurahRecordings = actions.onLoadFullSurahRecordings,
+            onFullSurahSelected = actions.onFullSurahSelected,
         )
         RepeatSelectionSection(
             repeatCount = state.repeatCount,
@@ -1390,6 +1412,9 @@ private fun ReciterSelectionSection(
     selectedReciter: Reciter,
     reciters: List<Reciter>,
     onReciterSelected: (Reciter) -> Unit,
+    state: RecitationSettingsState,
+    onLoadFullSurahRecordings: () -> Unit,
+    onFullSurahSelected: (FullSurahRecitation) -> Unit,
 ) {
     var pickerOpen by rememberSaveable { mutableStateOf(false) }
     var query by rememberSaveable { mutableStateOf("") }
@@ -1424,6 +1449,39 @@ private fun ReciterSelectionSection(
         },
         onDismiss = { pickerOpen = false },
     )
+
+    Spacer(Modifier.height(IslamicSpacing.Compact))
+    Text(
+        text = stringResource(R.string.quran_reciter),
+        style = MaterialTheme.typography.titleSmall,
+        color = MaterialTheme.colorScheme.primary,
+    )
+    TextButton(onClick = onLoadFullSurahRecordings, enabled = !state.fullSurahCatalogLoading) {
+        if (state.fullSurahCatalogLoading) {
+            CircularProgressIndicator(modifier = Modifier.size(18.dp), strokeWidth = 2.dp)
+            Spacer(Modifier.width(IslamicSpacing.Small))
+        }
+        Text(stringResource(R.string.quran_reciter_picker_title))
+    }
+    if (state.fullSurahCatalogError) {
+        Text(
+            text = stringResource(R.string.quran_download_status_failed),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.error,
+        )
+    }
+    state.fullSurahRecordings.forEach { recording ->
+        TextButton(
+            onClick = { onFullSurahSelected(recording) },
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(recording.reciterName, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                Text(recording.rewayaName, style = MaterialTheme.typography.labelSmall)
+            }
+            Icon(Icons.Filled.PlayArrow, contentDescription = stringResource(R.string.quran_play_ayah))
+        }
+    }
 }
 
 @Composable

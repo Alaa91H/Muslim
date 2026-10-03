@@ -6,6 +6,7 @@ import android.net.Uri
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.File
+import java.net.URI
 import javax.inject.Inject
 
 /**
@@ -35,6 +36,26 @@ fun interface RecitationEngineFactory {
 
     /** Keeps file-backed callers compatible while allowing network-backed queue entries. */
     fun create(item: RecitationQueueItem): RecitationAudioEngine? = create(item.file)
+}
+
+/** Accepts only HTTPS audio hosts tied to the selected Quran playback scope. */
+internal object RecitationStreamSourcePolicy {
+    fun accepts(url: String, scope: RecitationPlaybackScope): Boolean = runCatching {
+        val uri = URI(url.trim())
+        val host = uri.host.orEmpty()
+        val trustedHost = when (scope) {
+            RecitationPlaybackScope.Ayah -> host.equals("everyayah.com", ignoreCase = true)
+            RecitationPlaybackScope.FullSurah ->
+                host.equals("mp3quran.net", ignoreCase = true) || host.endsWith(".mp3quran.net", ignoreCase = true)
+        }
+        uri.scheme.equals("https", ignoreCase = true) &&
+            trustedHost &&
+            (uri.port == -1 || uri.port == 443) &&
+            uri.rawUserInfo == null &&
+            uri.rawQuery == null &&
+            uri.rawFragment == null &&
+            uri.path.endsWith(".mp3", ignoreCase = true)
+    }.getOrDefault(false)
 }
 
 /** Real [RecitationAudioEngine] backed by a [MediaPlayer]. */
@@ -77,8 +98,8 @@ class MediaPlayerAudioEngine private constructor(
         override fun create(item: RecitationQueueItem): RecitationAudioEngine? = runCatching {
             val url = item.streamUrl
             if (url.isNullOrBlank()) return@runCatching create(item.file)
+            require(RecitationStreamSourcePolicy.accepts(url, item.playbackScope))
             val uri = Uri.parse(url)
-            require(uri.scheme == "https" && uri.host == "everyayah.com")
             createPlayer { setDataSource(context, uri) }
         }.getOrNull()
 

@@ -37,6 +37,7 @@ internal fun buildAndroidAutoResumePlan(
     isAyahAvailableOffline: (Int) -> Boolean,
 ): AndroidAutoResumePlan? {
     val restorable = saved?.asRestorableOrNull() ?: return null
+    if (restorable.intent.fullSurahAudioUrl != null) return null
     if (restorable.intent.reciterId !in knownReciterIds) return null
 
     val remainingGlobals = restorable.remainingGlobalNumbers()
