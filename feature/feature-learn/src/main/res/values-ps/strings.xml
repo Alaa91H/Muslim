@@ -112,4 +112,5 @@
     <string name="learn_search_clear">پاک لټون</string>
     <string name="learn_topic_zakat_fitr">زکات الفطر</string>
     <string name="names_search_clear">پاک لټون</string>
+    <string name="hajj_counter_progress">د %1$d د %2$d</string>
 </resources>

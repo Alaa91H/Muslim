@@ -9,6 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -23,6 +24,8 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.muslim.app.feature.quran.data.PlaybackState
+import org.muslim.app.feature.quran.data.FullSurahPlaybackCoordinator
+import org.muslim.app.feature.quran.data.Mp3QuranCatalogClient
 import org.muslim.app.feature.quran.data.QuranAudioPlayer
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.data.QuranSupplementRepository
@@ -48,6 +51,7 @@ import org.muslim.app.feature.quran.domain.QuranAyahIndex
 import org.muslim.app.feature.quran.domain.QuranRepository
 import org.muslim.app.feature.quran.domain.ReaderTheme
 import org.muslim.app.feature.quran.domain.Reciter
+import org.muslim.app.feature.quran.domain.FullSurahRecitation
 import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.TafsirEntry
 import org.muslim.app.feature.quran.domain.Translation
@@ -75,7 +79,32 @@ class QuranReaderRecitationDependencies @Inject constructor(
     val audioPlayer: QuranAudioPlayer,
     val sessionStore: RecitationSessionStore,
     val sessionRuntime: RecitationSessionRuntime,
+    val fullSurahCatalog: Mp3QuranCatalogClient,
 )
+
+/** Owns the on-demand provider request state for full-surah recordings. */
+class FullSurahCatalogState @Inject constructor(
+    private val catalog: Mp3QuranCatalogClient,
+) {
+    private val _recordings = MutableStateFlow<List<FullSurahRecitation>>(emptyList())
+    val recordings: StateFlow<List<FullSurahRecitation>> = _recordings.asStateFlow()
+    private val _loading = MutableStateFlow(false)
+    val loading: StateFlow<Boolean> = _loading.asStateFlow()
+    private val _error = MutableStateFlow(false)
+    val error: StateFlow<Boolean> = _error.asStateFlow()
+
+    fun load(surahNumber: Int, scope: CoroutineScope) {
+        if (_loading.value) return
+        _loading.value = true
+        _error.value = false
+        scope.launch {
+            runCatching { catalog.fetch(java.util.Locale.getDefault().language) }
+                .onSuccess { values -> _recordings.value = values.filter { surahNumber in it.availableSurahs } }
+                .onFailure { _error.value = true }
+            _loading.value = false
+        }
+    }
+}
 
 /** Cohesive dependencies required by the Quran reader runtime. */
 class QuranReaderDependencies @Inject constructor(
@@ -163,6 +192,8 @@ class QuranReaderViewModel @Inject constructor(
     private val audioPlayer = dependencies.recitation.audioPlayer
     private val sessionStore = dependencies.recitation.sessionStore
     private val sessionRuntime = dependencies.recitation.sessionRuntime
+    private val fullSurahPlayback = FullSurahPlaybackCoordinator(audioPlayer, sessionRuntime)
+    private val fullSurahCatalog = FullSurahCatalogState(dependencies.recitation.fullSurahCatalog)
     private val downloadNotifier = RecitationDownloadNotifier(context)
 
     // Last recitation range/repeat the user played with, so switching the
@@ -178,6 +209,10 @@ class QuranReaderViewModel @Inject constructor(
     /** Current surah (mutable so continuous playback can auto-advance). */
     private val _surahNumber = MutableStateFlow(initialSurahNumber)
     val surahNumber: StateFlow<Int> = _surahNumber.asStateFlow()
+
+    val fullSurahRecordings = fullSurahCatalog.recordings
+    val fullSurahCatalogLoading = fullSurahCatalog.loading
+    val fullSurahCatalogError = fullSurahCatalog.error
 
     /** Global ayah number to scroll to (search/bookmarks/last-read), -1 = none. */
     val initialAyahGlobal: Int = savedStateHandle["ayah"] ?: -1
@@ -203,6 +238,9 @@ class QuranReaderViewModel @Inject constructor(
         currentAyah.value = ayah
         _surahNumber.value = ayah.surahNumber
     }
+
+    /** Loads provider full-surah recordings for the visible surah on demand. */
+    val loadFullSurahRecordings: () -> Unit = { fullSurahCatalog.load(_surahNumber.value, viewModelScope) }
 
     // Metadata and verses belong to the same request. Never combine new metadata
     // with the previous surah's verses during an asynchronous boundary transition.
@@ -682,9 +720,10 @@ class QuranReaderViewModel @Inject constructor(
                 reciter = reciter,
             ) ?: return@launch
 
-            startPreparedQueue(
+            fullSurahPlayback.startQueue(
                 items = items,
                 intent = intent,
+                onAdvanceToNext = if (intent.advanceToNext) ::advanceToNextSurah else null,
             )
         }
     }
@@ -753,39 +792,19 @@ class QuranReaderViewModel @Inject constructor(
         }
     }
 
-    private fun startPreparedQueue(
-        items: List<RecitationQueueItem>,
-        intent: RecitationSessionIntent,
-        startPositionMs: Long = 0L,
-        remainingRepeatsForCurrent: Int? = null,
-    ) {
-        val continuousMode = intent.continuous || intent.repeatCount <= 0
-        val effectiveRepeat =
-            if (continuousMode) 1 else intent.repeatCount.coerceAtLeast(1)
-
-        sessionRuntime.begin(
-            intent = intent,
-            positionMs = startPositionMs,
-            initialRemainingRepeats = remainingRepeatsForCurrent,
-        )
-        audioPlayer.onQueueCompleted =
-            if (intent.advanceToNext) {
-                { advanceToNextSurah(effectiveRepeat, intent.toEndOfQuran) }
-            } else {
-                null
-            }
-        audioPlayer.playQueue(
-            items = items,
-            startIndex = 0,
-            repeatCount = effectiveRepeat,
-            continuous = intent.advanceToNext,
-            startPositionMs = startPositionMs,
-            remainingRepeatsForCurrent = remainingRepeatsForCurrent,
-        )
-    }
-
     fun resumeRestorableSession() {
         val session = _restorableSession.value ?: return
+        if (session.intent.fullSurahAudioUrl != null) {
+            _restorableSession.value = null
+            _recitationFailure.value = null
+            viewModelScope.launch {
+                _surahNumber.value = session.intent.surahNumber
+                if (fullSurahPlayback.play(session.intent, session.positionMs, session.remainingRepeats)) {
+                    lastPlaybackRequest = session.intent
+                }
+            }
+            return
+        }
         val reciter = Reciter.Bundled.firstOrNull {
             it.id == session.intent.reciterId
         } ?: run {
@@ -822,13 +841,23 @@ class QuranReaderViewModel @Inject constructor(
                 reciter = reciter,
             ) ?: return@launch
 
-            startPreparedQueue(
+            fullSurahPlayback.startQueue(
                 items = items,
                 intent = resumeIntent,
                 startPositionMs = session.positionMs,
-                remainingRepeatsForCurrent = session.remainingRepeats,
+                remainingRepeats = session.remainingRepeats,
+                onAdvanceToNext = if (resumeIntent.advanceToNext) ::advanceToNextSurah else null,
             )
         }
+    }
+
+    /** Plays one provider recording through the app-wide player without ayah timing claims. */
+    fun playFullSurah(recording: FullSurahRecitation) {
+        val surahNumber = _surahNumber.value
+        val intent = fullSurahPlayback.start(recording, surahNumber) ?: return
+        _recitationFailure.value = null
+        _restorableSession.value = null
+        lastPlaybackRequest = intent
     }
 
     fun discardRestorableSession() {
@@ -838,6 +867,11 @@ class QuranReaderViewModel @Inject constructor(
 
     fun retryPlaybackAfterFailure() {
         val request = lastPlaybackRequest ?: return
+        if (request.fullSurahAudioUrl != null) {
+            _recitationFailure.value = null
+            fullSurahPlayback.play(request)
+            return
+        }
         val failedGlobal = _recitationFailure.value?.globalNumber
         val retryGlobals = retryGlobalNumbers(request.globalNumbers, failedGlobal)
         _recitationFailure.value = null

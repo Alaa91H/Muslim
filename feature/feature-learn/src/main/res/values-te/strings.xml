@@ -112,4 +112,5 @@
     <string name="learn_search_clear">శోధనను క్లియర్ చేయండి</string>
     <string name="learn_topic_zakat_fitr">జకాత్ అల్-ఫితర్</string>
     <string name="names_search_clear">శోధనను క్లియర్ చేయండి</string>
+    <string name="hajj_counter_progress">%1$d %2$d</string>
 </resources>

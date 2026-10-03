@@ -81,4 +81,5 @@
     <string name="nearby_mosques_map_action">Kaart</string>
     <string name="nearby_mosques_more_actions">Meer aksies</string>
     <string name="nearby_mosques_search_clear">Vee soektog uit</string>
+    <string name="nearby_mosques_unnamed">Moskee</string>
 </resources>

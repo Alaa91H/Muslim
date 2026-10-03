@@ -109,4 +109,5 @@
     <string name="funeral_will_cancel">Ikkanċella</string>
     <string name="learn_search_clear">Tiftix ċar</string>
     <string name="names_search_clear">Tiftix ċar</string>
+    <string name="hajj_counter_progress">%1$d ta’ %2$d</string>
 </resources>

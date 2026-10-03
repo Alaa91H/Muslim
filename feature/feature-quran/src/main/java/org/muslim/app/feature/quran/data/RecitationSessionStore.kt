@@ -15,6 +15,7 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import org.muslim.app.feature.quran.domain.QuranAyahIndex
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -30,6 +31,8 @@ data class RecitationSessionIntent(
     val continuous: Boolean,
     val advanceToNext: Boolean,
     val toEndOfQuran: Boolean,
+    /** Present for a whole-surah stream; never interpret its anchor as an ayah sync point. */
+    val fullSurahAudioUrl: String? = null,
 )
 
 @Serializable
@@ -48,6 +51,11 @@ internal fun PersistedRecitationSession.asRestorableOrNull(): PersistedRecitatio
     if (request.surahNumber !in 1..114) return null
     if (request.globalNumbers.isEmpty()) return null
     if (currentGlobalNumber !in request.globalNumbers) return null
+    request.fullSurahAudioUrl?.let { url ->
+        if (!RecitationStreamSourcePolicy.accepts(url, RecitationPlaybackScope.FullSurah)) return null
+        if (request.globalNumbers.size != 1 || currentGlobalNumber != request.globalNumbers.single()) return null
+        if (QuranAyahIndex.surahOf(currentGlobalNumber) != request.surahNumber) return null
+    }
     if (positionMs < 0L) return null
     if (remainingRepeats < 1) return null
     return this
@@ -168,7 +176,9 @@ class RecitationSessionRuntime @Inject constructor(
         state: PlaybackState,
     ) {
         val intent = activeIntent ?: return
-        val global = currentGlobalNumber ?: return
+        val global = currentGlobalNumber
+            ?: intent.fullSurahAudioUrl?.let { intent.globalNumbers.singleOrNull() }
+            ?: return
         if (global !in intent.globalNumbers || state == PlaybackState.Idle) return
 
         operationSequence += 1L

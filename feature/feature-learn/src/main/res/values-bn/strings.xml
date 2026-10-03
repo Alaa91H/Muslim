@@ -112,4 +112,5 @@
     <string name="learn_search_clear">সাফ অনুসন্ধান</string>
     <string name="learn_topic_zakat_fitr">জাকাতুল ফিতর</string>
     <string name="names_search_clear">সাফ অনুসন্ধান</string>
+    <string name="hajj_counter_progress">%2$d এর %1$d</string>
 </resources>

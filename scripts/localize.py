@@ -34,6 +34,7 @@ import re
 import sys
 import threading
 import time
+import unicodedata
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -150,6 +151,24 @@ def format_signature(text: str) -> collections.Counter[str]:
     return collections.Counter(TOKEN_RE.findall(text))
 
 
+def normalize_translation_comparison(text: str) -> str:
+    """Ignore punctuation/diacritics so a copied source cannot pass as translated."""
+    normalized = unicodedata.normalize("NFKC", TOKEN_RE.sub("", text)).casefold()
+    characters = []
+    for character in normalized:
+        if unicodedata.category(character).startswith("M"):
+            continue
+        characters.append(character if character.isalnum() else " ")
+    return " ".join("".join(characters).split())
+
+
+def is_source_copy(source: str, translated: str) -> bool:
+    if source.strip() == translated.strip():
+        return bool(source.strip())
+    normalized_source = normalize_translation_comparison(source)
+    return bool(normalized_source) and normalized_source == normalize_translation_comparison(translated)
+
+
 def untranslated_source_phrase(source: str, translated: str) -> str | None:
     """Find a copied English phrase outside familiar borrowed/product terms."""
     source_words = [
@@ -207,6 +226,36 @@ def restore(text: str, tokens: list[str]) -> str:
 # ---------------------------------------------------------------------------
 
 
+class TranslationRequestThrottle:
+    """Space provider calls globally so locale workers do not amplify HTTP 429s."""
+
+    def __init__(self, interval_seconds: float, monotonic=time.monotonic, sleep=time.sleep) -> None:
+        self._interval_seconds = max(0.0, interval_seconds)
+        self._monotonic = monotonic
+        self._sleep = sleep
+        self._lock = threading.Lock()
+        self._next_request_at = 0.0
+
+    def call(self, operation):
+        with self._lock:
+            delay = self._next_request_at - self._monotonic()
+            if delay > 0:
+                self._sleep(delay)
+            self._next_request_at = self._monotonic() + self._interval_seconds
+            return operation()
+
+    def cooldown(self, seconds: float) -> None:
+        """Share a provider-directed or exponential backoff across all locale workers."""
+        with self._lock:
+            self._next_request_at = max(
+                self._next_request_at,
+                self._monotonic() + max(0.0, seconds),
+            )
+
+
+_TRANSLATION_THROTTLE = TranslationRequestThrottle(interval_seconds=0.8)
+
+
 def translate_batch(texts: list[str], lang: str, source_lang: str = SOURCE_LANG) -> list[str]:
     """Translate a batch or fail closed; never return source text as a translation."""
     tl = LANG_ALIASES.get(lang, lang)
@@ -219,7 +268,9 @@ def translate_batch(texts: list[str], lang: str, source_lang: str = SOURCE_LANG)
     for attempt in range(MAX_RETRIES):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-            raw = urllib.request.urlopen(req, timeout=TIMEOUT).read().decode("utf-8")
+            raw = _TRANSLATION_THROTTLE.call(
+                lambda: urllib.request.urlopen(req, timeout=TIMEOUT).read().decode("utf-8"),
+            )
             data = json.loads(raw)
             joined = "".join(seg[0] for seg in data[0] if seg[0])
             parts = joined.split("\n")
@@ -241,13 +292,13 @@ def translate_batch(texts: list[str], lang: str, source_lang: str = SOURCE_LANG)
                     delay = float(retry_after) if retry_after else 10 * (2 ** attempt)
                 except (TypeError, ValueError):
                     delay = 10 * (2 ** attempt)
-                time.sleep(min(max(delay, 1.0), 120.0))
+                _TRANSLATION_THROTTLE.cooldown(min(max(delay, 1.0), 120.0))
         except Exception as e:
             if isinstance(e, RuntimeError):
                 raise
             last_error = f"{type(e).__name__}: {e}"
             if attempt < MAX_RETRIES - 1:
-                time.sleep(10 * (2 ** attempt))
+                _TRANSLATION_THROTTLE.cooldown(10 * (2 ** attempt))
     raise RuntimeError(
         f"Translation provider failed for language {lang} ({last_error}); no source fallback was written",
     )
@@ -336,7 +387,7 @@ def process_lang(res_dir: str, lang: str, strings: dict[str, str], cache: dict[s
         key = f"{lang}|{protected}"
         if key in cache:
             cached = cache[key]
-            if cached.strip() == text.strip() and text.strip():
+            if is_source_copy(text, cached):
                 raise RuntimeError(f"Untranslated source found in cache for {res_dir}/{lang}/{name}")
             out[name] = cached
             continue
@@ -361,7 +412,7 @@ def process_lang(res_dir: str, lang: str, strings: dict[str, str], cache: dict[s
                 continue
             raise RuntimeError(f"Unsafe placeholder translation for {res_dir}/{lang}/{name}")
         restored = restore(tr, tokens)
-        if restored.strip() == strings[name].strip() and strings[name].strip():
+        if is_source_copy(strings[name], restored):
             if allow_incomplete:
                 print(f"Skipped untranslated source value: {res_dir}/{lang}/{name}", flush=True)
                 continue
@@ -470,13 +521,20 @@ def check_locales(res_dirs: list[str] | None = None) -> int:
                     problem(f"EMPTY {res_dir}/{lang}/{name}")
                     continue
                 is_english = lang == f"values-{SOURCE_LANG}"
+                arabic_baseline_copy = (
+                    lang != "values-ar"
+                    and name in strings_ar
+                    and is_source_copy(strings_ar[name], got[name])
+                )
                 if (
                     not is_english
                     and len(src.split()) >= 2
                     and any(character.isalpha() for character in src)
-                    and got[name].strip() == src.strip()
+                    and is_source_copy(src, got[name])
                 ):
                     problem(f"UNTRANSLATED {res_dir}/{lang}/{name}")
+                if arabic_baseline_copy:
+                    problem(f"UNTRANSLATED_BASE {res_dir}/{lang}/{name}")
                 if not is_english and got[name].strip() != src.strip():
                     copied_phrase = untranslated_source_phrase(src, got[name])
                     if copied_phrase is not None:

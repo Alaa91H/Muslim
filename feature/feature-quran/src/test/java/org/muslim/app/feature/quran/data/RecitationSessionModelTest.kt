@@ -109,4 +109,28 @@ class RecitationSessionModelTest {
 
         assertThat(restored).isEqualTo(original)
     }
+
+    @Test
+    fun `full-surah session restores only a trusted recording URL and its surah anchor`() {
+        val anchor = org.muslim.app.feature.quran.domain.QuranAyahIndex.globalNumber(3, 1)
+        val fullSurah = session(
+            globals = listOf(anchor),
+            current = anchor,
+        ).copy(
+            intent = session(globals = listOf(anchor), current = anchor).intent.copy(
+                reciterId = "mp3quran:231:231",
+                surahNumber = 3,
+                fullSurahAudioUrl = "https://server6.mp3quran.net/hazza/003.mp3",
+            ),
+            currentGlobalNumber = anchor,
+        )
+
+        assertThat(fullSurah.asRestorableOrNull()).isEqualTo(fullSurah)
+        assertThat(fullSurah.remainingGlobalNumbers()).containsExactly(anchor)
+        assertThat(
+            fullSurah.copy(
+                intent = fullSurah.intent.copy(fullSurahAudioUrl = "https://attacker.example/003.mp3"),
+            ).asRestorableOrNull(),
+        ).isNull()
+    }
 }

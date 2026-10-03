@@ -81,4 +81,5 @@
     <string name="nearby_mosques_map_action">Karte</string>
     <string name="nearby_mosques_more_actions">Vairāk darbību</string>
     <string name="nearby_mosques_search_clear">Notīrīt meklēšanu</string>
+    <string name="nearby_mosques_unnamed">Mošeja</string>
 </resources>

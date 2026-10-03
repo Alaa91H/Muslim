@@ -200,4 +200,8 @@
     <string name="settings_ornament_minimal">Minimal</string>
     <string name="settings_search_clear">Qhana thaqhaña</string>
     <string name="settings_updates_last_successful">Qhipa uñakipaña: %1$s</string>
+    <string name="accessibility_title">Centro de Accesibilidad uka tuqita</string>
+    <string name="notif_category_family">Familian jakawipa</string>
+    <string name="voice_listening">Ist\'asax...</string>
+    <string name="voice_service_unavailable">Arsu uñt’ayañax janiw aka dispositivonx utjkiti.</string>
 </resources>

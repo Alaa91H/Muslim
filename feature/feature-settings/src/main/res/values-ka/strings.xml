@@ -201,4 +201,8 @@
     <string name="settings_ornament_intensity_off">გამორთულია</string>
     <string name="settings_search_clear">ძიების გასუფთავება</string>
     <string name="settings_updates_last_successful">ბოლო შემოწმება: %1$s</string>
+    <string name="accessibility_title">ხელმისაწვდომობის ცენტრი</string>
+    <string name="notif_category_family">ოჯახური ცხოვრება</string>
+    <string name="voice_listening">მოსმენა…</string>
+    <string name="voice_service_unavailable">ამ მოწყობილობაზე მეტყველების ამოცნობა მიუწვდომელია.</string>
 </resources>

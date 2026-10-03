@@ -81,4 +81,5 @@
     <string name="nearby_mosques_map_action">Carte</string>
     <string name="nearby_mosques_more_actions">Plus de propositions</string>
     <string name="nearby_mosques_search_clear">Effacer la recherche</string>
+    <string name="nearby_mosques_unnamed">Mosquée</string>
 </resources>

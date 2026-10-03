@@ -111,4 +111,8 @@
     <string name="learn_search_clear">Qhana thaqhaña</string>
     <string name="learn_topic_zakat_fitr">Zakat al-Fitr ukax mä juk’a pachanakanwa</string>
     <string name="names_search_clear">Qhana thaqhaña</string>
+    <string name="funeral_will_title">Funerarios &amp; Voluntad Islámica ukanak luraña</string>
+    <string name="hajj_counter_progress">%1$d ukat %2$d</string>
+    <string name="noorani_title">Noorani Qaida &amp; Nayrïr Pasonaka</string>
+    <string name="traveler_title">Viajero &amp; Expat Esquina ukax mä jach’a uñacht’äwiwa</string>
 </resources>

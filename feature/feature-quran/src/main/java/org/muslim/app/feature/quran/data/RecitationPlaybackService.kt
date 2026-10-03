@@ -32,7 +32,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.QuranAyahIndex

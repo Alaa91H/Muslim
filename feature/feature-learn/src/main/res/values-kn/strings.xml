@@ -111,4 +111,5 @@
     <string name="learn_search_clear">ಹುಡುಕಾಟವನ್ನು ತೆರವುಗೊಳಿಸಿ</string>
     <string name="learn_topic_zakat_fitr">ಝಕಾತ್ ಅಲ್-ಫಿತ್ರ್</string>
     <string name="names_search_clear">ಹುಡುಕಾಟವನ್ನು ತೆರವುಗೊಳಿಸಿ</string>
+    <string name="hajj_counter_progress">%1$d ಆಫ್ %2$d</string>
 </resources>

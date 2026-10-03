@@ -81,4 +81,5 @@
     <string name="nearby_mosques_map_action">Kort</string>
     <string name="nearby_mosques_more_actions">Fleiri aðgerðir</string>
     <string name="nearby_mosques_search_clear">Hreinsa leit</string>
+    <string name="nearby_mosques_unnamed">Moska</string>
 </resources>

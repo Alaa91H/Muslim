@@ -82,4 +82,5 @@
     <string name="nearby_mosques_more_actions">Más acciones</string>
     <string name="nearby_mosques_search_clear">Borrar búsqueda</string>
     <string name="qibla_tab_qibla">Quibla</string>
+    <string name="nearby_mosques_unnamed">Mezquita</string>
 </resources>

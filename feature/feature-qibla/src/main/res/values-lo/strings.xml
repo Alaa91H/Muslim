@@ -81,4 +81,5 @@
     <string name="nearby_mosques_map_action">ແຜນທີ່</string>
     <string name="nearby_mosques_more_actions">ການປະຕິບັດເພີ່ມເຕີມ</string>
     <string name="nearby_mosques_search_clear">ລຶບການຊອກຫາ</string>
+    <string name="nearby_mosques_unnamed">ວັດ</string>
 </resources>

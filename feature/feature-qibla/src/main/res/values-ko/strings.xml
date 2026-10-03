@@ -82,4 +82,5 @@
     <string name="nearby_mosques_more_actions">추가 작업</string>
     <string name="nearby_mosques_search_clear">검색 지우기</string>
     <string name="qibla_tab_qibla">키블라</string>
+    <string name="nearby_mosques_unnamed">모스크</string>
 </resources>

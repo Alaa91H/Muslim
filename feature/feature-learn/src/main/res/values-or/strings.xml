@@ -112,4 +112,5 @@
     <string name="learn_search_clear">ସନ୍ଧାନ ସଫା କରନ୍ତୁ |</string>
     <string name="learn_topic_zakat_fitr">ଜାକତ ଅଲ-ଫିଟର |</string>
     <string name="names_search_clear">ସନ୍ଧାନ ସଫା କରନ୍ତୁ |</string>
+    <string name="hajj_counter_progress">%2$d ର %1$d |</string>
 </resources>

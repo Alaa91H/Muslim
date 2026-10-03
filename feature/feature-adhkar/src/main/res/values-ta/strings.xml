@@ -76,4 +76,5 @@
     <string name="adhkar_reader_next">அடுத்து</string>
     <string name="adhkar_reader_previous">முந்தைய</string>
     <string name="adhkar_search_clear">தெளிவான தேடல்</string>
+    <string name="adhkar_category_mosque">மசூதி</string>
 </resources>

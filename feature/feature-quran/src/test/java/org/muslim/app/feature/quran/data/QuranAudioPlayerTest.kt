@@ -149,6 +149,59 @@ class QuranAudioPlayerTest {
     }
 
     @Test
+    fun `full-surah source uses shared player without publishing a false current ayah`() {
+        val factory = FakeFactory()
+        val player = player(factory)
+        val fullSurah = RecitationQueueItem(
+            file = File("remote-full-surah.mp3"),
+            globalNumber = 8,
+            streamUrl = "https://server6.mp3quran.net/akdr/008.mp3",
+            playbackScope = RecitationPlaybackScope.FullSurah,
+        )
+
+        player.playQueue(listOf(fullSurah), startIndex = 0, repeatCount = 1)
+
+        assertThat(player.playbackScope.value).isEqualTo(RecitationPlaybackScope.FullSurah)
+        assertThat(player.currentAyah.value).isNull()
+        factory.engines.single().firePrepared()
+        assertThat(player.playbackState.value).isEqualTo(PlaybackState.Playing)
+    }
+
+    @Test
+    fun `stream host must match the Quran queue playback scope`() {
+        assertThat(
+            RecitationStreamSourcePolicy.accepts(
+                "https://server6.mp3quran.net/akdr/008.mp3",
+                RecitationPlaybackScope.FullSurah,
+            ),
+        ).isTrue()
+        assertThat(
+            RecitationStreamSourcePolicy.accepts(
+                "https://everyayah.com/data/reader/001001.mp3",
+                RecitationPlaybackScope.Ayah,
+            ),
+        ).isTrue()
+        assertThat(
+            RecitationStreamSourcePolicy.accepts(
+                "https://server.mp3quran.net.evil.example/008.mp3",
+                RecitationPlaybackScope.FullSurah,
+            ),
+        ).isFalse()
+        assertThat(
+            RecitationStreamSourcePolicy.accepts(
+                "http://server6.mp3quran.net/akdr/008.mp3",
+                RecitationPlaybackScope.FullSurah,
+            ),
+        ).isFalse()
+        assertThat(
+            RecitationStreamSourcePolicy.accepts(
+                "https://server6.mp3quran.net/akdr/008.mp3",
+                RecitationPlaybackScope.Ayah,
+            ),
+        ).isFalse()
+    }
+
+    @Test
     fun `snapshot retains queue index repeat state and position for handoff`() {
         val player = player(FakeFactory())
         player.playQueue(listOf(item(1), item(2), item(3)), startIndex = 1, repeatCount = 3, startPositionMs = 875L, remainingRepeatsForCurrent = 2)

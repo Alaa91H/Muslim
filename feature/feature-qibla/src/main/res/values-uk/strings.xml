@@ -82,4 +82,5 @@
     <string name="nearby_mosques_more_actions">Більше дій</string>
     <string name="nearby_mosques_search_clear">Очистити пошук</string>
     <string name="qibla_tab_qibla">Кібла</string>
+    <string name="nearby_mosques_unnamed">мечеть</string>
 </resources>

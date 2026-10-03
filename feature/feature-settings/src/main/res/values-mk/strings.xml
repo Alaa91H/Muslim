@@ -201,4 +201,8 @@
     <string name="settings_ornament_intensity_off">Исклучено</string>
     <string name="settings_search_clear">Исчистете го пребарувањето</string>
     <string name="settings_updates_last_successful">Последна проверка: %1$s</string>
+    <string name="accessibility_title">Центар за пристапност</string>
+    <string name="notif_category_family">Семеен живот</string>
+    <string name="voice_listening">Се слуша…</string>
+    <string name="voice_service_unavailable">Препознавањето говор е недостапно на овој уред.</string>
 </resources>
