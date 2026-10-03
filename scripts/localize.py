@@ -163,6 +163,8 @@ def normalize_translation_comparison(text: str) -> str:
 
 
 def is_source_copy(source: str, translated: str) -> bool:
+    if source.strip() == translated.strip():
+        return bool(source.strip())
     normalized_source = normalize_translation_comparison(source)
     return bool(normalized_source) and normalized_source == normalize_translation_comparison(translated)
 

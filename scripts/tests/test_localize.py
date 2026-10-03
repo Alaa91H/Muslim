@@ -238,6 +238,7 @@ class LocalizationQualityTests(unittest.TestCase):
 
     def test_source_copy_detection_ignores_format_tokens_and_percent_symbols(self) -> None:
         self.assertFalse(localize.is_source_copy("%1$d٪", "%1$d%%"))
+        self.assertTrue(localize.is_source_copy("%1$d%%", "%1$d%%"))
 
     def test_mixed_language_detector_finds_a_copied_source_phrase(self) -> None:
         source = "Coordinates are never sent to any external server that stores user data."
