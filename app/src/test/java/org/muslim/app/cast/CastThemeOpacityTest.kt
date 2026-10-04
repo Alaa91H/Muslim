@@ -32,7 +32,12 @@ class CastThemeOpacityTest {
         val background = resolveColor(castContext, android.R.attr.colorBackground)
         assertEquals(Color.parseColor("#FF176B45"), primary)
         assertEquals(Color.WHITE, background)
-        assertNotNull(androidx.mediarouter.app.MediaRouteButton(castContext) as View)
+        val routeButton = androidx.mediarouter.app.MediaRouteButton(castContext) as View
+        com.google.android.gms.cast.framework.CastButtonFactory.setUpMediaRouteButton(
+            castContext,
+            routeButton as androidx.mediarouter.app.MediaRouteButton,
+        )
+        assertNotNull(routeButton)
     }
 
     @Test
