@@ -14,6 +14,9 @@ logcat_pid=$!
 gradle_pid=""
 fixed_clock_original_device_epoch=""
 fixed_clock_started_host_epoch=""
+fixed_screenshot_epoch=""
+fixed_screenshot_window_end=""
+fixed_screenshot_date='093015002026.00'
 restore_fixed_clock() {
     [ -n "$fixed_clock_original_device_epoch" ] || return 0
     local now_host_epoch restore_epoch restore_date
@@ -28,7 +31,26 @@ start_fixed_clock() {
     fixed_clock_original_device_epoch="$(adb shell date -u +%s | tr -d '\r')"
     fixed_clock_started_host_epoch="$(date -u +%s)"
     [[ "$fixed_clock_original_device_epoch" =~ ^[0-9]+$ ]] || return 1
-    adb shell su 0 date -u 093015002026.00
+    fixed_screenshot_epoch="$(date -u -d '2026-09-30T15:00:00Z' +%s)"
+    fixed_screenshot_window_end=$((fixed_screenshot_epoch + 24 * 60 * 60))
+    adb shell su 0 date -u "$fixed_screenshot_date"
+}
+ensure_fixed_clock() {
+    [ -n "$fixed_screenshot_epoch" ] || return 0
+    local device_epoch
+    device_epoch="$(adb shell date -u +%s | tr -d '\r')"
+    if [[ "$device_epoch" =~ ^[0-9]+$ ]] &&
+        ((device_epoch >= fixed_screenshot_epoch && device_epoch < fixed_screenshot_window_end)); then
+        return 0
+    fi
+    adb shell su 0 date -u "$fixed_screenshot_date" || return 1
+    device_epoch="$(adb shell date -u +%s | tr -d '\r')"
+    if [[ ! "$device_epoch" =~ ^[0-9]+$ ]] ||
+        ((device_epoch < fixed_screenshot_epoch || device_epoch >= fixed_screenshot_window_end)); then
+        echo "Screenshot clock revalidation failed: expected $fixed_screenshot_epoch..$fixed_screenshot_window_end, observed $device_epoch"
+        return 1
+    fi
+    return 0
 }
 trap 'restore_fixed_clock; kill "$logcat_pid" ${gradle_pid:+"$gradle_pid"} 2>/dev/null || true' EXIT INT TERM
 status=0
@@ -49,6 +71,10 @@ pull_screenshots() {
 run_batch() {
     local batch="$1"
     shift
+    if ! ensure_fixed_clock; then
+        status=1
+        return 1
+    fi
     free -m >> artifacts/emulator-diagnostics/host-memory.txt
     ./gradlew :app:connectedDebugAndroidTest --max-workers=2 \
         '-Dorg.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8 -Duser.language=en -Duser.country=US' \
@@ -102,9 +128,9 @@ else
     status=1
 fi
 
-# Set the deterministic date once for the complete screenshot matrix. Device
-# wall time naturally advances after the set; repeating the jump per capture
-# triggers Android 16 time-usage churn and can destabilize the ADB transport.
+# Set the deterministic date before the matrix and revalidate it once per
+# Gradle batch. Avoid per-capture jumps, which trigger Android 16 time-usage
+# churn and can destabilize the ADB transport.
 # Reinstall between 24-case width/screen groups to bound retained Activity/graphics state.
 # Every configured case still runs; failures remain failures and are not retried away.
 if [ "$status" = 0 ] && device_ready; then

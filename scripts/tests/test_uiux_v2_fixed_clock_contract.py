@@ -19,6 +19,13 @@ class FixedClockContractTest(unittest.TestCase):
         self.assertIn("uiux.fixedClockManaged=true", exporter)
         self.assertEqual(exporter.count("093015002026.00"), 1)
 
+    def test_each_screenshot_batch_revalidates_managed_clock_before_gradle(self):
+        exporter = (ROOT / "scripts/capture_uiux_v2_artifacts.sh").read_text(encoding="utf-8")
+        run_batch = exporter.split("run_batch() {", 1)[1].split("\n}", 1)[0]
+
+        self.assertIn("ensure_fixed_clock", run_batch)
+        self.assertLess(run_batch.index("ensure_fixed_clock"), run_batch.index("./gradlew"))
+
 
 if __name__ == "__main__":
     unittest.main()
