@@ -60,6 +60,48 @@ class QuranCastPayloadTest {
     }
 
     @Test
+    fun `cast sequence key ignores envelope fields and includes display metadata`() {
+        val payload = QuranCastPayload(
+            sessionId = "metadata-session",
+            sequence = 1,
+            timestampEpochMs = 1_800_000_000_000,
+            languageTag = "en",
+            surahNumber = 2,
+            surahArabicName = "البقرة",
+            surahLocalizedName = "The Cow",
+            totalAyahs = 286,
+            revelationType = "Medinan",
+            ayahNumber = 255,
+            globalAyahNumber = 262,
+            reciterName = "Reciter",
+            reciterId = "reciter-1",
+            audioUrl = "https://example.org/002255.mp3",
+            durationMs = 5_000L,
+            positionMs = 1_000L,
+            playbackState = CastPlaybackState.PLAYING,
+            repeatCount = 1,
+            remainingRepeats = 1,
+            queueGlobalNumbers = listOf(262),
+            queueIndex = 0,
+            arabicAyah = "آية",
+            translation = null,
+            tafsir = emptyList(),
+            prayerLocation = null,
+            prayerTimes = emptyList(),
+        )
+
+        val nextEnvelope = payload.copy(sequence = 2, timestampEpochMs = 1_800_000_000_001)
+        val translated = payload.copy(translation = CastText("Translation", "Source", "en"))
+        val tafsirAdded = payload.copy(tafsir = listOf(CastText("Tafsir", "Source", "en")))
+        val prayerTimesAdded = payload.copy(prayerTimes = listOf(CastPrayerTime("Fajr", "05:00")))
+
+        assertThat(nextEnvelope.sequenceContentKey()).isEqualTo(payload.sequenceContentKey())
+        assertThat(translated.sequenceContentKey()).isNotEqualTo(payload.sequenceContentKey())
+        assertThat(tafsirAdded.sequenceContentKey()).isNotEqualTo(payload.sequenceContentKey())
+        assertThat(prayerTimesAdded.sequenceContentKey()).isNotEqualTo(payload.sequenceContentKey())
+    }
+
+    @Test
     fun `round trip permits an audio only cast when no translation is installed`() {
         val payload = QuranCastPayload(
             sessionId = "session-audio-only",

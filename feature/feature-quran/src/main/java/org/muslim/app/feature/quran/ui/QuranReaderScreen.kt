@@ -419,11 +419,9 @@ fun QuranReaderScreen(
     val recitationSnapshot = viewModel.recitationPlaybackSnapshot
     val castAyah = playingAyah.takeIf { playbackState == PlaybackState.Playing || playbackState == PlaybackState.Paused }
     val castSessionId = rememberCastSessionId(context)
-    val castSequence = rememberCastSequence(castSessionId, castAyah?.globalNumber, positionMs, playbackState)
-    val castPayload = remember(
+    val castPayloadContent = remember(
         castAyah, selectedReciter, durationMs, supplements, supplementLanguage,
-        castPrayerSnapshot, castSequence, positionMs, playbackState,
-        recitationSnapshot, state.surah,
+        castPrayerSnapshot, positionMs, playbackState, recitationSnapshot, state.surah,
     ) {
         QuranCastMapper.map(QuranCastMappingInput(
             ayah = castAyah,
@@ -431,8 +429,8 @@ fun QuranReaderScreen(
             localizedSurahName = state.surah?.englishName ?: state.surah?.let { "Surah ${it.number}" },
             reciter = selectedReciter,
             sessionId = castSessionId,
-            sequence = castSequence,
-            timestampEpochMs = System.currentTimeMillis(),
+            sequence = 0L,
+            timestampEpochMs = 1L,
             positionMs = positionMs,
             playbackState = playbackState,
             durationMs = durationMs.takeIf { playingAyah?.globalNumber == castAyah?.globalNumber } ?: 0L,
@@ -443,6 +441,10 @@ fun QuranReaderScreen(
             prayerLocation = castPrayerSnapshot?.location,
             prayerTimes = castPrayerSnapshot?.times.orEmpty(),
         ))
+    }
+    val castSequence = rememberCastSequence(castSessionId, castPayloadContent)
+    val castPayload = remember(castPayloadContent, castSequence) {
+        castPayloadContent?.copy(sequence = castSequence, timestampEpochMs = System.currentTimeMillis())
     }
     LaunchedEffect(castPayload) { castPayloadSink(castPayload) }
     val castPlayablePayload = remember(castPayload, playbackState, castConnected) {

@@ -30,9 +30,9 @@ internal fun rememberCastSessionId(context: Context): String = remember(context)
 }
 
 @Composable
-internal fun rememberCastSequence(sessionId: String, globalAyah: Int?, positionMs: Long, playbackState: Any): Long {
+internal fun rememberCastSequence(sessionId: String, payload: QuranCastPayload?): Long {
     val sequence = remember(sessionId) { mutableLongStateOf(0L) }
-    LaunchedEffect(globalAyah, positionMs, playbackState) { sequence.longValue += 1L }
+    LaunchedEffect(sessionId, payload?.sequenceContentKey()) { sequence.longValue += 1L }
     return sequence.longValue
 }
 

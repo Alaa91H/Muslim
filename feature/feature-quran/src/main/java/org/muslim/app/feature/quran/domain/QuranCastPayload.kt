@@ -58,6 +58,9 @@ data class QuranCastPayload(
         require(prayerTimes.all { it.name.isNotBlank() && it.localTime.isNotBlank() })
     }
 
+    /** Stable content key for ordering sender updates without envelope-only changes. */
+    fun sequenceContentKey(): QuranCastPayload = copy(sequence = 0L, timestampEpochMs = 1L)
+
     companion object {
         const val CURRENT_SCHEMA_VERSION = 2
 
