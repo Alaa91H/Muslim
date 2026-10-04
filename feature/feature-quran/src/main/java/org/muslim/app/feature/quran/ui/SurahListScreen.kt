@@ -587,6 +587,7 @@ private fun SurahRow(
                 text = surah.arabicName,
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.SemiBold,
+                color = MaterialTheme.colorScheme.onSurface,
             )
             Text(
                 text = buildString {

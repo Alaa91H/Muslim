@@ -11,6 +11,7 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
@@ -58,11 +59,12 @@ fun AppTheme(
         }
         else -> appPaletteColorScheme(colorPalette, darkTheme)
     }
-    val colorScheme = if (amoledBlack && darkTheme) {
+    val adjustedSurfaceScheme = if (amoledBlack && darkTheme) {
         baseColorScheme.withAmoledBlackSurfaces()
     } else {
         baseColorScheme
     }
+    val colorScheme = adjustedSurfaceScheme.withAutomaticTextContrast()
 
     CompositionLocalProvider(
         LocalAccessibilityVisuals provides AccessibilityVisuals(accessibilityReadingMode),
@@ -105,6 +107,92 @@ internal fun ColorScheme.withAmoledBlackSurfaces(): ColorScheme = copy(
     outlineVariant = Color(0xFF242424),
 )
 
+/**
+ * Corrects foreground roles centrally so wallpaper colors and curated accents
+ * remain readable wherever features use Material text and icon colors.
+ */
+internal fun ColorScheme.withAutomaticTextContrast(): ColorScheme {
+    val contentSurfaces = listOf(
+        background,
+        surface,
+        surfaceVariant,
+        surfaceDim,
+        surfaceBright,
+        surfaceContainerLowest,
+        surfaceContainerLow,
+        surfaceContainer,
+        surfaceContainerHigh,
+        surfaceContainerHighest,
+    )
+    fun Color.readableOn(backgrounds: List<Color>): Color = withMinimumContrast(backgrounds)
+
+    val adjustedPrimary = primary.readableOn(contentSurfaces)
+    val adjustedSecondary = secondary.readableOn(contentSurfaces)
+    val adjustedTertiary = tertiary.readableOn(contentSurfaces)
+    val adjustedError = error.readableOn(contentSurfaces)
+
+    return copy(
+        primary = adjustedPrimary,
+        onPrimary = onPrimary.withMinimumContrast(adjustedPrimary),
+        onPrimaryContainer = onPrimaryContainer.withMinimumContrast(primaryContainer),
+        secondary = adjustedSecondary,
+        onSecondary = onSecondary.withMinimumContrast(adjustedSecondary),
+        onSecondaryContainer = onSecondaryContainer.withMinimumContrast(secondaryContainer),
+        tertiary = adjustedTertiary,
+        onTertiary = onTertiary.withMinimumContrast(adjustedTertiary),
+        onTertiaryContainer = onTertiaryContainer.withMinimumContrast(tertiaryContainer),
+        error = adjustedError,
+        onError = onError.withMinimumContrast(adjustedError),
+        onErrorContainer = onErrorContainer.withMinimumContrast(errorContainer),
+        onBackground = onBackground.withMinimumContrast(background),
+        onSurface = onSurface.readableOn(contentSurfaces),
+        onSurfaceVariant = onSurfaceVariant.readableOn(
+            listOf(surfaceVariant, surfaceContainerHigh, surfaceContainerHighest),
+        ),
+        inversePrimary = inversePrimary.withMinimumContrast(inverseSurface),
+        inverseOnSurface = inverseOnSurface.withMinimumContrast(inverseSurface),
+    )
+}
+
+private const val MINIMUM_TEXT_CONTRAST = 4.5f
+
+private fun Color.withMinimumContrast(background: Color): Color =
+    withMinimumContrast(listOf(background))
+
+private fun Color.withMinimumContrast(backgrounds: List<Color>): Color {
+    if (backgrounds.all { contrastRatio(this, it) >= MINIMUM_TEXT_CONTRAST }) return this
+
+    val targets = listOf(Color.Black, Color.White)
+    val candidates = targets.mapNotNull { target ->
+        if (backgrounds.any { contrastRatio(target, it) < MINIMUM_TEXT_CONTRAST }) return@mapNotNull null
+        var low = 0f
+        var high = 1f
+        repeat(20) {
+            val midpoint = (low + high) / 2f
+            val candidate = lerp(this, target, midpoint)
+            if (backgrounds.all { contrastRatio(candidate, it) >= MINIMUM_TEXT_CONTRAST }) {
+                high = midpoint
+            } else {
+                low = midpoint
+            }
+        }
+        lerp(this, target, high)
+    }
+    return candidates.minByOrNull { candidate -> colorDistance(this, candidate) }
+        ?: targets.maxBy { target -> backgrounds.minOf { contrastRatio(target, it) } }
+}
+
+private fun colorDistance(first: Color, second: Color): Float =
+    (first.red - second.red) * (first.red - second.red) +
+        (first.green - second.green) * (first.green - second.green) +
+        (first.blue - second.blue) * (first.blue - second.blue)
+
+private fun contrastRatio(first: Color, second: Color): Float {
+    val lighter = maxOf(first.luminance(), second.luminance())
+    val darker = minOf(first.luminance(), second.luminance())
+    return (lighter + 0.05f) / (darker + 0.05f)
+}
+
 /** Compact swatches used by the Appearance screen without duplicating theme hex values there. */
 data class PalettePreviewColors(
     val primary: Color,
@@ -120,7 +208,8 @@ fun previewColorsForPalette(
     amoledBlack: Boolean = false,
 ): PalettePreviewColors {
     val base = appPaletteColorScheme(palette, darkTheme)
-    val scheme = if (amoledBlack && darkTheme) base.withAmoledBlackSurfaces() else base
+    val surfaceScheme = if (amoledBlack && darkTheme) base.withAmoledBlackSurfaces() else base
+    val scheme = surfaceScheme.withAutomaticTextContrast()
     return PalettePreviewColors(
         primary = scheme.primary,
         secondary = scheme.secondary,

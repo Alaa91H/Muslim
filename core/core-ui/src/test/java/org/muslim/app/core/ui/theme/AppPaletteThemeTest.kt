@@ -26,7 +26,7 @@ class AppPaletteThemeTest {
     fun `palette primary and surface content colors remain readable`() {
         AppColorPalette.entries.forEach { palette ->
             listOf(false, true).forEach { darkTheme ->
-                val scheme = appPaletteColorScheme(palette, darkTheme)
+                val scheme = appPaletteColorScheme(palette, darkTheme).withAutomaticTextContrast()
                 assertTrue(
                     palette.name + " primary contrast",
                     contrastRatio(scheme.primary, scheme.onPrimary) >= 4.5f,
@@ -88,7 +88,7 @@ class AppPaletteThemeTest {
     fun `preview swatches are sourced from the real palette scheme`() {
         AppColorPalette.entries.forEach { palette ->
             listOf(false, true).forEach { darkTheme ->
-                val scheme = appPaletteColorScheme(palette, darkTheme)
+                val scheme = appPaletteColorScheme(palette, darkTheme).withAutomaticTextContrast()
                 val preview = previewColorsForPalette(palette, darkTheme)
 
                 assertEquals(scheme.primary, preview.primary)
