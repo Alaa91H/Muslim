@@ -143,4 +143,16 @@
     <string name="quran_reciter_picker_title">Sarudza reciter</string>
     <string name="quran_reciter_search_hint">Tsvaga vaverengi nemazita, maitiro, kana mhando…</string>
     <string name="quran_reciter_no_results">Hapana vaverengi vanofanana netsvakiridzo iyi</string>
+    <string name="quran_meaning_catalog_title">Korani zvinoreva shanduro</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir mumutauro wayo wekutanga</string>
+    <string name="quran_tafsir_translation_catalog_title">Yakaturikirwa tafsir</string>
+    <string name="quran_text_catalog_empty">Kwakabva hakuna mashandiro emutauro uyu. Izvi hazvireve kuti kufukidzwa kwakakwana.</string>
+    <string name="quran_text_catalog_refresh">Refresh source catalog</string>
+    <string name="quran_text_catalog_review_missing">Ongororo inodiwa kana edition zvinyorwa zvisipo; download iyi haisipo.</string>
+    <string name="quran_text_catalog_source">Zvinyorwa: QuranEnc</string>
+    <string name="quran_text_catalog_title">Manyoro eKorani nemutauro, tsime, uye mhando</string>
+    <string name="quran_text_pack_import">Ngenisa mavara paki (JSON)</string>
+    <string name="quran_text_pack_import_failed">Mavara eQuran text pack haana kukwanisa kusimbiswa kana kuiswa.</string>
+    <string name="quran_text_pack_import_success">Yakasimbiswa uye yakaiswa iyo yakazara Quran zvinyorwa pack.</string>
+    <string name="quran_text_pack_importing">Kusimbisa nekuisa...</string>
 </resources>

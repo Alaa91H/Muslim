@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">పేరు, శైలి లేదా నాణ్యత ద్వారా పారాయణాలను శోధించండి...</string>
     <string name="quran_reciter_no_results">ఈ శోధనకు సరిపోలిన పారాయణాలు లేవు</string>
     <string name="quran_tab_bookmarks">బుక్‌మార్క్‌లు</string>
+    <string name="quran_meaning_catalog_title">ఖురాన్ అంటే అనువాదాలు</string>
+    <string name="quran_original_tafsir_catalog_title">తఫ్సీర్ అసలు భాషలో</string>
+    <string name="quran_tafsir_translation_catalog_title">తఫ్సీర్ అనువదించారు</string>
+    <string name="quran_text_catalog_empty">మూలం ఈ భాష కోసం ఏ రచనలను జాబితా చేయలేదు. కవరేజ్ పూర్తయిందని దీని అర్థం కాదు.</string>
+    <string name="quran_text_catalog_refresh">సోర్స్ కేటలాగ్‌ని రిఫ్రెష్ చేయండి</string>
+    <string name="quran_text_catalog_review_missing">అవసరమైన సమీక్ష లేదా ఎడిషన్ వివరాలు లేవు; ఈ డౌన్‌లోడ్ అందుబాటులో లేదు.</string>
+    <string name="quran_text_catalog_source">మూలాలు: ఖురాన్Enc</string>
+    <string name="quran_text_catalog_title">భాష, మూలం మరియు రకం ద్వారా ఖురాన్ గ్రంథాలు</string>
+    <string name="quran_text_pack_import">టెక్స్ట్ ప్యాక్ (JSON) దిగుమతి చేయండి</string>
+    <string name="quran_text_pack_import_failed">ఖురాన్ టెక్స్ట్ ప్యాక్ ధృవీకరించబడలేదు లేదా ఇన్‌స్టాల్ చేయబడలేదు.</string>
+    <string name="quran_text_pack_import_success">పూర్తి ఖురాన్ టెక్స్ట్ ప్యాక్ ధృవీకరించబడింది మరియు ఇన్‌స్టాల్ చేయబడింది.</string>
+    <string name="quran_text_pack_importing">ధృవీకరిస్తోంది మరియు ఇన్‌స్టాల్ చేస్తోంది…</string>
 </resources>

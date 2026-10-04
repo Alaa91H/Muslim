@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Ada, üsluba və ya keyfiyyətə görə oxuyanları axtarın...</string>
     <string name="quran_reciter_no_results">Bu axtarışa uyğun heç bir oxuyan yoxdur</string>
     <string name="quran_tab_bookmarks">Əlfəcinlər</string>
+    <string name="quran_meaning_catalog_title">Quran mənası tərcümələri</string>
+    <string name="quran_original_tafsir_catalog_title">Təfsir öz orijinal dilində</string>
+    <string name="quran_tafsir_translation_catalog_title">Tərcümə edilmiş təfsir</string>
+    <string name="quran_text_catalog_empty">Mənbədə bu dil üçün heç bir əsər göstərilmir. Bu, əhatə dairəsinin tam olduğu demək deyil.</string>
+    <string name="quran_text_catalog_refresh">Mənbə kataloqunu yeniləyin</string>
+    <string name="quran_text_catalog_review_missing">Tələb olunan baxış və ya nəşr təfərrüatları yoxdur; bu yükləmə əlçatan deyil.</string>
+    <string name="quran_text_catalog_source">Mənbələr: QuranEnc</string>
+    <string name="quran_text_catalog_title">Quran mətnləri dil, mənbə və növə görə</string>
+    <string name="quran_text_pack_import">Mətn paketini idxal edin (JSON)</string>
+    <string name="quran_text_pack_import_failed">Quran mətn paketini yoxlamaq və ya quraşdırmaq mümkün olmadı.</string>
+    <string name="quran_text_pack_importing">Doğrulanır və quraşdırılır...</string>
+    <string name="quran_text_pack_import_success">Tam Quran mətn paketi təsdiqləndi və quraşdırıldı.</string>
 </resources>

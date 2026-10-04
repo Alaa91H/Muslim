@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Ohcat lohkkiid nama, stiilla dahje kvalitehta mielde...</string>
     <string name="quran_reciter_no_results">Ii oktage lohkki heive dán ohcamii</string>
     <string name="quran_tab_bookmarks">Girjemearkkat</string>
+    <string name="quran_meaning_catalog_title">Korana mearkkašupmi jorgalusat</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir iežas álgoálgosaš gillii</string>
+    <string name="quran_tafsir_translation_catalog_title">Jorgaluvvon tafsir</string>
+    <string name="quran_text_catalog_empty">Gáldu ii čále makkárge bargguid dán gillii. Dát ii mearkkaš ahte gokčan lea ollašuvvan.</string>
+    <string name="quran_text_catalog_refresh">Ođasmahttit gáldokataloga</string>
+    <string name="quran_text_catalog_review_missing">Gáibiduvvon dárkkisteami dahje čállosa dieđut váilot; dát neahtta ii leat gávdnamis.</string>
+    <string name="quran_text_catalog_source">Gáldut: QuranEnc</string>
+    <string name="quran_text_catalog_title">Korana teavsttat giela, gáldu ja šlája mielde</string>
+    <string name="quran_text_pack_import">Import teakstapáhka (JSON)</string>
+    <string name="quran_text_pack_import_failed">Korana teakstapáhka ii sáhttán duođaštuvvot dahje installerejuvvot.</string>
+    <string name="quran_text_pack_import_success">Dárkkistit ja installeret olles Korana teakstapakeahta.</string>
+    <string name="quran_text_pack_importing">Duođaštit ja installeret...</string>
 </resources>

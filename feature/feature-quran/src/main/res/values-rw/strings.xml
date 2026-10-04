@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Shakisha abasoma izina, imiterere, cyangwa ubuziranenge…</string>
     <string name="quran_reciter_no_results">Nta basoma bahuye nubu bushakashatsi</string>
     <string name="quran_tab_bookmarks">Ibimenyetso</string>
+    <string name="quran_meaning_catalog_title">Korowani isobanura ibisobanuro</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir mu rurimi rwumwimerere</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir</string>
+    <string name="quran_text_catalog_empty">Inkomoko ntagaragaza ibikorwa byururimi. Ibi ntibisobanura ko ubwishingizi bwuzuye.</string>
+    <string name="quran_text_catalog_refresh">Kuvugurura urutonde rwinkomoko</string>
+    <string name="quran_text_catalog_review_missing">Gusubiramo cyangwa ibisobanuro birambuye birabuze; gukuramo ntibishoboka.</string>
+    <string name="quran_text_catalog_source">Inkomoko: Qor\'anEnc</string>
+    <string name="quran_text_catalog_title">Inyandiko za Korowani ku rurimi, inkomoko, n\'ubwoko</string>
+    <string name="quran_text_pack_import">Kuzana impapuro zanditse (JSON)</string>
+    <string name="quran_text_pack_import_failed">Igipapuro cyanditse cya Korowani ntigishobora kugenzurwa cyangwa gushyirwaho.</string>
+    <string name="quran_text_pack_import_success">Kugenzura no gushyiraho inyandiko yuzuye ya Korowani.</string>
+    <string name="quran_text_pack_importing">Kwemeza no gushiraho…</string>
 </resources>

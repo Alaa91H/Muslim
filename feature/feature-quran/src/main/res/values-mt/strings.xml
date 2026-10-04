@@ -143,4 +143,16 @@
     <string name="quran_reciter_picker_title">Agħżel reciter</string>
     <string name="quran_reciter_search_hint">Fittex reciters bl-isem, stil, jew kwalità...</string>
     <string name="quran_reciter_no_results">L-ebda reciters ma jaqblu ma\' din it-tfittxija</string>
+    <string name="quran_meaning_catalog_title">Quran ifisser traduzzjonijiet</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir fil-lingwa oriġinali tiegħu</string>
+    <string name="quran_tafsir_translation_catalog_title">Tradott tafsir</string>
+    <string name="quran_text_catalog_empty">Is-sors ma jelenka l-ebda xogħlijiet għal din il-lingwa. Dan ma jfissirx li l-kopertura hija kompluta.</string>
+    <string name="quran_text_catalog_refresh">Aġġorna l-katalgu tas-sors</string>
+    <string name="quran_text_catalog_review_missing">Ir-reviżjoni jew id-dettalji tal-edizzjoni meħtieġa huma neqsin; din it-tniżżil mhix disponibbli.</string>
+    <string name="quran_text_catalog_source">Sorsi: QuranEnc</string>
+    <string name="quran_text_catalog_title">Testi tal-Quran skont il-lingwa, is-sors u t-tip</string>
+    <string name="quran_text_pack_import">Importa pakkett ta\' test (JSON)</string>
+    <string name="quran_text_pack_import_failed">Il-pakkett tat-test tal-Quran ma setax jiġi vverifikat jew installat.</string>
+    <string name="quran_text_pack_import_success">Ivverifika u installat il-pakkett sħiħ tat-test tal-Quran.</string>
+    <string name="quran_text_pack_importing">Validazzjoni u installazzjoni...</string>
 </resources>

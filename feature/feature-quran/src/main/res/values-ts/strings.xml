@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Lavisisa vahlayi hi mavito, xitayili, kumbe khwalithi...</string>
     <string name="quran_reciter_no_results">Ku hava vahlayi lava fambelanaka na ku lavisisa loku</string>
     <string name="quran_tab_bookmarks">Swikombiso swa tibuku</string>
+    <string name="quran_meaning_catalog_title">Quran nhlamuselo ya vuhundzuluxeri</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir hi ririmi ra yona ro sungula</string>
+    <string name="quran_tafsir_translation_catalog_title">Ku hundzuluxeriwa ka tafsir</string>
+    <string name="quran_text_catalog_empty">Xihlovo xi xaxameta ku hava mintirho ya ririmi leri. Leswi a swi vuli leswaku ku hlanganisiwa ku helerile.</string>
+    <string name="quran_text_catalog_refresh">Pfuxeta khathalogi ya xihlovo</string>
+    <string name="quran_text_catalog_review_missing">Vuxokoxoko lebyi lavekaka bya nkambisiso kumbe nkandziyiso byi kayivela; download leyi a yi kumeki.</string>
+    <string name="quran_text_catalog_source">Swihlovo: QuranEnc</string>
+    <string name="quran_text_catalog_title">Matsalwa ya Quran hi ririmi, xihlovo na muxaka</string>
+    <string name="quran_text_pack_import">Ku nghenisa phakeji ya matsalwa (JSON) .</string>
+    <string name="quran_text_pack_import_failed">Phakeji ya matsalwa ya Quran a yi nga tiyisisiwi kumbe ku nghenisiwa.</string>
+    <string name="quran_text_pack_import_success">Ku tiyisisiwa no nghenisa phakeji ya matsalwa ya Quran leyi heleleke.</string>
+    <string name="quran_text_pack_importing">Ku tiyisisa na ku nghenisa...</string>
 </resources>

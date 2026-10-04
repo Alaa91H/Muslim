@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Pretražujte recitatore po imenu, stilu ili kvaliteti…</string>
     <string name="quran_reciter_no_results">Nema recitatora koji odgovaraju ovoj pretrazi</string>
     <string name="quran_tab_bookmarks">Knjižne oznake</string>
+    <string name="quran_meaning_catalog_title">Prijevodi značenja Kur\'ana</string>
+    <string name="quran_original_tafsir_catalog_title">Tefsir na izvornom jeziku</string>
+    <string name="quran_tafsir_translation_catalog_title">Prevedeni tefsir</string>
+    <string name="quran_text_catalog_empty">Izvor ne navodi djela za ovaj jezik. To ne znači da je pokrivenost potpuna.</string>
+    <string name="quran_text_catalog_refresh">Osvježi izvorni katalog</string>
+    <string name="quran_text_catalog_review_missing">Potrebni pregled ili pojedinosti o izdanju nedostaju; ovo preuzimanje nije dostupno.</string>
+    <string name="quran_text_catalog_source">Izvori: QuranEnc</string>
+    <string name="quran_text_catalog_title">Tekstovi Kur\'ana prema jeziku, izvoru i vrsti</string>
+    <string name="quran_text_pack_import">Uvezi tekstualni paket (JSON)</string>
+    <string name="quran_text_pack_import_failed">Tekstni paket Kur\'ana nije bilo moguće provjeriti ili instalirati.</string>
+    <string name="quran_text_pack_import_success">Provjerio i instalirao kompletan tekstualni paket Kur\'ana.</string>
+    <string name="quran_text_pack_importing">Provjera valjanosti i instaliranje…</string>
 </resources>

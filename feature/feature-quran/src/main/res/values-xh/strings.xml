@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Khangela abacebisi ngamagama, isimbo, okanye umgangatho...</string>
     <string name="quran_reciter_no_results">Akukho baphindaphindi bahambelana nolu phendlo</string>
     <string name="quran_tab_bookmarks">Iibhukhimaksi</string>
+    <string name="quran_meaning_catalog_title">Quran intsingiselo iinguqulelo</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ngolwimi lwayo lwentsusa</string>
+    <string name="quran_tafsir_translation_catalog_title">I-tafsir eguqulelweyo</string>
+    <string name="quran_text_catalog_empty">Umthombo udwelisa akukho misebenzi yolu lwimi. Oku akuthethi ukuba ukhuselo lugqityiwe.</string>
+    <string name="quran_text_catalog_refresh">Hlaziya ikhathalogu yemithombo</string>
+    <string name="quran_text_catalog_review_missing">Uphononongo olufunekayo okanye iinkcukacha zohlelo azikho; olukhutshelweyo alufumaneki.</string>
+    <string name="quran_text_catalog_source">Imithombo: QuranEnc</string>
+    <string name="quran_text_catalog_title">Imibhalo yeQuran ngolwimi, umthombo, kunye nohlobo</string>
+    <string name="quran_text_pack_import">Thatha ngaphandle ipakethi yokubhaliweyo (JSON)</string>
+    <string name="quran_text_pack_import_failed">Ipakethi yombhalo weQuran ayikwazanga kuqinisekiswa okanye ifakwe.</string>
+    <string name="quran_text_pack_import_success">Iqinisekisiwe kwaye yafaka ipakethi epheleleyo yeQuran.</string>
+    <string name="quran_text_pack_importing">Iyaqinisekisa kwaye iyahlohla...</string>
 </resources>

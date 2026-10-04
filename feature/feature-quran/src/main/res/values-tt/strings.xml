@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Укучыларны исем, стиль яки сыйфат буенча эзләгез…</string>
     <string name="quran_reciter_no_results">Бу эзләүгә бер укучы да туры килми</string>
     <string name="quran_tab_bookmarks">Кыстармалар</string>
+    <string name="quran_meaning_catalog_title">Коръән тәрҗемә итү</string>
+    <string name="quran_original_tafsir_catalog_title">Тафсир үзенең оригиналь телендә</string>
+    <string name="quran_tafsir_translation_catalog_title">Тәфсир тәрҗемә ителде</string>
+    <string name="quran_text_catalog_empty">Чыганакта бу тел өчен әсәрләр юк. Бу каплау тулы дигән сүз түгел.</string>
+    <string name="quran_text_catalog_refresh">Чыганак каталогын яңарту</string>
+    <string name="quran_text_catalog_review_missing">Кирәкле карау яки басма детальләре юк; бу йөкләү мөмкин түгел.</string>
+    <string name="quran_text_catalog_source">Чыганаклар: Коръән</string>
+    <string name="quran_text_catalog_title">Коръән текстлары тел, чыганак һәм төр буенча</string>
+    <string name="quran_text_pack_import">Текст пакетын импортлау (JSON)</string>
+    <string name="quran_text_pack_import_failed">Коръән текст пакетын тикшереп яки урнаштырып булмады.</string>
+    <string name="quran_text_pack_importing">Тикшерү һәм урнаштыру…</string>
+    <string name="quran_text_pack_import_success">Коръәннең тулы текст пакетын тикшерделәр һәм урнаштырдылар.</string>
 </resources>

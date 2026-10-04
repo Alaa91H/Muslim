@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">ନାମ, ଶ style ଳୀ, କିମ୍ବା ଗୁଣବତ୍ତା ଅନୁଯାୟୀ ପାଠକମାନଙ୍କୁ ଖୋଜ…</string>
     <string name="quran_reciter_no_results">କ search ଣସି ପାଠକ ଏହି ସନ୍ଧାନ ସହିତ ମେଳ ଖାଉ ନାହାଁନ୍ତି |</string>
     <string name="quran_tab_bookmarks">ବୁକମାର୍କଗୁଡିକ</string>
+    <string name="quran_meaning_catalog_title">କୁରାନର ଅର୍ଥ ଅନୁବାଦ |</string>
+    <string name="quran_original_tafsir_catalog_title">ତାଫସିର ଏହାର ମୂଳ ଭାଷାରେ |</string>
+    <string name="quran_tafsir_translation_catalog_title">ଅନୁବାଦିତ ତାଫସିର |</string>
+    <string name="quran_text_catalog_empty">ଉତ୍ସ ଏହି ଭାଷା ପାଇଁ କ works ଣସି କାର୍ଯ୍ୟ ତାଲିକାଭୁକ୍ତ କରେ ନାହିଁ | ଏହାର ଅର୍ଥ କଭରେଜ୍ ସଂପୂର୍ଣ୍ଣ ନୁହେଁ |</string>
+    <string name="quran_text_catalog_refresh">ଉତ୍ସ କାଟାଲଗ୍ ସତେଜ କରନ୍ତୁ |</string>
+    <string name="quran_text_catalog_review_missing">ଆବଶ୍ୟକ ସମୀକ୍ଷା କିମ୍ବା ସଂସ୍କରଣ ବିବରଣୀ ହଜିଯାଇଛି; ଏହି ଡାଉନଲୋଡ୍ ଉପଲବ୍ଧ ନାହିଁ |</string>
+    <string name="quran_text_catalog_source">ଉତ୍ସ: QuranEnc</string>
+    <string name="quran_text_catalog_title">ଭାଷା, ଉତ୍ସ ଏବଂ ପ୍ରକାର ଅନୁଯାୟୀ କୁରାନ ପାଠ |</string>
+    <string name="quran_text_pack_import">ପାଠ୍ୟ ପ୍ୟାକ୍ ଆମଦାନି କରନ୍ତୁ (JSON)</string>
+    <string name="quran_text_pack_import_failed">କୁରାନ ପାଠ୍ୟ ପ୍ୟାକ୍ ଯାଞ୍ଚ କିମ୍ବା ସଂସ୍ଥାପିତ ହୋଇପାରିଲା ନାହିଁ |</string>
+    <string name="quran_text_pack_importing">ବ id ଧତା ଏବଂ ସଂସ୍ଥାପନ…</string>
+    <string name="quran_text_pack_import_success">ସଂପୂର୍ଣ୍ଣ କୁରାନ ପାଠ୍ୟ ପ୍ୟାକ୍ ଯାଞ୍ଚ ଏବଂ ସଂସ୍ଥାପିତ |</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Sosa bantu ya ke tanga na zina, mutindu, to kikalulu...</string>
     <string name="quran_reciter_no_results">Ata muntu mosi ve ke tanga ke wakana ti nsosa yai</string>
     <string name="quran_tab_bookmarks">Ba marque-pages</string>
+    <string name="quran_meaning_catalog_title">Quran ke tendula bambalula</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir na ndinga na yo ya kisina .</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir ya bo me balula</string>
+    <string name="quran_text_catalog_empty">Ntu-dyambu ketanga ve bisalu ya ndinga yai. Yo ke tendula ve nde mambu yina bo me fika me lungana.</string>
+    <string name="quran_text_catalog_refresh">Kuyidika diaka kisina ya mukanda</string>
+    <string name="quran_text_catalog_review_missing">Mambu ya bo ke lombaka sambu na kutadila to kubasisa mikanda kele ve; nsangu yayi kele ve.</string>
+    <string name="quran_text_catalog_source">Bisika: QuranEnc</string>
+    <string name="quran_text_catalog_title">Masonama ya Quoran na ndinga, kisina, mpi mutindu</string>
+    <string name="quran_text_pack_import">Kukotisa kimvuka ya masonama (JSON)</string>
+    <string name="quran_text_pack_import_failed">E kunku kia sono kia Quran ke kialendi sikidiswa ko yovo siwa.</string>
+    <string name="quran_text_pack_import_success">Verifié mpi installé paquet ya mvimba ya masonama ya Quran.</string>
+    <string name="quran_text_pack_importing">Kundimisa mpi kutula...</string>
 </resources>

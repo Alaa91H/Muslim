@@ -143,4 +143,16 @@
     <string name="quran_reciter_picker_title">Dooro akhriye</string>
     <string name="quran_reciter_search_hint">Ku raadi akhristayaasha magaca, qaabka, ama tayada...</string>
     <string name="quran_reciter_no_results">Ma jiro akhriye u dhigma raadintan</string>
+    <string name="quran_meaning_catalog_title">Quraanka oo macneheedu yahay tafsiir</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsiir afkeeda asalka ah</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsiir la turjumay</string>
+    <string name="quran_text_catalog_empty">Isha ayaa liis garaynaysa wax shaqo ah oo luuqadan ah. Tani macnaheedu maaha in caymisku dhammaystiran yahay.</string>
+    <string name="quran_text_catalog_refresh">Cusbooneysii buug-yaraha isha</string>
+    <string name="quran_text_catalog_review_missing">Dib u eegista ama faahfaahinta daabacaadda loo baahan yahay ayaa maqan; soo dejintan lama heli karo.</string>
+    <string name="quran_text_catalog_title">Qoraallada Qur\'aanka ee luqadda, isha, iyo nooca</string>
+    <string name="quran_text_pack_import">Soo dejinta xidhmada qoraalka (JSON)</string>
+    <string name="quran_text_pack_importing">Xaqiijinaya oo rakibaya…</string>
+    <string name="quran_text_pack_import_failed">Xidhmada qoraalka quraanka lama xaqiijin karo lamana rakibi karo</string>
+    <string name="quran_text_pack_import_success">La xaqiijiyay oo rakibay xidhmada qoraalka Qur\'aanka oo dhammaystiran.</string>
+    <string name="quran_text_catalog_source">Isha: QuranEnc</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Soek voorlesers volgens naam, styl of kwaliteit …</string>
     <string name="quran_reciter_no_results">Geen voorlesers pas by hierdie soektog nie</string>
     <string name="quran_tab_bookmarks">Boekmerke</string>
+    <string name="quran_meaning_catalog_title">Koran wat vertalings beteken</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir in sy oorspronklike taal</string>
+    <string name="quran_tafsir_translation_catalog_title">Vertaal tafsir</string>
+    <string name="quran_text_catalog_empty">Die bron lys geen werke vir hierdie taal nie. Dit beteken nie dat dekking volledig is nie.</string>
+    <string name="quran_text_catalog_refresh">Herlaai bronkatalogus</string>
+    <string name="quran_text_catalog_review_missing">Vereiste hersiening of uitgawebesonderhede ontbreek; hierdie aflaai is nie beskikbaar nie.</string>
+    <string name="quran_text_catalog_source">Bronne: QuranEnc</string>
+    <string name="quran_text_catalog_title">Korantekste volgens taal, bron en tipe</string>
+    <string name="quran_text_pack_import">Voer tekspakket in (JSON)</string>
+    <string name="quran_text_pack_import_failed">Die Koran-tekspakket kon nie geverifieer of geïnstalleer word nie.</string>
+    <string name="quran_text_pack_import_success">Die volledige Koran-tekspakket is geverifieer en geïnstalleer.</string>
+    <string name="quran_text_pack_importing">Valideer en installeer tans …</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Калаҫакансене ятпа, стильпе е пахалӑхпа шырӑр...</string>
     <string name="quran_reciter_no_results">Ҫак шыравпа килӗшсе тӑракан вулавҫӑсем ҫук</string>
     <string name="quran_tab_bookmarks">Закладкӑсем</string>
+    <string name="quran_meaning_catalog_title">Коран пӗлтерӗшӗ куҫарӑвӗсем</string>
+    <string name="quran_original_tafsir_catalog_title">Тафсир хӑйӗн тӗп чӗлхипе</string>
+    <string name="quran_tafsir_translation_catalog_title">Куҫарнӑ тафсир</string>
+    <string name="quran_text_catalog_empty">Ҫӑлкуҫра ку чӗлхе валли нимӗнле ӗҫ те ҫук. Ку вӑл ҫавӑрса илнине пӗлтермест.</string>
+    <string name="quran_text_catalog_refresh">Ҫӑлкуҫ каталогне ҫӗнетӗр</string>
+    <string name="quran_text_catalog_review_missing">Кирлӗ тишкерӳ е кӑларӑм ҫинчен калакан даннӑйсем ҫук; ку скачать тума май ҫук.</string>
+    <string name="quran_text_catalog_source">Ҫӑлкуҫсем: QuranEnc</string>
+    <string name="quran_text_catalog_title">Коран текстӗсем чӗлхе, ҫӑлкуҫӗ тата тӗсӗ тӑрӑх</string>
+    <string name="quran_text_pack_import">Текст пакетне импортла (JSON)</string>
+    <string name="quran_text_pack_import_failed">Коран текст пакетне тӗрӗслеме е вырнаҫтарма май килмерӗ.</string>
+    <string name="quran_text_pack_import_success">Коранӑн тулли текст пакетне тӗрӗслерӗм те вырнаҫтартӑм.</string>
+    <string name="quran_text_pack_importing">Тӗрӗслени тата вырнаҫтарни...</string>
 </resources>

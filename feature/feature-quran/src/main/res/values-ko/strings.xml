@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">이름, 스타일 또는 품질로 암송자를 검색하세요…</string>
     <string name="quran_reciter_no_results">이 검색과 일치하는 암송자가 없습니다.</string>
     <string name="quran_tab_bookmarks">북마크</string>
+    <string name="quran_meaning_catalog_title">꾸란 의미 번역</string>
+    <string name="quran_original_tafsir_catalog_title">원래 언어로 된 Tafsir</string>
+    <string name="quran_tafsir_translation_catalog_title">번역된 타프시르</string>
+    <string name="quran_text_catalog_empty">소스에는 이 언어에 대한 작품이 나와 있지 않습니다. 이는 보장이 완료되었음을 의미하지 않습니다.</string>
+    <string name="quran_text_catalog_refresh">소스 카탈로그 새로 고침</string>
+    <string name="quran_text_catalog_review_missing">필수 리뷰 또는 에디션 세부정보가 누락되었습니다. 이 다운로드를 사용할 수 없습니다.</string>
+    <string name="quran_text_catalog_source">출처: QuranEnc</string>
+    <string name="quran_text_catalog_title">언어, 소스 및 유형별 꾸란 텍스트</string>
+    <string name="quran_text_pack_import">텍스트 팩 가져오기(JSON)</string>
+    <string name="quran_text_pack_import_failed">꾸란 텍스트 팩을 확인하거나 설치할 수 없습니다.</string>
+    <string name="quran_text_pack_import_success">전체 꾸란 텍스트 팩을 확인하고 설치했습니다.</string>
+    <string name="quran_text_pack_importing">검증 및 설치 중…</string>
 </resources>

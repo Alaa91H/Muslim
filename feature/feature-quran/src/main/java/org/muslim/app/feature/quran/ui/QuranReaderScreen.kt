@@ -2409,16 +2409,16 @@ private fun TextPackImportControls(
             else stringResource(R.string.quran_text_pack_import),
         )
     }
-    state.textPackImportState.installedCount?.let { count ->
+    if (state.textPackImportState.installedCount != null) {
         Text(
-            stringResource(R.string.quran_text_pack_import_success, count),
+            stringResource(R.string.quran_text_pack_import_success),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.primary,
         )
     }
-    state.textPackImportState.error?.let { error ->
+    if (state.textPackImportState.error != null) {
         Text(
-            stringResource(R.string.quran_text_pack_import_failed, error),
+            stringResource(R.string.quran_text_pack_import_failed),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.error,
         )

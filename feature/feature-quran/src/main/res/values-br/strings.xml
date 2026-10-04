@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Klask al lavarerien dre o anv, o stil pe o c\'halite...</string>
     <string name="quran_reciter_no_results">N\'eus lenner ebet a glot gant an enklask-mañ</string>
     <string name="quran_tab_bookmarks">Sinedoù</string>
+    <string name="quran_meaning_catalog_title">Troidigezhioù ster ar C\'horan</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir en e yezh orin</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir troet</string>
+    <string name="quran_text_catalog_empty">N\'eus meneget oberenn ebet evit ar yezh-mañ er vammenn. Ne dalvez ket kement-se eo echu ar golo.</string>
+    <string name="quran_text_catalog_refresh">Freskaat ar c\'hatalog mammennoù</string>
+    <string name="quran_text_catalog_review_missing">Mankout a ra munudoù ar burutelladenn pe an embannadur rekis ; n\'eo ket hegerz ar pellgargadenn-mañ.</string>
+    <string name="quran_text_catalog_source">Mammennoù : QuranEnc</string>
+    <string name="quran_text_catalog_title">Testennoù ar C\'horan dre yezh, orin ha seurt</string>
+    <string name="quran_text_pack_import">Enporzhiañ pakad testennoù (JSON)</string>
+    <string name="quran_text_pack_import_failed">N\'eo ket bet gallet gwiriañ pe staliañ ar pakad testennoù Koran.</string>
+    <string name="quran_text_pack_import_success">Gwiriekaet ha staliet ar pakad testennoù klok eus ar C\'horan.</string>
+    <string name="quran_text_pack_importing">Gwiriekaat ha staliañ...</string>
 </resources>

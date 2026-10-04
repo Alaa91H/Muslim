@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">ಹೆಸರು, ಶೈಲಿ ಅಥವಾ ಗುಣಮಟ್ಟದ ಮೂಲಕ ವಾಚನಕಾರರನ್ನು ಹುಡುಕಿ...</string>
     <string name="quran_reciter_no_results">ಈ ಹುಡುಕಾಟಕ್ಕೆ ಯಾವುದೇ ವಾಚನಕಾರರು ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ</string>
     <string name="quran_tab_bookmarks">ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು</string>
+    <string name="quran_meaning_catalog_title">ಕುರಾನ್ ಎಂದರೆ ಅನುವಾದ</string>
+    <string name="quran_original_tafsir_catalog_title">ತಫ್ಸಿರ್ ಅದರ ಮೂಲ ಭಾಷೆಯಲ್ಲಿ</string>
+    <string name="quran_tafsir_translation_catalog_title">ತಫ್ಸಿರ್ ಅನುವಾದಿಸಲಾಗಿದೆ</string>
+    <string name="quran_text_catalog_empty">ಮೂಲವು ಈ ಭಾಷೆಗೆ ಯಾವುದೇ ಕೃತಿಗಳನ್ನು ಪಟ್ಟಿ ಮಾಡುವುದಿಲ್ಲ. ಇದರರ್ಥ ಕವರೇಜ್ ಪೂರ್ಣಗೊಂಡಿದೆ ಎಂದಲ್ಲ.</string>
+    <string name="quran_text_catalog_refresh">ಮೂಲ ಕ್ಯಾಟಲಾಗ್ ಅನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡಿ</string>
+    <string name="quran_text_catalog_review_missing">ಅಗತ್ಯವಿರುವ ವಿಮರ್ಶೆ ಅಥವಾ ಆವೃತ್ತಿಯ ವಿವರಗಳು ಕಾಣೆಯಾಗಿವೆ; ಈ ಡೌನ್‌ಲೋಡ್ ಲಭ್ಯವಿಲ್ಲ.</string>
+    <string name="quran_text_catalog_source">ಮೂಲಗಳು: QuranEnc</string>
+    <string name="quran_text_catalog_title">ಭಾಷೆ, ಮೂಲ ಮತ್ತು ಪ್ರಕಾರದ ಮೂಲಕ ಕುರಾನ್ ಪಠ್ಯಗಳು</string>
+    <string name="quran_text_pack_import">ಆಮದು ಪಠ್ಯ ಪ್ಯಾಕ್ (JSON)</string>
+    <string name="quran_text_pack_import_failed">ಖುರಾನ್ ಪಠ್ಯ ಪ್ಯಾಕ್ ಅನ್ನು ಪರಿಶೀಲಿಸಲಾಗಲಿಲ್ಲ ಅಥವಾ ಸ್ಥಾಪಿಸಲಾಗಲಿಲ್ಲ.</string>
+    <string name="quran_text_pack_import_success">ಸಂಪೂರ್ಣ ಖುರಾನ್ ಪಠ್ಯ ಪ್ಯಾಕ್ ಅನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ ಮತ್ತು ಸ್ಥಾಪಿಸಲಾಗಿದೆ.</string>
+    <string name="quran_text_pack_importing">ಮೌಲ್ಯೀಕರಿಸಲಾಗುತ್ತಿದೆ ಮತ್ತು ಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ...</string>
 </resources>

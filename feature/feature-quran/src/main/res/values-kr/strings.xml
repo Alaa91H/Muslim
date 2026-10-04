@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Su-a, zaye-a, au nəmngalwo-a lan kəratəwu kulasne...</string>
     <string name="quran_reciter_no_results">Kəratəma ndasoma kulashi adəga samənzənyi</string>
     <string name="quran_tab_bookmarks">Alamawa kitawube</string>
+    <string name="quran_meaning_catalog_title">Quran ma\'ananzǝ fasari</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir suro təlamzəyen</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir fasartəna</string>
+    <string name="quran_text_catalog_empty">Futu təlam adəye cidawanzə somzənyi. Adəye maananzə coveragedə tamotəna gənyi.</string>
+    <string name="quran_text_catalog_refresh">Katalog fərtəbe bəlintəgə</string>
+    <string name="quran_text_catalog_review_missing">Waltǝm kuru mǝradǝtǝnama au bayanna kǝla baktǝben bawo; download adə bawo.</string>
+    <string name="quran_text_catalog_source">Kambo: QuranEnc</string>
+    <string name="quran_text_catalog_title">Ruwowa Alquranbe təlam-a, furtu-a, jili-amen</string>
+    <string name="quran_text_pack_import">Ruwo-a ikkobe (JSON)</string>
+    <string name="quran_text_pack_import_success">Tawattəgə kuru ruwo Quranbe sammaso yiko.</string>
+    <string name="quran_text_pack_importing">Tawattəgə-a yiko-a...</string>
+    <string name="quran_text_pack_import_failed">Shi Quran text pack dǝ raktǝ tawattǝyin ba au gǝnatin ba.</string>
 </resources>

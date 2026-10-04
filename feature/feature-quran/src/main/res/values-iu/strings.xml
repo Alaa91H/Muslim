@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">ᕿᓂᕐᓗᒋᑦ ᐅᖃᓪᓚᒃᑎᐅᔪᑦ ᐊᑎᖏᑦ, ᐋᖅᑭᒃᓯᒪᓂᖏᑦ, ᐅᕝᕙᓘᓐᓃᑦ ᐱᐅᓂᖏᑦ...</string>
     <string name="quran_reciter_no_results">ᐅᖃᓕᒫᖅᑎᑕᖃᙱᓚᖅ ᑖᔅᓱᒥᖓ ᕿᓂᕐᓂᐅᔪᒥᒃ</string>
     <string name="quran_tab_bookmarks">ᐅᖃᓕᒫᒐᕐᓄᑦ ᓇᓗᓇᐃᒃᑯᑕᐃᑦ</string>
+    <string name="quran_meaning_catalog_title">ᑯᕌᓐ ᑐᑭᖓ ᐃᓄᒃᑎᑑᓕᖅᑎᑕᐅᓯᒪᔪᑦ</string>
+    <string name="quran_original_tafsir_catalog_title">ᑕᕝᓯᐅᕐ ᐅᖃᐅᓯᓪᓚᑦᑖᖓᒍᑦ</string>
+    <string name="quran_tafsir_translation_catalog_title">ᐃᓄᒃᑎᑑᓕᖅᑎᑕᐅᓯᒪᔪᖅ ᑕᕝᓯᕐ</string>
+    <string name="quran_text_catalog_empty">ᑐᑭᓯᒋᐊᕐᕕᒃ ᑎᑎᕋᖅᓯᒪᔪᖅ ᓴᓇᔭᐅᓯᒪᔪᓂᒃ ᑖᔅᓱᒧᖓ ᐅᖃᐅᓯᕐᒧᑦ. ᑕᒪᓐᓇ ᑐᑭᖃᙱᓚᖅ ᓇᓪᓕᐅᒃᑯᒫᖃᖅᑎᑕᐅᓂᖅ ᐱᔭᕇᖅᓯᒪᓕᕐᒪᑦ.</string>
+    <string name="quran_text_catalog_refresh">ᓄᑖᙳᕆᐊᕐᓗᒍ ᓇᑭᙶᕐᓂᖏᑦ ᑎᑎᕋᖅᓯᒪᔪᑦ</string>
+    <string name="quran_text_catalog_review_missing">ᕿᒥᕐᕈᔭᐅᔭᕆᐊᖃᖅᑐᑦ ᐅᕝᕙᓘᓐᓃᑦ ᑎᑎᕋᖅᑕᐅᓯᒪᔪᑦ ᓇᓗᓇᐃᔭᖅᓯᒪᓂᖏᑦ ᐱᑕᖃᙱᒻᒪᑕ; ᑖᓐᓇ ᖃᕆᑕᐅᔭᒃᑯᑦ ᑎᒍᓯᓂᖅ ᐊᑐᐃᓐᓇᐅᙱᓚᖅ.</string>
+    <string name="quran_text_catalog_source">ᑐᑭᓯᒋᐊᕐᕕᒃᓴᐃᑦ: ᑯᕌᓐ ᐃᓐᔅ</string>
+    <string name="quran_text_catalog_title">ᑯᕌᓐ ᑎᑎᕋᖅᓯᒪᔪᑦ ᐅᖃᐅᓯᒃᑯᑦ, ᓇᑭᙶᕐᓂᖏᑦ, ᖃᓄᐃᑦᑑᓂᖏᓪᓗ</string>
+    <string name="quran_text_pack_import">ᑎᑭᑎᑦᑎᓂᖅ ᑎᑎᕋᖅᓯᒪᔪᓂᒃ ᑲᑎᖅᓱᖅᓯᒪᔪᓂᒃ (JSON)</string>
+    <string name="quran_text_pack_importing">ᓇᓗᓇᐃᖅᓯᓂᖅ ᐋᖅᑭᒃᓱᐃᓂᕐᓗ...</string>
+    <string name="quran_text_pack_import_failed">ᑯᕌᓐ ᑎᑎᕋᖅᓯᒪᔪᑦ ᓇᓗᓇᐃᖅᑕᐅᔪᓐᓇᓚᐅᙱᓚᑦ ᐅᕝᕙᓘᓐᓃᑦ ᐋᖅᑭᒃᑕᐅᔪᓐᓇᓚᐅᙱᓚᑦ.</string>
+    <string name="quran_text_pack_import_success">ᓇᓗᓇᐃᖅᑕᐅᓯᒪᔪᖅ ᐊᒻᒪᓗ ᐋᖅᑭᒃᑕᐅᓯᒪᔪᖅ ᐃᓗᐃᒃᑲᐅᔪᖅ ᑯᕌᓐ ᑎᑎᕋᖅᓯᒪᔪᑦ ᐸᐃᑉᐹᑦ.</string>
 </resources>

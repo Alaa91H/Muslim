@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Претражујте рецитаторе по имену, стилу или квалитету...</string>
     <string name="quran_reciter_no_results">Ниједан рецитатор не одговара овој претрази</string>
     <string name="quran_tab_bookmarks">Боокмаркс</string>
+    <string name="quran_meaning_catalog_title">Преводи Кур\'ана</string>
+    <string name="quran_original_tafsir_catalog_title">Тафсир на свом изворном језику</string>
+    <string name="quran_tafsir_translation_catalog_title">Преведен тафсир</string>
+    <string name="quran_text_catalog_empty">Извор не наводи ниједно дело за овај језик. То не значи да је покривеност потпуна.</string>
+    <string name="quran_text_catalog_refresh">Освежите изворни каталог</string>
+    <string name="quran_text_catalog_review_missing">Недостају потребни детаљи о рецензији или издању; ово преузимање није доступно.</string>
+    <string name="quran_text_catalog_source">Извори: КуранЕнц</string>
+    <string name="quran_text_catalog_title">Текстови Курана по језику, извору и врсти</string>
+    <string name="quran_text_pack_import">Увези пакет текста (ЈСОН)</string>
+    <string name="quran_text_pack_importing">Валидација и инсталирање…</string>
+    <string name="quran_text_pack_import_failed">Пакет текста Кур\'ана није могао бити верификован или инсталиран.</string>
+    <string name="quran_text_pack_import_success">Верификован и инсталиран комплетан пакет текста Кур\'ана.</string>
 </resources>

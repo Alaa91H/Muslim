@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Søk forlesere etter navn, stil eller kvalitet...</string>
     <string name="quran_reciter_no_results">Ingen forlesere samsvarer med dette søket</string>
     <string name="quran_tab_bookmarks">Bokmerker</string>
+    <string name="quran_meaning_catalog_title">Koranen betyr oversettelser</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir på originalspråket</string>
+    <string name="quran_tafsir_translation_catalog_title">Oversatt tafsir</string>
+    <string name="quran_text_catalog_empty">Kilden viser ingen verk for dette språket. Dette betyr ikke at dekningen er fullstendig.</string>
+    <string name="quran_text_catalog_refresh">Oppdater kildekatalogen</string>
+    <string name="quran_text_catalog_review_missing">Nødvendig gjennomgang eller utgavedetaljer mangler; denne nedlastingen er utilgjengelig.</string>
+    <string name="quran_text_catalog_source">Kilder: QuranEnc</string>
+    <string name="quran_text_catalog_title">Korantekster etter språk, kilde og type</string>
+    <string name="quran_text_pack_import">Importer tekstpakke (JSON)</string>
+    <string name="quran_text_pack_import_failed">Koranens tekstpakke kunne ikke bekreftes eller installeres.</string>
+    <string name="quran_text_pack_import_success">Verifisert og installert den komplette Korantekstpakken.</string>
+    <string name="quran_text_pack_importing">Validerer og installerer …</string>
 </resources>

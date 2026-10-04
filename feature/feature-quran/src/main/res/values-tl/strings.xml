@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Maghanap ng mga reciter ayon sa pangalan, istilo, o kalidad...</string>
     <string name="quran_reciter_no_results">Walang reciter ang tumugma sa paghahanap na ito</string>
     <string name="quran_tab_bookmarks">Mga bookmark</string>
+    <string name="quran_meaning_catalog_title">Ang kahulugan ng Quran ay mga pagsasalin</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir sa orihinal nitong wika</string>
+    <string name="quran_tafsir_translation_catalog_title">Isinalin ang tafsir</string>
+    <string name="quran_text_catalog_empty">Ang pinagmulan ay naglilista ng walang mga gawa para sa wikang ito. Hindi ito nangangahulugan na kumpleto ang saklaw.</string>
+    <string name="quran_text_catalog_refresh">I-refresh ang source catalog</string>
+    <string name="quran_text_catalog_review_missing">Nawawala ang kinakailangang pagsusuri o mga detalye ng edisyon; hindi available ang download na ito.</string>
+    <string name="quran_text_catalog_source">Pinagmulan: QuranEnc</string>
+    <string name="quran_text_catalog_title">Mga teksto ng Quran ayon sa wika, pinagmulan, at uri</string>
+    <string name="quran_text_pack_import">Mag-import ng text pack (JSON)</string>
+    <string name="quran_text_pack_import_failed">Ang Quran text pack ay hindi ma-verify o mai-install.</string>
+    <string name="quran_text_pack_import_success">Na-verify at na-install ang kumpletong Quran text pack.</string>
+    <string name="quran_text_pack_importing">Pagpapatunay at pag-install…</string>
 </resources>

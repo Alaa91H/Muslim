@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Luka ba réciters na kombo, style, to qualité...</string>
     <string name="quran_reciter_no_results">Ba réciter moko te ekokani na recherche oyo</string>
     <string name="quran_tab_bookmarks">Ba marque-pages</string>
+    <string name="quran_meaning_catalog_title">Coran elimboli mabongoli</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir na monoko na yango ya ebandeli</string>
+    <string name="quran_tafsir_translation_catalog_title">Ebongolami na tafsir</string>
+    <string name="quran_text_catalog_empty">Liziba etángi misala moko te mpo na monɔkɔ oyo. Yango elingi koloba te ete couverture esili.</string>
+    <string name="quran_text_catalog_refresh">Kozongisa sika catalogue ya source</string>
+    <string name="quran_text_catalog_review_missing">Makambo ya mikemike ya bozongeli to ya ebimeli oyo esengeli ezali te; téléchargement oyo ezali te.</string>
+    <string name="quran_text_catalog_source">Maziba: QuranEnc</string>
+    <string name="quran_text_catalog_title">Makomi ya Coran na monoko, source, mpe type</string>
+    <string name="quran_text_pack_import">Bokɔtisi pakɛ ya makomi (JSON) .</string>
+    <string name="quran_text_pack_import_failed">Paquet ya texte ya Coran ekokaki kozala vérifié te to ko installer te.</string>
+    <string name="quran_text_pack_import_success">Verifié pe a installé pack ya texte ya Coran mobimba.</string>
+    <string name="quran_text_pack_importing">Validation mpe ko installer...</string>
 </resources>

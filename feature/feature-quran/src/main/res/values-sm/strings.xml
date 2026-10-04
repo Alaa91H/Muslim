@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Su\'e le au tauloto ile igoa, sitaili, po\'o le lelei...</string>
     <string name="quran_reciter_no_results">E leai se tauloto e fetaui ma lenei sailiga</string>
     <string name="quran_tab_bookmarks">Faailoga tusi</string>
+    <string name="quran_meaning_catalog_title">Fa\'aliliuga uiga o le Quran</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir i lana uluai gagana</string>
+    <string name="quran_tafsir_translation_catalog_title">Faaliliuina tafsir</string>
+    <string name="quran_text_catalog_empty">O le puna lisi e leai ni galuega mo lenei gagana. E le faapea ua mae\'a le inisiua.</string>
+    <string name="quran_text_catalog_refresh">Toe fa\'afou fa\'amaumauga puna</string>
+    <string name="quran_text_catalog_review_missing">O lo\'o misi fa\'amatalaga mana\'omia po\'o fa\'asalalauga; e le maua le la\'uina lea.</string>
+    <string name="quran_text_catalog_source">Punaoa: QuranEnc</string>
+    <string name="quran_text_catalog_title">Tusitusi Quran i le gagana, puna, ma le ituaiga</string>
+    <string name="quran_text_pack_import">Fa\'aulufale mai fa\'amaumauga (JSON)</string>
+    <string name="quran_text_pack_import_failed">E le mafai ona fa\'amaonia pe fa\'apipi\'i le fa\'ailoga tusi a le Quran.</string>
+    <string name="quran_text_pack_import_success">Faʻamaonia ma faʻapipiʻi le faʻamaumauga atoa a le Quran.</string>
+    <string name="quran_text_pack_importing">Fa\'amaonia ma fa\'apipi\'i...</string>
 </resources>

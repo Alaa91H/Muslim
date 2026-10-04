@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Уншигчдыг нэр, хэв маяг, чанараар нь хайх...</string>
     <string name="quran_reciter_no_results">Энэ хайлтад тохирох уншагч байхгүй байна</string>
     <string name="quran_tab_bookmarks">Хавчуурга</string>
+    <string name="quran_meaning_catalog_title">Коран орчуулга гэсэн утгатай</string>
+    <string name="quran_original_tafsir_catalog_title">Тафсир эх хэлээрээ</string>
+    <string name="quran_tafsir_translation_catalog_title">Орчуулсан тафсир</string>
+    <string name="quran_text_catalog_empty">Эх сурвалжид энэ хэлэнд зориулсан бүтээл байхгүй байна. Энэ нь хамрах хүрээ бүрэн дууссан гэсэн үг биш юм.</string>
+    <string name="quran_text_catalog_refresh">Эх сурвалжийн каталогийг шинэчлэх</string>
+    <string name="quran_text_catalog_review_missing">Шаардлагатай хянан үзэх эсвэл хэвлэлд өгөх дэлгэрэнгүй мэдээлэл байхгүй байна; энэ татаж авах боломжгүй байна.</string>
+    <string name="quran_text_catalog_source">Эх сурвалж: QuranEnc</string>
+    <string name="quran_text_catalog_title">Коран судар бичвэрийг хэл, эх сурвалж, төрлөөр нь</string>
+    <string name="quran_text_pack_import">Импортын текст багц (JSON)</string>
+    <string name="quran_text_pack_import_failed">Коран судрын текстийн багцыг шалгах эсвэл суулгах боломжгүй байна.</string>
+    <string name="quran_text_pack_import_success">Коран судрын иж бүрэн текст багцыг баталгаажуулж суулгасан.</string>
+    <string name="quran_text_pack_importing">Баталгаажуулж, суулгаж байна…</string>
 </resources>

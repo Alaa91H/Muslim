@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">זוכן רעסיטערס לויט נאָמען, סטיל אָדער קוואַליטעט ...</string>
     <string name="quran_reciter_no_results">קיין רעסיטערס שטימען צו דעם זוכן</string>
     <string name="quran_tab_bookmarks">בוקמאַרקס</string>
+    <string name="quran_meaning_catalog_title">קווראַן טייַטש איבערזעצונגען</string>
+    <string name="quran_original_tafsir_catalog_title">תּפֿסִיר אין זײַן אָריגינעלער שפּראַך</string>
+    <string name="quran_tafsir_translation_catalog_title">איבערגעזעצט טפסיר</string>
+    <string name="quran_text_catalog_empty">דער מקור ליסטעד קיין ווערק פֿאַר דעם שפּראַך. דאָס טוט נישט מיינען אַז קאַווערידזש איז גאַנץ.</string>
+    <string name="quran_text_catalog_refresh">דערפרישן מקור קאַטאַלאָג</string>
+    <string name="quran_text_catalog_review_missing">פארלאנגט רעצענזיע אָדער אַדישאַן דעטאַילס זענען פעלנדיק; דעם אראפקאפיע איז ניט בנימצא.</string>
+    <string name="quran_text_catalog_source">מקורים: QuranEnc</string>
+    <string name="quran_text_catalog_title">קווראַן טעקסץ לויט שפּראַך, מקור און טיפּ</string>
+    <string name="quran_text_pack_import">אַרייַנפיר טעקסט פּאַק (JSON)</string>
+    <string name="quran_text_pack_import_failed">די קאָראַן טעקסט פּאַק קען נישט זיין וועראַפייד אָדער אינסטאַלירן.</string>
+    <string name="quran_text_pack_import_success">וועראַפייד און אינסטאַלירן די גאַנץ קאָראַן טעקסט פּאַק.</string>
+    <string name="quran_text_pack_importing">וואַלאַדייטינג און ינסטאָלינג ...</string>
 </resources>

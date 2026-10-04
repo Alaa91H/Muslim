@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Окуучуларды аты, стили же сапаты боюнча издөө…</string>
     <string name="quran_reciter_no_results">Бул издөөгө эч ким туура келбейт</string>
     <string name="quran_tab_bookmarks">Кыстармалар</string>
+    <string name="quran_meaning_catalog_title">Куран котормолору</string>
+    <string name="quran_original_tafsir_catalog_title">Тафсир оригиналдуу тилинде</string>
+    <string name="quran_tafsir_translation_catalog_title">Которулган тафсир</string>
+    <string name="quran_text_catalog_empty">Булак бул тил үчүн эч кандай чыгармалардын тизмеси жок. Бул камтуу толук дегенди билдирбейт.</string>
+    <string name="quran_text_catalog_refresh">Булак каталогун жаңыртуу</string>
+    <string name="quran_text_catalog_review_missing">Талап кылынган карап чыгуу же басылма чоо-жайы жок; бул жүктөө жеткиликсиз.</string>
+    <string name="quran_text_catalog_source">Булак: QuranEnc</string>
+    <string name="quran_text_catalog_title">Куран тексттери тили, булагы жана түрү боюнча</string>
+    <string name="quran_text_pack_import">Текст пакетин импорттоо (JSON)</string>
+    <string name="quran_text_pack_import_failed">Куран текст пакетин текшерүү же орнотуу мүмкүн эмес.</string>
+    <string name="quran_text_pack_import_success">Курандын толук текст пакети текшерилди жана орнотулду.</string>
+    <string name="quran_text_pack_importing">Текшерүүдө жана орнотулууда…</string>
 </resources>

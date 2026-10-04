@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">ንኣንበብቲ ብስሞም፡ ቅዲ፡ ወይ ብጽሬት ድለዩ...</string>
     <string name="quran_reciter_no_results">ምስዚ ምድላይ ዝሰማማዕ ኣንባቢ የለን</string>
     <string name="quran_tab_bookmarks">ዕልባታት</string>
+    <string name="quran_meaning_catalog_title">ቁርኣን ትርጉም ትርጉማት</string>
+    <string name="quran_original_tafsir_catalog_title">ተፍሲር ብመበቆላዊ ቋንቋኡ</string>
+    <string name="quran_tafsir_translation_catalog_title">ተተርጒሙ ታፍሲር</string>
+    <string name="quran_text_catalog_empty">እቲ ምንጪ ነዚ ቋንቋ ዝኸውን ስራሓት ኣይዝርዝርን እዩ። እዚ ማለት ሽፋን ምሉእ እዩ ማለት ኣይኮነን።</string>
+    <string name="quran_text_catalog_refresh">ምንጪ ካታሎግ ምሕዳስ</string>
+    <string name="quran_text_catalog_review_missing">ዘድሊ ዝርዝር ዳግመ ግምት ወይ ሕታም ይጎድል፤ እዚ ዳውንሎድ ኣይርከብን እዩ።</string>
+    <string name="quran_text_catalog_source">ምንጭታት፡ QuranEnc</string>
+    <string name="quran_text_catalog_title">ጽሑፋት ቁርኣን ብቋንቋ፡ ምንጪን ዓይነትን።</string>
+    <string name="quran_text_pack_import">ናይ ጽሑፍ ዕሹግ ኣእትዎ (JSON)</string>
+    <string name="quran_text_pack_import_failed">እቲ ናይ ቁርኣን ጽሑፍ ዕሹግ ክረጋገጽ ወይ ክተክል ኣይከኣለን።</string>
+    <string name="quran_text_pack_import_success">ምሉእ ናይ ቁርኣን ጽሑፍ ፓክ ኣረጋጊጹን ተኺሉን።</string>
+    <string name="quran_text_pack_importing">ምጽዳቕን ምትካልን...</string>
 </resources>

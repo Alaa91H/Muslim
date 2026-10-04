@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Serĉu deklamantojn laŭ nomo, stilo aŭ kvalito...</string>
     <string name="quran_reciter_no_results">Neniuj deklamantoj kongruas kun ĉi tiu serĉo</string>
     <string name="quran_tab_bookmarks">Legosignoj</string>
+    <string name="quran_meaning_catalog_title">Korano signifanta tradukojn</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir en ĝia origina lingvo</string>
+    <string name="quran_tafsir_translation_catalog_title">Tradukita tafsir</string>
+    <string name="quran_text_catalog_empty">La fonto listigas neniujn verkojn por ĉi tiu lingvo. Ĉi tio ne signifas, ke kovrado estas kompleta.</string>
+    <string name="quran_text_catalog_refresh">Refreŝigi fontan katalogon</string>
+    <string name="quran_text_catalog_review_missing">Detaloj bezonataj de revizio aŭ eldono mankas; ĉi tiu elŝuto ne disponeblas.</string>
+    <string name="quran_text_catalog_source">Fontoj: QuranEnc</string>
+    <string name="quran_text_catalog_title">Koranaj tekstoj laŭ lingvo, fonto kaj tipo</string>
+    <string name="quran_text_pack_import">Importi tekstpakaĵon (JSON)</string>
+    <string name="quran_text_pack_import_failed">La Korana teksta pako ne povis esti kontrolita aŭ instalita.</string>
+    <string name="quran_text_pack_import_success">Kontrolis kaj instalis la kompletan tekstan pakon de Korano.</string>
+    <string name="quran_text_pack_importing">Validigante kaj instalante...</string>
 </resources>

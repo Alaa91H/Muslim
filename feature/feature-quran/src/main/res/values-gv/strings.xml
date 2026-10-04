@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Clasht reciters liorish ennym, stiagh, ny caghlaa...</string>
     <string name="quran_reciter_no_results">Cha nel reciter erbee cordail rish y rannagh shoh</string>
     <string name="quran_tab_bookmarks">Learkyn-leabhar;</string>
+    <string name="quran_meaning_catalog_title">Quran cowraghey aittaghyn</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ayns e ghlare t\'ayn</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir er ny aitt</string>
+    <string name="quran_text_catalog_empty">Ta\'n source liostagh obbyr erbee son y çhengey shoh. Cha nel shen cowraghey dy vel y coverage cliaghtey.</string>
+    <string name="quran_text_catalog_refresh">Cur rish catalog bun</string>
+    <string name="quran_text_catalog_review_missing">Ta fysseree review ny edition rieau er-mayrn; cha nel y download shoh ry-gheddyn.</string>
+    <string name="quran_text_catalog_source">Foayr: QuranEnc</string>
+    <string name="quran_text_catalog_title">Textyn Quran liorish çhengey, font, as seihll</string>
+    <string name="quran_text_pack_import">Pack text y chur stiagh (JSON)</string>
+    <string name="quran_text_pack_import_failed">Cha row y text pack Quran ry-gheddyn ny ry-install.</string>
+    <string name="quran_text_pack_importing">Validating as staydys...</string>
+    <string name="quran_text_pack_import_success">Verified as s\'install y pack text Quran immeeaght.</string>
 </resources>

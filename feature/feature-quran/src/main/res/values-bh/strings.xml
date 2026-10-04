@@ -162,4 +162,16 @@
     <string name="quran_share_ayah">शेयर करीं आह</string>
     <string name="quran_tab_juz">जुज के बा</string>
     <string name="quran_tab_surahs">सूरह के बारे में बतावल गइल बा</string>
+    <string name="quran_meaning_catalog_title">कुरान के मतलब अनुवाद बा</string>
+    <string name="quran_original_tafsir_catalog_title">तफसीर के अपना मूल भाषा में दिहल गइल बा</string>
+    <string name="quran_tafsir_translation_catalog_title">तफसीर के अनुवाद कइल गइल बा</string>
+    <string name="quran_text_catalog_empty">स्रोत में एह भाषा खातिर कवनो रचना के सूची नइखे दिहल गइल। एकर मतलब ई नइखे कि कवरेज पूरा हो गइल बा.</string>
+    <string name="quran_text_catalog_refresh">स्रोत कैटलॉग के ताज़ा करीं</string>
+    <string name="quran_text_catalog_review_missing">जरूरी समीक्षा भा संस्करण के बिबरन गायब बा; ई डाउनलोड उपलब्ध नइखे.</string>
+    <string name="quran_text_catalog_source">स्रोत: कुरानएनक से मिलल बा</string>
+    <string name="quran_text_catalog_title">भाषा, स्रोत, आ प्रकार के हिसाब से कुरान के ग्रंथ</string>
+    <string name="quran_text_pack_import">टेक्स्ट पैक (जेएसओएन) आयात करीं।</string>
+    <string name="quran_text_pack_import_failed">कुरान के टेक्स्ट पैक के सत्यापन भा इंस्टॉल ना हो सकल.</string>
+    <string name="quran_text_pack_import_success">पूरा कुरान टेक्स्ट पैक के सत्यापन आ इंस्टॉल कर दिहल गइल.</string>
+    <string name="quran_text_pack_importing">मान्यता आ इंस्टॉल कइल जा रहल बा...</string>
 </resources>

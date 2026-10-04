@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Rannsaich luchd-aithris a rèir ainm, stoidhle no càileachd…</string>
     <string name="quran_reciter_no_results">Chan eil neach-aithris sam bith a\' freagairt ris an rannsachadh seo</string>
     <string name="quran_tab_bookmarks">Comharran-leabhair</string>
+    <string name="quran_meaning_catalog_title">Quran a \' ciallachadh eadar-theangachadh</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir anns a’ chànan thùsail aige</string>
+    <string name="quran_tafsir_translation_catalog_title">tafsir eadar-theangaichte</string>
+    <string name="quran_text_catalog_empty">Chan eil an stòr ag ainmeachadh obraichean sam bith airson a\' chànain seo. Chan eil seo a \'ciallachadh gu bheil an còmhdach iomlan.</string>
+    <string name="quran_text_catalog_refresh">Luchdaich a-nuas an stòr-dàta catalog</string>
+    <string name="quran_text_catalog_review_missing">Tha mion-fhiosrachadh ath-bhreithneachaidh no deasachadh riatanach a dhìth; chan eil an luchdachadh sìos seo ri fhaighinn.</string>
+    <string name="quran_text_catalog_source">Stòran: QuranEnc</string>
+    <string name="quran_text_catalog_title">Teacsaichean Quran a rèir cànan, stòr, agus seòrsa</string>
+    <string name="quran_text_pack_import">Cuir a-steach pasgan teacsa (JSON)</string>
+    <string name="quran_text_pack_import_failed">Cha b’ urrainnear pasgan teacsa Quran a dhearbhadh no a chuir a-steach.</string>
+    <string name="quran_text_pack_import_success">Dearbhaich agus chuir a-steach am pasgan teacsa iomlan Quran.</string>
+    <string name="quran_text_pack_importing">A’ dearbhadh agus a’ stàladh…</string>
 </resources>

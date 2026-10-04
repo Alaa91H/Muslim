@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Oqaluttuartartut aqqit, isikkoq, imaluunniit pitsaassusaat malillugit ujartukkit...</string>
     <string name="quran_reciter_no_results">Reciterit arlaannaalluunniit ujaasinermut tassunga naleqqutinngilaq</string>
     <string name="quran_tab_bookmarks">Atuagassiat</string>
+    <string name="quran_meaning_catalog_title">Korani isumaqarpoq nutserineq</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir oqaatsini aallaqqaasiutaanni</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir-imik nutserneqarsimasoq</string>
+    <string name="quran_text_catalog_empty">Killeqarfimmi oqaatsinut tassunga suliassanik allassimasoqanngilaq. Tamanna isumaqanngilaq kattuffik naammassineqartoq.</string>
+    <string name="quran_text_catalog_refresh">Killeq katalogi nutarterlugu</string>
+    <string name="quran_text_catalog_review_missing">Naliliinermut imaluunniit saqqummersitsinermut kisitsisit pisariaqartinneqartut amigaatigineqarput; una download-i atorneqarsinnaanngilaq.</string>
+    <string name="quran_text_catalog_source">Killiffiit: KoranEnc</string>
+    <string name="quran_text_catalog_title">Koranimi allatat oqaatsit, pilerfiat aamma suussusaa malillugit</string>
+    <string name="quran_text_pack_import">Allattunik pakkersimaarneq (JSON)</string>
+    <string name="quran_text_pack_import_failed">Koranimi allattukkanik pakkersimaarneq uppernarsarneqarsinnaasimanngilaq aammalu installereqarsinnaasimanngilaq.</string>
+    <string name="quran_text_pack_import_success">Koranimi allattukkanik pakkersimaarneq tamakkerlugu uppernarsarneqarpoq ikkussuunneqarlunilu.</string>
+    <string name="quran_text_pack_importing">Uppernarsaaneq aamma ikkussuussineq...</string>
 </resources>

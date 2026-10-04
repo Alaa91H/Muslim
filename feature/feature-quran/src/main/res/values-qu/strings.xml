@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Maskay recitadores sutiwan, estilowan utaq calidadwan...</string>
     <string name="quran_reciter_no_results">Mana ima rimaqkunapas kay maskaywan tupanchu</string>
     <string name="quran_tab_bookmarks">Marcadores nisqakuna</string>
+    <string name="quran_meaning_catalog_title">Quran significado traducciones</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ñawpaq rimayninpi</string>
+    <string name="quran_tafsir_translation_catalog_title">Traducido tafsir</string>
+    <string name="quran_text_catalog_empty">Pukyuqa manam kay simipaq llamk\'aykunatachu churan. Kayqa manan niyta munanchu cobertura hunt’asqa kasqanmanta.</string>
+    <string name="quran_text_catalog_refresh">Pukyu catálogo nisqa musuqyachiy</string>
+    <string name="quran_text_catalog_review_missing">Requisito revisión utaq edición detalles nisqakunaqa manam kanchu; kay uraykachiyqa manam kanchu.</string>
+    <string name="quran_text_catalog_source">Pukyukuna: QuranEnc</string>
+    <string name="quran_text_catalog_title">Quran qillqakuna simiman hina, maymanta hamusqanman hina, hinallataq layaman hina</string>
+    <string name="quran_text_pack_import">Qillqa paquete (JSON) hawamanta apamuy .</string>
+    <string name="quran_text_pack_import_failed">Quran qillqa paqueteqa manam chiqapchasqachu nitaq churasqachu karqan.</string>
+    <string name="quran_text_pack_import_success">Chiqapchasqa hinaspa churasqa huntasqa Quran qillqa paquete.</string>
+    <string name="quran_text_pack_importing">Validaspa hinaspa instalaspa...</string>
 </resources>

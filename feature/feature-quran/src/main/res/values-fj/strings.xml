@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Vakasaqara na dauwiliwili ena yaca, ivakarau, se vinaka...</string>
     <string name="quran_reciter_no_results">E sega ni dua na dauwiliwili e veiganiti kei na vakasaqaqara oqo</string>
     <string name="quran_tab_bookmarks">Vakatakilakila</string>
+    <string name="quran_meaning_catalog_title">Quran significa traducción</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ena kena vosa taumada .</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir vakadewataki</string>
+    <string name="quran_text_catalog_empty">Na ivurevure e lisitaka e dua na cakacaka me baleta na vosa oqo. E sega ni kena ibalebale oqo ni sa taucoko na veivakacokotaki.</string>
+    <string name="quran_text_catalog_refresh">Vakavoutaka na itukutuku ni ivurevure</string>
+    <string name="quran_text_catalog_review_missing">E yali na itukutuku matailalai ni railesuva se ilavelave e gadrevi; na lavetaki oqo e sega ni rawa.</string>
+    <string name="quran_text_catalog_source">iVurevure: QuranEnc</string>
+    <string name="quran_text_catalog_title">Na ivola ni Quran ena vosa, ivurevure, kei na mataqali</string>
+    <string name="quran_text_pack_import">Kauta mai na ivola ni ivola (JSON)</string>
+    <string name="quran_text_pack_importing">Vakadeitaka kei na vakacurumi...</string>
+    <string name="quran_text_pack_import_failed">Na pakete ni ivola ni Quran e sega ni rawa ni vakadeitaki se vakacurumi.</string>
+    <string name="quran_text_pack_import_success">Vakadeitaka ka vakacurumi na taucoko ni ivola ni Quran.</string>
 </resources>

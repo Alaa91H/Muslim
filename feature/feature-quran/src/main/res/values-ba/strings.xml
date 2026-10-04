@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Һөйләүселәрҙе исем, стиль йәки сифат буйынса эҙләгеҙ...</string>
     <string name="quran_reciter_no_results">Был эҙләүгә бер ниндәй ҙә һөйләүселәр тап килмәй</string>
     <string name="quran_tab_bookmarks">Закладкалар</string>
+    <string name="quran_meaning_catalog_title">Ҡөрьән мәғәнәһе тәржемәләр</string>
+    <string name="quran_original_tafsir_catalog_title">Тәүге телендә Тәфсир .</string>
+    <string name="quran_tafsir_translation_catalog_title">Тәржемә ителгән тәфсир .</string>
+    <string name="quran_text_catalog_empty">Сығанаҡта был тел өсөн әҫәрҙәр күрһәтелмәгән. Был ҡаплау тулы тигәнде аңлатмай.</string>
+    <string name="quran_text_catalog_refresh">Сығанаҡ каталогын яңыртыу</string>
+    <string name="quran_text_catalog_review_missing">Кәрәкле тикшерелгән йәки баҫма ентекле мәғлүмәттәре юҡ; был скачать мөмкин түгел.</string>
+    <string name="quran_text_catalog_source">Сығанаҡтар: ҠөрьәнЭнц</string>
+    <string name="quran_text_catalog_title">Ҡөрьән текстары тел, сығанаҡ һәм төр буйынса</string>
+    <string name="quran_text_pack_import">Текст пакетын импортлау (JSON)</string>
+    <string name="quran_text_pack_import_failed">Ҡөрьән текст пакетын раҫлап йәки ҡуйып булманы.</string>
+    <string name="quran_text_pack_import_success">Тикшерелгән һәм тулы Ҡөрьән текст пакеты ҡуйылған.</string>
+    <string name="quran_text_pack_importing">Раҫлау һәм ҡуйыу...</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">ค้นหาผู้อ่านตามชื่อ สไตล์ หรือคุณภาพ...</string>
     <string name="quran_reciter_no_results">ไม่มีผู้อ่านที่ตรงกับการค้นหานี้</string>
     <string name="quran_tab_bookmarks">บุ๊กมาร์ก</string>
+    <string name="quran_meaning_catalog_title">อัลกุรอานหมายถึงการแปล</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ในภาษาดั้งเดิม</string>
+    <string name="quran_tafsir_translation_catalog_title">แปลทัฟซีร์</string>
+    <string name="quran_text_catalog_empty">แหล่งที่มาไม่มีรายการผลงานสำหรับภาษานี้ นี่ไม่ได้หมายความว่าความคุ้มครองจะเสร็จสมบูรณ์</string>
+    <string name="quran_text_catalog_refresh">รีเฟรชแค็ตตาล็อกแหล่งที่มา</string>
+    <string name="quran_text_catalog_review_missing">รายละเอียดการตรวจสอบหรือฉบับที่จำเป็นหายไป การดาวน์โหลดนี้ไม่พร้อมใช้งาน</string>
+    <string name="quran_text_catalog_source">ที่มา: QuranEnc</string>
+    <string name="quran_text_catalog_title">ข้อความอัลกุรอานตามภาษา แหล่งที่มา และประเภท</string>
+    <string name="quran_text_pack_import">นำเข้าชุดข้อความ (JSON)</string>
+    <string name="quran_text_pack_import_failed">ไม่สามารถตรวจสอบหรือติดตั้งชุดข้อความอัลกุรอานได้</string>
+    <string name="quran_text_pack_import_success">ตรวจสอบและติดตั้งชุดข้อความอัลกุรอานที่สมบูรณ์</string>
+    <string name="quran_text_pack_importing">กำลังตรวจสอบและติดตั้ง...</string>
 </resources>

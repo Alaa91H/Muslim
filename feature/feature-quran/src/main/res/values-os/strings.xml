@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Агур кæсджыты ном, стиль кæнæ хæрзхъæддзинадмæ гæсгæ...</string>
     <string name="quran_reciter_no_results">Ацы агурæнæн æмбæлгæ дзурæг нæй</string>
     <string name="quran_tab_bookmarks">Нысантæ</string>
+    <string name="quran_meaning_catalog_title">Хъуыраны нысаниуæг тæлмацтæ</string>
+    <string name="quran_original_tafsir_catalog_title">Тафсир йæ фыццаг æвзагыл</string>
+    <string name="quran_tafsir_translation_catalog_title">Тæлмацгонд тафсир</string>
+    <string name="quran_text_catalog_empty">Источник нæй ацы æвзагæн уацмыстæ. Уый нæ нысан кæны, æмæ æмбæрзт у æххæст.</string>
+    <string name="quran_text_catalog_refresh">Сног кæнын равзæрæн каталог</string>
+    <string name="quran_text_catalog_review_missing">Хъæугæ æркаст кæнæ рауагъды лыстæгдзинæдтæ нæй; ацы æрбакаст нæй.</string>
+    <string name="quran_text_catalog_source">Фæрæзтæ: QuranEnc</string>
+    <string name="quran_text_catalog_title">Хъуыраны тексттæ æвзаг, равзæрд æмæ хуызмæ гæсгæ</string>
+    <string name="quran_text_pack_import">Импорт тексты æмбырдгонд (JSON)</string>
+    <string name="quran_text_pack_import_failed">Хъуыраны тексты æмбырдгонд нæ уыд сбæлвырд кæнæ æвæрд.</string>
+    <string name="quran_text_pack_import_success">Сбæлвырд кодта æмæ æрæвæрдта æххæст Хъуыраны текстон пакет.</string>
+    <string name="quran_text_pack_importing">Бæлвырд кæнын æмæ æвæрын...</string>
 </resources>

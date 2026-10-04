@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Tìm kiếm người đọc theo tên, phong cách hoặc chất lượng…</string>
     <string name="quran_reciter_no_results">Không có người đọc nào phù hợp với tìm kiếm này</string>
     <string name="quran_tab_bookmarks">Dấu trang</string>
+    <string name="quran_meaning_catalog_title">Kinh Qur\'an có nghĩa là bản dịch</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir bằng ngôn ngữ gốc của nó</string>
+    <string name="quran_tafsir_translation_catalog_title">tafsir đã dịch</string>
+    <string name="quran_text_catalog_empty">Danh sách nguồn không có tác phẩm nào cho ngôn ngữ này. Điều này không có nghĩa là phạm vi bảo hiểm đã hoàn tất.</string>
+    <string name="quran_text_catalog_refresh">Làm mới danh mục nguồn</string>
+    <string name="quran_text_catalog_review_missing">Thiếu thông tin chi tiết về phiên bản hoặc đánh giá bắt buộc; bản tải xuống này không có sẵn.</string>
+    <string name="quran_text_catalog_source">Nguồn: Qur\'anEnc</string>
+    <string name="quran_text_catalog_title">Văn bản Kinh Qur\'an theo ngôn ngữ, nguồn và loại</string>
+    <string name="quran_text_pack_import">Nhập gói văn bản (JSON)</string>
+    <string name="quran_text_pack_import_failed">Không thể xác minh hoặc cài đặt gói văn bản Kinh Qur\'an.</string>
+    <string name="quran_text_pack_import_success">Đã xác minh và cài đặt gói văn bản Kinh Qur\'an hoàn chỉnh.</string>
+    <string name="quran_text_pack_importing">Đang xác thực và cài đặt…</string>
 </resources>

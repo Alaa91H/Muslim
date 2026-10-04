@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Tafuta visomaji kwa jina, mtindo, au ubora...</string>
     <string name="quran_reciter_no_results">Hakuna wasomaji wanaolingana na utafutaji huu</string>
     <string name="quran_tab_bookmarks">Alamisho</string>
+    <string name="quran_meaning_catalog_title">Quran maana tafsiri</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir katika lugha yake asilia</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir iliyotafsiriwa</string>
+    <string name="quran_text_catalog_empty">Chanzo kinaorodhesha hakuna kazi za lugha hii. Hii haimaanishi kuwa chanjo imekamilika.</string>
+    <string name="quran_text_catalog_refresh">Onyesha upya katalogi ya chanzo</string>
+    <string name="quran_text_catalog_review_missing">Uhakiki unaohitajika au maelezo ya toleo hayapo; upakuaji huu haupatikani.</string>
+    <string name="quran_text_catalog_source">Vyanzo: QuranEnc</string>
+    <string name="quran_text_catalog_title">Maandishi ya Quran kwa lugha, chanzo na aina</string>
+    <string name="quran_text_pack_import">Ingiza kifurushi cha maandishi (JSON)</string>
+    <string name="quran_text_pack_import_failed">Kifurushi cha maandishi cha Kurani hakikuweza kuthibitishwa au kusakinishwa.</string>
+    <string name="quran_text_pack_import_success">Imethibitishwa na kusakinisha pakiti kamili ya maandishi ya Kurani.</string>
+    <string name="quran_text_pack_importing">Inathibitisha na kusakinisha...</string>
 </resources>

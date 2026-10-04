@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">قىرائەتچىلەرنى ئىسىم ، ئۇسلۇب ياكى سۈپەت بويىچە ئىزدەڭ…</string>
     <string name="quran_reciter_no_results">ھېچقانداق ئىزدىگۈچىلەر بۇ ئىزدەشكە ماس كەلمەيدۇ</string>
     <string name="quran_tab_bookmarks">خەتكۈچلەر</string>
+    <string name="quran_meaning_catalog_title">قۇرئان مەنىسى تەرجىمە</string>
+    <string name="quran_original_tafsir_catalog_title">تەفسىر ئەسلى تىلىدا</string>
+    <string name="quran_tafsir_translation_catalog_title">تەرجىمە قىلىنغان تەفسىر</string>
+    <string name="quran_text_catalog_empty">مەنبە بۇ تىل ئۈچۈن ئەسەر يوق. بۇ قاپلاشنىڭ تاماملانغانلىقىدىن دېرەك بەرمەيدۇ.</string>
+    <string name="quran_text_catalog_refresh">مەنبە مۇندەرىجىسىنى يېڭىلاڭ</string>
+    <string name="quran_text_catalog_review_missing">لازىملىق تەكشۈرۈش ياكى نەشر تەپسىلاتلىرى كەم. بۇ چۈشۈرۈشنى ئىشلەتكىلى بولمايدۇ.</string>
+    <string name="quran_text_catalog_source">مەنبە: قۇرئان كەرىم</string>
+    <string name="quran_text_catalog_title">قۇرئان تېكىستلىرى تىل ، مەنبە ۋە تىپ بويىچە</string>
+    <string name="quran_text_pack_import">تېكىست بولىقى (JSON)</string>
+    <string name="quran_text_pack_import_failed">قۇرئان تېكىست بولىقىنى دەلىللەشكە ياكى قاچىلاشقا بولمايدۇ.</string>
+    <string name="quran_text_pack_importing">دەلىللەش ۋە قاچىلاش…</string>
+    <string name="quran_text_pack_import_success">تولۇق قۇرئان تېكىست بولىقىنى دەلىللىدى ۋە ئورناتتى.</string>
 </resources>

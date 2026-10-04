@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Recitadores ukanakar sutiparjama, estiloparjama, jan ukax calidad ukarjam thaqhapxam...</string>
     <string name="quran_reciter_no_results">Janiw khiti recitores ukas uka thakhimp kikipäkiti</string>
     <string name="quran_tab_bookmarks">Markachirinaka</string>
+    <string name="quran_meaning_catalog_title">Quran ukax jaqukipäwinak sañ muni</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ukax nayrïr arupampiw uñt’ayasi</string>
+    <string name="quran_tafsir_translation_catalog_title">Jaqukipaña tafsir</string>
+    <string name="quran_text_catalog_empty">Uka phunchhawix janiw kuna lurawinakas aka arutak utjkiti. Ukax janiw coberturax phuqhatäxiw sañ munkiti.</string>
+    <string name="quran_text_catalog_refresh">Catálogo de fuente ukar machaqar tukuyaña</string>
+    <string name="quran_text_catalog_review_missing">Revisión jan ukax edición ukan detalles ukanakax janiw utjkiti; aka descarga ukax janiw utjkiti.</string>
+    <string name="quran_text_catalog_source">Uñakipt’atanaka: QuranEnc</string>
+    <string name="quran_text_catalog_title">Quran qillqatanakax aruparjama, kawkhans uñstawayi, ukat kastaparjama</string>
+    <string name="quran_text_pack_import">Importación de texto pack (JSON) ukax mä juk’a pachanakanwa.</string>
+    <string name="quran_text_pack_import_failed">Quran text pack ukax janiw chiqapar uñjatäkaspati jan ukax instalatäkaspati.</string>
+    <string name="quran_text_pack_import_success">Chiqañchata ukat Quran qillqat pack phuqhat uñstayaña.</string>
+    <string name="quran_text_pack_importing">Validación ukat instalaña...</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">མིང་དང་། བཟོ་ལྟ། ཡང་ན་སྤུས་ཚད་ཀྱི་ཐོག་ནས་ཀློག་མཁན་འཚོལ་ཞིབ།</string>
     <string name="quran_reciter_no_results">འཚོལ་བཤེར་འདི་དང་མཐུན་པའི་ཀློག་པ་པོ་མེད།</string>
     <string name="quran_tab_bookmarks">དེབ་རྟགས།</string>
+    <string name="quran_meaning_catalog_title">ཀུ་རཱན་གྱི་དོན་ནི།</string>
+    <string name="quran_original_tafsir_catalog_title">ཐ་ཧྥིར་(Tafsir)ཞེས་པའི་སྐད་ཡིག་ཐོག་མ།</string>
+    <string name="quran_tafsir_translation_catalog_title">ཏྥ་སིར་བསྒྱུར།</string>
+    <string name="quran_text_catalog_empty">ཐོན་ཁུངས་ཀྱིས་སྐད་ཡིག་འདིའི་ཆེད་དུ་བརྩམས་ཆོས་གང་ཡང་ཐོ་འགོད་བྱས་མེད། འདིས་ཁྱབ་ཁོངས་ཆ་ཚང་ཡིན་པའི་དོན་མིན།</string>
+    <string name="quran_text_catalog_refresh">འབྱུང་ཁུངས་དཀར་ཆག་གསར་བརྗེ།</string>
+    <string name="quran_text_catalog_review_missing">དགོས་མཁོའི་བསྐྱར་ཞིབ་ཡང་ན་པར་སྐྲུན་གྱི་ཞིབ་ཕྲའི་གནས་ཚུལ་མེད་པ་རེད། ཕབ་ལེན་འདི་ཐོབ་མི་ཐུབ།</string>
+    <string name="quran_text_catalog_source">ཡོང་ཁུངས།: QuranEnc</string>
+    <string name="quran_text_catalog_title">སྐད་ཡིག འབྱུང་ཁུངས། རིགས་བཅས་ཀྱི་སྒོ་ནས་ཁ་ཆེའི་དཔེ་ཆ།</string>
+    <string name="quran_text_pack_import">ནང་འདྲེན་ཡིག་ཆའི་ཐུམ་སྒྲིལ་(JSON)</string>
+    <string name="quran_text_pack_import_success">ཁ་ཆེའི་དཔེ་ཆ་ཆ་ཚང་བདེན་དཔང་དང་སྒྲིག་འཇུག་བྱས།</string>
+    <string name="quran_text_pack_importing">བདེན་དཔང་དང་སྒྲིག་འཇུག་བྱེད་བཞིན་ཡོད།</string>
+    <string name="quran_text_pack_import_failed">ཁ་ཆེའི་དཔེ་ཆའི་ཐུམ་སྒྲིལ་དེ་བདེན་དཔང་དང་སྒྲིག་འཇུག་བྱེད་ཐུབ་ཀྱི་མིན་འདུག</string>
 </resources>

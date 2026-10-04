@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">නම, විලාසය, හෝ ගුණාත්මකභාවය අනුව පාඨකයන් සොයන්න...</string>
     <string name="quran_reciter_no_results">මෙම සෙවුමට ගැළපෙන්නන් නැත</string>
     <string name="quran_tab_bookmarks">පිටු සලකුණු</string>
+    <string name="quran_meaning_catalog_title">කුරානයේ අර්ථය පරිවර්තන</string>
+    <string name="quran_original_tafsir_catalog_title">තෆ්සීර් එහි මුල් භාෂාවෙන්</string>
+    <string name="quran_tafsir_translation_catalog_title">පරිවර්තනය කළ tafsir</string>
+    <string name="quran_text_catalog_empty">මූලාශ්‍රය මෙම භාෂාව සඳහා කෘතීන් කිසිවක් ලැයිස්තුගත නොකරයි. ආවරණය සම්පූර්ණ බව මින් අදහස් නොවේ.</string>
+    <string name="quran_text_catalog_refresh">මූලාශ්‍ර නාමාවලිය නැවුම් කරන්න</string>
+    <string name="quran_text_catalog_review_missing">අවශ්‍ය සමාලෝචන හෝ සංස්කරණ විස්තර අස්ථානගත වී ඇත; මෙම බාගත කිරීම නොමැත.</string>
+    <string name="quran_text_catalog_source">මූලාශ්‍ර: QuranEnc</string>
+    <string name="quran_text_catalog_title">භාෂාව, මූලාශ්රය සහ වර්ගය අනුව කුර්ආන් පාඨ</string>
+    <string name="quran_text_pack_import">පෙළ ඇසුරුම ආයාත කරන්න (JSON)</string>
+    <string name="quran_text_pack_import_failed">කුර්ආන් පෙළ ඇසුරුම සත්‍යාපනය කිරීමට හෝ ස්ථාපනය කිරීමට නොහැකි විය.</string>
+    <string name="quran_text_pack_import_success">සම්පූර්ණ කුර්ආන් පෙළ ඇසුරුම සත්‍යාපනය කර ස්ථාපනය කර ඇත.</string>
+    <string name="quran_text_pack_importing">වලංගු කිරීම සහ ස්ථාපනය කිරීම...</string>
 </resources>

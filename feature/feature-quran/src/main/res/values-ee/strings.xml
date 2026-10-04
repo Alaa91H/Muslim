@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Di nuƒolawo le ŋkɔ, atsyã, alo nyonyome nu...</string>
     <string name="quran_reciter_no_results">Nuxlẽla aɖeke mesɔ kple didi sia o</string>
     <string name="quran_tab_bookmarks">Dzesiwo ƒe dzesiwo</string>
+    <string name="quran_meaning_catalog_title">Quran gɔmesese gɔmeɖeɖewo</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir le eƒe gbe gbãtɔ me</string>
+    <string name="quran_tafsir_translation_catalog_title">Woɖe egɔme be tafsir</string>
+    <string name="quran_text_catalog_empty">Dzɔtsoƒea yɔ dɔ aɖeke na gbe sia o. Esia mefia be wowu nugblẽfexeɖoɖoa nu o.</string>
+    <string name="quran_text_catalog_refresh">Gbugbɔ dzɔtsoƒe ƒe agbalẽdzraɖoƒea</string>
+    <string name="quran_text_catalog_review_missing">Toto alo tata ŋuti nyatakaka siwo hiã la bu; kɔpi sia mele dɔ wɔm o.</string>
+    <string name="quran_text_catalog_source">Dzɔtsoƒewo: QuranEnc</string>
+    <string name="quran_text_catalog_title">Quran me nuŋɔŋlɔwo le gbegbɔgblɔ, afisi wotso, kple woƒe ƒomevi nu</string>
+    <string name="quran_text_pack_import">Tsɔ nuŋɔŋlɔ ƒe agbalẽvi (JSON) va dukɔa me .</string>
+    <string name="quran_text_pack_import_failed">Womete ŋu ɖo kpe Quran ƒe nuŋɔŋlɔa dzi alo de eme o.</string>
+    <string name="quran_text_pack_import_success">Woɖo kpe Quran ƒe nuŋɔŋlɔ bliboa dzi eye wòdae ɖe wò kɔmpiuta dzi.</string>
+    <string name="quran_text_pack_importing">Validating kple installing...</string>
 </resources>

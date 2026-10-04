@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Aw ye kalanbagaw ɲini u tɔgɔ fɛ, u kɛcogo fɛ, walima u jogo fɛ...</string>
     <string name="quran_reciter_no_results">Karamɔgɔ si tɛ Bɛn ni ɲinini in ye</string>
     <string name="quran_tab_bookmarks">Taamaʃyɛnw (bookmarks).</string>
+    <string name="quran_meaning_catalog_title">Kuranɛ kɔrɔ bamanankan bamanankan</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir a ka kan fɔlɔ la</string>
+    <string name="quran_tafsir_translation_catalog_title">Bamanankan bamanankanna tafsir</string>
+    <string name="quran_text_catalog_empty">Soso bɛ baara si jira kan in na. O kɔrɔ tɛ ko coverage dafalen don.</string>
+    <string name="quran_text_catalog_refresh">Soso katalogu kura</string>
+    <string name="quran_text_catalog_review_missing">Seginkanni walima bɔko kunnafoni wajibiyalenw tɛ yen; nin telesarse in tɛ se ka kɛ.</string>
+    <string name="quran_text_catalog_source">Sosow: QuranEnc</string>
+    <string name="quran_text_catalog_title">Kuranɛ sɛbɛnw ka kɛɲɛ ni kan, bɔyɔrɔ ani suguya ye</string>
+    <string name="quran_text_pack_import">Sɛbɛnni pake (JSON) ladonni .</string>
+    <string name="quran_text_pack_import_failed">Kuranɛ sɛbɛnni pake ma se ka sɛgɛsɛgɛ walima ka don a kɔnɔ.</string>
+    <string name="quran_text_pack_import_success">Kuranɛ sɛbɛnni pake dafalen sɛgɛsɛgɛ ani k’a sigi sen kan.</string>
+    <string name="quran_text_pack_importing">Validating ani installation (dadon)...</string>
 </resources>

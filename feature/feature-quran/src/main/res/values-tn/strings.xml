@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Batla babadi ka leina, setaele, kgotsa boleng...</string>
     <string name="quran_reciter_no_results">Ga go na babadi ba ba tshwanang le patlo eno</string>
     <string name="quran_tab_bookmarks">Matshwaotsebe</string>
+    <string name="quran_meaning_catalog_title">Quran e kaya dithanolo</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ka puo ya yone ya ntlhantlha</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir e e ranotsweng</string>
+    <string name="quran_text_catalog_empty">Motswedi ga o kwale ditiro dipe tsa puo eno. Se ga se reye gore kakaretso e feletse.</string>
+    <string name="quran_text_catalog_refresh">Ntšhwafatsa lenaane la motswedi</string>
+    <string name="quran_text_catalog_review_missing">Dintlha tse di tlhokegang tsa tshekatsheko kgotsa tsa kgatiso ga di yo; laisolola eno ga e yo.</string>
+    <string name="quran_text_catalog_source">Metswedi: QuranEnc</string>
+    <string name="quran_text_catalog_title">Dikwalo tsa Quran ka puo, motswedi, le mofuta</string>
+    <string name="quran_text_pack_import">Thomeloteng sephuthelwana sa mafoko (JSON)</string>
+    <string name="quran_text_pack_import_success">E netefaditswe le go tsenngwa pakete e e feletseng ya sekwalwa sa Quran.</string>
+    <string name="quran_text_pack_importing">Go netefatsa le go tsenya...</string>
+    <string name="quran_text_pack_import_failed">Pakete ya mafoko a Quran ga e a kgona go netefadiwa kgotsa go tsenngwa.</string>
 </resources>

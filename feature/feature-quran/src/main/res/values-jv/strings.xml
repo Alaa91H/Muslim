@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Telusuri qari miturut jeneng, gaya, utawa kualitas…</string>
     <string name="quran_reciter_no_results">Ora ana reciters sing cocog karo panelusuran iki</string>
     <string name="quran_tab_bookmarks">Tetenger</string>
+    <string name="quran_meaning_catalog_title">Al Qur\'an makna terjemahan</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ing basa asline</string>
+    <string name="quran_tafsir_translation_catalog_title">Terjemahan tafsir</string>
+    <string name="quran_text_catalog_empty">Sumber dhaptar ora ana karya kanggo basa iki. Iki ora ateges jangkoan wis rampung.</string>
+    <string name="quran_text_catalog_refresh">Refresh katalog sumber</string>
+    <string name="quran_text_catalog_review_missing">Rincian review utawa edisi sing dibutuhake ora ana; download iki ora kasedhiya.</string>
+    <string name="quran_text_catalog_source">Sumber: QuranEnc</string>
+    <string name="quran_text_catalog_title">Teks Quran miturut basa, sumber, lan jinis</string>
+    <string name="quran_text_pack_import">Impor paket teks (JSON)</string>
+    <string name="quran_text_pack_import_failed">Paket teks Quran ora bisa diverifikasi utawa diinstal.</string>
+    <string name="quran_text_pack_import_success">Diverifikasi lan diinstal paket teks Quran lengkap.</string>
+    <string name="quran_text_pack_importing">Validasi lan nginstal…</string>
 </resources>

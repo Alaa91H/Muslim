@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Cari qari mengikut nama, gaya atau kualiti…</string>
     <string name="quran_reciter_no_results">Tiada qari yang sepadan dengan carian ini</string>
     <string name="quran_tab_bookmarks">Penanda buku</string>
+    <string name="quran_meaning_catalog_title">terjemahan makna al-Quran</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir dalam bahasa asalnya</string>
+    <string name="quran_tafsir_translation_catalog_title">Terjemahan tafsir</string>
+    <string name="quran_text_catalog_empty">Sumber tidak menyenaraikan karya untuk bahasa ini. Ini tidak bermakna perlindungan lengkap.</string>
+    <string name="quran_text_catalog_refresh">Muat semula katalog sumber</string>
+    <string name="quran_text_catalog_review_missing">Butiran semakan atau edisi yang diperlukan tiada; muat turun ini tidak tersedia.</string>
+    <string name="quran_text_catalog_source">Sumber: QuranEnc</string>
+    <string name="quran_text_catalog_title">Teks al-Quran mengikut bahasa, sumber dan jenis</string>
+    <string name="quran_text_pack_import">Import pek teks (JSON)</string>
+    <string name="quran_text_pack_import_failed">Pek teks al-Quran tidak dapat disahkan atau dipasang.</string>
+    <string name="quran_text_pack_import_success">Mengesahkan dan memasang pek teks al-Quran yang lengkap.</string>
+    <string name="quran_text_pack_importing">Mengesahkan dan memasang…</string>
 </resources>

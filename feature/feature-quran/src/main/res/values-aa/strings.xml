@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Kawsa mara migaaqal, maagaxxi akkek mexxatal gorrisa...</string>
     <string name="quran_reciter_no_results">Faxe kawseenit ta goranah ramad mali</string>
     <string name="quran_tab_bookmarks">Kitab Asta</string>
+    <string name="quran_meaning_catalog_title">Kur\'aan maqnisso maqnisso</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir asli afah yan</string>
+    <string name="quran_tafsir_translation_catalog_title">Maqnisen tafsir</string>
+    <string name="quran_text_catalog_empty">raceena ta afah uli taama mali. Tah yaanam reebi duudumeh yaanam hinna.</string>
+    <string name="quran_text_catalog_refresh">Raceena kataloogu uqusbus</string>
+    <string name="quran_text_catalog_review_missing">Faxximta agaarad akkek matbaqatih alhumitte waytimta; Ta oobisiyyi mageytima.</string>
+    <string name="quran_text_catalog_source">Raceenaani: Qur\'aanEnc</string>
+    <string name="quran_text_catalog_title">Kur\'aan kutbeeba afaay, raceenaa kee qaynatal</string>
+    <string name="quran_text_pack_import">culmah kutbeh alfenta (JSON)</string>
+    <string name="quran_text_pack_import_failed">Kur\'aanak kutbeh ayyufta diggowtam akkek kibbimtam maduudumta.</string>
+    <string name="quran_text_pack_import_success">diggowteh kibbimteh dudda le qur\'aanak kutbeh pack.</string>
+    <string name="quran_text_pack_importing">diggoysaanam kee kibne...</string>
 </resources>

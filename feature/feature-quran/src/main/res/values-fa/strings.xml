@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">قاریان را بر اساس نام، سبک یا کیفیت جستجو کنید…</string>
     <string name="quran_reciter_no_results">هیچ قاری با این جستجو مطابقت ندارد</string>
     <string name="quran_tab_bookmarks">نشانک ها</string>
+    <string name="quran_meaning_catalog_title">قرآن به معنای ترجمه</string>
+    <string name="quran_original_tafsir_catalog_title">تفسیر به زبان اصلی</string>
+    <string name="quran_tafsir_translation_catalog_title">تفسیر ترجمه شده</string>
+    <string name="quran_text_catalog_empty">منبع هیچ اثری برای این زبان فهرست نمی‌کند. این بدان معنا نیست که پوشش کامل است.</string>
+    <string name="quran_text_catalog_refresh">کاتالوگ منبع را به روز کنید</string>
+    <string name="quran_text_catalog_review_missing">بررسی مورد نیاز یا جزئیات نسخه وجود ندارد. این دانلود در دسترس نیست</string>
+    <string name="quran_text_catalog_source">منابع: QuranEnc</string>
+    <string name="quran_text_catalog_title">متون قرآن بر اساس زبان، منبع و نوع</string>
+    <string name="quran_text_pack_import">وارد کردن بسته متنی (JSON)</string>
+    <string name="quran_text_pack_import_failed">بسته متنی قرآن تأیید یا نصب نشد.</string>
+    <string name="quran_text_pack_import_success">بسته کامل متن قرآن را تایید و نصب کرد.</string>
+    <string name="quran_text_pack_importing">در حال تایید و نصب…</string>
 </resources>

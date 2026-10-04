@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Hwehwɛ reciters din, ɔkwan, anaa su...</string>
     <string name="quran_reciter_no_results">Akenkanfo biara nni hɔ a ɛne saa hwehwɛ yi hyia</string>
     <string name="quran_tab_bookmarks">Nwoma a Wɔde Yɛ Nwoma</string>
+    <string name="quran_meaning_catalog_title">Quran asekyerɛ nkyerɛaseɛ</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir wɔ ne mfitiase kasa mu</string>
+    <string name="quran_tafsir_translation_catalog_title">Wɔakyerɛ ase tafsir</string>
+    <string name="quran_text_catalog_empty">Fibea no nkyerɛw adwuma biara mma kasa yi. Eyi nkyerɛ sɛ wɔawie coverage no.</string>
+    <string name="quran_text_catalog_refresh">Fa fibea katalog no yɛ foforo</string>
+    <string name="quran_text_catalog_review_missing">Nhwehwɛmu anaa nkyerɛase no ho nsɛm a wɔhwehwɛ no nni hɔ; saa download yi ntumi nyɛ adwuma.</string>
+    <string name="quran_text_catalog_source">Nneɛma a wonya fi mu: QuranEnc</string>
+    <string name="quran_text_catalog_title">Quran nkyerɛwee sɛnea kasa, fibea, ne ne su te</string>
+    <string name="quran_text_pack_import">Fa nsɛm a wɔde ahyɛ mu (JSON) ba .</string>
+    <string name="quran_text_pack_import_failed">Wɔantumi ankyerɛ sɛ Quran text pack no yɛ nokware anaasɛ wɔantumi anhyɛ mu.</string>
+    <string name="quran_text_pack_import_success">Wɔagye atom na wɔde Kuran nkyerɛwee pack a edi mũ no ahyɛ mu.</string>
+    <string name="quran_text_pack_importing">Validating ne instɔlehyɛn...</string>
 </resources>

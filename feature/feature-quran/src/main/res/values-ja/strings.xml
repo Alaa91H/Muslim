@@ -162,4 +162,16 @@
     <string name="quran_share_ayah">アヤをシェアする</string>
     <string name="quran_tab_juz">ジュズ</string>
     <string name="quran_tab_surahs">スーラ</string>
+    <string name="quran_meaning_catalog_title">コーランの意味翻訳</string>
+    <string name="quran_original_tafsir_catalog_title">タフシル語の原語</string>
+    <string name="quran_tafsir_translation_catalog_title">翻訳されたタフシル</string>
+    <string name="quran_text_catalog_empty">ソースには、この言語の作品はリストされていません。これは補償が完了したことを意味するものではありません。</string>
+    <string name="quran_text_catalog_refresh">ソースカタログを更新する</string>
+    <string name="quran_text_catalog_review_missing">必要なレビューまたはエディションの詳細が欠落しています。このダウンロードは利用できません。</string>
+    <string name="quran_text_catalog_source">出典: QuranEnc</string>
+    <string name="quran_text_catalog_title">言語、出典、種類別のコーラン文書</string>
+    <string name="quran_text_pack_import">テキストパック(JSON)をインポート</string>
+    <string name="quran_text_pack_import_failed">コーラン テキスト パックを検証またはインストールできませんでした。</string>
+    <string name="quran_text_pack_import_success">完全なコーラン テキスト パックを確認してインストールしました。</string>
+    <string name="quran_text_pack_importing">検証してインストールしています…</string>
 </resources>

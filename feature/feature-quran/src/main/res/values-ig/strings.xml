@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Chọọ ndị na-agụ akwụkwọ site n\'aha, ụdị, ma ọ bụ mma…</string>
     <string name="quran_reciter_no_results">Ọ nweghị ndị na-agụ akwụkwọ dabara na nchọ a</string>
     <string name="quran_tab_bookmarks">Ibe edokwubara</string>
+    <string name="quran_meaning_catalog_title">Quran pụtara ntụgharị asụsụ</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir n\'asụsụ izizi ya</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir atụgharịrị</string>
+    <string name="quran_text_catalog_empty">Isi mmalite ahụ edepụtaghị ọrụ ọ bụla maka asụsụ a. Nke a apụtaghị na mkpuchi zuru ezu.</string>
+    <string name="quran_text_catalog_refresh">Weghachite katalọgụ isi mmalite</string>
+    <string name="quran_text_catalog_review_missing">Nlebanya ma ọ bụ nkọwa mbipụta achọrọ na-efu; nbudata a adịghị.</string>
+    <string name="quran_text_catalog_source">Isi mmalite: QuranEnc</string>
+    <string name="quran_text_catalog_title">Ederede Quran site na asụsụ, isi mmalite na ụdị</string>
+    <string name="quran_text_pack_import">Bubata ngwugwu ederede (JSON)</string>
+    <string name="quran_text_pack_importing">Na-akwado ma wụnye…</string>
+    <string name="quran_text_pack_import_failed">Enweghị ike ịnwapụta ma ọ bụ tinye ngwungwu ederede Quran.</string>
+    <string name="quran_text_pack_import_success">Nyochaa ma tinye ngwugwu ederede Quran zuru oke.</string>
 </resources>

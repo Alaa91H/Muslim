@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">חפש מדקלמים לפי שם, סגנון או איכות...</string>
     <string name="quran_reciter_no_results">אין מדקלמים שתואמים לחיפוש זה</string>
     <string name="quran_tab_bookmarks">סימניות</string>
+    <string name="quran_meaning_catalog_title">הקוראן אומר תרגומים</string>
+    <string name="quran_original_tafsir_catalog_title">תפסיר בשפת המקור</string>
+    <string name="quran_tafsir_translation_catalog_title">תורגם טפסיר</string>
+    <string name="quran_text_catalog_empty">המקור אינו מפרט יצירות עבור שפה זו. זה לא אומר שהכיסוי הושלם.</string>
+    <string name="quran_text_catalog_refresh">רענן את קטלוג המקורות</string>
+    <string name="quran_text_catalog_review_missing">חסרים פרטי סקירה או מהדורה נדרשים; הורדה זו אינה זמינה.</string>
+    <string name="quran_text_catalog_source">מקורות: QuranEnc</string>
+    <string name="quran_text_catalog_title">טקסטים של קוראן לפי שפה, מקור וסוג</string>
+    <string name="quran_text_pack_import">ייבוא חבילת טקסט (JSON)</string>
+    <string name="quran_text_pack_import_failed">לא ניתן היה לאמת או להתקין את חבילת הטקסט של הקוראן.</string>
+    <string name="quran_text_pack_import_success">אימת והתקן את חבילת הטקסט המלאה של הקוראן.</string>
+    <string name="quran_text_pack_importing">מאמת ומתקין...</string>
 </resources>

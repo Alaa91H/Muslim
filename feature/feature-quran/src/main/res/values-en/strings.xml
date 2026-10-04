@@ -183,4 +183,16 @@
     <string name="quran_loading">Loading Quran…</string>
     <string name="quran_tafsir_follow_playback">Follow the recited ayah in tafsir</string>
     <string name="quran_tafsir_follow_playback_description">Move meanings and tafsir with recitation. Turn off to read another explanation while audio continues.</string>
+    <string name="quran_text_catalog_refresh">Refresh source catalogue</string>
+    <string name="quran_text_catalog_source">Sources: QuranEnc</string>
+    <string name="quran_text_catalog_title">Quran texts by language, source, and type</string>
+    <string name="quran_meaning_catalog_title">Quran meaning translations</string>
+    <string name="quran_tafsir_translation_catalog_title">Translated tafsir</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir in its original language</string>
+    <string name="quran_text_catalog_empty">The source lists no works for this language. This does not mean coverage is complete.</string>
+    <string name="quran_text_catalog_review_missing">Required review or edition details are missing; this download is unavailable.</string>
+    <string name="quran_text_pack_import">Import text pack (JSON)</string>
+    <string name="quran_text_pack_importing">Validating and installing…</string>
+    <string name="quran_text_pack_import_success">Verified and installed the complete Quran text pack.</string>
+    <string name="quran_text_pack_import_failed">The Quran text pack could not be verified or installed.</string>
 </resources>

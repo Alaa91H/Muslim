@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Ṣewadii awọn oluka nipa orukọ, ara, tabi didara…</string>
     <string name="quran_reciter_no_results">Ko si awọn olukawe ti o baamu wiwa yii</string>
     <string name="quran_tab_bookmarks">Awọn bukumaaki</string>
+    <string name="quran_meaning_catalog_title">Al-Qur\'an itumo awọn itumọ</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ni ede atilẹba rẹ</string>
+    <string name="quran_tafsir_translation_catalog_title">Tumọ tafsir</string>
+    <string name="quran_text_catalog_empty">Orisun ṣe atokọ ko si awọn iṣẹ fun ede yii. Eyi ko tumọ si agbegbe ti pari.</string>
+    <string name="quran_text_catalog_refresh">Sọ orisun katalogi</string>
+    <string name="quran_text_catalog_review_missing">Atunwo ti o nilo tabi awọn alaye ẹda ti nsọnu; gbigba lati ayelujara yii ko si.</string>
+    <string name="quran_text_catalog_source">Awọn orisun: QuranEnc</string>
+    <string name="quran_text_catalog_title">Awọn ọrọ Al-Qur’an nipasẹ ede, orisun, ati iru</string>
+    <string name="quran_text_pack_import">Apo ọrọ wọle (JSON)</string>
+    <string name="quran_text_pack_import_failed">Ididi ọrọ Al-Qur’an ko le jẹ ijẹrisi tabi fi sori ẹrọ.</string>
+    <string name="quran_text_pack_importing">Ifọwọsi ati fifi sori ẹrọ…</string>
+    <string name="quran_text_pack_import_success">Jẹrisi ati fi sori ẹrọ idii ọrọ Al-Qur’an pipe.</string>
 </resources>

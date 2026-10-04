@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Setjha abafundi ngamagama, isitayela, nofana ikhwalithi...</string>
     <string name="quran_reciter_no_results">Akekho umphindaphindi ohambelana nalokhu kusesha</string>
     <string name="quran_tab_bookmarks">Amabhukmaki</string>
+    <string name="quran_meaning_catalog_title">Iinhlathululo ze-Quran</string>
+    <string name="quran_original_tafsir_catalog_title">I-Tafsir ngelimi layo lokuthoma</string>
+    <string name="quran_tafsir_translation_catalog_title">I-tafsir etjhugululiweko</string>
+    <string name="quran_text_catalog_empty">Umthombo awufaki imisebenzi yelimi leli. Lokhu akutjho bona ukubhadelwa kuphelile.</string>
+    <string name="quran_text_catalog_refresh">Vuselela ikhathalogu yomthombo</string>
+    <string name="quran_text_catalog_review_missing">Ukubuyekezwa okutlhogekako nofana imininingwana ye-edishini ayikho; ukulandwa lokhu akutholakali.</string>
+    <string name="quran_text_catalog_source">Imithombo: QuranEnc</string>
+    <string name="quran_text_catalog_title">Imitlolo ye-Quran ngolimi, umthombo, kanye nohlobo</string>
+    <string name="quran_text_pack_import">Iphakheji yomtlolo yokungenisa (JSON)</string>
+    <string name="quran_text_pack_import_failed">Iphakheji yomtlolo we-Quran azange iqinisekiswe nofana ifakwe.</string>
+    <string name="quran_text_pack_import_success">Uqinisekise begodu wafaka iphakheji yomtlolo we-Quran epheleleko.</string>
+    <string name="quran_text_pack_importing">Ukuqinisekisa nokufaka...</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Maqaa, akkaataa, ykn qulqullina dubbistoota barbaadi...</string>
     <string name="quran_reciter_no_results">Dubbisaan kamiyyuu barbaacha kanaan wal hin simne</string>
     <string name="quran_tab_bookmarks">Mallattoolee (bookmarks).</string>
+    <string name="quran_meaning_catalog_title">Qur\'aana hiika hiika</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir afaan jalqabaa isaatiin</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir jedhamee hiikame</string>
+    <string name="quran_text_catalog_empty">Maddi hojiiwwan afaan kanaaf hojjetaman hin tarreessu. Kana jechuun uwwisni guutuudha jechuu miti.</string>
+    <string name="quran_text_catalog_refresh">Kataloogii madda haaromsi</string>
+    <string name="quran_text_catalog_review_missing">Bal’inni gamaaggama ykn maxxansaa barbaachisu dhabameera; buufachuun kun hin argamu.</string>
+    <string name="quran_text_catalog_source">Maddoonni: QuranEnc</string>
+    <string name="quran_text_catalog_title">Barreeffamoota Qur\'aanaa afaan, madda, fi gosa</string>
+    <string name="quran_text_pack_import">Paakkii barruu galchuu (JSON) .</string>
+    <string name="quran_text_pack_import_failed">Paakkii barreeffama Qur\'aanaa mirkanaa\'uu ykn fe\'amuu hin dandeenye.</string>
+    <string name="quran_text_pack_import_success">Paakkii barreeffama Qur\'aanaa guutuu mirkaneessee fe\'e.</string>
+    <string name="quran_text_pack_importing">Mirkaneessuu fi fe\'uu...</string>
 </resources>

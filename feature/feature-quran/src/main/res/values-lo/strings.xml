@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">ຊອກຫານັກຂຽນຕາມຊື່, ຮູບແບບ, ຫຼືຄຸນນະພາບ...</string>
     <string name="quran_reciter_no_results">ບໍ່ມີນັກຂຽນທີ່ກົງກັບການຄົ້ນຫານີ້</string>
     <string name="quran_tab_bookmarks">ບຸກມາກ</string>
+    <string name="quran_meaning_catalog_title">Quran ຄວາມ​ຫມາຍ​ການ​ແປ​ພາ​ສາ​</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ໃນ​ພາ​ສາ​ຕົ້ນ​ສະ​ບັບ​ຂອງ​ຕົນ​</string>
+    <string name="quran_tafsir_translation_catalog_title">ແປວ່າ tafsir</string>
+    <string name="quran_text_catalog_empty">ແຫຼ່ງທີ່ລາຍຊື່ບໍ່ເຮັດວຽກສໍາລັບພາສານີ້. ນີ້ບໍ່ໄດ້ຫມາຍຄວາມວ່າການຄຸ້ມຄອງແມ່ນສໍາເລັດ.</string>
+    <string name="quran_text_catalog_refresh">ໂຫຼດຂໍ້ມູນແຫຼ່ງທີ່ມາຄືນໃໝ່</string>
+    <string name="quran_text_catalog_review_missing">ຂາດການກວດສອບ ຫຼືລາຍລະອຽດສະບັບທີ່ຕ້ອງການ; ການດາວໂຫຼດນີ້ບໍ່ສາມາດໃຊ້ໄດ້.</string>
+    <string name="quran_text_catalog_source">ແຫຼ່ງຂໍ້ມູນ: QuranEnc</string>
+    <string name="quran_text_catalog_title">ຂໍ້​ຄວາມ Quran ໂດຍ​ພາ​ສາ​, ແຫຼ່ງ​, ແລະ​ປະ​ເພດ​</string>
+    <string name="quran_text_pack_import">ນຳເຂົ້າຊຸດຂໍ້ຄວາມ (JSON)</string>
+    <string name="quran_text_pack_import_failed">ຊຸດຂໍ້ຄວາມ Quran ບໍ່ສາມາດກວດສອບ ຫຼືຕິດຕັ້ງໄດ້.</string>
+    <string name="quran_text_pack_import_success">ຢືນຢັນແລະຕິດຕັ້ງຊຸດຂໍ້ຄວາມ Quran ຄົບຖ້ວນ.</string>
+    <string name="quran_text_pack_importing">ກຳລັງກວດສອບ ແລະຕິດຕັ້ງ...</string>
 </resources>

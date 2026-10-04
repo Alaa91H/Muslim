@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Bincika masu karatu da suna, salo, ko inganci…</string>
     <string name="quran_reciter_no_results">Babu masu karatu da suka dace da wannan binciken</string>
     <string name="quran_tab_bookmarks">Alamomi</string>
+    <string name="quran_meaning_catalog_title">Alqur\'ani ma\'ana tafsiri</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsiri a yarensa na asali</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsirin</string>
+    <string name="quran_text_catalog_empty">Madogarar ta lissafta babu ayyuka na wannan harshe. Wannan baya nufin ɗaukar hoto ya cika.</string>
+    <string name="quran_text_catalog_refresh">Sake sabunta kasidar tushe</string>
+    <string name="quran_text_catalog_review_missing">Binciken da ake buƙata ko bayanan bugu ya ɓace; babu wannan zazzagewar.</string>
+    <string name="quran_text_catalog_title">Nassosin Alqur\'ani ta harshe, tushe, da nau\'i</string>
+    <string name="quran_text_pack_import">Shigo fakitin rubutu (JSON)</string>
+    <string name="quran_text_pack_importing">Ana tabbatarwa da girka…</string>
+    <string name="quran_text_pack_import_failed">Ba a iya tantance ko shigar da fakitin rubutun Al-Qur\'ani ba.</string>
+    <string name="quran_text_pack_import_success">Tabbatar da shigar da cikakkiyar fakitin rubutun Alqur\'ani.</string>
+    <string name="quran_text_catalog_source">Madogara: QuranEnc</string>
 </resources>

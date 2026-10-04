@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Wyszukaj recytatorów według nazwy, stylu lub jakości…</string>
     <string name="quran_reciter_no_results">Żaden recytator nie pasuje do tego wyszukiwania</string>
     <string name="quran_tab_bookmarks">Zakładki</string>
+    <string name="quran_meaning_catalog_title">Koran oznacza tłumaczenia</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir w swoim oryginalnym języku</string>
+    <string name="quran_tafsir_translation_catalog_title">Przetłumaczony tafsir</string>
+    <string name="quran_text_catalog_empty">Źródło nie podaje żadnych prac w tym języku. Nie oznacza to, że zasięg jest pełny.</string>
+    <string name="quran_text_catalog_refresh">Odśwież katalog źródłowy</string>
+    <string name="quran_text_catalog_review_missing">Brak wymaganych szczegółów recenzji lub wydania; to pobieranie jest niedostępne.</string>
+    <string name="quran_text_catalog_source">Źródła: QuranEnc</string>
+    <string name="quran_text_catalog_title">Teksty Koranu według języka, źródła i typu</string>
+    <string name="quran_text_pack_import">Importuj pakiet tekstowy (JSON)</string>
+    <string name="quran_text_pack_import_failed">Nie można zweryfikować ani zainstalować pakietu tekstowego Koranu.</string>
+    <string name="quran_text_pack_import_success">Zweryfikowano i zainstalowano pełny pakiet tekstu Koranu.</string>
+    <string name="quran_text_pack_importing">Sprawdzanie poprawności i instalowanie…</string>
 </resources>

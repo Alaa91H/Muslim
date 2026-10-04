@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">പേര്, ശൈലി അല്ലെങ്കിൽ ഗുണമേന്മ പ്രകാരം വായനക്കാരെ തിരയുക...</string>
     <string name="quran_reciter_no_results">ഈ തിരയലുമായി പൊരുത്തപ്പെടുന്ന വായനക്കാരൊന്നും</string>
     <string name="quran_tab_bookmarks">ബുക്ക്മാർക്കുകൾ</string>
+    <string name="quran_meaning_catalog_title">ഖുർആൻ അർത്ഥമാക്കുന്നത് വിവർത്തനം എന്നാണ്</string>
+    <string name="quran_original_tafsir_catalog_title">തഫ്സീർ അതിൻ്റെ യഥാർത്ഥ ഭാഷയിൽ</string>
+    <string name="quran_tafsir_translation_catalog_title">തഫ്സീർ വിവർത്തനം ചെയ്തു</string>
+    <string name="quran_text_catalog_empty">ഉറവിടം ഈ ഭാഷയ്‌ക്കായി സൃഷ്ടികളൊന്നും ലിസ്റ്റുചെയ്യുന്നില്ല. കവറേജ് പൂർത്തിയായി എന്നല്ല ഇതിനർത്ഥം.</string>
+    <string name="quran_text_catalog_refresh">ഉറവിട കാറ്റലോഗ് പുതുക്കുക</string>
+    <string name="quran_text_catalog_review_missing">ആവശ്യമായ അവലോകനം അല്ലെങ്കിൽ പതിപ്പ് വിശദാംശങ്ങൾ കാണുന്നില്ല; ഈ ഡൗൺലോഡ് ലഭ്യമല്ല.</string>
+    <string name="quran_text_catalog_source">ഉറവിടങ്ങൾ: QuranEnc</string>
+    <string name="quran_text_catalog_title">ഭാഷ, ഉറവിടം, തരം എന്നിവ പ്രകാരം ഖുറാൻ പാഠങ്ങൾ</string>
+    <string name="quran_text_pack_import">ടെക്സ്റ്റ് പായ്ക്ക് (JSON) ഇറക്കുമതി ചെയ്യുക</string>
+    <string name="quran_text_pack_import_failed">ഖുറാൻ ടെക്സ്റ്റ് പായ്ക്ക് പരിശോധിക്കാനോ ഇൻസ്റ്റാൾ ചെയ്യാനോ കഴിഞ്ഞില്ല.</string>
+    <string name="quran_text_pack_import_success">പൂർണ്ണമായ ഖുർആൻ ടെക്സ്റ്റ് പായ്ക്ക് പരിശോധിച്ച് ഇൻസ്റ്റാൾ ചെയ്തു.</string>
+    <string name="quran_text_pack_importing">മൂല്യനിർണ്ണയം നടത്തുകയും ഇൻസ്റ്റാൾ ചെയ്യുകയും ചെയ്യുന്നു...</string>
 </resources>

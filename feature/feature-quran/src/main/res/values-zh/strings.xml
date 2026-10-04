@@ -162,4 +162,16 @@
     <string name="quran_share_ayah">分享阿亚</string>
     <string name="quran_tab_juz">朱兹</string>
     <string name="quran_tab_surahs">古兰经</string>
+    <string name="quran_meaning_catalog_title">《古兰经》意义翻译</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir 的原始语言</string>
+    <string name="quran_tafsir_translation_catalog_title">塔夫西尔翻译</string>
+    <string name="quran_text_catalog_empty">源代码没有列出该语言的作品。这并不意味着覆盖范围已经完成。</string>
+    <string name="quran_text_catalog_refresh">刷新源目录</string>
+    <string name="quran_text_catalog_review_missing">缺少所需的审查或版本详细信息；该下载不可用。</string>
+    <string name="quran_text_catalog_source">资料来源：《古兰经》</string>
+    <string name="quran_text_catalog_title">按语言、来源和类型划分的《古兰经》文本</string>
+    <string name="quran_text_pack_import">导入文本包（JSON）</string>
+    <string name="quran_text_pack_import_failed">无法验证或安装《古兰经》文本包。</string>
+    <string name="quran_text_pack_import_success">验证并安装了完整的《古兰经》文本包。</string>
+    <string name="quran_text_pack_importing">验证并安装...</string>
 </resources>

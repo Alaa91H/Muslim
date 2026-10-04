@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Sicht Reciteren nom Numm, Stil oder Qualitéit ...</string>
     <string name="quran_reciter_no_results">Keng Reciteren passen dës Sich</string>
     <string name="quran_tab_bookmarks">Lieszeeche</string>
+    <string name="quran_meaning_catalog_title">Koran bedeit Iwwersetzungen</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir a senger Originalsprooch</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir iwwersat</string>
+    <string name="quran_text_catalog_empty">D\'Quell weist keng Wierker fir dës Sprooch. Dëst bedeit net datt d\'Ofdeckung komplett ass.</string>
+    <string name="quran_text_catalog_refresh">Frësch Quell Katalog</string>
+    <string name="quran_text_catalog_review_missing">Néideg Iwwerpréiwung oder Editioun Detailer feelen; dësen Download ass net verfügbar.</string>
+    <string name="quran_text_catalog_source">Quellen: QuranEnc</string>
+    <string name="quran_text_catalog_title">Koran Texter no Sprooch, Quell, an Typ</string>
+    <string name="quran_text_pack_import_failed">De Koran Text Pack konnt net verifizéiert oder installéiert ginn.</string>
+    <string name="quran_text_pack_import_success">Verifizéiert an installéiert de komplette Koran Text Pack.</string>
+    <string name="quran_text_pack_importing">Validéieren an installéieren ...</string>
+    <string name="quran_text_pack_import">Textpak (JSON) importéieren</string>
 </resources>

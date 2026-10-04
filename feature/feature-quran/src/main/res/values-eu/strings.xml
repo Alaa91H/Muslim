@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Bilatu errezitatzaileak izenaren, estiloaren edo kalitatearen arabera...</string>
     <string name="quran_reciter_no_results">Ez dago errezitatzailerik bilaketa honekin</string>
     <string name="quran_tab_bookmarks">Laster-markak</string>
+    <string name="quran_meaning_catalog_title">Quran itzulpenak esan nahi du</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir jatorrizko hizkuntzan</string>
+    <string name="quran_tafsir_translation_catalog_title">Itzulitako tafsir</string>
+    <string name="quran_text_catalog_empty">Iturburuak ez du lanik zerrendatzen hizkuntza honetarako. Horrek ez du esan nahi estaldura osoa denik.</string>
+    <string name="quran_text_catalog_refresh">Freskatu iturri-katalogoa</string>
+    <string name="quran_text_catalog_review_missing">Beharrezko berrikuspena edo edizioaren xehetasunak falta dira; deskarga hau ez dago erabilgarri.</string>
+    <string name="quran_text_catalog_source">Iturriak: QuranEnc</string>
+    <string name="quran_text_catalog_title">Koraneko testuak hizkuntzaren, iturriaren eta motaren arabera</string>
+    <string name="quran_text_pack_import">Inportatu testu paketea (JSON)</string>
+    <string name="quran_text_pack_import_failed">Ezin izan da Koraneko testu paketea egiaztatu edo instalatu.</string>
+    <string name="quran_text_pack_import_success">Koraneko testu pakete osoa egiaztatu eta instalatu.</string>
+    <string name="quran_text_pack_importing">Balioztatzen eta instalatzen…</string>
 </resources>

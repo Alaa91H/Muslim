@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Milarian qari dumasar nami, gaya, atanapi kualitas…</string>
     <string name="quran_reciter_no_results">Taya reciters cocog pilarian ieu</string>
     <string name="quran_tab_bookmarks">Tetengger</string>
+    <string name="quran_meaning_catalog_title">Qur\'an hartina tarjamah</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir dina basa aslina</string>
+    <string name="quran_tafsir_translation_catalog_title">Tarjamah tafsir</string>
+    <string name="quran_text_catalog_empty">Sumberna daptar euweuh karya pikeun basa ieu. Ieu henteu hartosna sinyalna lengkep.</string>
+    <string name="quran_text_catalog_refresh">Refresh katalog sumber</string>
+    <string name="quran_text_catalog_review_missing">Diperlukeun review atawa édisi rinci leungit; undeuran ieu teu sadia.</string>
+    <string name="quran_text_catalog_source">Sumber: QuranEnc</string>
+    <string name="quran_text_catalog_title">Teks Al-Quran dumasar kana basa, sumber, sareng jinisna</string>
+    <string name="quran_text_pack_import">Impor bungkus téks (JSON)</string>
+    <string name="quran_text_pack_import_failed">Pek téks Quran teu tiasa diverifikasi atanapi dipasang.</string>
+    <string name="quran_text_pack_import_success">Diverifikasi sareng dipasang paket téks Quran lengkep.</string>
+    <string name="quran_text_pack_importing">Validasi sareng masang…</string>
 </resources>

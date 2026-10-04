@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">ЦӀар, стил яги качествоялда рекъон хъвадарухъаби ралагьизе...</string>
     <string name="quran_reciter_no_results">Цониги цӀалдохъан гьаб цӀех-рехалда данде кколаро</string>
     <string name="quran_tab_bookmarks">Закладки</string>
+    <string name="quran_meaning_catalog_title">Къуръаналъул магӀнаялъул таржамаби .</string>
+    <string name="quran_original_tafsir_catalog_title">Тафсир на своем оригинальном языке .</string>
+    <string name="quran_tafsir_translation_catalog_title">Тафсир гьабураб .</string>
+    <string name="quran_text_catalog_empty">Источникалда гьаб мацӀалъул асарал рихьизарун гьечӀо. Гьелъул магӀна кколаро хъвай-хъвагӀай тӀубан бугин абураб.</string>
+    <string name="quran_text_catalog_refresh">ЦӀигьабизе источникалъул каталог</string>
+    <string name="quran_text_catalog_review_missing">ХӀажатаб рецензия яги басмаялъул баянал гьечӀо; гьаб скачать гьабизе бегьуларо.</string>
+    <string name="quran_text_catalog_source">Источники: QuranEnc</string>
+    <string name="quran_text_catalog_title">Тексты Корана по языку, источнику и типу</string>
+    <string name="quran_text_pack_import">Импорт текстового пакета (JSON)</string>
+    <string name="quran_text_pack_import_success">Проверил и установил полный пакет текстов Корана.</string>
+    <string name="quran_text_pack_importing">Валидация и установка...</string>
+    <string name="quran_text_pack_import_failed">Пакет текстов Корана не удалось проверить или установить.</string>
 </resources>

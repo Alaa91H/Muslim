@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Rondera abasomyi mw\'izina, uburyo, canke uburyo...</string>
     <string name="quran_reciter_no_results">Nta basomyi bahuye n\'ubu bushakashatsi</string>
     <string name="quran_tab_bookmarks">Ibimenyetso</string>
+    <string name="quran_meaning_catalog_title">Quran bisobanura ubuhinduzi</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir mu rurimi rwayo rw\'intango .</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir yahinduwe</string>
+    <string name="quran_text_catalog_empty">Inkomoko nta bikorwa vy\'uru rurimi bivuga. Ivyo ntibisigura ko ugupfuka kwuzuye.</string>
+    <string name="quran_text_catalog_refresh">Gusubiramwo urutonde rw\'inkomoko</string>
+    <string name="quran_text_catalog_review_missing">Ivyerekeye isubiramwo canke ivyerekeye igitabu bisabwa ntibihari; iki gicapo ntikiboneka.</string>
+    <string name="quran_text_catalog_source">Amasoko: QuranEnc</string>
+    <string name="quran_text_catalog_title">Ivyanditswe vya Korowani hakurikijwe ururimi, inkomoko, n\'ubwoko</string>
+    <string name="quran_text_pack_import">Kwinjiza umwandiko (JSON)</string>
+    <string name="quran_text_pack_import_success">Yagenzuye kandi ashiraho urutonde rw’ivyanditswe vyose vya Korowani.</string>
+    <string name="quran_text_pack_importing">Kwemeza no gushiramwo...</string>
+    <string name="quran_text_pack_import_failed">Ivyo vyanditswe vya Korowani ntivyashoboye kugenzurwa canke gushirwako.</string>
 </resources>

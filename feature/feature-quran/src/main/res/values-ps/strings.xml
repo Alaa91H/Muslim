@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">د نوم، سټایل یا کیفیت له مخې تلاوت کوونکي وپلټئ...</string>
     <string name="quran_reciter_no_results">هیڅ تلاوت کونکي د دې لټون سره سمون نه خوري</string>
     <string name="quran_tab_bookmarks">بک مارکونه</string>
+    <string name="quran_meaning_catalog_title">د قرآن معنی ژباړه</string>
+    <string name="quran_original_tafsir_catalog_title">تفسیر په خپله اصلي ژبه</string>
+    <string name="quran_tafsir_translation_catalog_title">ژباړل شوی تفسیر</string>
+    <string name="quran_text_catalog_empty">سرچینه د دې ژبې لپاره هیڅ کار نه کوي. دا پدې معنی ندي چې پوښښ بشپړ شوی.</string>
+    <string name="quran_text_catalog_refresh">د سرچینې کتلاګ تازه کړئ</string>
+    <string name="quran_text_catalog_review_missing">د اړتیا وړ بیاکتنې یا نسخې توضیحات ورک دي؛ دا ډاونلوډ شتون نلري.</string>
+    <string name="quran_text_catalog_source">سرچینې: QuranEnc</string>
+    <string name="quran_text_catalog_title">د قرآن متن د ژبې، سرچینې او ډول له مخې</string>
+    <string name="quran_text_pack_import">د متن کڅوړه وارد کړئ (JSON)</string>
+    <string name="quran_text_pack_import_failed">د قرآن متن بسته نشي تصدیق یا نصب کیدی.</string>
+    <string name="quran_text_pack_import_success">د بشپړ قرآن متن کڅوړه تایید او نصب کړه.</string>
+    <string name="quran_text_pack_importing">تایید او نصب کول…</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">ЦӀерашца, хатӀца, я дикаллица лаха дешархой...</string>
     <string name="quran_reciter_no_results">Цхьа а дешархо ца догӀу хӀокху лехамца</string>
     <string name="quran_tab_bookmarks">Закладкаш</string>
+    <string name="quran_meaning_catalog_title">Къуръан маьӀна гочдарш .</string>
+    <string name="quran_original_tafsir_catalog_title">Тафсир шен юьхьанцара маттахь .</string>
+    <string name="quran_tafsir_translation_catalog_title">Гочдина тафсир .</string>
+    <string name="quran_text_catalog_empty">Хьостанехь цу маттана лерина произведенеш яц. Иза дац дӀасадаржор дуьззина ду бохург.</string>
+    <string name="quran_text_catalog_refresh">Хьостан каталог карлаяккха .</string>
+    <string name="quran_text_catalog_review_missing">Оьшуш йолу карладаккхаран я зорбанан детальш яц; хӀара скачать ян йиш яц.</string>
+    <string name="quran_text_catalog_source">Хьостанаш: QuranEnc</string>
+    <string name="quran_text_catalog_title">Къуръанан тексташ маттаца а, хьостанца а, тайпанашца а</string>
+    <string name="quran_text_pack_import">Импорт текстан пакет (JSON)</string>
+    <string name="quran_text_pack_importing">Таллам бар а, дӀахӀоттор а...</string>
+    <string name="quran_text_pack_import_failed">Къуръанан текстан пакет теллина а, дӀахӀотто а аьтто ца баьлла.</string>
+    <string name="quran_text_pack_import_success">Къуръанан текстан юьззина пакет тӀечӀагӀйина, дӀахӀоттийна.</string>
 </resources>

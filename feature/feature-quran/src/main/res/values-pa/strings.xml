@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">ਨਾਮ, ਸ਼ੈਲੀ, ਜਾਂ ਗੁਣਵੱਤਾ ਦੁਆਰਾ ਪਾਠਕਾਂ ਦੀ ਖੋਜ ਕਰੋ...</string>
     <string name="quran_reciter_no_results">ਕੋਈ ਪਾਠਕ ਇਸ ਖੋਜ ਨਾਲ ਮੇਲ ਨਹੀਂ ਖਾਂਦਾ</string>
     <string name="quran_tab_bookmarks">ਬੁੱਕਮਾਰਕਸ</string>
+    <string name="quran_meaning_catalog_title">ਕੁਰਾਨ ਦਾ ਅਰਥ ਅਨੁਵਾਦ</string>
+    <string name="quran_original_tafsir_catalog_title">ਇਸਦੀ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਤਫ਼ਸੀਰ</string>
+    <string name="quran_tafsir_translation_catalog_title">ਅਨੁਵਾਦਿਤ ਤਫ਼ਸੀਰ</string>
+    <string name="quran_text_catalog_empty">ਸਰੋਤ ਇਸ ਭਾਸ਼ਾ ਲਈ ਕੋਈ ਕੰਮ ਨਹੀਂ ਸੂਚੀਬੱਧ ਕਰਦਾ ਹੈ। ਇਸਦਾ ਮਤਲਬ ਇਹ ਨਹੀਂ ਕਿ ਕਵਰੇਜ ਪੂਰੀ ਹੋ ਗਈ ਹੈ।</string>
+    <string name="quran_text_catalog_refresh">ਸਰੋਤ ਕੈਟਾਲਾਗ ਨੂੰ ਤਾਜ਼ਾ ਕਰੋ</string>
+    <string name="quran_text_catalog_review_missing">ਲੋੜੀਂਦੀ ਸਮੀਖਿਆ ਜਾਂ ਸੰਸਕਰਨ ਵੇਰਵੇ ਗੁੰਮ ਹਨ; ਇਹ ਡਾਊਨਲੋਡ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
+    <string name="quran_text_catalog_source">ਸਰੋਤ: QuranEnc</string>
+    <string name="quran_text_catalog_title">ਭਾਸ਼ਾ, ਸਰੋਤ ਅਤੇ ਕਿਸਮ ਦੁਆਰਾ ਕੁਰਾਨ ਪਾਠ</string>
+    <string name="quran_text_pack_import">ਟੈਕਸਟ ਪੈਕ ਆਯਾਤ ਕਰੋ (JSON)</string>
+    <string name="quran_text_pack_import_failed">ਕੁਰਾਨ ਟੈਕਸਟ ਪੈਕ ਦੀ ਪੁਸ਼ਟੀ ਜਾਂ ਸਥਾਪਨਾ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ।</string>
+    <string name="quran_text_pack_import_success">ਪੂਰੇ ਕੁਰਾਨ ਟੈਕਸਟ ਪੈਕ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਅਤੇ ਸਥਾਪਿਤ ਕੀਤੀ।</string>
+    <string name="quran_text_pack_importing">ਪ੍ਰਮਾਣਿਤ ਅਤੇ ਸਥਾਪਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...</string>
 </resources>

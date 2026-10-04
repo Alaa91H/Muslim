@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Eheka umi recitador héra, estilo térã calidad rupive...</string>
     <string name="quran_reciter_no_results">Ndaipóri recitador ojoajúva ko jeporeka rehe</string>
     <string name="quran_tab_bookmarks">Marcadores rehegua</string>
+    <string name="quran_meaning_catalog_title">Corán he’iséva ñe’ẽasa</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir iñe’ẽ ypykuépe</string>
+    <string name="quran_tafsir_translation_catalog_title">Ombohasa tafsir</string>
+    <string name="quran_text_catalog_empty">Pe ypykue omoĩ mba’eveichagua tembiapo ko ñe’ẽme g̃uarã. Péva nde\'iséi cobertura oñemohu\'ãha.</string>
+    <string name="quran_text_catalog_refresh">Ombopyahu catálogo fuente rehegua</string>
+    <string name="quran_text_catalog_review_missing">Ofalta umi detalle revisión térã edición oñeikotevêva; ko ñemboguejy ndojeguerekói.</string>
+    <string name="quran_text_catalog_source">Fuentes: QuranEnc</string>
+    <string name="quran_text_catalog_title">Corán kuatiahaipyre ñe’ẽ, fuente ha tipo rupive</string>
+    <string name="quran_text_pack_import">Ojegueru jehaipyre ryru (JSON) .</string>
+    <string name="quran_text_pack_import_failed">Pe paquete de texto Corán rehegua ndaikatúi ojeverifika ni oñeinstala.</string>
+    <string name="quran_text_pack_import_success">Omoañete ha oinstala paquete de texto Corán completo.</string>
+    <string name="quran_text_pack_importing">Ojevalida ha oinstala...</string>
 </resources>

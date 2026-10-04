@@ -6,6 +6,7 @@ from __future__ import annotations
 import subprocess
 import sys
 import xml.etree.ElementTree as ET
+from functools import lru_cache
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,6 +32,7 @@ def parse_xml(data: str, label: str) -> tuple[dict[str, str], list[str]]:
     return values, issues
 
 
+@lru_cache(maxsize=None)
 def git_file(revision: str, path: str) -> str | None:
     result = subprocess.run(
         ["git", "show", f"{revision}:{path}"],

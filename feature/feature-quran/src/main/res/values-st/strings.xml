@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Batla babali ka mabitso, setaele kapa boleng...</string>
     <string name="quran_reciter_no_results">Ha ho batho ba phetang mantsoe ba tšoanang le patlo ena</string>
     <string name="quran_tab_bookmarks">Li-bookmark</string>
+    <string name="quran_meaning_catalog_title">Quran e bolelang liphetolelo</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ka puo ea eona ea mantlha</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir e fetoletsoeng</string>
+    <string name="quran_text_catalog_empty">Mohloli ha o fane ka lethathamo la mesebetsi bakeng sa puo ena. Sena ha se bolele hore litaba li felile.</string>
+    <string name="quran_text_catalog_refresh">Hlahisa lethathamo la mehloli</string>
+    <string name="quran_text_catalog_review_missing">Lintlha tse hlokahalang tsa tlhahlobo kapa khatiso ha li eo; download ena ha e fumanehe.</string>
+    <string name="quran_text_catalog_source">Mehloli: QuranEnc</string>
+    <string name="quran_text_catalog_title">Litemana tsa Quran ka puo, mohloli le mofuta</string>
+    <string name="quran_text_pack_import">Kenya sephutheloana sa mongolo (JSON)</string>
+    <string name="quran_text_pack_import_failed">Pakete ea mongolo oa Quran ha e ea ka ea netefatsoa kapa ea kengoa.</string>
+    <string name="quran_text_pack_import_success">E netefalitsoe mme e kentse pakete e felletseng ea mongolo oa Quran.</string>
+    <string name="quran_text_pack_importing">E netefatsa le ho kenya...</string>
 </resources>

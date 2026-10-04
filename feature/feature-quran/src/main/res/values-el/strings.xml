@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Αναζητήστε απαγγελείς με όνομα, στυλ ή ποιότητα…</string>
     <string name="quran_reciter_no_results">Δεν υπάρχουν αναγνώστες που να αντιστοιχούν σε αυτήν την αναζήτηση</string>
     <string name="quran_tab_bookmarks">Σελιδοδείκτες</string>
+    <string name="quran_meaning_catalog_title">Κοράνι που σημαίνει μεταφράσεις</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir στην αρχική του γλώσσα</string>
+    <string name="quran_tafsir_translation_catalog_title">Μεταφρασμένο tafsir</string>
+    <string name="quran_text_catalog_empty">Η πηγή παραθέτει κανένα έργο για αυτήν τη γλώσσα. Αυτό δεν σημαίνει ότι η κάλυψη έχει ολοκληρωθεί.</string>
+    <string name="quran_text_catalog_refresh">Ανανέωση καταλόγου πηγών</string>
+    <string name="quran_text_catalog_review_missing">Λείπουν οι απαιτούμενες λεπτομέρειες αναθεώρησης ή έκδοσης. αυτή η λήψη δεν είναι διαθέσιμη.</string>
+    <string name="quran_text_catalog_source">Πηγές: QuranEnc</string>
+    <string name="quran_text_catalog_title">Κείμενα Κορανίου ανά γλώσσα, πηγή και τύπο</string>
+    <string name="quran_text_pack_import">Εισαγωγή πακέτου κειμένου (JSON)</string>
+    <string name="quran_text_pack_import_failed">Δεν ήταν δυνατή η επαλήθευση ή η εγκατάσταση του πακέτου κειμένου του Κορανίου.</string>
+    <string name="quran_text_pack_import_success">Επαληθεύτηκε και εγκαταστάθηκε το πλήρες πακέτο κειμένου Κορανίου.</string>
+    <string name="quran_text_pack_importing">Επικύρωση και εγκατάσταση…</string>
 </resources>

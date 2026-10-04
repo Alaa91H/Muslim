@@ -143,4 +143,16 @@
     <string name="quran_reciter_picker_title">Chwazi yon reciter</string>
     <string name="quran_reciter_search_hint">Chèche rezitè pa non, style, oswa kalite...</string>
     <string name="quran_reciter_no_results">Pa gen moun ki rezite ki matche rechèch sa a</string>
+    <string name="quran_meaning_catalog_title">Koran sa vle di tradiksyon</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir nan lang orijinal li</string>
+    <string name="quran_tafsir_translation_catalog_title">Tradui tafsir</string>
+    <string name="quran_text_catalog_empty">Sous la pa bay lis okenn travay pou lang sa a. Sa pa vle di pwoteksyon konplè.</string>
+    <string name="quran_text_catalog_refresh">Rafrechi katalòg sous</string>
+    <string name="quran_text_catalog_review_missing">Revizyon obligatwa oswa detay edisyon yo manke; download sa a pa disponib.</string>
+    <string name="quran_text_catalog_source">Sous: QuranEnc</string>
+    <string name="quran_text_catalog_title">Tèks koran pa lang, sous, ak kalite</string>
+    <string name="quran_text_pack_import">Enpòte pake tèks (JSON)</string>
+    <string name="quran_text_pack_import_failed">Pake tèks koran an pa t \'kapab verifye oswa enstale.</string>
+    <string name="quran_text_pack_import_success">Verifye epi enstale pake tèks koran konplè a.</string>
+    <string name="quran_text_pack_importing">Validasyon ak enstale...</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Gi azo so ayeke diko ni na iri, style wala qualité...</string>
     <string name="quran_reciter_no_results">Mbeni zo ti dikongo mbeti alingbi na gingo nda ti ye so pëpe .</string>
     <string name="quran_tab_bookmarks">Marque-page</string>
+    <string name="quran_meaning_catalog_title">Coran aye ti tene atënë ti yanga ti kodoro .</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir na yanga ti kodoro ti lo .</string>
+    <string name="quran_tafsir_translation_catalog_title">A kiri pekoni na tafsir .</string>
+    <string name="quran_text_catalog_empty">Mbeti ni afa pëpe ambeni kusala teti yanga ti kodoro so. So aye pëpe ti tene so couverture ni ayeke kue.</string>
+    <string name="quran_text_catalog_refresh">A kiri a leke catalogue ti source ni</string>
+    <string name="quran_text_catalog_review_missing">A hunda ti tene a kiri a bâ ni wala anzene nzene tënë ti édition ni ayeke dä pëpe; téléchargement ni ayeke dä pëpe.</string>
+    <string name="quran_text_catalog_source">Azo so alondo na ni: CoranEnc</string>
+    <string name="quran_text_catalog_title">Ambeti ti Coran na lege ti yanga ti kodoro, ndo so alondo dä, nga na mara ni</string>
+    <string name="quran_text_pack_import">Importer paquet ti atënë (JSON)</string>
+    <string name="quran_text_pack_import_success">A vérifié na a installé paquet ti mbeti ti Coran kue.</string>
+    <string name="quran_text_pack_importing">Validation na installation...</string>
+    <string name="quran_text_pack_import_failed">A lingbi ti bâ wala a lingbi ti zia na yâ ti paquet ti atënë ti Coran ni pëpe.</string>
 </resources>

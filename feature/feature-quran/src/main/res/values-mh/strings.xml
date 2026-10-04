@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Pukot ri-kōmman al ro ilo etair, style, ak joñan emman...</string>
     <string name="quran_reciter_no_results">Ejelok ri jeje ro rej errā ippān pukōt in</string>
     <string name="quran_tab_bookmarks">Bookmark ko</string>
+    <string name="quran_meaning_catalog_title">Quran melelein ukok ko</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ilo kajin eo an jinoin</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir eo kar ukōte</string>
+    <string name="quran_text_catalog_empty">Jikin eo ejjab kwalok jerbal ko ñan kajin in. Ejjab melelen bwe coverage eo emoj an dedelok.</string>
+    <string name="quran_text_catalog_refresh">Kōkāāl source catalog eo</string>
+    <string name="quran_text_catalog_review_missing">Ejjelok melele ko rej aikuj in etale ak edition; download in ejjab maroñ in walok.</string>
+    <string name="quran_text_catalog_source">QuranEnc</string>
+    <string name="quran_text_catalog_title">Jeje ko ilo Quran ekkar ñan kajin, jikin, im kain</string>
+    <string name="quran_text_pack_import_success">Kar kamool im likit aolepen Quran text pack eo.</string>
+    <string name="quran_text_pack_importing">Kalikar im likit...</string>
+    <string name="quran_text_pack_import_failed">Quran text pack eo ear jab maroñ in kalikar ak install.</string>
+    <string name="quran_text_pack_import">Kōtlok text pack (JSON)</string>
 </resources>

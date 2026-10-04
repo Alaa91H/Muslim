@@ -143,4 +143,16 @@
     <string name="quran_reciter_picker_title">Xwendevanek hilbijêre</string>
     <string name="quran_reciter_search_hint">Li gorî nav, şêwaz, an kalîteyê li xwendewanan bigerin…</string>
     <string name="quran_reciter_no_results">Tu dengbêj bi vê lêgerînê re hev nagirin</string>
+    <string name="quran_meaning_catalog_title">Quran tê wateya wergerandin</string>
+    <string name="quran_original_tafsir_catalog_title">Tefsîr bi zimanê xwe yê resen</string>
+    <string name="quran_tafsir_translation_catalog_title">Tefsîr wergerandiye</string>
+    <string name="quran_text_catalog_empty">Jêder tu xebat ji bo vî zimanî navnîş dike. Ev nayê wê wateyê ku vegirtin temam e.</string>
+    <string name="quran_text_catalog_refresh">Kataloga çavkaniyê nûve bikin</string>
+    <string name="quran_text_catalog_review_missing">Agahiyên pêdaçûn an çapa pêwîst winda ne; ev daxistin ne berdest e.</string>
+    <string name="quran_text_catalog_source">Çavkanî: QuranEnc</string>
+    <string name="quran_text_catalog_title">Nivîsên Quranê ji aliyê ziman, çavkanî û tîpan ve</string>
+    <string name="quran_text_pack_import">Pakêta nivîsê derxîne (JSON)</string>
+    <string name="quran_text_pack_import_failed">Pakêta nivîsê ya Quranê nehate verast kirin an saz kirin.</string>
+    <string name="quran_text_pack_import_success">Tevahiya pakêta nivîsa Quranê verast kir û saz kir.</string>
+    <string name="quran_text_pack_importing">Verastkirin û sazkirin…</string>
 </resources>

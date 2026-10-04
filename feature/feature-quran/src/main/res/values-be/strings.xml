@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Шукайце дэкламатараў па імені, стылі ці якасці…</string>
     <string name="quran_reciter_no_results">Няма дэкламатараў, якія адпавядаюць гэтаму пошуку</string>
     <string name="quran_tab_bookmarks">Закладкі</string>
+    <string name="quran_meaning_catalog_title">Пераклад значэнняў карана</string>
+    <string name="quran_original_tafsir_catalog_title">Тафсір на мове арыгіналу</string>
+    <string name="quran_tafsir_translation_catalog_title">Пераклаў тафсір</string>
+    <string name="quran_text_catalog_empty">У крыніцы не пазначана твораў для гэтай мовы. Гэта не азначае, што пакрыццё поўнае.</string>
+    <string name="quran_text_catalog_refresh">Абнавіць зыходны каталог</string>
+    <string name="quran_text_catalog_review_missing">Адсутнічаюць неабходныя звесткі пра агляд або выданне; гэтая загрузка недаступная.</string>
+    <string name="quran_text_catalog_source">Крыніцы: QuranEnc</string>
+    <string name="quran_text_catalog_title">Тэксты Карана паводле мовы, крыніцы і тыпу</string>
+    <string name="quran_text_pack_import">Імпарт тэкставага пакета (JSON)</string>
+    <string name="quran_text_pack_import_failed">Тэкставы пакет Карана не можа быць правераны або ўстаноўлены.</string>
+    <string name="quran_text_pack_import_success">Праверыў і ўсталяваў поўны тэкставы пакет Карана.</string>
+    <string name="quran_text_pack_importing">Праверка і ўсталяванне…</string>
 </resources>

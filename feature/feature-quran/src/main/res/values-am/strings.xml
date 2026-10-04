@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">አንባቢዎችን በስም፣ ዘይቤ ወይም በጥራት ይፈልጉ…</string>
     <string name="quran_reciter_no_results">ከዚህ ፍለጋ ጋር የሚዛመድ ምንም አንባቢዎች የሉም</string>
     <string name="quran_tab_bookmarks">ዕልባቶች</string>
+    <string name="quran_meaning_catalog_title">ቁርኣን ትርጉሞች ማለት ነው።</string>
+    <string name="quran_original_tafsir_catalog_title">ተፍሲር በዋናው ቋንቋ</string>
+    <string name="quran_tafsir_translation_catalog_title">ተፍሲር ተተርጉሟል</string>
+    <string name="quran_text_catalog_empty">ምንጩ ለዚህ ቋንቋ ምንም ስራዎችን አይዘረዝርም። ይህ ማለት ሽፋን ሙሉ ነው ማለት አይደለም.</string>
+    <string name="quran_text_catalog_refresh">ምንጭ ካታሎግ አድስ</string>
+    <string name="quran_text_catalog_review_missing">አስፈላጊ ግምገማ ወይም እትም ዝርዝሮች ይጎድላሉ; ይህ ማውረድ አይገኝም።</string>
+    <string name="quran_text_catalog_source">ምንጮች፡ QuranEnc</string>
+    <string name="quran_text_catalog_title">የቁርኣን ጽሑፎች በቋንቋ፣ ምንጭ እና ዓይነት</string>
+    <string name="quran_text_pack_import">የጽሑፍ ጥቅል (JSON) አስመጣ</string>
+    <string name="quran_text_pack_import_failed">የቁርዓን የጽሑፍ ጥቅል ሊረጋገጥ ወይም ሊጫን አልቻለም።</string>
+    <string name="quran_text_pack_import_success">የተረጋገጠ እና ሙሉውን የቁርዓን ጽሑፍ ጥቅል ተጭኗል።</string>
+    <string name="quran_text_pack_importing">በማረጋገጥ ላይ እና በመጫን ላይ…</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">نام، انداز، یا معیار کے لحاظ سے تلاوت کرنے والوں کو تلاش کریں…</string>
     <string name="quran_reciter_no_results">کوئی تلاوت کرنے والا اس تلاش سے مماثل نہیں ہے۔</string>
     <string name="quran_tab_bookmarks">بک مارکس</string>
+    <string name="quran_meaning_catalog_title">قرآن کے معنی ترجمہ</string>
+    <string name="quran_original_tafsir_catalog_title">تفسیر اس کی اصل زبان میں</string>
+    <string name="quran_tafsir_translation_catalog_title">ترجمہ شدہ تفسیر</string>
+    <string name="quran_text_catalog_empty">ماخذ اس زبان کے لیے کسی کام کی فہرست نہیں دیتا۔ اس کا مطلب یہ نہیں کہ کوریج مکمل ہے۔</string>
+    <string name="quran_text_catalog_refresh">سورس کیٹلاگ کو ریفریش کریں۔</string>
+    <string name="quran_text_catalog_review_missing">ضروری جائزہ یا ایڈیشن کی تفصیلات غائب ہیں؛ یہ ڈاؤن لوڈ دستیاب نہیں ہے۔</string>
+    <string name="quran_text_catalog_source">ذرائع: QuranEnc</string>
+    <string name="quran_text_catalog_title">زبان، ماخذ اور قسم کے لحاظ سے قرآن کے متن</string>
+    <string name="quran_text_pack_import">ٹیکسٹ پیک درآمد کریں (JSON)</string>
+    <string name="quran_text_pack_import_failed">قرآن کے ٹیکسٹ پیک کی تصدیق یا انسٹال نہیں ہو سکا۔</string>
+    <string name="quran_text_pack_import_success">مکمل قرآنی ٹیکسٹ پیک کی تصدیق اور انسٹال کیا ہے۔</string>
+    <string name="quran_text_pack_importing">توثیق اور انسٹال ہو رہا ہے…</string>
 </resources>

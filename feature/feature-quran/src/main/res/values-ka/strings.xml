@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">მოძებნეთ მომღერლები სახელის, სტილის ან ხარისხის მიხედვით…</string>
     <string name="quran_reciter_no_results">ამ ძიებას არც ერთი მომღერალი არ ემთხვევა</string>
     <string name="quran_tab_bookmarks">სანიშნეები</string>
+    <string name="quran_meaning_catalog_title">ყურანი თარგმანებს ნიშნავს</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir თავის ორიგინალურ ენაზე</string>
+    <string name="quran_tafsir_translation_catalog_title">ნათარგმნი ტაფსირი</string>
+    <string name="quran_text_catalog_empty">წყაროში არ არის ჩამოთვლილი ამ ენაზე სამუშაოები. ეს არ ნიშნავს, რომ დაფარვა დასრულებულია.</string>
+    <string name="quran_text_catalog_refresh">განაახლეთ წყაროების კატალოგი</string>
+    <string name="quran_text_catalog_review_missing">საჭირო მიმოხილვა ან გამოცემის დეტალები აკლია; ეს ჩამოტვირთვა მიუწვდომელია.</string>
+    <string name="quran_text_catalog_source">წყაროები: QuranEnc</string>
+    <string name="quran_text_catalog_title">ყურანის ტექსტები ენის, წყაროსა და ტიპის მიხედვით</string>
+    <string name="quran_text_pack_import">ტექსტური პაკეტის იმპორტი (JSON)</string>
+    <string name="quran_text_pack_import_failed">ყურანის ტექსტური პაკეტის გადამოწმება ან ინსტალაცია ვერ მოხერხდა.</string>
+    <string name="quran_text_pack_import_success">შეამოწმა და დააინსტალირა ყურანის სრული ტექსტური პაკეტი.</string>
+    <string name="quran_text_pack_importing">მიმდინარეობს გადამოწმება და ინსტალაცია…</string>
 </resources>

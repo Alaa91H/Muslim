@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Meklēt deklamētājus pēc nosaukuma, stila vai kvalitātes...</string>
     <string name="quran_reciter_no_results">Šim meklējumam neatbilst neviens deklamētājs</string>
     <string name="quran_tab_bookmarks">Grāmatzīmes</string>
+    <string name="quran_meaning_catalog_title">Korāna nozīmes tulkojumi</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir oriģinālvalodā</string>
+    <string name="quran_tafsir_translation_catalog_title">Tulkots tafsir</string>
+    <string name="quran_text_catalog_empty">Avotā nav norādīts neviens darbs šai valodai. Tas nenozīmē, ka pārklājums ir pilnīgs.</string>
+    <string name="quran_text_catalog_refresh">Atsvaidzināt avotu katalogu</string>
+    <string name="quran_text_catalog_review_missing">Trūkst nepieciešamās pārskatīšanas vai izdevuma informācijas; šī lejupielāde nav pieejama.</string>
+    <string name="quran_text_catalog_source">Avoti: QuranEnc</string>
+    <string name="quran_text_catalog_title">Korāna teksti pēc valodas, avota un veida</string>
+    <string name="quran_text_pack_import">Importēt teksta pakotni (JSON)</string>
+    <string name="quran_text_pack_import_failed">Korāna teksta pakotni nevarēja pārbaudīt vai instalēt.</string>
+    <string name="quran_text_pack_import_success">Pārbaudīja un instalēja visu Korāna teksta pakotni.</string>
+    <string name="quran_text_pack_importing">Notiek apstiprināšana un instalēšana…</string>
 </resources>

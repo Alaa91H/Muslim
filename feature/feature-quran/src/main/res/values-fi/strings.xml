@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Hae puhujia nimen, tyylin tai laadun mukaan…</string>
     <string name="quran_reciter_no_results">Yksikään kirjoittaja ei vastaa tätä hakua</string>
     <string name="quran_tab_bookmarks">Kirjanmerkit</string>
+    <string name="quran_meaning_catalog_title">Koraani tarkoittaa käännöksiä</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir alkuperäisellä kielellään</string>
+    <string name="quran_tafsir_translation_catalog_title">Käännetty tafsir</string>
+    <string name="quran_text_catalog_empty">Lähde ei lue teoksia tälle kielelle. Tämä ei tarkoita, että kattavuus on täydellinen.</string>
+    <string name="quran_text_catalog_refresh">Päivitä lähdeluettelo</string>
+    <string name="quran_text_catalog_review_missing">Vaaditut tarkistuksen tai painoksen tiedot puuttuvat; tämä lataus ei ole saatavilla.</string>
+    <string name="quran_text_catalog_source">Lähteet: QuranEnc</string>
+    <string name="quran_text_catalog_title">Koraanitekstit kielen, lähteen ja tyypin mukaan</string>
+    <string name="quran_text_pack_import">Tuo tekstipaketti (JSON)</string>
+    <string name="quran_text_pack_import_failed">Koraanin tekstipakettia ei voitu vahvistaa tai asentaa.</string>
+    <string name="quran_text_pack_import_success">Tarkisti ja asensi täydellisen Koraanin tekstipaketin.</string>
+    <string name="quran_text_pack_importing">Vahvistetaan ja asennetaan…</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Leita eftir lesarum eftir navni, stíli ella góðsku...</string>
     <string name="quran_reciter_no_results">Eingin upplesari passar til hesa leitingina</string>
     <string name="quran_tab_bookmarks">Bókamerki</string>
+    <string name="quran_meaning_catalog_title">Koranin merkir týðingar</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir á sínum upprunamáli .</string>
+    <string name="quran_tafsir_translation_catalog_title">Týtt tafsir .</string>
+    <string name="quran_text_catalog_empty">Keldan nevnir eingi verk til hetta málið. Hetta merkir ikki, at dekningurin er liðugur.</string>
+    <string name="quran_text_catalog_refresh">Uppdatera kelduskrá</string>
+    <string name="quran_text_catalog_review_missing">Kravdar ummælis- ella útgávusmálutir mangla; henda niðurtøkan er ikki tøk.</string>
+    <string name="quran_text_catalog_source">Kelda: KoranEnc</string>
+    <string name="quran_text_catalog_title">Korantekstir eftir máli, keldu og slag</string>
+    <string name="quran_text_pack_import">Innflyt tekstpakka (JSON)</string>
+    <string name="quran_text_pack_import_success">Staðfest og sett upp fullfíggjaða tekstpakkan hjá Koranini.</string>
+    <string name="quran_text_pack_importing">Góðkenning og uppseting...</string>
+    <string name="quran_text_pack_import_failed">Tekstpakkin í Koranini kundi ikki staðfestast ella setast upp.</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Cuardaigh aithriseoirí de réir ainm, stíle nó cáilíochta…</string>
     <string name="quran_reciter_no_results">Níl aon aithriseoir ag teacht leis an gcuardach seo</string>
     <string name="quran_tab_bookmarks">Leabharmharcanna</string>
+    <string name="quran_meaning_catalog_title">Quran a chiallaíonn aistriúcháin</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ina bhunteanga</string>
+    <string name="quran_tafsir_translation_catalog_title">tafsir aistrithe</string>
+    <string name="quran_text_catalog_empty">Ní liostaíonn an fhoinse aon oibreacha don teanga seo. Ní chiallaíonn sé seo go bhfuil clúdach iomlán.</string>
+    <string name="quran_text_catalog_refresh">Íoslódáil catalóg na foinse</string>
+    <string name="quran_text_catalog_review_missing">Tá sonraí athbhreithnithe nó eagrán riachtanach in easnamh; níl an íoslódáil seo ar fáil.</string>
+    <string name="quran_text_catalog_source">Foinsí: QuranEnc</string>
+    <string name="quran_text_catalog_title">Téacsanna Quran de réir teanga, foinse, agus cineál</string>
+    <string name="quran_text_pack_import">Iompórtáil pacáiste téacs (JSON)</string>
+    <string name="quran_text_pack_import_failed">Níorbh fhéidir pacáiste téacs an Quran a fhíorú ná a shuiteáil.</string>
+    <string name="quran_text_pack_import_success">Fíoraigh agus suiteáladh an pacáiste téacs Quran iomlán.</string>
+    <string name="quran_text_pack_importing">Á bhailíochtú agus á shuiteáil…</string>
 </resources>

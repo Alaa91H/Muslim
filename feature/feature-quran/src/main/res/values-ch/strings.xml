@@ -143,4 +143,16 @@
     <string name="quran_reciter_picker_title">Pulan un kånta</string>
     <string name="quran_reciter_search_hint">Fanli\'e\' i manma\'estra/ron-ñiha put na\'an, estilo, pat kualidåt...</string>
     <string name="quran_reciter_no_results">taya\' na\'ma\'å\'ñao ni\' parehu yan este na inaligao</string>
+    <string name="quran_meaning_catalog_title">I tinige\' put i siniente-ña i Quran</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir gi i fino\'-ña</string>
+    <string name="quran_tafsir_translation_catalog_title">Ma translada tafsir</string>
+    <string name="quran_text_catalog_empty">I tinige\' ti ha lista i che\'cho\' para este na lengguåhi. Ti kumeke\'ilekña na esta kumple i kubre.</string>
+    <string name="quran_text_catalog_refresh">Na\'lå\'la\' ta\'lo i katålog</string>
+    <string name="quran_text_catalog_review_missing">Ti ma sodda\' i nisisidåt na tinige\' yan i edision; ti siña ma\'apåsi este na dinidide\'.</string>
+    <string name="quran_text_catalog_source">QuranEnc</string>
+    <string name="quran_text_catalog_title">I tinige\' gi i Quran put i lengguåhi, i fuetsan-ñiha, yan i klasin-ñiha</string>
+    <string name="quran_text_pack_import_failed">Ti siña ma\'ayek pat ma\'instala i Quran text pack.</string>
+    <string name="quran_text_pack_import_success">Ma\'ayek yan ma\'instala i kompletu na tinige\' Quran.</string>
+    <string name="quran_text_pack_importing">Manma\'ayek yan manma\'instala...</string>
+    <string name="quran_text_pack_import">Importa i Quran text pack (JSON)</string>
 </resources>

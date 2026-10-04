@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Ҷустуҷӯи хонандаҳоро аз рӯи ном, услуб ё сифат…</string>
     <string name="quran_reciter_no_results">Ягон хонанда ба ин ҷустуҷӯ мувофиқат намекунад</string>
     <string name="quran_tab_bookmarks">Хатчӯбҳо</string>
+    <string name="quran_meaning_catalog_title">Қуръон маънолари таржималари</string>
+    <string name="quran_original_tafsir_catalog_title">Тафсир ба забони аслиаш</string>
+    <string name="quran_tafsir_translation_catalog_title">Тафсири тарҷумашуда</string>
+    <string name="quran_text_catalog_empty">Сарчашма ягон асарро барои ин забон номбар намекунад. Ин маънои онро надорад, ки фарогирӣ пурра аст.</string>
+    <string name="quran_text_catalog_refresh">Каталоги манбаъро нав кунед</string>
+    <string name="quran_text_catalog_review_missing">Тафсилоти барраси ё нашри зарурӣ мавҷуд нест; ин зеркашӣ дастнорас аст.</string>
+    <string name="quran_text_catalog_source">Манбаъ: QuranEnc</string>
+    <string name="quran_text_catalog_title">Матнҳои Қуръон аз рӯи забон, манбаъ ва намуд</string>
+    <string name="quran_text_pack_import">Бастаи матни воридотӣ (JSON)</string>
+    <string name="quran_text_pack_import_failed">Бастаи матни Қуръонро тафтиш кардан ё насб кардан мумкин нест.</string>
+    <string name="quran_text_pack_import_success">Бастаи матни пурраи Қуръонро тасдиқ ва насб кард.</string>
+    <string name="quran_text_pack_importing">Тасдиқ ва насб кардан…</string>
 </resources>

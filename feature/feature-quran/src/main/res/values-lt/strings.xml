@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Ieškokite deklamuojančiųjų pagal pavadinimą, stilių ar kokybę...</string>
     <string name="quran_reciter_no_results">Šiai paieškai neatitiko nė vienas deklamatorius</string>
     <string name="quran_tab_bookmarks">Žymės</string>
+    <string name="quran_meaning_catalog_title">Korano reikšmės vertimai</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir originalo kalba</string>
+    <string name="quran_tafsir_translation_catalog_title">Išvertė tafsir</string>
+    <string name="quran_text_catalog_empty">Šaltinyje nėra darbų šia kalba. Tai nereiškia, kad aprėptis baigta.</string>
+    <string name="quran_text_catalog_refresh">Atnaujinti šaltinio katalogą</string>
+    <string name="quran_text_catalog_review_missing">Trūksta būtinos peržiūros arba leidimo informacijos; šis atsisiuntimas nepasiekiamas.</string>
+    <string name="quran_text_catalog_source">Šaltiniai: QuranEnc</string>
+    <string name="quran_text_catalog_title">Korano tekstai pagal kalbą, šaltinį ir tipą</string>
+    <string name="quran_text_pack_import">Importuoti teksto paketą (JSON)</string>
+    <string name="quran_text_pack_import_failed">Nepavyko patikrinti arba įdiegti Korano teksto paketo.</string>
+    <string name="quran_text_pack_import_success">Patikrintas ir įdiegtas visas Korano teksto paketas.</string>
+    <string name="quran_text_pack_importing">Patvirtinama ir įdiegiama…</string>
 </resources>

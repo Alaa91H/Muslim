@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Пребарувајте ги рецитаторите по име, стил или квалитет…</string>
     <string name="quran_reciter_no_results">Нема рецитатори кои одговараат на ова пребарување</string>
     <string name="quran_tab_bookmarks">Обележувачи</string>
+    <string name="quran_meaning_catalog_title">Куранот што значи преводи</string>
+    <string name="quran_original_tafsir_catalog_title">Тафсир на неговиот оригинален јазик</string>
+    <string name="quran_tafsir_translation_catalog_title">Преведен тефсир</string>
+    <string name="quran_text_catalog_empty">Изворот наведува дека нема дела за овој јазик. Ова не значи дека покриеноста е завршена.</string>
+    <string name="quran_text_catalog_refresh">Освежете го каталогот на извори</string>
+    <string name="quran_text_catalog_review_missing">Недостасуваат потребните детали за преглед или издание; ова преземање е недостапно.</string>
+    <string name="quran_text_catalog_source">Извори: QuranEnc</string>
+    <string name="quran_text_catalog_title">Текстови на Куранот по јазик, извор и тип</string>
+    <string name="quran_text_pack_import">Увези текстуален пакет (JSON)</string>
+    <string name="quran_text_pack_import_failed">Текст пакетот Куран не можеше да се потврди или инсталира.</string>
+    <string name="quran_text_pack_import_success">Потврден и инсталиран комплетен текстуален пакет на Куранот.</string>
+    <string name="quran_text_pack_importing">Се потврдува и инсталира…</string>
 </resources>

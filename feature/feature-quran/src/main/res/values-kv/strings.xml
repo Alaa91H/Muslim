@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Корсьны лыддьысьысьясӧс ним серти, стиль серти либӧ качество серти...</string>
     <string name="quran_reciter_no_results">Некутшӧм лыддьысьысь оз лӧсяв тайӧ корсьӧмлы .</string>
     <string name="quran_tab_bookmarks">Закладкаяс</string>
+    <string name="quran_meaning_catalog_title">Коран вежӧртас вуджӧдӧмъяс .</string>
+    <string name="quran_original_tafsir_catalog_title">Тафсир ас кыв вылын .</string>
+    <string name="quran_tafsir_translation_catalog_title">Вуджӧдӧм тафсир .</string>
+    <string name="quran_text_catalog_empty">Источникын абу пасйӧма тайӧ кыв вылӧ уджъяс. Тайӧ оз гӧгӧрвоӧд, мый покрытиеыс тырвыйӧ.</string>
+    <string name="quran_text_catalog_refresh">Выльмӧдны источник каталог .</string>
+    <string name="quran_text_catalog_review_missing">Колана рецензия либö издание детальяс абуöсь; тайӧ скачиваниеыс абу доступнӧй.</string>
+    <string name="quran_text_catalog_source">Сюрӧсъяс: QuranEnc .</string>
+    <string name="quran_text_catalog_title">Коран текстъяс кыв, источник да сикас серти .</string>
+    <string name="quran_text_pack_import">Импортируйтны текста пакет (JSON) .</string>
+    <string name="quran_text_pack_import_failed">Коран текста пакетсӧ эз вермыны верифицируйтны либӧ лӧсьӧдны.</string>
+    <string name="quran_text_pack_import_success">Проверитöма да пуктöма тыр Коран текста пакет.</string>
+    <string name="quran_text_pack_importing">Валидируйтӧм да лӧсьӧдӧм...</string>
 </resources>

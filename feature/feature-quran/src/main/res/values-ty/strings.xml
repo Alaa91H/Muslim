@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">A imi i te mau taata tai\'o na roto i te i\'oa, te huru, e aore râ, te huru...</string>
     <string name="quran_reciter_no_results">Aita e taata tai\'o e au i teie maimiraa</string>
     <string name="quran_tab_bookmarks">Ngā tapa\'o buka</string>
+    <string name="quran_meaning_catalog_title">Te auraa o te mau iritiraa Quran</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir i roto i to\'na reo matamua</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir iritihia</string>
+    <string name="quran_text_catalog_empty">Aita te pu e papai ra i te mau ohipa no teie reo. E ere te auraa e ua hope te tapo\'iraa.</string>
+    <string name="quran_text_catalog_refresh">Faahou i te buka puna</string>
+    <string name="quran_text_catalog_review_missing">Te erehia ra te mau haamaramaramaraa no nia i te hi\'opoaraa aore ra te neneiraa; aita teie download e vai ra.</string>
+    <string name="quran_text_catalog_source">Nga puna: QuranEnc</string>
+    <string name="quran_text_catalog_title">Te mau papa\'iraa Quran na roto i te reo, te pu, e te huru</string>
+    <string name="quran_text_pack_import">Te mau parau papa\'i (JSON)</string>
+    <string name="quran_text_pack_import_success">Ua haapapuhia e ua faautahia te buka taatoa o te mau papa\'iraa Quran.</string>
+    <string name="quran_text_pack_importing">Te haapapuraa e te faautaraa...</string>
+    <string name="quran_text_pack_import_failed">Aita te mau parau papa\'i Quran i nehenehe e hi\'opo\'ahia aore ra e faautahia.</string>
 </resources>

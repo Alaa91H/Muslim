@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Otsige ülesütlejaid nime, stiili või kvaliteedi järgi…</string>
     <string name="quran_reciter_no_results">Sellele otsingule ei vasta ükski ülesütleja</string>
     <string name="quran_tab_bookmarks">Järjehoidjad</string>
+    <string name="quran_meaning_catalog_title">Koraani tähenduse tõlked</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir originaalkeeles</string>
+    <string name="quran_tafsir_translation_catalog_title">Tõlgitud tafsir</string>
+    <string name="quran_text_catalog_empty">Allikas ei sisalda selle keele jaoks ühtegi teost. See ei tähenda, et katvus oleks täielik.</string>
+    <string name="quran_text_catalog_refresh">Värskenda lähtekataloogi</string>
+    <string name="quran_text_catalog_review_missing">Puuduvad nõutavad arvustuse või väljaande üksikasjad; see allalaadimine pole saadaval.</string>
+    <string name="quran_text_catalog_source">Allikad: QuranEnc</string>
+    <string name="quran_text_catalog_title">Koraani tekstid keele, allika ja tüübi järgi</string>
+    <string name="quran_text_pack_import">Tekstipaketi import (JSON)</string>
+    <string name="quran_text_pack_import_failed">Koraani tekstipaketti ei saanud kontrollida ega installida.</string>
+    <string name="quran_text_pack_import_success">Kontrollis ja installis kogu Koraani tekstipaketi.</string>
+    <string name="quran_text_pack_importing">Valideerimine ja installimine…</string>
 </resources>

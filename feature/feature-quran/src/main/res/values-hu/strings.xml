@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Keressen a szavalók között név, stílus vagy minőség alapján…</string>
     <string name="quran_reciter_no_results">Ennek a keresésnek egyetlen felolvasó sem felel meg</string>
     <string name="quran_tab_bookmarks">Könyvjelzők</string>
+    <string name="quran_meaning_catalog_title">A Korán jelentése fordítások</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir eredeti nyelvén</string>
+    <string name="quran_tafsir_translation_catalog_title">Lefordított tafsir</string>
+    <string name="quran_text_catalog_empty">A forrás nem sorol fel műveket erre a nyelvre. Ez nem jelenti azt, hogy a lefedettség teljes.</string>
+    <string name="quran_text_catalog_refresh">Forrás katalógus frissítése</string>
+    <string name="quran_text_catalog_review_missing">Hiányoznak a szükséges felülvizsgálati vagy kiadási adatok; ez a letöltés nem érhető el.</string>
+    <string name="quran_text_catalog_source">Források: QuranEnc</string>
+    <string name="quran_text_catalog_title">Korán szövegek nyelv, forrás és típus szerint</string>
+    <string name="quran_text_pack_import">Szövegcsomag importálása (JSON)</string>
+    <string name="quran_text_pack_import_failed">A Korán szövegcsomagot nem lehetett ellenőrizni vagy telepíteni.</string>
+    <string name="quran_text_pack_import_success">Ellenőrizte és telepítette a teljes Korán szövegcsomagot.</string>
+    <string name="quran_text_pack_importing">Érvényesítés és telepítés…</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Okuyucuları ada, stile veya kaliteye göre arayın…</string>
     <string name="quran_reciter_no_results">Bu aramayla eşleşen okuyucu yok</string>
     <string name="quran_tab_bookmarks">Yer imleri</string>
+    <string name="quran_meaning_catalog_title">Kuran anlamı çevirileri</string>
+    <string name="quran_original_tafsir_catalog_title">Orijinal dilindeki tefsir</string>
+    <string name="quran_tafsir_translation_catalog_title">Tercüme edilmiş tefsir</string>
+    <string name="quran_text_catalog_empty">Kaynakta bu dil için hiçbir çalışma listelenmiyor. Bu, kapsamın tamamlandığı anlamına gelmez.</string>
+    <string name="quran_text_catalog_refresh">Kaynak kataloğunu yenile</string>
+    <string name="quran_text_catalog_review_missing">Gerekli inceleme veya basım ayrıntıları eksik; bu indirme kullanılamıyor.</string>
+    <string name="quran_text_catalog_source">Kaynaklar: KuranEnc</string>
+    <string name="quran_text_catalog_title">Dile, kaynağa ve türe göre Kur\'an metinleri</string>
+    <string name="quran_text_pack_import">Metin paketini içe aktar (JSON)</string>
+    <string name="quran_text_pack_import_failed">Kuran metin paketi doğrulanamadı veya yüklenemedi.</string>
+    <string name="quran_text_pack_import_success">Kuran metin paketinin tamamı doğrulandı ve yüklendi.</string>
+    <string name="quran_text_pack_importing">Doğrulanıyor ve yükleniyor…</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">ស្វែងរកអ្នកសរសេរតាមឈ្មោះ រចនាប័ទ្ម ឬគុណភាព...</string>
     <string name="quran_reciter_no_results">គ្មានអ្នកសូត្រត្រូវគ្នានឹងការស្វែងរកនេះទេ។</string>
     <string name="quran_tab_bookmarks">ចំណាំ</string>
+    <string name="quran_meaning_catalog_title">គម្ពីគូរ៉ានមានន័យថាការបកប្រែ</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ជាភាសាដើមរបស់វា។</string>
+    <string name="quran_tafsir_translation_catalog_title">តាហ្វសៀ បកប្រែ</string>
+    <string name="quran_text_catalog_empty">ប្រភពរាយបញ្ជីមិនដំណើរការសម្រាប់ភាសានេះទេ។ នេះមិនមានន័យថាការគ្របដណ្តប់ពេញលេញនោះទេ។</string>
+    <string name="quran_text_catalog_refresh">ផ្ទុកកាតាឡុកប្រភពឡើងវិញ</string>
+    <string name="quran_text_catalog_review_missing">ការពិនិត្យឡើងវិញដែលត្រូវការ ឬព័ត៌មានលម្អិតនៃការបោះពុម្ពត្រូវបានបាត់; ការទាញយកនេះមិនមានទេ។</string>
+    <string name="quran_text_catalog_source">ប្រភព៖ QuranEnc</string>
+    <string name="quran_text_catalog_title">អត្ថបទគម្ពីគូរ៉ាតាមភាសា ប្រភព និងប្រភេទ</string>
+    <string name="quran_text_pack_import">នាំចូលកញ្ចប់អត្ថបទ (JSON)</string>
+    <string name="quran_text_pack_import_failed">កញ្ចប់អត្ថបទគម្ពីគូរ៉ាមិនអាចផ្ទៀងផ្ទាត់ ឬដំឡើងបានទេ។</string>
+    <string name="quran_text_pack_import_success">បានផ្ទៀងផ្ទាត់ និងដំឡើងកញ្ចប់អត្ថបទគម្ពីគូរ៉ាពេញលេញ។</string>
+    <string name="quran_text_pack_importing">កំពុងដំណើរការ និងដំឡើង...</string>
 </resources>

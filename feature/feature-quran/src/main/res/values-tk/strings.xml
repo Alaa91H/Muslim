@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Okyjylary ady, stili ýa-da hili boýunça gözläň…</string>
     <string name="quran_reciter_no_results">Bu gözleg bilen hiç bir okaýjy gabat gelenok</string>
     <string name="quran_tab_bookmarks">Bellikler</string>
+    <string name="quran_meaning_catalog_title">Gurhan terjimeleri aňladýar</string>
+    <string name="quran_original_tafsir_catalog_title">Asyl dilinde Tafsir</string>
+    <string name="quran_tafsir_translation_catalog_title">Terjime edilen tafsir</string>
+    <string name="quran_text_catalog_empty">Çeşme bu dil üçin hiç hili eseriň sanawyny görkezmeýär. Bu gurşawyň dolydygyny aňlatmaýar.</string>
+    <string name="quran_text_catalog_refresh">Çeşme katalogyny täzeläň</string>
+    <string name="quran_text_catalog_review_missing">Gerekli syn ýa-da neşir jikme-jiklikleri ýok; bu göçürip alyp bolmaýar</string>
+    <string name="quran_text_catalog_source">Çeşmeler: KuranEnc</string>
+    <string name="quran_text_catalog_title">Gurhan dilleri, çeşmesi we görnüşi boýunça</string>
+    <string name="quran_text_pack_import">Tekst paketini import ediň (JSON)</string>
+    <string name="quran_text_pack_import_failed">Gurhanyň tekst bukjasyny barlamak ýa-da gurmak mümkin däldi.</string>
+    <string name="quran_text_pack_importing">Barlamak we gurmak…</string>
+    <string name="quran_text_pack_import_success">Gurhanyň doly tekst paketini barlady we gurdy.</string>
 </resources>

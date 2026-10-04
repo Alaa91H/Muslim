@@ -143,4 +143,16 @@
     <string name="quran_reciter_picker_title">Elige recitator</string>
     <string name="quran_reciter_search_hint">Quaere sibus nominatim, stilum, vel qualitatem.</string>
     <string name="quran_reciter_no_results">Non sibus quaestioni huic congruit</string>
+    <string name="quran_meaning_catalog_title">Quran interpretationes</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir in lingua originali</string>
+    <string name="quran_text_catalog_empty">Fons nulla opera huic linguae enumerat. Hoc non significat coverage est completum.</string>
+    <string name="quran_text_catalog_refresh">Renovare fons catalogo</string>
+    <string name="quran_text_catalog_review_missing">Requiritur recensio vel editio singula desunt; hoc download est unavailable.</string>
+    <string name="quran_text_catalog_source">Fontes: QuranEnc</string>
+    <string name="quran_text_catalog_title">Textus quran lingua, fons et typus</string>
+    <string name="quran_text_pack_import_failed">Textus Quran sarcina non verificatur vel installed.</string>
+    <string name="quran_text_pack_import_success">Verificatur et implevit Quran text pack.</string>
+    <string name="quran_tafsir_translation_catalog_title">Interpretatio tafsir translata</string>
+    <string name="quran_text_pack_import">Importare sarcinam textus (JSON)</string>
+    <string name="quran_text_pack_importing">Sarcina textus verificatur et installatur...</string>
 </resources>

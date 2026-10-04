@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Căutați recitatori după nume, stil sau calitate...</string>
     <string name="quran_reciter_no_results">Niciun recitator nu corespunde acestei căutări</string>
     <string name="quran_tab_bookmarks">Marcaje</string>
+    <string name="quran_meaning_catalog_title">Coran înseamnă traduceri</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir în limba sa originală</string>
+    <string name="quran_tafsir_translation_catalog_title">Tradus tafsir</string>
+    <string name="quran_text_catalog_empty">Sursa nu listează lucrări pentru această limbă. Acest lucru nu înseamnă că acoperirea este completă.</string>
+    <string name="quran_text_catalog_refresh">Actualizează catalogul sursă</string>
+    <string name="quran_text_catalog_review_missing">Lipsesc detaliile necesare revizuirii sau ediției; această descărcare nu este disponibilă.</string>
+    <string name="quran_text_catalog_source">Surse: QuranEnc</string>
+    <string name="quran_text_catalog_title">Textele Coranului după limbă, sursă și tip</string>
+    <string name="quran_text_pack_import">Importați pachetul de text (JSON)</string>
+    <string name="quran_text_pack_import_failed">Pachetul de text Coran nu a putut fi verificat sau instalat.</string>
+    <string name="quran_text_pack_import_success">Verificat și instalat pachetul complet de text Coran.</string>
+    <string name="quran_text_pack_importing">Se validează și se instalează...</string>
 </resources>

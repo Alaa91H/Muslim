@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Setshani vhavhali nga madzina, tshitaila, kana vhuimo...</string>
     <string name="quran_reciter_no_results">Ahuna vhavhali vhane vha tshimbilelana na ṱhoḓisiso iyi</string>
     <string name="quran_tab_bookmarks">Zwiga zwa bugu</string>
+    <string name="quran_meaning_catalog_title">Quran zwi amba ṱhalutshedzelo</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir nga luambo lwayo lwa u thoma .</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir yo ṱalutshedzelwaho</string>
+    <string name="quran_text_catalog_empty">Tshisima tshi ṅwala uri a hu na mishumo ya luambo ulwu. Hezwi a zwi ambi uri u katelwa ho fhelela.</string>
+    <string name="quran_text_catalog_refresh">U vusuludza khathaḽokho ya tshisima</string>
+    <string name="quran_text_catalog_review_missing">Zwidodombedzwa zwa mvusuluso kana khandiso zwi ṱoḓeaho a zwiho; u dawuniḽouda uhu a hu wanali.</string>
+    <string name="quran_text_catalog_source">Zwiko: QuranEnc</string>
+    <string name="quran_text_catalog_title">Maṅwalo a Quran nga luambo, tshisima, na lushaka</string>
+    <string name="quran_text_pack_import">Phakhethe ya maṅwalo a ḓisaho (JSON)</string>
+    <string name="quran_text_pack_import_failed">Phakhethe ya maṅwalo a Quran a yo ngo kona u khwaṱhisedzwa kana u dzheniswa.</string>
+    <string name="quran_text_pack_import_success">O khwaṱhisedza na u dzhenisa phakhethe ya maṅwalo a Quran o fhelelaho.</string>
+    <string name="quran_text_pack_importing">U khwaṱhisedza na u panga...</string>
 </resources>

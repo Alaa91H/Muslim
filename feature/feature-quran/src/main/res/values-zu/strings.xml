@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Sesha abaphindayo ngamagama, isitayela, noma ikhwalithi...</string>
     <string name="quran_reciter_no_results">Abekho abaphindayo abafana nalolu sesho</string>
     <string name="quran_tab_bookmarks">Amabhukumaka</string>
+    <string name="quran_meaning_catalog_title">Quran okusho izinguqulo</string>
+    <string name="quran_original_tafsir_catalog_title">I-Tafsir ngolimi lwayo loqobo</string>
+    <string name="quran_tafsir_translation_catalog_title">I-tafsir ehunyushiwe</string>
+    <string name="quran_text_catalog_empty">Umthombo awubala imisebenzi yalolu limi. Lokhu akusho ukuthi ukufakwa kuqediwe.</string>
+    <string name="quran_text_catalog_refresh">Vuselela ikhathalogi yomthombo</string>
+    <string name="quran_text_catalog_review_missing">Imininingwane edingekayo yokubuyekeza noma ye-edishini ayikho; lokhu kulanda akutholakali.</string>
+    <string name="quran_text_catalog_source">Imithombo: QuranEnc</string>
+    <string name="quran_text_catalog_title">Imibhalo ye-Quran ngolimi, umthombo, nohlobo</string>
+    <string name="quran_text_pack_import">Ngenisa iphekhi yombhalo (JSON)</string>
+    <string name="quran_text_pack_import_failed">Iphekhi yombhalo we-Quran ayikwazanga ukuqinisekiswa noma ukufakwa.</string>
+    <string name="quran_text_pack_import_success">Iqinisekisiwe futhi yafaka iphakethe lombhalo le-Quran eliphelele.</string>
+    <string name="quran_text_pack_importing">Iyaqinisekisa futhi iyafaka...</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Kërkoni recituesit sipas emrit, stilit ose cilësisë…</string>
     <string name="quran_reciter_no_results">Asnjë recitues nuk përputhet me këtë kërkim</string>
     <string name="quran_tab_bookmarks">Faqerojtësit</string>
+    <string name="quran_meaning_catalog_title">Kuran që do të thotë përkthime</string>
+    <string name="quran_original_tafsir_catalog_title">Tefsir në gjuhën e tij origjinale</string>
+    <string name="quran_tafsir_translation_catalog_title">Tefsir i përkthyer</string>
+    <string name="quran_text_catalog_empty">Burimi liston asnjë punë për këtë gjuhë. Kjo nuk do të thotë se mbulimi është i plotë.</string>
+    <string name="quran_text_catalog_refresh">Rifresko katalogun e burimeve</string>
+    <string name="quran_text_catalog_review_missing">Mungojnë detajet e kërkuara të rishikimit ose botimit; ky shkarkim nuk është i disponueshëm.</string>
+    <string name="quran_text_catalog_source">Burimet: KuranEnc</string>
+    <string name="quran_text_catalog_title">Tekstet e Kuranit sipas gjuhës, burimit dhe llojit</string>
+    <string name="quran_text_pack_import">Importo paketën e tekstit (JSON)</string>
+    <string name="quran_text_pack_import_failed">Paketa e tekstit të Kuranit nuk mund të verifikohej ose instalohej.</string>
+    <string name="quran_text_pack_import_success">Verifikoi dhe instaloi paketën e plotë të tekstit të Kuranit.</string>
+    <string name="quran_text_pack_importing">Po verifikon dhe instalon…</string>
 </resources>

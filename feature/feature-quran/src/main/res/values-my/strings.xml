@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">အမည်၊ စတိုင်၊ သို့မဟုတ် အရည်အသွေးဖြင့် ရွတ်ဆိုသူများကို ရှာပါ...</string>
     <string name="quran_reciter_no_results">ဤရှာဖွေမှုနှင့် တူညီသော ကျမ်းပြုဆရာမရှိပါ။</string>
     <string name="quran_tab_bookmarks">ညှပ်</string>
+    <string name="quran_meaning_catalog_title">ကုရ်အာန်၏ အဓိပ္ပါယ်မှာ ဘာသာပြန်ဆိုချက်များ ဖြစ်သည်။</string>
+    <string name="quran_original_tafsir_catalog_title">၎င်း၏မူရင်းဘာသာစကားဖြင့် Tafsir</string>
+    <string name="quran_tafsir_translation_catalog_title">tafsir ဘာသာပြန်ထားသည်။</string>
+    <string name="quran_text_catalog_empty">အရင်းအမြစ်သည် ဤဘာသာစကားအတွက် အလုပ်မဖြစ်ဟု ဖော်ပြသည်။ လွှမ်းခြုံမှု ပြီးပြည့်စုံသည်ဟု မဆိုလိုပါ။</string>
+    <string name="quran_text_catalog_refresh">အရင်းအမြစ်ကတ်တလောက်ကို ပြန်လည်စတင်ပါ။</string>
+    <string name="quran_text_catalog_review_missing">လိုအပ်သော သုံးသပ်ချက် သို့မဟုတ် ထုတ်ဝေမှုအသေးစိတ်များ ပျောက်ဆုံးနေပါသည်။ ဤဒေါင်းလုဒ်ကို မရနိုင်ပါ။</string>
+    <string name="quran_text_catalog_source">အရင်းအမြစ်များ- QuranEnc</string>
+    <string name="quran_text_catalog_title">ဘာသာစကား၊ အရင်းအမြစ်နှင့် အမျိုးအစားအလိုက် ကုရ်အာန်ကျမ်းစာများ</string>
+    <string name="quran_text_pack_import">စာသားအထုပ် (JSON) ကို တင်သွင်းပါ</string>
+    <string name="quran_text_pack_import_failed">ကုရ်အာန် စာသားအထုပ်ကို အတည်မပြုနိုင် သို့မဟုတ် ထည့်သွင်း၍မရပါ။</string>
+    <string name="quran_text_pack_import_success">ပြီးပြည့်စုံသော ကုရ်အာန်စာသားအထုပ်ကို အတည်ပြုပြီး ထည့်သွင်းပါ။</string>
+    <string name="quran_text_pack_importing">စစ်ဆေးနေပြီး ထည့်သွင်းနေသည်…</string>
 </resources>

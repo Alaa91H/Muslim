@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Chwiliwch am adroddwyr yn ôl enw, arddull neu ansawdd…</string>
     <string name="quran_reciter_no_results">Nid oes unrhyw adroddwyr yn cyfateb i\'r chwiliad hwn</string>
     <string name="quran_tab_bookmarks">Llyfrnodau</string>
+    <string name="quran_meaning_catalog_title">Quran sy\'n golygu cyfieithiadau</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir yn ei iaith wreiddiol</string>
+    <string name="quran_tafsir_translation_catalog_title">tafsir wedi ei gyfieithu</string>
+    <string name="quran_text_catalog_empty">Nid yw\'r ffynhonnell yn rhestru unrhyw weithiau ar gyfer yr iaith hon. Nid yw hyn yn golygu bod y cwmpas yn gyflawn.</string>
+    <string name="quran_text_catalog_refresh">Adnewyddu\'r catalog ffynhonnell</string>
+    <string name="quran_text_catalog_review_missing">Mae manylion adolygu neu argraffiad gofynnol ar goll; nid yw\'r lawrlwythiad hwn ar gael.</string>
+    <string name="quran_text_catalog_source">Ffynonellau: QuranEnc</string>
+    <string name="quran_text_catalog_title">testunau Quran yn ôl iaith, ffynhonnell, a math</string>
+    <string name="quran_text_pack_import">Mewnforio pecyn testun (JSON)</string>
+    <string name="quran_text_pack_import_failed">Nid oedd modd gwirio na gosod pecyn testun y Quran.</string>
+    <string name="quran_text_pack_import_success">Gwirio a gosod y pecyn testun Quran cyflawn.</string>
+    <string name="quran_text_pack_importing">Wrthi\'n dilysu a gosod…</string>
 </resources>

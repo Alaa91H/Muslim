@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Cerca i reciti per nome, stile o qualità...</string>
     <string name="quran_reciter_no_results">Nisun reciti currisponde à sta ricerca</string>
     <string name="quran_tab_bookmarks">Segnalibri</string>
+    <string name="quran_meaning_catalog_title">Quran significa traduzzione</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir in a so lingua originale</string>
+    <string name="quran_tafsir_translation_catalog_title">Traduttu tafsir</string>
+    <string name="quran_text_catalog_empty">A fonte ùn elenca micca opere per questa lingua. Questu ùn significa micca chì a cobertura hè cumpleta.</string>
+    <string name="quran_text_catalog_refresh">Refresh u catalogu fonte</string>
+    <string name="quran_text_catalog_review_missing">I dettagli di rivisione o edizione richiesti mancanu; stu scaricamentu ùn hè micca dispunibule.</string>
+    <string name="quran_text_catalog_source">Fonti: QuranEnc</string>
+    <string name="quran_text_catalog_title">Testi Coran per lingua, fonte è tipu</string>
+    <string name="quran_text_pack_import">Import pacchettu di testu (JSON)</string>
+    <string name="quran_text_pack_import_failed">U pacchettu di testu Coran ùn pò micca esse verificatu o installatu.</string>
+    <string name="quran_text_pack_import_success">Verificatu è installatu u pacchettu di testu Coran cumpletu.</string>
+    <string name="quran_text_pack_importing">Validazione è installazione...</string>
 </resources>

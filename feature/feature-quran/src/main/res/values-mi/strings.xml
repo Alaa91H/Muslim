@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Rapua nga kaikorero ma te ingoa, te ahua, te kounga ranei...</string>
     <string name="quran_reciter_no_results">Karekau he kaikorero e taurite ana ki tenei rapunga</string>
     <string name="quran_tab_bookmarks">Tohuwāhi</string>
+    <string name="quran_meaning_catalog_title">Ko te tikanga whakamaoritanga o te Quran</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir i tona reo taketake</string>
+    <string name="quran_tafsir_translation_catalog_title">Tatari whakamaori</string>
+    <string name="quran_text_catalog_empty">Karekau he mahi a te puna mo tenei reo. Ehara tenei i te mea kua oti te kapinga.</string>
+    <string name="quran_text_catalog_refresh">Tāmatahia te puna pukapuka</string>
+    <string name="quran_text_catalog_review_missing">Kei te ngaro nga korero e hiahiatia ana mo te arotake, te whakaputanga ranei; kaore i te waatea tenei tango.</string>
+    <string name="quran_text_catalog_source">Puna: QuranEnc</string>
+    <string name="quran_text_catalog_title">Ko nga tuhinga Quran ma te reo, te puna, me te momo</string>
+    <string name="quran_text_pack_import">Kawemai pōkai kuputuhi (JSON)</string>
+    <string name="quran_text_pack_import_failed">Kāore i taea te manatoko, te tāuta rānei te mōkihi kupu Quran.</string>
+    <string name="quran_text_pack_import_success">Kua whakamanahia me te whakauru i te kete tuhinga Quran katoa.</string>
+    <string name="quran_text_pack_importing">Kei te whakamana me te tāuta…</string>
 </resources>

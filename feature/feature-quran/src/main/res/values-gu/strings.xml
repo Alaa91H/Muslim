@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">નામ, શૈલી અથવા ગુણવત્તા દ્વારા વાચકોને શોધો...</string>
     <string name="quran_reciter_no_results">આ શોધ સાથે કોઈ વાચકો મેળ ખાતા નથી</string>
     <string name="quran_tab_bookmarks">બુકમાર્ક્સ</string>
+    <string name="quran_meaning_catalog_title">કુરાનનો અર્થ અનુવાદ</string>
+    <string name="quran_original_tafsir_catalog_title">તફસીર તેની મૂળ ભાષામાં</string>
+    <string name="quran_tafsir_translation_catalog_title">અનુવાદિત તફસીર</string>
+    <string name="quran_text_catalog_empty">સ્ત્રોત આ ભાષા માટે કોઈ કામની યાદી આપે છે. આનો અર્થ એ નથી કે કવરેજ પૂર્ણ છે.</string>
+    <string name="quran_text_catalog_refresh">સ્ત્રોત કેટલોગ તાજું કરો</string>
+    <string name="quran_text_catalog_review_missing">આવશ્યક સમીક્ષા અથવા આવૃત્તિ વિગતો ખૂટે છે; આ ડાઉનલોડ અનુપલબ્ધ છે.</string>
+    <string name="quran_text_catalog_source">સ્ત્રોતો: QuranEnc</string>
+    <string name="quran_text_catalog_title">ભાષા, સ્ત્રોત અને પ્રકાર દ્વારા કુરાન પાઠો</string>
+    <string name="quran_text_pack_import">ટેક્સ્ટ પેક આયાત કરો (JSON)</string>
+    <string name="quran_text_pack_import_failed">કુરાન ટેક્સ્ટ પેક ચકાસી અથવા ઇન્સ્ટોલ કરી શકાયું નથી.</string>
+    <string name="quran_text_pack_import_success">સંપૂર્ણ કુરાન ટેક્સ્ટ પેક ચકાસાયેલ અને ઇન્સ્ટોલ કર્યું.</string>
+    <string name="quran_text_pack_importing">માન્ય કરી રહ્યું છે અને ઇન્સ્ટોલ કરી રહ્યું છે...</string>
 </resources>

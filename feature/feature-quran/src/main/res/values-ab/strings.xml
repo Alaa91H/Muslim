@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Аԥхьаҩцәа рыԥшаара рыхьӡқәа рыла, рстиль ала, мамзаргьы рхаҭабзиарала...</string>
     <string name="quran_reciter_no_results">Аԥхьаҩцәа ари аԥшаара иақәшәом</string>
     <string name="quran_tab_bookmarks">Адыргақәа</string>
+    <string name="quran_meaning_catalog_title">Аҟәырҟан аҵакы аиҭагақәа</string>
+    <string name="quran_original_tafsir_catalog_title">Атафсыр ахатәы бызшәала</string>
+    <string name="quran_tafsir_translation_catalog_title">Атафсыр еиҭагоуп</string>
+    <string name="quran_text_catalog_empty">Ахыҵхырҭаҿы ари абызшәазы аусумҭақәа анӡам. Уи ахылаԥшра хыркәшоуп ҳәа аанагаӡом.</string>
+    <string name="quran_text_catalog_refresh">Ахыҵхырҭа акаталог арҿыцра</string>
+    <string name="quran_text_catalog_review_missing">Иаҭаху ахҳәаа ма аҭыжьымҭа аинформациа ыҟаӡам; ари ақәгара ҟалаӡом.</string>
+    <string name="quran_text_catalog_source">Ахыҵхырҭақәа: QuranEnc</string>
+    <string name="quran_text_catalog_title">Аҟәырҟан атекстқәа бызшәала, хыҵхырҭала, хкыла</string>
+    <string name="quran_text_pack_import">Атексттә пакет аимпорт (JSON)</string>
+    <string name="quran_text_pack_import_success">Аҟәырҟан атексттә пакет зегьы гәаҭаны ишьақәыргылан.</string>
+    <string name="quran_text_pack_importing">Ашьақәырӷәӷәареи ашьақәыргылареи...</string>
+    <string name="quran_text_pack_import_failed">Аҟәырҟан атексттә пакет агәаҭара ма аҭаргылара ауам.</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Ищите чтецов по имени, стилю или качеству…</string>
     <string name="quran_reciter_no_results">Нет чтецов, соответствующих этому запросу</string>
     <string name="quran_tab_bookmarks">Закладки</string>
+    <string name="quran_meaning_catalog_title">Коран означает переводы</string>
+    <string name="quran_original_tafsir_catalog_title">Тафсир на языке оригинала</string>
+    <string name="quran_tafsir_translation_catalog_title">Переведенный тафсир</string>
+    <string name="quran_text_catalog_empty">В источнике нет произведений на этом языке. Это не означает, что покрытие является полным.</string>
+    <string name="quran_text_catalog_refresh">Обновить исходный каталог</string>
+    <string name="quran_text_catalog_review_missing">Отсутствуют необходимые сведения о обзоре или издании; эта загрузка недоступна.</string>
+    <string name="quran_text_catalog_source">Источники: КоранЭнк.</string>
+    <string name="quran_text_catalog_title">Тексты Корана по языку, источнику и типу</string>
+    <string name="quran_text_pack_import">Импортировать текстовый пакет (JSON)</string>
+    <string name="quran_text_pack_import_failed">Текстовый пакет Корана не удалось проверить или установить.</string>
+    <string name="quran_text_pack_import_success">Проверен и установлен полный текстовый пакет Корана.</string>
+    <string name="quran_text_pack_importing">Проверка и установка…</string>
 </resources>

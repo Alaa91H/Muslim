@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">पाठकान् नाम, शैली, गुणवत्ता वा अन्वेष्टुम्...</string>
     <string name="quran_reciter_no_results">न कोऽपि पाठकः अस्य अन्वेषणस्य सङ्गतिं करोति</string>
     <string name="quran_tab_bookmarks">बुकमार्क्स</string>
+    <string name="quran_meaning_catalog_title">कुरान अर्थ अनुवाद</string>
+    <string name="quran_original_tafsir_catalog_title">तफसीरः स्वस्य मूलभाषायां</string>
+    <string name="quran_tafsir_translation_catalog_title">अनुवादित तफसीर</string>
+    <string name="quran_text_catalog_empty">स्रोतः अस्याः भाषायाः कृते कोऽपि कार्यः न सूचीबद्धः अस्ति । न तु कवरेजः पूर्णः इति अर्थः ।</string>
+    <string name="quran_text_catalog_refresh">स्रोतसूची ताजगीं कुर्वन्तु</string>
+    <string name="quran_text_catalog_review_missing">आवश्यकसमीक्षा वा संस्करणविवरणं वा अनुपलब्धम् अस्ति; इदं डाउनलोड् अनुपलब्धम् अस्ति।</string>
+    <string name="quran_text_catalog_source">स्रोत: QuranEnc</string>
+    <string name="quran_text_catalog_title">भाषा, स्रोत, प्रकार च कुरान ग्रन्थाः</string>
+    <string name="quran_text_pack_import">पाठसङ्ग्रहः (JSON) आयातयतु .</string>
+    <string name="quran_text_pack_import_failed">कुरानस्य पाठसङ्कुलस्य सत्यापनं वा संस्थापनं वा कर्तुं न शक्यते स्म ।</string>
+    <string name="quran_text_pack_import_success">सम्पूर्णं कुरानपाठसङ्कुलं सत्याप्य संस्थापितवान्।</string>
+    <string name="quran_text_pack_importing">प्रमाणीकरणं संस्थापनं च...</string>
 </resources>

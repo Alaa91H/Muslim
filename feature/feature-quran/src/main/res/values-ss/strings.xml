@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Sesha labafundzako ngeligama, sitayela, noma lizinga...</string>
     <string name="quran_reciter_no_results">Kute labafundzako labahambisana naloluphenyo</string>
     <string name="quran_tab_bookmarks">Emabhukmaki</string>
+    <string name="quran_meaning_catalog_title">Quran kusho emahumusho</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir ngelulwimi lwayo lwekucala .</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsir lehunyushiwe</string>
+    <string name="quran_text_catalog_empty">Umtfombo ubala kute imisebenti yalolulwimi. Loku akusho kutsi kuhlanganiswa sekuphelele.</string>
+    <string name="quran_text_catalog_refresh">Vuselela ikhathalogu yemtfombo</string>
+    <string name="quran_text_catalog_review_missing">Imininingwane ledzingekako yekubuyeketa nobe ye-edishini ayikho; loku kulandvwa akutfolakali.</string>
+    <string name="quran_text_catalog_source">Imithombo: I-QuranEnc</string>
+    <string name="quran_text_catalog_title">Imibhalo ye-Quran ngelulwimi, umtfombo, kanye neluhlobo</string>
+    <string name="quran_text_pack_import">Ngenisa iphakheji yembhalo (JSON)</string>
+    <string name="quran_text_pack_importing">Kucinisekisa nekufaka...</string>
+    <string name="quran_text_pack_import_failed">Iphakheji yembhalo we-Quran ayikwazanga kucinisekiswa noma kufakwa.</string>
+    <string name="quran_text_pack_import_success">Kucinisekisiwe futsi kwafakwa iphakheji lephelele yembhalo we-Quran.</string>
 </resources>

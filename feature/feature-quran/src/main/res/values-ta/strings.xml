@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">பெயர், நடை அல்லது தரம் மூலம் வாசிப்பவர்களைத் தேடுங்கள்...</string>
     <string name="quran_reciter_no_results">இந்தத் தேடலுடன் எந்த வாசிப்பாளரும் பொருந்தவில்லை</string>
     <string name="quran_tab_bookmarks">புக்மார்க்குகள்</string>
+    <string name="quran_meaning_catalog_title">குர்ஆன் என்றால் மொழிபெயர்ப்பு</string>
+    <string name="quran_original_tafsir_catalog_title">தஃப்சீர் அதன் மூல மொழியில்</string>
+    <string name="quran_tafsir_translation_catalog_title">மொழிபெயர்க்கப்பட்ட தஃப்சீர்</string>
+    <string name="quran_text_catalog_empty">இந்த மொழிக்கான எந்தப் படைப்புகளையும் ஆதாரம் பட்டியலிடவில்லை. இது கவரேஜ் முடிந்தது என்று அர்த்தமல்ல.</string>
+    <string name="quran_text_catalog_refresh">மூலப் பட்டியலைப் புதுப்பிக்கவும்</string>
+    <string name="quran_text_catalog_review_missing">தேவையான மதிப்பாய்வு அல்லது பதிப்பு விவரங்கள் இல்லை; இந்த பதிவிறக்கம் கிடைக்கவில்லை.</string>
+    <string name="quran_text_catalog_source">ஆதாரங்கள்: குர்ஆன் என்சி</string>
+    <string name="quran_text_catalog_title">மொழி, மூல மற்றும் வகை அடிப்படையில் குர்ஆன் நூல்கள்</string>
+    <string name="quran_text_pack_import">இறக்குமதி உரை தொகுப்பு (JSON)</string>
+    <string name="quran_text_pack_import_failed">குர்ஆன் உரை தொகுப்பை சரிபார்க்கவோ அல்லது நிறுவவோ முடியவில்லை.</string>
+    <string name="quran_text_pack_import_success">முழுமையான குர்ஆன் உரை தொகுப்பு சரிபார்க்கப்பட்டு நிறுவப்பட்டது.</string>
+    <string name="quran_text_pack_importing">சரிபார்த்து நிறுவுகிறது…</string>
 </resources>

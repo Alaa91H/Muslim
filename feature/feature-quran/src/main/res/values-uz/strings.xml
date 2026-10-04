@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Qorilarni ism, uslub yoki sifat bo‘yicha qidiring…</string>
     <string name="quran_reciter_no_results">Bu qidiruvga hech qanday qo‘shiqchi mos kelmaydi</string>
     <string name="quran_tab_bookmarks">Xatcho‘plar</string>
+    <string name="quran_meaning_catalog_title">Qur\'on ma\'nosi tarjimalari</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir asl tilida</string>
+    <string name="quran_tafsir_translation_catalog_title">Tarjima qilingan tafsir</string>
+    <string name="quran_text_catalog_empty">Manbada bu til uchun hech qanday asar yoʻq. Bu qamrov to\'liq ekanligini anglatmaydi.</string>
+    <string name="quran_text_catalog_refresh">Manba katalogini yangilang</string>
+    <string name="quran_text_catalog_review_missing">Kerakli ko\'rib chiqish yoki nashr tafsilotlari yo\'q; bu yuklab olish mavjud emas.</string>
+    <string name="quran_text_catalog_source">Manbalar: QuranEnc</string>
+    <string name="quran_text_catalog_title">Qur\'on matnlari tili, manbasi va turi bo\'yicha</string>
+    <string name="quran_text_pack_import">Matn paketini import qilish (JSON)</string>
+    <string name="quran_text_pack_import_failed">Qur\'on matn to\'plamini tekshirib bo\'lmadi yoki o\'rnatib bo\'lmadi.</string>
+    <string name="quran_text_pack_importing">Tasdiqlanmoqda va oʻrnatilmoqda…</string>
+    <string name="quran_text_pack_import_success">Toʻliq Qurʼon matn toʻplami tasdiqlandi va oʻrnatildi.</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Noonya abasomesa amannya, sitayiro, oba omutindo...</string>
     <string name="quran_reciter_no_results">Tewali basoma bakwatagana na kunoonya kuno</string>
     <string name="quran_tab_bookmarks">Ebiwandiiko ebiraga ebitabo</string>
+    <string name="quran_meaning_catalog_title">Quran amakulu enzivuunula</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir mu lulimi lwayo olw’olubereberye</string>
+    <string name="quran_tafsir_translation_catalog_title">Ekivvuunuddwa tafsir</string>
+    <string name="quran_text_catalog_empty">Ensibuko eraga nti tewali bikolwa bya lulimi luno. Kino tekitegeeza nti okubikka kuwedde.</string>
+    <string name="quran_text_catalog_refresh">Okuzza obuggya katalogu y\'ensibuko</string>
+    <string name="quran_text_catalog_review_missing">Ebikwata ku kwekenneenya oba okufulumya ebyetaagisa tebiriiwo; okuwanula kuno tekuliiwo.</string>
+    <string name="quran_text_catalog_source">Ensonda: QuranEnc</string>
+    <string name="quran_text_catalog_title">Ebiwandiiko bya Quran okusinziira ku lulimi, ensibuko, n’ekika</string>
+    <string name="quran_text_pack_import">Yingiza ekipapula ky\'ebiwandiiko (JSON) .</string>
+    <string name="quran_text_pack_import_failed">Ekiwandiiko kya Quran tekyasobola kukakasibwa oba okuteekebwamu.</string>
+    <string name="quran_text_pack_import_success">Yakakasa era n’ateekamu ekiwandiiko kya Quran ekijjuvu.</string>
+    <string name="quran_text_pack_importing">Okukakasa n\'okussaako...</string>
 </resources>

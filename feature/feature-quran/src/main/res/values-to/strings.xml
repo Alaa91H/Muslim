@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Fekumi ki he kau lau tohi \'i he hingoa, sitaila, pe tu\'unga lelei...</string>
     <string name="quran_reciter_no_results">\'Oku \'ikai ha kau lau \'oku nau fe\'unga mo e fekumi ko \'eni</string>
     <string name="quran_tab_bookmarks">Ngaahi fakaʻilonga tohi</string>
+    <string name="quran_meaning_catalog_title">Quran \'uhinga \'o e ngaahi liliu .</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir \'i hono \'uluaki lea .</string>
+    <string name="quran_tafsir_translation_catalog_title">Liliu \'a e tafsir .</string>
+    <string name="quran_text_catalog_empty">ʻOku ʻikai lisi ʻe he maʻuʻanga fakamatalá ha ngaahi ngāue ki he lea ko ʻení. ʻOku ʻikai ʻuhinga ʻeni ʻoku kakato ʻa e ʻufiʻufí.</string>
+    <string name="quran_text_catalog_refresh">Fakafo\'ou \'a e kataloko ma\'u\'anga fakamatala</string>
+    <string name="quran_text_catalog_review_missing">ʻOku ʻikai ke ʻi ai ha ngaahi fakaikiiki ʻo e vakaiʻi pe pulusinga ʻoku fie maʻú; \'oku \'ikai ke ma\'u \'a e download ko \'eni.</string>
+    <string name="quran_text_catalog_source">Ngaahi maʻuʻanga fakamatala: QuranEnc</string>
+    <string name="quran_text_catalog_title">Ko e ngaahi tohi ʻo e Quran ʻi he lea, maʻuʻanga fakamatala, mo e faʻahinga</string>
+    <string name="quran_text_pack_import">Fakahū mai ʻa e puha tohi (JSON)</string>
+    <string name="quran_text_pack_import_success">Fakamo\'oni\'i mo fokotu\'u \'a e pack tohi kakato \'o e Quran.</string>
+    <string name="quran_text_pack_importing">Fakamo\'oni\'i mo fokotu\'u...</string>
+    <string name="quran_text_pack_import_failed">Naʻe ʻikai lava ke fakamoʻoniʻi pe fokotuʻu ʻa e text pack ʻo e Quran.</string>
 </resources>

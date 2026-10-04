@@ -134,8 +134,8 @@
     <string name="quran_text_catalog_review_missing">بيانات المراجعة أو الإصدار المطلوبة للتنزيل غير مكتملة</string>
     <string name="quran_text_pack_import">استيراد حزمة نصية (JSON)</string>
     <string name="quran_text_pack_importing">جارٍ التحقق والتثبيت…</string>
-    <string name="quran_text_pack_import_success">اكتمل فحص سلامة الحزمة وتغطية %1$d آية وتثبيتها؛ بيانات المصدر والمراجعة من الناشر وليست تصديقاً مستقلاً</string>
-    <string name="quran_text_pack_import_failed">رُفضت الحزمة: %1$s</string>
+    <string name="quran_text_pack_import_success">تم التحقق من حزمة نص القرآن الكريم الكاملة وتثبيتها.</string>
+    <string name="quran_text_pack_import_failed">تعذر التحقق من حزمة نص القرآن الكريم أو تثبيتها.</string>
 
     <!-- Night downloads & management -->
     <string name="quran_download_percent">%1$d٪</string>

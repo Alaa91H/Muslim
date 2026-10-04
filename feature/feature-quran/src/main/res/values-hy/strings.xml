@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Որոնեք ասմունքողներին անունով, ոճով կամ որակով…</string>
     <string name="quran_reciter_no_results">Ոչ մի ասմունքող չի համապատասխանում այս որոնմանը</string>
     <string name="quran_tab_bookmarks">Էջանիշեր</string>
+    <string name="quran_meaning_catalog_title">Ղուրան նշանակում է թարգմանություններ</string>
+    <string name="quran_original_tafsir_catalog_title">Թաֆսիր իր բնօրինակ լեզվով</string>
+    <string name="quran_tafsir_translation_catalog_title">Թարգմանված թաֆսիր</string>
+    <string name="quran_text_catalog_empty">Աղբյուրը չի նշում այս լեզվի համար աշխատություններ: Սա չի նշանակում, որ ծածկույթն ավարտված է:</string>
+    <string name="quran_text_catalog_refresh">Թարմացրեք աղբյուրների կատալոգը</string>
+    <string name="quran_text_catalog_review_missing">Պահանջվող վերանայման կամ խմբագրման մանրամասները բացակայում են. այս ներբեռնումն անհասանելի է:</string>
+    <string name="quran_text_catalog_source">Աղբյուրներ՝ QuranEnc</string>
+    <string name="quran_text_catalog_title">Ղուրանի տեքստերը ըստ լեզվի, աղբյուրի և տեսակի</string>
+    <string name="quran_text_pack_import">Ներմուծել տեքստային փաթեթ (JSON)</string>
+    <string name="quran_text_pack_import_failed">Ղուրանի տեքստային փաթեթը չհաջողվեց ստուգել կամ տեղադրել:</string>
+    <string name="quran_text_pack_import_success">Ստուգել և տեղադրել է Ղուրանի ամբողջական տեքստային փաթեթը:</string>
+    <string name="quran_text_pack_importing">Վավերացում և տեղադրում…</string>
 </resources>

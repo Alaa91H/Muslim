@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Vyhľadávajte recitátorov podľa mena, štýlu alebo kvality...</string>
     <string name="quran_reciter_no_results">Tomuto vyhľadávaniu nezodpovedajú žiadni recitátori</string>
     <string name="quran_tab_bookmarks">Záložky</string>
+    <string name="quran_meaning_catalog_title">Korán znamená preklady</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir v pôvodnom jazyku</string>
+    <string name="quran_tafsir_translation_catalog_title">Preložené tafsir</string>
+    <string name="quran_text_catalog_empty">Zdroj neuvádza žiadne diela pre tento jazyk. To neznamená, že pokrytie je úplné.</string>
+    <string name="quran_text_catalog_refresh">Obnoviť zdrojový katalóg</string>
+    <string name="quran_text_catalog_review_missing">Chýbajú požadované podrobnosti o recenzii alebo vydaní; toto stiahnutie nie je k dispozícii.</string>
+    <string name="quran_text_catalog_source">Zdroje: QuranEnc</string>
+    <string name="quran_text_catalog_title">Texty Koránu podľa jazyka, zdroja a typu</string>
+    <string name="quran_text_pack_import">Importovať textový balík (JSON)</string>
+    <string name="quran_text_pack_import_failed">Textový balík Koránu nebolo možné overiť alebo nainštalovať.</string>
+    <string name="quran_text_pack_import_success">Overil a nainštaloval kompletný textový balík Koránu.</string>
+    <string name="quran_text_pack_importing">Overuje sa a inštaluje…</string>
 </resources>

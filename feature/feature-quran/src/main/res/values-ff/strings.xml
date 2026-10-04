@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Yiylo janngooɓe e innde, mbaadi, walla kalite...</string>
     <string name="quran_reciter_no_results">Alaa janngooɓe nannduɓe e ndee njiylawu</string>
     <string name="quran_tab_bookmarks">Maandeeji defte</string>
+    <string name="quran_meaning_catalog_title">Qur\'aana maanaa firooji</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir e ɗemngal mum asliwal</string>
+    <string name="quran_tafsir_translation_catalog_title">Tafsiir firaaɗo</string>
+    <string name="quran_text_catalog_empty">Iwdi ndii limtaani golle wonande ngal ɗemngal. Ɗum firtaani ko coverage timmi.</string>
+    <string name="quran_text_catalog_refresh">Hesɗitin catal iwdi</string>
+    <string name="quran_text_catalog_review_missing">Detaayuuji ƴeewndo walla bayyinaango ɗaɓɓaaɗi ina ŋakki ; ooɗoo ƴeewndo alaa.</string>
+    <string name="quran_text_catalog_source">Fuɗɗoode: Qur’aanaEnc</string>
+    <string name="quran_text_catalog_title">Binndi Quraan e ɗemngal, iwdi, e sifaa</string>
+    <string name="quran_text_pack_import">Naatnu binndol (JSON)</string>
+    <string name="quran_text_pack_import_success">Hoolkiso e jolni pack binndi Quraan timmuɗo.</string>
+    <string name="quran_text_pack_importing">Siftinde e udditde...</string>
+    <string name="quran_text_pack_import_failed">Pack binndi Quraan waawaano hoolkisaade walla jogaade.</string>
 </resources>

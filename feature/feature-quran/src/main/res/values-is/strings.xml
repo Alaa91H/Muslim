@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">Leitaðu að upplesendum eftir nafni, stíl eða gæðum ...</string>
     <string name="quran_reciter_no_results">Engir upplesarar passa við þessa leit</string>
     <string name="quran_tab_bookmarks">Bókamerki</string>
+    <string name="quran_meaning_catalog_title">Kóraninn þýðir þýðingar</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir á frummálinu</string>
+    <string name="quran_tafsir_translation_catalog_title">Þýtt tafsir</string>
+    <string name="quran_text_catalog_empty">Heimildin sýnir engin verk fyrir þetta tungumál. Þetta þýðir ekki að umfjöllun sé lokið.</string>
+    <string name="quran_text_catalog_refresh">Endurnýja heimildaskrá</string>
+    <string name="quran_text_catalog_review_missing">Áskilin endurskoðun eða útgáfuupplýsingar vantar; þetta niðurhal er ekki tiltækt.</string>
+    <string name="quran_text_catalog_source">Heimildir: QuranEnc</string>
+    <string name="quran_text_catalog_title">Kórantextar eftir tungumáli, uppruna og gerð</string>
+    <string name="quran_text_pack_import">Flytja inn textapakka (JSON)</string>
+    <string name="quran_text_pack_import_failed">Ekki var hægt að staðfesta eða setja upp Kóraninn textapakkann.</string>
+    <string name="quran_text_pack_import_success">Staðfesti og setti upp allan Kóraninn textapakkann.</string>
+    <string name="quran_text_pack_importing">Staðfestir og setur upp…</string>
 </resources>

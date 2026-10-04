@@ -143,4 +143,16 @@
     <string name="quran_reciter_picker_title">Mifidiana reciter</string>
     <string name="quran_reciter_search_hint">Mitadiava mpiteny amin\'ny anarana, fomba, na kalitao…</string>
     <string name="quran_reciter_no_results">Tsy misy mpiteny mifanandrify amin\'ity fikarohana ity</string>
+    <string name="quran_meaning_catalog_title">Ny dikan\'ny CORAN</string>
+    <string name="quran_original_tafsir_catalog_title">Tafsir amin\'ny fiteny niaviany</string>
+    <string name="quran_tafsir_translation_catalog_title">Nandika tafsir</string>
+    <string name="quran_text_catalog_empty">Tsy misy asa ho an\'ity fiteny ity ny loharano. Tsy midika akory izany fa feno ny fandrakofana.</string>
+    <string name="quran_text_catalog_refresh">Havaozy ny katalaogin\'ny loharano</string>
+    <string name="quran_text_catalog_review_missing">Tsy hita ny antsipirian\'ny famerenana na fanontana ilaina; tsy misy ity fampidinana ity.</string>
+    <string name="quran_text_catalog_source">Loharano: QuranEnc</string>
+    <string name="quran_text_catalog_title">Lahatsoratra CORAN amin\'ny fiteny, loharano ary karazany</string>
+    <string name="quran_text_pack_import">Manafatra fonosana lahatsoratra (JSON)</string>
+    <string name="quran_text_pack_import_failed">Tsy azo nohamarinina na napetraka ny fonosan-tsoratra Quran.</string>
+    <string name="quran_text_pack_import_success">Nohamarinina sy napetrany ny fonosan-tsoratra Quran feno.</string>
+    <string name="quran_text_pack_importing">Manamarina sy mametraka…</string>
 </resources>

@@ -144,4 +144,16 @@
     <string name="quran_reciter_search_hint">نالي، انداز، يا معيار جي ذريعي تلاوت ڪندڙن کي ڳولهيو ...</string>
     <string name="quran_reciter_no_results">هن ڳولها سان ڪوبه پڙهندڙ نه ملندو آهي</string>
     <string name="quran_tab_bookmarks">بک مارڪ</string>
+    <string name="quran_meaning_catalog_title">قرآن معنيٰ ترجمو</string>
+    <string name="quran_original_tafsir_catalog_title">تفسير پنهنجي اصل زبان ۾</string>
+    <string name="quran_tafsir_translation_catalog_title">ترجمو ڪيل تفسير</string>
+    <string name="quran_text_catalog_empty">ماخذ هن ٻوليءَ لاءِ ڪوبه ڪم نه ڏيکاريو آهي. هن جو مطلب اهو ناهي ته ڪوريج مڪمل آهي.</string>
+    <string name="quran_text_catalog_refresh">ريفريش ذريعو فهرست</string>
+    <string name="quran_text_catalog_review_missing">گهربل جائزو يا ايڊيشن جا تفصيل غائب آهن؛ هي ڊائون لوڊ دستياب ناهي.</string>
+    <string name="quran_text_catalog_source">ذريعا: QuranEnc</string>
+    <string name="quran_text_catalog_title">ٻولي، ماخذ ۽ قسم جي لحاظ کان قرآن جا متن</string>
+    <string name="quran_text_pack_import">ٽيڪسٽ پيڪ درآمد ڪريو (JSON)</string>
+    <string name="quran_text_pack_import_failed">قرآن جو ٽيڪسٽ پيڪ تصديق يا انسٽال نه ٿي سگهيو.</string>
+    <string name="quran_text_pack_import_success">تصديق ٿيل ۽ مڪمل قرآن ٽيڪسٽ پيڪ انسٽال ڪيو.</string>
+    <string name="quran_text_pack_importing">تصديق ۽ تنصيب…</string>
 </resources>
