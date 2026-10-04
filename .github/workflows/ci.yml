@@ -295,7 +295,10 @@ jobs:
       - name: Run Android 17 Adhan delivery probe
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 37
+          # The preview SDK package is published as android-37.0; the runner
+          # accepts the integer platform API separately from the system image.
+          api-level: 36
+          system-image-api-level: 37.0
           channel: beta
           arch: x86_64
           emulator-options: -no-window -gpu software -no-snapshot -noaudio -no-boot-anim -no-metrics

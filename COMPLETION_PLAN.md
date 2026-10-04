@@ -126,3 +126,10 @@ The Adhan reliability task is the current first implementation priority because 
 - Added a targeted API 37 Android 17 emulator job to the single CI workflow. It runs the real AlarmManager delivery probe through the manifest receiver and foreground playback service, while leaving the API 26/36 UI matrix unchanged.
 - The APK-release contract checker now requires this Android 17 job as a prerequisite for signed APK builds. Static lifecycle checks and the release-contract checker pass locally; the new API 37 runner remains unverified until GitHub Actions completes.
 - No version tag was created: the release-only Quran text gate currently reports 0 complete packs and 375 required language/type gaps across 188 supported UI languages.
+
+### 2026-10-04 continuation — Android 17 emulator package correction
+
+- The first API 37 CI attempt failed before emulator boot because the runner tried to install platforms;android-37, which is not the preview package name. No Adhan delivery assertion ran in that attempt.
+- Updated the targeted job to request the stable API 36 platform while explicitly selecting Android 17's 37.0 system image (channel: beta); the job still asserts the booted device reports SDK 37 before executing the delivery probe.
+- python scripts/verify_ci_apk_release.py and git diff --check pass for this change. Await exact-runner CI confirmation before treating Android 17 as verified.
+- Release remains blocked by the audited absence of validated Quran translation/tafsir packs (0 complete packs; 375 coverage gaps across 188 supported UI languages); no release tag should be created until that gate is satisfied.
