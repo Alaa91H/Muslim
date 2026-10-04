@@ -133,3 +133,9 @@ The Adhan reliability task is the current first implementation priority because 
 - Updated the targeted job to request the stable API 36 platform while explicitly selecting Android 17's 37.0 system image (channel: beta); the job still asserts the booted device reports SDK 37 before executing the delivery probe.
 - python scripts/verify_ci_apk_release.py and git diff --check pass for this change. Await exact-runner CI confirmation before treating Android 17 as verified.
 - Release remains blocked by the audited absence of validated Quran translation/tafsir packs (0 complete packs; 375 coverage gaps across 188 supported UI languages); no release tag should be created until that gate is satisfied.
+
+### 2026-10-04 continuation — Android 17 image input and Arabic page-turn regression
+
+- CI confirmed the emulator runner receives an unquoted YAML decimal `37.0` as `37`, then looks for the nonexistent `system-images;android-37;default;x86_64`. The image input is now quoted as a string (`"37.0"`) and the release contract verifier requires that exact value.
+- Quality, both Family Life emulator jobs, and API 26 prayer/Qibla tests passed on commit `0df863d7`; the API 36 reader instrumentation test failed its Arabic right-to-left page round trip when returning from page 49 to page 50. Investigate/re-run before changing reader behavior.
+- The API 37 probe did not execute because its preview system image package was not found. Keep the quality gate blocked until a runner configuration launches the actual SDK 37 image and the delivery test runs.

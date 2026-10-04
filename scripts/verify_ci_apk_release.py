@@ -24,7 +24,7 @@ def main() -> None:
         "needs: [quality, emulator-tests, android17-adhan, family-life-emulator-tests]",
         "android17-adhan:",
         "api-level: 36",
-        "system-image-api-level: 37.0",
+        'system-image-api-level: "37.0"',
         "channel: beta",
         "AdhanDeliveryProbeInstrumentedTest",
         ":app:assembleDebug :wear:assembleDebug",
