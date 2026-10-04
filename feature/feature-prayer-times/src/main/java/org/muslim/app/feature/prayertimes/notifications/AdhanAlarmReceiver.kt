@@ -15,6 +15,7 @@ import org.muslim.app.core.common.prayer.AdhanSoundOption
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationCategory
+import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.notificationAllowed
 import org.muslim.app.feature.prayertimes.widget.PrayerTimesWidget
 import java.util.concurrent.atomic.AtomicBoolean
@@ -62,6 +63,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         val settings = entryPoint.settingsRepository().settings.first()
         val deliveryJournal = entryPoint.deliveryJournal()
         deliveryJournal.receiverReached(prayer, isProbe)
+        val communicationActive = CallAudioMode.isActive(appContext)
         if (isReminder) {
             if (settings.reminderMinutes > 0 &&
                 appContext.notificationAllowed(NotificationCategory.PrayerReminder)
@@ -76,7 +78,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
             val deliveryPolicy = AdhanAlarmDeliveryPolicy.resolve(
                 adhanEnabled = settings.adhanEnabled,
                 presentationAllowed = appContext.notificationAllowed(NotificationCategory.Adhan),
-                communicationActive = CallAudioMode.isActive(appContext),
+                communicationActive = communicationActive,
             )
             // The service that owns live playback also owns the active
             // foreground card. Avoid pre-posting a separate receiver-owned

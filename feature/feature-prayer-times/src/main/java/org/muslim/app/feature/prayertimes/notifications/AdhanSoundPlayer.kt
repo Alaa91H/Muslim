@@ -66,6 +66,8 @@ class AdhanSoundPlayer @Inject constructor(
             AudioManager.AUDIOFOCUS_LOSS -> stop()
             AudioManager.AUDIOFOCUS_LOSS_TRANSIENT -> {
                 if (CallAudioMode.isActive(context)) {
+                    stop()
+                    AdhanDirectFallbackSession.stop(context.applicationContext)
                     AdhanPlaybackService.stop(context.applicationContext)
                     return@OnAudioFocusChangeListener
                 }

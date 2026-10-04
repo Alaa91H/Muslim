@@ -3,6 +3,7 @@ package org.muslim.app.feature.prayertimes.notifications
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.media.AudioManager
 import android.os.Build
 import android.os.Handler
 import android.os.IBinder
@@ -57,25 +58,33 @@ class AdhanPlaybackService : Service() {
     private var wakeLock: PowerManager.WakeLock? = null
     private var activeVibrator: Vibrator? = null
     private val mainHandler = Handler(Looper.getMainLooper())
-    private val callModePoll = object : Runnable {
-        override fun run() {
-            if (CallAudioMode.isActive(this@AdhanPlaybackService)) {
-                stopForActiveCall()
-            } else {
-                mainHandler.postDelayed(this, COMMUNICATION_MODE_POLL_MS)
-            }
-        }
-    }
     private var playbackGeneration = 0L
 
     /** The request that currently owns the active foreground notification. */
     private var activeRequest: PlaybackRequest? = null
+    private val audioManager: AudioManager by lazy { getSystemService(AudioManager::class.java) }
+    private val communicationModeListener = AudioManager.OnModeChangedListener { mode ->
+        if (CallAudioMode.isCallAudioMode(mode, Build.VERSION.SDK_INT)) stopForActiveCall()
+    }
+    private val communicationModePoll = object : Runnable {
+        override fun run() {
+            if (CallAudioMode.isActive(this@AdhanPlaybackService)) {
+                stopForActiveCall()
+            } else if (activeRequest != null) {
+                mainHandler.postDelayed(this, COMMUNICATION_MODE_POLL_MS)
+            }
+        }
+    }
 
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onCreate() {
         super.onCreate()
-        mainHandler.post(callModePoll)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            runCatching { audioManager.addOnModeChangedListener(mainExecutor, communicationModeListener) }
+        } else {
+            mainHandler.postDelayed(communicationModePoll, COMMUNICATION_MODE_POLL_MS)
+        }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -103,6 +112,7 @@ class AdhanPlaybackService : Service() {
 
     private fun startPlayback(request: PlaybackRequest) {
         if (CallAudioMode.isActive(this)) {
+            deliveryJournal.failed(request.prayer, request.isProbe, "Adhan suppressed during an active call")
             AdhanNotifications.cancelReminder(this)
             AdhanNotifications.cancelActiveAdhan(this)
             stopSelf()
@@ -111,6 +121,12 @@ class AdhanPlaybackService : Service() {
         // The true Adhan is the final authority for this prayer window: remove
         // any earlier reminder even when playback is silent or falls back.
         AdhanNotifications.cancelReminder(this)
+        if (CallAudioMode.isActive(this)) {
+            deliveryJournal.failed(request.prayer, request.isProbe, "Adhan suppressed during an active call")
+            AdhanNotifications.cancelActiveAdhan(this)
+            stopSelf()
+            return
+        }
         val generation = beginSession(request)
         soundPlayer.setGradualVolumeEnabled(request.gradualVolumeEnabled)
         val plan = AdhanPlaybackPlan.plan(request.option, hasBundledSound = true, request.vibrateEnabled)
@@ -279,10 +295,13 @@ class AdhanPlaybackService : Service() {
     }
 
     private fun stopForActiveCall() {
-        if (activeRequest == null) return
-        playbackGeneration += 1L
-        mainHandler.removeCallbacksAndMessages(null)
-        stopSelf()
+        val request = activeRequest
+        if (request != null && AdhanPlaybackStatus.isPlaying.value) {
+            deliveryJournal.failed(request.prayer, request.isProbe, "Adhan stopped because a call became active")
+            finishSession(playbackGeneration)
+        } else {
+            stopSelf()
+        }
     }
 
     private fun audioStartedFor(request: PlaybackRequest, deliveryStartedAt: Long): Boolean {
@@ -385,12 +404,19 @@ class AdhanPlaybackService : Service() {
     }
 
     override fun onDestroy() {
+        mainHandler.removeCallbacks(communicationModePoll)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            runCatching { audioManager.removeOnModeChangedListener(communicationModeListener) }
+        }
         playbackGeneration += 1L
         mainHandler.removeCallbacksAndMessages(null)
         cancelVibration()
         releaseWakeLock()
         activeRequest = null
-        mainHandler.removeCallbacks(callModePoll)
+        mainHandler.removeCallbacks(communicationModePoll)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            runCatching { audioManager.removeOnModeChangedListener(communicationModeListener) }
+        }
         AdhanPlaybackStatus.isPlaying.value = false
         AdhanPlaybackStatus.isPreviewing.value = false
         // The card ends only with the owning playback session: natural

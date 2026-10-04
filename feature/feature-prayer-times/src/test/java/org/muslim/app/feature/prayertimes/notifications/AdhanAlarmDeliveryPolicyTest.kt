@@ -39,7 +39,7 @@ class AdhanAlarmDeliveryPolicyTest {
     }
 
     @Test
-    fun `active call suppresses Adhan audio and visible notification`() {
+    fun `active communication suppresses visible alert and audio`() {
         val policy = AdhanAlarmDeliveryPolicy.resolve(
             adhanEnabled = true,
             presentationAllowed = true,
