@@ -126,6 +126,10 @@ android {
         buildConfig = true
     }
 
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+    }
+
     defaultConfig {
         buildConfigField(
             "String",
@@ -254,6 +258,7 @@ dependencies {
     testImplementation(libs.mockk)
     testImplementation(libs.turbine)
     testImplementation(libs.truth)
+    testImplementation(libs.robolectric)
 
     // Instrumented tests
     androidTestImplementation(platform(libs.androidx.compose.bom))
