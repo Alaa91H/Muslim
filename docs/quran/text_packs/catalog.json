@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "source_policy": "Only complete packs with named provenance and verified source/editor review may be listed.",
+  "required_ayah_count": 6236,
+  "required_languages": "All Android UI locales from scripts/localize.py plus Arabic and English.",
+  "packs": []
+}

@@ -1,0 +1,93 @@
+# Quran text pack format
+
+The catalogue at `catalog.json` lists only complete, sourced works. A pack file
+contains exactly this versioned shape:
+
+```json
+{
+  "schemaVersion": 2,
+  "manifest": {
+    "id": "stable-source-work-id",
+    "kind": "meaning_translation | tafsir_translation | tafsir_original",
+    "languageTag": "BCP-47 tag for the text itself",
+    "title": "Published edition title",
+    "work": "Source work",
+    "translator": "Named translator or source-credited editorial team",
+    "publisher": "Publisher or source organization",
+    "sourceAttribution": "Source-provided contributor and review details",
+    "sourceUrl": "https://...",
+    "license": "Exact redistribution terms",
+    "version": "Publisher version",
+    "reviewer": "Qualified reviewer or credited source review",
+    "reviewReference": "https://...",
+    "expectedAyahCount": 6236,
+    "footnoteCount": 0,
+    "sha256": "SHA-256 of canonical serialized entries",
+    "reviewStatus": "source_reviewed | editor_reviewed"
+  },
+  "entries": [
+    { "globalNumber": 1, "text": "Exact source wording", "footnotes": [] }
+  ]
+}
+```
+
+The example entry is a schema illustration, not a Quran content pack. Every
+installable file must contain all 6,236 Quran global ayah numbers exactly once.
+`sha256` is computed over compact UTF-8 JSON for the `entries` array in the
+field order `globalNumber`, `text`, `footnotes`, preserving source wording and
+footnote text. The declared footnote count is the sum of each entry's footnote
+array length. Any missing or blank text, duplicate/missing ayah, invalid
+provenance, checksum mismatch, or footnote-count mismatch rejects the entire
+pack before database writes.
+
+The structural importer verifies completeness, checksum, URL shape, and that
+the manifest contains source/review declarations. It cannot authenticate those
+declarations or independently certify the translator, publisher, license, or
+religious review. Imported metadata must therefore be presented as publisher-
+reported provenance, never as Muslim's independent endorsement. Only provider
+integrations that re-fetch and match source catalogue metadata may label the
+provider's review claim as source-reported.
+
+`meaning_translation` and `tafsir_translation` are separate kinds. Arabic
+commentary that is not a translation uses `tafsir_original`. Translators and
+editions sharing a language must use separate stable pack IDs. Content is
+never machine-translated to satisfy the release language matrix.
+
+The current repository intentionally lists zero production packs. The former
+partial samples have been removed. Add a work to the catalog only after its
+complete source file and metadata are reviewed; the release gate will validate
+the actual content file before accepting the declaration.
+
+The app queries QuranEnc's public translation catalogue at runtime and uses it
+only for Quran meaning translations. It preserves source descriptions and only
+enables download when that description explicitly names a reviewer or editorial
+supervision. Its site also lists Al-Mukhtasar translations in multiple
+languages and an Uzbek At-Tafsir Al-Muyassar translation. The app lists the
+Al-Mukhtasar editions separately as translated tafsir candidates, but disables
+installation because the public API does not expose the named translator,
+reviewer, and edition version needed for this project's verified catalogue.
+The QuranEnc index attributes the Uzbek Al-Muyassar translation to Ismail
+Yaqub, reports review by Islamic Center IxlosOrg, and lists edition 1.0.0. The
+app re-fetches that source card and checks the work, translator, reviewer,
+version, and language before allowing a complete 6,236-ayah download. This
+source-reported review is not represented as independent Muslim endorsement.
+QuranEnc requires re-publications to preserve and show the edition version.
+On 2026-10-04, all 114 source API endpoints returned 6,236 distinct, non-empty
+ayah rows for this edition; the in-app installer still repeats coverage and
+checksum validation before its atomic database write.
+Other translated-tafsir candidates remain unavailable until their missing
+translator/reviewer/version metadata can be established. Translated-tafsir
+packages may also be imported from JSON and are structurally validated before
+installation. A successful structural validation is not, by itself, an
+independent theological review.
+
+Quran Foundation documents catalogue and paginated tafsir-content endpoints,
+including author and resource metadata, but their current API schema documents
+authorization failures and required request headers. No Quran Foundation app
+credentials or license-specific approval are configured in this repository, so
+those endpoints are not treated as a downloadable, approved source yet. The
+release gate intentionally remains red until every supported UI language has a
+complete, source-attributed meaning translation and translated tafsir (and
+Arabic original tafsir); locale UI coverage is not evidence that Quran text
+content exists in that language. See the provider's [tafsir catalogue](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/tafsirs/)
+and [tafsir content API](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/tafsir/).

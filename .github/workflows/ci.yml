@@ -86,6 +86,13 @@ jobs:
           python3 scripts/verify_reference_library_assets.py
           git diff --exit-code -- docs/content/content_manifest.json
 
+      - name: Audit Quran text pack catalogue and language coverage
+        run: python3 scripts/verify_quran_text_packs.py
+
+      - name: Require complete religious-text coverage for tagged release
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: python3 scripts/verify_quran_text_packs.py --release
+
       - name: Verify product identity and Adhan notification lifecycle
         run: |
           python3 scripts/verify_islamic_visual_identity.py

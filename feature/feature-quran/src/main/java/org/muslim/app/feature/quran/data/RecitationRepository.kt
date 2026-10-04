@@ -106,6 +106,31 @@ class RecitationRepository @Inject constructor(
         }
     }
 
+    /** Downloads one missing ayah so playback can begin without waiting for its whole surah. */
+    suspend fun downloadAyah(
+        reciter: Reciter,
+        surahNumber: Int,
+        ayahNumberInSurah: Int,
+        globalNumber: Int,
+    ): FileDownloader.Result = withContext(Dispatchers.IO) {
+        val target = fileFor(reciter.id, surahNumber, globalNumber)
+        if (target.isUsableRecitationAudio()) return@withContext FileDownloader.Result.Success(target)
+        target.parentFile?.mkdirs()
+        target.delete()
+        when (val result = fileDownloader.download(reciter.urlFor(surahNumber, ayahNumberInSurah), target)) {
+            is FileDownloader.Result.Success -> if (target.isUsableRecitationAudio()) {
+                result
+            } else {
+                target.delete()
+                FileDownloader.Result.Failure(IllegalStateException("Downloaded ayah audio is empty"))
+            }
+            is FileDownloader.Result.Failure -> {
+                target.delete()
+                result
+            }
+        }
+    }
+
     /**
      * Resolves the actual on-server size (bytes) of one ayah's audio via a
      * ranged probe (`bytes=0-0`), so download sizes are verified rather than

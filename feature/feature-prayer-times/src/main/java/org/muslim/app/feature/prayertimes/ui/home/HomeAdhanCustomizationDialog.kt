@@ -24,11 +24,8 @@ internal fun HomeAdhanCustomizationDialog(
     viewModel: PrayerSettingsViewModel = hiltViewModel(),
 ) {
     val settings by viewModel.settings.collectAsStateWithLifecycle()
-    val density by viewModel.informationDensity.collectAsStateWithLifecycle()
     AdhanCustomizeDialog(
         prayer = prayer,
-        density = density,
-        onDensityChange = viewModel::setInformationDensity,
         initial = AdhanCustomization(
             option = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
             sound = BundledAdhanSound.fromId(

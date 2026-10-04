@@ -1,5 +1,28 @@
 # Changelog
 
+## Muslim v1.25.40
+
+This release improves Quran recitation continuity and establishes a verified catalogue for sourced Quran meanings and tafsir, while keeping incomplete religious-text content clearly identified.
+
+### Quran and Recitation
+
+- Added a versioned Quran text-pack catalogue that keeps Quran meaning translations, translated tafsir, and original-language tafsir distinct.
+- Added pack metadata and integrity checks for source attribution, language, translator, review status, all 6,236 ayahs, footnotes, and content checksums before installation.
+- Added catalogue-backed selection and download flows for Quran meanings and tafsir, with language-aware availability and no cross-language fallback.
+- Removed the incomplete 11-ayah sample translation and tafsir assets from production resources and the approval inventory.
+- Improved recitation startup and continuation by preparing the selected ayah for playback while the rest of the surah downloads in the background.
+
+### Prayer and Settings
+
+- Simplified Adhan customization by removing the separate density control and using the compact layout by default.
+- Kept the gradual Adhan volume ramp enabled by default and retained the shared Adhan volume preference for new installations.
+
+### Quality and Release Delivery
+
+- Added automated validation for Quran text-pack structure, provenance, ayah coverage, footnotes, and checksums.
+- Added a tagged-release coverage gate that prevents publication while the required verified text packs are missing.
+- Consolidated CI into `.github/workflows/ci.yml`; ordinary runs build signed APK artifacts, and tagged releases publish APK files only.
+
 ## Muslim v1.25.39
 
 This release smooths the Adhan listening experience and fixes a Google Cast dialog crash.

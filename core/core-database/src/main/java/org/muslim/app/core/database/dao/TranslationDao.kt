@@ -11,7 +11,9 @@ import org.muslim.app.core.database.entity.TranslationEntity
 interface TranslationDao {
 
     /** Translations of [globalNumber]'s ayah, one per installed language. */
-    @Query("SELECT * FROM translations WHERE globalNumber = :globalNumber ORDER BY language")
+    @Query("""SELECT t.* FROM translations t INNER JOIN quran_text_packs p ON p.id = t.packId
+        WHERE t.globalNumber = :globalNumber AND p.kind = 'meaning_translation' AND p.sourceAttribution != ''
+        ORDER BY t.language, p.title""")
     fun observeForAyah(globalNumber: Int): Flow<List<TranslationEntity>>
 
     /** True when at least one translation exists for the ayah. */
@@ -21,12 +23,9 @@ interface TranslationDao {
     @Query("SELECT COUNT(*) FROM translations WHERE language = :language")
     suspend fun countForLanguage(language: String): Int
 
-    @Query("SELECT DISTINCT language FROM translations ORDER BY language")
-    fun observeLanguages(): Flow<List<String>>
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(translations: List<TranslationEntity>)
 
-    @Query("DELETE FROM translations WHERE language = :language")
-    suspend fun deleteLanguage(language: String)
+    @Query("DELETE FROM translations WHERE packId = :packId")
+    suspend fun deletePack(packId: String)
 }

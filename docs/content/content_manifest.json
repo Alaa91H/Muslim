@@ -451,21 +451,6 @@
       "required_actions": []
     },
     {
-      "id": "feature_feature-quran_src_main_assets_quran_tafsir_sample_json",
-      "kind": "quran_content",
-      "path": "feature/feature-quran/src/main/assets/quran_tafsir_sample.json",
-      "size_bytes": 2359,
-      "sha256": "73e5cb7d49535d402d42faa461c2199456554bc7fbc25b1b17f90dbca442db40",
-      "production_status": "approved",
-      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled Quran content provenance held by owner).",
-      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
-      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
-      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
-      "notes": "The product owner confirmed this historically named sample file is an approved production pack under OA-2026-08-25-01. Reconfirm before replacing it.",
-      "required_actions": [],
-      "production_pack_confirmed": true
-    },
-    {
       "id": "feature_feature-quran_src_main_assets_quran_tajweed_hafs_annotations_json",
       "kind": "quran_content",
       "path": "feature/feature-quran/src/main/assets/quran_tajweed_hafs_annotations.json",
@@ -478,21 +463,6 @@
       "religious_review": "No independent scholarly certification is claimed. Product owner approved opt-in presentation use after positional validation against the bundled Uthmani corpus; users should consult qualified teachers for tajweed instruction.",
       "notes": "Hafs annotation spans were validated locally against all 6,236 bundled ayahs (60,057 spans) on 2026-08-25. Revalidate positions, attribution, and licence if the source or corpus changes.",
       "required_actions": []
-    },
-    {
-      "id": "feature_feature-quran_src_main_assets_quran_translations_sample_json",
-      "kind": "quran_content",
-      "path": "feature/feature-quran/src/main/assets/quran_translations_sample.json",
-      "size_bytes": 1333,
-      "sha256": "038bdcdf1aab28cd4861f65ed5d6088fb2b460c0f844cdb1f9a758726aff0407",
-      "production_status": "approved",
-      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled Quran content provenance held by owner).",
-      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
-      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
-      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
-      "notes": "The product owner confirmed this historically named sample file is an approved production pack under OA-2026-08-25-01. Reconfirm before replacing it.",
-      "required_actions": [],
-      "production_pack_confirmed": true
     },
     {
       "id": "feature_feature-reference_src_main_res_raw_reference_ahl_al_bayt_v2_json",
@@ -720,8 +690,8 @@
     }
   ],
   "summary": {
-    "asset_count": 49,
-    "approved_for_production": 49,
+    "asset_count": 47,
+    "approved_for_production": 47,
     "blocked_pending_review": 0
   }
 }

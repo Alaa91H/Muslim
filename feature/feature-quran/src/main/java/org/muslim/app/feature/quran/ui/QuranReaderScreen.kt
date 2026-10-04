@@ -1,5 +1,7 @@
 package org.muslim.app.feature.quran.ui
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
@@ -65,6 +67,8 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import java.util.Locale
+import java.io.ByteArrayOutputStream
+import java.io.InputStream
 import androidx.compose.material3.TopAppBar
 
 import androidx.compose.runtime.Composable
@@ -77,6 +81,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
@@ -118,6 +123,8 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
@@ -275,8 +282,11 @@ fun QuranReaderScreen(
     val installedTafsirSources by viewModel.installedTafsirSources.collectAsStateWithLifecycle()
     val selectedTafsirSource by viewModel.selectedTafsirSource.collectAsStateWithLifecycle()
     val tafsirDownloadState by viewModel.tafsirDownloadState.collectAsStateWithLifecycle()
+    val textPackImportState by viewModel.textPackImportState.collectAsStateWithLifecycle()
+    val officialTextSources by viewModel.officialTextSources.collectAsStateWithLifecycle()
     val supplementLanguage by viewModel.supplementLanguage.collectAsStateWithLifecycle()
     val availableSupplementLanguages by viewModel.availableSupplementLanguages.collectAsStateWithLifecycle()
+    val installedSupplementPacks by viewModel.installedSupplementPacks.collectAsStateWithLifecycle()
     val continuousStopAtEnd by viewModel.continuousStopAtEnd.collectAsStateWithLifecycle()
     val playbackState by viewModel.playbackState.collectAsStateWithLifecycle()
     val currentAudioAyah by viewModel.currentAudioAyah.collectAsStateWithLifecycle()
@@ -303,6 +313,18 @@ fun QuranReaderScreen(
     // during recitation) when the user enabled the keep-screen-on option;
     // restore the normal screen timeout on leave.
     val context = LocalContext.current
+    val importScope = rememberCoroutineScope()
+    val importTextPackLauncher = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        if (uri != null) {
+            importScope.launch(Dispatchers.IO) {
+                runCatching {
+                    context.contentResolver.openInputStream(uri)?.use { it.readUtf8Limited(MAX_TEXT_PACK_IMPORT_BYTES) }
+                        ?: error("Unable to read selected pack")
+                }.onSuccess { viewModel.importTextPack(it) }
+                    .onFailure { error -> viewModel.importTextPackFailure(error.message ?: "Unable to read pack") }
+            }
+        }
+    }
     val window = (context as? Activity)?.window
     DisposableEffect(keepScreenOn) {
         val activityWindow = window ?: return@DisposableEffect onDispose {}
@@ -371,6 +393,7 @@ fun QuranReaderScreen(
                 // resume a previously paused ayah when the user chose another.
                 if (selectedStart != null && selectedStart.globalNumber != currentAudioAyah) {
                     viewModel.playFromSelectedAyahToSurahEnd(selectedStart, repeatCount)
+                    userSelectedAyah = null
                 } else {
                     viewModel.resumePlayback()
                 }
@@ -381,6 +404,7 @@ fun QuranReaderScreen(
                 // surah's end, rather than restarting from ayah one.
                 if (selectedStart != null) {
                     viewModel.playFromSelectedAyahToSurahEnd(selectedStart, repeatCount)
+                    userSelectedAyah = null
                 } else {
                     state.ayahs.firstOrNull()?.let { start ->
                         viewModel.playAyahWithRange(start, repeatCount, playRange)
@@ -867,7 +891,10 @@ fun QuranReaderScreen(
                     onTogglePlayback = togglePlayback,
                     onStop = viewModel::stopPlayback,
                     onPlaySelectedAyah = selectedStart?.let { selected ->
-                        { viewModel.playFromSelectedAyahToSurahEnd(selected, repeatCount) }
+                        {
+                            viewModel.playFromSelectedAyahToSurahEnd(selected, repeatCount)
+                            userSelectedAyah = null
+                        }
                     },
                     settings = RecitationSettingsActions(
                         onRepeatChanged = { repeatCount = it },
@@ -997,6 +1024,8 @@ fun QuranReaderScreen(
                                         selectedAyah,
                                         repeatCount,
                                     )
+                                    userSelectedAyah = null
+                                    showAyahActions = false
                                 },
                             ),
                             MuslimActionItem(
@@ -1057,6 +1086,9 @@ fun QuranReaderScreen(
                 SurahDetailsDialog(surah = surah, onDismiss = { showDetails = false })
             }
         }
+            LaunchedEffect(showSupplementControls, supplementLanguage) {
+                if (showSupplementControls) viewModel.refreshOfficialTextSources(supplementLanguage)
+            }
             if (showSupplementControls) {
                 SupplementControlsDialog(
                     state = SupplementControlsState(
@@ -1064,13 +1096,18 @@ fun QuranReaderScreen(
                         installedTafsirSources = installedTafsirSources,
                         selectedTafsirSource = selectedTafsirSource,
                         tafsirDownloadState = tafsirDownloadState,
+                        textPackImportState = textPackImportState,
+                        officialTextSources = officialTextSources,
                         language = supplementLanguage,
                         availableLanguages = availableSupplementLanguages,
+                        installedPacks = installedSupplementPacks,
                     ),
                     actions = SupplementControlsActions(
                         onEnabledChanged = viewModel::setSupplementEnabled,
                         onTafsirSourceSelected = viewModel::setSelectedTafsirSource,
-                        onDownloadOfficialTafsir = viewModel::downloadOfficialTafsir,
+                        onRefreshOfficialTextSources = viewModel::refreshOfficialTextSources,
+                        onDownloadOfficialText = viewModel::downloadOfficialText,
+                        onImportPack = { importTextPackLauncher.launch(arrayOf("application/json", "text/*")) },
                         onLanguageChanged = viewModel::setSupplementLanguage,
                         onDismiss = { showSupplementControls = false },
                     ),
@@ -1078,6 +1115,22 @@ fun QuranReaderScreen(
             }
         }
     }
+}
+
+private const val MAX_TEXT_PACK_IMPORT_BYTES = 32 * 1024 * 1024
+
+private fun InputStream.readUtf8Limited(maxBytes: Int): String {
+    val output = ByteArrayOutputStream()
+    val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
+    var total = 0
+    while (true) {
+        val read = read(buffer)
+        if (read < 0) break
+        total += read
+        require(total <= maxBytes) { "Quran text pack exceeds the 32 MB import limit" }
+        output.write(buffer, 0, read)
+    }
+    return output.toString(Charsets.UTF_8.name())
 }
 
 @Composable
@@ -1102,17 +1155,38 @@ private fun SupplementPanel(
         supplements.translations.forEach { translation ->
             Spacer(Modifier.height(IslamicSpacing.Small))
             Text(
+                text = listOf(
+                    translation.title,
+                    translation.translator,
+                    translation.publisher,
+                    translation.sourceAttribution,
+                    translation.version,
+                )
+                    .filter(String::isNotBlank).joinToString(" · "),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
                 text = translation.text,
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurface,
             )
+            translation.footnotes.forEach { footnote ->
+                Text(footnote, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
         }
         supplements.tafsir.forEach { entry ->
             Spacer(Modifier.height(IslamicSpacing.Small))
             HorizontalDivider()
             Spacer(Modifier.height(IslamicSpacing.Small))
             Text(
-                text = stringResource(R.string.quran_tafsir_source, entry.source),
+                text = stringResource(
+                    R.string.quran_tafsir_source,
+                    listOf(entry.title, entry.translator, entry.publisher)
+                        .plus(entry.sourceAttribution)
+                        .plus(entry.version)
+                        .filter(String::isNotBlank).joinToString(" · "),
+                ),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -1122,6 +1196,9 @@ private fun SupplementPanel(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            entry.footnotes.forEach { footnote ->
+                Text(footnote, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
         }
     }
 }
@@ -2278,15 +2355,20 @@ private data class SupplementControlsState(
     val installedTafsirSources: List<String>,
     val selectedTafsirSource: String?,
     val tafsirDownloadState: QuranReaderTafsirDownloadState,
+    val textPackImportState: QuranTextPackImportState,
+    val officialTextSources: List<org.muslim.app.feature.quran.data.OfficialQuranTextSource>,
     val language: String,
     val availableLanguages: List<String>,
+    val installedPacks: List<org.muslim.app.core.database.entity.QuranTextPackEntity>,
 )
 
 /** Reader-owned actions invoked by the stateless supplement controls. */
 private data class SupplementControlsActions(
     val onEnabledChanged: (Boolean) -> Unit,
     val onTafsirSourceSelected: (String?) -> Unit,
-    val onDownloadOfficialTafsir: (org.muslim.app.feature.quran.data.OfficialTafsirSource) -> Unit,
+    val onRefreshOfficialTextSources: (String) -> Unit,
+    val onDownloadOfficialText: (org.muslim.app.feature.quran.data.OfficialQuranTextSource) -> Unit,
+    val onImportPack: () -> Unit,
     val onLanguageChanged: (String) -> Unit,
     val onDismiss: () -> Unit,
 )
@@ -2302,8 +2384,10 @@ private fun SupplementControlsDialog(
         text = {
             Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
                 SupplementVisibilityControls(state, actions)
+                TextPackImportControls(state, actions)
                 SupplementTafsirSources(state, actions)
                 SupplementLanguageOptions(state, actions)
+                InstalledTextPackIndex(state.installedPacks)
             }
         },
         confirmButton = {
@@ -2312,6 +2396,81 @@ private fun SupplementControlsDialog(
             }
         },
     )
+}
+
+@Composable
+private fun TextPackImportControls(
+    state: SupplementControlsState,
+    actions: SupplementControlsActions,
+) {
+    TextButton(enabled = !state.textPackImportState.importing, onClick = actions.onImportPack) {
+        Text(
+            if (state.textPackImportState.importing) stringResource(R.string.quran_text_pack_importing)
+            else stringResource(R.string.quran_text_pack_import),
+        )
+    }
+    state.textPackImportState.installedCount?.let { count ->
+        Text(
+            stringResource(R.string.quran_text_pack_import_success, count),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.primary,
+        )
+    }
+    state.textPackImportState.error?.let { error ->
+        Text(
+            stringResource(R.string.quran_text_pack_import_failed, error),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.error,
+        )
+    }
+    HorizontalDivider()
+    Spacer(Modifier.height(8.dp))
+}
+
+@Composable
+private fun InstalledTextPackIndex(packs: List<org.muslim.app.core.database.entity.QuranTextPackEntity>) {
+    if (packs.isEmpty()) return
+    Spacer(Modifier.height(12.dp))
+    HorizontalDivider()
+    Spacer(Modifier.height(12.dp))
+    Text(
+        stringResource(R.string.quran_supplement_title),
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.primary,
+    )
+    packs.forEach { pack ->
+        Spacer(Modifier.height(8.dp))
+        Text(
+            "${stringResource(
+                if (pack.kind == org.muslim.app.feature.quran.data.QuranTextPackKind.MeaningTranslation.wireValue) {
+                    R.string.quran_supplement_language
+                } else {
+                    R.string.quran_tafsir_sources_title
+                },
+            )} · ${pack.languageTag} · ${pack.title}",
+            style = MaterialTheme.typography.bodyMedium,
+            fontWeight = FontWeight.SemiBold,
+        )
+        Text(
+            listOf(
+                pack.work,
+                pack.translator,
+                pack.publisher,
+                pack.sourceAttribution,
+                pack.reviewer,
+                "v${pack.version}",
+                pack.license,
+            )
+                .filter(String::isNotBlank).joinToString(" · "),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Text(
+            "${pack.sourceUrl} · ${pack.reviewReference}",
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
 }
 
 @Composable
@@ -2358,8 +2517,49 @@ private fun SupplementTafsirSources(
             )
         }
     }
-    org.muslim.app.feature.quran.data.OfficialTafsirSource.entries.forEach { source ->
-        OfficialTafsirDownloadRow(source, state, actions.onDownloadOfficialTafsir)
+    Text(
+        stringResource(R.string.quran_text_catalog_title),
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.primary,
+    )
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        TextButton(onClick = { actions.onRefreshOfficialTextSources(state.language) }) {
+            Text(stringResource(R.string.quran_text_catalog_refresh))
+        }
+        Text(stringResource(R.string.quran_text_catalog_source))
+    }
+    val selectedLanguage = if (state.language.equals(QuranPrefsRepository.AUTO_LANGUAGE, ignoreCase = true)) {
+        Locale.getDefault().language
+    } else {
+        state.language.substringBefore('-')
+    }
+    val languageSources = state.officialTextSources.filter { it.languageTag.equals(selectedLanguage, ignoreCase = true) }
+    if (languageSources.isEmpty()) {
+        Text(
+            stringResource(R.string.quran_text_catalog_empty),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+    val sourceGroups = listOf(
+        R.string.quran_meaning_catalog_title to languageSources.filter {
+            it.kind == org.muslim.app.feature.quran.data.OfficialQuranTextKind.Meaning
+        },
+        R.string.quran_tafsir_translation_catalog_title to languageSources.filter {
+            it.kind == org.muslim.app.feature.quran.data.OfficialQuranTextKind.TranslatedTafsir
+        },
+        R.string.quran_original_tafsir_catalog_title to languageSources.filter {
+            it.kind == org.muslim.app.feature.quran.data.OfficialQuranTextKind.OriginalTafsir
+        },
+    )
+    sourceGroups.forEach { (titleId, sources) ->
+        if (sources.isNotEmpty()) {
+            Spacer(Modifier.height(8.dp))
+            Text(stringResource(titleId), style = MaterialTheme.typography.labelMedium)
+            sources.forEach { source ->
+                OfficialQuranTextDownloadRow(source, state, actions.onDownloadOfficialText)
+            }
+        }
     }
     state.tafsirDownloadState.error?.let { error ->
         Text(
@@ -2397,30 +2597,37 @@ private fun TafsirSourceChoice(source: String, selected: Boolean, onSelected: ()
 }
 
 @Composable
-private fun OfficialTafsirDownloadRow(
-    source: org.muslim.app.feature.quran.data.OfficialTafsirSource,
+private fun OfficialQuranTextDownloadRow(
+    source: org.muslim.app.feature.quran.data.OfficialQuranTextSource,
     state: SupplementControlsState,
-    onDownload: (org.muslim.app.feature.quran.data.OfficialTafsirSource) -> Unit,
+    onDownload: (org.muslim.app.feature.quran.data.OfficialQuranTextSource) -> Unit,
 ) {
-    val installed = source.storageKey in state.installedTafsirSources
+    val installed = state.installedPacks.any { it.id == source.storageKey }
     val downloading = state.tafsirDownloadState.downloading == source
     Row(modifier = Modifier.fillMaxWidth().padding(top = 4.dp), verticalAlignment = Alignment.CenterVertically) {
-        Text(
-            text = when (source) {
-                org.muslim.app.feature.quran.data.OfficialTafsirSource.AlMuyassar ->
-                    stringResource(R.string.quran_tafsir_muyassar)
-            },
-            style = MaterialTheme.typography.bodySmall,
-            modifier = Modifier.weight(1f),
-        )
+        Column(modifier = Modifier.weight(1f)) {
+            Text(source.title, style = MaterialTheme.typography.bodySmall)
+            Text(
+                "${source.languageTag} · ${source.translator}",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
+                "${source.sourceAttribution}\n${source.sourceUrl}",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
         TextButton(
-            enabled = !installed && !downloading && state.tafsirDownloadState.downloading == null,
+            enabled = source.canDownload && !installed && !downloading &&
+                state.tafsirDownloadState.downloading == null,
             onClick = { onDownload(source) },
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(
                     if (downloading) stringResource(R.string.quran_tafsir_downloading)
                     else if (installed) stringResource(R.string.quran_tafsir_installed)
+                    else if (!source.canDownload) stringResource(R.string.quran_text_catalog_review_missing)
                     else stringResource(R.string.quran_tafsir_download),
                 )
                 if (downloading) {
@@ -2437,6 +2644,7 @@ private fun OfficialTafsirDownloadRow(
         }
     }
 }
+
 
 @Composable
 private fun SupplementLanguageOptions(

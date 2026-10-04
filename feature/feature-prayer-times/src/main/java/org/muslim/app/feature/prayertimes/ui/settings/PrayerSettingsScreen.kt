@@ -90,7 +90,6 @@ import org.muslim.app.core.common.prayer.AsrMethod
 import org.muslim.app.core.common.prayer.CalculationMethod
 import org.muslim.app.core.common.prayer.HighLatitudeRule
 import org.muslim.app.core.common.prayer.Prayer
-import org.muslim.app.core.datastore.AppInformationDensity
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.common.time.TimeFormats
 import org.muslim.app.core.notifications.NotificationChannels
@@ -108,7 +107,6 @@ fun PrayerSettingsScreen(
     val settings by viewModel.settings.collectAsStateWithLifecycle()
     val downloadProgress by viewModel.downloadProgress.collectAsStateWithLifecycle()
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
-    val informationDensity by viewModel.informationDensity.collectAsStateWithLifecycle()
     val isPreviewing by viewModel.isPreviewing.collectAsStateWithLifecycle()
     val adhanReadiness by viewModel.adhanReadiness.collectAsStateWithLifecycle()
 
@@ -323,8 +321,6 @@ fun PrayerSettingsScreen(
         customizingPrayer?.let { prayer ->
             AdhanCustomizeDialog(
                 prayer = prayer,
-                density = informationDensity,
-                onDensityChange = viewModel::setInformationDensity,
                 initial = AdhanCustomization(
                     option = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
                     sound = BundledAdhanSound.fromId(
@@ -966,8 +962,6 @@ internal data class AdhanCustomizationActions(
 @Composable
 internal fun AdhanCustomizeDialog(
     prayer: Prayer,
-    density: AppInformationDensity,
-    onDensityChange: (AppInformationDensity) -> Unit,
     initial: AdhanCustomization,
     actions: AdhanCustomizationActions,
 ) {
@@ -987,8 +981,6 @@ internal fun AdhanCustomizeDialog(
         Box(modifier = Modifier.heightIn(max = maximumContentHeight)) {
             AdhanCustomizationFields(
                 prayer = prayer,
-                density = density,
-                onDensityChange = onDensityChange,
                 selection = selection,
                 onSelectionChanged = { selection = it },
                 onPreview = actions.onPreview,
@@ -1020,20 +1012,13 @@ internal fun AdhanCustomizeDialog(
 @Composable
 private fun AdhanCustomizationFields(
     prayer: Prayer,
-    density: AppInformationDensity,
-    onDensityChange: (AppInformationDensity) -> Unit,
     selection: AdhanCustomization,
     onSelectionChanged: (AdhanCustomization) -> Unit,
     onPreview: (BundledAdhanSound, Int) -> Unit,
     onLiveVolume: (Int) -> Unit,
 ) {
-    val compact = density == AppInformationDensity.Compact
+    val compact = true
     Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-        AdhanInformationDensitySelector(
-            density = density,
-            onDensityChange = onDensityChange,
-            compact = compact,
-        )
         AdhanAlertTypeSection(
             selected = selection.option,
             compact = compact,
@@ -1061,32 +1046,6 @@ private fun AdhanCustomizationFields(
             onPreview = onPreview,
             onLiveVolume = onLiveVolume,
         )
-    }
-}
-
-@Composable
-private fun AdhanInformationDensitySelector(
-    density: AppInformationDensity,
-    onDensityChange: (AppInformationDensity) -> Unit,
-    compact: Boolean,
-) {
-    DialogSectionTitle(R.string.settings_information_density, compact)
-    Row(modifier = Modifier.fillMaxWidth()) {
-        IslamicSecondaryButton(
-            onClick = { onDensityChange(AppInformationDensity.Comfortable) },
-            enabled = density != AppInformationDensity.Comfortable,
-            modifier = Modifier.weight(1f),
-        ) {
-            Text(stringResource(R.string.settings_information_density_comfortable))
-        }
-        Spacer(Modifier.width(if (compact) 4.dp else 8.dp))
-        IslamicSecondaryButton(
-            onClick = { onDensityChange(AppInformationDensity.Compact) },
-            enabled = density != AppInformationDensity.Compact,
-            modifier = Modifier.weight(1f),
-        ) {
-            Text(stringResource(R.string.settings_information_density_compact))
-        }
     }
 }
 

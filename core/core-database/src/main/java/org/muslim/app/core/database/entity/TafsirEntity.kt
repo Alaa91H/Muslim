@@ -2,6 +2,7 @@ package org.muslim.app.core.database.entity
 
 import androidx.room.Entity
 import androidx.room.Index
+import androidx.room.ColumnInfo
 
 /**
  * A tafsir (exegesis) entry for one ayah from a named source
@@ -16,7 +17,9 @@ import androidx.room.Index
 )
 data class TafsirEntity(
     val globalNumber: Int,
-    /** Source id, e.g. "saadi", "muyassar", "ibn-kathir". */
+    /** Stable pack id, e.g. "arabic_muyassar". */
     val source: String,
     val text: String,
+    /** Source-provided footnotes serialized as JSON without rewriting. */
+    @ColumnInfo(defaultValue = "'[]'") val footnotes: String = "[]",
 )

@@ -124,6 +124,18 @@
     <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_supplement_language">لغة المعاني</string>
     <string name="quran_supplement_language_auto">لغة التطبيق (%1$s)</string>
+    <string name="quran_text_catalog_refresh">تحديث فهرس المصادر</string>
+    <string name="quran_text_catalog_source">المصادر: QuranEnc</string>
+    <string name="quran_text_catalog_title">فهرس النصوص بحسب اللغة والمصدر والنوع</string>
+    <string name="quran_meaning_catalog_title">ترجمات معاني القرآن</string>
+    <string name="quran_tafsir_translation_catalog_title">ترجمات التفسير</string>
+    <string name="quran_original_tafsir_catalog_title">التفسير باللغة الأصلية</string>
+    <string name="quran_text_catalog_empty">لم يعرض المصدر أعمالًا لهذه اللغة. غيابها لا يعني اكتمال التغطية.</string>
+    <string name="quran_text_catalog_review_missing">بيانات المراجعة أو الإصدار المطلوبة للتنزيل غير مكتملة</string>
+    <string name="quran_text_pack_import">استيراد حزمة نصية (JSON)</string>
+    <string name="quran_text_pack_importing">جارٍ التحقق والتثبيت…</string>
+    <string name="quran_text_pack_import_success">اكتمل فحص سلامة الحزمة وتغطية %1$d آية وتثبيتها؛ بيانات المصدر والمراجعة من الناشر وليست تصديقاً مستقلاً</string>
+    <string name="quran_text_pack_import_failed">رُفضت الحزمة: %1$s</string>
 
     <!-- Night downloads & management -->
     <string name="quran_download_percent">%1$d٪</string>

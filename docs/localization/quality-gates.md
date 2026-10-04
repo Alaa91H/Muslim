@@ -41,8 +41,30 @@ edition, and any supplied grading. Tafsir metadata records the work and author;
 the language of a tafsir is explicit and is never inferred from the selected
 UI language.
 
-The existing QuranEnc integration downloads At-Tafsir Al-Muyassar and validates
-all ayahs before replacing the installed source. It is not a multilingual
-Quran-translation catalogue or a claim that every supported UI language has a
-reviewed Quran meaning or tafsir. Do not use interface-resource coverage as
-evidence that religious-text coverage is complete.
+The Quran text pack catalogue is separate from Android UI localization. Each
+work declares whether it is a Quran meaning translation, translated tafsir, or
+original-language tafsir, plus language tag, work, translator, publisher,
+source URL, licence, version, review status, ayah coverage, footnote count, and
+SHA-256. Multiple works and translators may coexist in one language.
+
+`scripts/verify_quran_text_packs.py` validates every pack listed in
+`docs/quran/text_packs/catalog.json`: metadata, all 6,236 distinct ayah IDs,
+non-empty text, retained non-empty footnotes, their declared count, and the
+content checksum. Release mode additionally requires a complete meaning
+translation and translated tafsir for every supported UI language, plus an
+original Arabic tafsir for Arabic. The CI tag path runs this mode and blocks a
+release while any language/type coverage is absent. Ordinary CI prints a
+coverage report without representing missing content as available.
+
+At install time, the app applies full-coverage and checksum checks before a
+database transaction. It installs the pack metadata and entries together only
+after validation; partial downloads cannot replace an installed work.
+Footnotes stay attached to their ayahs and the reader never falls back to
+religious text in another language. Existing unverified database rows have no
+verified catalogue record and are not advertised as installed packs.
+
+The former `quran_*_sample.json` assets each held only 11 of 6,236 ayahs and
+were removed from production assets and the approval inventory. No automatic
+translation fills missing language packs. UI locale coverage is not
+religious-text coverage; a language remains unsupported for meanings or
+translated tafsir until a sourced, complete pack is supplied.

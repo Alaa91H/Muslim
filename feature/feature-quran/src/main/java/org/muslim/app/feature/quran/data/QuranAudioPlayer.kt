@@ -69,6 +69,8 @@ class QuranAudioPlayer @Inject constructor(
     private var currentEngine: RecitationAudioEngine? = null
     private var queue: List<RecitationQueueItem> = emptyList()
     private var queueIndex = -1
+    private var queueLoading = false
+    private var awaitingQueueItem = false
     private var repeatPerAyah = 1
     private val _remainingRepeats = MutableStateFlow(0)
     val remainingRepeats: StateFlow<Int> = _remainingRepeats.asStateFlow()
@@ -192,6 +194,8 @@ class QuranAudioPlayer @Inject constructor(
     ) {
         if (items.isEmpty()) return
         _lastFailure.value = null
+        queueLoading = false
+        awaitingQueueItem = false
         queue = items
         repeatPerAyah = repeatCount.coerceAtLeast(1)
         this.continuous = continuous
@@ -200,6 +204,31 @@ class QuranAudioPlayer @Inject constructor(
             ?.coerceIn(1, repeatPerAyah)
         queueIndex = startIndex.coerceIn(0, items.lastIndex)
         loadCurrent()
+    }
+
+    /** Adds downloaded items to the active queue without interrupting its current ayah. */
+    fun appendQueueItems(items: List<RecitationQueueItem>) {
+        if (items.isEmpty() || queue.isEmpty()) return
+        val existing = queue.asSequence().map(RecitationQueueItem::globalNumber).toHashSet()
+        val additions = items.filter { existing.add(it.globalNumber) }
+        if (additions.isEmpty()) return
+        queue = queue + additions
+        updateNavState()
+        if (awaitingQueueItem && additions.isNotEmpty()) {
+            awaitingQueueItem = false
+            queueIndex++
+            pauseWhenPrepared = _playbackState.value == PlaybackState.Paused
+            loadCurrent()
+        }
+    }
+
+    /** Marks a queue as still being populated by a background download. */
+    fun setQueueLoading(isLoading: Boolean) {
+        queueLoading = isLoading
+        if (!isLoading && awaitingQueueItem) {
+            awaitingQueueItem = false
+            finish()
+        }
     }
 
     fun next() {
@@ -233,6 +262,10 @@ class QuranAudioPlayer @Inject constructor(
 
     fun pause() {
         if (_playbackState.value != PlaybackState.Playing) return
+        if (awaitingQueueItem) {
+            _playbackState.value = PlaybackState.Paused
+            return
+        }
         if (remotelyControlled) {
             publishRemoteCommand(RemotePlaybackCommand.Pause)
             _playbackState.value = PlaybackState.Paused
@@ -249,6 +282,10 @@ class QuranAudioPlayer @Inject constructor(
 
     fun resume() {
         if (_playbackState.value != PlaybackState.Paused) return
+        if (awaitingQueueItem) {
+            _playbackState.value = PlaybackState.Playing
+            return
+        }
         if (remotelyControlled) {
             publishRemoteCommand(RemotePlaybackCommand.Play)
             _playbackState.value = PlaybackState.Playing
@@ -269,6 +306,8 @@ class QuranAudioPlayer @Inject constructor(
         releaseEngine()
         queue = emptyList()
         queueIndex = -1
+        queueLoading = false
+        awaitingQueueItem = false
         _playbackScope.value = RecitationPlaybackScope.Ayah
         continuous = false
         onQueueCompleted = null
@@ -348,6 +387,9 @@ class QuranAudioPlayer @Inject constructor(
             } else if (queueIndex < queue.lastIndex) {
                 queueIndex++
                 loadCurrent()
+            } else if (queueLoading) {
+                releaseEngine()
+                awaitingQueueItem = true
             } else {
                 finish()
             }
@@ -367,6 +409,8 @@ class QuranAudioPlayer @Inject constructor(
             // advances to the next surah) instead of just going idle.
             val callback = onQueueCompleted
             continuous = false
+            queueLoading = false
+            awaitingQueueItem = false
             queue = emptyList()
             queueIndex = -1
             _playbackState.value = PlaybackState.Idle

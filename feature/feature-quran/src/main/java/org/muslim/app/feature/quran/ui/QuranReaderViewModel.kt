@@ -29,7 +29,8 @@ import org.muslim.app.feature.quran.data.Mp3QuranCatalogClient
 import org.muslim.app.feature.quran.data.QuranAudioPlayer
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.data.QuranSupplementRepository
-import org.muslim.app.feature.quran.data.OfficialTafsirSource
+import org.muslim.app.feature.quran.data.OfficialQuranTextSource
+import org.muslim.app.feature.quran.data.OfficialQuranTextKind
 import org.muslim.app.feature.quran.data.QuranTajweedRepository
 import org.muslim.app.feature.quran.data.DownloadRequest
 import org.muslim.app.feature.quran.data.DownloadScope
@@ -150,9 +151,15 @@ private data class QuranReaderSupplementRequest(
 )
 
 data class QuranReaderTafsirDownloadState(
-    val downloading: OfficialTafsirSource? = null,
-    val completedSource: OfficialTafsirSource? = null,
+    val downloading: OfficialQuranTextSource? = null,
+    val completedSource: OfficialQuranTextSource? = null,
     val completedSurahs: Int = 0,
+    val error: String? = null,
+)
+
+data class QuranTextPackImportState(
+    val importing: Boolean = false,
+    val installedCount: Int? = null,
     val error: String? = null,
 )
 
@@ -234,8 +241,10 @@ class QuranReaderViewModel @Inject constructor(
     // reciter from the player bar resumes playback with the same settings.
     private var lastRepeatCount = 1
     private var lastRange = DEFAULT_RECITATION_RANGE
+    private var playbackRequestSequence = 0L
 
     override fun onCleared() {
+        playbackRequestSequence++
         reciterPreviewPlayer.stop(resumePlayback = false)
         downloadNotifier.dismiss()
     }
@@ -386,15 +395,15 @@ class QuranReaderViewModel @Inject constructor(
 
 }
 
-                    // Prefer the chosen language, but never show an empty panel
-                    // when only other languages are installed — fall back to
-                    // whatever is available so المعاني/التفسير always works.
-                    val forLanguage = translations.filter { it.language == resolved
-}
+                    // Religious text must never silently fall back to another language.
+                    val forLanguage = translations.filter { it.language.equals(resolved, ignoreCase = true) }
+                    val forTafsirLanguage = tafsir.filter { it.language.equals(resolved, ignoreCase = true) }
 
                     QuranReaderSupplementUi(
-                        translations = if (forLanguage.isNotEmpty()) forLanguage else translations,
-                        tafsir = tafsirSource?.let { selected -> tafsir.filter { it.source == selected } } ?: tafsir,
+                        translations = forLanguage,
+                        tafsir = (tafsirSource?.let { selected ->
+                            forTafsirLanguage.filter { it.source == selected }
+                        } ?: forTafsirLanguage),
                     )
 
 }
@@ -408,9 +417,8 @@ class QuranReaderViewModel @Inject constructor(
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), QuranReaderSupplementUi())
 
     /** Installed translation languages, for the meanings panel language picker. */
-    val availableSupplementLanguages: StateFlow<List<String>> =
-        supplementRepository.observeLanguages()
-            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+    val installedSupplementPacks = supplementRepository.observeInstalledTextPacks()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     val supplementEnabled: StateFlow<Boolean> = prefsRepository.supplementEnabled
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
@@ -421,21 +429,54 @@ class QuranReaderViewModel @Inject constructor(
     private val _tafsirDownloadState = MutableStateFlow(QuranReaderTafsirDownloadState())
     val tafsirDownloadState: StateFlow<QuranReaderTafsirDownloadState> = _tafsirDownloadState.asStateFlow()
 
+    private val _textPackImportState = MutableStateFlow(QuranTextPackImportState())
+    val textPackImportState: StateFlow<QuranTextPackImportState> = _textPackImportState.asStateFlow()
+
+    fun importTextPack(contents: String) = viewModelScope.launch {
+        _textPackImportState.value = QuranTextPackImportState(importing = true)
+        runCatching { supplementRepository.installContentPack(contents) }
+            .onSuccess { count -> _textPackImportState.value = QuranTextPackImportState(installedCount = count) }
+            .onFailure { error ->
+                _textPackImportState.value = QuranTextPackImportState(error = error.message ?: "Pack validation failed")
+            }
+    }
+
+    fun importTextPackFailure(message: String) {
+        _textPackImportState.value = QuranTextPackImportState(error = message)
+    }
+
+    private val _officialTextSources = MutableStateFlow<List<OfficialQuranTextSource>>(emptyList())
+    val officialTextSources: StateFlow<List<OfficialQuranTextSource>> = _officialTextSources.asStateFlow()
+
+    val availableSupplementLanguages: StateFlow<List<String>> = combine(
+        supplementRepository.observeLanguages(),
+        _officialTextSources,
+    ) { installed, catalogue -> (installed + catalogue.map(OfficialQuranTextSource::languageTag)).distinct().sorted() }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    fun refreshOfficialTextSources(languageTag: String) = viewModelScope.launch {
+        runCatching { supplementRepository.listOfficialSources(languageTag) }
+            .onSuccess { _officialTextSources.value = it }
+            .onFailure { _tafsirDownloadState.value = QuranReaderTafsirDownloadState(error = it.message) }
+    }
+
     fun setSelectedTafsirSource(source: String?) = viewModelScope.launch {
         prefsRepository.setSelectedTafsirSource(source)
     }
 
-    fun downloadOfficialTafsir(source: OfficialTafsirSource) = viewModelScope.launch {
+    fun downloadOfficialText(source: OfficialQuranTextSource) = viewModelScope.launch {
         _tafsirDownloadState.value = QuranReaderTafsirDownloadState(downloading = source, completedSurahs = 0)
         runCatching {
-            supplementRepository.downloadOfficialTafsir(source) { completedSurahs ->
+            supplementRepository.downloadOfficialText(source) { completedSurahs ->
                 _tafsirDownloadState.value = QuranReaderTafsirDownloadState(
                     downloading = source,
                     completedSurahs = completedSurahs,
                 )
             }
         }.onSuccess {
-            prefsRepository.setSelectedTafsirSource(source.storageKey)
+            if (source.kind != OfficialQuranTextKind.Meaning) {
+                prefsRepository.setSelectedTafsirSource(source.storageKey)
+            }
             _tafsirDownloadState.value = QuranReaderTafsirDownloadState(
                 completedSource = source,
                 completedSurahs = TAFSIR_SURAH_TOTAL,
@@ -708,20 +749,108 @@ class QuranReaderViewModel @Inject constructor(
         _restorableSession.value = null
         _recitationFailure.value = null
 
+        val requestSequence = ++playbackRequestSequence
         viewModelScope.launch {
-            val items = prepareQueueForPlayback(
-                ayahs = ayahs,
-                queueSurahNumber = queueSurahNumber,
-                globalNumbers = globalNumbers,
-                reciter = reciter,
-            ) ?: return@launch
+            val localQueue = recitationRepository.localQueue(reciter.id, queueSurahNumber, globalNumbers)
+            if (localQueue != null) {
+                fullSurahPlayback.startQueue(
+                    items = localQueue,
+                    intent = intent,
+                    onAdvanceToNext = if (intent.advanceToNext) ::advanceToNextSurah else null,
+                )
+                return@launch
+            }
 
+            val firstAyah = ayahs.first()
+            var firstReady = recitationRepository.localQueue(
+                reciterId = reciter.id,
+                surahNumber = queueSurahNumber,
+                globalNumbers = listOf(firstAyah.globalNumber),
+            )
+            if (firstReady == null) {
+                _downloading.value = true
+                _downloadProgress.value = 0f
+                try {
+                    val result = recitationRepository.downloadAyah(
+                        reciter, queueSurahNumber, firstAyah.numberInSurah, firstAyah.globalNumber,
+                    )
+                    if (result !is org.muslim.app.core.network.FileDownloader.Result.Success) {
+                        publishPlaybackDownloadFailure(firstAyah.globalNumber)
+                        return@launch
+                    }
+                    firstReady = recitationRepository.localQueue(
+                        reciterId = reciter.id,
+                        surahNumber = queueSurahNumber,
+                        globalNumbers = listOf(firstAyah.globalNumber),
+                    )
+                } finally {
+                    _downloading.value = false
+                    _downloadProgress.value = null
+                }
+            }
+            if (requestSequence != playbackRequestSequence) return@launch
+            val firstItem = firstReady?.firstOrNull() ?: run {
+                publishPlaybackDownloadFailure(firstAyah.globalNumber)
+                return@launch
+            }
             fullSurahPlayback.startQueue(
-                items = items,
+                items = listOf(firstItem),
                 intent = intent,
                 onAdvanceToNext = if (intent.advanceToNext) ::advanceToNextSurah else null,
             )
+            audioPlayer.setQueueLoading(true)
+
+            // Fetch ayahs in playback order. Append each completed file immediately so
+            // the next transition is ready while the remainder continues downloading.
+            val remaining = ayahs.drop(1)
+            var lastNotifiedPercent = -1
+            val backgroundDownloadStartedAt = SystemClock.elapsedRealtime()
+            _downloadProgress.value = 0f
+            try {
+                remaining.forEachIndexed { index, ayah ->
+                    if (requestSequence != playbackRequestSequence) return@launch
+                    val result = recitationRepository.downloadAyah(
+                        reciter, queueSurahNumber, ayah.numberInSurah, ayah.globalNumber,
+                    )
+                    if (result !is org.muslim.app.core.network.FileDownloader.Result.Success) {
+                        publishPlaybackDownloadFailure(ayah.globalNumber)
+                        return@launch
+                    }
+                    if (requestSequence != playbackRequestSequence) return@launch
+                    recitationRepository.localQueue(reciter.id, queueSurahNumber, listOf(ayah.globalNumber))
+                        ?.let(audioPlayer::appendQueueItems)
+                    val progress = (index + 1).toFloat() / remaining.size.coerceAtLeast(1)
+                    _downloadProgress.value = progress
+                    val percent = (progress * 100).toInt()
+                    if (percent != lastNotifiedPercent && progress < 1f) {
+                        lastNotifiedPercent = percent
+                        RecitationDownloadProgressPublisher.publish(
+                            notifier = downloadNotifier,
+                            surahName = uiState.value.surah?.arabicName.orEmpty(),
+                            progress = progress,
+                            startElapsed = backgroundDownloadStartedAt,
+                            ayahCount = remaining.size,
+                            reciter = reciter,
+                        )
+                    }
+                }
+            } finally {
+                if (requestSequence == playbackRequestSequence) {
+                    audioPlayer.setQueueLoading(false)
+                    _downloadProgress.value = null
+                    downloadNotifier.dismiss()
+                }
+            }
         }
+    }
+
+    private fun publishPlaybackDownloadFailure(globalNumber: Int) {
+        recitationFailureSequence = publishRecitationFailure(
+            _recitationFailure, recitationFailureSequence,
+            RecitationFailureReason.DownloadFailed, globalNumber,
+        )
+        _downloadProgress.value = null
+        downloadNotifier.dismiss()
     }
 
     /** Plays one ayah as a short sample without changing the selected reciter. */
@@ -999,6 +1128,10 @@ class QuranReaderViewModel @Inject constructor(
     fun isRecitationDownloaded(reciter: Reciter, surahNumber: Int, globalNumber: Int) =
         recitationRepository.fileFor(reciter.id, surahNumber, globalNumber).let { it.isFile && it.length() > 0L }
     fun stopPlayback() {
+        playbackRequestSequence++
+        _downloading.value = false
+        _downloadProgress.value = null
+        downloadNotifier.dismiss()
         reciterPreviewPlayer.stop(resumePlayback = false)
         _restorableSession.value = null
         audioPlayer.stop()

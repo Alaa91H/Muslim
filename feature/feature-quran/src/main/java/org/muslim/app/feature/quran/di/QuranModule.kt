@@ -12,6 +12,7 @@ import org.muslim.app.core.database.dao.BookmarkDao
 import org.muslim.app.core.database.dao.SurahDao
 import org.muslim.app.core.database.dao.TafsirDao
 import org.muslim.app.core.database.dao.TranslationDao
+import org.muslim.app.core.database.dao.QuranTextPackDao
 import org.muslim.app.feature.quran.data.MediaPlayerAudioEngine
 import org.muslim.app.feature.quran.data.QuranRepositoryImpl
 import org.muslim.app.feature.quran.data.RecitationEngineFactory
@@ -44,6 +45,9 @@ object QuranModule {
 
     @Provides
     fun provideTafsirDao(database: AppDatabase): TafsirDao = database.tafsirDao()
+
+    @Provides
+    fun provideQuranTextPackDao(database: AppDatabase): QuranTextPackDao = database.quranTextPackDao()
 
     @Provides
     @Singleton

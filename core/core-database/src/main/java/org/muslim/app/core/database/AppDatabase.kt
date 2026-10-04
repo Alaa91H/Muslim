@@ -12,12 +12,14 @@ import org.muslim.app.core.database.dao.SurahDao
 import org.muslim.app.core.database.dao.TafsirDao
 import org.muslim.app.core.database.dao.TasbihSessionDao
 import org.muslim.app.core.database.dao.TranslationDao
+import org.muslim.app.core.database.dao.QuranTextPackDao
 import org.muslim.app.core.database.entity.AyahEntity
 import org.muslim.app.core.database.entity.BookmarkEntity
 import org.muslim.app.core.database.entity.SurahEntity
 import org.muslim.app.core.database.entity.TafsirEntity
 import org.muslim.app.core.database.entity.TasbihSessionEntity
 import org.muslim.app.core.database.entity.TranslationEntity
+import org.muslim.app.core.database.entity.QuranTextPackEntity
 
 /**
  * The app's single Room database. Pre-populated content (the Quran here,
@@ -31,9 +33,10 @@ import org.muslim.app.core.database.entity.TranslationEntity
         BookmarkEntity::class,
         TranslationEntity::class,
         TafsirEntity::class,
+        QuranTextPackEntity::class,
         TasbihSessionEntity::class,
     ],
-    version = 5,
+    version = 7,
     exportSchema = true,
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -42,6 +45,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun ayahDao(): AyahDao
     abstract fun bookmarkDao(): BookmarkDao
     abstract fun translationDao(): TranslationDao
+    abstract fun quranTextPackDao(): QuranTextPackDao
     abstract fun tafsirDao(): TafsirDao
     abstract fun tasbihSessionDao(): TasbihSessionDao
 
@@ -165,13 +169,61 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        /** v5 → v6: source-aware religious text packs and preserved footnotes. */
+        val MIGRATION_5_6 = object : Migration(5, 6) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    """CREATE TABLE IF NOT EXISTS `quran_text_packs` (
+                        `id` TEXT NOT NULL, `kind` TEXT NOT NULL, `languageTag` TEXT NOT NULL,
+                        `title` TEXT NOT NULL, `work` TEXT NOT NULL, `translator` TEXT NOT NULL,
+                        `publisher` TEXT NOT NULL, `sourceUrl` TEXT NOT NULL, `license` TEXT NOT NULL,
+                        `version` TEXT NOT NULL, `reviewer` TEXT NOT NULL, `reviewReference` TEXT NOT NULL,
+                        `entryCount` INTEGER NOT NULL,
+                        `footnoteCount` INTEGER NOT NULL, `sha256` TEXT NOT NULL,
+                        `verifiedAtEpochMillis` INTEGER NOT NULL, PRIMARY KEY(`id`)
+                    )""".trimIndent()
+                )
+                db.execSQL(
+                    """CREATE TABLE IF NOT EXISTS `translations_v6` (
+                        `globalNumber` INTEGER NOT NULL, `packId` TEXT NOT NULL, `language` TEXT NOT NULL,
+                        `text` TEXT NOT NULL, `footnotes` TEXT NOT NULL DEFAULT '[]',
+                        PRIMARY KEY(`globalNumber`, `packId`)
+                    )""".trimIndent()
+                )
+                db.execSQL(
+                    """INSERT INTO `translations_v6` (`globalNumber`, `packId`, `language`, `text`, `footnotes`)
+                        SELECT `globalNumber`, 'legacy:' || `language`, `language`, `text`, '[]' FROM `translations`""".trimIndent()
+                )
+                db.execSQL("DROP TABLE `translations`")
+                db.execSQL("ALTER TABLE `translations_v6` RENAME TO `translations`")
+                db.execSQL("CREATE INDEX IF NOT EXISTS `index_translations_language` ON `translations` (`language`)")
+                db.execSQL("ALTER TABLE `tafsir` ADD COLUMN `footnotes` TEXT NOT NULL DEFAULT '[]'")
+            }
+        }
+
+        /** v6 → v7: preserve the source's original contributor/review description separately from translator. */
+        val MIGRATION_6_7 = object : Migration(6, 7) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    "ALTER TABLE `quran_text_packs` ADD COLUMN `sourceAttribution` TEXT NOT NULL DEFAULT ''"
+                )
+            }
+        }
+
         @Volatile
         private var instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase =
             instance ?: synchronized(this) {
                 instance ?: Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DB_NAME)
-                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5)
+                    .addMigrations(
+                        MIGRATION_1_2,
+                        MIGRATION_2_3,
+                        MIGRATION_3_4,
+                        MIGRATION_4_5,
+                        MIGRATION_5_6,
+                        MIGRATION_6_7,
+                    )
                     .build()
                     .also { instance = it }
             }

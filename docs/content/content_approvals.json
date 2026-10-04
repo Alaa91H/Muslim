@@ -232,22 +232,6 @@
       "religious_review": "No independent scholarly certification is claimed. Product owner approved opt-in presentation use after positional validation against the bundled Uthmani corpus; users should consult qualified teachers for tajweed instruction.",
       "notes": "Hafs annotation spans were validated locally against all 6,236 bundled ayahs (60,057 spans) on 2026-08-25. Revalidate positions, attribution, and licence if the source or corpus changes."
     },
-    "feature_feature-quran_src_main_assets_quran_tafsir_sample_json": {
-      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled Quran content provenance held by owner).",
-      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
-      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
-      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
-      "notes": "The product owner confirmed this historically named sample file is an approved production pack under OA-2026-08-25-01. Reconfirm before replacing it.",
-      "production_pack_confirmed": true
-    },
-    "feature_feature-quran_src_main_assets_quran_translations_sample_json": {
-      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled Quran content provenance held by owner).",
-      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
-      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
-      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
-      "notes": "The product owner confirmed this historically named sample file is an approved production pack under OA-2026-08-25-01. Reconfirm before replacing it.",
-      "production_pack_confirmed": true
-    },
     "feature_feature-reference_src_main_res_raw_reference_islam_v2_json": {
       "source": "Project-authored Introduction to Islam corpus migrated verbatim from IslamIntroContent.kt; migration parity is enforced by scripts/verify_reference_library_assets.py.",
       "licence": "Project source licence; this JSON is a structured representation of project-authored reference content.",

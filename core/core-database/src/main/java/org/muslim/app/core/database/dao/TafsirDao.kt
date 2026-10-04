@@ -11,7 +11,10 @@ import org.muslim.app.core.database.entity.TafsirEntity
 @Dao
 interface TafsirDao {
 
-    @Query("SELECT * FROM tafsir WHERE globalNumber = :globalNumber ORDER BY source")
+    @Query("""SELECT t.* FROM tafsir t INNER JOIN quran_text_packs p ON p.id = t.source
+        WHERE t.globalNumber = :globalNumber AND p.kind IN ('tafsir_translation', 'tafsir_original')
+            AND p.sourceAttribution != ''
+        ORDER BY p.languageTag, p.title""")
     fun observeForAyah(globalNumber: Int): Flow<List<TafsirEntity>>
 
     @Query("SELECT DISTINCT source FROM tafsir ORDER BY source")
