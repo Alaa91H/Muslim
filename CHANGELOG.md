@@ -9,6 +9,7 @@ This release improves Quran recitation continuity and establishes a verified cat
 - Added a versioned Quran text-pack catalogue that keeps Quran meaning translations, translated tafsir, and original-language tafsir distinct.
 - Added pack metadata and integrity checks for source attribution, language, translator, review status, all 6,236 ayahs, footnotes, and content checksums before installation.
 - Added catalogue-backed selection and download flows for Quran meanings and tafsir, with language-aware availability and no cross-language fallback.
+- Expanded the translated tafsir catalogue to include all 28 non-Arabic Al-Mukhtasar editions listed by QuranEnc; editions without complete publisher provenance remain unavailable for download.
 - Removed the incomplete 11-ayah sample translation and tafsir assets from production resources and the approval inventory.
 - Improved recitation startup and continuation by preparing the selected ayah for playback while the rest of the surah downloads in the background.
 

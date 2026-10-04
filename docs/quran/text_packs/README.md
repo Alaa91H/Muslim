@@ -62,10 +62,11 @@ The app queries QuranEnc's public translation catalogue at runtime and uses it
 only for Quran meaning translations. It preserves source descriptions and only
 enables download when that description explicitly names a reviewer or editorial
 supervision. Its site also lists Al-Mukhtasar translations in multiple
-languages and an Uzbek At-Tafsir Al-Muyassar translation. The app lists the
-Al-Mukhtasar editions separately as translated tafsir candidates, but disables
-installation because the public API does not expose the named translator,
-reviewer, and edition version needed for this project's verified catalogue.
+languages and an Uzbek At-Tafsir Al-Muyassar translation. The app lists all 28
+non-Arabic Al-Mukhtasar editions in the QuranEnc index separately as translated
+tafsir candidates. It disables their installation because the public index
+does not expose the named translator, reviewer, and edition version needed for
+this project's verified catalogue.
 The QuranEnc index attributes the Uzbek Al-Muyassar translation to Ismail
 Yaqub, reports review by Islamic Center IxlosOrg, and lists edition 1.0.0. The
 app re-fetches that source card and checks the work, translator, reviewer,

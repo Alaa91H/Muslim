@@ -47,7 +47,7 @@
 
 **Files:** Quran supplement repository, reader ViewModel/UI selectors, QuranEnc source catalogue.
 
-- [x] Present separate catalogue sections for Quran meanings, translated tafsir, and original tafsir, grouped by text language/source/contributor. Added 13 Al-Mukhtasar translated-tafsir candidates from QuranEnc as a separate kind; downloads remain disabled where translator/reviewer metadata is not supplied. Enabled Uzbek At-Tafsir Al-Muyassar using its official index metadata (translator, source-reported review, version 1.0.0) and require those fields to still match before download.
+- [x] Present separate catalogue sections for Quran meanings, translated tafsir, and original tafsir, grouped by text language/source/contributor. Listed all 28 non-Arabic Al-Mukhtasar editions currently present in QuranEnc's index as translated-tafsir candidates; downloads remain disabled where translator/reviewer/version metadata is not supplied. Enabled Uzbek At-Tafsir Al-Muyassar using its official index metadata (translator, source-reported review, version 1.0.0) and require those fields to still match before download.
 - [x] Validate complete ayah and footnote coverage before an atomic install.
 - [x] Remove fallback to a different language when the selected language has no verified pack.
 - [x] Surface source attribution and clear unavailable/incomplete states.

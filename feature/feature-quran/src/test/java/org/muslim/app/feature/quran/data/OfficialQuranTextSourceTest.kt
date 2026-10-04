@@ -36,9 +36,25 @@ class OfficialQuranTextSourceTest {
     fun `keeps QuranEnc translated tafsir separate and unavailable without complete provenance`() {
         val sources = quranEncTranslatedTafsirCandidates()
 
-        assertThat(sources).hasSize(13)
+        assertThat(sources).hasSize(28)
         assertThat(sources.map { it.storageKey }).contains("uzbek_mokhtasar")
         assertThat(sources.map { it.languageTag }).contains("ja")
+        assertThat(sources.map { it.storageKey }).containsAtLeast(
+            "assamese_mokhtasar",
+            "azeri_mokhtasar",
+            "bosnian_mokhtasar",
+            "chinese_mokhtasar",
+            "french_mokhtasar",
+            "italian_mokhtasar",
+            "kyrgyz_mokhtasar",
+            "pashto_mokhtasar",
+            "serbian_mokhtasar",
+            "sinhalese_mokhtasar",
+            "spanish_mokhtasar",
+            "tagalog_mokhtasar",
+            "uyghur_mokhtasar",
+            "vietnamese_mokhtasar",
+        )
         assertThat(sources.all { it.kind == OfficialQuranTextKind.TranslatedTafsir }).isTrue()
         assertThat(sources.all { it.reviewEvidence == null }).isTrue()
         assertThat(sources.all { it.version == "Not specified by the source" }).isTrue()
