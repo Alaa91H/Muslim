@@ -25,6 +25,7 @@ def main() -> None:
         "android17-adhan:",
         "api-level: 36",
         'system-image-api-level: "37.0"',
+        "target: google_apis_ps16k",
         "channel: beta",
         "AdhanDeliveryProbeInstrumentedTest",
         ":app:assembleDebug :wear:assembleDebug",

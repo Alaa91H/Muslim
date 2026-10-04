@@ -299,6 +299,7 @@ jobs:
           # accepts the integer platform API separately from the system image.
           api-level: 36
           system-image-api-level: "37.0"
+          target: google_apis_ps16k
           channel: beta
           arch: x86_64
           emulator-options: -no-window -gpu software -no-snapshot -noaudio -no-boot-anim -no-metrics

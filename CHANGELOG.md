@@ -12,6 +12,7 @@ This release improves Quran recitation continuity and establishes a verified cat
 - Expanded the translated tafsir catalogue to include all 28 non-Arabic Al-Mukhtasar editions listed by QuranEnc; editions without complete publisher provenance remain unavailable for download.
 - Removed the incomplete 11-ayah sample translation and tafsir assets from production resources and the approval inventory.
 - Improved recitation startup and continuation by preparing the selected ayah for playback while the rest of the surah downloads in the background.
+- Synchronized Cast translation and tafsir with the ayah currently playing, and included selected-language metadata and tafsir source details when available.
 
 ### Prayer and Settings
 
@@ -22,6 +23,7 @@ This release improves Quran recitation continuity and establishes a verified cat
 
 - Added automated validation for Quran text-pack structure, provenance, ayah coverage, footnotes, and checksums.
 - Added a tagged-release coverage gate that prevents publication while the required verified text packs are missing.
+- Added a focused Android 17 Adhan delivery emulator gate and made screenshot-matrix ADB recovery resilient to transient disconnects between batches.
 - Consolidated CI into `.github/workflows/ci.yml`; ordinary runs build signed APK artifacts, and tagged releases publish APK files only.
 
 ## Muslim v1.25.39

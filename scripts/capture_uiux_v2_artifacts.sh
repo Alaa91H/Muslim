@@ -63,9 +63,15 @@ reboot_emulator_between_batches() {
         sleep 2
     done
     [ "$boot_state" = 1 ] || { echo "Emulator did not finish booting between screenshot groups."; return 1; }
-    adb root || return 1
-    timeout 60 adb wait-for-device || return 1
-    [ "$(adb shell id -u | tr -d '\r')" = 0 ] || { echo "Emulator root was not restored after reboot."; return 1; }
+    local root_state=""
+    for attempt in $(seq 1 15); do
+        timeout 5 adb root >/dev/null 2>&1 || true
+        timeout 5 adb wait-for-device || true
+        root_state="$(timeout 5 adb shell id -u 2>/dev/null | tr -d '\r')"
+        [ "$root_state" = 0 ] && break
+        sleep 1
+    done
+    [ "$root_state" = 0 ] || { echo "Emulator root was not restored after reboot."; return 1; }
     adb shell settings put global auto_time 0 || return 1
     adb shell settings put global auto_time_zone 0 || return 1
     adb shell setprop persist.sys.timezone UTC || return 1
