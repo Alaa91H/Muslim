@@ -1,40 +1,32 @@
 #!/usr/bin/env python3
-"""Protect responsive per-prayer Adhan customisation and its density preference."""
+"""Protect compact responsive per-prayer Adhan customisation without a density toggle."""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED = {
-    "core/core-datastore/src/main/java/org/muslim/app/core/datastore/AppPreferences.kt": [
-        "enum class AppInformationDensity",
-        "Comfortable",
-        "Compact",
-        "val informationDensity: AppInformationDensity",
-    ],
-    "core/core-datastore/src/main/java/org/muslim/app/core/datastore/AppPreferencesRepository.kt": [
-        'stringPreferencesKey("information_density")',
-        "setInformationDensity(density: AppInformationDensity)",
-        "AppInformationDensity.Comfortable",
-    ],
-    "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/settings/PrayerSettingsViewModel.kt": [
-        "val informationDensity: StateFlow<AppInformationDensity>",
-        "fun setInformationDensity(density: AppInformationDensity)",
-    ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/settings/PrayerSettingsScreen.kt": [
         "LocalConfiguration.current",
         "heightIn(max = maximumContentHeight)",
         "MuslimBottomSheet(",
-        "AdhanInformationDensitySelector",
-        "AppInformationDensity.Compact",
         "verticalScroll(rememberScrollState())",
+        "private fun AdhanCustomizationFields(",
+        "val compact = true",
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeAdhanCustomizationDialog.kt": [
-        "val density by viewModel.informationDensity.collectAsStateWithLifecycle()",
-        "onDensityChange = viewModel::setInformationDensity",
+        "AdhanCustomizeDialog(",
+        "useGlobalVolume = settings.useGlobalAdhanVolume",
     ],
-    "core/core-datastore/src/test/java/org/muslim/app/core/datastore/AppInformationDensityTest.kt": [
-        "newOrMigratedPreferences_defaultToComfortableDensity",
-        "compactDensity_remainsAnExplicitDistinctUserChoice",
+}
+
+FORBIDDEN = {
+    "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/settings/PrayerSettingsScreen.kt": [
+        "AdhanInformationDensitySelector",
+        "AppInformationDensity.Compact",
+    ],
+    "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeAdhanCustomizationDialog.kt": [
+        "viewModel.informationDensity",
+        "onDensityChange",
     ],
 }
 
@@ -46,6 +38,11 @@ def main() -> int:
         for snippet in snippets:
             if snippet not in content:
                 problems.append(f"{relative_path}: missing {snippet!r}")
+    for relative_path, snippets in FORBIDDEN.items():
+        content = (ROOT / relative_path).read_text(encoding="utf-8")
+        for snippet in snippets:
+            if snippet in content:
+                problems.append(f"{relative_path}: must not contain {snippet!r}")
     if problems:
         print("Responsive customization layout checks failed:")
         print("\n".join(f"- {problem}" for problem in problems))
