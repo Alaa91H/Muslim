@@ -102,6 +102,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                         option = option,
                         vibrate = settings.vibrateFor(prayer),
                         volume = settings.adhanVolumeFor(prayer),
+                        gradualVolume = settings.adhanGradualVolumeEnabled,
                         soundPath = soundPath,
                         bundledSoundId = bundledSoundId,
                         presentationAllowed = deliveryPolicy.postVisibleNotification,
@@ -132,6 +133,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         val option: AdhanSoundOption,
         val vibrate: Boolean,
         val volume: Int,
+        val gradualVolume: Boolean,
         val soundPath: String?,
         val bundledSoundId: String,
         val presentationAllowed: Boolean,
@@ -157,6 +159,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 vibrate = request.vibrate,
                 soundOption = request.option,
                 volumePercent = request.volume,
+                gradualVolumeEnabled = request.gradualVolume,
                 soundPath = request.soundPath,
                 bundledSoundId = request.bundledSoundId,
                 isProbe = request.isProbe,
@@ -226,6 +229,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
             AdhanNotifications.showAdhan(appContext, request.prayer)
         }
         val player = entryPoint.soundPlayer()
+        player.setGradualVolumeEnabled(request.gradualVolume)
         val fallbackWakeLock = appContext.getSystemService(PowerManager::class.java)
             .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "$WAKE_LOCK_TAG:direct-fallback")
             .apply {

@@ -200,4 +200,5 @@
     <string name="settings_information_density">Axborot zichligi</string>
     <string name="settings_information_density_comfortable">Qulay</string>
     <string name="settings_information_density_compact">Yilni</string>
+    <string name="settings_adhan_gradual_volume">Azon ovozini asta-sekin oshiring</string>
 </resources>

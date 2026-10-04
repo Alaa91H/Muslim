@@ -92,6 +92,7 @@ class PrayerSettingsRepository @Inject constructor(
                 }
                 .toMap(),
             adhanVolume = prefs[Keys.ADHAN_VOLUME] ?: 100,
+            adhanGradualVolumeEnabled = prefs[Keys.ADHAN_GRADUAL_VOLUME] ?: true,
             useGlobalAdhanVolume = prefs[Keys.USE_GLOBAL_ADHAN_VOLUME] ?: true,
             adhanVolumes = Prayer.entries
                 .mapNotNull { prayer ->
@@ -158,6 +159,7 @@ class PrayerSettingsRepository @Inject constructor(
                 }
             }
             prefs[Keys.ADHAN_VOLUME] = newSettings.adhanVolume
+            prefs[Keys.ADHAN_GRADUAL_VOLUME] = newSettings.adhanGradualVolumeEnabled
             prefs[Keys.USE_GLOBAL_ADHAN_VOLUME] = newSettings.useGlobalAdhanVolume
             Prayer.entries.forEach { prayer ->
                 val volume = newSettings.adhanVolumes[prayer]
@@ -215,6 +217,7 @@ class PrayerSettingsRepository @Inject constructor(
         val ADHAN_ENABLED = booleanPreferencesKey("adhan_enabled")
         val VIBRATE_ENABLED = booleanPreferencesKey("vibrate_enabled")
         val ADHAN_VOLUME = intPreferencesKey("adhan_volume")
+        val ADHAN_GRADUAL_VOLUME = booleanPreferencesKey("adhan_gradual_volume_enabled")
         val USE_GLOBAL_ADHAN_VOLUME = booleanPreferencesKey("use_global_adhan_volume")
         fun adhanVolumeFor(prayer: Prayer): Preferences.Key<Int> =
             intPreferencesKey("adhan_volume_${prayer.name.lowercase()}")

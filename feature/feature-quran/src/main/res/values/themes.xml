@@ -5,5 +5,8 @@
         <item name="colorPrimary">#FF176B45</item>
         <item name="android:colorBackground">#FFFFFFFF</item>
         <item name="colorAccent">#FF176B45</item>
+        <item name="android:colorPrimary">#FF176B45</item>
+        <item name="android:colorAccent">#FF176B45</item>
+        <item name="android:windowBackground">#FFFFFFFF</item>
     </style>
 </resources>

@@ -1,5 +1,24 @@
 # Changelog
 
+## Muslim v1.25.39
+
+This release smooths the Adhan listening experience and fixes a Google Cast dialog crash.
+
+### Prayer and Adhan
+
+- Added an optional gradual Adhan volume ramp, enabled by default, with a setting to turn it off.
+- Enabled the shared Adhan volume preference by default for new installations, while preserving saved user preferences.
+- Corrected audio-level wording in affected Adhan translations.
+
+### Quran and Google Cast
+
+- Made the application and Cast button theme colors opaque so MediaRouter can open its device chooser and controller dialogs without crashing.
+- Added a regression test for the theme attributes used by MediaRouter.
+
+### Quality
+
+- Verified the affected prayer, Quran, Cast, datastore, and app unit tests; Android Lint, Detekt, and debug APK assembly pass locally.
+
 ## Muslim v1.25.38
 
 This release advances Quran reading and recitation, adds a configurable Google Cast sender path, improves prayer and reminder controls, and strengthens localization and release verification.

@@ -42,6 +42,8 @@ data class PrayerSettings(
     val adhanSoundFiles: Map<Prayer, String> = emptyMap(),
     /** Default adhan playback volume (0..100) used when a prayer has no override. */
     val adhanVolume: Int = 100,
+    /** Smoothly raises Adhan audio from silence to its selected level. */
+    val adhanGradualVolumeEnabled: Boolean = true,
     /**
      * Per-prayer volume override (0..100); absent keys fall back to
      * [adhanVolume], so every prayer is individually tunable.
@@ -51,7 +53,7 @@ data class PrayerSettings(
      * When true, a single master level ([adhanVolume]) applies to every
      * prayer and the per-prayer sliders are disabled in the UI.
      */
-    val useGlobalAdhanVolume: Boolean = false,
+    val useGlobalAdhanVolume: Boolean = true,
     /**
      * Per-prayer bundled recording id (see
      * [org.muslim.app.core.common.prayer.BundledAdhanSound]); always

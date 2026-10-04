@@ -200,4 +200,5 @@
     <string name="settings_information_density">Maglumat dykyzlygy</string>
     <string name="settings_information_density_comfortable">Amatly</string>
     <string name="settings_information_density_compact">Ykjam</string>
+    <string name="settings_adhan_gradual_volume">Adhan sesini kem-kemden ýokarlandyryň</string>
 </resources>

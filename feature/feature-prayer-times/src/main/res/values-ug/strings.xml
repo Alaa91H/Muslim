@@ -200,4 +200,5 @@
     <string name="settings_information_density">ئۇچۇر زىچلىقى</string>
     <string name="settings_information_density_comfortable">راھەت</string>
     <string name="settings_information_density_compact">ئىخچام</string>
+    <string name="settings_adhan_gradual_volume">ئاستا-ئاستا Adhan ئاۋازىنى كۆپەيتىڭ</string>
 </resources>

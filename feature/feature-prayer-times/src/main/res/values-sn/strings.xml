@@ -192,4 +192,5 @@
     <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
     <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
     <string name="prayer_navigate_back">رجوع</string>
+    <string name="settings_adhan_gradual_volume">Zvishoma nezvishoma wedzera Adhan volume</string>
 </resources>

@@ -200,4 +200,5 @@
     <string name="settings_information_density">Мәгълүмат тыгызлыгы</string>
     <string name="settings_information_density_comfortable">Уңайлы</string>
     <string name="settings_information_density_compact">Компакт</string>
+    <string name="settings_adhan_gradual_volume">Акрынлап Азан күләмен арттырыгыз</string>
 </resources>

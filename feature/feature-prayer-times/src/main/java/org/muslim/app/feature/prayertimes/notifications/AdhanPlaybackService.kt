@@ -93,6 +93,7 @@ class AdhanPlaybackService : Service() {
             ?.let { runCatching { AdhanSoundOption.valueOf(it) }.getOrNull() } ?: AdhanSoundOption.Default,
         vibrateEnabled = intent?.getBooleanExtra(EXTRA_VIBRATE, true) ?: true,
         volumePercent = intent?.getIntExtra(EXTRA_VOLUME, 100)?.coerceIn(0, 100) ?: 100,
+        gradualVolumeEnabled = intent?.getBooleanExtra(EXTRA_GRADUAL_VOLUME, true) ?: true,
         soundPath = intent?.getStringExtra(EXTRA_SOUND_PATH),
         bundledSound = BundledAdhanSound.fromId(intent?.getStringExtra(EXTRA_BUNDLED_SOUND)),
         isProbe = intent?.getBooleanExtra(EXTRA_IS_PROBE, false) ?: false,
@@ -111,6 +112,7 @@ class AdhanPlaybackService : Service() {
         // any earlier reminder even when playback is silent or falls back.
         AdhanNotifications.cancelReminder(this)
         val generation = beginSession(request)
+        soundPlayer.setGradualVolumeEnabled(request.gradualVolumeEnabled)
         val plan = AdhanPlaybackPlan.plan(request.option, hasBundledSound = true, request.vibrateEnabled)
         if (!plan.playSound && !plan.vibrate) {
             deliveryJournal.failed(request.prayer, request.isProbe, "Adhan is configured as silent")
@@ -168,6 +170,7 @@ class AdhanPlaybackService : Service() {
         scheduleSessionTimeout(generation)
         val onFinished: () -> Unit = { finishSession(generation) }
         if (plan.playSound) {
+            soundPlayer.setGradualVolumeEnabled(request.gradualVolumeEnabled)
             soundPlayer.playSynthesized(
                 request.volumePercent,
                 onStarted = {
@@ -295,6 +298,7 @@ class AdhanPlaybackService : Service() {
         val option: AdhanSoundOption,
         val vibrateEnabled: Boolean,
         val volumePercent: Int,
+        val gradualVolumeEnabled: Boolean,
         val soundPath: String?,
         val bundledSound: BundledAdhanSound,
         val isProbe: Boolean,
@@ -401,6 +405,7 @@ class AdhanPlaybackService : Service() {
         private const val EXTRA_SOUND_OPTION = "extra_sound_option"
         private const val EXTRA_VIBRATE = "extra_vibrate"
         private const val EXTRA_VOLUME = "extra_volume"
+        private const val EXTRA_GRADUAL_VOLUME = "extra_gradual_volume"
         private const val EXTRA_SOUND_PATH = "extra_sound_path"
         private const val EXTRA_BUNDLED_SOUND = "extra_bundled_sound"
         private const val EXTRA_IS_PROBE = "extra_is_probe"
@@ -419,6 +424,7 @@ class AdhanPlaybackService : Service() {
             vibrate: Boolean,
             soundOption: AdhanSoundOption = AdhanSoundOption.Default,
             volumePercent: Int = 100,
+            gradualVolumeEnabled: Boolean = true,
             soundPath: String? = null,
             bundledSoundId: String = BundledAdhanSound.DEFAULT_ID,
             isProbe: Boolean = false,
@@ -430,6 +436,7 @@ class AdhanPlaybackService : Service() {
                 .putExtra(EXTRA_SOUND_OPTION, soundOption.name)
                 .putExtra(EXTRA_VIBRATE, vibrate)
                 .putExtra(EXTRA_VOLUME, volumePercent)
+                .putExtra(EXTRA_GRADUAL_VOLUME, gradualVolumeEnabled)
                 .putExtra(EXTRA_SOUND_PATH, soundPath)
                 .putExtra(EXTRA_BUNDLED_SOUND, bundledSoundId)
                 .putExtra(EXTRA_IS_PROBE, isProbe)

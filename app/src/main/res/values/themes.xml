@@ -2,5 +2,16 @@
 <resources>
     <!-- Compose owns the actual theming (AppTheme). This style only provides
          the platform base so the window has a sane background. -->
-    <style name="Theme.Muslim" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Muslim" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- MediaRouter reads the AppCompat colorPrimary attribute from the
+             activity context when it creates its chooser/controller dialogs. -->
+        <item name="colorPrimary">#FF176B45</item>
+        <item name="colorPrimaryDark">#FF0F4B31</item>
+        <item name="colorAccent">#FF176B45</item>
+        <item name="android:colorPrimary">#FF176B45</item>
+        <item name="android:colorPrimaryDark">#FF0F4B31</item>
+        <item name="android:colorAccent">#FF176B45</item>
+        <item name="android:colorBackground">#FFFFFFFF</item>
+        <item name="android:windowBackground">#FFFFFFFF</item>
+    </style>
 </resources>

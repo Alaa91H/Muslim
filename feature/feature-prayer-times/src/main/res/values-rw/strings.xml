@@ -200,4 +200,5 @@
     <string name="settings_information_density">Ubucucike bwamakuru</string>
     <string name="settings_information_density_comfortable">Birahumuriza</string>
     <string name="settings_information_density_compact">Kwiyunga</string>
+    <string name="settings_adhan_gradual_volume">Buhoro buhoro wongere amajwi ya Adhan</string>
 </resources>

@@ -45,6 +45,9 @@ class AdhanSoundPlayer @Inject constructor(
     private var audioFocusRequest: AudioFocusRequest? = null
     private var hasFocus = false
     private val callModeHandler = Handler(Looper.getMainLooper())
+    private val volumeRampHandler = Handler(Looper.getMainLooper())
+    @Volatile private var gradualVolumeEnabled = true
+    @Volatile private var volumeRampGeneration = 0L
     private val callModePoll = object : Runnable {
         override fun run() {
             if (CallAudioMode.isActive(context)) {
@@ -173,8 +176,12 @@ class AdhanSoundPlayer @Inject constructor(
             if (mediaPlayer !== p) return@setOnPreparedListener
             val target = (volumePercent / 100f).coerceIn(0f, 1f)
             runCatching {
-                p.setVolume(target, target)
+                val initial = if (gradualVolumeEnabled) AdhanVolumeRamp.level(0f, target) else target
+                p.setVolume(initial, initial)
                 p.start()
+                if (gradualVolumeEnabled) startVolumeRamp(target) { level ->
+                    if (mediaPlayer === p) runCatching { p.setVolume(level, level) }
+                }
                 if (p.isPlaying) onStarted() else error("MediaPlayer did not enter playing state")
             }.onFailure {
                 if (mediaPlayer === p) {
@@ -244,8 +251,12 @@ class AdhanSoundPlayer @Inject constructor(
             if (mediaPlayer !== p) return@setOnPreparedListener
             val target = (volumePercent / 100f).coerceIn(0f, 1f)
             runCatching {
-                p.setVolume(target, target)
+                val initial = if (gradualVolumeEnabled) AdhanVolumeRamp.level(0f, target) else target
+                p.setVolume(initial, initial)
                 p.start()
+                if (gradualVolumeEnabled) startVolumeRamp(target) { level ->
+                    if (mediaPlayer === p) runCatching { p.setVolume(level, level) }
+                }
                 if (p.isPlaying) onStarted() else error("MediaPlayer did not enter playing state")
             }.onFailure {
                 if (mediaPlayer === p) {
@@ -313,14 +324,20 @@ class AdhanSoundPlayer @Inject constructor(
             audioTrack = track
         }
         val target = (volumePercent / 100f).coerceIn(0f, 1f)
+        val initial = if (gradualVolumeEnabled) AdhanVolumeRamp.level(0f, target) else target
         val volumeApplied = synchronized(audioTrackLock) {
-            audioTrack === track && runCatching { track.setVolume(target) }.isSuccess
+            audioTrack === track && runCatching { track.setVolume(initial) }.isSuccess
         }
         if (!volumeApplied) {
             finishSynthesizedTrack(track, onFinished)
             return
         }
         streamSynthesizedTrack(track, samples, onStarted, onFinished)
+        if (gradualVolumeEnabled) startVolumeRamp(target) { level ->
+            synchronized(audioTrackLock) {
+                if (audioTrack === track) runCatching { track.setVolume(level) }
+            }
+        }
     }
 
     /** Creates a valid stream-mode track, releasing partially initialized tracks safely. */
@@ -434,6 +451,8 @@ class AdhanSoundPlayer @Inject constructor(
      * call when nothing is playing (no-op).
      */
     fun setVolume(volumePercent: Int) {
+        volumeRampGeneration += 1L
+        volumeRampHandler.removeCallbacksAndMessages(null)
         val target = (volumePercent / 100f).coerceIn(0f, 1f)
         mediaPlayer?.let { runCatching { it.setVolume(target, target) } }
         synchronized(audioTrackLock) {
@@ -441,7 +460,31 @@ class AdhanSoundPlayer @Inject constructor(
         }
     }
 
+    /** Selects whether new Adhan sessions fade in to their configured volume. */
+    fun setGradualVolumeEnabled(enabled: Boolean) {
+        gradualVolumeEnabled = enabled
+    }
+
+    private fun startVolumeRamp(target: Float, apply: (Float) -> Unit) {
+        volumeRampGeneration += 1L
+        val generation = volumeRampGeneration
+        val startedAt = android.os.SystemClock.uptimeMillis()
+        val runnable = object : Runnable {
+            override fun run() {
+                if (generation != volumeRampGeneration) return
+                val progress = ((android.os.SystemClock.uptimeMillis() - startedAt).toFloat() /
+                    AdhanVolumeRamp.DURATION_MS).coerceIn(0f, 1f)
+                apply(AdhanVolumeRamp.level(progress, target))
+                if (progress < 1f) volumeRampHandler.postDelayed(this, VOLUME_RAMP_INTERVAL_MS)
+            }
+        }
+        volumeRampHandler.removeCallbacksAndMessages(null)
+        volumeRampHandler.post(runnable)
+    }
+
     fun stop() {
+        volumeRampGeneration += 1L
+        volumeRampHandler.removeCallbacksAndMessages(null)
         mediaPlayer?.let {
             runCatching { it.stop() }
             runCatching { it.release() }
@@ -462,6 +505,7 @@ class AdhanSoundPlayer @Inject constructor(
     private companion object {
         const val STREAM_CHUNK_SAMPLES = 4_410
         const val COMMUNICATION_MODE_POLL_MS = 500L
+        const val VOLUME_RAMP_INTERVAL_MS = 80L
     }
 
     private fun bundledSoundRes(sound: BundledAdhanSound): Int = when (sound) {
@@ -484,4 +528,11 @@ class AdhanSoundPlayer @Inject constructor(
         BundledAdhanSound.YusufIslam -> org.muslim.app.feature.prayertimes.R.raw.adhan_yusuf_islam
     }
 
+}
+
+internal object AdhanVolumeRamp {
+    const val DURATION_MS = 4_000f
+
+    fun level(progress: Float, target: Float): Float =
+        target.coerceIn(0f, 1f) * progress.coerceIn(0f, 1f)
 }

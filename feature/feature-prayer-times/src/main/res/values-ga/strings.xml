@@ -200,4 +200,5 @@
     <string name="settings_information_density">Dlús faisnéise</string>
     <string name="settings_information_density_comfortable">Compordach</string>
     <string name="settings_information_density_compact">Dlúth</string>
+    <string name="settings_adhan_gradual_volume">De réir a chéile a mhéadú toirt Adhan</string>
 </resources>

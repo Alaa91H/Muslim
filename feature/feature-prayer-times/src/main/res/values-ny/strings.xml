@@ -200,4 +200,5 @@
     <string name="settings_information_density">Kuchulukana kwa chidziwitso</string>
     <string name="settings_information_density_comfortable">Omasuka</string>
     <string name="settings_information_density_compact">Zochepa</string>
+    <string name="settings_adhan_gradual_volume">Pang\'onopang\'ono onjezerani voliyumu ya Adhan</string>
 </resources>

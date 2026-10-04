@@ -92,6 +92,7 @@
     <string name="settings_adhan_stop_on_dismiss">إيقاف الأذان عند إزالة الإشعار</string>
     <string name="settings_adhan_stop_on_dismiss_desc">يتطلب السماح بإزالة الإشعار. زر إيقاف الأذان يبقى متاحًا دائمًا داخل الإشعار.</string>
     <string name="settings_adhan_global_volume">مستوى صوت عام للأذان</string>
+    <string name="settings_adhan_gradual_volume">رفع صوت الأذان تدريجيًا</string>
     <string name="settings_information_density">كثافة المعلومات</string>
     <string name="settings_information_density_comfortable">مريحة</string>
     <string name="settings_information_density_compact">مضغوطة</string>

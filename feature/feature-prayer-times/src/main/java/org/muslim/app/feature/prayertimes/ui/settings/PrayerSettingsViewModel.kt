@@ -295,6 +295,10 @@ class PrayerSettingsViewModel @Inject constructor(
         it.copy(useGlobalAdhanVolume = enabled)
     }
 
+    fun setAdhanGradualVolumeEnabled(enabled: Boolean) = update {
+        it.copy(adhanGradualVolumeEnabled = enabled)
+    }
+
     /**
      * Persists the controls presented together in the per-prayer customisation
      * dialog in one update, so the scheduler sees a complete, internally
@@ -369,6 +373,7 @@ class PrayerSettingsViewModel @Inject constructor(
                 vibrate = false,
                 soundOption = AdhanSoundOption.Default,
                 volumePercent = volumePercent.coerceIn(0, 100),
+                gradualVolumeEnabled = settings.value.adhanGradualVolumeEnabled,
                 soundPath = null,
                 bundledSoundId = sound.id,
                 isPreview = true,
@@ -388,6 +393,7 @@ class PrayerSettingsViewModel @Inject constructor(
                 vibrate = current.vibrateFor(prayer),
                 soundOption = current.adhanSounds[prayer] ?: AdhanSoundOption.Default,
                 volumePercent = current.adhanVolumeFor(prayer),
+                gradualVolumeEnabled = current.adhanGradualVolumeEnabled,
                 soundPath = soundPath,
                 bundledSoundId = current.bundledAdhanSounds[prayer]
                     ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID,

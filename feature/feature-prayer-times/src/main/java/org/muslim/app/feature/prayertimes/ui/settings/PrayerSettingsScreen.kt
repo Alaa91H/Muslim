@@ -188,6 +188,11 @@ fun PrayerSettingsScreen(
 
         SectionHeader(stringResource(R.string.settings_adhan))
         SwitchRow(stringResource(R.string.settings_adhan_enabled), settings.adhanEnabled, viewModel::setAdhanEnabled)
+        SwitchRow(
+            stringResource(R.string.settings_adhan_gradual_volume),
+            settings.adhanGradualVolumeEnabled,
+            viewModel::setAdhanGradualVolumeEnabled,
+        )
         AdhanReadinessCard(
             readiness = adhanReadiness,
             onVerify = viewModel::verifyAdhanReadiness,

@@ -200,4 +200,5 @@
     <string name="settings_information_density">정보 밀도</string>
     <string name="settings_information_density_comfortable">편안함</string>
     <string name="settings_information_density_compact">콤팩트</string>
+    <string name="settings_adhan_gradual_volume">아단 음량을 점차 높입니다.</string>
 </resources>
