@@ -1,8 +1,6 @@
 package org.muslim.app.feature.quran.ui
 
 import android.content.Context
-import android.media.AudioAttributes
-import android.media.MediaPlayer
 import android.os.SystemClock
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -49,7 +47,6 @@ import org.muslim.app.feature.quran.data.RecitationRepository
 import org.muslim.app.feature.quran.data.ReciterDownloadState
 import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.LastRead
-import org.muslim.app.feature.quran.domain.QuranAyahIndex
 import org.muslim.app.feature.quran.domain.QuranRepository
 import org.muslim.app.feature.quran.domain.ReaderTheme
 import org.muslim.app.feature.quran.domain.Reciter
@@ -221,10 +218,17 @@ class QuranReaderViewModel @Inject constructor(
     private val sessionRuntime = dependencies.recitation.sessionRuntime
     private val fullSurahPlayback = FullSurahPlaybackCoordinator(audioPlayer, sessionRuntime, recitationRepository)
     private val downloadNotifier = RecitationDownloadNotifier(context)
-    private var reciterPreviewPlayer: MediaPlayer? = null
-    private var resumeRecitationAfterPreview = false
-    private val _previewingReciterId = MutableStateFlow<String?>(null)
-    val previewingReciterId: StateFlow<String?> = _previewingReciterId.asStateFlow()
+    private val reciterPreviewPlayer = ReciterPreviewPlayer(audioPlayer)
+    internal val reciterSelectionController by lazy {
+        ReciterSelectionController(
+            ReciterSelectionEnvironment(audioPlayer, prefsRepository, repository, viewModelScope, reciterPreviewPlayer),
+            ReciterSelectionContext(
+                selectedReciter = { selectedReciter.value }, currentSurahNumber = { _surahNumber.value },
+                setSurahNumber = { _surahNumber.value = it }, currentSurahAyahs = { uiState.value.ayahs },
+                repeatCount = { lastRepeatCount }, range = { lastRange }, playAyahWithRange = ::playAyahWithRange,
+            ),
+        )
+    }
 
     // Last recitation range/repeat the user played with, so switching the
     // reciter from the player bar resumes playback with the same settings.
@@ -232,7 +236,7 @@ class QuranReaderViewModel @Inject constructor(
     private var lastRange = DEFAULT_RECITATION_RANGE
 
     override fun onCleared() {
-        stopReciterPreview(resumePlayback = false)
+        reciterPreviewPlayer.stop(resumePlayback = false)
         downloadNotifier.dismiss()
     }
 
@@ -607,59 +611,6 @@ class QuranReaderViewModel @Inject constructor(
 }
 
 
-    /**
-     * Switches the reciter from the player bar. If recitation is active, the
-     * current reciter is stopped first, then the new reciter is applied and
-     * playback resumes from the start of the same ayah where it stopped — the
-     * queue is rebuilt against the new reciter and any missing audio for it is
-     * downloaded automatically (with progress).
-     */
-    fun selectReciter(reciter: Reciter) {
-        val resumeAfterPreview = resumeRecitationAfterPreview
-        stopReciterPreview(resumePlayback = false)
-        if (reciter.id == selectedReciter.value.id) {
-            if (resumeAfterPreview) audioPlayer.resume()
-            return
-        }
-        val wasActive = resumeAfterPreview || shouldResumeAfterReciterChange(
-            audioPlayer.playbackState.value,
-            audioPlayer.currentAyah.value,
-        )
-        val ayahGlobal = audioPlayer.currentAyah.value
-        val repeat = lastRepeatCount
-        val range = lastRange
-        audioPlayer.stop()
-        viewModelScope.launch {
-            prefsRepository.setSelectedReciterId(reciter.id)
-            if (wasActive && ayahGlobal != null) {
-                // The playing ayah may belong to a surah the reader is no
-                // longer displaying (continuous playback advanced surahs), so
-                // resolve it from its own surah — never from a stale list.
-                val surahOfAyah = QuranAyahIndex.surahOf(ayahGlobal)
-                val ayahs = if (surahOfAyah in 1..114 && surahOfAyah != _surahNumber.value) {
-                    _surahNumber.value = surahOfAyah
-                    repository.observeSurah(surahOfAyah).first()
-
-}
- else {
-                    uiState.value.ayahs
-
-}
-
-                val ayah = ayahs.firstOrNull { it.globalNumber == ayahGlobal
-}
-
-                if (ayah != null) playAyahWithRange(ayah, repeat, range)
-
-}
-
-
-}
-
-
-}
-
-
     /** Downloads the current surah for the selected reciter. */
     fun downloadCurrentSurah() {
         val ayahs = uiState.value.ayahs
@@ -738,7 +689,7 @@ class QuranReaderViewModel @Inject constructor(
         advanceToNext: Boolean = false,
         toEndOfQuran: Boolean = false,
     ) {
-        stopReciterPreview(resumePlayback = false)
+        reciterPreviewPlayer.stop(resumePlayback = false)
         if (ayahs.isEmpty() || _downloading.value) return
 
         val queueSurahNumber = ayahs.first().surahNumber
@@ -774,59 +725,6 @@ class QuranReaderViewModel @Inject constructor(
     }
 
     /** Plays one ayah as a short sample without changing the selected reciter. */
-    fun toggleReciterPreview(reciter: Reciter) {
-        if (_previewingReciterId.value == reciter.id) {
-            stopReciterPreview()
-            return
-        }
-        val shouldResumePlayback = resumeRecitationAfterPreview ||
-            audioPlayer.playbackState.value == PlaybackState.Playing
-        stopReciterPreview(resumePlayback = false)
-        resumeRecitationAfterPreview = shouldResumePlayback
-        if (audioPlayer.playbackState.value == PlaybackState.Playing) audioPlayer.pause()
-
-        val player = MediaPlayer()
-        reciterPreviewPlayer = player
-        _previewingReciterId.value = reciter.id
-        player.setAudioAttributes(
-            AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_MEDIA)
-                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                .build(),
-        )
-        player.setOnCompletionListener { completed ->
-            if (reciterPreviewPlayer === completed) stopReciterPreview()
-        }
-        player.setOnErrorListener { failed, _, _ ->
-            if (reciterPreviewPlayer === failed) stopReciterPreview()
-            true
-        }
-        player.setOnPreparedListener { prepared ->
-            if (reciterPreviewPlayer === prepared) prepared.start()
-        }
-        runCatching {
-            player.setDataSource(reciter.urlFor(surahNumber = 1, ayahNumberInSurah = 1))
-            player.prepareAsync()
-        }.onFailure {
-            stopReciterPreview()
-        }
-    }
-
-    fun stopReciterPreview() = stopReciterPreview(resumePlayback = true)
-
-    private fun stopReciterPreview(resumePlayback: Boolean) {
-        val shouldResume = resumeRecitationAfterPreview
-        resumeRecitationAfterPreview = false
-        val player = reciterPreviewPlayer
-        reciterPreviewPlayer = null
-        _previewingReciterId.value = null
-        if (player != null) {
-            runCatching { player.stop() }
-            player.release()
-        }
-        if (resumePlayback && shouldResume) audioPlayer.resume()
-    }
-
     private suspend fun prepareQueueForPlayback(
         ayahs: List<Ayah>,
         queueSurahNumber: Int,
@@ -892,7 +790,7 @@ class QuranReaderViewModel @Inject constructor(
     }
 
     fun resumeRestorableSession() {
-        stopReciterPreview(resumePlayback = false)
+        reciterPreviewPlayer.stop(resumePlayback = false)
         val session = _restorableSession.value ?: return
         if (session.intent.fullSurahAudioUrl != null) {
             _restorableSession.value = null
@@ -953,7 +851,7 @@ class QuranReaderViewModel @Inject constructor(
 
     /** Plays one provider recording through the app-wide player without ayah timing claims. */
     fun playFullSurah(recording: FullSurahRecitation) {
-        stopReciterPreview(resumePlayback = false)
+        reciterPreviewPlayer.stop(resumePlayback = false)
         val surahNumber = _surahNumber.value
         val intent = fullSurahPlayback.start(recording, surahNumber) ?: return
         _recitationFailure.value = null
@@ -1094,14 +992,14 @@ class QuranReaderViewModel @Inject constructor(
 
     fun pausePlayback() = audioPlayer.pause()
     fun resumePlayback() {
-        stopReciterPreview(resumePlayback = false)
+        reciterPreviewPlayer.stop(resumePlayback = false)
         audioPlayer.resume()
     }
     val recitationPlaybackSnapshot get() = audioPlayer.snapshot()
     fun isRecitationDownloaded(reciter: Reciter, surahNumber: Int, globalNumber: Int) =
         recitationRepository.fileFor(reciter.id, surahNumber, globalNumber).let { it.isFile && it.length() > 0L }
     fun stopPlayback() {
-        stopReciterPreview(resumePlayback = false)
+        reciterPreviewPlayer.stop(resumePlayback = false)
         _restorableSession.value = null
         audioPlayer.stop()
     }
