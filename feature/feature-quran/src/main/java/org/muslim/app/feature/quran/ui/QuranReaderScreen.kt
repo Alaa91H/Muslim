@@ -285,6 +285,7 @@ fun QuranReaderScreen(
     val recitationFailure by viewModel.recitationFailure.collectAsStateWithLifecycle()
     val restorableSession by viewModel.restorableSession.collectAsStateWithLifecycle()
     val selectedReciter by viewModel.selectedReciter.collectAsStateWithLifecycle()
+    val previewingReciterId by viewModel.previewingReciterId.collectAsStateWithLifecycle()
     val fullSurahRecordings by viewModel.fullSurahRecordings.collectAsStateWithLifecycle()
     val fullSurahCatalogLoading by viewModel.fullSurahCatalogLoading.collectAsStateWithLifecycle()
     val fullSurahCatalogError by viewModel.fullSurahCatalogError.collectAsStateWithLifecycle()
@@ -851,6 +852,7 @@ fun QuranReaderScreen(
                         stopAtEnd = continuousStopAtEnd,
                         reciter = selectedReciter,
                         reciters = Reciter.Bundled,
+                        previewingReciterId = previewingReciterId,
                         range = playRange,
                         fullSurahRecordings = fullSurahRecordings,
                         fullSurahCatalogLoading = fullSurahCatalogLoading,
@@ -870,6 +872,8 @@ fun QuranReaderScreen(
                         onRepeatChanged = { repeatCount = it },
                         onStopAtEndChanged = viewModel::setContinuousStopAtEnd,
                         onReciterSelected = viewModel::selectReciter,
+                        onToggleReciterPreview = viewModel::toggleReciterPreview,
+                        onStopReciterPreview = viewModel::stopReciterPreview,
                         onLoadFullSurahRecordings = { fullSurahCatalogRequested = true },
                         onFullSurahSelected = viewModel::playFullSurah,
                         onFullSurahDownload = viewModel.downloadFullSurah,
@@ -1159,6 +1163,7 @@ private data class RecitationSettingsState(
     val stopAtEnd: Boolean,
     val reciter: Reciter,
     val reciters: List<Reciter>,
+    val previewingReciterId: String?,
     val range: RecitationRange,
     val fullSurahRecordings: List<FullSurahRecitation>,
     val fullSurahCatalogLoading: Boolean,
@@ -1178,6 +1183,8 @@ private data class RecitationSettingsActions(
     val onRepeatChanged: (Int) -> Unit,
     val onStopAtEndChanged: (Boolean) -> Unit,
     val onReciterSelected: (Reciter) -> Unit,
+    val onToggleReciterPreview: (Reciter) -> Unit,
+    val onStopReciterPreview: () -> Unit,
     val onLoadFullSurahRecordings: () -> Unit,
     val onFullSurahSelected: (FullSurahRecitation) -> Unit,
     val onFullSurahDownload: (FullSurahRecitation) -> Unit,
@@ -1235,7 +1242,10 @@ private fun RecitationBar(
         RecitationSettingsSheet(
             state = state.settings,
             actions = actions.settings,
-            onDismiss = { showSettings = false },
+            onDismiss = {
+                actions.settings.onStopReciterPreview()
+                showSettings = false
+            },
         )
     }
 }
@@ -1392,6 +1402,9 @@ private fun RecitationSettingsSheet(
             selectedReciter = state.reciter,
             reciters = state.reciters,
             onReciterSelected = actions.onReciterSelected,
+            previewingReciterId = state.previewingReciterId,
+            onToggleReciterPreview = actions.onToggleReciterPreview,
+            onStopReciterPreview = actions.onStopReciterPreview,
             state = state,
             onLoadFullSurahRecordings = actions.onLoadFullSurahRecordings,
             onFullSurahSelected = actions.onFullSurahSelected,
@@ -1415,6 +1428,9 @@ private fun ReciterSelectionSection(
     selectedReciter: Reciter,
     reciters: List<Reciter>,
     onReciterSelected: (Reciter) -> Unit,
+    previewingReciterId: String?,
+    onToggleReciterPreview: (Reciter) -> Unit,
+    onStopReciterPreview: () -> Unit,
     state: RecitationSettingsState,
     onLoadFullSurahRecordings: () -> Unit,
     onFullSurahSelected: (FullSurahRecitation) -> Unit,
@@ -1439,19 +1455,29 @@ private fun ReciterSelectionSection(
         shape = RoundedCornerShape(IslamicRadius.AyahMarker),
         contentPadding = PaddingValues(IslamicSpacing.Compact),
     ) {
-        ReciterSelectionRow(option = selectedReciter, selected = true)
+        ReciterSelectionRow(
+            option = selectedReciter,
+            selected = true,
+            previewing = previewingReciterId == selectedReciter.id,
+            onPreviewClick = { onToggleReciterPreview(selectedReciter) },
+        )
     }
 
     if (pickerOpen) ReciterPickerDialog(
         query = query,
         reciters = filteredReciters,
         selectedReciter = selectedReciter,
+        previewingReciterId = previewingReciterId,
         onQueryChanged = { query = it },
         onReciterSelected = {
             onReciterSelected(it)
             pickerOpen = false
         },
-        onDismiss = { pickerOpen = false },
+        onPreviewClick = onToggleReciterPreview,
+        onDismiss = {
+            onStopReciterPreview()
+            pickerOpen = false
+        },
     )
 
     FullSurahCatalogSection(
@@ -1469,8 +1495,10 @@ private fun ReciterPickerDialog(
     query: String,
     reciters: List<Reciter>,
     selectedReciter: Reciter,
+    previewingReciterId: String?,
     onQueryChanged: (String) -> Unit,
     onReciterSelected: (Reciter) -> Unit,
+    onPreviewClick: (Reciter) -> Unit,
     onDismiss: () -> Unit,
 ) {
     AlertDialog(
@@ -1514,7 +1542,12 @@ private fun ReciterPickerDialog(
                                     MaterialTheme.colorScheme.surfaceContainerHigh
                                 },
                             ) {
-                                ReciterSelectionRow(option = option, selected = selected)
+                                ReciterSelectionRow(
+                                    option = option,
+                                    selected = selected,
+                                    previewing = previewingReciterId == option.id,
+                                    onPreviewClick = { onPreviewClick(option) },
+                                )
                             }
                         }
                     }
@@ -1533,12 +1566,14 @@ private fun ReciterPickerDialog(
 private fun ReciterSelectionRow(
     option: Reciter,
     selected: Boolean,
+    previewing: Boolean,
+    onPreviewClick: () -> Unit,
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        ReciterPortrait(reciter = option, size = 40.dp)
+        ReciterPortrait(reciter = option, size = 48.dp)
         Spacer(Modifier.width(IslamicSpacing.Compact))
         Column(modifier = Modifier.weight(1f)) {
             Text(
@@ -1560,6 +1595,16 @@ private fun ReciterSelectionRow(
             Icon(
                 imageVector = Icons.Filled.Check,
                 contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+            )
+        }
+        IconButton(onClick = onPreviewClick) {
+            Icon(
+                imageVector = if (previewing) Icons.Filled.Pause else Icons.Filled.PlayArrow,
+                contentDescription = stringResource(
+                    if (previewing) R.string.quran_recitation_notif_pause
+                    else R.string.quran_recitation_notif_play,
+                ),
                 tint = MaterialTheme.colorScheme.primary,
             )
         }
