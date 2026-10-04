@@ -3,23 +3,22 @@ package org.muslim.app.feature.quran.network
 import com.google.common.truth.Truth.assertThat
 import org.junit.Assume.assumeTrue
 import org.junit.Test
+import org.muslim.app.feature.quran.data.Mp3QuranAudioProbe
 import org.muslim.app.feature.quran.domain.Reciter
 import java.net.HttpURLConnection
 import java.net.URL
 
 /**
- * LIVE network check — deliberately separate from the offline unit tests.
+ * LIVE network audit — deliberately separate from offline unit tests.
  *
- * Verifies that every bundled reciter's folder actually exists on the
- * EveryAyah server by issuing a real HTTP HEAD request for the first ayah of
- * the mushaf (001001.mp3) inside each folder. A wrong folder name would yield
- * HTTP 404 and break downloads, so this guards the curated list.
+ * Checks the generated start, longest-surah end, and final-surah end URLs for
+ * every bundled EveryAyah reciter. Each sample must return a one-byte MP3 range,
+ * which verifies both source availability and seek-capable HTTP behavior.
  *
  * Run explicitly with:
  *   ./gradlew :feature:feature-quran:testDebugUnitTest \
  *       -DnetworkTests=true --tests "org.muslim.app.feature.quran.network.*"
- * (Skipped by default via the `networkTests` system property, so normal unit
- * test runs stay offline and fast.)
+ * (Skipped by default so normal unit test runs stay offline and fast.)
  */
 class EveryAyahFolderCheckTest {
 
@@ -33,36 +32,72 @@ class EveryAyahFolderCheckTest {
     }
 
     @Test
-    fun everyBundledReciterFolderExistsOnEveryAyah() {
+    fun auditUrlsCoverStartLongSurahEndAndFinalSurah() {
+        val urls = everyAyahAuditUrls(
+            "https://everyayah.com/data/Alafasy_128kbps/{surah}{ayah}.mp3",
+        )
+
+        assertThat(urls).containsExactly(
+            "https://everyayah.com/data/Alafasy_128kbps/001001.mp3",
+            "https://everyayah.com/data/Alafasy_128kbps/002286.mp3",
+            "https://everyayah.com/data/Alafasy_128kbps/114006.mp3",
+        ).inOrder()
+    }
+
+    @Test
+    fun everyBundledReciterSamplesAreAvailableSeekableMp3s() {
         assumeTrue(
             "Skipped: run with -DnetworkTests=true to hit the live server",
             System.getProperty("networkTests") == "true",
         )
 
-        val missing = Reciter.Bundled.mapNotNull { reciter ->
-            val folder = everyAyahFolderOf(reciter.urlTemplate)
-            if (folder == null) {
-                "reciter ${reciter.id}: cannot parse folder from template"
-            } else {
-                val status = headStatus("https://everyayah.com/data/$folder/001001.mp3")
-                if (status == HttpURLConnection.HTTP_OK) null else "reciter ${reciter.id} ($folder): HTTP $status"
-            }
+        val failures = Reciter.Bundled.flatMap { reciter ->
+            val urls = everyAyahAuditUrls(reciter.urlTemplate)
+            if (urls.isEmpty()) return@flatMap listOf("${reciter.id}: invalid source URL template")
+            urls.mapNotNull { url -> rangeFailure(url)?.let { "${reciter.id}: $url: $it" } }
         }
 
-        assertThat(missing).isEmpty()
+        assertThat(failures).isEmpty()
     }
 
-    private fun headStatus(url: String): Int {
-        val connection = (URL(url).openConnection() as HttpURLConnection)
+    private fun rangeFailure(url: String): String? {
+        val connection = URL(url).openConnection() as HttpURLConnection
         return try {
-            connection.requestMethod = "HEAD"
-            connection.connectTimeout = 15_000
-            connection.readTimeout = 15_000
+            connection.requestMethod = "GET"
+            connection.setRequestProperty("Range", "bytes=0-0")
+            connection.connectTimeout = 10_000
+            connection.readTimeout = 10_000
             connection.instanceFollowRedirects = true
-            connection.responseCode
+            val status = connection.responseCode
+            val verified = Mp3QuranAudioProbe.inspectRange(
+                statusCode = status,
+                contentType = connection.contentType,
+                contentRange = connection.getHeaderField("Content-Range"),
+            )
+            when {
+                verified == null -> listOf(
+                    "unverified range response",
+                    "status=$status",
+                    "type=${connection.contentType}",
+                    "range=${connection.getHeaderField("Content-Range")}",
+                ).joinToString(", ")
+                connection.getHeaderField("Content-Length")?.toLongOrNull()?.let { it != 1L } == true ->
+                    "range response has unexpected length ${connection.getHeaderField("Content-Length")}"
+                connection.inputStream.use { it.read() } < 0 -> "range response had no audio byte"
+                else -> null
+            }
+        } catch (error: Exception) {
+            "${error.javaClass.simpleName}: ${error.message}"
         } finally {
             connection.disconnect()
         }
+    }
+}
+
+internal fun everyAyahAuditUrls(template: String): List<String> {
+    val folder = everyAyahFolderOf(template) ?: return emptyList()
+    return listOf("001001", "002286", "114006").map { ayah ->
+        "https://everyayah.com/data/$folder/$ayah.mp3"
     }
 }
 
