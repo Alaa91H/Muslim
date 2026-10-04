@@ -23,6 +23,7 @@ This release improves Quran recitation continuity and establishes a verified cat
 
 - Added automated validation for Quran text-pack structure, provenance, ayah coverage, footnotes, and checksums.
 - Added a tagged-release coverage gate that prevents publication while the required verified text packs are missing.
+- Documented QuranEnc's source-specific redistribution and update requirements, and clarified why Tanzil's catalogue alone does not establish per-edition rights or review.
 - Added a focused Android 17 Adhan delivery emulator gate and made screenshot-matrix ADB recovery resilient to transient disconnects between batches.
 - Consolidated CI into `.github/workflows/ci.yml`; ordinary runs build signed APK artifacts, and tagged releases publish APK files only.
 

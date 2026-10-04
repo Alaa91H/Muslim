@@ -82,6 +82,35 @@ packages may also be imported from JSON and are structurally validated before
 installation. A successful structural validation is not, by itself, an
 independent theological review.
 
+QuranEnc publishes explicit reuse terms for its translations in its [API
+documentation](https://quranenc.com/ar/home/api/): preserve content unchanged,
+credit the publisher and QuranEnc, preserve the edition version information,
+report observations, update to new source editions, and avoid inappropriate
+advertising alongside the meanings. Its public API documents translation list,
+ayah, and surah endpoints, but not a separate tafsir-content endpoint. This
+permits source-controlled user-initiated downloads where the app validates the
+full pack and displays source attribution/version; it does not make a meaning
+translation into translated tafsir. The app must continue to recheck source
+metadata and coverage before installation.
+
+Tanzil's translation catalogue is a discovery index, not blanket permission to
+bundle its translations. Its current [terms](https://tanzil.net/trans/) limit
+the translations to non-commercial use unless permission is obtained from each
+translator or publisher, require a link back when more than three listed
+translations are used in an application, prohibit republishing the complete
+list without Tanzil's direct permission, and disclaim guarantees of translation
+authenticity or accuracy. Tanzil also documents that its editions come from
+many upstream sources ([provenance list](https://tanzil.net/docs/translations_resources)).
+Muslim is currently described as free and ad-free, but that product fact alone
+does not establish the contractual meaning of "non-commercial" for every
+distribution channel or downstream publisher. Therefore no Tanzil translation
+is bundled or marked approved from the catalogue listing alone. Each candidate
+needs an edition-specific rights basis, named edition/translator and reviewer
+evidence, source version, and complete text before it can enter `catalog.json`.
+The Arabic Quran text's separate Tanzil CC BY 3.0 license does not grant rights
+to the translations. This distinction is recorded in
+[`docs/content/license_research.md`](../../content/license_research.md).
+
 Quran Foundation documents catalogue and paginated tafsir-content endpoints,
 including author and resource metadata, but their current API schema documents
 authorization failures and required request headers. No Quran Foundation app
