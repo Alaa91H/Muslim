@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- MediaRouter needs opaque View-theme colors; the reader itself uses Compose M3. -->
-    <style name="ThemeOverlay.Muslim.CastButton" parent="android:Theme.Material.Light.NoActionBar">
+    <style name="ThemeOverlay.Muslim.CastButton" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#FF176B45</item>
         <item name="android:colorBackground">#FFFFFFFF</item>
         <item name="colorAccent">#FF176B45</item>

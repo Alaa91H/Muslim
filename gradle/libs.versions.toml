@@ -16,6 +16,7 @@ lifecycle = "2.11.0"
 navigationCompose = "2.9.8"
 window = "1.5.1"
 fragment = "1.9.0"
+appcompat = "1.7.1"
 biometric = "1.1.0"
 media = "1.7.0"
 wearCompose = "1.6.2"
@@ -73,6 +74,7 @@ androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifec
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 androidx-window = { group = "androidx.window", name = "window", version.ref = "window" }
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 androidx-biometric = { group = "androidx.biometric", name = "biometric", version.ref = "biometric" }
 google-play-services-wearable = { group = "com.google.android.gms", name = "play-services-wearable", version.ref = "playServicesWearable" }
 google-play-services-cast = { group = "com.google.android.gms", name = "play-services-cast-framework", version.ref = "playServicesCast" }

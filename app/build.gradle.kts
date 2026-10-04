@@ -226,6 +226,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.fragment.ktx)
+    // MediaRouter's Cast chooser uses AppCompat dialogs and requires the
+    // hosting Activity to run with an AppCompat-derived theme.
+    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.window)
     implementation(libs.androidx.media)
     implementation(libs.google.play.services.wearable)
