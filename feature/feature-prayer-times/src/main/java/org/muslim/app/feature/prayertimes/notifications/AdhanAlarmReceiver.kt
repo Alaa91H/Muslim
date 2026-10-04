@@ -15,7 +15,6 @@ import org.muslim.app.core.common.prayer.AdhanSoundOption
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.NotificationCategory
-import org.muslim.app.core.notifications.CallAudioMode
 import org.muslim.app.core.notifications.notificationAllowed
 import org.muslim.app.feature.prayertimes.widget.PrayerTimesWidget
 import java.util.concurrent.atomic.AtomicBoolean
