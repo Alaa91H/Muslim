@@ -219,7 +219,7 @@ jobs:
           arch: x86_64
           # Preserve android-emulator-runner defaults and explicitly opt out of
           # emulator metrics so modern emulator builds never block CI for consent.
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -no-metrics
+          emulator-options: -no-window -gpu software -no-snapshot -noaudio -no-boot-anim -no-metrics
           disable-animations: true
           script: |
             bash scripts/capture_uiux_v2_artifacts.sh
@@ -302,7 +302,7 @@ jobs:
           arch: x86_64
           # Preserve android-emulator-runner defaults and explicitly opt out of
           # emulator metrics so modern emulator builds never block CI for consent.
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -no-metrics
+          emulator-options: -no-window -gpu software -no-snapshot -noaudio -no-boot-anim -no-metrics
           disable-animations: true
           script: ./gradlew :feature:feature-family-life:connectedDebugAndroidTest
 

@@ -47,6 +47,16 @@ def main() -> None:
         "path: ci-apks/*.apk" in workflow,
         "CI build artifacts must contain APK files only",
     )
+    emulator_options = [
+        line.strip()
+        for line in workflow.splitlines()
+        if line.strip().startswith("emulator-options:")
+    ]
+    require(len(emulator_options) == 2, "Both emulator jobs must declare their graphics backend")
+    require(
+        all("-gpu software" in options and "swiftshader_indirect" not in options for options in emulator_options),
+        "Emulator jobs must use the supported software renderer, not deprecated swiftshader_indirect",
+    )
     release_job = workflow.split("  publish-release:", 1)[1]
     require(
         "Set up Android SDK for release signature verification" in release_job,
