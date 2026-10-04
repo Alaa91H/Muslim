@@ -52,6 +52,28 @@ ensure_fixed_clock() {
     fi
     return 0
 }
+reboot_emulator_between_batches() {
+    echo "Rebooting the emulator to release AndroidTest and graphics state between screenshot groups."
+    adb reboot || return 1
+    timeout 180 adb wait-for-device || return 1
+    local attempt boot_state=""
+    for attempt in $(seq 1 60); do
+        boot_state="$(timeout 10 adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')"
+        [ "$boot_state" = 1 ] && break
+        sleep 2
+    done
+    [ "$boot_state" = 1 ] || { echo "Emulator did not finish booting between screenshot groups."; return 1; }
+    adb root || return 1
+    timeout 60 adb wait-for-device || return 1
+    [ "$(adb shell id -u | tr -d '\r')" = 0 ] || { echo "Emulator root was not restored after reboot."; return 1; }
+    adb shell settings put global auto_time 0 || return 1
+    adb shell settings put global auto_time_zone 0 || return 1
+    adb shell setprop persist.sys.timezone UTC || return 1
+    ensure_fixed_clock || return 1
+    kill "$logcat_pid" 2>/dev/null || true
+    adb logcat -b all -v threadtime '*:E' >> artifacts/emulator-diagnostics/logcat.txt 2>&1 &
+    logcat_pid=$!
+}
 trap 'restore_fixed_clock; kill "$logcat_pid" ${gradle_pid:+"$gradle_pid"} 2>/dev/null || true' EXIT INT TERM
 status=0
 device_ready() {
@@ -136,8 +158,13 @@ fi
 if [ "$status" = 0 ] && device_ready; then
     start_fixed_clock || status=1
     if [ "$status" = 0 ]; then
+        screenshot_batch_started=false
         for screens in prayer-home,prayer-monthly quran-home,quran-reader qibla,more hadith,settings; do
             for expanded in false true; do
+                if [ "$screenshot_batch_started" = true ]; then
+                    reboot_emulator_between_batches || { status=1; break 2; }
+                fi
+                screenshot_batch_started=true
                 set_display_variant "$expanded" || { status=1; break 2; }
                 run_batch "matrix-$screens-$expanded" \
                     -Pandroid.testInstrumentationRunnerArguments.class=org.muslim.app.UiUxV2MatrixInstrumentedTest \

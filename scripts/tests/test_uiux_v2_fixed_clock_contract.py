@@ -26,6 +26,19 @@ class FixedClockContractTest(unittest.TestCase):
         self.assertIn("ensure_fixed_clock", run_batch)
         self.assertLess(run_batch.index("ensure_fixed_clock"), run_batch.index("./gradlew"))
 
+    def test_screenshot_matrix_reboots_and_reinitializes_emulator_between_batches(self):
+        exporter = (ROOT / "scripts/capture_uiux_v2_artifacts.sh").read_text(encoding="utf-8")
+        reboot = exporter.split("reboot_emulator_between_batches() {", 1)[1].split("\n}", 1)[0]
+        matrix = exporter.split("for screens in prayer-home,prayer-monthly", 1)[1]
+
+        self.assertIn("adb reboot", reboot)
+        self.assertIn("adb wait-for-device", reboot)
+        self.assertIn("sys.boot_completed", reboot)
+        self.assertIn("adb root", reboot)
+        self.assertIn("ensure_fixed_clock", reboot)
+        self.assertIn("reboot_emulator_between_batches", matrix)
+        self.assertLess(matrix.index("reboot_emulator_between_batches"), matrix.index("run_batch"))
+
 
 if __name__ == "__main__":
     unittest.main()
