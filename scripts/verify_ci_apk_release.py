@@ -28,6 +28,7 @@ def main() -> None:
         "target: google_apis_ps16k",
         "channel: beta",
         "AdhanDeliveryProbeInstrumentedTest",
+        "./gradlew :app:connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=org.muslim.app.feature.prayertimes.notifications.AdhanDeliveryProbeInstrumentedTest --stacktrace",
         ":app:assembleDebug :wear:assembleDebug",
         ":app:verifyProductionRelease :app:assembleRelease :wear:assembleRelease",
         "Muslim-development.apk",
