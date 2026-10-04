@@ -54,6 +54,8 @@ data class DownloadRequest(
     val totalBytes: Long,
     /** Defer the actual transfer until the night window (التحميل الليلي). */
     val nightOnly: Boolean = false,
+    /** Optional trusted whole-surah source URL for provider catalogue downloads. */
+    val sourceUrl: String? = null,
 )
 
 /** Persisted form of an active task (survives reboot / process death). */

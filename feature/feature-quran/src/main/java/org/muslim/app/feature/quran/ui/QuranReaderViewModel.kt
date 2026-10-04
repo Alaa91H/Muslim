@@ -192,8 +192,9 @@ class QuranReaderViewModel @Inject constructor(
     private val audioPlayer = dependencies.recitation.audioPlayer
     private val sessionStore = dependencies.recitation.sessionStore
     private val sessionRuntime = dependencies.recitation.sessionRuntime
-    private val fullSurahPlayback = FullSurahPlaybackCoordinator(audioPlayer, sessionRuntime)
-    private val fullSurahCatalog = FullSurahCatalogState(dependencies.recitation.fullSurahCatalog)
+    private val fullSurahPlayback = FullSurahPlaybackCoordinator(audioPlayer, sessionRuntime, recitationRepository)
+    private val fullSurahCatalogClient = dependencies.recitation.fullSurahCatalog
+    private val fullSurahCatalog = FullSurahCatalogState(fullSurahCatalogClient)
     private val downloadNotifier = RecitationDownloadNotifier(context)
 
     // Last recitation range/repeat the user played with, so switching the
@@ -858,6 +859,29 @@ class QuranReaderViewModel @Inject constructor(
         _recitationFailure.value = null
         _restorableSession.value = null
         lastPlaybackRequest = intent
+    }
+
+    /** Downloads the selected provider recording to app-private storage for offline playback. */
+    fun downloadFullSurah(recording: FullSurahRecitation) {
+        val surahNumber = _surahNumber.value
+        val url = recording.audioUrl(surahNumber) ?: return
+        viewModelScope.launch {
+            val verified = runCatching { fullSurahCatalogClient.verifyAudioSource(recording, surahNumber) }
+                .getOrNull() ?: return@launch
+            downloadManager.enqueue(
+                DownloadRequest(
+                    id = "full-surah-${recording.id}-$surahNumber-${System.currentTimeMillis()}",
+                    reciterId = recording.id,
+                    reciterName = recording.reciterName,
+                    scope = DownloadScope.Surah,
+                    surahNumber = surahNumber,
+                    globalNumber = null,
+                    label = recording.reciterName,
+                    totalBytes = verified.contentLengthBytes,
+                    sourceUrl = url,
+                ),
+            )
+        }
     }
 
     fun discardRestorableSession() {

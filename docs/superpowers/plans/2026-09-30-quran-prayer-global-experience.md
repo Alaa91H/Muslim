@@ -32,6 +32,7 @@ Files: Reciter.kt, provider catalogue/quality metadata, reciter/download selecti
 - [x] Inspect EveryAyah, MP3Quran and Quran Foundation primary sources; distinguish per-ayah files from full-surah audio/timing.
 - [x] Add a localized searchable picker for the current per-ayah reciter catalogue; keep a stable ID for users with saved selections.
 - [x] Add searchable browsing for complete-surah recordings by reciter, rewaya, and stable source IDs; normalize Arabic diacritics and keep these entries separate from per-ayah reciters.
+- [x] Download advertised complete-surah recordings through the resumable foreground download service into app-private storage; prefer downloaded audio on playback and preserve provider streaming as fallback.
 - [ ] Add other verified sources and playback scopes; do not treat full-surah streams as per-ayah audio.
 - [x] Validate MP3Quran source transport using strict HTTPS host checks, `HEAD` metadata, and a one-byte range fallback when `HEAD` is unavailable; do not infer bitrate or listening quality from API metadata.
 - [ ] Audit every advertised source URL, content type, and seek behavior with provenance; bitrate and subjective audio quality need independent source data and review. Preserve resumable/offline downloads when adding playback support.

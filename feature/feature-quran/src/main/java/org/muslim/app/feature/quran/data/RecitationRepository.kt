@@ -8,6 +8,7 @@ import kotlinx.coroutines.withContext
 import org.muslim.app.core.network.FileDownloader
 import org.muslim.app.feature.quran.domain.Reciter
 import java.io.File
+import java.security.MessageDigest
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -45,6 +46,39 @@ class RecitationRepository @Inject constructor(
 
     fun fileFor(reciterId: String, surahNumber: Int, globalNumber: Int): File =
         File(File(reciterDir(reciterId), surahNumber.toString()), "$globalNumber.mp3")
+
+    /** App-private destination for one provider recording of a complete surah. */
+    fun fullSurahFile(recordingId: String, surahNumber: Int): File? {
+        val storageKey = fullSurahStorageKey(recordingId) ?: return null
+        if (surahNumber !in 1..114) return null
+        return File(File(File(recitationsDir, "full_surah"), storageKey), "$surahNumber.mp3")
+    }
+
+    fun localFullSurahFile(recordingId: String, surahNumber: Int): File? =
+        fullSurahFile(recordingId, surahNumber)?.takeIf { it.isUsableRecitationAudio() }
+
+    suspend fun downloadFullSurah(
+        recordingId: String,
+        surahNumber: Int,
+        audioUrl: String,
+        onProgress: (Float) -> Unit = {},
+    ): FileDownloader.Result {
+        if (!RecitationStreamSourcePolicy.accepts(audioUrl, RecitationPlaybackScope.FullSurah)) {
+            return FileDownloader.Result.Failure(IllegalArgumentException("Untrusted full-surah audio URL"))
+        }
+        val target = fullSurahFile(recordingId, surahNumber)
+            ?: return FileDownloader.Result.Failure(IllegalArgumentException("Invalid full-surah recording"))
+        if (target.isUsableRecitationAudio()) return FileDownloader.Result.Success(target)
+        return when (val result = fileDownloader.download(audioUrl, target, onProgress)) {
+            is FileDownloader.Result.Success -> if (target.isUsableRecitationAudio()) {
+                result
+            } else {
+                target.delete()
+                FileDownloader.Result.Failure(IllegalStateException("Downloaded full-surah audio is empty"))
+            }
+            is FileDownloader.Result.Failure -> result
+        }
+    }
 
     /** The currently selected reciter (bundled list fallback). */
     suspend fun selectedReciter(): Reciter =
@@ -183,6 +217,14 @@ class RecitationRepository @Inject constructor(
             }
             count >= expectedAyahs
         }
+}
+
+internal fun fullSurahStorageKey(recordingId: String): String? {
+    if (recordingId.length !in 1..128 || !recordingId.matches(Regex("[A-Za-z0-9._:-]+"))) return null
+    if (recordingId == "." || recordingId == "..") return null
+    return MessageDigest.getInstance("SHA-256")
+        .digest(recordingId.toByteArray(Charsets.UTF_8))
+        .joinToString(separator = "") { byte -> "%02x".format(byte) }
 }
 
 /** Snapshot of what audio is downloaded for one reciter. */

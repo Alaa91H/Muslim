@@ -9,6 +9,7 @@ import javax.inject.Inject
 class FullSurahPlaybackCoordinator @Inject constructor(
     private val player: QuranAudioPlayer,
     private val sessionRuntime: RecitationSessionRuntime,
+    private val recitationRepository: RecitationRepository,
 ) {
     fun start(recording: FullSurahRecitation, surahNumber: Int): RecitationSessionIntent? {
         val audioUrl = recording.audioUrl(surahNumber) ?: return null
@@ -38,19 +39,24 @@ class FullSurahPlaybackCoordinator @Inject constructor(
         if (!RecitationStreamSourcePolicy.accepts(audioUrl, RecitationPlaybackScope.FullSurah)) return false
 
         startQueue(
-            items = listOf(
-                RecitationQueueItem(
-                    file = File("full-surah.mp3"),
-                    globalNumber = anchorGlobal,
-                    streamUrl = audioUrl,
-                    playbackScope = RecitationPlaybackScope.FullSurah,
-                ),
-            ),
+            items = queueItem(intent, anchorGlobal),
             intent = intent,
             startPositionMs = startPositionMs,
             remainingRepeats = remainingRepeats,
         )
         return true
+    }
+
+    private fun queueItem(intent: RecitationSessionIntent, anchorGlobal: Int): List<RecitationQueueItem> {
+        val local = recitationRepository.localFullSurahFile(intent.reciterId, intent.surahNumber)
+        return listOf(
+            RecitationQueueItem(
+                file = local ?: File("full-surah.mp3"),
+                globalNumber = anchorGlobal,
+                streamUrl = if (local == null) intent.fullSurahAudioUrl else null,
+                playbackScope = RecitationPlaybackScope.FullSurah,
+            ),
+        )
     }
 
     fun startQueue(

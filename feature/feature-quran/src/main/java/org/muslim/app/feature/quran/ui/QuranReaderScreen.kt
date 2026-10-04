@@ -873,6 +873,7 @@ fun QuranReaderScreen(
                         onReciterSelected = viewModel::selectReciter,
                         onLoadFullSurahRecordings = { fullSurahCatalogRequested = true },
                         onFullSurahSelected = viewModel::playFullSurah,
+                        onFullSurahDownload = viewModel::downloadFullSurah,
                         onRangeChanged = { playRange = it },
                     ),
                 ),
@@ -1180,6 +1181,7 @@ private data class RecitationSettingsActions(
     val onReciterSelected: (Reciter) -> Unit,
     val onLoadFullSurahRecordings: () -> Unit,
     val onFullSurahSelected: (FullSurahRecitation) -> Unit,
+    val onFullSurahDownload: (FullSurahRecitation) -> Unit,
     val onRangeChanged: (RecitationRange) -> Unit,
 )
 
@@ -1394,6 +1396,7 @@ private fun RecitationSettingsSheet(
             state = state,
             onLoadFullSurahRecordings = actions.onLoadFullSurahRecordings,
             onFullSurahSelected = actions.onFullSurahSelected,
+            onFullSurahDownload = actions.onFullSurahDownload,
         )
         RepeatSelectionSection(
             repeatCount = state.repeatCount,
@@ -1416,6 +1419,7 @@ private fun ReciterSelectionSection(
     state: RecitationSettingsState,
     onLoadFullSurahRecordings: () -> Unit,
     onFullSurahSelected: (FullSurahRecitation) -> Unit,
+    onFullSurahDownload: (FullSurahRecitation) -> Unit,
 ) {
     var pickerOpen by rememberSaveable { mutableStateOf(false) }
     var query by rememberSaveable { mutableStateOf("") }
@@ -1496,15 +1500,20 @@ private fun ReciterSelectionSection(
                     .heightIn(max = 320.dp),
             ) {
                 items(filteredFullSurahRecordings, key = FullSurahRecitation::id) { recording ->
-                    TextButton(
-                        onClick = { onFullSurahSelected(recording) },
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(recording.reciterName, maxLines = 1, overflow = TextOverflow.Ellipsis)
-                            Text(recording.rewayaName, style = MaterialTheme.typography.labelSmall)
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        TextButton(
+                            onClick = { onFullSurahSelected(recording) },
+                            modifier = Modifier.weight(1f),
+                        ) {
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(recording.reciterName, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                                Text(recording.rewayaName, style = MaterialTheme.typography.labelSmall)
+                            }
+                            Icon(Icons.Filled.PlayArrow, contentDescription = null)
                         }
-                        Icon(Icons.Filled.PlayArrow, contentDescription = null)
+                        TextButton(onClick = { onFullSurahDownload(recording) }) {
+                            Text(stringResource(R.string.quran_download_start))
+                        }
                     }
                 }
             }

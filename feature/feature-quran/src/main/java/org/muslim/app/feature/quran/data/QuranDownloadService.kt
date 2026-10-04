@@ -130,11 +130,26 @@ class QuranDownloadService : Service() {
             return
         }
         manager.update(request.id) { it.copy(status = DownloadStatus.Downloading) }
-        val reciter = Reciter.Bundled.firstOrNull { it.id == request.reciterId } ?: Reciter.Bundled.first()
-        val result = when (request.scope) {
-            DownloadScope.Ayah -> downloadAyah(reciter, request)
-            DownloadScope.Surah -> downloadSurah(reciter, request.surahNumber ?: 1, request)
-            DownloadScope.FullQuran -> downloadFullQuran(reciter, request)
+        val result = if (request.sourceUrl != null) {
+            val surah = request.surahNumber
+            if (surah == null || surah !in 1..114 || !RecitationStreamSourcePolicy.accepts(
+                    request.sourceUrl,
+                    RecitationPlaybackScope.FullSurah,
+                )
+            ) {
+                FileDownloader.Result.Failure(IllegalArgumentException("Invalid full-surah download request"))
+            } else {
+                recitationRepository.downloadFullSurah(request.reciterId, surah, request.sourceUrl) { fraction ->
+                    report(request, (request.totalBytes * fraction).toLong())
+                }
+            }
+        } else {
+            val reciter = Reciter.Bundled.firstOrNull { it.id == request.reciterId } ?: Reciter.Bundled.first()
+            when (request.scope) {
+                DownloadScope.Ayah -> downloadAyah(reciter, request)
+                DownloadScope.Surah -> downloadSurah(reciter, request.surahNumber ?: 1, request)
+                DownloadScope.FullQuran -> downloadFullQuran(reciter, request)
+            }
         }
         when (result) {
             is FileDownloader.Result.Success -> {
@@ -193,6 +208,13 @@ class QuranDownloadService : Service() {
 
     /** Removes any in-flight `.part` files for the cancelled request's scope. */
     private suspend fun deletePartials(request: DownloadRequest) {
+        if (request.sourceUrl != null) {
+            request.surahNumber?.let { surah ->
+                recitationRepository.fullSurahFile(request.reciterId, surah)
+                    ?.let { File(it.parentFile, "${it.name}.part").delete() }
+            }
+            return
+        }
         val surah = if (request.scope == DownloadScope.FullQuran) null else request.surahNumber
         recitationRepository.deletePartials(request.reciterId, surah)
     }
@@ -374,6 +396,7 @@ class QuranDownloadService : Service() {
             label = intent.getStringExtra(EXTRA_LABEL).orEmpty(),
             totalBytes = intent.getLongExtra(EXTRA_TOTAL_BYTES, 0L),
             nightOnly = intent.getBooleanExtra(EXTRA_NIGHT_ONLY, false),
+            sourceUrl = intent.getStringExtra(EXTRA_SOURCE_URL),
         )
     }
 
@@ -394,6 +417,7 @@ class QuranDownloadService : Service() {
         const val EXTRA_LABEL = "extra_label"
         const val EXTRA_TOTAL_BYTES = "extra_total_bytes"
         const val EXTRA_NIGHT_ONLY = "extra_night_only"
+        const val EXTRA_SOURCE_URL = "extra_source_url"
 
         /** Builds the ACTION_START intent that (re)delivers [request]. */
         fun startIntent(context: Context, request: DownloadRequest): Intent =
@@ -408,6 +432,7 @@ class QuranDownloadService : Service() {
                 putExtra(EXTRA_LABEL, request.label)
                 putExtra(EXTRA_TOTAL_BYTES, request.totalBytes)
                 putExtra(EXTRA_NIGHT_ONLY, request.nightOnly)
+                putExtra(EXTRA_SOURCE_URL, request.sourceUrl)
             }
     }
 }
