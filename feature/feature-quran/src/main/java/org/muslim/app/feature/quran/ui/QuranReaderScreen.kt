@@ -152,6 +152,7 @@ import org.muslim.app.feature.quran.domain.ReaderTheme
 import org.muslim.app.feature.quran.domain.ReciterSearch
 import org.muslim.app.feature.quran.domain.Reciter
 import org.muslim.app.feature.quran.domain.FullSurahRecitation
+import org.muslim.app.feature.quran.domain.FullSurahRecitationSearch
 import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.SurahRevelationData
 
@@ -1418,7 +1419,11 @@ private fun ReciterSelectionSection(
 ) {
     var pickerOpen by rememberSaveable { mutableStateOf(false) }
     var query by rememberSaveable { mutableStateOf("") }
+    var fullSurahQuery by rememberSaveable { mutableStateOf("") }
     val filteredReciters = remember(reciters, query) { ReciterSearch.filter(reciters, query) }
+    val filteredFullSurahRecordings = remember(state.fullSurahRecordings, fullSurahQuery) {
+        FullSurahRecitationSearch.filter(state.fullSurahRecordings, fullSurahQuery)
+    }
     Text(
         text = stringResource(R.string.quran_reciter),
         style = MaterialTheme.typography.titleMedium,
@@ -1470,16 +1475,39 @@ private fun ReciterSelectionSection(
             color = MaterialTheme.colorScheme.error,
         )
     }
-    state.fullSurahRecordings.forEach { recording ->
-        TextButton(
-            onClick = { onFullSurahSelected(recording) },
+    if (state.fullSurahRecordings.isNotEmpty()) {
+        OutlinedTextField(
+            value = fullSurahQuery,
+            onValueChange = { fullSurahQuery = it },
+            label = { Text(stringResource(R.string.quran_reciter)) },
             modifier = Modifier.fillMaxWidth(),
-        ) {
-            Column(modifier = Modifier.weight(1f)) {
-                Text(recording.reciterName, maxLines = 1, overflow = TextOverflow.Ellipsis)
-                Text(recording.rewayaName, style = MaterialTheme.typography.labelSmall)
+            singleLine = true,
+        )
+        if (filteredFullSurahRecordings.isEmpty()) {
+            Text(
+                text = stringResource(R.string.quran_reciter_no_results),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        } else {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(max = 320.dp),
+            ) {
+                items(filteredFullSurahRecordings, key = FullSurahRecitation::id) { recording ->
+                    TextButton(
+                        onClick = { onFullSurahSelected(recording) },
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(recording.reciterName, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                            Text(recording.rewayaName, style = MaterialTheme.typography.labelSmall)
+                        }
+                        Icon(Icons.Filled.PlayArrow, contentDescription = null)
+                    }
+                }
             }
-            Icon(Icons.Filled.PlayArrow, contentDescription = stringResource(R.string.quran_play_ayah))
         }
     }
 }
