@@ -181,7 +181,7 @@ def main() -> None:
         [
             "build-apks:",
             "publish-release:",
-            "needs: [quality, emulator-tests, family-life-emulator-tests]",
+            "needs: [quality, emulator-tests, android17-adhan, family-life-emulator-tests]",
             "python3 scripts/verify_ci_apk_release.py",
             "Muslim-development.apk",
             "Muslim-Wear-development.apk",
