@@ -21,7 +21,11 @@ def main() -> None:
     required = (
         "build-apks:",
         "publish-release:",
-        "needs: [quality, emulator-tests, family-life-emulator-tests]",
+        "needs: [quality, emulator-tests, android17-adhan, family-life-emulator-tests]",
+        "android17-adhan:",
+        "api-level: 37",
+        "channel: beta",
+        "AdhanDeliveryProbeInstrumentedTest",
         ":app:assembleDebug :wear:assembleDebug",
         ":app:verifyProductionRelease :app:assembleRelease :wear:assembleRelease",
         "Muslim-development.apk",
@@ -52,7 +56,7 @@ def main() -> None:
         for line in workflow.splitlines()
         if line.strip().startswith("emulator-options:")
     ]
-    require(len(emulator_options) == 2, "Both emulator jobs must declare their graphics backend")
+    require(len(emulator_options) == 3, "All three emulator jobs must declare their graphics backend")
     require(
         all("-gpu software" in options and "swiftshader_indirect" not in options for options in emulator_options),
         "Emulator jobs must use the supported software renderer, not deprecated swiftshader_indirect",

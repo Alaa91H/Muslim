@@ -120,3 +120,9 @@ The Adhan reliability task is the current first implementation priority because 
 - Tafsir language tags now prefer the validated pack language metadata, and receiver source labels include available title, translator, and publisher details.
 - Verification: `:feature:feature-quran:testDebugUnitTest` passed locally (111 tasks, 1 executed; all feature tests). Targeted Android lint was started but manually stopped after analysis stalled under high JVM memory use; it is not counted as passed. Detekt passed locally across 665 Kotlin files; Android lint remains unverified locally and the full CI quality job is the authoritative gate after push.
 - Translation pack completeness and Cast hardware testing remain outstanding; this increment does not change release readiness.
+
+### 2026-10-04 continuation — Android 17 Adhan verification gate
+
+- Added a targeted API 37 Android 17 emulator job to the single CI workflow. It runs the real AlarmManager delivery probe through the manifest receiver and foreground playback service, while leaving the API 26/36 UI matrix unchanged.
+- The APK-release contract checker now requires this Android 17 job as a prerequisite for signed APK builds. Static lifecycle checks and the release-contract checker pass locally; the new API 37 runner remains unverified until GitHub Actions completes.
+- No version tag was created: the release-only Quran text gate currently reports 0 complete packs and 375 required language/type gaps across 188 supported UI languages.
