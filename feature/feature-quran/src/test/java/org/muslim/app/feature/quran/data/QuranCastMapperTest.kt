@@ -46,7 +46,7 @@ class QuranCastMapperTest {
             selectedLanguage = "fr",
             tafsir = listOf(
                 TafsirEntry(262, "التفسير الميسر", "تفسير الآية"),
-                TafsirEntry(262, "English Ibn Kathir", "Explanation"),
+                TafsirEntry(262, "ibn_kathir_en", "Explanation", language = "en", title = "Ibn Kathir"),
                 TafsirEntry(263, "English Ibn Kathir", "Another ayah"),
             ),
             prayerLocation = CastPrayerLocation("Berlin", "DE", "Europe/Berlin"),
@@ -57,6 +57,7 @@ class QuranCastMapperTest {
         assertThat(payload?.globalAyahNumber).isEqualTo(262)
         assertThat(payload?.translation?.languageTag).isEqualTo("fr")
         assertThat(payload?.tafsir?.map { it.languageTag }).containsExactly("ar", "en").inOrder()
+        assertThat(payload?.tafsir?.last()?.source).contains("Ibn Kathir")
         assertThat(payload?.queueGlobalNumbers).containsExactly(261, 262, 263).inOrder()
         assertThat(payload?.queueIndex).isEqualTo(1)
         assertThat(payload?.remainingRepeats).isEqualTo(2)

@@ -300,7 +300,13 @@ class QuranReaderViewModel @Inject constructor(
     val currentAyah = MutableStateFlow<Ayah?>(null)
     private val supplementCursor = QuranReaderSupplementCursor(repository, prefsRepository, viewModelScope)
     internal val supplementController by lazy {
-        QuranSupplementController(supplementRepository, prefsRepository, viewModelScope, supplementAyah)
+        QuranSupplementController(
+            supplementRepository,
+            prefsRepository,
+            viewModelScope,
+            supplementAyah,
+            audioPlayer.currentAyah,
+        )
     }
 
     private val mushafContent = QuranReaderMushaf(repository, viewModelScope)
@@ -374,6 +380,7 @@ class QuranReaderViewModel @Inject constructor(
         supplementCursor.setFollow(enabled, audioPlayer.currentAyah.value, currentAyah.value)
 
     val supplements: StateFlow<QuranReaderSupplementUi> get() = supplementController.supplements
+    internal val castSupplements get() = supplementController.castSupplements
     val installedSupplementPacks get() = supplementController.installedSupplementPacks
     val supplementEnabled: StateFlow<Boolean> get() = supplementController.supplementEnabled
     val supplementLanguage: StateFlow<String> get() = supplementController.supplementLanguage

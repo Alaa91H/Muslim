@@ -90,8 +90,12 @@ object QuranCastMapper {
             .map { entry ->
                 CastText(
                     text = entry.text,
-                    source = entry.source,
-                    languageTag = if (entry.source.contains("english", ignoreCase = true)) "en" else "ar",
+                    source = listOf(entry.title.takeIf(String::isNotBlank) ?: entry.source, entry.translator, entry.publisher)
+                        .filter(String::isNotBlank)
+                        .distinct()
+                        .joinToString(" · "),
+                    languageTag = entry.language.takeIf { it.isNotBlank() && !it.equals("und", ignoreCase = true) }
+                        ?: if (entry.source.contains("english", ignoreCase = true)) "en" else "ar",
                 )
             }.toList()
 

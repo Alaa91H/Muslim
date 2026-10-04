@@ -14,6 +14,8 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.muslim.app.feature.quran.data.OfficialQuranTextKind
 import org.muslim.app.feature.quran.data.OfficialQuranTextSource
+import org.muslim.app.feature.quran.data.QuranCastSupplementSelector
+import org.muslim.app.feature.quran.data.QuranCastSupplements
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.data.QuranSupplementRepository
 import org.muslim.app.feature.quran.domain.Ayah
@@ -27,6 +29,12 @@ private data class QuranSupplementRequest(
     val tafsirSource: String?,
 )
 
+private data class QuranCastSupplementRequest(
+    val globalAyah: Int?,
+    val enabled: Boolean,
+    val language: String,
+)
+
 /** Owns Quran meaning/tafsir catalog state, source selection and pack installation actions. */
 @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
 internal class QuranSupplementController(
@@ -34,6 +42,7 @@ internal class QuranSupplementController(
     private val preferences: QuranPrefsRepository,
     private val scope: CoroutineScope,
     supplementAyah: StateFlow<Ayah?>,
+    playingGlobalAyah: StateFlow<Int?>,
 ) {
     val installedTafsirSources: StateFlow<List<String>> = repository.observeInstalledTafsirSources()
         .stateIn(scope, SharingStarted.WhileSubscribed(5_000), emptyList())
@@ -54,6 +63,36 @@ internal class QuranSupplementController(
     ) { ayah, enabled, language, tafsirSource -> QuranSupplementRequest(ayah, enabled, language, tafsirSource) }
         .flatMapLatest(::observeAyahSupplements)
         .stateIn(scope, SharingStarted.WhileSubscribed(5_000), QuranReaderSupplementUi())
+
+    val castSupplements: StateFlow<QuranCastSupplements> = combine(
+        playingGlobalAyah,
+        preferences.supplementEnabled,
+        preferences.supplementLanguage,
+    ) { globalAyah, enabled, language -> QuranCastSupplementRequest(globalAyah, enabled, language) }
+        .flatMapLatest { request ->
+            val globalAyah = request.globalAyah
+            if (!request.enabled || globalAyah == null) {
+                flowOf(QuranCastSupplements())
+            } else {
+                combine(
+                    repository.observeTranslations(globalAyah),
+                    repository.observeTafsir(globalAyah),
+                ) { translations, tafsir ->
+                    val selectedLanguage = if (request.language == QuranPrefsRepository.AUTO_LANGUAGE) {
+                        java.util.Locale.getDefault().language
+                    } else {
+                        request.language
+                    }
+                    QuranCastSupplementSelector.select(
+                        enabled = true,
+                        selectedLanguage = selectedLanguage,
+                        translations = translations,
+                        tafsir = tafsir,
+                    )
+                }
+            }
+        }
+        .stateIn(scope, SharingStarted.WhileSubscribed(5_000), QuranCastSupplements())
 
     val installedSupplementPacks = repository.observeInstalledTextPacks()
         .stateIn(scope, SharingStarted.WhileSubscribed(5_000), emptyList())

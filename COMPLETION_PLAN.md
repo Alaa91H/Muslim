@@ -113,3 +113,10 @@ The Adhan reliability task is the current first implementation priority because 
 ---
 
 *This document is an operational plan; `PROJECT_PROMPT.md` remains the vision/architecture reference and the final source of truth.*
+
+### 2026-10-04 continuation — Quran Cast supplement synchronization
+
+- Cast now observes locally installed translation and tafsir for the currently playing ayah, independent of the reader's manual tafsir cursor or source filter. It sends only the selected translation language plus Arabic and English tafsir when Quran supplements are enabled.
+- Tafsir language tags now prefer the validated pack language metadata, and receiver source labels include available title, translator, and publisher details.
+- Verification: `:feature:feature-quran:testDebugUnitTest` passed locally (111 tasks, 1 executed; all feature tests). Targeted Android lint was started but manually stopped after analysis stalled under high JVM memory use; it is not counted as passed. Detekt passed locally across 665 Kotlin files; Android lint remains unverified locally and the full CI quality job is the authoritative gate after push.
+- Translation pack completeness and Cast hardware testing remain outstanding; this increment does not change release readiness.

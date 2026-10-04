@@ -262,6 +262,7 @@ fun QuranReaderScreen(
     val theme by viewModel.readerTheme.collectAsStateWithLifecycle()
     val persistedFont by viewModel.readerFontSize.collectAsStateWithLifecycle()
     val supplements by viewModel.supplements.collectAsStateWithLifecycle()
+    val castSupplements by viewModel.castSupplements.collectAsStateWithLifecycle()
     val castPrayerViewModel: QuranCastPrayerViewModel = hiltViewModel()
     val castPrayerSnapshot by castPrayerViewModel.snapshot.collectAsStateWithLifecycle()
     val positionMs by viewModel.positionMs.collectAsStateWithLifecycle()
@@ -420,7 +421,7 @@ fun QuranReaderScreen(
     val castAyah = playingAyah.takeIf { playbackState == PlaybackState.Playing || playbackState == PlaybackState.Paused }
     val castSessionId = rememberCastSessionId(context)
     val castPayloadContent = remember(
-        castAyah, selectedReciter, durationMs, supplements, supplementLanguage,
+        castAyah, selectedReciter, durationMs, castSupplements, supplementLanguage,
         castPrayerSnapshot, positionMs, playbackState, recitationSnapshot, state.surah,
     ) {
         QuranCastMapper.map(QuranCastMappingInput(
@@ -435,9 +436,9 @@ fun QuranReaderScreen(
             playbackState = playbackState,
             durationMs = durationMs.takeIf { playingAyah?.globalNumber == castAyah?.globalNumber } ?: 0L,
             snapshot = recitationSnapshot,
-            translations = supplements.translations,
+            translations = castSupplements.translations,
             selectedLanguage = supplementLanguage,
-            tafsir = supplements.tafsir,
+            tafsir = castSupplements.tafsir,
             prayerLocation = castPrayerSnapshot?.location,
             prayerTimes = castPrayerSnapshot?.times.orEmpty(),
         ))
