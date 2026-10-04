@@ -152,7 +152,6 @@ import org.muslim.app.feature.quran.domain.ReaderTheme
 import org.muslim.app.feature.quran.domain.ReciterSearch
 import org.muslim.app.feature.quran.domain.Reciter
 import org.muslim.app.feature.quran.domain.FullSurahRecitation
-import org.muslim.app.feature.quran.domain.FullSurahRecitationSearch
 import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.SurahRevelationData
 
@@ -873,7 +872,7 @@ fun QuranReaderScreen(
                         onReciterSelected = viewModel::selectReciter,
                         onLoadFullSurahRecordings = { fullSurahCatalogRequested = true },
                         onFullSurahSelected = viewModel::playFullSurah,
-                        onFullSurahDownload = viewModel::downloadFullSurah,
+                        onFullSurahDownload = viewModel.downloadFullSurah,
                         onRangeChanged = { playRange = it },
                     ),
                 ),
@@ -1423,11 +1422,7 @@ private fun ReciterSelectionSection(
 ) {
     var pickerOpen by rememberSaveable { mutableStateOf(false) }
     var query by rememberSaveable { mutableStateOf("") }
-    var fullSurahQuery by rememberSaveable { mutableStateOf("") }
     val filteredReciters = remember(reciters, query) { ReciterSearch.filter(reciters, query) }
-    val filteredFullSurahRecordings = remember(state.fullSurahRecordings, fullSurahQuery) {
-        FullSurahRecitationSearch.filter(state.fullSurahRecordings, fullSurahQuery)
-    }
     Text(
         text = stringResource(R.string.quran_reciter),
         style = MaterialTheme.typography.titleMedium,
@@ -1459,66 +1454,14 @@ private fun ReciterSelectionSection(
         onDismiss = { pickerOpen = false },
     )
 
-    Spacer(Modifier.height(IslamicSpacing.Compact))
-    Text(
-        text = stringResource(R.string.quran_reciter),
-        style = MaterialTheme.typography.titleSmall,
-        color = MaterialTheme.colorScheme.primary,
+    FullSurahCatalogSection(
+        recordings = state.fullSurahRecordings,
+        loading = state.fullSurahCatalogLoading,
+        hasError = state.fullSurahCatalogError,
+        onLoad = onLoadFullSurahRecordings,
+        onPlay = onFullSurahSelected,
+        onDownload = onFullSurahDownload,
     )
-    TextButton(onClick = onLoadFullSurahRecordings, enabled = !state.fullSurahCatalogLoading) {
-        if (state.fullSurahCatalogLoading) {
-            CircularProgressIndicator(modifier = Modifier.size(18.dp), strokeWidth = 2.dp)
-            Spacer(Modifier.width(IslamicSpacing.Small))
-        }
-        Text(stringResource(R.string.quran_reciter_picker_title))
-    }
-    if (state.fullSurahCatalogError) {
-        Text(
-            text = stringResource(R.string.quran_download_status_failed),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.error,
-        )
-    }
-    if (state.fullSurahRecordings.isNotEmpty()) {
-        OutlinedTextField(
-            value = fullSurahQuery,
-            onValueChange = { fullSurahQuery = it },
-            label = { Text(stringResource(R.string.quran_reciter)) },
-            modifier = Modifier.fillMaxWidth(),
-            singleLine = true,
-        )
-        if (filteredFullSurahRecordings.isEmpty()) {
-            Text(
-                text = stringResource(R.string.quran_reciter_no_results),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        } else {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .heightIn(max = 320.dp),
-            ) {
-                items(filteredFullSurahRecordings, key = FullSurahRecitation::id) { recording ->
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        TextButton(
-                            onClick = { onFullSurahSelected(recording) },
-                            modifier = Modifier.weight(1f),
-                        ) {
-                            Column(modifier = Modifier.weight(1f)) {
-                                Text(recording.reciterName, maxLines = 1, overflow = TextOverflow.Ellipsis)
-                                Text(recording.rewayaName, style = MaterialTheme.typography.labelSmall)
-                            }
-                            Icon(Icons.Filled.PlayArrow, contentDescription = null)
-                        }
-                        TextButton(onClick = { onFullSurahDownload(recording) }) {
-                            Text(stringResource(R.string.quran_download_start))
-                        }
-                    }
-                }
-            }
-        }
-    }
 }
 
 @Composable

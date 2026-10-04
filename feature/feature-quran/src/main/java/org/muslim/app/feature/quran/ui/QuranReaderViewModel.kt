@@ -83,8 +83,11 @@ class QuranReaderRecitationDependencies @Inject constructor(
 )
 
 /** Owns the on-demand provider request state for full-surah recordings. */
-class FullSurahCatalogState @Inject constructor(
+class FullSurahCatalogState(
     private val catalog: Mp3QuranCatalogClient,
+    private val downloadManager: QuranDownloadManager,
+    private val surahNumber: StateFlow<Int>,
+    private val scope: CoroutineScope,
 ) {
     private val _recordings = MutableStateFlow<List<FullSurahRecitation>>(emptyList())
     val recordings: StateFlow<List<FullSurahRecitation>> = _recordings.asStateFlow()
@@ -102,6 +105,28 @@ class FullSurahCatalogState @Inject constructor(
                 .onSuccess { values -> _recordings.value = values.filter { surahNumber in it.availableSurahs } }
                 .onFailure { _error.value = true }
             _loading.value = false
+        }
+    }
+
+    fun download(recording: FullSurahRecitation) {
+        val currentSurah = surahNumber.value
+        val url = recording.audioUrl(currentSurah) ?: return
+        scope.launch {
+            val verified = runCatching { catalog.verifyAudioSource(recording, currentSurah) }
+                .getOrNull() ?: return@launch
+            downloadManager.enqueue(
+                DownloadRequest(
+                    id = "full-surah-${recording.id}-$currentSurah-${System.currentTimeMillis()}",
+                    reciterId = recording.id,
+                    reciterName = recording.reciterName,
+                    scope = DownloadScope.Surah,
+                    surahNumber = currentSurah,
+                    globalNumber = null,
+                    label = recording.reciterName,
+                    totalBytes = verified.contentLengthBytes,
+                    sourceUrl = url,
+                ),
+            )
         }
     }
 }
@@ -193,8 +218,6 @@ class QuranReaderViewModel @Inject constructor(
     private val sessionStore = dependencies.recitation.sessionStore
     private val sessionRuntime = dependencies.recitation.sessionRuntime
     private val fullSurahPlayback = FullSurahPlaybackCoordinator(audioPlayer, sessionRuntime, recitationRepository)
-    private val fullSurahCatalogClient = dependencies.recitation.fullSurahCatalog
-    private val fullSurahCatalog = FullSurahCatalogState(fullSurahCatalogClient)
     private val downloadNotifier = RecitationDownloadNotifier(context)
 
     // Last recitation range/repeat the user played with, so switching the
@@ -205,15 +228,22 @@ class QuranReaderViewModel @Inject constructor(
     override fun onCleared() = downloadNotifier.dismiss()
 
 
+    /** Current surah; follows ayah navigation and continuous playback. */
     val initialSurahNumber: Int = savedStateHandle["surahNumber"] ?: 1
-
-    /** Current surah (mutable so continuous playback can auto-advance). */
     private val _surahNumber = MutableStateFlow(initialSurahNumber)
     val surahNumber: StateFlow<Int> = _surahNumber.asStateFlow()
+
+    private val fullSurahCatalog = FullSurahCatalogState(
+        dependencies.recitation.fullSurahCatalog,
+        downloadManager,
+        surahNumber,
+        viewModelScope,
+    )
 
     val fullSurahRecordings = fullSurahCatalog.recordings
     val fullSurahCatalogLoading = fullSurahCatalog.loading
     val fullSurahCatalogError = fullSurahCatalog.error
+    val downloadFullSurah: (FullSurahRecitation) -> Unit = fullSurahCatalog::download
 
     /** Global ayah number to scroll to (search/bookmarks/last-read), -1 = none. */
     val initialAyahGlobal: Int = savedStateHandle["ayah"] ?: -1
@@ -222,9 +252,8 @@ class QuranReaderViewModel @Inject constructor(
     private var autoplayWholeSurahPending: Boolean = savedStateHandle["autoplay"] ?: false
 
     /** Consumes the one-shot request to start the selected surah from ayah one. */
-    fun consumeAutoplayWholeSurah(): Boolean = autoplayWholeSurahPending.also {
-        autoplayWholeSurahPending = false
-    }
+    val consumeAutoplayWholeSurah: () -> Boolean =
+        { autoplayWholeSurahPending.also { autoplayWholeSurahPending = false } }
 
     /** The ayah currently in view; the UI updates this as the user scrolls. */
     val currentAyah = MutableStateFlow<Ayah?>(null)
@@ -859,29 +888,6 @@ class QuranReaderViewModel @Inject constructor(
         _recitationFailure.value = null
         _restorableSession.value = null
         lastPlaybackRequest = intent
-    }
-
-    /** Downloads the selected provider recording to app-private storage for offline playback. */
-    fun downloadFullSurah(recording: FullSurahRecitation) {
-        val surahNumber = _surahNumber.value
-        val url = recording.audioUrl(surahNumber) ?: return
-        viewModelScope.launch {
-            val verified = runCatching { fullSurahCatalogClient.verifyAudioSource(recording, surahNumber) }
-                .getOrNull() ?: return@launch
-            downloadManager.enqueue(
-                DownloadRequest(
-                    id = "full-surah-${recording.id}-$surahNumber-${System.currentTimeMillis()}",
-                    reciterId = recording.id,
-                    reciterName = recording.reciterName,
-                    scope = DownloadScope.Surah,
-                    surahNumber = surahNumber,
-                    globalNumber = null,
-                    label = recording.reciterName,
-                    totalBytes = verified.contentLengthBytes,
-                    sourceUrl = url,
-                ),
-            )
-        }
     }
 
     fun discardRestorableSession() {
