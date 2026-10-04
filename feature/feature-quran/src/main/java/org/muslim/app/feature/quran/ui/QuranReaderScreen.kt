@@ -66,7 +66,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import java.util.Locale
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
 import androidx.compose.material3.TopAppBar
@@ -2528,8 +2527,9 @@ private fun SupplementTafsirSources(
         }
         Text(stringResource(R.string.quran_text_catalog_source))
     }
+    val currentLanguage = LocalConfiguration.current.locales[0].language
     val selectedLanguage = if (state.language.equals(QuranPrefsRepository.AUTO_LANGUAGE, ignoreCase = true)) {
-        Locale.getDefault().language
+        currentLanguage
     } else {
         state.language.substringBefore('-')
     }
