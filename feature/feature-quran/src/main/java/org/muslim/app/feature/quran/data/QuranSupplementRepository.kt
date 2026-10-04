@@ -45,6 +45,13 @@ private data class QuranEncAyah(
 @Serializable
 private data class QuranEncTranslationList(val translations: List<QuranEncCatalogEntry> = emptyList())
 
+private data class ResolvedOfficialQuranTextSource(
+    val source: OfficialQuranTextSource,
+    val languageTag: String,
+    val attribution: String,
+    val work: String,
+)
+
 @Serializable
 internal data class QuranEncCatalogEntry(
     val key: String,
@@ -372,33 +379,26 @@ class QuranSupplementRepository @Inject constructor(
         source: OfficialQuranTextSource,
         onSurahDownloaded: (completedSurahs: Int) -> Unit = {},
     ): Int = withContext(Dispatchers.IO) {
+        val resolved = resolveOfficialTextSource(source)
+        val globalNumbers = quranRepository.allAyahs()
+            .associate { (it.surahNumber to it.numberInSurah) to it.globalNumber }
+        val entries = downloadOfficialTextEntries(source.apiKey, globalNumbers, onSurahDownloaded)
+        installOfficialTextPack(source, resolved, entries, globalNumbers.values.toSet())
+        entries.size
+    }
+
+    private fun resolveOfficialTextSource(source: OfficialQuranTextSource): ResolvedOfficialQuranTextSource {
         require(source.storageKey == source.apiKey) { "QuranEnc pack identity does not match its source key" }
         require(source.canDownload) {
             "This source has no explicit review evidence and cannot be installed as verified content"
         }
-        val catalogEntry = if (source.kind == OfficialQuranTextKind.Meaning) {
-            val catalogUrl = URL("https://quranenc.com/api/v1/translations/list?localization=en")
-            val catalogJson = catalogUrl.openConnection().run {
-                connectTimeout = NETWORK_TIMEOUT_MS
-                readTimeout = NETWORK_TIMEOUT_MS
-                getInputStream().bufferedReader(Charsets.UTF_8).use { it.readText() }
+        val catalogEntry = when (source.kind) {
+            OfficialQuranTextKind.Meaning -> fetchQuranEncMeaningEntry(source.apiKey)
+            OfficialQuranTextKind.TranslatedTafsir -> {
+                validateQuranEncTafsirSource(source)
+                null
             }
-            json.decodeFromString<QuranEncTranslationList>(catalogJson)
-                .translations.firstOrNull { it.key == source.apiKey }
-                ?: error("QuranEnc source metadata is unavailable")
-        } else {
-            require(source == quranEncUzbekMuyassarSource()) {
-                "This translated tafsir source is not approved for direct installation"
-            }
-            val card = fetchQuranEncIndexCard(source.apiKey)
-                ?: error("QuranEnc tafsir source card is unavailable")
-            val currentVersion = parseQuranEncEditionVersion(card, source.apiKey)
-                ?: error("QuranEnc tafsir edition version is unavailable")
-            require(
-                currentVersion == source.version && card.contains(source.title) &&
-                    card.contains(source.translator) && card.contains("IxlosOrg"),
-            ) { "QuranEnc tafsir edition metadata changed; refresh the catalogue" }
-            null
+            OfficialQuranTextKind.OriginalTafsir -> error("Original tafsir packs cannot be installed as translations")
         }
         val currentSource = if (catalogEntry != null) {
             val mapped = mapQuranEncMeaningSource(catalogEntry)
@@ -415,58 +415,109 @@ class QuranSupplementRepository @Inject constructor(
         } else {
             currentSource.title
         }
-        val globalNumbers = quranRepository.allAyahs()
-            .associate { (it.surahNumber to it.numberInSurah) to it.globalNumber }
-        val expectedGlobalNumbers = globalNumbers.values.toSet()
-        val entries = ArrayList<QuranTextPackEntry>(globalNumbers.size)
+        return ResolvedOfficialQuranTextSource(currentSource, sourceLanguage, sourceDescription, sourceWork)
+    }
+
+    private fun fetchQuranEncMeaningEntry(apiKey: String): QuranEncCatalogEntry {
+        val catalogUrl = URL("https://quranenc.com/api/v1/translations/list?localization=en")
+        val catalogJson = catalogUrl.openConnection().run {
+            connectTimeout = NETWORK_TIMEOUT_MS
+            readTimeout = NETWORK_TIMEOUT_MS
+            getInputStream().bufferedReader(Charsets.UTF_8).use { it.readText() }
+        }
+        return json.decodeFromString<QuranEncTranslationList>(catalogJson)
+            .translations.firstOrNull { it.key == apiKey }
+            ?: error("QuranEnc source metadata is unavailable")
+    }
+
+    private fun validateQuranEncTafsirSource(source: OfficialQuranTextSource) {
+        require(source == quranEncUzbekMuyassarSource()) {
+            "This translated tafsir source is not approved for direct installation"
+        }
+        val card = fetchQuranEncIndexCard(source.apiKey)
+            ?: error("QuranEnc tafsir source card is unavailable")
+        val currentVersion = parseQuranEncEditionVersion(card, source.apiKey)
+            ?: error("QuranEnc tafsir edition version is unavailable")
+        require(
+            currentVersion == source.version && card.contains(source.title) &&
+                card.contains(source.translator) && card.contains("IxlosOrg"),
+        ) { "QuranEnc tafsir edition metadata changed; refresh the catalogue" }
+    }
+
+    private fun downloadOfficialTextEntries(
+        apiKey: String,
+        globalNumbers: Map<Pair<Int, Int>, Int>,
+        onSurahDownloaded: (Int) -> Unit,
+    ): List<QuranTextPackEntry> = buildList {
         for (surahNumber in 1..114) {
-            val url = URL("https://quranenc.com/api/v1/translation/sura/${source.apiKey}/$surahNumber")
-            val response = (url.openConnection() as HttpURLConnection).run {
-                requestMethod = "GET"
-                connectTimeout = NETWORK_TIMEOUT_MS
-                readTimeout = NETWORK_TIMEOUT_MS
-                setRequestProperty("Accept", "application/json")
-                try {
-                    if (responseCode !in 200..299) error("QuranEnc HTTP $responseCode")
-                    inputStream.bufferedReader(Charsets.UTF_8).use { it.readText() }
-                } finally {
-                    disconnect()
-                }
-            }
-            val items = json.decodeFromString<QuranEncSuraResponse>(response).result
-            if (items.isEmpty()) error("QuranEnc returned no ayahs for surah $surahNumber")
-            items.forEach { item ->
-                val sourceSurah = item.sura.toIntOrNull() ?: error("Invalid QuranEnc surah")
-                val sourceAyah = item.aya.toIntOrNull() ?: error("Invalid QuranEnc ayah")
-                if (sourceSurah != surahNumber) error("Mismatched QuranEnc surah $sourceSurah")
-                if (item.translation.isBlank()) error("Empty QuranEnc text for $sourceSurah:$sourceAyah")
-                val globalNumber = globalNumbers[sourceSurah to sourceAyah]
-                    ?: error("Unknown QuranEnc ayah ${item.sura}:${item.aya}")
-                entries += QuranTextPackEntry(
-                    globalNumber = globalNumber,
-                    text = item.translation,
-                    footnotes = item.footnotes?.takeIf(String::isNotBlank)?.let(::listOf).orEmpty(),
-                )
-            }
+            addAll(downloadOfficialSurahEntries(apiKey, surahNumber, globalNumbers))
             onSurahDownloaded(surahNumber)
         }
+    }
+
+    private fun downloadOfficialSurahEntries(
+        apiKey: String,
+        surahNumber: Int,
+        globalNumbers: Map<Pair<Int, Int>, Int>,
+    ): List<QuranTextPackEntry> {
+        val url = URL("https://quranenc.com/api/v1/translation/sura/$apiKey/$surahNumber")
+        val connection = url.openConnection() as HttpURLConnection
+        connection.requestMethod = "GET"
+        connection.connectTimeout = NETWORK_TIMEOUT_MS
+        connection.readTimeout = NETWORK_TIMEOUT_MS
+        connection.setRequestProperty("Accept", "application/json")
+        val response = try {
+            if (connection.responseCode !in 200..299) error("QuranEnc HTTP ${connection.responseCode}")
+            connection.inputStream.bufferedReader(Charsets.UTF_8).use { it.readText() }
+        } finally {
+            connection.disconnect()
+        }
+        val items = json.decodeFromString<QuranEncSuraResponse>(response).result
+        require(items.isNotEmpty()) { "QuranEnc returned no ayahs for surah $surahNumber" }
+        return items.map { item -> mapQuranEncAyah(item, surahNumber, globalNumbers) }
+    }
+
+    private fun mapQuranEncAyah(
+        item: QuranEncAyah,
+        expectedSurah: Int,
+        globalNumbers: Map<Pair<Int, Int>, Int>,
+    ): QuranTextPackEntry {
+        val surahNumber = item.sura.toIntOrNull() ?: error("Invalid QuranEnc surah")
+        val ayahNumber = item.aya.toIntOrNull() ?: error("Invalid QuranEnc ayah")
+        require(surahNumber == expectedSurah) { "Mismatched QuranEnc surah $surahNumber" }
+        require(item.translation.isNotBlank()) { "Empty QuranEnc text for $surahNumber:$ayahNumber" }
+        val globalNumber = globalNumbers[surahNumber to ayahNumber]
+            ?: error("Unknown QuranEnc ayah ${item.sura}:${item.aya}")
+        return QuranTextPackEntry(
+            globalNumber = globalNumber,
+            text = item.translation,
+            footnotes = item.footnotes?.takeIf(String::isNotBlank)?.let(::listOf).orEmpty(),
+        )
+    }
+
+    private suspend fun installOfficialTextPack(
+        source: OfficialQuranTextSource,
+        resolved: ResolvedOfficialQuranTextSource,
+        entries: List<QuranTextPackEntry>,
+        expectedGlobalNumbers: Set<Int>,
+    ) {
         val footnoteCount = entries.sumOf { it.footnotes.size }
         val packJson = QuranTextPackFile(
             schemaVersion = QuranTextPackValidator.SUPPORTED_SCHEMA_VERSION,
             manifest = QuranTextPackManifest(
                 id = source.storageKey,
                 kind = source.kind.packKind,
-                languageTag = sourceLanguage,
-                title = currentSource.title,
-                work = sourceWork,
-                translator = currentSource.translator,
-                publisher = currentSource.publisher,
-                sourceAttribution = sourceDescription,
-                sourceUrl = currentSource.sourceUrl,
+                languageTag = resolved.languageTag,
+                title = resolved.source.title,
+                work = resolved.work,
+                translator = resolved.source.translator,
+                publisher = resolved.source.publisher,
+                sourceAttribution = resolved.attribution,
+                sourceUrl = resolved.source.sourceUrl,
                 license = "QuranEnc reuse terms: no modification/addition/deletion; credit publisher and QuranEnc; show edition version and source transcript; report translation notes; use latest edition; no inappropriate ads. See https://quranenc.com/en/home/api/",
-                version = currentSource.version,
-                reviewer = requireNotNull(currentSource.reviewEvidence),
-                reviewReference = currentSource.sourceUrl,
+                version = resolved.source.version,
+                reviewer = requireNotNull(resolved.source.reviewEvidence),
+                reviewReference = resolved.source.sourceUrl,
                 expectedAyahCount = QuranTextPackValidator.FULL_QURAN_AYAH_COUNT,
                 footnoteCount = footnoteCount,
                 sha256 = sha256(json.encodeToString(entries)),
@@ -485,7 +536,7 @@ class QuranSupplementRepository @Inject constructor(
                     TranslationEntity(
                         globalNumber = entry.globalNumber,
                         packId = source.storageKey,
-                        language = sourceLanguage,
+                        language = resolved.languageTag,
                         text = entry.text,
                         footnotes = json.encodeToString(entry.footnotes),
                     )
@@ -501,7 +552,6 @@ class QuranSupplementRepository @Inject constructor(
             }
             packDao.insert(metadata)
         }
-        entries.size
     }
 
     suspend fun removeTranslationLanguage(language: String) {

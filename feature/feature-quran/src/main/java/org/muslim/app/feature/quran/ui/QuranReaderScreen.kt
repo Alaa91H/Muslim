@@ -46,13 +46,11 @@ import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.filled.RadioButtonChecked
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material.icons.outlined.BookmarkBorder
-import androidx.compose.material.icons.outlined.RadioButtonUnchecked
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -320,8 +318,10 @@ fun QuranReaderScreen(
                 runCatching {
                     context.contentResolver.openInputStream(uri)?.use { it.readUtf8Limited(MAX_TEXT_PACK_IMPORT_BYTES) }
                         ?: error("Unable to read selected pack")
-                }.onSuccess { viewModel.importTextPack(it) }
-                    .onFailure { error -> viewModel.importTextPackFailure(error.message ?: "Unable to read pack") }
+                }.onSuccess { viewModel.supplementController.importTextPack(it) }
+                    .onFailure { error ->
+                        viewModel.supplementController.importTextPackFailure(error.message ?: "Unable to read pack")
+                    }
             }
         }
     }
@@ -1087,7 +1087,7 @@ fun QuranReaderScreen(
             }
         }
             LaunchedEffect(showSupplementControls, supplementLanguage) {
-                if (showSupplementControls) viewModel.refreshOfficialTextSources(supplementLanguage)
+                if (showSupplementControls) viewModel.supplementController.refreshOfficialTextSources(supplementLanguage)
             }
             if (showSupplementControls) {
                 SupplementControlsDialog(
@@ -1103,12 +1103,12 @@ fun QuranReaderScreen(
                         installedPacks = installedSupplementPacks,
                     ),
                     actions = SupplementControlsActions(
-                        onEnabledChanged = viewModel::setSupplementEnabled,
-                        onTafsirSourceSelected = viewModel::setSelectedTafsirSource,
-                        onRefreshOfficialTextSources = viewModel::refreshOfficialTextSources,
-                        onDownloadOfficialText = viewModel::downloadOfficialText,
+                        onEnabledChanged = viewModel.supplementController::setSupplementEnabled,
+                        onTafsirSourceSelected = viewModel.supplementController::setSelectedTafsirSource,
+                        onRefreshOfficialTextSources = viewModel.supplementController::refreshOfficialTextSources,
+                        onDownloadOfficialText = viewModel.supplementController::downloadOfficialText,
                         onImportPack = { importTextPackLauncher.launch(arrayOf("application/json", "text/*")) },
-                        onLanguageChanged = viewModel::setSupplementLanguage,
+                        onLanguageChanged = viewModel.supplementController::setSupplementLanguage,
                         onDismiss = { showSupplementControls = false },
                     ),
                 )
@@ -2350,7 +2350,7 @@ private fun DetailRow(label: String, value: String) {
 }
 
 /** State rendered by the reader's meanings and tafsir controls. */
-private data class SupplementControlsState(
+internal data class SupplementControlsState(
     val enabled: Boolean,
     val installedTafsirSources: List<String>,
     val selectedTafsirSource: String?,
@@ -2363,7 +2363,7 @@ private data class SupplementControlsState(
 )
 
 /** Reader-owned actions invoked by the stateless supplement controls. */
-private data class SupplementControlsActions(
+internal data class SupplementControlsActions(
     val onEnabledChanged: (Boolean) -> Unit,
     val onTafsirSourceSelected: (String?) -> Unit,
     val onRefreshOfficialTextSources: (String) -> Unit,
@@ -2490,162 +2490,6 @@ private fun SupplementVisibilityControls(
     HorizontalDivider()
     Spacer(Modifier.height(12.dp))
 }
-
-@Composable
-private fun SupplementTafsirSources(
-    state: SupplementControlsState,
-    actions: SupplementControlsActions,
-) {
-    Text(
-        stringResource(R.string.quran_tafsir_sources_title),
-        style = MaterialTheme.typography.labelLarge,
-        color = MaterialTheme.colorScheme.primary,
-    )
-    Spacer(Modifier.height(6.dp))
-    if (state.installedTafsirSources.isEmpty()) {
-        Text(
-            stringResource(R.string.quran_tafsir_sources_empty),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-    } else {
-        state.installedTafsirSources.forEach { source ->
-            TafsirSourceChoice(
-                source = source,
-                selected = state.selectedTafsirSource == source,
-                onSelected = { actions.onTafsirSourceSelected(source) },
-            )
-        }
-    }
-    Text(
-        stringResource(R.string.quran_text_catalog_title),
-        style = MaterialTheme.typography.labelLarge,
-        color = MaterialTheme.colorScheme.primary,
-    )
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        TextButton(onClick = { actions.onRefreshOfficialTextSources(state.language) }) {
-            Text(stringResource(R.string.quran_text_catalog_refresh))
-        }
-        Text(stringResource(R.string.quran_text_catalog_source))
-    }
-    val currentLanguage = LocalConfiguration.current.locales[0].language
-    val selectedLanguage = if (state.language.equals(QuranPrefsRepository.AUTO_LANGUAGE, ignoreCase = true)) {
-        currentLanguage
-    } else {
-        state.language.substringBefore('-')
-    }
-    val languageSources = state.officialTextSources.filter { it.languageTag.equals(selectedLanguage, ignoreCase = true) }
-    if (languageSources.isEmpty()) {
-        Text(
-            stringResource(R.string.quran_text_catalog_empty),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-    }
-    val sourceGroups = listOf(
-        R.string.quran_meaning_catalog_title to languageSources.filter {
-            it.kind == org.muslim.app.feature.quran.data.OfficialQuranTextKind.Meaning
-        },
-        R.string.quran_tafsir_translation_catalog_title to languageSources.filter {
-            it.kind == org.muslim.app.feature.quran.data.OfficialQuranTextKind.TranslatedTafsir
-        },
-        R.string.quran_original_tafsir_catalog_title to languageSources.filter {
-            it.kind == org.muslim.app.feature.quran.data.OfficialQuranTextKind.OriginalTafsir
-        },
-    )
-    sourceGroups.forEach { (titleId, sources) ->
-        if (sources.isNotEmpty()) {
-            Spacer(Modifier.height(8.dp))
-            Text(stringResource(titleId), style = MaterialTheme.typography.labelMedium)
-            sources.forEach { source ->
-                OfficialQuranTextDownloadRow(source, state, actions.onDownloadOfficialText)
-            }
-        }
-    }
-    state.tafsirDownloadState.error?.let { error ->
-        Text(
-            stringResource(R.string.quran_tafsir_download_failed, error),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.error,
-        )
-    }
-    Text(
-        stringResource(R.string.quran_tafsir_attribution),
-        style = MaterialTheme.typography.bodySmall,
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
-    )
-    Spacer(Modifier.height(12.dp))
-    HorizontalDivider()
-    Spacer(Modifier.height(12.dp))
-}
-
-@Composable
-private fun TafsirSourceChoice(source: String, selected: Boolean, onSelected: () -> Unit) {
-    Row(
-        modifier = Modifier.fillMaxWidth().clip(MaterialTheme.shapes.small)
-            .clickable(onClick = onSelected).padding(vertical = 8.dp, horizontal = 4.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Icon(
-            imageVector = if (selected) Icons.Filled.RadioButtonChecked else Icons.Outlined.RadioButtonUnchecked,
-            contentDescription = null,
-            tint = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.size(20.dp),
-        )
-        Spacer(Modifier.width(10.dp))
-        Text(source, style = MaterialTheme.typography.bodyMedium)
-    }
-}
-
-@Composable
-private fun OfficialQuranTextDownloadRow(
-    source: org.muslim.app.feature.quran.data.OfficialQuranTextSource,
-    state: SupplementControlsState,
-    onDownload: (org.muslim.app.feature.quran.data.OfficialQuranTextSource) -> Unit,
-) {
-    val installed = state.installedPacks.any { it.id == source.storageKey }
-    val downloading = state.tafsirDownloadState.downloading == source
-    Row(modifier = Modifier.fillMaxWidth().padding(top = 4.dp), verticalAlignment = Alignment.CenterVertically) {
-        Column(modifier = Modifier.weight(1f)) {
-            Text(source.title, style = MaterialTheme.typography.bodySmall)
-            Text(
-                "${source.languageTag} · ${source.translator}",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Text(
-                "${source.sourceAttribution}\n${source.sourceUrl}",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-        TextButton(
-            enabled = source.canDownload && !installed && !downloading &&
-                state.tafsirDownloadState.downloading == null,
-            onClick = { onDownload(source) },
-        ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(
-                    if (downloading) stringResource(R.string.quran_tafsir_downloading)
-                    else if (installed) stringResource(R.string.quran_tafsir_installed)
-                    else if (!source.canDownload) stringResource(R.string.quran_text_catalog_review_missing)
-                    else stringResource(R.string.quran_tafsir_download),
-                )
-                if (downloading) {
-                    Text(
-                        stringResource(
-                            R.string.quran_tafsir_download_progress,
-                            state.tafsirDownloadState.completedSurahs,
-                            114,
-                        ),
-                        style = MaterialTheme.typography.labelSmall,
-                    )
-                }
-            }
-        }
-    }
-}
-
 
 @Composable
 private fun SupplementLanguageOptions(
