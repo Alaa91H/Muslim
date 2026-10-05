@@ -111,13 +111,26 @@ The Arabic Quran text's separate Tanzil CC BY 3.0 license does not grant rights
 to the translations. This distinction is recorded in
 [`docs/content/license_research.md`](../../content/license_research.md).
 
-Quran Foundation documents catalogue and paginated tafsir-content endpoints,
-including author and resource metadata, but their current API schema documents
-authorization failures and required request headers. No Quran Foundation app
-credentials or license-specific approval are configured in this repository, so
-those endpoints are not treated as a downloadable, approved source yet. The
-release gate intentionally remains red until every supported UI language has a
-complete, source-attributed meaning translation and translated tafsir (and
-Arabic original tafsir); locale UI coverage is not evidence that Quran text
-content exists in that language. See the provider's [tafsir catalogue](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/tafsirs/)
+Quran Foundation documents metadata catalogues and paginated tafsir-content
+endpoints, including author and resource metadata. The repository has protected
+GitHub Actions credentials for its production Content API and the owner reports
+that separate redistribution permission has been granted. Credentials are used
+only by a manual metadata audit job; they are never available to the APK build
+or embedded in Android. Run the `CI` workflow with
+`audit_quran_foundation_catalog` enabled to produce a short-lived metadata-only
+artifact. The audit does not download Quran or tafsir text and does not mark
+resources complete, reviewed, licensed, or installable. Candidate resources
+still require source-specific contributor/review evidence, permission records,
+complete coverage of all 6,236 ayahs, footnote preservation, checksum
+validation, and explicit separation of Quran meaning translations from tafsir
+translations before entering the production catalogue.
+
+The release gate intentionally remains red until every supported content
+language has a complete, source-attributed meaning translation and translated
+tafsir (and Arabic original tafsir); Android UI locale coverage is not evidence
+that religious-text content exists in that language. Pre-live Content API data
+is incomplete and must not be used to generate full Quran packs. See the
+provider's [translations catalogue](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/translations/),
+[tafsir catalogue](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/tafsirs/),
+[translation metadata](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/translation-info/),
 and [tafsir content API](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/tafsir/).

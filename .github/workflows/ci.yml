@@ -8,6 +8,12 @@ on:
     tags: [ 'v*' ]
   pull_request:
   workflow_dispatch:
+    inputs:
+      audit_quran_foundation_catalog:
+        description: "Fetch Quran Foundation translation and tafsir catalogue metadata only"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -452,6 +458,39 @@ jobs:
           path: ci-apks/*.apk
           retention-days: 7
           compression-level: 0
+          if-no-files-found: error
+
+  # A manual, metadata-only source audit. Credentials never enter the APK jobs,
+  # and the audit does not download Quran or tafsir text.
+  quran-foundation-catalog-audit:
+    name: Audit Quran Foundation source catalogue
+    runs-on: ubuntu-26.04
+    if: github.event_name == 'workflow_dispatch' && inputs.audit_quran_foundation_catalog == true
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Fetch source metadata from production API
+        env:
+          QF_CLIENT_ID: ${{ secrets.QF_CLIENT_ID }}
+          QF_CLIENT_SECRET: ${{ secrets.QF_CLIENT_SECRET }}
+          QF_ENV: production
+          OUTPUT_PATH: ${{ runner.temp }}/qf-catalog-audit/catalog.json
+        run: python3 scripts/audit_quran_foundation_catalog.py --output "$OUTPUT_PATH"
+
+      - name: Store metadata audit report
+        uses: actions/upload-artifact@v7
+        with:
+          name: quran-foundation-catalog-${{ github.run_id }}
+          path: ${{ runner.temp }}/qf-catalog-audit/catalog.json
+          retention-days: 7
           if-no-files-found: error
 
   # This is the only job with release-write permission. It runs exclusively for

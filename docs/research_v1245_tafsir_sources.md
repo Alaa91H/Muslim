@@ -48,3 +48,10 @@ Sources: https://api-docs.quran.foundation/legal/developer-terms/ ; https://api-
 - QuranEnc's current homepage states that its translation content may be downloaded and republished subject to unchanged text, source/publisher attribution, edition version, transcript retention, reporting notes, update tracking, and advertising restrictions. This supports only the editions that satisfy their source-specific terms and Muslim's separate metadata/completeness checks.
 
 Sources: https://quranenc.com/en/home/index ; https://quranenc.com/api/v1/translations/list?localization=en ; https://quranenc.com/en/home/api/
+
+## Quran Foundation access follow-up — 2026-10-05
+
+- The project owner reports written permission to redistribute Quran Foundation content and has configured the protected GitHub Actions secrets `QF_CLIENT_ID` and `QF_CLIENT_SECRET`. Secret values are not read by the local workspace, written to the repository, or exposed to APK build jobs.
+- The official Content API quickstart requires the OAuth2 client-credentials flow with the `content` scope, followed by `x-auth-token` and `x-client-id` headers. The credential must remain server-side. Pre-live only contains Al-Fatihah and Al-Baqarah, so the catalogue audit targets production.
+- A manual CI audit now fetches only `/resources/translations` and `/resources/tafsirs` metadata. It deliberately does not fetch ayah text or tafsir bodies and does not claim that listed resources are reviewed, licensed, complete, or installable. Resource-specific info and complete-content checks remain required before any pack is accepted.
+- Official API references: https://api-docs.quran.com/docs/quickstart/manual-authentication/ ; https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/translations/ ; https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/tafsirs/ ; https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/translation-info/ ; https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/tafsir-info/
