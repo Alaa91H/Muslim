@@ -15,6 +15,17 @@ SPEC.loader.exec_module(AUDIT)
 
 
 class QuranFoundationCatalogAuditTests(unittest.TestCase):
+    def test_http_requests_use_an_explicit_application_user_agent(self):
+        with patch.object(AUDIT, "urlopen", return_value=io.BytesIO(b"{}")) as mocked:
+            AUDIT._read_json("https://oauth2.quran.foundation/oauth2/token", {})
+
+        request = mocked.call_args.args[0]
+        self.assertEqual(
+            request.get_header("User-agent"),
+            "Muslim-Quran-Catalog-Audit/1.0 (+https://github.com/Alaa91H/Muslim)",
+        )
+        self.assertEqual(request.get_header("Accept"), "application/json")
+
     def test_http_errors_include_safe_endpoint_and_provider_error_code(self):
         cases = (
             ("type", "insufficient_scope", "/resources/translations", "apis.quran.foundation"),

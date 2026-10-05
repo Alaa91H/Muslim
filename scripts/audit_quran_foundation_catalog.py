@@ -17,6 +17,7 @@ from urllib.request import Request, urlopen
 API_BASE = "https://apis.quran.foundation/content/api/v4"
 OAUTH_BASE = "https://oauth2.quran.foundation"
 RESOURCE_COLLECTIONS = ("translations", "tafsirs")
+USER_AGENT = "Muslim-Quran-Catalog-Audit/1.0 (+https://github.com/Alaa91H/Muslim)"
 
 
 def normalize_resources(payload: object, collection: str) -> list[dict[str, object]]:
@@ -67,7 +68,12 @@ def language_counts(records: list[dict[str, object]]) -> dict[str, int]:
 
 
 def _read_json(url: str, headers: dict[str, str], data: bytes | None = None) -> object:
-    request = Request(url, data=data, headers=headers, method="POST" if data is not None else "GET")
+    request_headers = dict(headers)
+    request_headers.setdefault("Accept", "application/json")
+    # The default Python-urllib user agent is rejected by Quran Foundation's
+    # Cloudflare edge (403 text/plain). Identify the caller explicitly.
+    request_headers.setdefault("User-Agent", USER_AGENT)
+    request = Request(url, data=data, headers=request_headers, method="POST" if data is not None else "GET")
     try:
         with urlopen(request, timeout=30) as response:
             return json.loads(response.read())
