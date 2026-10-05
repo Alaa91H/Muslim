@@ -28,15 +28,28 @@ class QuranFoundationCatalogAuditTests(unittest.TestCase):
                     url,
                     403,
                     "Forbidden",
-                    {},
+                    {"Content-Type": "application/json"},
                     io.BytesIO(f'{{"{field}":"{code}","message":"private detail"}}'.encode()),
                 )
                 with patch.object(AUDIT, "urlopen", side_effect=error):
                     with self.assertRaisesRegex(
                         RuntimeError,
-                        rf"HTTP 403 \({code}\) at {escaped_endpoint}"
+                        rf"HTTP 403 \({code}\) at {escaped_endpoint} \(response=application/json\)"
                     ):
                         AUDIT._read_json(url, {})
+
+    def test_http_errors_classify_non_json_responses_without_logging_body(self):
+        error = HTTPError(
+            "https://oauth2.quran.foundation/oauth2/token",
+            403,
+            "Forbidden",
+            {"Content-Type": "text/html; charset=utf-8"},
+            io.BytesIO(b"private proxy response"),
+        )
+        with patch.object(AUDIT, "urlopen", side_effect=error):
+            with self.assertRaisesRegex(RuntimeError, r"HTTP 403 \(unknown\).*response=text/html") as raised:
+                AUDIT._read_json(error.url, {})
+        self.assertNotIn("private proxy response", str(raised.exception))
 
     def test_normalizes_translation_metadata_without_retaining_content(self):
         payload = {

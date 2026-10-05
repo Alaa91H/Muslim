@@ -73,6 +73,11 @@ def _read_json(url: str, headers: dict[str, str], data: bytes | None = None) -> 
             return json.loads(response.read())
     except HTTPError as error:
         error_type = "unknown"
+        response_content_type = "unknown"
+        if error.headers:
+            content_type = error.headers.get("Content-Type", "").split(";", 1)[0].strip().lower()
+            if content_type.replace("/", "").replace("-", "").isalnum():
+                response_content_type = content_type
         try:
             error_payload = json.loads(error.read())
             candidate = (
@@ -88,7 +93,9 @@ def _read_json(url: str, headers: dict[str, str], data: bytes | None = None) -> 
         # print the response body, query string, credentials, or access token.
         endpoint = urlsplit(url).path
         raise RuntimeError(
-            f"Quran Foundation request failed: HTTP {error.code} ({error_type}) at {endpoint}"
+            "Quran Foundation request failed: "
+            f"HTTP {error.code} ({error_type}) at {endpoint} "
+            f"(response={response_content_type})"
         ) from None
     except URLError as error:
         raise RuntimeError(f"Quran Foundation request failed: {error.reason}") from None
