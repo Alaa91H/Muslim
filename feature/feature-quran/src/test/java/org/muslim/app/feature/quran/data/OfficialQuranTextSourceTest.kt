@@ -86,4 +86,25 @@ class OfficialQuranTextSourceTest {
         assertThat(parseQuranEncEditionVersion(index, "uzbek_moyassar")).isEqualTo("1.0.0")
         assertThat(parseQuranEncEditionVersion(index, "missing_source")).isNull()
     }
+
+    @Test
+    fun `reads Arabic original tafsir edition metadata without inventing review evidence`() {
+        val index = """
+            <div class="tab_card"><div>01/01/2026 - V9.9.9</div>
+              <a data-share-key="other_source"></a></div>
+            <div class="tab_card"><div>15/02/2017 - V1.0.0</div>
+              <h2>Arabic Language - At-Tafsir Al-Muyassar</h2>
+              <small>Issued by the King Fahd Complex for Printing the Holy Quran in Madinah</small>
+              <a data-share-key="arabic_moyassar"></a></div>
+        """.trimIndent()
+
+        val source = quranEncArabicMuyassarSource(index)
+
+        assertThat(source.kind).isEqualTo(OfficialQuranTextKind.OriginalTafsir)
+        assertThat(source.languageTag).isEqualTo("ar")
+        assertThat(source.version).isEqualTo("1.0.0")
+        assertThat(source.publisher).contains("King Fahd Complex")
+        assertThat(source.reviewEvidence).isNull()
+        assertThat(source.canDownload).isFalse()
+    }
 }

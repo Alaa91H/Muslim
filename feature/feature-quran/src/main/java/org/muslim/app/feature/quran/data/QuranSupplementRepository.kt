@@ -132,6 +132,32 @@ internal fun quranEncUzbekMuyassarSource() = OfficialQuranTextSource(
     kind = OfficialQuranTextKind.TranslatedTafsir,
 )
 
+internal fun quranEncArabicMuyassarSource(indexHtml: String): OfficialQuranTextSource {
+    val source = OfficialQuranTextSource(
+        storageKey = "arabic_moyassar",
+        apiKey = "arabic_moyassar",
+        languageTag = "ar",
+        title = "At-Tafsir Al-Muyassar (Arabic original)",
+        sourceUrl = "https://quranenc.com/ar/browse/arabic_moyassar",
+        translator = "Original Arabic work",
+        publisher = "Not specified by the source",
+        sourceAttribution = "QuranEnc source edition metadata is unavailable; refresh before considering this work.",
+        version = "Not specified by the source",
+        reviewEvidence = null,
+        kind = OfficialQuranTextKind.OriginalTafsir,
+    )
+    val card = quranEncIndexCard(indexHtml, source.apiKey) ?: return source
+    val version = parseQuranEncEditionVersion(indexHtml, source.apiKey) ?: return source
+    val editionTitle = "Arabic Language - At-Tafsir Al-Muyassar"
+    val publisher = "King Fahd Complex for Printing the Holy Quran in Madinah"
+    if (!card.contains(editionTitle) || !card.contains(publisher)) return source
+    return source.copy(
+        publisher = publisher,
+        sourceAttribution = "QuranEnc identifies the Arabic original edition and its publisher; its public source card does not state a reviewer.",
+        version = version,
+    )
+}
+
 /** QuranEnc's interpretation works are absent from its translations-list API. Keep these
  * separately typed and non-downloadable until the publisher supplies translator, reviewer,
  * and edition-version metadata through a verifiable catalogue contract. */
@@ -360,19 +386,7 @@ class QuranSupplementRepository @Inject constructor(
         )
         translations + quranEncTranslatedTafsirCandidates() + listOf(
             indexedUzbekMuyassar,
-            OfficialQuranTextSource(
-                storageKey = "arabic_moyassar",
-                apiKey = "arabic_moyassar",
-                languageTag = "ar",
-                title = "At-Tafsir Al-Muyassar (Arabic original)",
-                sourceUrl = "https://quranenc.com/ar/browse/arabic_moyassar",
-                translator = "Original Arabic work",
-                publisher = "QuranEnc",
-                sourceAttribution = "The source page identifies the Arabic work; edition version and reviewer metadata are not exposed by the translations API.",
-                version = "Not specified by the source API",
-                reviewEvidence = null,
-                kind = OfficialQuranTextKind.OriginalTafsir,
-            ),
+            quranEncArabicMuyassarSource(pageCard.orEmpty()),
         )
     }
 

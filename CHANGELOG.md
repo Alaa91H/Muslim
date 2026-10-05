@@ -14,6 +14,7 @@ This release improves Quran recitation continuity and establishes a verified cat
 - Improved recitation startup and continuation by preparing the selected ayah for playback while the rest of the surah downloads in the background.
 - Synchronized Cast translation and tafsir with the ayah currently playing, and included selected-language metadata and tafsir source details when available.
 - Corrected tafsir language filtering, catalogue-language discovery, and the active app-language behavior used by the reader and Cast display.
+- Updated the Arabic Al-Muyassar catalogue entry to show QuranEnc's listed King Fahd Complex publisher and edition version, while keeping it unavailable until explicit review evidence is provided.
 - Kept the Quran reader's Cast action visible while device discovery is idle, so users can open the route chooser before a device is found.
 
 ### Prayer and Settings
