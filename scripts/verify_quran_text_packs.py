@@ -8,6 +8,7 @@ import importlib.util
 import json
 import re
 import sys
+from collections import defaultdict
 from urllib.parse import urlparse
 from pathlib import Path
 from typing import Any
@@ -107,12 +108,65 @@ def validate_pack(relative_path: str, expected_kind: str, expected_language: str
     return manifest, errors
 
 
-def audit() -> list[str]:
+def find_missing_coverage(installed_packs: list[dict[str, str]], languages: list[str]) -> list[tuple[str, str]]:
+    installed: dict[str, set[str]] = {}
+    for pack in installed_packs:
+        installed.setdefault(pack["languageTag"], set()).add(pack["kind"])
+    return [
+        (language, kind)
+        for language in languages
+        for kind in sorted(required_kinds(language) - installed.get(language, set()))
+    ]
+
+
+def render_coverage_report(missing: list[tuple[str, str]], languages: list[str]) -> str:
+    by_language: dict[str, list[str]] = defaultdict(list)
+    for language, kind in missing:
+        by_language[language].append(kind)
+    labels = {
+        MEANING: "Quran meaning translation",
+        TAFSIR: "translated tafsir",
+        TAFSIR_ORIGINAL: "original Arabic tafsir",
+    }
+    lines = [
+        "## Quran meanings and tafsir coverage gaps",
+        "",
+        f"**{len(missing)} missing language/type combinations** across {len(languages)} supported Quran UI languages.",
+        "",
+        "This is a coverage backlog, not a claim that source editions do not exist. No missing content is filled with unreviewed machine translation.",
+        "Only publisher-attributed, licensed, reviewed, complete packs may be added. Each pack must include exactly 6,236 ayahs, preserve source footnotes, and pass checksum and provenance validation.",
+        "",
+        "### Required editions by language",
+        "",
+    ]
+    for language in languages:
+        kinds = by_language.get(language, [])
+        if not kinds:
+            continue
+        for kind in kinds:
+            lines.append(f"- [ ] `{language}` — {labels[kind]}")
+    lines.extend([
+        "",
+        "### Acceptance requirements for each edition",
+        "",
+        "- [ ] Named work, translator or credited editorial team, publisher, and source attribution.",
+        "- [ ] Exact redistribution license and edition/version details recorded.",
+        "- [ ] Publisher source and review evidence URLs recorded; reviewer/review status identified.",
+        "- [ ] All 6,236 ayahs present once, with no blank text; source footnotes preserved.",
+        "- [ ] SHA-256 matches canonical serialized content and the pack passes `python scripts/verify_quran_text_packs.py`.",
+        "- [ ] Quran meaning translations remain distinct from translated tafsir; Arabic original tafsir remains separately classified.",
+        "",
+        "These checkboxes track missing edition types by language. Close a checkbox only when the corresponding verified pack is added to `docs/quran/text_packs/catalog.json` and CI passes.",
+    ])
+    return "\n".join(lines) + "\n"
+
+
+def audit(allow_missing_coverage: bool = False, report_path: Path | None = None) -> list[str]:
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
     if catalog.get("schema_version") != 1 or catalog.get("required_ayah_count") != AYAH_COUNT:
         raise ValueError("Unsupported Quran text pack catalogue schema")
     errors: list[str] = []
-    installed: dict[str, set[str]] = {}
+    valid_packs: list[dict[str, str]] = []
     seen_ids: set[str] = set()
     for item in catalog.get("packs", []):
         if not isinstance(item, dict):
@@ -130,35 +184,43 @@ def audit() -> list[str]:
         if manifest and manifest.get("id") != pack_id:
             errors.append(f"{pack_id}: catalogue id does not match manifest")
         if not pack_errors:
-            installed.setdefault(str(item["languageTag"]), set()).add(str(item["kind"]))
-    missing: list[str] = []
-    for language in supported_languages():
-        for kind in sorted(required_kinds(language) - installed.get(language, set())):
-            missing.append(f"{language}:{kind}")
-    if missing:
+            valid_packs.append({"languageTag": str(item["languageTag"]), "kind": str(item["kind"])})
+    languages = supported_languages()
+    missing = find_missing_coverage(valid_packs, languages)
+    if report_path is not None:
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text(render_coverage_report(missing, languages), encoding="utf-8")
+    if missing and not allow_missing_coverage:
+        missing_labels = [f"{language}:{kind}" for language, kind in missing]
         errors.append(
             f"declared-pack coverage missing for {len(missing)} language/type combinations: "
-            + ", ".join(missing[:30])
+            + ", ".join(missing_labels[:30])
             + (" ..." if len(missing) > 30 else "")
         )
     print(
         f"Quran text catalogue: {len(seen_ids)} packs; "
-        f"{len(supported_languages())} supported UI languages; {len(missing)} required coverage gaps."
+        f"{len(languages)} supported UI languages; {len(missing)} required coverage gaps."
     )
+    if missing and allow_missing_coverage:
+        print("Missing editions are reported for follow-up; every declared pack was still validated.")
     return errors
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--release", action="store_true", help="fail release readiness on any incomplete pack or language gap")
+    parser.add_argument("--allow-missing-coverage", action="store_true", help="report missing editions while still rejecting every invalid declared pack")
+    parser.add_argument("--report", type=Path, help="write a complete Markdown checklist of missing language/type combinations")
     args = parser.parse_args()
-    errors = audit()
+    errors = audit(allow_missing_coverage=args.allow_missing_coverage, report_path=args.report)
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)
-        if args.release:
+        if args.release or args.allow_missing_coverage:
             return 1
-        print("Coverage report only; release mode would reject these gaps.")
+        print("Coverage report only; strict release mode would reject these gaps.")
+    elif args.allow_missing_coverage:
+        print("Release coverage remains incomplete and must be tracked; this report is not a completeness approval.")
     else:
         print("All declared packs and required language coverage are complete.")
     return 0

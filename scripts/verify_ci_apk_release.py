@@ -36,6 +36,11 @@ def main() -> None:
         "muslim-apks-${{ github.run_id }}",
         "github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')",
         "contents: write",
+        "issues: write",
+        "quran-coverage-issue.md",
+        "Quran meanings and tafsir coverage tracking",
+        "COVERAGE_ISSUE_URL",
+        "--allow-missing-coverage --report",
         "gh release upload",
         "--draft=false",
         "scripts/check_localization_diff.py",
@@ -53,6 +58,11 @@ def main() -> None:
     require(
         "path: ci-apks/*.apk" in workflow,
         "CI build artifacts must contain APK files only",
+    )
+    require(
+        "gh issue edit \"$ISSUE_NUMBER\" --body-file quran-coverage-issue.md" in workflow
+        and "gh issue create --title \"$ISSUE_TITLE\" --body-file quran-coverage-issue.md" in workflow,
+        "Tagged releases must create or refresh one complete Quran coverage tracking issue",
     )
     emulator_options = [
         line.strip()

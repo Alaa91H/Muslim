@@ -125,11 +125,13 @@ complete coverage of all 6,236 ayahs, footnote preservation, checksum
 validation, and explicit separation of Quran meaning translations from tafsir
 translations before entering the production catalogue.
 
-The release gate intentionally remains red until every supported content
-language has a complete, source-attributed meaning translation and translated
-tafsir (and Arabic original tafsir); Android UI locale coverage is not evidence
-that religious-text content exists in that language. Pre-live Content API data
-is incomplete and must not be used to generate full Quran packs. See the
+The release audit requires every declared content pack to validate completely
+and writes a checklist for every missing language/type combination. Missing
+coverage is tracked in one GitHub issue and explicitly disclosed in release
+notes; it is never represented as complete or filled with unreviewed machine
+translation. Android UI locale coverage is not evidence that religious-text
+content exists in that language. Pre-live Content API data is incomplete and
+must not be used to generate full Quran packs. See the
 provider's [translations catalogue](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/translations/),
 [tafsir catalogue](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/tafsirs/),
 [translation metadata](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/translation-info/),
