@@ -254,7 +254,7 @@ fun QuranReaderScreen(
     onOpenDownloads: () -> Unit = {},
     viewModel: QuranReaderViewModel = hiltViewModel(),
 ) {
-    val appLanguage = LocalConfiguration.current.locales[0].language
+    val appLanguage = LocalConfiguration.current.locales[0].toLanguageTag()
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val mushafAyahs by viewModel.mushafAyahs.collectAsStateWithLifecycle()
     val surahNames by viewModel.surahNames.collectAsStateWithLifecycle()

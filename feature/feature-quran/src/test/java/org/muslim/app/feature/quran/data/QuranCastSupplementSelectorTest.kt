@@ -44,6 +44,33 @@ class QuranCastSupplementSelectorTest {
     }
 
     @Test
+    fun `regional app language uses exact Quran text edition or falls back to base edition`() {
+        val regional = QuranCastSupplementSelector.select(
+            enabled = true,
+            selectedLanguage = "en-US",
+            translations = listOf(
+                Translation(262, "en", "Base edition"),
+                Translation(262, "en-US", "US edition"),
+            ),
+            tafsir = listOf(
+                TafsirEntry(262, "Base tafsir", "Base explanation", language = "en"),
+                TafsirEntry(262, "US tafsir", "US explanation", language = "en-US"),
+            ),
+        )
+        assertThat(regional.translations.map(Translation::language)).containsExactly("en-US")
+        assertThat(regional.tafsir.map(TafsirEntry::language)).containsExactly("en-US")
+
+        val baseFallback = QuranCastSupplementSelector.select(
+            enabled = true,
+            selectedLanguage = "en-US",
+            translations = listOf(Translation(262, "en", "Base edition")),
+            tafsir = listOf(TafsirEntry(262, "Base tafsir", "Base explanation", language = "en")),
+        )
+        assertThat(baseFallback.translations.map(Translation::language)).containsExactly("en")
+        assertThat(baseFallback.tafsir.map(TafsirEntry::language)).containsExactly("en")
+    }
+
+    @Test
     fun `keeps cast religious supplements empty when the feature is disabled`() {
         val selected = QuranCastSupplementSelector.select(
             enabled = false,

@@ -21,6 +21,7 @@ import org.muslim.app.feature.quran.data.QuranSupplementRepository
 import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.TafsirEntry
 import org.muslim.app.feature.quran.domain.Translation
+import org.muslim.app.feature.quran.domain.selectQuranTextLanguage
 
 private data class QuranSupplementRequest(
     val ayah: Ayah?,
@@ -49,7 +50,7 @@ internal class QuranSupplementController(
     private val appLanguage = MutableStateFlow(java.util.Locale.getDefault().language)
 
     fun setAppLanguage(language: String) {
-        appLanguage.value = language.substringBefore('-').ifBlank { java.util.Locale.getDefault().language }
+        appLanguage.value = language.ifBlank { java.util.Locale.getDefault().toLanguageTag() }
     }
 
     val installedTafsirSources: StateFlow<List<String>> = repository.observeInstalledTafsirSources()
@@ -202,22 +203,14 @@ internal class QuranSupplementController(
                 } else {
                     language
                 }
-                val matchingTranslations = translations.translationsForLanguage(resolvedLanguage)
-                val matchingTafsir = tafsir.tafsirForLanguage(resolvedLanguage)
+                val matchingTranslations = selectQuranTextLanguage(translations, resolvedLanguage) { it.language }
+                val matchingTafsir = selectQuranTextLanguage(tafsir, resolvedLanguage) { it.language }
                 QuranReaderSupplementUi(
                     translations = matchingTranslations,
                     tafsir = matchingTafsir.filterSelectedSource(tafsirSource),
                 )
             }
         }
-    }
-
-    private fun List<Translation>.translationsForLanguage(language: String) = filter {
-        it.language.equals(language, ignoreCase = true)
-    }
-
-    private fun List<TafsirEntry>.tafsirForLanguage(language: String) = filter {
-        it.language.equals(language, ignoreCase = true)
     }
 
     private fun List<TafsirEntry>.filterSelectedSource(source: String?) =

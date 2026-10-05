@@ -2,6 +2,7 @@ package org.muslim.app.feature.quran.data
 
 import org.muslim.app.feature.quran.domain.TafsirEntry
 import org.muslim.app.feature.quran.domain.Translation
+import org.muslim.app.feature.quran.domain.selectQuranTextLanguage
 
 internal data class QuranCastSupplements(
     val translations: List<Translation> = emptyList(),
@@ -19,8 +20,8 @@ internal object QuranCastSupplementSelector {
         if (!enabled) return QuranCastSupplements()
 
         return QuranCastSupplements(
-            translations = translations.filter { it.language.equals(selectedLanguage, ignoreCase = true) },
-            tafsir = tafsir.filter { it.language.equals(selectedLanguage, ignoreCase = true) },
+            translations = selectQuranTextLanguage(translations, selectedLanguage) { it.language },
+            tafsir = selectQuranTextLanguage(tafsir, selectedLanguage) { it.language },
         )
     }
 }
