@@ -15,23 +15,28 @@ SPEC.loader.exec_module(AUDIT)
 
 
 class QuranFoundationCatalogAuditTests(unittest.TestCase):
-    def test_http_errors_include_safe_endpoint_and_provider_error_type(self):
-        error = HTTPError(
-            "https://apis.quran.foundation/content/api/v4/resources/translations?language=en",
-            403,
-            "Forbidden",
-            {},
-            io.BytesIO(b'{"type":"insufficient_scope","message":"private detail"}'),
+    def test_http_errors_include_safe_endpoint_and_provider_error_code(self):
+        cases = (
+            ("type", "insufficient_scope", "/resources/translations", "apis.quran.foundation"),
+            ("error", "invalid_client", "/oauth2/token", "oauth2.quran.foundation"),
         )
-        with patch.object(AUDIT, "urlopen", side_effect=error):
-            with self.assertRaisesRegex(
-                RuntimeError,
-                r"HTTP 403 \(insufficient_scope\) at /content/api/v4/resources/translations",
-            ):
-                AUDIT._read_json(
-                    "https://apis.quran.foundation/content/api/v4/resources/translations?language=en",
+        for field, code, endpoint, host in cases:
+            with self.subTest(code=code):
+                url = f"https://{host}{endpoint}?language=en"
+                escaped_endpoint = endpoint.replace("/", r"\/")
+                error = HTTPError(
+                    url,
+                    403,
+                    "Forbidden",
                     {},
+                    io.BytesIO(f'{{"{field}":"{code}","message":"private detail"}}'.encode()),
                 )
+                with patch.object(AUDIT, "urlopen", side_effect=error):
+                    with self.assertRaisesRegex(
+                        RuntimeError,
+                        rf"HTTP 403 \({code}\) at {escaped_endpoint}"
+                    ):
+                        AUDIT._read_json(url, {})
 
     def test_normalizes_translation_metadata_without_retaining_content(self):
         payload = {

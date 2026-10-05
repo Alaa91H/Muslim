@@ -75,7 +75,11 @@ def _read_json(url: str, headers: dict[str, str], data: bytes | None = None) -> 
         error_type = "unknown"
         try:
             error_payload = json.loads(error.read())
-            candidate = error_payload.get("type") if isinstance(error_payload, dict) else None
+            candidate = (
+                error_payload.get("type", error_payload.get("error"))
+                if isinstance(error_payload, dict)
+                else None
+            )
             if isinstance(candidate, str) and candidate.replace("_", "").isalnum():
                 error_type = candidate
         except (OSError, json.JSONDecodeError):
