@@ -11,6 +11,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.foundation.layout.size
 import androidx.compose.ui.unit.dp
 import android.view.ContextThemeWrapper
+import android.view.View
 import androidx.mediarouter.app.MediaRouteButton
 import com.google.android.gms.cast.framework.CastButtonFactory
 import org.muslim.app.feature.quran.R
@@ -44,6 +45,10 @@ internal fun QuranCastButton() {
             val castButtonContext = ContextThemeWrapper(viewContext, R.style.ThemeOverlay_Muslim_CastButton)
             MediaRouteButton(castButtonContext).apply {
                 CastButtonFactory.setUpMediaRouteButton(castButtonContext, this)
+                // Keep Cast discoverable in the reader even before a device is
+                // found. The Cast SDK owns route discovery and the chooser, but
+                // the Quran action itself must not disappear with route state.
+                visibility = View.VISIBLE
             }
         },
     )

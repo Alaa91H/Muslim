@@ -38,6 +38,11 @@ class CastThemeOpacityTest {
             routeButton as androidx.mediarouter.app.MediaRouteButton,
         )
         assertNotNull(routeButton)
+        assertEquals(
+            "Cast must remain discoverable from the Quran reader even before a route is found",
+            View.VISIBLE,
+            routeButton.visibility,
+        )
     }
 
     @Test

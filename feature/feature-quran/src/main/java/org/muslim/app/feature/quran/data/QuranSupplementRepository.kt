@@ -258,9 +258,9 @@ class QuranSupplementRepository @Inject constructor(
         }
     }
 
-    /** Languages are visible only when at least one validated meaning pack is installed. */
+    /** Display languages are selectable only when a validated meaning or tafsir pack is installed. */
     fun observeLanguages(): Flow<List<String>> =
-        packDao.observeKind(QuranTextPackKind.MeaningTranslation.wireValue)
+        packDao.observeAll()
             .map { packs -> packs.map(QuranTextPackEntity::languageTag).distinct().sorted() }
 
     /** Verified source catalogue; each installed work keeps its language and attribution. */

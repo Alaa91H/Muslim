@@ -388,6 +388,9 @@ class QuranReaderViewModel @Inject constructor(
     val textPackImportState: StateFlow<QuranTextPackImportState> get() = supplementController.textPackImportState
     val officialTextSources get() = supplementController.officialTextSources
     val availableSupplementLanguages get() = supplementController.availableSupplementLanguages
+    val availableCatalogueLanguages get() = supplementController.availableCatalogueLanguages
+
+    fun setSupplementAppLanguage(language: String) = supplementController.setAppLanguage(language)
 
     /** Hafs tajweed colourization remains an explicit, off-by-default option. */
     val tajweedEnabled: StateFlow<Boolean> = prefsRepository.tajweedEnabled

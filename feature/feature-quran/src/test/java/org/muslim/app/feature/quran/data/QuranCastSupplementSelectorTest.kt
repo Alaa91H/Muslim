@@ -7,7 +7,7 @@ import org.muslim.app.feature.quran.domain.Translation
 
 class QuranCastSupplementSelectorTest {
     @Test
-    fun `selects current language translation and Arabic plus English tafsir`() {
+    fun `selects translation and tafsir only in the selected language`() {
         val selected = QuranCastSupplementSelector.select(
             enabled = true,
             selectedLanguage = "fr",
@@ -16,6 +16,7 @@ class QuranCastSupplementSelectorTest {
                 Translation(262, "en", "English meaning"),
             ),
             tafsir = listOf(
+                TafsirEntry(262, "Tafsir français", "Explication française", language = "fr"),
                 TafsirEntry(262, "Tafsir Arabic", "شرح عربي", language = "ar"),
                 TafsirEntry(262, "Tafsir English", "English explanation", language = "en"),
                 TafsirEntry(262, "Tafsir Urdu", "اردو", language = "ur"),
@@ -23,7 +24,23 @@ class QuranCastSupplementSelectorTest {
         )
 
         assertThat(selected.translations.map(Translation::language)).containsExactly("fr")
-        assertThat(selected.tafsir.map(TafsirEntry::language)).containsExactly("ar", "en").inOrder()
+        assertThat(selected.tafsir.map(TafsirEntry::language)).containsExactly("fr")
+    }
+
+    @Test
+    fun `does not substitute tafsir from another language when selected tafsir is missing`() {
+        val selected = QuranCastSupplementSelector.select(
+            enabled = true,
+            selectedLanguage = "de",
+            translations = listOf(Translation(262, "de", "Bedeutung")),
+            tafsir = listOf(
+                TafsirEntry(262, "Arabic tafsir", "شرح", language = "ar"),
+                TafsirEntry(262, "English tafsir", "Explanation", language = "en"),
+            ),
+        )
+
+        assertThat(selected.translations.map(Translation::language)).containsExactly("de")
+        assertThat(selected.tafsir).isEmpty()
     }
 
     @Test

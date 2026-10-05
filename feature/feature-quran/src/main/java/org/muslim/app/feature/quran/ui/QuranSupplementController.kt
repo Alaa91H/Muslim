@@ -26,6 +26,7 @@ private data class QuranSupplementRequest(
     val ayah: Ayah?,
     val enabled: Boolean,
     val language: String,
+    val appLanguage: String,
     val tafsirSource: String?,
 )
 
@@ -33,6 +34,7 @@ private data class QuranCastSupplementRequest(
     val globalAyah: Int?,
     val enabled: Boolean,
     val language: String,
+    val appLanguage: String,
 )
 
 /** Owns Quran meaning/tafsir catalog state, source selection and pack installation actions. */
@@ -44,6 +46,12 @@ internal class QuranSupplementController(
     supplementAyah: StateFlow<Ayah?>,
     playingGlobalAyah: StateFlow<Int?>,
 ) {
+    private val appLanguage = MutableStateFlow(java.util.Locale.getDefault().language)
+
+    fun setAppLanguage(language: String) {
+        appLanguage.value = language.substringBefore('-').ifBlank { java.util.Locale.getDefault().language }
+    }
+
     val installedTafsirSources: StateFlow<List<String>> = repository.observeInstalledTafsirSources()
         .stateIn(scope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
@@ -59,8 +67,11 @@ internal class QuranSupplementController(
         supplementAyah,
         preferences.supplementEnabled,
         preferences.supplementLanguage,
+        appLanguage,
         effectiveSelectedTafsirSource,
-    ) { ayah, enabled, language, tafsirSource -> QuranSupplementRequest(ayah, enabled, language, tafsirSource) }
+    ) { ayah, enabled, language, currentAppLanguage, tafsirSource ->
+        QuranSupplementRequest(ayah, enabled, language, currentAppLanguage, tafsirSource)
+    }
         .flatMapLatest(::observeAyahSupplements)
         .stateIn(scope, SharingStarted.WhileSubscribed(5_000), QuranReaderSupplementUi())
 
@@ -68,7 +79,10 @@ internal class QuranSupplementController(
         playingGlobalAyah,
         preferences.supplementEnabled,
         preferences.supplementLanguage,
-    ) { globalAyah, enabled, language -> QuranCastSupplementRequest(globalAyah, enabled, language) }
+        appLanguage,
+    ) { globalAyah, enabled, language, currentAppLanguage ->
+        QuranCastSupplementRequest(globalAyah, enabled, language, currentAppLanguage)
+    }
         .flatMapLatest { request ->
             val globalAyah = request.globalAyah
             if (!request.enabled || globalAyah == null) {
@@ -79,7 +93,7 @@ internal class QuranSupplementController(
                     repository.observeTafsir(globalAyah),
                 ) { translations, tafsir ->
                     val selectedLanguage = if (request.language == QuranPrefsRepository.AUTO_LANGUAGE) {
-                        java.util.Locale.getDefault().language
+                        request.appLanguage
                     } else {
                         request.language
                     }
@@ -112,12 +126,16 @@ internal class QuranSupplementController(
     private val _officialTextSources = MutableStateFlow<List<OfficialQuranTextSource>>(emptyList())
     val officialTextSources: StateFlow<List<OfficialQuranTextSource>> = _officialTextSources.asStateFlow()
 
-    val availableSupplementLanguages: StateFlow<List<String>> = combine(
-        repository.observeLanguages(),
-        _officialTextSources,
-    ) { installed, catalogue ->
-        (installed + catalogue.map(OfficialQuranTextSource::languageTag)).distinct().sorted()
-    }.stateIn(scope, SharingStarted.WhileSubscribed(5_000), emptyList())
+    /** Only installed, validated packs may be selected as the display language. */
+    val availableSupplementLanguages: StateFlow<List<String>> = repository.observeLanguages()
+        .stateIn(scope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    /** Catalogue languages are discovery filters, not proof that content is installed. */
+    val availableCatalogueLanguages: StateFlow<List<String>> = _officialTextSources
+        .combine(repository.observeLanguages()) { sources, installed ->
+            (sources.map(OfficialQuranTextSource::languageTag) + installed).distinct().sorted()
+        }
+        .stateIn(scope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     fun importTextPack(contents: String) = scope.launch {
         _textPackImportState.value = QuranTextPackImportState(importing = true)
@@ -155,6 +173,9 @@ internal class QuranSupplementController(
             if (source.kind != OfficialQuranTextKind.Meaning) {
                 preferences.setSelectedTafsirSource(source.storageKey)
             }
+            // Make a successfully installed pack visible immediately instead
+            // of leaving it filtered out by the previous app-language choice.
+            preferences.setSupplementLanguage(source.languageTag)
             _tafsirDownloadState.value = QuranReaderTafsirDownloadState(
                 completedSource = source,
                 completedSurahs = 114,
@@ -177,7 +198,7 @@ internal class QuranSupplementController(
                 repository.observeTafsir(ayah.globalNumber),
             ) { translations, tafsir ->
                 val resolvedLanguage = if (language == QuranPrefsRepository.AUTO_LANGUAGE) {
-                    java.util.Locale.getDefault().language
+                    appLanguage
                 } else {
                     language
                 }

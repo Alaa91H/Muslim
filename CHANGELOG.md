@@ -13,6 +13,8 @@ This release improves Quran recitation continuity and establishes a verified cat
 - Removed the incomplete 11-ayah sample translation and tafsir assets from production resources and the approval inventory.
 - Improved recitation startup and continuation by preparing the selected ayah for playback while the rest of the surah downloads in the background.
 - Synchronized Cast translation and tafsir with the ayah currently playing, and included selected-language metadata and tafsir source details when available.
+- Corrected tafsir language filtering, catalogue-language discovery, and the active app-language behavior used by the reader and Cast display.
+- Kept the Quran reader's Cast action visible while device discovery is idle, so users can open the route chooser before a device is found.
 
 ### Prayer and Settings
 

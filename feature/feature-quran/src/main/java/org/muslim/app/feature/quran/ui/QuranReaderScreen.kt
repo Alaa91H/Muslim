@@ -254,6 +254,7 @@ fun QuranReaderScreen(
     onOpenDownloads: () -> Unit = {},
     viewModel: QuranReaderViewModel = hiltViewModel(),
 ) {
+    val appLanguage = LocalConfiguration.current.locales[0].language
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val mushafAyahs by viewModel.mushafAyahs.collectAsStateWithLifecycle()
     val surahNames by viewModel.surahNames.collectAsStateWithLifecycle()
@@ -285,8 +286,11 @@ fun QuranReaderScreen(
     val officialTextSources by viewModel.officialTextSources.collectAsStateWithLifecycle()
     val supplementLanguage by viewModel.supplementLanguage.collectAsStateWithLifecycle()
     val availableSupplementLanguages by viewModel.availableSupplementLanguages.collectAsStateWithLifecycle()
+    val availableCatalogueLanguages by viewModel.availableCatalogueLanguages.collectAsStateWithLifecycle()
     val installedSupplementPacks by viewModel.installedSupplementPacks.collectAsStateWithLifecycle()
     val continuousStopAtEnd by viewModel.continuousStopAtEnd.collectAsStateWithLifecycle()
+
+    LaunchedEffect(appLanguage) { viewModel.setSupplementAppLanguage(appLanguage) }
     val playbackState by viewModel.playbackState.collectAsStateWithLifecycle()
     val currentAudioAyah by viewModel.currentAudioAyah.collectAsStateWithLifecycle()
     val hasNextAyah by viewModel.hasNextAyah.collectAsStateWithLifecycle()
@@ -858,7 +862,11 @@ fun QuranReaderScreen(
                     }
                 }
 
-            SupplementPanel(supplements = supplements, currentAyah = supplementAyah)
+            SupplementPanel(
+                supplements = supplements,
+                currentAyah = supplementAyah,
+                enabled = supplementEnabled,
+            )
 
             RecitationBar(
                 state = RecitationBarState(
@@ -1103,6 +1111,7 @@ fun QuranReaderScreen(
                         officialTextSources = officialTextSources,
                         language = supplementLanguage,
                         availableLanguages = availableSupplementLanguages,
+                        availableCatalogueLanguages = availableCatalogueLanguages,
                         installedPacks = installedSupplementPacks,
                     ),
                     actions = SupplementControlsActions(
@@ -1140,9 +1149,10 @@ private fun InputStream.readUtf8Limited(maxBytes: Int): String {
 private fun SupplementPanel(
     supplements: QuranReaderSupplementUi,
     currentAyah: Ayah?,
+    enabled: Boolean,
 ) {
     val hasContent = supplements.translations.isNotEmpty() || supplements.tafsir.isNotEmpty()
-    if (!hasContent || currentAyah == null) return
+    if (currentAyah == null || (!hasContent && !enabled)) return
 
     IslamicCard(
         modifier = Modifier
@@ -1155,6 +1165,13 @@ private fun SupplementPanel(
             style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.primary,
         )
+        if (!hasContent) {
+            Text(
+                text = stringResource(R.string.quran_tafsir_sources_empty),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
         supplements.translations.forEach { translation ->
             Spacer(Modifier.height(IslamicSpacing.Small))
             Text(
@@ -2362,6 +2379,7 @@ internal data class SupplementControlsState(
     val officialTextSources: List<org.muslim.app.feature.quran.data.OfficialQuranTextSource>,
     val language: String,
     val availableLanguages: List<String>,
+    val availableCatalogueLanguages: List<String>,
     val installedPacks: List<org.muslim.app.core.database.entity.QuranTextPackEntity>,
 )
 
@@ -2381,14 +2399,29 @@ private fun SupplementControlsDialog(
     state: SupplementControlsState,
     actions: SupplementControlsActions,
 ) {
+    val appLanguage = LocalConfiguration.current.locales[0].language
+    val dialogMaxHeight = with(LocalDensity.current) {
+        LocalWindowInfo.current.containerSize.height.toDp() * 0.72f
+    }
+    var catalogueLanguage by rememberSaveable(appLanguage) { mutableStateOf(appLanguage) }
     AlertDialog(
         onDismissRequest = actions.onDismiss,
         title = { Text(stringResource(R.string.quran_supplement_controls)) },
         text = {
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(max = dialogMaxHeight)
+                    .verticalScroll(rememberScrollState()),
+            ) {
                 SupplementVisibilityControls(state, actions)
                 TextPackImportControls(state, actions)
-                SupplementTafsirSources(state, actions)
+                SupplementTafsirSources(
+                    state = state,
+                    actions = actions,
+                    catalogueLanguage = catalogueLanguage,
+                    onCatalogueLanguageChanged = { catalogueLanguage = it },
+                )
                 SupplementLanguageOptions(state, actions)
                 InstalledTextPackIndex(state.installedPacks)
             }

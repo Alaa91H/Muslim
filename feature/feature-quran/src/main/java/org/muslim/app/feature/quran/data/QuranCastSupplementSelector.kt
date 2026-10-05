@@ -20,7 +20,7 @@ internal object QuranCastSupplementSelector {
 
         return QuranCastSupplements(
             translations = translations.filter { it.language.equals(selectedLanguage, ignoreCase = true) },
-            tafsir = tafsir.filter { it.language.equals("ar", ignoreCase = true) || it.language.equals("en", ignoreCase = true) },
+            tafsir = tafsir.filter { it.language.equals(selectedLanguage, ignoreCase = true) },
         )
     }
 }
