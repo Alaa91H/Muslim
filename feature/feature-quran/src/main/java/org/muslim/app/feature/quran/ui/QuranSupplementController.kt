@@ -20,7 +20,6 @@ import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.data.QuranSupplementRepository
 import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.TafsirEntry
-import org.muslim.app.feature.quran.domain.Translation
 import org.muslim.app.feature.quran.domain.selectQuranTextLanguage
 
 private data class QuranSupplementRequest(
