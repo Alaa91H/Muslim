@@ -19,7 +19,9 @@ permissions:
   contents: read
 
 concurrency:
-  group: ci-${{ github.ref }}
+  # Keep the metadata-only manual audit independent from the full CI run on
+  # the same ref; pushes still supersede older push runs.
+  group: ci-${{ github.ref }}-${{ github.event_name }}
   cancel-in-progress: true
 
 jobs:
@@ -32,6 +34,7 @@ jobs:
   # ---------------------------------------------------------------------------
   quality:
     name: Quality (build · unit · lint · detekt)
+    if: github.event_name != 'workflow_dispatch' || inputs.audit_quran_foundation_catalog != true
     runs-on: ubuntu-26.04
     steps:
       - name: Checkout
@@ -177,6 +180,7 @@ jobs:
   # ---------------------------------------------------------------------------
   emulator-tests:
     name: Emulator tests (prayer home + Qibla mosques · API ${{ matrix.api-level }})
+    if: github.event_name != 'workflow_dispatch' || inputs.audit_quran_foundation_catalog != true
     runs-on: ubuntu-26.04
     strategy:
       fail-fast: false
@@ -267,6 +271,7 @@ jobs:
   # regressions without multiplying the full UI screenshot matrix.
   android17-adhan:
     name: Adhan delivery (Android 17 · API 37)
+    if: github.event_name != 'workflow_dispatch' || inputs.audit_quran_foundation_catalog != true
     runs-on: ubuntu-26.04
     timeout-minutes: 30
     steps:
@@ -319,6 +324,7 @@ jobs:
   # ---------------------------------------------------------------------------
   family-life-emulator-tests:
     name: Family Life emulator tests · API ${{ matrix.api-level }}
+    if: github.event_name != 'workflow_dispatch' || inputs.audit_quran_foundation_catalog != true
     runs-on: ubuntu-26.04
     strategy:
       fail-fast: false
@@ -370,6 +376,7 @@ jobs:
   # job below after the production gates pass.
   build-apks:
     name: Build and sign APKs
+    if: github.event_name != 'workflow_dispatch' || inputs.audit_quran_foundation_catalog != true
     runs-on: ubuntu-26.04
     needs: [quality, emulator-tests, android17-adhan, family-life-emulator-tests]
     steps:
