@@ -11,7 +11,7 @@ import os
 from pathlib import Path
 import sys
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlsplit
 from urllib.request import Request, urlopen
 
 API_BASE = "https://apis.quran.foundation/content/api/v4"
@@ -72,7 +72,20 @@ def _read_json(url: str, headers: dict[str, str], data: bytes | None = None) -> 
         with urlopen(request, timeout=30) as response:
             return json.loads(response.read())
     except HTTPError as error:
-        raise RuntimeError(f"Quran Foundation request failed with HTTP {error.code}") from None
+        error_type = "unknown"
+        try:
+            error_payload = json.loads(error.read())
+            candidate = error_payload.get("type") if isinstance(error_payload, dict) else None
+            if isinstance(candidate, str) and candidate.replace("_", "").isalnum():
+                error_type = candidate
+        except (OSError, json.JSONDecodeError):
+            pass
+        # Report only a static path and allowlisted provider error type. Never
+        # print the response body, query string, credentials, or access token.
+        endpoint = urlsplit(url).path
+        raise RuntimeError(
+            f"Quran Foundation request failed: HTTP {error.code} ({error_type}) at {endpoint}"
+        ) from None
     except URLError as error:
         raise RuntimeError(f"Quran Foundation request failed: {error.reason}") from None
     except json.JSONDecodeError:

@@ -1,5 +1,8 @@
 import importlib.util
+import io
 import unittest
+from unittest.mock import patch
+from urllib.error import HTTPError
 
 ROOT = __import__("pathlib").Path(__file__).resolve().parents[2]
 SPEC = importlib.util.spec_from_file_location(
@@ -12,6 +15,24 @@ SPEC.loader.exec_module(AUDIT)
 
 
 class QuranFoundationCatalogAuditTests(unittest.TestCase):
+    def test_http_errors_include_safe_endpoint_and_provider_error_type(self):
+        error = HTTPError(
+            "https://apis.quran.foundation/content/api/v4/resources/translations?language=en",
+            403,
+            "Forbidden",
+            {},
+            io.BytesIO(b'{"type":"insufficient_scope","message":"private detail"}'),
+        )
+        with patch.object(AUDIT, "urlopen", side_effect=error):
+            with self.assertRaisesRegex(
+                RuntimeError,
+                r"HTTP 403 \(insufficient_scope\) at /content/api/v4/resources/translations",
+            ):
+                AUDIT._read_json(
+                    "https://apis.quran.foundation/content/api/v4/resources/translations?language=en",
+                    {},
+                )
+
     def test_normalizes_translation_metadata_without_retaining_content(self):
         payload = {
             "translations": [
