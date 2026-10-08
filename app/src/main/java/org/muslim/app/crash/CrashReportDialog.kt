@@ -17,7 +17,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -37,7 +37,7 @@ import org.muslim.app.R
  */
 @Composable
 fun CrashReportDialog() {
-    val error by AppErrorBus.current.collectAsState()
+    val error by AppErrorBus.current.collectAsStateWithLifecycle()
     val current = error ?: return
     val context = LocalContext.current
 
