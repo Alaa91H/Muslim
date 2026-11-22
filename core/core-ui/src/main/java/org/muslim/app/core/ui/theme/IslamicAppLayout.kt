@@ -31,22 +31,21 @@ data class MuslimMotionPreferences(
 
 val LocalMuslimMotionPreferences = staticCompositionLocalOf { MuslimMotionPreferences() }
 
-/\*\* Shared app shell; set liquidGlassEnabled false for the Quran reader. \*/
+/** Shared app shell; set liquidGlassEnabled false for the Quran reader. */
 @Composable
 fun MuslimAppScaffold(
     modifier: Modifier = Modifier,
-    topBar: @Composable () -&gt; Unit = {},
-    bottomBar: @Composable () -&gt; Unit = {},
-    snackbarHost: @Composable () -&gt; Unit = {},
-    floatingActionButton: @Composable () -&gt; Unit = {},
+    topBar: @Composable () -> Unit = {},
+    bottomBar: @Composable () -> Unit = {},
+    snackbarHost: @Composable () -> Unit = {},
+    floatingActionButton: @Composable () -> Unit = {},
     contentWindowInsets: WindowInsets = ScaffoldDefaults.contentWindowInsets,
     liquidGlassEnabled: Boolean = true,
-    content: @Composable (PaddingValues) -&gt; Unit,
+    content: @Composable (PaddingValues) -> Unit,
 ) {
     val alreadyInGlassScope = LocalLiquidGlassMode.current
-    val shellModifier = if (alreadyInGlassScope) modifier.fillMaxSize() else Modifier.fillMaxSize()
-    val scaffoldContent: @Composable () -&gt; Unit = {
-        Box(modifier = shellModifier) {
+    val scaffoldContent: @Composable () -> Unit = {
+        Box(modifier = modifier.fillMaxSize()) {
             if (LocalLiquidGlassMode.current) {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
@@ -80,18 +79,15 @@ fun MuslimAppScaffold(
         }
     }
 
-```
-if (alreadyInGlassScope) scaffoldContent()
-else LiquidGlassScreen(modifier = modifier, enabled = liquidGlassEnabled, content = scaffoldContent)
-```
-
+    if (alreadyInGlassScope) scaffoldContent()
+    else LiquidGlassScreen(modifier = modifier, enabled = liquidGlassEnabled, content = scaffoldContent)
 }
 
 @Composable
 fun MuslimContentFrame(
     modifier: Modifier = Modifier,
     maxContentWidth: Dp = DefaultMuslimContentWidth,
-    content: @Composable BoxScope.() -&gt; Unit,
+    content: @Composable BoxScope.() -> Unit,
 ) {
     Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.TopCenter) {
         Box(
