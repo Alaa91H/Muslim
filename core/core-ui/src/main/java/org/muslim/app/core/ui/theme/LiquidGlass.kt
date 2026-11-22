@@ -12,6 +12,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,6 +22,8 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -30,11 +33,11 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.selection.toggleable
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material3.BorderStroke
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -87,7 +90,6 @@ object LiquidGlassTokens {
     const val SurfaceAlpha = 0.16f
     const val BorderAlpha = 0.28f
     const val DividerAlpha = 0.20f
-    // Keep segmented selection quieter on nested glass so its white label retains 4.5:1 contrast.
     const val SelectedSegmentAlpha = 0.12f
     const val SelectedChipAlpha = 0.34f
     const val UnselectedTextAlpha = 0.85f
@@ -125,11 +127,8 @@ fun LiquidGlassScreen(
     content: @Composable () -> Unit,
 ) {
     val baseColors = MaterialTheme.colorScheme
-    val readingMode = LocalAccessibilityVisuals.current.readingModeEnabled
-    val highContrast = baseColors.isAccessibilityPalette()
-    val useGlass = enabled && !readingMode && !highContrast
+    val useGlass = enabled && !LocalAccessibilityVisuals.current.readingModeEnabled && !baseColors.isAccessibilityPalette()
     val typography = MaterialTheme.typography
-
     if (!useGlass) {
         CompositionLocalProvider(LocalLiquidGlassMode provides false, content = content)
         return
@@ -141,11 +140,7 @@ fun LiquidGlassScreen(
             typography = typography,
             shapes = liquidGlassShapes(),
         ) {
-            Box(
-                modifier = modifier
-                    .fillMaxSize()
-                    .background(LiquidGlassTokens.FallbackBackground),
-            ) {
+            Box(modifier = modifier.fillMaxSize().background(LiquidGlassTokens.FallbackBackground)) {
                 LiquidGlassAuroraBackground(Modifier.matchParentSize())
                 content()
             }
@@ -194,37 +189,32 @@ private fun ColorScheme.liquidGlassColors() = copy(
 
 private fun liquidGlassShapes() = Shapes(
     small = RoundedCornerShape(LiquidGlassTokens.SmallRadius),
-    medium = RoundedCornerShape(LiquidGlassTokens.SmallRadius),
+    medium = RoundedCornerShape(LiquidGlassTokens.LargeRadius),
     large = RoundedCornerShape(LiquidGlassTokens.LargeRadius),
     extraLarge = RoundedCornerShape(LiquidGlassTokens.LargeRadius),
 )
 
-/** Smooth cubic corners approximate continuous corners with native Compose drawing. */
+/** Compose corner curve approximation; it does not claim native continuous-corner parity. */
 data class LiquidGlassShape(val radius: Dp) : Shape {
-    override fun createOutline(
-        size: Size,
-        layoutDirection: LayoutDirection,
-        density: androidx.compose.ui.unit.Density,
-    ): Outline {
-        val radiusPx = with(density) { radius.toPx() }.coerceAtMost(min(size.width, size.height) / 2f)
-        val control = radiusPx * 0.38f
+    override fun createOutline(size: Size, layoutDirection: LayoutDirection, density: androidx.compose.ui.unit.Density): Outline {
+        val r = with(density) { radius.toPx() }.coerceAtMost(min(size.width, size.height) / 2f)
+        val c = r * 0.38f
         val path = Path().apply {
-            moveTo(radiusPx, 0f)
-            lineTo(size.width - radiusPx, 0f)
-            cubicTo(size.width - radiusPx + control, 0f, size.width, radiusPx - control, size.width, radiusPx)
-            lineTo(size.width, size.height - radiusPx)
-            cubicTo(size.width, size.height - radiusPx + control, size.width - radiusPx + control, size.height, size.width - radiusPx, size.height)
-            lineTo(radiusPx, size.height)
-            cubicTo(radiusPx - control, size.height, 0f, size.height - radiusPx + control, 0f, size.height - radiusPx)
-            lineTo(0f, radiusPx)
-            cubicTo(0f, radiusPx - control, radiusPx - control, 0f, radiusPx, 0f)
+            moveTo(r, 0f)
+            lineTo(size.width - r, 0f)
+            cubicTo(size.width - r + c, 0f, size.width, r - c, size.width, r)
+            lineTo(size.width, size.height - r)
+            cubicTo(size.width, size.height - r + c, size.width - r + c, size.height, size.width - r, size.height)
+            lineTo(r, size.height)
+            cubicTo(r - c, size.height, 0f, size.height - r + c, 0f, size.height - r)
+            lineTo(0f, r)
+            cubicTo(0f, r - c, r - c, 0f, r, 0f)
             close()
         }
         return Outline.Generic(path)
     }
 }
 
-/** Transparent surface primitive; it intentionally has no elevation or shadow. */
 @Composable
 fun LiquidGlassSurface(
     modifier: Modifier = Modifier,
@@ -242,13 +232,12 @@ fun LiquidGlassSurface(
             interactionSource = remember { MutableInteractionSource() },
             onClick = onClick,
         )
-
     Surface(
         modifier = modifier.then(clickModifier),
         shape = shape,
         color = LiquidGlassTokens.SurfaceFill,
         contentColor = Color.White,
-        border = androidx.compose.foundation.BorderStroke(1.dp, LiquidGlassTokens.GlassBorder),
+        border = BorderStroke(1.dp, LiquidGlassTokens.GlassBorder),
         tonalElevation = 0.dp,
         shadowElevation = 0.dp,
     ) {
@@ -260,7 +249,13 @@ fun LiquidGlassSurface(
     }
 }
 
-/** Switch with fixed LTR geometry, native switch semantics and a 44dp hit target. */
+/** One-pixel separator using the shared 20% white glass token. */
+@Composable
+fun LiquidGlassDivider(modifier: Modifier = Modifier) {
+    val color = if (LocalLiquidGlassMode.current) LiquidGlassTokens.GlassDivider else MaterialTheme.colorScheme.outlineVariant
+    Box(modifier.fillMaxWidth().height(1.dp).background(color))
+}
+
 @Composable
 fun LiquidGlassSwitch(
     checked: Boolean,
@@ -269,24 +264,16 @@ fun LiquidGlassSwitch(
     enabled: Boolean = true,
 ) {
     if (!LocalLiquidGlassMode.current) {
-        Switch(
-            checked = checked,
-            onCheckedChange = onCheckedChange,
-            modifier = modifier,
-            enabled = enabled,
-        )
+        Switch(checked = checked, onCheckedChange = onCheckedChange, modifier = modifier, enabled = enabled)
         return
     }
-
     var focused by remember { mutableStateOf(false) }
-    val interactionSource = remember { MutableInteractionSource() }
     val reduceMotion = LocalMuslimMotionPreferences.current.reduceMotion
     val thumbOffset by animateDpAsState(
         targetValue = if (checked) LiquidGlassTokens.SwitchTravel else 0.dp,
         animationSpec = tween(if (reduceMotion) 0 else LiquidGlassTokens.SwitchAnimationMillis),
         label = "glass-switch-thumb",
     )
-
     CompositionLocalProvider(androidx.compose.ui.platform.LocalLayoutDirection provides LayoutDirection.Ltr) {
         Box(
             modifier = modifier
@@ -297,7 +284,7 @@ fun LiquidGlassSwitch(
                     value = checked,
                     enabled = enabled,
                     role = Role.Switch,
-                    interactionSource = interactionSource,
+                    interactionSource = remember { MutableInteractionSource() },
                     indication = null,
                     onValueChange = onCheckedChange,
                 ),
@@ -308,11 +295,7 @@ fun LiquidGlassSwitch(
                 modifier = Modifier
                     .size(LiquidGlassTokens.SwitchWidth, LiquidGlassTokens.SwitchHeight)
                     .background(if (checked) LiquidGlassTokens.SwitchOn else LiquidGlassTokens.SurfaceFill, trackShape)
-                    .border(
-                        if (focused) 2.dp else 1.dp,
-                        if (focused) Color.White else LiquidGlassTokens.GlassBorder,
-                        trackShape,
-                    ),
+                    .border(if (focused) 2.dp else 1.dp, if (focused) Color.White else LiquidGlassTokens.GlassBorder, trackShape),
             ) {
                 Box(
                     modifier = Modifier
@@ -327,7 +310,6 @@ fun LiquidGlassSwitch(
     }
 }
 
-/** Single-choice control with radio semantics and horizontal scrolling for long option sets. */
 @Composable
 fun LiquidGlassSegmentedControl(
     options: List<String>,
@@ -354,10 +336,7 @@ fun LiquidGlassSegmentedControl(
             Box(
                 modifier = Modifier
                     .defaultMinSize(minWidth = 72.dp, minHeight = LiquidGlassTokens.TouchTarget)
-                    .background(
-                        if (selected) Color.White.copy(alpha = LiquidGlassTokens.SelectedSegmentAlpha) else Color.Transparent,
-                        shape,
-                    )
+                    .background(if (selected) Color.White.copy(alpha = LiquidGlassTokens.SelectedSegmentAlpha) else Color.Transparent, shape)
                     .onFocusChanged { focused = it.isFocused }
                     .then(if (focused) Modifier.border(2.dp, Color.White, shape) else Modifier)
                     .selectable(
@@ -378,13 +357,13 @@ fun LiquidGlassSegmentedControl(
                     fontWeight = if (selected) FontWeight.Medium else FontWeight.Normal,
                     maxLines = 1,
                     softWrap = false,
+                    overflow = TextOverflow.Clip,
                 )
             }
         }
     }
 }
 
-/** Multi-choice chip with a checkmark slot reserved in both states. */
 @Composable
 fun LiquidGlassChip(
     label: String,
@@ -398,14 +377,10 @@ fun LiquidGlassChip(
     Row(
         modifier = modifier
             .defaultMinSize(minHeight = LiquidGlassTokens.TouchTarget)
-            .background(
-                if (selected) Color.White.copy(alpha = LiquidGlassTokens.SelectedChipAlpha) else Color.Transparent,
-                shape,
-            )
+            .background(if (selected) Color.White.copy(alpha = LiquidGlassTokens.SelectedChipAlpha) else Color.Transparent, shape)
             .border(
                 if (focused) 2.dp else 1.dp,
-                if (focused) Color.White else if (selected) Color.White.copy(alpha = LiquidGlassTokens.SelectedChipBorderAlpha)
-                else LiquidGlassTokens.GlassBorder,
+                if (focused) Color.White else if (selected) Color.White.copy(alpha = LiquidGlassTokens.SelectedChipBorderAlpha) else LiquidGlassTokens.GlassBorder,
                 shape,
             )
             .onFocusChanged { focused = it.isFocused }
@@ -422,22 +397,12 @@ fun LiquidGlassChip(
         horizontalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         Box(Modifier.size(15.dp), contentAlignment = Alignment.Center) {
-            if (selected) {
-                Icon(Icons.Filled.Check, contentDescription = null, modifier = Modifier.size(15.dp), tint = Color.White)
-            }
+            if (selected) Icon(Icons.Filled.Check, contentDescription = null, modifier = Modifier.size(15.dp), tint = Color.White)
         }
-        Text(
-            text = label,
-            color = Color.White,
-            fontSize = 13.sp,
-            fontWeight = if (selected) FontWeight.Medium else FontWeight.Normal,
-            maxLines = 1,
-            softWrap = false,
-        )
+        Text(text = label, color = Color.White, fontSize = 13.sp, fontWeight = if (selected) FontWeight.Medium else FontWeight.Normal, maxLines = 1, softWrap = false)
     }
 }
 
-/** One blurred aurora layer, with the specified solid glass fallback below API 31. */
 @Composable
 fun LiquidGlassAuroraBackground(modifier: Modifier = Modifier) {
     val reduceMotion = LocalMuslimMotionPreferences.current.reduceMotion
@@ -478,14 +443,8 @@ fun LiquidGlassAuroraBackground(modifier: Modifier = Modifier) {
     }
 }
 
-private data class MeasuredOrnament(
-    val path: Path,
-    val measure: PathMeasure,
-    val length: Float,
-    val trace: Path,
-)
+private data class MeasuredOrnament(val path: Path, val measure: PathMeasure, val length: Float, val trace: Path)
 
-/** Mirrored arabesque linework fills the screen; the animated stroke traces it without a pulse. */
 @Composable
 private fun LiquidGlassLineOrnaments(reduceMotion: Boolean, modifier: Modifier = Modifier) {
     val intensity = LocalIslamicDecoration.current.intensity
@@ -506,7 +465,6 @@ private fun LiquidGlassLineOrnaments(reduceMotion: Boolean, modifier: Modifier =
         ),
         label = "aurora-ornament-progress",
     )
-
     Box(modifier = modifier.drawWithCache {
         val cellWidth = 168.dp.toPx()
         val cellHeight = 148.dp.toPx()
@@ -517,10 +475,8 @@ private fun LiquidGlassLineOrnaments(reduceMotion: Boolean, modifier: Modifier =
             for (row in -1 until rows) {
                 val y = row * cellHeight + cellHeight / 2f
                 for (column in 0..columns) {
-                    val leftX = size.width / 2f - column * cellWidth
-                    add(measuredMotif(leftX, y, -1f, radius, cellWidth, cellHeight))
-                    val rightX = size.width / 2f + column * cellWidth
-                    if (column > 0) add(measuredMotif(rightX, y, 1f, radius, cellWidth, cellHeight))
+                    add(measuredMotif(size.width / 2f - column * cellWidth, y, -1f, radius, cellWidth, cellHeight))
+                    if (column > 0) add(measuredMotif(size.width / 2f + column * cellWidth, y, 1f, radius, cellWidth, cellHeight))
                 }
             }
         }
@@ -530,8 +486,7 @@ private fun LiquidGlassLineOrnaments(reduceMotion: Boolean, modifier: Modifier =
             val traceProgress = if (reduceMotion) 1f else (progress / 0.84f).coerceIn(0f, 1f)
             val traceAlpha = if (reduceMotion) 0f else if (progress > 0.84f) ((1f - progress) / 0.16f).coerceIn(0f, 1f) else 1f
             val baseAlpha = if (reduceMotion) alpha else alpha * 0.18f
-            val baseColor = Color.White.copy(alpha = baseAlpha)
-            motifs.forEach { drawPath(it.path, baseColor, style = Stroke(width = 1.dp.toPx())) }
+            motifs.forEach { drawPath(it.path, Color.White.copy(alpha = baseAlpha), style = Stroke(width = 1.dp.toPx())) }
             if (!reduceMotion) {
                 var remaining = totalLength * traceProgress
                 val traceColor = Color.White.copy(alpha = alpha * traceAlpha)
