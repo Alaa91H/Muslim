@@ -22,14 +22,15 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.matchParentSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.selection.toggleable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -60,6 +61,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.PathMeasure
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.semantics.Role
@@ -75,6 +77,7 @@ import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
 import org.muslim.app.core.common.appearance.OrnamentIntensity
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.accessibility.AccessibilityDarkColors
 import org.muslim.app.core.ui.accessibility.AccessibilityLightColors
 import org.muslim.app.core.ui.accessibility.LocalAccessibilityVisuals
@@ -84,8 +87,9 @@ object LiquidGlassTokens {
     const val SurfaceAlpha = 0.16f
     const val BorderAlpha = 0.28f
     const val DividerAlpha = 0.20f
-    // Reduced from 0.34f: repeated glass layers otherwise fail 4.5:1 for white text.
+    // Keep segmented selection quieter on nested glass so its white label retains 4.5:1 contrast.
     const val SelectedSegmentAlpha = 0.12f
+    const val SelectedChipAlpha = 0.34f
     const val UnselectedTextAlpha = 0.85f
     const val SelectedChipBorderAlpha = 0.60f
     const val SwitchOnAlpha = 0.90f
@@ -102,6 +106,7 @@ object LiquidGlassTokens {
     val TouchTarget = 44.dp
     val FallbackBackground = Color(0xFF28245A)
     val FallbackGlassFill = Color(0xD928245A)
+    val PopupFill = Color(0xF228245A)
     val SwitchOn = Color(0xFF28CD96).copy(alpha = SwitchOnAlpha)
     val GlassFill = Color.White.copy(alpha = SurfaceAlpha)
     val SurfaceFill: Color
@@ -116,15 +121,16 @@ val LocalLiquidGlassMode = staticCompositionLocalOf { false }
 @Composable
 fun LiquidGlassScreen(
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     content: @Composable () -> Unit,
 ) {
     val baseColors = MaterialTheme.colorScheme
     val readingMode = LocalAccessibilityVisuals.current.readingModeEnabled
     val highContrast = baseColors.isAccessibilityPalette()
-    val enabled = !readingMode && !highContrast
+    val useGlass = enabled && !readingMode && !highContrast
     val typography = MaterialTheme.typography
 
-    if (!enabled) {
+    if (!useGlass) {
         CompositionLocalProvider(LocalLiquidGlassMode provides false, content = content)
         return
     }
@@ -154,7 +160,7 @@ private fun ColorScheme.isAccessibilityPalette(): Boolean =
 private fun ColorScheme.liquidGlassColors() = copy(
     background = LiquidGlassTokens.FallbackBackground,
     onBackground = Color.White,
-    surface = LiquidGlassTokens.SurfaceFill,
+    surface = LiquidGlassTokens.PopupFill,
     onSurface = Color.White,
     surfaceVariant = LiquidGlassTokens.SurfaceFill,
     onSurfaceVariant = Color.White.copy(alpha = LiquidGlassTokens.UnselectedTextAlpha),
@@ -167,37 +173,51 @@ private fun ColorScheme.liquidGlassColors() = copy(
     surfaceContainerHighest = LiquidGlassTokens.SurfaceFill,
     outline = LiquidGlassTokens.GlassBorder,
     outlineVariant = LiquidGlassTokens.GlassBorder,
+    primary = Color.White,
+    onPrimary = LiquidGlassTokens.FallbackBackground,
     primaryContainer = LiquidGlassTokens.SurfaceFill,
     onPrimaryContainer = Color.White,
+    secondary = Color.White,
+    onSecondary = LiquidGlassTokens.FallbackBackground,
     secondaryContainer = LiquidGlassTokens.SurfaceFill,
     onSecondaryContainer = Color.White,
+    tertiary = Color.White,
+    onTertiary = LiquidGlassTokens.FallbackBackground,
     tertiaryContainer = LiquidGlassTokens.SurfaceFill,
     onTertiaryContainer = Color.White,
+    error = Color(0xFFFFB4AB),
+    onError = Color(0xFF5F1412),
+    errorContainer = Color(0xFF5F1412),
+    onErrorContainer = Color.White,
     surfaceTint = Color.Transparent,
 )
 
 private fun liquidGlassShapes() = Shapes(
-    small = LiquidGlassShape(LiquidGlassTokens.SmallRadius),
-    medium = LiquidGlassShape(LiquidGlassTokens.SmallRadius),
-    large = LiquidGlassShape(LiquidGlassTokens.LargeRadius),
-    extraLarge = LiquidGlassShape(LiquidGlassTokens.LargeRadius),
+    small = RoundedCornerShape(LiquidGlassTokens.SmallRadius),
+    medium = RoundedCornerShape(LiquidGlassTokens.SmallRadius),
+    large = RoundedCornerShape(LiquidGlassTokens.LargeRadius),
+    extraLarge = RoundedCornerShape(LiquidGlassTokens.LargeRadius),
 )
 
 /** Smooth cubic corners approximate continuous corners with native Compose drawing. */
 data class LiquidGlassShape(val radius: Dp) : Shape {
-    override fun createOutline(size: Size, layoutDirection: LayoutDirection, density: androidx.compose.ui.unit.Density): Outline {
-        val r = with(density) { radius.toPx() }.coerceAtMost(min(size.width, size.height) / 2f)
-        val c = r * 0.38f
+    override fun createOutline(
+        size: Size,
+        layoutDirection: LayoutDirection,
+        density: androidx.compose.ui.unit.Density,
+    ): Outline {
+        val radiusPx = with(density) { radius.toPx() }.coerceAtMost(min(size.width, size.height) / 2f)
+        val control = radiusPx * 0.38f
         val path = Path().apply {
-            moveTo(r, 0f)
-            lineTo(size.width - r, 0f)
-            cubicTo(size.width - r + c, 0f, size.width, r - c, size.width, r)
-            lineTo(size.width, size.height - r)
-            cubicTo(size.width, size.height - r + c, size.width - r + c, size.height, size.width - r, size.height)
-            lineTo(r, size.height)
-            cubicTo(r - c, size.height, 0f, size.height - r + c, 0f, size.height - r)
-            lineTo(0f, r)
-            cubicTo(0f, r - c, r - c, 0f, r, 0f)
+            moveTo(radiusPx, 0f)
+            lineTo(size.width - radiusPx, 0f)
+            cubicTo(size.width - radiusPx + control, 0f, size.width, radiusPx - control, size.width, radiusPx)
+            lineTo(size.width, size.height - radiusPx)
+            cubicTo(size.width, size.height - radiusPx + control, size.width - radiusPx + control, size.height, size.width - radiusPx, size.height)
+            lineTo(radiusPx, size.height)
+            cubicTo(radiusPx - control, size.height, 0f, size.height - radiusPx + control, 0f, size.height - radiusPx)
+            lineTo(0f, radiusPx)
+            cubicTo(0f, radiusPx - control, radiusPx - control, 0f, radiusPx, 0f)
             close()
         }
         return Outline.Generic(path)
@@ -234,7 +254,7 @@ fun LiquidGlassSurface(
     ) {
         Column(
             modifier = Modifier.padding(contentPadding),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
             content = content,
         )
     }
@@ -261,7 +281,7 @@ fun LiquidGlassSwitch(
     var focused by remember { mutableStateOf(false) }
     val interactionSource = remember { MutableInteractionSource() }
     val reduceMotion = LocalMuslimMotionPreferences.current.reduceMotion
-    val offset by animateDpAsState(
+    val thumbOffset by animateDpAsState(
         targetValue = if (checked) LiquidGlassTokens.SwitchTravel else 0.dp,
         animationSpec = tween(if (reduceMotion) 0 else LiquidGlassTokens.SwitchAnimationMillis),
         label = "glass-switch-thumb",
@@ -288,13 +308,17 @@ fun LiquidGlassSwitch(
                 modifier = Modifier
                     .size(LiquidGlassTokens.SwitchWidth, LiquidGlassTokens.SwitchHeight)
                     .background(if (checked) LiquidGlassTokens.SwitchOn else LiquidGlassTokens.SurfaceFill, trackShape)
-                    .border(if (focused) 2.dp else 1.dp, if (focused) Color.White else LiquidGlassTokens.GlassBorder, trackShape),
+                    .border(
+                        if (focused) 2.dp else 1.dp,
+                        if (focused) Color.White else LiquidGlassTokens.GlassBorder,
+                        trackShape,
+                    ),
             ) {
                 Box(
                     modifier = Modifier
                         .align(Alignment.CenterStart)
                         .padding(start = LiquidGlassTokens.SwitchThumbInset)
-                        .offset(x = offset)
+                        .offset(x = thumbOffset)
                         .size(LiquidGlassTokens.SwitchThumbSize)
                         .background(Color.White, CircleShape),
                 )
@@ -303,7 +327,7 @@ fun LiquidGlassSwitch(
     }
 }
 
-/** Single-choice control with radio semantics. */
+/** Single-choice control with radio semantics and horizontal scrolling for long option sets. */
 @Composable
 fun LiquidGlassSegmentedControl(
     options: List<String>,
@@ -319,6 +343,7 @@ fun LiquidGlassSegmentedControl(
             .background(LiquidGlassTokens.SurfaceFill, trackShape)
             .border(1.dp, LiquidGlassTokens.GlassBorder, trackShape)
             .padding(3.dp)
+            .horizontalScroll(rememberScrollState())
             .selectableGroup(),
         horizontalArrangement = Arrangement.spacedBy(2.dp),
     ) {
@@ -328,8 +353,7 @@ fun LiquidGlassSegmentedControl(
             val shape = RoundedCornerShape(12.dp)
             Box(
                 modifier = Modifier
-                    .weight(1f)
-                    .defaultMinSize(minHeight = LiquidGlassTokens.TouchTarget)
+                    .defaultMinSize(minWidth = 72.dp, minHeight = LiquidGlassTokens.TouchTarget)
                     .background(
                         if (selected) Color.White.copy(alpha = LiquidGlassTokens.SelectedSegmentAlpha) else Color.Transparent,
                         shape,
@@ -353,7 +377,7 @@ fun LiquidGlassSegmentedControl(
                     fontSize = 13.sp,
                     fontWeight = if (selected) FontWeight.Medium else FontWeight.Normal,
                     maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
+                    softWrap = false,
                 )
             }
         }
@@ -375,7 +399,7 @@ fun LiquidGlassChip(
         modifier = modifier
             .defaultMinSize(minHeight = LiquidGlassTokens.TouchTarget)
             .background(
-                if (selected) Color.White.copy(alpha = LiquidGlassTokens.SelectedSegmentAlpha) else Color.Transparent,
+                if (selected) Color.White.copy(alpha = LiquidGlassTokens.SelectedChipAlpha) else Color.Transparent,
                 shape,
             )
             .border(
@@ -398,7 +422,9 @@ fun LiquidGlassChip(
         horizontalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         Box(Modifier.size(15.dp), contentAlignment = Alignment.Center) {
-            if (selected) Icon(Icons.Filled.Check, contentDescription = null, modifier = Modifier.size(15.dp), tint = Color.White)
+            if (selected) {
+                Icon(Icons.Filled.Check, contentDescription = null, modifier = Modifier.size(15.dp), tint = Color.White)
+            }
         }
         Text(
             text = label,
@@ -406,7 +432,7 @@ fun LiquidGlassChip(
             fontSize = 13.sp,
             fontWeight = if (selected) FontWeight.Medium else FontWeight.Normal,
             maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
+            softWrap = false,
         )
     }
 }
@@ -452,7 +478,14 @@ fun LiquidGlassAuroraBackground(modifier: Modifier = Modifier) {
     }
 }
 
-/** Symmetric arabesque linework; cached paths animate only their opacity. */
+private data class MeasuredOrnament(
+    val path: Path,
+    val measure: PathMeasure,
+    val length: Float,
+    val trace: Path,
+)
+
+/** Mirrored arabesque linework fills the screen; the animated stroke traces it without a pulse. */
 @Composable
 private fun LiquidGlassLineOrnaments(reduceMotion: Boolean, modifier: Modifier = Modifier) {
     val intensity = LocalIslamicDecoration.current.intensity
@@ -463,67 +496,79 @@ private fun LiquidGlassLineOrnaments(reduceMotion: Boolean, modifier: Modifier =
         OrnamentIntensity.Balanced -> 0.10f
         OrnamentIntensity.Rich -> 0.14f
     }
-    val transition = rememberInfiniteTransition(label = "aurora-ornament-pulse")
+    val transition = rememberInfiniteTransition(label = "aurora-ornament-trace")
     val animation: State<Float>? = if (reduceMotion) null else transition.animateFloat(
-        initialValue = 0.88f,
+        initialValue = 0f,
         targetValue = 1f,
         animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 8_000, easing = LinearEasing),
-            repeatMode = RepeatMode.Reverse,
+            animation = tween(durationMillis = 12_000, easing = LinearEasing),
+            repeatMode = RepeatMode.Restart,
         ),
-        label = "aurora-ornament-opacity",
+        label = "aurora-ornament-progress",
     )
 
     Box(modifier = modifier.drawWithCache {
-        val moduleHeight = 104.dp.toPx()
-        val reach = 40.dp.toPx()
-        val starRadius = 13.dp.toPx()
-        val rows = ceil(size.height / moduleHeight).toInt() + 2
-        val modules = buildList {
+        val cellWidth = 168.dp.toPx()
+        val cellHeight = 148.dp.toPx()
+        val radius = min(cellWidth, cellHeight) * 0.19f
+        val columns = ceil(size.width / (cellWidth * 2f)).toInt() + 1
+        val rows = ceil(size.height / cellHeight).toInt() + 2
+        val motifs = buildList {
             for (row in -1 until rows) {
-                val centerY = row * moduleHeight + moduleHeight / 2f
-                add(ornamentPaths(0f, centerY, 1f, reach, moduleHeight, starRadius))
-                add(ornamentPaths(size.width, centerY, -1f, reach, moduleHeight, starRadius))
+                val y = row * cellHeight + cellHeight / 2f
+                for (column in 0..columns) {
+                    val leftX = size.width / 2f - column * cellWidth
+                    add(measuredMotif(leftX, y, -1f, radius, cellWidth, cellHeight))
+                    val rightX = size.width / 2f + column * cellWidth
+                    if (column > 0) add(measuredMotif(rightX, y, 1f, radius, cellWidth, cellHeight))
+                }
             }
         }
+        val totalLength = motifs.sumOf { it.length.toDouble() }.toFloat().coerceAtLeast(1f)
         onDrawBehind {
-            val pulse = animation?.value ?: 1f
-            modules.forEach { (curve, star) ->
-                val color = Color.White.copy(alpha = alpha * pulse)
-                drawPath(curve, color, style = Stroke(width = 1.dp.toPx()))
-                drawPath(star, color, style = Stroke(width = 1.dp.toPx()))
+            val progress = animation?.value ?: 1f
+            val traceProgress = if (reduceMotion) 1f else (progress / 0.84f).coerceIn(0f, 1f)
+            val traceAlpha = if (reduceMotion) 0f else if (progress > 0.84f) ((1f - progress) / 0.16f).coerceIn(0f, 1f) else 1f
+            val baseAlpha = if (reduceMotion) alpha else alpha * 0.18f
+            val baseColor = Color.White.copy(alpha = baseAlpha)
+            motifs.forEach { drawPath(it.path, baseColor, style = Stroke(width = 1.dp.toPx())) }
+            if (!reduceMotion) {
+                var remaining = totalLength * traceProgress
+                val traceColor = Color.White.copy(alpha = alpha * traceAlpha)
+                motifs.forEach { motif ->
+                    motif.trace.reset()
+                    val segmentLength = remaining.coerceIn(0f, motif.length)
+                    if (segmentLength > 0f) {
+                        motif.measure.getSegment(0f, segmentLength, motif.trace, startWithMoveTo = true)
+                        drawPath(motif.trace, traceColor, style = Stroke(width = 1.dp.toPx()))
+                    }
+                    remaining -= motif.length
+                }
             }
         }
     })
 }
 
-private fun ornamentPaths(
-    edgeX: Float,
+private fun measuredMotif(
+    centerX: Float,
     centerY: Float,
     direction: Float,
-    reach: Float,
-    moduleHeight: Float,
-    starRadius: Float,
-): Pair<Path, Path> {
-    val curve = Path().apply {
-        moveTo(edgeX, centerY - moduleHeight * 0.48f)
-        cubicTo(edgeX + direction * reach * 0.15f, centerY - moduleHeight * 0.44f,
-            edgeX + direction * reach, centerY - moduleHeight * 0.22f,
-            edgeX + direction * reach * 0.56f, centerY)
-        cubicTo(edgeX + direction * reach * 1.08f, centerY + moduleHeight * 0.24f,
-            edgeX + direction * reach * 0.18f, centerY + moduleHeight * 0.45f,
-            edgeX, centerY + moduleHeight * 0.48f)
+    radius: Float,
+    cellWidth: Float,
+    cellHeight: Float,
+): MeasuredOrnament {
+    val path = Path()
+    for (point in 0..16) {
+        val angle = -PI / 2.0 + point * PI / 8.0
+        val pointRadius = if (point % 2 == 0) radius else radius * 0.45f
+        val x = centerX + (cos(angle) * pointRadius * direction).toFloat()
+        val y = centerY + (sin(angle) * pointRadius).toFloat()
+        if (point == 0) path.moveTo(x, y) else path.lineTo(x, y)
     }
-    val star = Path().apply {
-        val starCenterX = edgeX + direction * reach * 0.55f
-        for (point in 0..16) {
-            val angle = -PI / 2.0 + point * PI / 8.0
-            val radius = if (point % 2 == 0) starRadius else starRadius * 0.46f
-            val x = starCenterX + direction * (cos(angle) * radius).toFloat()
-            val y = centerY + (sin(angle) * radius).toFloat()
-            if (point == 0) moveTo(x, y) else lineTo(x, y)
-        }
-        close()
-    }
-    return curve to star
+    val wing = cellWidth * 0.43f
+    val rise = cellHeight * 0.34f
+    path.cubicTo(centerX + direction * wing * 0.35f, centerY - rise, centerX + direction * wing, centerY - rise, centerX + direction * wing, centerY)
+    path.cubicTo(centerX + direction * wing, centerY + rise, centerX + direction * wing * 0.35f, centerY + rise, centerX, centerY + radius)
+    val measure = PathMeasure().apply { setPath(path, forceClosed = false) }
+    return MeasuredOrnament(path, measure, measure.length, Path())
 }
