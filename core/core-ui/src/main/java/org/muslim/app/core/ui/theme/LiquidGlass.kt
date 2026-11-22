@@ -4,12 +4,14 @@ import android.os.Build
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,9 +20,9 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.matchParentSize
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
@@ -46,15 +48,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathMeasure
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
-import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -62,45 +65,13 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
-import androidx.compose.ui.graphics.drawscope.StrokeCap
-import androidx.compose.ui.graphics.drawscope.StrokeJoin
-import androidx.compose.ui.graphics.lerp
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.luminance
-import androidx.compose.ui.graphics.drawscope.drawContext
-import androidx.compose.ui.graphics.drawscope.clipRect
-import androidx.compose.ui.graphics.drawscope.rotate
-import androidx.compose.ui.graphics.drawscope.scale
-import androidx.compose.ui.graphics.drawscope.withTransform
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
-import androidx.compose.ui.graphics.drawscope.drawContext
-import androidx.compose.ui.graphics.drawscope.DrawContext
-import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.graphics.drawscope.drawOutline
-import androidx.compose.ui.graphics.drawscope.Fill
-import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.graphics.drawscope.ContentDrawScope
-import androidx.compose.ui.graphics.drawscope.DrawStyle
-import androidx.compose.ui.graphics.drawscope.DrawResult
-import androidx.compose.ui.graphics.drawscope.DrawContext
-import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
-import androidx.compose.ui.graphics.drawscope.drawContext
-import androidx.compose.ui.graphics.drawscope.translate
-import androidx.compose.ui.unit.Density
-import androidx.compose.ui.unit.dp
 import kotlin.math.PI
 import kotlin.math.ceil
 import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
 
-/\*\* Central Android/Compose adaptation of the requested glass values. \*/
+/** Central Android/Compose adaptation of the requested glass values. */
 object LiquidGlassTokens {
     const val SurfaceAlpha = 0.16f
     const val BorderAlpha = 0.28f
@@ -111,58 +82,51 @@ object LiquidGlassTokens {
     const val SwitchOnAlpha = 0.90f
     const val SwitchAnimationMillis = 250
 
-```
-val BackgroundBlur = 24.dp
-val LargeRadius = 26.dp
-val SmallRadius = 22.dp
-val SwitchWidth = 54.dp
-val SwitchHeight = 32.dp
-val SwitchThumbSize = 26.dp
-val SwitchThumbInset = 3.dp
-val SwitchTravel = 22.dp
-val TouchTarget = 44.dp
-val FallbackBackground = Color(0xFF28245A)
-val SwitchOn = Color(0xFF28CD96).copy(alpha = SwitchOnAlpha)
-val GlassFill = Color.White.copy(alpha = SurfaceAlpha)
-val GlassBorder = Color.White.copy(alpha = BorderAlpha)
-val GlassDivider = Color.White.copy(alpha = DividerAlpha)
-```
-
+    val BackgroundBlur = 24.dp
+    val LargeRadius = 26.dp
+    val SmallRadius = 22.dp
+    val SwitchWidth = 54.dp
+    val SwitchHeight = 32.dp
+    val SwitchThumbSize = 26.dp
+    val SwitchThumbInset = 3.dp
+    val SwitchTravel = 22.dp
+    val TouchTarget = 44.dp
+    val FallbackBackground = Color(0xFF28245A)
+    val SwitchOn = Color(0xFF28CD96).copy(alpha = SwitchOnAlpha)
+    val GlassFill = Color.White.copy(alpha = SurfaceAlpha)
+    val GlassBorder = Color.White.copy(alpha = BorderAlpha)
+    val GlassDivider = Color.White.copy(alpha = DividerAlpha)
 }
 
 val LocalLiquidGlassMode = staticCompositionLocalOf { false }
 
-/\*\*
-
-- Opt-in visual scope for incremental screen migration. The parent color roles,
-- content and state are retained; only the presentation is changed here.
- \*/
+/** Opt-in visual scope for incremental screen migration. */
 @Composable
 fun LiquidGlassScreen(
- modifier: Modifier = Modifier,
- content: @Composable () -&gt; Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit,
 ) {
- val baseColors = MaterialTheme.colorScheme
- val typography = MaterialTheme.typography
- val shapes = MaterialTheme.shapes
+    val baseColors = MaterialTheme.colorScheme
+    val typography = MaterialTheme.typography
+    val shapes = MaterialTheme.shapes
 
-   CompositionLocalProvider(LocalLiquidGlassMode provides true) {
-   MaterialTheme(
-       colorScheme = baseColors.liquidGlassColors(),
-       typography = typography,
-       shapes = shapes,
-   ) {
-       Box(
-           modifier = modifier
-               .fillMaxSize()
-               .background(LiquidGlassTokens.FallbackBackground),
-       ) {
-           LiquidGlassAuroraBackground(Modifier.matchParentSize())
-           content()
-       }
-   }
-   }
-  }
+    CompositionLocalProvider(LocalLiquidGlassMode provides true) {
+        MaterialTheme(
+            colorScheme = baseColors.liquidGlassColors(),
+            typography = typography,
+            shapes = shapes,
+        ) {
+            Box(
+                modifier = modifier
+                    .fillMaxSize()
+                    .background(LiquidGlassTokens.FallbackBackground),
+            ) {
+                LiquidGlassAuroraBackground(Modifier.matchParentSize())
+                content()
+            }
+        }
+    }
+}
 
 private fun androidx.compose.material3.ColorScheme.liquidGlassColors() = copy(
     background = LiquidGlassTokens.FallbackBackground,
@@ -188,7 +152,7 @@ private fun androidx.compose.material3.ColorScheme.liquidGlassColors() = copy(
     onTertiaryContainer = Color.White,
 )
 
-/\*\* Smooth cubic corners approximate continuous corners without an extra library. \*/
+/** Smooth cubic corners approximate continuous corners without an extra library. */
 data class LiquidGlassShape(val radius: Dp) : Shape {
     override fun createOutline(
         size: Size,
@@ -196,7 +160,7 @@ data class LiquidGlassShape(val radius: Dp) : Shape {
         density: androidx.compose.ui.unit.Density,
     ): Outline {
         val r = with(density) { radius.toPx() }.coerceAtMost(min(size.width, size.height) / 2f)
-        val c = r \* 0.38f
+        val c = r * 0.38f
         val path = Path().apply {
             moveTo(r, 0f)
             lineTo(size.width - r, 0f)
@@ -213,14 +177,14 @@ data class LiquidGlassShape(val radius: Dp) : Shape {
     }
 }
 
-/\*\* Transparent surface primitive; it intentionally has no elevation or shadow. \*/
+/** Transparent surface primitive; it intentionally has no elevation or shadow. */
 @Composable
 fun LiquidGlassSurface(
     modifier: Modifier = Modifier,
     large: Boolean = true,
     contentPadding: PaddingValues = PaddingValues(16.dp),
-    onClick: (() -&gt; Unit)? = null,
-    content: @Composable ColumnScope.() -&gt; Unit,
+    onClick: (() -> Unit)? = null,
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     val shape = LiquidGlassShape(if (large) LiquidGlassTokens.LargeRadius else LiquidGlassTokens.SmallRadius)
     val clickModifier = if (onClick == null) {
@@ -228,105 +192,97 @@ fun LiquidGlassSurface(
     } else {
         Modifier
             .heightIn(min = LiquidGlassTokens.TouchTarget)
-            .toggleable(
-                value = true,
+            .clickable(
                 role = Role.Button,
-                onValueChange = { onClick() },
                 indication = null,
                 interactionSource = remember { MutableInteractionSource() },
+                onClick = onClick,
             )
     }
 
-```
-Surface(
-    modifier = modifier.then(clickModifier),
-    shape = shape,
-    color = LiquidGlassTokens.GlassFill,
-    contentColor = Color.White,
-    border = androidx.compose.foundation.BorderStroke(1.dp, LiquidGlassTokens.GlassBorder),
-    tonalElevation = 0.dp,
-    shadowElevation = 0.dp,
-) {
-    Column(
-        modifier = Modifier.padding(contentPadding),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-        content = content,
-    )
-}
-```
-
+    Surface(
+        modifier = modifier.then(clickModifier),
+        shape = shape,
+        color = LiquidGlassTokens.GlassFill,
+        contentColor = Color.White,
+        border = androidx.compose.foundation.BorderStroke(1.dp, LiquidGlassTokens.GlassBorder),
+        tonalElevation = 0.dp,
+        shadowElevation = 0.dp,
+    ) {
+        Column(
+            modifier = Modifier.padding(contentPadding),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            content = content,
+        )
+    }
 }
 
-/\*\* Switch with a fixed LTR track, 44dp touch target and native toggle semantics. \*/
+/** Switch with a fixed LTR track, 44dp touch target and native toggle semantics. */
 @Composable
 fun LiquidGlassSwitch(
     checked: Boolean,
-    onCheckedChange: (Boolean) -&gt; Unit,
+    onCheckedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) {
     var focused by remember { mutableStateOf(false) }
     val interactionSource = remember { MutableInteractionSource() }
     val reduceMotion = LocalMuslimMotionPreferences.current.reduceMotion
-    val transition = rememberInfiniteTransition(label = "glass-switch-motion")
-    val animatedOffset by androidx.compose.animation.core.animateDpAsState(
+    val animatedOffset by animateDpAsState(
         targetValue = if (checked) LiquidGlassTokens.SwitchTravel else 0.dp,
         animationSpec = tween(if (reduceMotion) 0 else LiquidGlassTokens.SwitchAnimationMillis),
         label = "glass-switch-thumb",
     )
 
-```
-CompositionLocalProvider(androidx.compose.ui.platform.LocalLayoutDirection provides LayoutDirection.Ltr) {
-    Box(
-        modifier = modifier
-            .widthIn(min = LiquidGlassTokens.SwitchWidth)
-            .heightIn(min = LiquidGlassTokens.TouchTarget)
-            .onFocusChanged { focused = it.isFocused }
-            .toggleable(
-                value = checked,
-                enabled = enabled,
-                role = Role.Switch,
-                interactionSource = interactionSource,
-                indication = null,
-                onValueChange = onCheckedChange,
-            ),
-        contentAlignment = Alignment.CenterStart,
-    ) {
-        val trackShape = RoundedCornerShape(16.dp)
+    CompositionLocalProvider(androidx.compose.ui.platform.LocalLayoutDirection provides LayoutDirection.Ltr) {
         Box(
-            modifier = Modifier
-                .size(LiquidGlassTokens.SwitchWidth, LiquidGlassTokens.SwitchHeight)
-                .background(
-                    if (checked) LiquidGlassTokens.SwitchOn else LiquidGlassTokens.GlassFill,
-                    trackShape,
-                )
-                .border(
-                    if (focused) 2.dp else 1.dp,
-                    if (focused) Color.White else LiquidGlassTokens.GlassBorder,
-                    trackShape,
+            modifier = modifier
+                .widthIn(min = LiquidGlassTokens.SwitchWidth)
+                .heightIn(min = LiquidGlassTokens.TouchTarget)
+                .onFocusChanged { focused = it.isFocused }
+                .toggleable(
+                    value = checked,
+                    enabled = enabled,
+                    role = Role.Switch,
+                    interactionSource = interactionSource,
+                    indication = null,
+                    onValueChange = onCheckedChange,
                 ),
+            contentAlignment = Alignment.CenterStart,
         ) {
+            val trackShape = RoundedCornerShape(16.dp)
             Box(
                 modifier = Modifier
-                    .align(Alignment.CenterStart)
-                    .padding(start = LiquidGlassTokens.SwitchThumbInset)
-                    .offset(x = animatedOffset)
-                    .size(LiquidGlassTokens.SwitchThumbSize)
-                    .background(Color.White, CircleShape),
-            )
+                    .size(LiquidGlassTokens.SwitchWidth, LiquidGlassTokens.SwitchHeight)
+                    .background(
+                        if (checked) LiquidGlassTokens.SwitchOn else LiquidGlassTokens.GlassFill,
+                        trackShape,
+                    )
+                    .border(
+                        if (focused) 2.dp else 1.dp,
+                        if (focused) Color.White else LiquidGlassTokens.GlassBorder,
+                        trackShape,
+                    ),
+            ) {
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.CenterStart)
+                        .padding(start = LiquidGlassTokens.SwitchThumbInset)
+                        .offset(x = animatedOffset)
+                        .size(LiquidGlassTokens.SwitchThumbSize)
+                        .background(Color.White, CircleShape),
+                )
+            }
         }
     }
 }
-```
 
-}
-
-/\*\* Single-choice segmented control with stable dimensions and radio semantics. \*/
+/** Single-choice segmented control with stable dimensions and radio semantics. */
 @Composable
 fun LiquidGlassSegmentedControl(
     options: List<String>,
     selectedIndex: Int,
-    onSelectedIndexChange: (Int) -&gt; Unit,
+    onSelectedIndexChange: (Int) -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) {
@@ -340,9 +296,10 @@ fun LiquidGlassSegmentedControl(
             .selectableGroup(),
         horizontalArrangement = Arrangement.spacedBy(2.dp),
     ) {
-        options.forEachIndexed { index, label -&gt;
+        options.forEachIndexed { index, label ->
             var focused by remember(index) { mutableStateOf(false) }
             val selected = selectedIndex == index
+            val optionShape = RoundedCornerShape(12.dp)
             Box(
                 modifier = Modifier
                     .weight(1f)
@@ -350,10 +307,10 @@ fun LiquidGlassSegmentedControl(
                     .background(
                         if (selected) Color.White.copy(alpha = LiquidGlassTokens.SelectedSegmentAlpha)
                         else Color.Transparent,
-                        RoundedCornerShape(12.dp),
+                        optionShape,
                     )
                     .onFocusChanged { focused = it.isFocused }
-                    .then(if (focused) Modifier.border(2.dp, Color.White, RoundedCornerShape(12.dp)) else Modifier)
+                    .then(if (focused) Modifier.border(2.dp, Color.White, optionShape) else Modifier)
                     .selectable(
                         selected = selected,
                         enabled = enabled,
@@ -378,12 +335,12 @@ fun LiquidGlassSegmentedControl(
     }
 }
 
-/\*\* Multi-choice chip with a checkmark slot reserved in both states. \*/
+/** Multi-choice chip with a checkmark slot reserved in both states. */
 @Composable
 fun LiquidGlassChip(
     label: String,
     selected: Boolean,
-    onSelectedChange: (Boolean) -&gt; Unit,
+    onSelectedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) {
@@ -397,13 +354,15 @@ fun LiquidGlassChip(
                 shape,
             )
             .border(
-                1.dp,
-                if (selected) Color.White.copy(alpha = LiquidGlassTokens.SelectedChipBorderAlpha)
-                else LiquidGlassTokens.GlassBorder,
+                if (focused) 2.dp else 1.dp,
+                if (focused) Color.White else if (selected) {
+                    Color.White.copy(alpha = LiquidGlassTokens.SelectedChipBorderAlpha)
+                } else {
+                    LiquidGlassTokens.GlassBorder
+                },
                 shape,
             )
             .onFocusChanged { focused = it.isFocused }
-            .then(if (focused) Modifier.border(2.dp, Color.White, shape) else Modifier)
             .toggleable(
                 value = selected,
                 enabled = enabled,
@@ -432,7 +391,7 @@ fun LiquidGlassChip(
     }
 }
 
-/\*\* One blurred aurora layer, with a solid fallback on devices below API 31. \*/
+/** One blurred aurora layer, with a solid fallback on devices below API 31. */
 @Composable
 fun LiquidGlassAuroraBackground(modifier: Modifier = Modifier) {
     val reduceMotion = LocalMuslimMotionPreferences.current.reduceMotion
@@ -441,7 +400,7 @@ fun LiquidGlassAuroraBackground(modifier: Modifier = Modifier) {
             .fillMaxSize()
             .background(LiquidGlassTokens.FallbackBackground),
     ) {
-        if (Build.VERSION.SDK\_INT &gt;= Build.VERSION\_CODES.S) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             Canvas(Modifier.matchParentSize().blur(LiquidGlassTokens.BackgroundBlur)) {
                 drawRect(
                     brush = Brush.linearGradient(
@@ -458,20 +417,20 @@ fun LiquidGlassAuroraBackground(modifier: Modifier = Modifier) {
                 drawCircle(
                     brush = Brush.radialGradient(
                         colors = listOf(Color(0xFF527A9A).copy(alpha = 0.34f), Color.Transparent),
-                        center = Offset(size.width \* 0.17f, size.height \* 0.24f),
-                        radius = size.minDimension \* 0.76f,
+                        center = Offset(size.width * 0.17f, size.height * 0.24f),
+                        radius = size.minDimension * 0.76f,
                     ),
-                    radius = size.minDimension \* 0.76f,
-                    center = Offset(size.width \* 0.17f, size.height \* 0.24f),
+                    radius = size.minDimension * 0.76f,
+                    center = Offset(size.width * 0.17f, size.height * 0.24f),
                 )
                 drawCircle(
                     brush = Brush.radialGradient(
                         colors = listOf(Color(0xFF6D579A).copy(alpha = 0.26f), Color.Transparent),
-                        center = Offset(size.width \* 0.83f, size.height \* 0.78f),
-                        radius = size.minDimension \* 0.68f,
+                        center = Offset(size.width * 0.83f, size.height * 0.78f),
+                        radius = size.minDimension * 0.68f,
                     ),
-                    radius = size.minDimension \* 0.68f,
-                    center = Offset(size.width \* 0.83f, size.height \* 0.78f),
+                    radius = size.minDimension * 0.68f,
+                    center = Offset(size.width * 0.83f, size.height * 0.78f),
                 )
             }
         }
@@ -482,51 +441,48 @@ fun LiquidGlassAuroraBackground(modifier: Modifier = Modifier) {
     }
 }
 
-/\*\* Balanced edge-to-edge arabesque linework; animation pauses for reduced motion. \*/
+/** Balanced edge-to-edge arabesque linework; animation pauses for reduced motion. */
 @Composable
 private fun LiquidGlassLineOrnaments(reduceMotion: Boolean, modifier: Modifier = Modifier) {
     val intensity = LocalIslamicDecoration.current.intensity
     if (intensity == org.muslim.app.core.common.appearance.OrnamentIntensity.Off) return
 
-```
-val progress = if (reduceMotion) {
-    1f
-} else {
-    val transition = rememberInfiniteTransition(label = "aurora-ornament-trace")
-    val animated by transition.animateFloat(
-        initialValue = 0f,
-        targetValue = 1f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 12_000, easing = LinearEasing),
-            repeatMode = RepeatMode.Restart,
-        ),
-        label = "aurora-ornament-progress",
-    )
-    animated
-}
-val alpha = when (intensity) {
-    org.muslim.app.core.common.appearance.OrnamentIntensity.Off -> 0f
-    org.muslim.app.core.common.appearance.OrnamentIntensity.Subtle -> 0.08f
-    org.muslim.app.core.common.appearance.OrnamentIntensity.Balanced -> 0.13f
-    org.muslim.app.core.common.appearance.OrnamentIntensity.Rich -> 0.18f
-}
-
-Canvas(modifier.fillMaxSize()) {
-    val moduleHeight = 104.dp.toPx()
-    val reach = 40.dp.toPx()
-    val rows = ceil(size.height / moduleHeight).toInt() + 2
-    for (row in -1 until rows) {
-        val centerY = row * moduleHeight + moduleHeight / 2f
-        val localProgress = if (reduceMotion) 1f else (progress * rows - (row + 1)).coerceIn(0f, 1f)
-        if (localProgress <= 0f) continue
-        val left = ornamentModulePath(0f, centerY, 1f, reach, moduleHeight)
-        val right = ornamentModulePath(size.width, centerY, -1f, reach, moduleHeight)
-        drawMeasuredSegment(left, localProgress, Color.White.copy(alpha = alpha), 1.dp.toPx())
-        drawMeasuredSegment(right, localProgress, Color.White.copy(alpha = alpha), 1.dp.toPx())
+    val progress = if (reduceMotion) {
+        1f
+    } else {
+        val transition = rememberInfiniteTransition(label = "aurora-ornament-trace")
+        val animated by transition.animateFloat(
+            initialValue = 0f,
+            targetValue = 1f,
+            animationSpec = infiniteRepeatable(
+                animation = tween(durationMillis = 12_000, easing = LinearEasing),
+                repeatMode = RepeatMode.Restart,
+            ),
+            label = "aurora-ornament-progress",
+        )
+        animated
     }
-}
-```
+    val alpha = when (intensity) {
+        org.muslim.app.core.common.appearance.OrnamentIntensity.Off -> 0f
+        org.muslim.app.core.common.appearance.OrnamentIntensity.Subtle -> 0.08f
+        org.muslim.app.core.common.appearance.OrnamentIntensity.Balanced -> 0.13f
+        org.muslim.app.core.common.appearance.OrnamentIntensity.Rich -> 0.18f
+    }
 
+    Canvas(modifier.fillMaxSize()) {
+        val moduleHeight = 104.dp.toPx()
+        val reach = 40.dp.toPx()
+        val rows = ceil(size.height / moduleHeight).toInt() + 2
+        for (row in -1 until rows) {
+            val centerY = row * moduleHeight + moduleHeight / 2f
+            val localProgress = if (reduceMotion) 1f else (progress * rows - (row + 1)).coerceIn(0f, 1f)
+            if (localProgress <= 0f) continue
+            val left = ornamentModulePath(0f, centerY, 1f, reach, moduleHeight, 13.dp.toPx())
+            val right = ornamentModulePath(size.width, centerY, -1f, reach, moduleHeight, 13.dp.toPx())
+            drawMeasuredSegment(left, localProgress, Color.White.copy(alpha = alpha), 1.dp.toPx())
+            drawMeasuredSegment(right, localProgress, Color.White.copy(alpha = alpha), 1.dp.toPx())
+        }
+    }
 }
 
 private fun ornamentModulePath(
@@ -535,42 +491,38 @@ private fun ornamentModulePath(
     direction: Float,
     reach: Float,
     moduleHeight: Float,
+    starRadius: Float,
 ): Path = Path().apply {
-    moveTo(edgeX, centerY - moduleHeight \* 0.48f)
+    moveTo(edgeX, centerY - moduleHeight * 0.48f)
     cubicTo(
-        edgeX + direction \* reach \* 0.15f, centerY - moduleHeight \* 0.44f,
-        edgeX + direction \* reach, centerY - moduleHeight \* 0.22f,
-        edgeX + direction \* reach \* 0.56f, centerY,
+        edgeX + direction * reach * 0.15f, centerY - moduleHeight * 0.44f,
+        edgeX + direction * reach, centerY - moduleHeight * 0.22f,
+        edgeX + direction * reach * 0.56f, centerY,
     )
     cubicTo(
-        edgeX + direction \* reach \* 1.08f, centerY + moduleHeight \* 0.24f,
-        edgeX + direction \* reach \* 0.18f, centerY + moduleHeight \* 0.45f,
-        edgeX, centerY + moduleHeight \* 0.48f,
+        edgeX + direction * reach * 1.08f, centerY + moduleHeight * 0.24f,
+        edgeX + direction * reach * 0.18f, centerY + moduleHeight * 0.45f,
+        edgeX, centerY + moduleHeight * 0.48f,
     )
 
-```
-val starCenterX = edgeX + direction * reach * 0.55f
-val starCenterY = centerY
-val outer = 13.dp.value
-val inner = 6.dp.value
-for (point in 0..16) {
-    val angle = -PI / 2.0 + point * PI / 8.0
-    val radius = if (point % 2 == 0) outer else inner
-    val x = starCenterX + direction * (cos(angle) * radius).toFloat()
-    val y = starCenterY + (sin(angle) * radius).toFloat()
-    if (point == 0) lineTo(x, y) else lineTo(x, y)
-}
-close()
-```
-
+    val starCenterX = edgeX + direction * reach * 0.55f
+    for (point in 0..16) {
+        val angle = -PI / 2.0 + point * PI / 8.0
+        val radius = if (point % 2 == 0) starRadius else starRadius * 0.46f
+        val x = starCenterX + direction * (cos(angle) * radius).toFloat()
+        val y = centerY + (sin(angle) * radius).toFloat()
+        lineTo(x, y)
+    }
+    close()
 }
 
 private fun DrawScope.drawMeasuredSegment(path: Path, progress: Float, color: Color, width: Float) {
-    if (progress &gt;= 1f) {
+    if (progress >= 1f) {
         drawPath(path, color = color, style = Stroke(width = width))
         return
     }
     val measure = PathMeasure().apply { setPath(path, false) }
     val partial = Path()
-    measure.getSegment(0f, measure.length \* progress, partial, startWithMoveTo = true)
+    measure.getSegment(0f, measure.length * progress, partial, startWithMoveTo = true)
     drawPath(partial, color = color, style = Stroke(width = width))
+}
