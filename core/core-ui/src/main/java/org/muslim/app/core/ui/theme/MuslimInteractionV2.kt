@@ -41,8 +41,17 @@ fun MuslimSegmentedControl(
     onSelectedIndexChange: (Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    if (options.isEmpty()) return
+    if (LocalLiquidGlassMode.current) {
+        LiquidGlassSegmentedControl(
+            options = options,
+            selectedIndex = selectedIndex,
+            onSelectedIndexChange = onSelectedIndexChange,
+            modifier = modifier.fillMaxWidth(),
+        )
+        return
+    }
 
+    if (options.isEmpty()) return
     LazyRow(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.ControlGap),
@@ -113,11 +122,20 @@ fun MuslimFilterBar(
         horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.ControlGap),
     ) {
         items(options, key = { it.id }) { option ->
-            FilterChip(
-                selected = option.id in selectedIds,
-                onClick = { onToggle(option.id) },
-                label = { Text(option.label) },
-            )
+            val selected = option.id in selectedIds
+            if (LocalLiquidGlassMode.current) {
+                LiquidGlassChip(
+                    label = option.label,
+                    selected = selected,
+                    onSelectedChange = { onToggle(option.id) },
+                )
+            } else {
+                FilterChip(
+                    selected = selected,
+                    onClick = { onToggle(option.id) },
+                    label = { Text(option.label) },
+                )
+            }
         }
     }
 }
