@@ -39,7 +39,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
-import org.muslim.app.core.ui.theme.LiquidGlassSwitch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -69,6 +68,7 @@ import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
+import org.muslim.app.core.ui.theme.LiquidGlassSwitch
 import org.muslim.app.core.ui.theme.MuslimEmptyState
 import org.muslim.app.core.ui.theme.MuslimScreen
 import org.muslim.app.core.ui.theme.MuslimSearchBar
@@ -720,24 +720,20 @@ fun SettingsScreen(
                                 color = MaterialTheme.colorScheme.error,
                                 modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
                             )
+                            updateCheckError?.let { message ->
+                                Text(
+                                    text = message,
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
+                                )
+                            }
                             LaunchedEffect(updateCheckResult) {
                                 viewModel.consumeUpdateCheckResult()
                                 viewModel.consumeUpdateCheckError()
                             }
                         }
                         null -> Unit
-                    }
-                    updateCheckError?.let { message ->
-                        Text(
-                            text = message,
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
-                        )
-                    }
-                    LaunchedEffect(updateCheckResult) {
-                        viewModel.consumeUpdateCheckResult()
-                        viewModel.consumeUpdateCheckError()
                     }
                 }
             }
