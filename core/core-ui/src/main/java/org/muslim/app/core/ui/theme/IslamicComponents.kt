@@ -64,9 +64,9 @@ fun IslamicCard(
         colors = CardDefaults.cardColors(containerColor = containerColor),
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
         elevation = CardDefaults.cardElevation(
-            defaultElevation = IslamicElevation.Resting,
-            pressedElevation = IslamicElevation.Raised,
-            focusedElevation = IslamicElevation.Raised,
+            defaultElevation = if (LocalLiquidGlassMode.current) 0.dp else IslamicElevation.Resting,
+            pressedElevation = if (LocalLiquidGlassMode.current) 0.dp else IslamicElevation.Raised,
+            focusedElevation = if (LocalLiquidGlassMode.current) 0.dp else IslamicElevation.Raised,
         ),
     ) {
         Column(
@@ -112,9 +112,9 @@ fun IslamicSelectableCard(
             },
         ),
         elevation = CardDefaults.cardElevation(
-            defaultElevation = IslamicElevation.Resting,
-            pressedElevation = IslamicElevation.Raised,
-            focusedElevation = IslamicElevation.Raised,
+            defaultElevation = if (LocalLiquidGlassMode.current) 0.dp else IslamicElevation.Resting,
+            pressedElevation = if (LocalLiquidGlassMode.current) 0.dp else IslamicElevation.Raised,
+            focusedElevation = if (LocalLiquidGlassMode.current) 0.dp else IslamicElevation.Raised,
         ),
     ) {
         Column(
@@ -524,8 +524,11 @@ fun IslamicPrimaryButton(
             contentColor = MaterialTheme.colorScheme.onPrimary,
         ),
         elevation = ButtonDefaults.buttonElevation(
-            defaultElevation = 1.dp,
-            pressedElevation = 2.dp,
+            defaultElevation = if (LocalLiquidGlassMode.current) 0.dp else 1.dp,
+            pressedElevation = if (LocalLiquidGlassMode.current) 0.dp else 2.dp,
+            focusedElevation = if (LocalLiquidGlassMode.current) 0.dp else 2.dp,
+            hoveredElevation = if (LocalLiquidGlassMode.current) 0.dp else 2.dp,
+            disabledElevation = 0.dp,
         ),
         content = { content() },
     )
