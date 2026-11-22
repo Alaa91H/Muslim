@@ -29,7 +29,7 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Switch
+import org.muslim.app.core.ui.theme.LiquidGlassSwitch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -122,7 +122,7 @@ internal fun AppearanceSettingsContent(
         supportingContent = { Text(stringResource(R.string.settings_amoled_black_desc)) },
         leadingContent = { Icon(Icons.Filled.DarkMode, contentDescription = null) },
         trailingContent = {
-            Switch(
+            LiquidGlassSwitch(
                 checked = preferences.amoledBlack,
                 onCheckedChange = actions.theme.onAmoledBlackChanged,
             )
@@ -144,7 +144,7 @@ internal fun AppearanceSettingsContent(
         },
         leadingContent = { Icon(Icons.Filled.Palette, contentDescription = null) },
         trailingContent = {
-            Switch(
+            LiquidGlassSwitch(
                 checked = dynamicActive,
                 enabled = dynamicSupported,
                 onCheckedChange = actions.theme.onDynamicColorChanged,
@@ -207,7 +207,7 @@ internal fun AppearanceSettingsContent(
         headlineContent = { Text(stringResource(R.string.settings_reduce_animations)) },
         supportingContent = { Text(stringResource(R.string.settings_reduce_animations_desc)) },
         trailingContent = {
-            Switch(
+            LiquidGlassSwitch(
                 checked = preferences.reduceAnimations,
                 onCheckedChange = actions.onReduceAnimationsChanged,
             )
