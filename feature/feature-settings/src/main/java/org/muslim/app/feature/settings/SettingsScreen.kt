@@ -39,7 +39,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
-import androidx.compose.material3.Switch
+import org.muslim.app.core.ui.theme.LiquidGlassSwitch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -552,7 +552,7 @@ fun SettingsScreen(
                         supportingContent = { Text(stringResource(R.string.settings_updates_check_desc)) },
                         leadingContent = { Icon(Icons.Filled.SystemUpdate, contentDescription = null) },
                         trailingContent = {
-                            Switch(
+                            LiquidGlassSwitch(
                                 checked = preferences.updateCheckEnabled,
                                 onCheckedChange = viewModel::setUpdateCheckEnabled,
                             )
@@ -564,7 +564,7 @@ fun SettingsScreen(
                             supportingContent = { Text(stringResource(R.string.settings_auto_update_desc)) },
                             leadingContent = { Icon(Icons.Filled.Download, contentDescription = null) },
                             trailingContent = {
-                                Switch(
+                                LiquidGlassSwitch(
                                     checked = preferences.autoUpdateEnabled,
                                     onCheckedChange = { enabled ->
                                         if (enabled) {
@@ -586,7 +586,7 @@ fun SettingsScreen(
                                 },
                                 leadingContent = { Icon(Icons.Filled.Download, contentDescription = null) },
                                 trailingContent = {
-                                    Switch(
+                                    LiquidGlassSwitch(
                                         checked = preferences.autoUpdateWifiOnly,
                                         onCheckedChange = viewModel::setAutoUpdateWifiOnly,
                                     )
@@ -720,20 +720,24 @@ fun SettingsScreen(
                                 color = MaterialTheme.colorScheme.error,
                                 modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
                             )
-                            updateCheckError?.let { message ->
-                                Text(
-                                    text = message,
-                                    style = MaterialTheme.typography.labelSmall,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
-                                )
-                            }
                             LaunchedEffect(updateCheckResult) {
                                 viewModel.consumeUpdateCheckResult()
                                 viewModel.consumeUpdateCheckError()
                             }
                         }
                         null -> Unit
+                    }
+                    updateCheckError?.let { message ->
+                        Text(
+                            text = message,
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.XSmall),
+                        )
+                    }
+                    LaunchedEffect(updateCheckResult) {
+                        viewModel.consumeUpdateCheckResult()
+                        viewModel.consumeUpdateCheckError()
                     }
                 }
             }
