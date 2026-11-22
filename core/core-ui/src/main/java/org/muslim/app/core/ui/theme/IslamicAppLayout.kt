@@ -37,8 +37,8 @@ data class MuslimMotionPreferences(
 val LocalMuslimMotionPreferences = staticCompositionLocalOf { MuslimMotionPreferences() }
 
 /**
- * Shared Material scaffold with a deliberate application surface baseline.
- * Features still own their navigation, state and system-bar contracts.
+ * Shared application shell. Liquid glass is skipped for high-contrast and
+ * reading modes; the original ornament layer remains the accessible fallback.
  */
 @Composable
 fun MuslimAppScaffold(
@@ -50,21 +50,41 @@ fun MuslimAppScaffold(
     contentWindowInsets: WindowInsets = ScaffoldDefaults.contentWindowInsets,
     content: @Composable (PaddingValues) -> Unit,
 ) {
-    Box(
-        modifier = modifier.background(MaterialTheme.colorScheme.background),
-    ) {
-        IslamicDecorationLayer(modifier = Modifier.fillMaxSize())
-        Scaffold(
-            modifier = Modifier.fillMaxSize(),
-            containerColor = Color.Transparent,
-            contentColor = MaterialTheme.colorScheme.onBackground,
-            topBar = topBar,
-            bottomBar = bottomBar,
-            snackbarHost = snackbarHost,
-            floatingActionButton = floatingActionButton,
-            contentWindowInsets = contentWindowInsets,
-            content = content,
-        )
+    LiquidGlassScreen {
+        Box(modifier = modifier.fillMaxSize()) {
+            if (LocalLiquidGlassMode.current) {
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    containerColor = Color.Transparent,
+                    contentColor = MaterialTheme.colorScheme.onBackground,
+                    topBar = topBar,
+                    bottomBar = bottomBar,
+                    snackbarHost = snackbarHost,
+                    floatingActionButton = floatingActionButton,
+                    contentWindowInsets = contentWindowInsets,
+                    content = content,
+                )
+            } else {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(MaterialTheme.colorScheme.background),
+                ) {
+                    IslamicDecorationLayer(modifier = Modifier.fillMaxSize())
+                    Scaffold(
+                        modifier = Modifier.fillMaxSize(),
+                        containerColor = Color.Transparent,
+                        contentColor = MaterialTheme.colorScheme.onBackground,
+                        topBar = topBar,
+                        bottomBar = bottomBar,
+                        snackbarHost = snackbarHost,
+                        floatingActionButton = floatingActionButton,
+                        contentWindowInsets = contentWindowInsets,
+                        content = content,
+                    )
+                }
+            }
+        }
     }
 }
 
