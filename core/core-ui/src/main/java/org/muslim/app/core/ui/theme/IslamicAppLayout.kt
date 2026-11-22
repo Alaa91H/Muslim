@@ -20,11 +20,6 @@ import androidx.compose.ui.unit.Dp
 import org.muslim.app.core.designsystem.IslamicLayout
 import org.muslim.app.core.designsystem.IslamicMotion
 
-/**
- * Shared motion preference. Screen code may make state transitions immediate
- * when the user has asked for reduced animation, while static reading content
- * remains unaffected.
- */
 data class MuslimMotionPreferences(
     val reduceMotion: Boolean = false,
 ) {
@@ -36,22 +31,22 @@ data class MuslimMotionPreferences(
 
 val LocalMuslimMotionPreferences = staticCompositionLocalOf { MuslimMotionPreferences() }
 
-/**
- * Shared application shell. Liquid glass is skipped for high-contrast and
- * reading modes; the original ornament layer remains the accessible fallback.
- */
+/\*\* Shared app shell; set liquidGlassEnabled false for the Quran reader. \*/
 @Composable
 fun MuslimAppScaffold(
     modifier: Modifier = Modifier,
-    topBar: @Composable () -> Unit = {},
-    bottomBar: @Composable () -> Unit = {},
-    snackbarHost: @Composable () -> Unit = {},
-    floatingActionButton: @Composable () -> Unit = {},
+    topBar: @Composable () -&gt; Unit = {},
+    bottomBar: @Composable () -&gt; Unit = {},
+    snackbarHost: @Composable () -&gt; Unit = {},
+    floatingActionButton: @Composable () -&gt; Unit = {},
     contentWindowInsets: WindowInsets = ScaffoldDefaults.contentWindowInsets,
-    content: @Composable (PaddingValues) -> Unit,
+    liquidGlassEnabled: Boolean = true,
+    content: @Composable (PaddingValues) -&gt; Unit,
 ) {
-    LiquidGlassScreen {
-        Box(modifier = modifier.fillMaxSize()) {
+    val alreadyInGlassScope = LocalLiquidGlassMode.current
+    val shellModifier = if (alreadyInGlassScope) modifier.fillMaxSize() else Modifier.fillMaxSize()
+    val scaffoldContent: @Composable () -&gt; Unit = {
+        Box(modifier = shellModifier) {
             if (LocalLiquidGlassMode.current) {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
@@ -66,9 +61,7 @@ fun MuslimAppScaffold(
                 )
             } else {
                 Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(MaterialTheme.colorScheme.background),
+                    modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background),
                 ) {
                     IslamicDecorationLayer(modifier = Modifier.fillMaxSize())
                     Scaffold(
@@ -86,26 +79,23 @@ fun MuslimAppScaffold(
             }
         }
     }
+
+```
+if (alreadyInGlassScope) scaffoldContent()
+else LiquidGlassScreen(modifier = modifier, enabled = liquidGlassEnabled, content = scaffoldContent)
+```
+
 }
 
-/**
- * Centers ordinary task surfaces on tablets and foldables without stretching
- * phone-first content. Immersive readers may intentionally opt out.
- */
 @Composable
 fun MuslimContentFrame(
     modifier: Modifier = Modifier,
     maxContentWidth: Dp = DefaultMuslimContentWidth,
-    content: @Composable BoxScope.() -> Unit,
+    content: @Composable BoxScope.() -&gt; Unit,
 ) {
-    Box(
-        modifier = modifier.fillMaxSize(),
-        contentAlignment = Alignment.TopCenter,
-    ) {
+    Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.TopCenter) {
         Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .widthIn(max = maxContentWidth),
+            modifier = Modifier.fillMaxWidth().widthIn(max = maxContentWidth),
             content = content,
         )
     }
