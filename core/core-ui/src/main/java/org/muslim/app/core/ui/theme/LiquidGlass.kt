@@ -39,6 +39,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Shapes
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -247,6 +248,16 @@ fun LiquidGlassSwitch(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) {
+    if (!LocalLiquidGlassMode.current) {
+        Switch(
+            checked = checked,
+            onCheckedChange = onCheckedChange,
+            modifier = modifier,
+            enabled = enabled,
+        )
+        return
+    }
+
     var focused by remember { mutableStateOf(false) }
     val interactionSource = remember { MutableInteractionSource() }
     val reduceMotion = LocalMuslimMotionPreferences.current.reduceMotion
