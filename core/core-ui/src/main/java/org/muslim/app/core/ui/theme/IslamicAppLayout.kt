@@ -45,7 +45,7 @@ fun MuslimAppScaffold(
 ) {
     val alreadyInGlassScope = LocalLiquidGlassMode.current
     val scaffoldContent: @Composable () -> Unit = {
-        Box(modifier = modifier.fillMaxSize()) {
+        Box(modifier = Modifier.fillMaxSize()) {
             if (LocalLiquidGlassMode.current) {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
@@ -79,8 +79,15 @@ fun MuslimAppScaffold(
         }
     }
 
-    if (alreadyInGlassScope) scaffoldContent()
-    else LiquidGlassScreen(modifier = modifier, enabled = liquidGlassEnabled, content = scaffoldContent)
+    if (alreadyInGlassScope) {
+        Box(modifier = modifier.fillMaxSize()) { scaffoldContent() }
+    } else {
+        LiquidGlassScreen(
+            modifier = modifier,
+            enabled = liquidGlassEnabled,
+            content = scaffoldContent,
+        )
+    }
 }
 
 @Composable
