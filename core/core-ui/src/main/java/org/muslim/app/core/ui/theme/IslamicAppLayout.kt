@@ -85,8 +85,13 @@ fun MuslimAppScaffold(
         LiquidGlassScreen(
             modifier = modifier,
             enabled = liquidGlassEnabled,
-            content = scaffoldContent,
-        )
+        ) {
+            if (LocalLiquidGlassMode.current) {
+                scaffoldContent()
+            } else {
+                Box(modifier = modifier.fillMaxSize()) { scaffoldContent() }
+            }
+        }
     }
 }
 
